@@ -2,6 +2,8 @@
 
 Current optimization target: Minecraft **1.21.1 / NeoForge / MTR 4.1.0-beta.2**, with memory use first. The new NeoForge artifact is `mtr-memory-sharing-neoforge.jar`, built against official MTR release SHA-256 `ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa`. It uses the same parse-sharing, independent vehicle build caches, source-text cleanup and immutable white colors as the Fabric companion. Loader-specific source sets provide the appropriate Minecraft classes; the original Fabric artifact is retained.
 
+The current v0.1.2 candidate additionally reuses an immutable vertex when the audited release's transformed float bits are unchanged, including signed-zero handling. An independent comparison with the unmodified release passed 1,002,880 cases with independent positions, normals and offsets plus mirror/NaN/subnormal edge cases. Its ordinary 6 GiB startup/reload acceptance is pending. The tested v0.1.1 NeoForge fallback is retained in `archive/mtr-memory-sharing-neoforge-v011.jar`; its measurements below do not validate v0.1.2.
+
 The separate marked test instance uses NeoForge 21.1.265 and Java 21. With the v0.1.1 companion, all 16 packs passed ordinary startup and actual F3+T reload at an 8 GiB heap with the two-carrier scheduler settings below: 2,541 registrations, complete parsing and 60 seconds of continuous stable observations. Sampled heap / working set / private commit peaks were **7.52 / 9.09 / 9.26 GiB** at startup and **7.62 / 9.93 / 10.10 GiB** during reload. Neither acceptance run requested diagnostic GC. See [NeoForge evidence](evidence/neoforge-v011-acceptance.json). Keep the Fabric measurements below separate from these results.
 
 Build and install exclusively in the stopped isolated NeoForge client:

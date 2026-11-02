@@ -1,0 +1,13 @@
+{
+  "cases": 1002880,
+  "reused": 205056,
+  "mismatches": 0,
+  "target": {
+    "minecraft": "1.21.1",
+    "mtr": "4.1.0-beta.2"
+  },
+  "mod_loader": "neoforge",
+  "release_jar_sha256": "ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa",
+  "companion_sha256": "a58fb60e350d022a4a08ad3c32b67080381f63ef483cb982218d137185b9765b",
+  "method": "Unmodified actual release StoredVertexData.modify; all vertex float bits and color reference compared, independent random coordinates/normals/offsets, signed-zero/subnormal/NaN/mirror edge cases; separate JVM without mixin injection"
+}
