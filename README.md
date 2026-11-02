@@ -1,24 +1,39 @@
 # MTR client memory companions
 
-Current optimization target: Minecraft **1.21.1 / NeoForge / MTR 4.1.0-beta.2**, with memory use first. The new NeoForge artifact is `mtr-memory-sharing-neoforge.jar`, built against official MTR release SHA-256 `ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa`. It uses the same parse-sharing, independent vehicle build caches, source-text cleanup and immutable white colors as the Fabric companion. Loader-specific source sets provide the appropriate Minecraft classes; the original Fabric artifact is retained.
+Current optimization target: **Minecraft 1.21.1 / NeoForge 21.1.265 / MTR 4.1.0-beta.2**. The recommended tested candidate is [mtr-memory-sharing-neoforge-v020.jar](mtr-memory-sharing-neoforge-v020.jar), version **0.2.0**. It compresses retained parsed meshes without changing vertex values, geometry, textures or native interaction boxes. The original MTR JAR and repaired pack ZIPs are unchanged.
 
-A new [v0.2.0 packed-mesh candidate](mtr-memory-sharing-neoforge-v020.jar) passed ordinary all-16-pack startup and actual F3+T reload at **6 GiB**, with the same two-carrier scheduler. It preserves raw mesh values and compresses retained parsed vertices instead of retaining object lists. Independent actual-release checks passed all 391 Shanghai models (47,373,240 parsed vertices) plus 1,200,028 synthetic comparisons. Sampled heap / working set / private commit peaks were **5.75 / 7.06 / 7.23 GiB** at startup and **5.93 / 7.61 / 7.78 GiB** at reload, with no diagnostic GC. Both native DC01 cars rendered before reload and retained individually identical interaction caches afterward. See [6 GiB evidence](evidence/neoforge-v020-6gb-acceptance.json) and [prototype details](experiments/packed-mesh/README.md).
+All 16 repaired packs passed ordinary startup and actual **F3+T reload at a 5 GiB Java heap**: 2,541 registrations, observed unfinished -> complete parsing and 60 seconds of continuous fresh stable observations in each check. Both DC01 car bodies, interiors and open doors rendered before and after reload; their distinct floor/doorway caches remained individually identical. No diagnostic GC was requested during the 5 GiB tests. See [5 GiB acceptance and exact fingerprints](evidence/neoforge-v020-5gb-acceptance.json).
 
-To use the tested candidate, install `mtr-memory-sharing-neoforge-v020.jar` in the client's `mods` directory in place of the older companion. Keep exactly one companion JAR alongside the official audited MTR release. Use Java 21, `-Xmx6G` and the two scheduler arguments below. The filename without a version remains the older v0.1.1 artifact; default builds still preserve it. Lower heaps and broad passenger/rendering coverage remain pending.
+Install the v0.2.0 JAR in the **NeoForge client's `mods` directory**, in place of the older memory companion. Keep exactly one companion JAR alongside official MTR release SHA-256 `ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa`. Enable the repaired ZIPs in `resourcepacks`. The tested Java 21 settings are:
 
-Install `mtr-memory-sharing-neoforge.jar` in the **NeoForge client's `mods` directory**, alongside the audited MTR release. The verified configuration uses Java 21, an 8 GiB maximum heap and both scheduler arguments shown below. Install the repaired resource-pack ZIPs in `resourcepacks`.
-
-The default delivery remains **v0.1.1**. An experimental v0.1.2 reused vertices whose transformed float bits were unchanged and passed 1,002,880 independent release comparisons. It passed 8 GiB startup/reload but failed at 6 GiB with out-of-memory errors and resource-pack fallback. Separate post-acceptance diagnostics counted exactly the same 79,359,867 vertex records in both revisions; the experiment did not reduce the sampled full-pack vertex population. Its sources and JAR are archived separately and excluded from the default build. See [experiment results](evidence/neoforge-v012-acceptance.json). The modest difference between single-run process-memory peaks is not established as a repeatable improvement. The next memory work needs to address parsed mesh storage; **6 GiB is not supported by v0.1.1/v0.1.2** for the full set; the separate v0.2.0 candidate above has new passing evidence.
-
-The separate marked test instance uses NeoForge 21.1.265 and Java 21. With the v0.1.1 companion, all 16 packs passed ordinary startup and actual F3+T reload at an 8 GiB heap with the two-carrier scheduler settings below: 2,541 registrations, complete parsing and 60 seconds of continuous stable observations. Sampled heap / working set / private commit peaks were **7.52 / 9.09 / 9.26 GiB** at startup and **7.62 / 9.93 / 10.10 GiB** during reload. Neither acceptance run requested diagnostic GC. See [NeoForge evidence](evidence/neoforge-v011-acceptance.json). Keep the Fabric measurements below separate from these results.
-
-Build and install exclusively in the stopped isolated NeoForge client:
-
-```powershell
-python -X utf8 tools/build_vehicle_memory_mod.py --instance '.cache/game-test/neoforge-instance' --javac '<Java 21 javac.exe>' --install-test
+```text
+-Xmx5G
+-Djdk.virtualThreadScheduler.parallelism=2
+-Djdk.virtualThreadScheduler.maxPoolSize=2
 ```
 
-The optional `tools/build_neoforge_memory_probe.py` builds a read-only loading probe into that marked test instance; it is not part of the delivery companion. The load monitor records the actual loader/version, asynchronous parsing completion and separate Windows working-set/private-commit observations. Neither launching a window nor reaching the registration count establishes completed parsing or vehicle acceptance.
+Measured sampled peaks in the isolated acceptance instance:
+
+| Companion / test | Maximum Java heap | Sampled heap | Windows working set | Private committed memory |
+| --- | ---: | ---: | ---: | ---: |
+| v0.1.1 startup | 8 GiB | 7.52 GiB | 9.09 GiB | 9.26 GiB |
+| v0.1.1 reload | 8 GiB | 7.62 GiB | 9.93 GiB | 10.10 GiB |
+| v0.2.0 startup | 5 GiB | 4.58 GiB | 6.03 GiB | 6.19 GiB |
+| v0.2.0 reload | 5 GiB | 4.66 GiB | 6.59 GiB | 6.77 GiB |
+
+These are separate Java/process measurements and sampled peaks, not true maxima or arbitrary production-world limits. Preparing this large model set still takes minutes. [6 GiB tests](evidence/neoforge-v020-6gb-acceptance.json) also passed; the [4 GiB attempt](evidence/neoforge-v020-4gb-result.json) failed with heap exhaustion and fallback to 423 built-ins. That recovery is not full-pack success.
+
+Independent comparisons with unmodified actual release methods passed all **391 Shanghai models / 47,373,240 parsed vertices**, plus **1,200,028 synthetic vertex comparisons**. Raw float bits, ARGB, emitted lighting/overlay arguments, vertex order/multiplicity and native boxes are preserved. Only synthetic arithmetic NaNs permit Java's unspecified payload variation; actual model comparisons remain bit-exact. A separate post-6-GiB-acceptance GC histogram found no retained `StoredVertexData` row, versus 79,359,867 records in the old baseline. Its 3,267,958,752 total shallow live bytes are diagnostic data and are excluded from ordinary memory acceptance. See [implementation/audit details](experiments/packed-mesh/README.md).
+
+The ordinary first-DC01-car smoke check passed entry and failed exit. That failure and wider window/passenger/vehicle coverage remain open; the memory result does not claim all vehicle gameplay is repaired. The original formation, timetable and platform fields were verified after testing, all 16 selections remain enabled, and the isolated client is closed.
+
+The unversioned `mtr-memory-sharing-neoforge.jar` and default build remain the older **v0.1.1** at 8 GiB. The v0.1.2 identity-reuse experiment did not reduce retained vertex counts and failed at 6 GiB; it is archived. Build the tested packed candidate explicitly with Java 21:
+
+```powershell
+python -X utf8 tools/build_vehicle_memory_mod.py --instance '.cache/game-test/neoforge-instance' --javac '<Java 21 javac.exe>' --packed-meshes --output 'vehicle-memory/experiments/packed-mesh/mtr-memory-sharing-neoforge-v020.jar'
+```
+
+Add `--install-test` only for the stopped marked test client. Build metadata records exact source, game, MTR and output fingerprints. The optional read-only `tools/build_neoforge_memory_probe.py` is exclusively for that test instance and is not part of the delivery companion.
 
 Verified Fabric target: Minecraft 1.21.1, official MTR 4.1.0-beta.2 release SHA-256 `5da075f7d63daea89da17348ace0959a0c216cbaf14a322d063a64bec44aae94`.
 
@@ -49,4 +64,4 @@ The scheduler arguments affect Java virtual threads and are part of the tested c
 
 The subsequent all-pack session rendered DC01 Update, 02A02 and 11A01. A [gameplay memory sample](evidence/shanghai-window-session-observation.json) recorded 7.55 GiB of Java heap, 10.24 GiB of Windows process working set and 10.42 GiB of private committed memory. These are separate measurements from one observation, not peak or long-session limits. The [window checks](../vehicle-door-repair/game-test/shanghai-02a02-11a01-windows.json) cover ordinary entry and both side-window views of the first selected car of 02A02 and 11A01. The isolated fixture was restored and the client closed normally after testing.
 
-The ordinary post-reload DC01 smoke test passed empty-hand entry but failed ordinary exit; the player remained mounted at the doorway. This failure is preserved for the vehicle investigation. A separate **post-acceptance** GC histogram found no retained `StoredVertexData` row and 3,267,958,752 total shallow live bytes (about 3.04 GiB), versus 79,359,867 vertex records in the older baseline. This diagnostic requested GC and is excluded from ordinary startup/reload measurements. The fresh 4 GiB attempt failed with heap exhaustion and automatic fallback to 423 built-ins. All 16 selections were restored for a fresh 5 GiB attempt, whose result is pending. The current tested recommendation remains 6 GiB.
+The ordinary post-reload DC01 smoke test passed empty-hand entry but failed ordinary exit; the player remained mounted at the doorway. This failure is preserved for the vehicle investigation. A separate **post-acceptance** GC histogram found no retained `StoredVertexData` row and 3,267,958,752 total shallow live bytes (about 3.04 GiB), versus 79,359,867 vertex records in the older baseline. This diagnostic requested GC and is excluded from ordinary startup/reload measurements. The fresh 4 GiB attempt failed with heap exhaustion and automatic fallback to 423 built-ins. The restored all-16-pack 5 GiB startup and reload both passed; 5 GiB is now the lowest verified heap for this candidate.

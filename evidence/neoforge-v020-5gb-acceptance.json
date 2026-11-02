@@ -1,0 +1,33 @@
+{
+  "timestamp": "2026-11-02T18:26:07.214915+08:00",
+  "target": {
+    "minecraft": "1.21.1",
+    "mtr": "4.1.0-beta.2"
+  },
+  "mod_loader": "neoforge",
+  "loader_version": "21.1.265",
+  "companion_sha256": "daed4c63017b110f22de9e98a8ab4ad9122daba98ff187bd300b532d09b8b5ef",
+  "startup": "Passed ordinary all-16-pack 5 GiB startup: 2541 registrations, observed unfinished -> complete parsing, 60 seconds continuous stable fresh samples. No diagnostic GC.",
+  "reload": "Passed actual F3+T at 5 GiB: observed unfinished -> complete parsing, 60 seconds continuous stable fresh samples. No diagnostic GC.",
+  "rendering": "Both native DC01 bodies/interiors/open doors rendered before reload and at a natural stationary open-door stop afterward. The earlier after-reload screenshot missed the moving train and is preserved without claiming visual success.",
+  "native_cache": "Both cars retain ready, individually bit-for-bit identical floor/doorway box strings across reload.",
+  "minimum_verified_heap_gib": 5,
+  "failed_lower_heap_gib": 4,
+  "passenger": "Earlier 6 GiB entry passed but ordinary exit failed; this revision does not resolve that issue. Wider vehicle/window coverage remains open.",
+  "limits": "Sampled heap and process RAM peaks are distinct and are not true maxima. This is an isolated acceptance world, not an arbitrary production-world or long-session guarantee.",
+  "evidence_sha256": {
+    "neoforge-v020-5gb-after-reload-stop.json": "abada850a1db24cbf60190a422b3b5bd1ed4b3455e4621353e825a847afe3589",
+    "neoforge-v020-5gb-after-reload-stop.png": "24ed8a041d95cafb8a7abd759977d10a3d90e27e0bf4a7c4b1d192396735cd83",
+    "neoforge-v020-5gb-after-reload.json": "80ed54db2639c1bed6ca116b735fdcc260589b932c4232c230d4522fe0d8595c",
+    "neoforge-v020-5gb-after-reload.png": "c85e10526e1cf31a6534d828f5568e8d2268de6837e596b165e6a5c23338cd2b",
+    "neoforge-v020-5gb-before-reload.json": "85add4093a778dc207424855d84199afe9b1444b04b8dc0d07f8e883ee46f779",
+    "neoforge-v020-5gb-before-reload.png": "1e83ba3ef50ba41864db3762534241b8d808ff2b96b77dfec23a249d7cc9b8a3",
+    "neoforge-v020-5gb-fixture-verified.json": "caea497736653c5bf9c26a2387419f5823b4161705e42d90ab66cf4085a6ad2d",
+    "neoforge-v020-5gb-reload-request.json": "a4607914650e6f54d7158e2a2871e25be02804b12fee0cab08e00beaf7c25f0a",
+    "neoforge-v020-5gb-reload.json": "945f0fff8172639bcf98448959efcddd400f98fa61182807c4f1af835d0961eb",
+    "neoforge-v020-5gb-reload.log": "983381ad52836a40a883903036fdcb678ce28754f0023569ad2e9c22520af699",
+    "neoforge-v020-5gb-session.log": "f0eb337933f595c1da25e2c1546e05515341b3fc1011ce02ae3221ff524acda9",
+    "neoforge-v020-5gb-startup.json": "a549e535eaa581420a847b3ee945bff518a775c43599f6738c8a1a88b88693c3",
+    "neoforge-v020-5gb-startup.log": "ecc4acf7ee5129c70abcb0c8e3d971627197bce8dd8c933ecce6fffa117a93e4"
+  }
+}
