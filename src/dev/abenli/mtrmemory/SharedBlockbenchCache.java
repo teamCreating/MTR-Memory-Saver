@@ -7,7 +7,6 @@ import java.util.IdentityHashMap;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
-import net.minecraft.class_2960;
 import org.mtr.MTR;
 import org.mtr.core.serializer.JsonReader;
 import org.mtr.core.tool.Utilities;
@@ -31,7 +30,7 @@ public final class SharedBlockbenchCache {
 
     public static ModelLoaderBase get(String model, String texture, ResourceProvider provider, boolean flipV) {
         String raw = provider.get(CustomResourceTools.formatIdentifierWithDefault(model, "bbmodel"));
-        class_2960 textureId = CustomResourceTools.formatIdentifierWithDefault(texture, "png");
+        var textureId = CustomResourceTools.formatIdentifierWithDefault(texture, "png");
         Key key = new Key(digest(raw), textureId.toString(), flipV);
         REQUESTS.incrementAndGet();
         Entry entry = CACHE.computeIfAbsent(key, ignored -> {

@@ -1,6 +1,18 @@
-# MTR client memory companion
+# MTR client memory companions
 
-Target: Minecraft 1.21.1, Fabric, official MTR 4.1.0-beta.2 release SHA-256 `5da075f7d63daea89da17348ace0959a0c216cbaf14a322d063a64bec44aae94`.
+Current optimization target: Minecraft **1.21.1 / NeoForge / MTR 4.1.0-beta.2**, with memory use first. The new NeoForge artifact is `mtr-memory-sharing-neoforge.jar`, built against official MTR release SHA-256 `ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa`. It uses the same parse-sharing, independent vehicle build caches, source-text cleanup and immutable white colors as the Fabric companion. Loader-specific source sets provide the appropriate Minecraft classes; the original Fabric artifact is retained.
+
+The marked separate NeoForge test instance uses NeoForge 21.1.265 and Java 21. Compilation and platform-reference checks passed. Ordinary all-16-pack startup and F3+T reload acceptance are pending. Keep the existing Fabric measurements below separate from NeoForge results.
+
+Build and install exclusively in the stopped isolated NeoForge client:
+
+```powershell
+python -X utf8 tools/build_vehicle_memory_mod.py --instance '.cache/game-test/neoforge-instance' --javac '<Java 21 javac.exe>' --install-test
+```
+
+The optional `tools/build_neoforge_memory_probe.py` builds a read-only loading probe into that marked test instance; it is not part of the delivery companion. The load monitor records the actual loader/version, asynchronous parsing completion and separate Windows working-set/private-commit observations. Neither launching a window nor reaching the registration count establishes completed parsing or vehicle acceptance.
+
+Verified Fabric target: Minecraft 1.21.1, official MTR 4.1.0-beta.2 release SHA-256 `5da075f7d63daea89da17348ace0959a0c216cbaf14a322d063a64bec44aae94`.
 
 The 16-pack set still exhausted a 12 GB Java heap after Shanghai model compaction and supported-field serialization. Reducing Java virtual-thread parallelism to two carriers also failed at 12 GB. A live heap histogram at a partial load counted 76,641,609 vertex records (3.68 GB of shallow object bytes) and 75,312,045 color objects (2.41 GB). These are sampled live objects, not a full retained-graph measurement.
 
@@ -15,7 +27,7 @@ Install `mtr-memory-sharing.jar` in the **Fabric client's `mods` folder**, along
 -Djdk.virtualThreadScheduler.maxPoolSize=2
 ```
 
-This tested configuration uses Java 21 and Fabric Loader 0.20.1. The companion currently targets Fabric; NeoForge is not tested or packaged. The observed Java heap limit is not total process RAM: native and graphics allocations add to it. Peak sampled usage does not capture every allocation spike. Wider vehicle gameplay and lower heap limits remain unverified.
+This tested configuration uses Java 21 and Fabric Loader 0.20.1. NeoForge is packaged separately and its runtime acceptance is pending. The observed Java heap limit is not total process RAM: native and graphics allocations add to it. Peak sampled usage does not capture every allocation spike. Wider vehicle gameplay and lower heap limits remain unverified.
 
 Build against the marked isolated client with Java 21:
 
