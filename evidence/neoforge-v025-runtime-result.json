@@ -1,0 +1,51 @@
+{
+  "timestamp": "2026-11-02T21:54:56.741335+08:00",
+  "candidate_sha256": "781cdf3d2dbde4e000b27d13eb466a6b42f29fc37b8171e3e6a295090e416a73",
+  "target": {
+    "minecraft": "1.21.1",
+    "mtr": "4.1.0-beta.2"
+  },
+  "startup_at_5gib": "registered_and_parsed_stable",
+  "reload_at_5gib": "model_load_failed",
+  "four_gib_startup": "heap_exhausted",
+  "both_dc01_bodies_rendered_before_reload": true,
+  "after_reload_rendering_passed": false,
+  "source_registration": {
+    "requests": 4608,
+    "unique_parses": 694,
+    "retained_display_parts": 2242,
+    "skipped_display_parts": 2505577,
+    "objects": 290,
+    "rails": 23
+  },
+  "startup_peak_sampled_working_set": 6490562560,
+  "startup_peak_sampled_private_usage": 6666838016,
+  "startup_peak_sampled_heap": 5364785050,
+  "diagnostic_gc_requested": false,
+  "recommended_companion": "v0.2.2",
+  "limits": "v0.2.5 fails full-pack reload acceptance; no improved minimum heap or useful memory reduction is established. Failed initial monitor start caused by PowerShell ISO date coercion is preserved; corrected timestamp monitor covers the actual reload.",
+  "evidence_sha256": {
+    "neoforge-v025-4gb-failure.json": "31da35e16817adc866629d69a8301936d83b283832dc8b50a76d52d023ef8cd5",
+    "neoforge-v025-4gb-failure.log": "80d8fc56a99cce28472129bc23ea382cc32095f8b10e6dee04d18f98d0242a97",
+    "neoforge-v025-4gb-startup-heap.json": "9da099b739c11be731153cabeaa49afeb211de27ca5a3f04061da3a702cb7b69",
+    "neoforge-v025-4gb-startup-heap.log": "575823e02879d6558a3e87f4af0c2a5f202064a82b1f832393da0b2442e4974a",
+    "neoforge-v025-4gb-startup-load.log": "267551aaadd5be1ba59426127c205e38ff6d59c2de3976775724b1d7ee4a883a",
+    "neoforge-v025-4gb-startup.json": "2f2371a88cac61c322b66d38e83bec46ee78e9702618c11dcc2d80a27853f707",
+    "neoforge-v025-5gb-before-reload.json": "ad201af37da8feeb93c7c7976587936bf1b05a9065ceacb79e18c083545b02bf",
+    "neoforge-v025-5gb-before-reload.png": "edf627fd295af3f70c0282035a256f4e8229b70d6e17c4bf86a71bb286104890",
+    "neoforge-v025-5gb-fixture-verified.json": "7e106075d211e38ef506fe69915a1d4ba6d9268068352ea739702d922c76c7e7",
+    "neoforge-v025-5gb-player-restored.json": "0de56a1c6e56898994de44af96e147e93a9818d8172759d25065839848cedd29",
+    "neoforge-v025-5gb-player-restored.png": "d1ecc35f77420f2f6e1843374d79e2af7132e4073b00472fe7b2ef8769436fd6",
+    "neoforge-v025-5gb-reload-heap.json": "96924275a106509fa4e4cb2dd785b41ed37b450dea957b8b05b04701732a6618",
+    "neoforge-v025-5gb-reload-heap.log": "0b31da7ba1cb5ee8ec073a706aa6d9227fe14bd1c0b81f01cbd6d1fc6e927987",
+    "neoforge-v025-5gb-reload-load-first-start-error.log": "d3e5ced0fa7837b81988b4481aaf303ee26e90b06231c6e3cd37c826a1494445",
+    "neoforge-v025-5gb-reload-load.log": "20292fb930a0e727fe927067361c565362edc77894153930d6cb38be3fe75bee",
+    "neoforge-v025-5gb-reload-request.json": "aaa570efa1f430b9d23f4c612d21cc9856ffebcf63eaded9aba38b5737c0dbef",
+    "neoforge-v025-5gb-reload.json": "bfb86aeae6f59028928c5c7e8c66e76fea702835dca945620e7b77a2296a5611",
+    "neoforge-v025-5gb-session.log": "8cbca7a9e0ede155f9f166ecb3b51ee89ea4302ebac2323351bbc6c19ff84dcb",
+    "neoforge-v025-5gb-startup-heap.json": "1a3ceb48bec985b663ce43e33089389f6f4936677277bfb235e78a1ce574da30",
+    "neoforge-v025-5gb-startup-heap.log": "94f1f7e1dc6fb2ec933489e8cf60a63dad497787aeb520daac0345cdfa909c86",
+    "neoforge-v025-5gb-startup-load.log": "925e1cebcfd6acf94d8a8beca8cb85a4b34d3a3ea8ffc30f8252efa3868ade4e",
+    "neoforge-v025-5gb-startup.json": "60ff29f81ca709347c6cba1a6bf988924e5aecfd33a155437057de6fa446fe84"
+  }
+}

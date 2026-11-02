@@ -1,0 +1,195 @@
+{
+  "request_id": "e2fcdc3b-1c53-487a-97e3-3d3212202a0c",
+  "timestamp": "2026-11-02T21:53:49.107697600+08:00",
+  "snapshot": {
+    "timestamp": "2026-11-02T21:53:49.107697600+08:00",
+    "heap_used": 3393910272,
+    "heap_max": 5368709120,
+    "model_parsing_complete": true,
+    "server_port": 8888,
+    "registered_count": 423,
+    "screen": "game",
+    "active_riding_state": {
+      "ridingVehicleId": 0,
+      "ridingVehicleCarNumber": 0,
+      "ridingVehicleX": 0.0,
+      "ridingVehicleY": 0.0,
+      "ridingVehicleZ": 0.0,
+      "isOnGangway": false,
+      "ridingPositionCache": null,
+      "ridingPositionCacheOld": null
+    },
+    "player": {
+      "x": 38.5,
+      "y": 4.0,
+      "z": 15.5,
+      "yaw": -180.0,
+      "spectator": false,
+      "main_hand": "0 minecraft:air"
+    },
+    "vehicles": [
+      {
+        "id": 8028384381330336272,
+        "transportMode": "TRAIN",
+        "name": "",
+        "color": 0,
+        "speed": 0.0,
+        "railProgress": 65.0,
+        "elapsedDwellTime": 1000,
+        "nextStoppingIndexAto": 0,
+        "nextStoppingIndexManual": 0,
+        "reversed": false,
+        "departureIndex": -1,
+        "sidingDepartureTime": -1,
+        "door_value": 0.0,
+        "riding": false,
+        "extra_data": {
+          "depotId": 8805550386485521715,
+          "sidingId": -6304466250560538598,
+          "previousRouteId": 0,
+          "previousPlatformId": 0,
+          "previousStationId": 0,
+          "previousRouteColor": 0,
+          "previousRouteName": "",
+          "previousRouteNumber": "",
+          "previousRouteType": "NORMAL",
+          "previousRouteCircularState": "NONE",
+          "previousStationName": "",
+          "previousRouteDestination": "",
+          "thisRouteId": 0,
+          "thisPlatformId": 0,
+          "thisStationId": 0,
+          "thisRouteColor": 0,
+          "thisRouteName": "",
+          "thisRouteNumber": "",
+          "thisRouteType": "NORMAL",
+          "thisRouteCircularState": "NONE",
+          "thisStationName": "",
+          "thisRouteDestination": "",
+          "nextRouteId": 0,
+          "nextPlatformId": 0,
+          "nextStationId": 0,
+          "nextRouteColor": 0,
+          "nextRouteName": "",
+          "nextRouteNumber": "",
+          "nextRouteType": "NORMAL",
+          "nextRouteCircularState": "NONE",
+          "nextStationName": "",
+          "nextRouteDestination": "",
+          "isTerminating": false,
+          "interchangeColorsForStationNameList": [],
+          "stoppingPoint": 762.0619370216241,
+          "powerLevel": -1,
+          "speedTarget": 0.0,
+          "doorTarget": false,
+          "isCurrentlyManual": false,
+          "railLength": 80.0,
+          "totalVehicleLength": 50.0,
+          "repeatIndex1": 3,
+          "repeatIndex2": 0,
+          "acceleration": 4e-06,
+          "deceleration": 4e-06,
+          "isManualAllowed": false,
+          "maxManualSpeed": 0.0002777777777777778,
+          "manualToAutomaticTime": 10000,
+          "totalDistance": 777.0619370216241,
+          "defaultPosition": 65.0,
+          "vehicleCars": [
+            {
+              "vehicleId": "mtr_custom_train_dc01_update_cab_1_native_7ea57bf708e8",
+              "length": 25.0,
+              "width": 2.0,
+              "capacity": 0,
+              "bogie1Position": -8.5,
+              "bogie2Position": 8.5,
+              "couplingPadding1": 1.0,
+              "couplingPadding2": 0.0
+            },
+            {
+              "vehicleId": "mtr_custom_train_dc01_update_cab_2_native_7b8391aef2c8",
+              "length": 25.0,
+              "width": 2.0,
+              "capacity": 0,
+              "bogie1Position": -8.5,
+              "bogie2Position": 8.5,
+              "couplingPadding1": 0.0,
+              "couplingPadding2": 1.0
+            }
+          ],
+          "path": [
+            {
+              "savedRailBaseId": 0,
+              "dwellTime": 0,
+              "stopIndex": -1,
+              "startDistance": 0.0,
+              "endDistance": 80.0,
+              "startPosition": {
+                "x": -96,
+                "y": 4,
+                "z": 0
+              },
+              "startAngle": "E",
+              "endPosition": {
+                "x": -16,
+                "y": 4,
+                "z": 0
+              },
+              "endAngle": "W",
+              "speedLimit": 40
+            },
+            {
+              "savedRailBaseId": -6304466250560538598,
+              "dwellTime": 1,
+              "stopIndex": 3,
+              "startDistance": 697.0619370216241,
+              "endDistance": 777.0619370216241,
+              "startPosition": {
+                "x": -16,
+                "y": 4,
+                "z": 0
+              },
+              "startAngle": "W",
+              "endPosition": {
+                "x": -96,
+                "y": 4,
+                "z": 0
+              },
+              "endAngle": "E",
+              "speedLimit": 40
+            }
+          ],
+          "ridingEntities": []
+        },
+        "positions": [
+          {
+            "vehicle_id": "mtr_custom_train_dc01_update_cab_1_native_7ea57bf708e8",
+            "bogies": [
+              {
+                "position1": "PositionAndTiltAngle[position=Vector[x=-33.5, y=4.0, z=0.5], tiltAngle=0.0]",
+                "position2": "PositionAndTiltAngle[position=Vector[x=-35.5, y=4.0, z=0.5], tiltAngle=0.0]"
+              },
+              {
+                "position1": "PositionAndTiltAngle[position=Vector[x=-50.5, y=4.0, z=0.5], tiltAngle=0.0]",
+                "position2": "PositionAndTiltAngle[position=Vector[x=-52.5, y=4.0, z=0.5], tiltAngle=0.0]"
+              }
+            ]
+          },
+          {
+            "vehicle_id": "mtr_custom_train_dc01_update_cab_2_native_7b8391aef2c8",
+            "bogies": [
+              {
+                "position1": "PositionAndTiltAngle[position=Vector[x=-58.5, y=4.0, z=0.5], tiltAngle=0.0]",
+                "position2": "PositionAndTiltAngle[position=Vector[x=-60.5, y=4.0, z=0.5], tiltAngle=0.0]"
+              },
+              {
+                "position1": "PositionAndTiltAngle[position=Vector[x=-75.5, y=4.0, z=0.5], tiltAngle=0.0]",
+                "position2": "PositionAndTiltAngle[position=Vector[x=-77.5, y=4.0, z=0.5], tiltAngle=0.0]"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "evidence_screenshot": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\.cache\\game-test\\neoforge-instance\\screenshots\\2026-11-02_21.53.49.png"
+}

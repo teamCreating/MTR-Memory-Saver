@@ -14,3 +14,7 @@ python -X utf8 tools/audit_source_display_selection.py --instance .cache/game-te
 ```
 
 Use fresh result paths to preserve another run. Exact-release bytecode and scope records are retained alongside the audit results. Runtime logs count retained/skipped raw display parts; these counters are not heap measurements. Ordinary checks use the read-only external JVM sampler, with diagnostic GC separate afterward. Install only into a stopped marked test client.
+
+Runtime result: all 16 packs / 2,541 vehicles, 290 objects and 23 rails passed ordinary 5 GiB startup and the 60-second stable threshold. Both DC01 bodies rendered before reload. Source filtering retained 2,242 and skipped 2,505,577 raw display parts, but the 4 GiB startup and actual 5 GiB F3+T reload both exhausted the heap while reading model text. Startup sampled process working set was about 6.04 GiB and external heap sampling approached the full 5 GiB limit. No useful RAM improvement or lower heap is established. Keep v0.2.2 as the recommended delivery. [Runtime evidence](../../evidence/neoforge-v025-runtime-result.json).
+
+The failed client closed normally after restoring its original outside survival player. Saved transport fields and all 16 pack hashes passed; selections and the stopped installation were restored to v0.2.2. No diagnostic GC was requested.
