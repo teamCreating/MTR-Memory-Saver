@@ -20,11 +20,12 @@ import org.mtr.resource.ResourceProvider;
 /** Shares parsed mesh inputs; each vehicle keeps its own property-dependent build. */
 public final class SharedBlockbenchCache {
     private record Key(String content, String texture, boolean flipV) {}
-    private record Entry(CompletableFuture<ModelLoaderBase> ready) {}
+    private record Entry(CompletableFuture<ModelLoaderBase> ready, int epoch) {}
     private static final ConcurrentHashMap<Key, Entry> CACHE = new ConcurrentHashMap<>();
     private static final IdentityHashMap<ModelLoaderBase, Entry> PENDING = new IdentityHashMap<>();
     private static final AtomicInteger REQUESTS = new AtomicInteger();
     private static final AtomicInteger COMPLETED = new AtomicInteger();
+    private static final AtomicInteger EPOCH = new AtomicInteger();
 
     private SharedBlockbenchCache() {}
 
@@ -35,7 +36,7 @@ public final class SharedBlockbenchCache {
         REQUESTS.incrementAndGet();
         Entry entry = CACHE.computeIfAbsent(key, ignored -> {
             BlockbenchModelLoader source = new BlockbenchModelLoader(textureId);
-            Entry created = new Entry(new CompletableFuture<>());
+            Entry created = new Entry(new CompletableFuture<>(), EPOCH.get());
             synchronized (PENDING) { PENDING.put(source, created); }
             source.loadModel(() -> new BlockbenchModel(new JsonReader(Utilities.parseJson(raw))));
             return created;
@@ -47,7 +48,7 @@ public final class SharedBlockbenchCache {
         Entry entry;
         synchronized (PENDING) { entry = PENDING.remove(source); }
         if (entry != null) {
-            COMPLETED.incrementAndGet();
+            if (entry.epoch() == EPOCH.get() && COMPLETED.incrementAndGet() % 100 == 0) report();
             entry.ready().complete(source);
         }
     }
@@ -55,6 +56,7 @@ public final class SharedBlockbenchCache {
     public static void beginReload() {
         // In-flight older sources retain their own completion entries until finished.
         CACHE.clear();
+        EPOCH.incrementAndGet();
         REQUESTS.set(0);
         COMPLETED.set(0);
     }
