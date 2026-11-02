@@ -1,0 +1,115 @@
+{
+  "timestamp": "2026-11-02T21:06:59.772547+08:00",
+  "baseline_shallow_live_bytes": 1871160520,
+  "candidate_shallow_live_bytes": 1872474744,
+  "saved_bytes": -1314224,
+  "saved_mib": -1.2533416748046875,
+  "reduction_percent": -0.0702357700449986,
+  "baseline_histogram_sha256": "4d74cb490ba3d9cea8c88a74feecea877649f4408eebf97ae95d40fdd1512e06",
+  "candidate_histogram_sha256": "b428a7f8deb9a5ed9520eb5e4ad48719a873cc1063023dbb1d6d6fca7f632386",
+  "baseline_top_rows": [
+    {
+      "instances": 3087725,
+      "bytes": 792892552,
+      "class": "[B (java.base@21.0.11)"
+    },
+    {
+      "instances": 2445955,
+      "bytes": 218232328,
+      "class": "[Ljava.lang.Object; (java.base@21.0.11)"
+    },
+    {
+      "instances": 2536178,
+      "bytes": 162315392,
+      "class": "net.minecraft.world.phys.AABB (minecraft@1.21.1)"
+    },
+    {
+      "instances": 2939179,
+      "bytes": 70540296,
+      "class": "java.lang.String (java.base@21.0.11)"
+    },
+    {
+      "instances": 1195263,
+      "bytes": 57372624,
+      "class": "org.mtr.libraries.com.google.gson.internal.LinkedTreeMap$Node (mtr@4.1.0-beta.2)"
+    },
+    {
+      "instances": 225931,
+      "bytes": 43378752,
+      "class": "org.mtr.resource.ModelPropertiesPart (mtr@4.1.0-beta.2)"
+    },
+    {
+      "instances": 1732551,
+      "bytes": 41581224,
+      "class": "org.mtr.libraries.it.unimi.dsi.fastutil.objects.ObjectArrayList (mtr@4.1.0-beta.2)"
+    },
+    {
+      "instances": 2026284,
+      "bytes": 32420544,
+      "class": "java.lang.Float (java.base@21.0.11)"
+    },
+    {
+      "instances": 154426,
+      "bytes": 28498736,
+      "class": "[I (java.base@21.0.11)"
+    },
+    {
+      "instances": 1103156,
+      "bytes": 26475744,
+      "class": "net.minecraft.client.renderer.block.model.multipart.KeyValueCondition$$Lambda/0x000001ad8408e6d8 (minecraft@1.21.1)"
+    }
+  ],
+  "candidate_top_rows": [
+    {
+      "instances": 3087519,
+      "bytes": 792029768,
+      "class": "[B (java.base@21.0.11)"
+    },
+    {
+      "instances": 2446029,
+      "bytes": 218224512,
+      "class": "[Ljava.lang.Object; (java.base@21.0.11)"
+    },
+    {
+      "instances": 2536175,
+      "bytes": 162315200,
+      "class": "net.minecraft.world.phys.AABB (minecraft@1.21.1)"
+    },
+    {
+      "instances": 2939213,
+      "bytes": 70541112,
+      "class": "java.lang.String (java.base@21.0.11)"
+    },
+    {
+      "instances": 1195263,
+      "bytes": 57372624,
+      "class": "org.mtr.libraries.com.google.gson.internal.LinkedTreeMap$Node (mtr@4.1.0-beta.2)"
+    },
+    {
+      "instances": 225931,
+      "bytes": 43378752,
+      "class": "org.mtr.resource.ModelPropertiesPart (mtr@4.1.0-beta.2)"
+    },
+    {
+      "instances": 1732539,
+      "bytes": 41580936,
+      "class": "org.mtr.libraries.it.unimi.dsi.fastutil.objects.ObjectArrayList (mtr@4.1.0-beta.2)"
+    },
+    {
+      "instances": 2026284,
+      "bytes": 32420544,
+      "class": "java.lang.Float (java.base@21.0.11)"
+    },
+    {
+      "instances": 154413,
+      "bytes": 28484736,
+      "class": "[I (java.base@21.0.11)"
+    },
+    {
+      "instances": 1103156,
+      "bytes": 26475744,
+      "class": "net.minecraft.client.renderer.block.model.multipart.KeyValueCondition$$Lambda/0x000001ab590b4900 (minecraft@1.21.1)"
+    }
+  ],
+  "limits": "Both diagnostics request GC at 5 GiB with all 16 packs in the isolated fixture. Shallow live-object sums are not retained-graph or process-peak measurements. Read-only probes and camera timing differ; broad vehicle acceptance remains open."
+}

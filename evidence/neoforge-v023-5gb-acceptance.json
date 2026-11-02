@@ -1,0 +1,157 @@
+{
+  "timestamp": "2026-11-02T21:09:41.397458+08:00",
+  "target": {
+    "minecraft": "1.21.1",
+    "mtr": "4.1.0-beta.2"
+  },
+  "companion_version": "0.2.3",
+  "companion_sha256": "1bb75cfd491b70e014a1b375b09d1dbe799bbe5f12127e2a64e72b2b71f094da",
+  "startup_passed": true,
+  "reload_passed": true,
+  "both_dc01_bodies_rendered_before_after": true,
+  "native_floor_doorway_caches_equal_to_v022": true,
+  "ordinary_diagnostic_gc_requested": false,
+  "minimum_verified_heap_gib": 5,
+  "four_gib_failed": true,
+  "memory_reduction_confirmed": false,
+  "comparison": {
+    "timestamp": "2026-11-02T21:06:59.772547+08:00",
+    "baseline_shallow_live_bytes": 1871160520,
+    "candidate_shallow_live_bytes": 1872474744,
+    "saved_bytes": -1314224,
+    "saved_mib": -1.2533416748046875,
+    "reduction_percent": -0.0702357700449986,
+    "baseline_histogram_sha256": "4d74cb490ba3d9cea8c88a74feecea877649f4408eebf97ae95d40fdd1512e06",
+    "candidate_histogram_sha256": "b428a7f8deb9a5ed9520eb5e4ad48719a873cc1063023dbb1d6d6fca7f632386",
+    "baseline_top_rows": [
+      {
+        "instances": 3087725,
+        "bytes": 792892552,
+        "class": "[B (java.base@21.0.11)"
+      },
+      {
+        "instances": 2445955,
+        "bytes": 218232328,
+        "class": "[Ljava.lang.Object; (java.base@21.0.11)"
+      },
+      {
+        "instances": 2536178,
+        "bytes": 162315392,
+        "class": "net.minecraft.world.phys.AABB (minecraft@1.21.1)"
+      },
+      {
+        "instances": 2939179,
+        "bytes": 70540296,
+        "class": "java.lang.String (java.base@21.0.11)"
+      },
+      {
+        "instances": 1195263,
+        "bytes": 57372624,
+        "class": "org.mtr.libraries.com.google.gson.internal.LinkedTreeMap$Node (mtr@4.1.0-beta.2)"
+      },
+      {
+        "instances": 225931,
+        "bytes": 43378752,
+        "class": "org.mtr.resource.ModelPropertiesPart (mtr@4.1.0-beta.2)"
+      },
+      {
+        "instances": 1732551,
+        "bytes": 41581224,
+        "class": "org.mtr.libraries.it.unimi.dsi.fastutil.objects.ObjectArrayList (mtr@4.1.0-beta.2)"
+      },
+      {
+        "instances": 2026284,
+        "bytes": 32420544,
+        "class": "java.lang.Float (java.base@21.0.11)"
+      },
+      {
+        "instances": 154426,
+        "bytes": 28498736,
+        "class": "[I (java.base@21.0.11)"
+      },
+      {
+        "instances": 1103156,
+        "bytes": 26475744,
+        "class": "net.minecraft.client.renderer.block.model.multipart.KeyValueCondition$$Lambda/0x000001ad8408e6d8 (minecraft@1.21.1)"
+      }
+    ],
+    "candidate_top_rows": [
+      {
+        "instances": 3087519,
+        "bytes": 792029768,
+        "class": "[B (java.base@21.0.11)"
+      },
+      {
+        "instances": 2446029,
+        "bytes": 218224512,
+        "class": "[Ljava.lang.Object; (java.base@21.0.11)"
+      },
+      {
+        "instances": 2536175,
+        "bytes": 162315200,
+        "class": "net.minecraft.world.phys.AABB (minecraft@1.21.1)"
+      },
+      {
+        "instances": 2939213,
+        "bytes": 70541112,
+        "class": "java.lang.String (java.base@21.0.11)"
+      },
+      {
+        "instances": 1195263,
+        "bytes": 57372624,
+        "class": "org.mtr.libraries.com.google.gson.internal.LinkedTreeMap$Node (mtr@4.1.0-beta.2)"
+      },
+      {
+        "instances": 225931,
+        "bytes": 43378752,
+        "class": "org.mtr.resource.ModelPropertiesPart (mtr@4.1.0-beta.2)"
+      },
+      {
+        "instances": 1732539,
+        "bytes": 41580936,
+        "class": "org.mtr.libraries.it.unimi.dsi.fastutil.objects.ObjectArrayList (mtr@4.1.0-beta.2)"
+      },
+      {
+        "instances": 2026284,
+        "bytes": 32420544,
+        "class": "java.lang.Float (java.base@21.0.11)"
+      },
+      {
+        "instances": 154413,
+        "bytes": 28484736,
+        "class": "[I (java.base@21.0.11)"
+      },
+      {
+        "instances": 1103156,
+        "bytes": 26475744,
+        "class": "net.minecraft.client.renderer.block.model.multipart.KeyValueCondition$$Lambda/0x000001ab590b4900 (minecraft@1.21.1)"
+      }
+    ],
+    "limits": "Both diagnostics request GC at 5 GiB with all 16 packs in the isolated fixture. Shallow live-object sums are not retained-graph or process-peak measurements. Read-only probes and camera timing differ; broad vehicle acceptance remains open."
+  },
+  "post_reload_first_view_missed_stationary_depot_train": true,
+  "post_reload_render_used_spectator_camera": true,
+  "recommended_delivery": "Retain v0.2.2; v0.2.3 has no measured memory benefit.",
+  "evidence_sha256": {
+    "vehicle-memory\\evidence\\neoforge-v023-5gb-after-reload-render.json": "81bd0dd0ee53d77505b3774339a786249a6f704d32821fd5cfe751bf6a6091fb",
+    "vehicle-memory\\evidence\\neoforge-v023-5gb-after-reload-render.png": "7a26903862bf8211e11ffb0e3e21ca04650c52debb1abcb34f18481a0203d7cc",
+    "vehicle-memory\\evidence\\neoforge-v023-5gb-after-reload.json": "c110f63ea37f523d9dbd6436f5921a2fa52f0c07f900c193bd5da418a79fa751",
+    "vehicle-memory\\evidence\\neoforge-v023-5gb-after-reload.png": "24d27bb9f507d8c3cab89bd9c695c85c4019790654fc7cecd5ce2cc1410d180b",
+    "vehicle-memory\\evidence\\neoforge-v023-5gb-before-reload.json": "97ffe025c8e6995013685a6c94f462e8bd489c25b879540f318b7fd0b458ad82",
+    "vehicle-memory\\evidence\\neoforge-v023-5gb-before-reload.png": "32169636ce0c7e3c9b7ae2dad94c6aee48637e1eecfa7ed4f1d0643bb7666539",
+    "vehicle-memory\\evidence\\neoforge-v023-5gb-fixture-verified.json": "a99ffa3a6e149d38c3313c99c46ac011f4ba02d88037773e0c4d0ecc5ee072ff",
+    "vehicle-memory\\evidence\\neoforge-v023-5gb-player-restored.json": "6443a8cc69f39decdcc989c027604d2dae72fd7064a81c1b6707fa1571701fb9",
+    "vehicle-memory\\evidence\\neoforge-v023-5gb-reload-heap.json": "2fae7ca30f9f6c3c3baa4bbe53cd669fde4f632655653b0e49e9ef52b186b814",
+    "vehicle-memory\\evidence\\neoforge-v023-5gb-reload-heap.log": "3eea065d43a416d115d00c6446d979bed419cbe615fbfeb9dd97aa649a1443ce",
+    "vehicle-memory\\evidence\\neoforge-v023-5gb-reload-load.log": "a3b940ec9360c50d202e87513089099e3d8e99f732a90464c35b3a46a6e5ff10",
+    "vehicle-memory\\evidence\\neoforge-v023-5gb-reload-request.json": "a5632a4432c0da37e5c59dbcf78646d3c41034476fc85c314e7f9931b95b04d2",
+    "vehicle-memory\\evidence\\neoforge-v023-5gb-reload.json": "b8c06fdcd8b1c4ff2c836d624a0faa2403e325c3f46f385e40e8773effc55fe6",
+    "vehicle-memory\\evidence\\neoforge-v023-5gb-reload.log": "d2f67482d0072c2bd79032add8d8c12d058dd60506b2c74c28585a911fba8707",
+    "vehicle-memory\\evidence\\neoforge-v023-5gb-session.log": "d2f67482d0072c2bd79032add8d8c12d058dd60506b2c74c28585a911fba8707",
+    "vehicle-memory\\evidence\\neoforge-v023-5gb-startup-heap.json": "5d70be70676d6781f05a4f7793b0e665908370571581d04d39d743daceb39dac",
+    "vehicle-memory\\evidence\\neoforge-v023-5gb-startup-heap.log": "a27b7e23dc5e83d30c9ec62eb8c2691be6e7c281817de23b69b181a2ab5fe34e",
+    "vehicle-memory\\evidence\\neoforge-v023-5gb-startup-load.log": "1f747629aaca76c864a8c852cfb825665e5ffb715bfdfc996fd92408125f4f46",
+    "vehicle-memory\\evidence\\neoforge-v023-5gb-startup.json": "37cfe3da38b618fc2115641895b71ef8bfa778aca57111d607c4cafec8759b47",
+    "vehicle-memory\\evidence\\neoforge-v023-5gb-startup.log": "f8185126d6f439c92bbea9bad83b68ce4389ac05c9ce31d3dfea0645da2f0a1a"
+  }
+}
