@@ -15,7 +15,9 @@ All **16 packs / 2,541 vehicles, 290 objects and 23 rails** pass ordinary startu
 
 These are single-run sampled process values. The external JVM sampler covered blocked render-thread loading; its startup/reload heap peaks were 3.91 / 3.92 GiB. Each native registration epoch cached 2,000,187,675 text code units as 592,010,155 compressed bytes plus 13,792 uncompressed code units, then released the cache. This payload accounting is separate from process measurements. Four GiB is the lowest verified heap in the saved fixture; larger worlds may require more. Wider vehicle, Shanghai-window and passenger-exit checks remain open.
 
-Install exactly one companion in `mods` alongside the fingerprinted official MTR release, replacing the previous companion. Keep all 16 repaired ZIPs enabled in `resourcepacks`, and use Java 21 with the tested settings:
+A later full-pack **4 GiB startup failed** during native resource-text reading, with unchanged v0.2.6 alongside the experimental passenger v0.1.1. It recovered to 423 built-ins without opening a world. The additional companion is recorded as test context; this does not establish it as the cause. The earlier 4 GiB startup/reload success remains valid, but **4 GiB repeatability is not established**. Follow-up testing at 5 GiB and transient-allocation investigation are in progress. [Failure evidence](../vehicle-interaction/evidence/neoforge-passenger-v011-4gb-failure.json).
+
+Install exactly one companion in `mods` alongside the fingerprinted official MTR release, replacing the previous companion. Keep all 16 repaired ZIPs enabled in `resourcepacks`. The earlier successful Java 21 run used the following settings; they are a recorded result, not a repeatably reliable 4 GiB recommendation:
 
 ```text
 -Xms1G -Xmx4G
