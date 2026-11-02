@@ -1,0 +1,8 @@
+{
+  "timestamp": "2026-11-02T20:46:51.822798+08:00",
+  "baseline_sha256": "b0141879926c0f87bcd109fb081b81cd7effcfba7796322928c7cdd3e19fd730",
+  "expected_rejection_observed": true,
+  "exit_code": 1,
+  "reason": "The ownership audit rejects v0.2.2 because transforms allocate new packed byte arrays.",
+  "stderr_sha256": "1e56a1939fd15044efe24dc809c0371fc3fc69cfc2b2d75c2273f2665507871f"
+}

@@ -1,0 +1,20 @@
+# Immutable transformed meshes (v0.2.3 candidate)
+
+Target: Minecraft 1.21.1 / NeoForge 21.1.265 / official MTR 4.1.0-beta.2. This candidate retains the tested v0.2.2 source, display and JSON sharing, replacing only `PackedVertices` and its private nested implementation. All 22 other companion class entries remain byte-identical.
+
+Previously each native mesh merge decoded the compressed source, applied its float transform, then compressed another full vertex stream. The candidate stores an immutable snapshot of source segments with the transform. Source bytes are shared; native GPU upload materializes the same ordered vertices. Each multiplication/addition runs in its original order, including float offset casts, signed zero, mirrors and nested rounding. Transform chains are not algebraically combined. The release's renderer, GPU upload arguments, stage/texture grouping, bounds and vehicle interaction caches are unchanged.
+
+Snapshots never reference mutable source facades or their lists. A later append invalidates the facade's cached snapshot, while existing views retain the preceding immutable segments. Appending a view of itself snapshots the previous contents before adding the new segment, preventing cycles. Reload lifetime follows the existing v0.2.2 registration/cache ownership; this adds no global mesh interning or cache.
+
+Synthetic official-release comparisons pass 1,400,028 vertices and all emitted GPU arguments. Separate snapshot tests check another 17,024 vertices, source mutation isolation, self append and nested rounding. Reflection confirms that 128 transformed views retain one original 741-byte packed array, with no additional vertex payload arrays. These tests establish storage/geometry properties, not full-client RAM savings.
+
+The release parser/merge audit passes all 391 Shanghai models, 47,373,240 parsed vertices and 35,688 generated bounds. The previous v0.2.2 correctly fails the separate physical-byte-sharing control. Ordinary full-pack 4 GiB startup/reload/rendering remains pending. The earlier tested v0.2.2 delivery remains available for rollback. No new minimum heap or vehicle gameplay acceptance is claimed yet. Offline Log4j formatting warnings are preserved in audit logs.
+
+```powershell
+python -X utf8 tools/build_vehicle_memory_mod.py --instance .cache/game-test/neoforge-instance --javac '<Java 21 javac.exe>' --packed-meshes --prune-displays --share-json --share-meshes --output vehicle-memory/experiments/shared-mesh/mtr-memory-sharing-neoforge-v023.jar
+python -X utf8 tools/audit_packed_mesh.py --instance .cache/game-test/neoforge-instance --java '<Java 21 java.exe>' --candidate vehicle-memory/experiments/shared-mesh/mtr-memory-sharing-neoforge-v023.jar --output vehicle-memory/experiments/shared-mesh/synthetic-results.json
+python -X utf8 tools/audit_packed_mesh.py --instance .cache/game-test/neoforge-instance --java '<Java 21 java.exe>' --candidate vehicle-memory/experiments/shared-mesh/mtr-memory-sharing-neoforge-v023.jar --snapshot-sharing --output vehicle-memory/experiments/shared-mesh/snapshot-results.json
+python -X utf8 tools/audit_packed_mesh.py --instance .cache/game-test/neoforge-instance --java '<Java 21 java.exe>' --candidate vehicle-memory/experiments/shared-mesh/mtr-memory-sharing-neoforge-v023.jar --jobs vehicle-memory/experiments/shared-mesh/shanghai-jobs.json --output vehicle-memory/experiments/shared-mesh/shanghai-release-results.json
+```
+
+Use fresh result paths when preserving another run. Install only into a stopped marked test client after auditing. `tools/game_test_heap_monitor.py` samples read-only `jstat -gc -t` generation counters at nominal five-second intervals, including phases that block the render-thread probe. Pair it with a fresh `game_test_load_monitor.py` completion report using `--until-report`; it requests no GC or heap dump. JVM generation counters are sampled observations and may change during a read, so these are not true maxima.
