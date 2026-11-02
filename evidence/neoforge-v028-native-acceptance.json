@@ -1,0 +1,139 @@
+{
+  "timestamp": "2026-11-03T02:50:26.777573+08:00",
+  "target": {
+    "minecraft": "1.21.1",
+    "mtr": "4.1.0-beta.2"
+  },
+  "mod_loader": "neoforge",
+  "loader_version": "21.1.265",
+  "memory_companion_sha256": "d934a8d255be16253c753b061e7d92d942985c0ee7debc1892c90ef7ecfdb40c",
+  "jvm_arguments": [
+    "-Xms1G",
+    "-Xmx4G",
+    "-Djdk.virtualThreadScheduler.parallelism=2",
+    "-Djdk.virtualThreadScheduler.maxPoolSize=2"
+  ],
+  "mods": [
+    {
+      "filename": "mtr-memory-sharing-neoforge.jar",
+      "sha256": "d934a8d255be16253c753b061e7d92d942985c0ee7debc1892c90ef7ecfdb40c"
+    },
+    {
+      "filename": "MTR-neoforge-4.1.0-beta.2+1.21.1.jar",
+      "sha256": "ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa"
+    },
+    {
+      "filename": "vehicle-fixture-probe.jar",
+      "sha256": "4ff35e138316e693f3dcbeb5e1313e5748dd792048a127a7080d2e7e1c976166"
+    },
+    {
+      "filename": "vehicle-memory-probe.jar",
+      "sha256": "f866ade219b5db23b2798e19f40911db71c78ff9f67862b244f1e84f5a1e197f"
+    }
+  ],
+  "successful_fresh_corrected_observer_processes": 2,
+  "full_pack_registrations": 2541,
+  "selected_packs": 16,
+  "unique_completed_source_parses_per_epoch": 651,
+  "stable_seconds_per_phase": 60,
+  "passenger_companion_installed": false,
+  "diagnostic_gc_requested": false,
+  "native_callback_preserved": true,
+  "individual_native_caches_equal_across_both_runs_and_historical_v028": true,
+  "runs": [
+    {
+      "prefix": "neoforge-v028-native-baseline",
+      "pid": 11416,
+      "phases": {
+        "startup": {
+          "status": "registered_and_parsed_stable",
+          "peak_sampled_heap_used": 3839885312,
+          "peak_sampled_working_set": 5335076864,
+          "peak_sampled_private_usage": 5517283328,
+          "render_thread_heap_sampling_limit": "Render-thread observations omit blocked parsing.",
+          "external_heap_sampling_limit": "External startup sampling was not recorded in this process."
+        },
+        "reload": {
+          "status": "registered_and_parsed_stable",
+          "peak_sampled_heap_used": 4069967336,
+          "peak_sampled_working_set": 6064586752,
+          "peak_sampled_private_usage": 6222659584,
+          "render_thread_heap_sampling_limit": "Render-thread observations omit blocked parsing.",
+          "peak_external_jstat_heap_used": 4062471987,
+          "peak_external_jstat_heap_committed": 4294967296,
+          "external_heap_sampling_limit": "First baseline reload sampling begins after F3+T."
+        }
+      },
+      "native_callback_preserved": true,
+      "both_dc01_bodies_render": true,
+      "normal_shutdown": true,
+      "player_and_original_layout_restored": true,
+      "saved_transport_fields_and_pack_hashes_order_verified": true,
+      "saved_day_time": 331585
+    },
+    {
+      "prefix": "neoforge-v028-native-repeat",
+      "pid": 14256,
+      "phases": {
+        "startup": {
+          "status": "registered_and_parsed_stable",
+          "peak_sampled_heap_used": 3843031040,
+          "peak_sampled_working_set": 5384212480,
+          "peak_sampled_private_usage": 5564215296,
+          "render_thread_heap_sampling_limit": "Render-thread observations omit blocked parsing.",
+          "peak_external_jstat_heap_used": 3947217613,
+          "peak_external_jstat_heap_committed": 4294967296,
+          "external_heap_sampling_limit": "Read-only external jstat covers blocked loading; nominal five-second intervals are not true maxima."
+        },
+        "reload": {
+          "status": "registered_and_parsed_stable",
+          "peak_sampled_heap_used": 4001149512,
+          "peak_sampled_working_set": 5994971136,
+          "peak_sampled_private_usage": 6186180608,
+          "render_thread_heap_sampling_limit": "Render-thread observations omit blocked parsing.",
+          "peak_external_jstat_heap_used": 4190232064,
+          "peak_external_jstat_heap_committed": 4294967296,
+          "external_heap_sampling_limit": "Read-only external jstat covers blocked loading; nominal five-second intervals are not true maxima."
+        }
+      },
+      "native_callback_preserved": true,
+      "both_dc01_bodies_render": true,
+      "normal_shutdown": true,
+      "player_and_original_layout_restored": true,
+      "saved_transport_fields_and_pack_hashes_order_verified": true,
+      "saved_day_time": 335156
+    }
+  ],
+  "limits": "Two isolated 4 GiB startup/actual foreground F3+T runs with the corrected additive observer, official native lifecycle and unchanged hashes. Sampled process/heap values are not true maxima, production-world guarantees, or proof of lower total reload RAM versus v0.2.7. Historical displaced-callback observations keep their instrumented scope. All-Shanghai windows, passenger candidate, second-car, re-entry, post-reload gameplay and native deployed replacement remain unaccepted.",
+  "evidence_sha256": {
+    "neoforge-v028-native-baseline-acceptance.json": "01f4455cc7dc73cce0076b0993691d8ae48d4a8e2830f67784c35e1f18ecb705",
+    "neoforge-v028-native-baseline-after-reload.json": "32d9cf56a0e3175c66cdd3264eaf0722c4cdeedd72fe921b18e5c6a76b6a4bc9",
+    "neoforge-v028-native-baseline-after-reload.png": "46c3ee82e0c89171105acc1860514b717dc7b931304a30ec956a9fb347bd908f",
+    "neoforge-v028-native-baseline-before-reload.json": "f3c038b3de0461311c02699da3c48c5cd75d590c63fc55b165060765de6e311b",
+    "neoforge-v028-native-baseline-before-reload.png": "e760c8b63785adf9a2d76e9c9229baace88318fd5f4fee44c96956af64bfe060",
+    "neoforge-v028-native-baseline-cache-comparison.json": "cfc2782434067c400e7e7a6533a846713f197b720f5f6ec2ac85f0ea3b0d4907",
+    "neoforge-v028-native-baseline-fixture-verified.json": "c4fe91cec3f94bc004b544ebce8bcb5228b1b25873d5b61a8542626f45db6c92",
+    "neoforge-v028-native-baseline-input-layout.json": "a56b2a0b69b021620f2eab4084081db1d4e69401e406b896f1a3ca1ed82b175f",
+    "neoforge-v028-native-baseline-native.log": "9deab257ecb2af620f1c9a9353e2bd83ad8f8adad3ac25a36c899d597cc334f9",
+    "neoforge-v028-native-baseline-reload-heap.json": "67c5755a2c6f11b0b5085d62fbe0d57aaa055d53850be1ad540d68ac7c01abab",
+    "neoforge-v028-native-baseline-reload-request.json": "c359d7f42cff5984b5a9f2f732b773fd26d1da34eaf96e5197a89940321f43cf",
+    "neoforge-v028-native-baseline-reload.json": "802cdbe9ceeb4d2ceb5c1626ecab36caf40319a9fa21b1da70ceb1369970ac6f",
+    "neoforge-v028-native-baseline-restored-player.json": "fc52a81525527f8f7f2c02f834c1201f041fd4067b43c087d9e0dc3c54e95684",
+    "neoforge-v028-native-baseline-startup.json": "b4b71c34f75e79c54ce803f771c53ca6d61e15256c8ee12a0b1e2876bac0d7e2",
+    "neoforge-v028-native-repeat-after-reload.json": "6eeddf0dd8cef50fa3510d88582c3892e3e53845e770b107b99e0e75b4292fdb",
+    "neoforge-v028-native-repeat-after-reload.png": "3d113285ca9a0c523adf3f7a2eeb2f758e0990137debf4486a6b879742f8b0d9",
+    "neoforge-v028-native-repeat-before-reload.json": "0cc03597dd8b1f306998eaf52f73ce8c7cb9430c56cddb6fe8c263498c2b08c9",
+    "neoforge-v028-native-repeat-before-reload.png": "bc7919501a1e799e0fd2d77a1865174c75e942de777eca5cbd63b8c9d85ec175",
+    "neoforge-v028-native-repeat-cache-comparison.json": "4b2ad606b332c8b1678303c28309d6ac0330b16c131420db8cae9630001347eb",
+    "neoforge-v028-native-repeat-fixture-verified.json": "455004cb7af889c1a2097a076657fe306ac67406b7d8d22950423a49b3cee829",
+    "neoforge-v028-native-repeat-input-layout.json": "57efe2a99f62f96bb7ca37bddb4e5a2ed111957eb97e18dfeb8f333689b0e388",
+    "neoforge-v028-native-repeat-native.log": "44bbd3fc29edb9143ae0388a47e6d26c2b646a8710f18a218e153ffaf58fdc98",
+    "neoforge-v028-native-repeat-reload-heap.json": "4ff3dc3e9a6072cd379a7d6ead4b7f006ed2c3594d577bd269540a185a1761e7",
+    "neoforge-v028-native-repeat-reload-request.json": "ca2b564d8e38bd12d55053e2c2da047ac16a29afe08e8fc6750411f73ce5bbfe",
+    "neoforge-v028-native-repeat-reload.json": "f5231eda787b0ebab3ddc865a79944bea8838cf0a74f3b0ab01f0855e9eede6c",
+    "neoforge-v028-native-repeat-restored-player.json": "9720f27d7fa8f7309c2073d2cf5878112f38728dd0420b1ec09b6aa2537d40ff",
+    "neoforge-v028-native-repeat-startup-heap.json": "1b319b511746833125534521991a67f598614dc6a96cd01eaa64bcbee23d069c",
+    "neoforge-v028-native-repeat-startup.json": "96cf8f82b143699e92efe6d42c32e39af177bab897bb9b99d8d1c0d3f8cd4196",
+    "neoforge-v028-native-stability-audit.json": "d35c97b7b24def7de23f8d0e8d704aaf0196535f399545f001c89c1bf063c95a"
+  }
+}

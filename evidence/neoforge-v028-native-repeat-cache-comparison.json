@@ -1,0 +1,21 @@
+{
+  "before_after_and_corrected_baseline_and_historical_v028_equal": true,
+  "per_car_counts": {
+    "mtr_custom_train_dc01_update_cab_1_native_7ea57bf708e8": {
+      "cache_floors": 5,
+      "cache_doorways": 10
+    },
+    "mtr_custom_train_dc01_update_cab_2_native_7b8391aef2c8": {
+      "cache_floors": 6,
+      "cache_doorways": 10
+    }
+  },
+  "comparison_files": [
+    "neoforge-v028-native-baseline-before-reload.json",
+    "neoforge-v028-native-baseline-after-reload.json",
+    "neoforge-v028-native-repeat-before-reload.json",
+    "neoforge-v028-native-repeat-after-reload.json",
+    "neoforge-v028-4gb-repeat-before-reload.json"
+  ],
+  "limits": "Exact independent native floor and doorway cache values; broad vehicle rendering and passenger gameplay remain separate."
+}

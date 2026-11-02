@@ -1,10 +1,21 @@
 # MTR client memory companions
 
-**Validation update:** the earlier read-only diagnostic replaced MTR's single native end-client-tick callback, affecting deferred player movement and scheduled sounds. The corrected additive observer preserves that callback and **passes one full 4 GiB startup / actual F3+T reload**, all 16 packs / 2,541 registrations, 60 seconds of fresh stability, both DC01 bodies and exact individual caches. Sampled process peaks are 4.969 GiB startup / 5.648 GiB reload. The experimental passenger companion is absent in this comparison. A fresh identical repeat is pending; the earlier two passes below retain their instrumented context. [Corrected-lifecycle acceptance](evidence/neoforge-v028-native-baseline-acceptance.json) and [investigation](../vehicle-door-repair/game-test/experiments/native-client-lifecycle/README.md).
+**Validation update:** the earlier read-only diagnostic replaced MTR's single native end-client-tick callback, affecting deferred player movement and scheduled sounds. The corrected additive observer preserves that callback and **passes two fresh full 4 GiB startup / actual F3+T reload runs**, all 16 packs / 2,541 registrations / 651 completed unique source parses per epoch, 60 seconds of fresh stability, both DC01 bodies and exact individual caches. The experimental passenger companion is absent in both comparisons. The earlier passes below retain their instrumented context. [Corrected-lifecycle acceptance and fingerprints](evidence/neoforge-v028-native-acceptance.json) and [investigation](../vehicle-door-repair/game-test/experiments/native-client-lifecycle/README.md).
 
 Current optimization target: **Minecraft 1.21.1 / NeoForge 21.1.265 / official MTR 4.1.0-beta.2**. Recommended tested companion: [mtr-memory-sharing-neoforge-v028.jar](mtr-memory-sharing-neoforge-v028.jar), version **0.2.8**.
 
 v0.2.8 restores large compressed resource-text cache hits through bounded UTF-16 segments, avoiding a complete temporary char array. Small inputs retain the previous path. It preserves exact code units, first-read identity, packing, concurrent reads, reload ownership, geometry, textures and native interaction data. Thirty v0.2.7 classes are byte-identical; only the nested Text implementation changes behavior, while its enclosing cache has identical native instructions with shifted debug lines. All 8,534 real input roundtrips and 44 actual-baseline boundary comparisons pass. Isolated cache-hit allocations fall **32.75% for ASCII / 39.61% for mixed text**; full Unicode grows 0.46% and small input allocation is unchanged. [Implementation, controls and reproduction](experiments/segmented-unpack/README.md).
+
+Current corrected-lifecycle measurements:
+
+| Test | External sampled Java heap peak | Windows working set peak | Private committed peak |
+| --- | ---: | ---: | ---: |
+| First startup | Not recorded externally | 4.969 GiB | 5.138 GiB |
+| First reload | 3.783 GiB | 5.648 GiB | 5.795 GiB |
+| Repeat startup | 3.676 GiB | 5.014 GiB | 5.182 GiB |
+| Repeat reload | 3.902 GiB | 5.583 GiB | 5.761 GiB |
+
+First-startup render-thread heap observations omit blocked parsing; the first reload's external sampler starts after F3+T. The repeat's external sampler covers blocked startup parsing and starts before the reload event. These are sampled peaks, not true maxima. Four GiB denotes the Java heap limit; total process RAM still reaches about 5.6 GiB during reload. Both processes close normally after original player/window-layout restoration; saved transport fields, all pack hashes/order and exact mod fingerprints verify. No diagnostic GC or clock command was requested.
 
 **Historical instrumented acceptance:** two fresh 4 GiB clients each pass startup and actual foreground F3+T reload, all **16 packs / 2,541 vehicles / 290 objects / 23 rails**, with 651 unique source parses and 60 seconds of continuous fresh completed observations in every epoch. Both actual DC01 bodies render; their distinct 5/6-floor and 10/10-doorway caches match v0.2.7 exactly before/after reload. The first run captures open doors and the repeat captures closed doors. No diagnostic GC was requested. Original player/window layout, saved transport inventory/fields, pack hashes/order and mod identities verify after normal shutdown. Those runs used the former singleton-callback observer; the corrected native lifecycle comparison is reported above. [Historical acceptance and fingerprints](evidence/neoforge-v028-acceptance.json).
 

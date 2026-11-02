@@ -1,0 +1,95 @@
+{
+  "timestamp": "2026-11-03T02:55:58.618832+08:00",
+  "phases": [
+    {
+      "prefix": "neoforge-v028-native-baseline",
+      "phase": "startup",
+      "monitor_status": "registered_and_parsed_stable",
+      "process_final_13_sample_span_seconds": 60.020216,
+      "native_fresh_suffix_span_seconds": 59.998586,
+      "native_fresh_suffix_sample_count": 13,
+      "native_fresh_suffix_gaps_seconds": [
+        4.992176,
+        5.005096,
+        4.996806,
+        5.001032,
+        5.000799,
+        4.999463,
+        4.993658,
+        5.003037,
+        4.994557,
+        5.001502,
+        5.003074,
+        5.007386
+      ]
+    },
+    {
+      "prefix": "neoforge-v028-native-baseline",
+      "phase": "reload",
+      "monitor_status": "registered_and_parsed_stable",
+      "process_final_13_sample_span_seconds": 60.019505,
+      "native_fresh_suffix_span_seconds": 59.992654,
+      "native_fresh_suffix_sample_count": 13,
+      "native_fresh_suffix_gaps_seconds": [
+        4.982458,
+        5.005415,
+        5.007429,
+        4.994968,
+        5.002376,
+        4.993383,
+        4.999389,
+        4.997567,
+        5.013834,
+        4.998415,
+        4.988145,
+        5.009275
+      ]
+    },
+    {
+      "prefix": "neoforge-v028-native-repeat",
+      "phase": "startup",
+      "monitor_status": "registered_and_parsed_stable",
+      "process_final_13_sample_span_seconds": 60.015483,
+      "native_fresh_suffix_span_seconds": 60.012389,
+      "native_fresh_suffix_sample_count": 13,
+      "native_fresh_suffix_gaps_seconds": [
+        5.005817,
+        4.998199,
+        5.009938,
+        4.986867,
+        5.002369,
+        4.998156,
+        5.003309,
+        4.99794,
+        5.005277,
+        5.000073,
+        5.002049,
+        5.002395
+      ]
+    },
+    {
+      "prefix": "neoforge-v028-native-repeat",
+      "phase": "reload",
+      "monitor_status": "registered_and_parsed_stable",
+      "process_final_13_sample_span_seconds": 60.02088,
+      "native_fresh_suffix_span_seconds": 60.016407,
+      "native_fresh_suffix_sample_count": 13,
+      "native_fresh_suffix_gaps_seconds": [
+        5.013786,
+        5.002088,
+        5.012308,
+        4.979924,
+        5.00772,
+        4.995065,
+        4.994527,
+        5.000512,
+        5.002615,
+        5.008958,
+        4.995775,
+        5.003129
+      ]
+    }
+  ],
+  "method": "The loading monitor uses its monotonic clock for the 60-second stable interval and resets on stale observations. Independently verify the final external process-sample interval and the uninterrupted native fresh-sample suffix. Native source timestamps and external receipt timestamps are separate clocks; the first startup native suffix spans 59.998586 seconds while the external interval spans 60.020216 seconds.",
+  "limits": "Native source timestamp spans are reported exactly and are not rounded up or substituted for the monitor monotonic interval."
+}
