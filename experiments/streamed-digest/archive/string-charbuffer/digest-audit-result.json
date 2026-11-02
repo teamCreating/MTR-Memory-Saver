@@ -1,0 +1,48 @@
+{
+  "passed": true,
+  "negative_control": false,
+  "real_text_files": 8534,
+  "real_input_code_units": 2902870923,
+  "synthetic_cases": 85,
+  "concurrent_reads": 64,
+  "actual_cache_digests_compared": 4,
+  "allocation_cases": [
+    {
+      "kind": "ascii",
+      "code_units": 16777216,
+      "repetitions": 8,
+      "baseline_allocated": 134221760,
+      "candidate_allocated": 71072,
+      "baseline_ns": 412272700,
+      "candidate_ns": 1070645700
+    },
+    {
+      "kind": "mixed",
+      "code_units": 16777216,
+      "repetitions": 8,
+      "baseline_allocated": 536874976,
+      "candidate_allocated": 71264,
+      "baseline_ns": 454121300,
+      "candidate_ns": 1083103100
+    },
+    {
+      "kind": "unicode",
+      "code_units": 16777216,
+      "repetitions": 8,
+      "baseline_allocated": 738201504,
+      "candidate_allocated": 71264,
+      "baseline_ns": 1518269500,
+      "candidate_ns": 2181150300
+    },
+    {
+      "kind": "small",
+      "code_units": 1200,
+      "repetitions": 8,
+      "baseline_allocated": 13472,
+      "candidate_allocated": 13472,
+      "baseline_ns": 85200,
+      "candidate_ns": 29600
+    }
+  ],
+  "limits": "Isolated hashing thread allocations and single timing samples; no retained heap, total process RAM, runtime reload or all-vehicle acceptance claim."
+}
