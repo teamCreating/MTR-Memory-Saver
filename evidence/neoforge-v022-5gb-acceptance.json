@@ -1,0 +1,216 @@
+{
+  "timestamp": "2026-11-02T19:42:00.644977+08:00",
+  "target": {
+    "minecraft": "1.21.1",
+    "mtr": "4.1.0-beta.2"
+  },
+  "mod_loader": "neoforge",
+  "loader_version": "21.1.265",
+  "companion_version": "0.2.2",
+  "companion_sha256": "b0141879926c0f87bcd109fb081b81cd7effcfba7796322928c7cdd3e19fd730",
+  "official_mtr_sha256": "ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa",
+  "minecraft_jar_sha256": "374997701b28d3c9374d5dd5fa8bdd96e4143a6786ccba660246b4451a0be23d",
+  "sources": {
+    "vehicle-memory\\src\\dev\\abenli\\mtrmemory\\mixin\\ModelLoaderAccess.java": "35fccae4916bf7f11b182cbe8a67640d816d57922b4bd13e0644b74e44dc8cce",
+    "vehicle-memory\\src\\dev\\abenli\\mtrmemory\\mixin\\ModelLoaderCompletionMixin.java": "5331eb0e4641cc041035997bbf8bea217331cee4db83ab8a012c53884a9cba11",
+    "vehicle-memory\\src\\dev\\abenli\\mtrmemory\\mixin\\ResourceReloadMixin.java": "692eeb94c286368e6739e740d28d7ba5e173bf5b2eb8360ddb40d3be0a25b0a5",
+    "vehicle-memory\\src\\dev\\abenli\\mtrmemory\\mixin\\VehicleModelFactoryMixin.java": "e44d5920edb0e2241d15f2c6f8a38b925e66bf2a604fdc952f8afeb2860787c0",
+    "vehicle-memory\\src\\dev\\abenli\\mtrmemory\\mixin\\VertexColorMixin.java": "530e0f572b8dbc19f9464168dc35b487f4fa6916bac689ef269275760a64c184",
+    "vehicle-memory\\src\\dev\\abenli\\mtrmemory\\SharedBlockbenchCache.java": "b909034f26a6ec2b1a8b862bfcfb86ef14b5517eb8bfb46ebc1990c9f281c1cd",
+    "vehicle-memory\\experiments\\packed-mesh\\src\\dev\\abenli\\mtrmemory\\PackedModelGroupAccess.java": "e75cf4d0e91b5b00311d6463bce4a722f1fa5f7008b8295e664b9d4259a72904",
+    "vehicle-memory\\experiments\\packed-mesh\\src\\dev\\abenli\\mtrmemory\\PackedModelGroupStore.java": "6922ec7ba42473d88518944e374bb547ef80f8d1d2d13cb6f10f467aa72bfd6b",
+    "vehicle-memory\\experiments\\packed-mesh\\src\\dev\\abenli\\mtrmemory\\PackedVertices.java": "4b26097932b3ad3e21dac3060b71492c4603404a01ef5b87b64f8d229e16edde",
+    "vehicle-memory\\experiments\\packed-mesh\\src-platform\\neoforge\\dev\\abenli\\mtrmemory\\mixin\\PackedModelGroupMixin.java": "34b6619a3b414bd98db8f3acda5cd47c6c138b2e7632ed265a8e0404c79715a3",
+    "vehicle-memory\\experiments\\packed-mesh\\src-platform\\neoforge\\dev\\abenli\\mtrmemory\\PackedModelGroupOperations.java": "a192bddc66dbe692af3a07b13c8839c133b2e8af7ebe918afa4b8f4ba821815b",
+    "vehicle-memory\\experiments\\packed-mesh\\src-platform\\neoforge\\dev\\abenli\\mtrmemory\\PackedVertexEmitter.java": "61b64aac0ee43d6238d7a8bb02e961ce1121913c5597b08a788053ca339b5173",
+    "vehicle-memory\\experiments\\display-retention\\src\\dev\\abenli\\mtrmemory\\DisplayRetention.java": "9593034584d2ac41b54d76efa6fc2af166002adb6d3b30cc7b56727213e9a91e",
+    "vehicle-memory\\experiments\\display-retention\\src\\dev\\abenli\\mtrmemory\\mixin\\DisplayPartAccess.java": "75c29a45c55d234e890c47cdb868868bae7ad83a9ec4b0c75fab127f3f18fa56",
+    "vehicle-memory\\experiments\\display-retention\\src\\dev\\abenli\\mtrmemory\\mixin\\DisplaySelectionMixin.java": "bafa04407622c6c23c723b90e71c54bb3ebc4c63aa667705d8541078d687802e",
+    "vehicle-memory\\experiments\\display-retention\\src\\dev\\abenli\\mtrmemory\\mixin\\SourceLifetimeMixin.java": "506ca19be6cba0dcd015401dc4f8c545119866aba9ecd1a84392832c7fb6ef6a",
+    "vehicle-memory\\experiments\\display-retention\\src\\dev\\abenli\\mtrmemory\\SharedBlockbenchLoader.java": "48a5e9c9155d284bc4d53ec31f0995723b7c9cfee6c448722fcb5e620d8aed24",
+    "vehicle-memory\\experiments\\json-sharing\\src\\dev\\abenli\\mtrmemory\\mixin\\VehicleJsonCacheMixin.java": "0bbaa5c55716019b851db9e96bc500b1620b9338e2f6b02f966167630e1388e6",
+    "vehicle-memory\\experiments\\json-sharing\\src\\dev\\abenli\\mtrmemory\\mixin\\VehicleJsonEpochMixin.java": "a99b9bfdfd526c9c1287286c0e40c466e16d403f5974f3896319e41c010b91e7",
+    "vehicle-memory\\experiments\\json-sharing\\src\\dev\\abenli\\mtrmemory\\VehicleJsonCache.java": "af087220124edbd9d3c734a8ee9e8bad773e29b2e46adc8e87e38893037e9fc0"
+  },
+  "installed_mods": [
+    {
+      "filename": "mtr-memory-sharing-neoforge.jar",
+      "sha256": "b0141879926c0f87bcd109fb081b81cd7effcfba7796322928c7cdd3e19fd730"
+    },
+    {
+      "filename": "MTR-neoforge-4.1.0-beta.2+1.21.1.jar",
+      "sha256": "ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa"
+    },
+    {
+      "filename": "vehicle-memory-probe.jar",
+      "sha256": "11048ec45bbfc4ae40571dac9fc75ed642a841cc8c161b7b6e01ddb8405cf308"
+    }
+  ],
+  "enabled_packs": [
+    {
+      "filename": "[AI车门修复][MTR] Taiwan Train V000 EMU3000 20251107.zip",
+      "sha256": "d741ccf09d7ce958dd6f282b52ffbf1dff1b36ec51af397cf8d1252a14059cb9"
+    },
+    {
+      "filename": "[AI车门修复][材质模型包]悠日计画 交通运输类模型 8.2505.1.zip",
+      "sha256": "9b7a9b19db7db6197a4652c9df31717039e47af7d1e6930e03a5ef9bf5a378bb"
+    },
+    {
+      "filename": "[AI车门修复]ChenDianMetroWayV0.5.1R.zip",
+      "sha256": "3783a1fd5b21f7d133046294be8b1562560ebce94f628b87ff104e734ed1cf9a"
+    },
+    {
+      "filename": "[AI车门修复]HSM-2000 v1.2.1 (Adapted for MTR 4.0.x)-20260722-210944.zip",
+      "sha256": "3bd4eef3eb0d23c43d70efdea3be0dcd08693a58d79a5eafebc763317d1e2d86"
+    },
+    {
+      "filename": "[AI车门修复]rpsync-mtr4.0.0-hxd3d-yw25t.zip",
+      "sha256": "1f2b7e941da4fe7239cbc59c6935b441fbc71cf9f15b6f7548e963c370210897"
+    },
+    {
+      "filename": "[AI车门修复]rpsync-shanghaimetroaddon_v3.4.0_creating_trimmed_v2.zip",
+      "sha256": "f4f9730c4dfbb8c6998b472eb90e8a1d559704f6d0df16b53ceb96556b48325e"
+    },
+    {
+      "filename": "[AI车门修复]ShirahaneVehicle v2.4.3 release_hotfix1.zip",
+      "sha256": "b5970dd8d193641909df20f61acbc5408539ba4f9a1f582d76c94aa240d3c5a3"
+    },
+    {
+      "filename": "[AI车门修复]STCP Bus Pack.zip",
+      "sha256": "1d83bb1a2d34fb4f3b4f8837ab649b37104df7036acc6501054617f0bb397b31"
+    },
+    {
+      "filename": "[AI车门修复]Zhongtong Base Pack - 1.1.0.zip",
+      "sha256": "7044e84cd07a2b6f9adf99a2dcd57d3ace22e9c627361e25b8bcf184cd8a66f6"
+    },
+    {
+      "filename": "[AI车门修复]§9§l现代城市系列追加包§7-v2.0.zip",
+      "sha256": "ad8cb6c56f3670a7eea3ba7e9a9843771451c8e28732097ec2151ecb8ce4b27b"
+    },
+    {
+      "filename": "[AI车门修复]悠日交通资源包part3-260708.zip",
+      "sha256": "4525c20d89ac07641e2426f7049de502c5d89d38c8816de154a4cc77f78b3e3c"
+    },
+    {
+      "filename": "[AI车门修复]悠日计画 故事模式用材质 8.2504.zip",
+      "sha256": "5d5c0d2933572d072cc9e85f7e7ca3065407ad437e763d9b5776720f4c21837d"
+    },
+    {
+      "filename": "[AI车门修复]悠日计画交通资源包part2 release v2.1-hotfix2.zip",
+      "sha256": "91738fe2780bb7ae2d115702788dc2f22feb73fc70bc884441b5578f87a0fb6a"
+    },
+    {
+      "filename": "[AI车门修复]新艾利都地铁_疾锋龙号(性能优化版).zip",
+      "sha256": "0536120420708cf9705dc397ac687cc0dfb2ee123a6f894cb546b0e5338bb837"
+    },
+    {
+      "filename": "[AI车门修复]新铁路铁轨基本轨包BY默淼yams.zip",
+      "sha256": "6f78adf23a2f5c26d89c3413a47ef8a09ce9997f64256b793624d8eac112879a"
+    },
+    {
+      "filename": "[AI车门修复]新艾利都地铁 ERIDU-10000一期改造型.zip",
+      "sha256": "5db45298b692e3aac2414d243ae916eed8f836b15fa93e1fc09285fdfba7f6e9"
+    }
+  ],
+  "ordinary_acceptance": {
+    "heap_gib": 5,
+    "jvm_arguments": [
+      "-Xms1G",
+      "-Xmx5G",
+      "-Djdk.virtualThreadScheduler.parallelism=2",
+      "-Djdk.virtualThreadScheduler.maxPoolSize=2"
+    ],
+    "diagnostic_gc_requested": false,
+    "startup": {
+      "first_completed": "2026-11-02T19:26:35.140207500+08:00",
+      "last_completed": "2026-11-02T19:27:35.140471300+08:00",
+      "fresh_completed_samples": 13,
+      "sample_timestamp_span_seconds": 60.000264,
+      "monitor_stable_threshold_seconds": 60,
+      "monitor_threshold_passed": true,
+      "observed_unfinished": false
+    },
+    "reload": {
+      "first_completed": "2026-11-02T19:33:34.673423400+08:00",
+      "last_completed": "2026-11-02T19:34:34.668682300+08:00",
+      "fresh_completed_samples": 13,
+      "sample_timestamp_span_seconds": 59.995259,
+      "monitor_stable_threshold_seconds": 60,
+      "monitor_threshold_passed": true,
+      "observed_unfinished": true
+    },
+    "rendering": "Both native DC01 car bodies, doors and interiors visually reviewed in native F2 screenshots before and after reload. Spectator used for camera placement only. No broad window or passenger acceptance claimed.",
+    "native_caches": {
+      "mtr_custom_train_dc01_update_cab_1_native_7ea57bf708e8": {
+        "floors": 5,
+        "doorways": 10,
+        "ready": true,
+        "unchanged_across_reload": true
+      },
+      "mtr_custom_train_dc01_update_cab_2_native_7b8391aef2c8": {
+        "floors": 6,
+        "doorways": 10,
+        "ready": true,
+        "unchanged_across_reload": true
+      }
+    },
+    "json_epochs": 2,
+    "requests_per_json_epoch": 13314,
+    "unique_nonempty_inputs_per_epoch": 1658,
+    "shared_source_loader_release_epochs": 2,
+    "ordinary_sampled_peaks": {
+      "startup": {
+        "peak_sampled_heap_used": 2291417520,
+        "peak_sampled_working_set": 6439616512,
+        "peak_sampled_private_usage": 6646431744
+      },
+      "reload": {
+        "peak_sampled_heap_used": 4943562344,
+        "peak_sampled_working_set": 7053905920,
+        "peak_sampled_private_usage": 7242186752
+      }
+    }
+  },
+  "separate_diagnostic": {
+    "requests_gc": true,
+    "performed_after_ordinary_acceptance": true,
+    "candidate_shallow_live_bytes": 1871160520,
+    "baseline_shallow_live_bytes": 2478233672,
+    "shallow_live_bytes_saved": 607073152,
+    "reduction_percent": 24.496203036014595
+  },
+  "minimum_verified_heap_gib": 5,
+  "lower_heap": "Exact v0.2.2 candidate failed at 4 GiB during registration. Unresponsive recovery required scoped, process-identity-verified termination. No integrated world opened; all 16 selections restored.",
+  "cleanup": "Player restored to original platform/survival/empty hand/unmounted; normal shutdown saved world/player. Original saved formation/timetable/platform fields and all 16 selected ZIP hashes verified. save-all was unavailable in the singleplayer command tree; session log confirms normal shutdown saved all dimensions.",
+  "limits": "Single-run sampled measurements, not true maxima or arbitrary-world limits. Startup render-thread probing misses parsing allocations; total process peaks changed little. GC totals are shallow live bytes, not retained graphs. The monitor uses a 60-second monotonic threshold; sample timestamp spans differ by milliseconds because probe writes and monitor reads occur separately. Ordinary passenger exit and all-vehicle/Shanghai-window verification remain open.",
+  "audit_sha256": {
+    "vehicle-memory/experiments/json-sharing/consumer-audit.json": "9de6275bb450f9d6de63ac04c484ef25558a7bd9d3a741e4ace9b4b67f87b21b",
+    "vehicle-memory/experiments/json-sharing/consumer-audit.audit.json": "b941ed1b3d6f1da936d4a83aec79c4ec8c504b7096de624de2613caf76dd9140",
+    "vehicle-memory/experiments/json-sharing/consumer-jobs.json": "9a683d01431b1a4aaaf5acffc1c55b6c4089f5e99aac8c0e19c3013a6fde19ce",
+    "vehicle-memory/experiments/json-sharing/native-input-inventory.json": "77c9378a410e86092e149b4c557527371ad1bf849304e24361034ff5a7230196",
+    "vehicle-memory/experiments/json-sharing/mtr-memory-sharing-neoforge-v022.jar": "b0141879926c0f87bcd109fb081b81cd7effcfba7796322928c7cdd3e19fd730",
+    "vehicle-memory/experiments/json-sharing/mtr-memory-sharing-neoforge-v022.build.json": "d3dcd2464194ed3a4f46b8b6076de1a56143db71cd085eeebcaa7c77462633e9",
+    "vehicle-memory/mtr-memory-sharing-neoforge-v022.jar": "b0141879926c0f87bcd109fb081b81cd7effcfba7796322928c7cdd3e19fd730",
+    "vehicle-memory/mtr-memory-sharing-neoforge-v022.build.json": "d3dcd2464194ed3a4f46b8b6076de1a56143db71cd085eeebcaa7c77462633e9"
+  },
+  "evidence_sha256": {
+    "neoforge-v022-4gb-failure.json": "b4900d24ab810124b625c9ef47a2b39c7b071bf2b98029da274f44b28e460b90",
+    "neoforge-v022-4gb-failure.log": "71c546f41329b96cce515d10ea0fd56739edc66ffe837a10c22173e6a7e36855",
+    "neoforge-v022-4gb-startup.json": "cdcc4410ec8d5d830f9450b0636e9e5657a41ac70ee68d28845254bce1495945",
+    "neoforge-v022-5gb-after-reload.json": "f58ae06c997535050579cd436581f4ed4131900c213d9d2beccab0d96d3c7194",
+    "neoforge-v022-5gb-after-reload.png": "e92c89d4d34230598e9bb28e76a9d6d81c39ddaeb589a8d82934a8cba4e66ec1",
+    "neoforge-v022-5gb-before-reload.json": "aa39bfe6245088d69d4d4cefa28d8745bc2669c9c2a829e43d1c0ec8468156c8",
+    "neoforge-v022-5gb-before-reload.png": "8e0de9da40505797704c9c06b1d2c5df5fa5e1c869521bfccbb4654bfc75c088",
+    "neoforge-v022-5gb-fixture-verified.json": "f0ec8b5f92a192eade4771fbafaf110b804d9c0e4576db9141f08bcfd1caf1f9",
+    "neoforge-v022-5gb-player-restored.json": "b04a8d9ad7a25e3b4fa957ab9e73f51230872b72f64a83b6c5b2f6c234d06f2f",
+    "neoforge-v022-5gb-reload-request.json": "42bedbd23b029c0fcd03bfed0a640e6911837d2a8e028b04b5c70da79cc67daf",
+    "neoforge-v022-5gb-reload.json": "c6f05049dca19f1fefd698e47eb8d0458ea2e9b17dc25e6c7e9c54f578176963",
+    "neoforge-v022-5gb-reload.log": "905017973eeb1146ec59d348740de977f18fbeb761fd6da63272a44e5f08517b",
+    "neoforge-v022-5gb-session.log": "612880a7553c265ac43f209801f477eccdb6f22e4392e403235a22bf93cf4d5c",
+    "neoforge-v022-5gb-startup.json": "9ce1616ce30830c1b2158409442135347337e3e527d48ec0e7520e6888bbd6c3",
+    "neoforge-v022-5gb-startup.log": "bab9c3130091f0e4e5e874e06a9a5c010ec0f92f28cfd1d7e81508dbe6c3e776",
+    "neoforge-v022-json-sharing-diagnostic-comparison.json": "ac4dbabca2b6134532897db7105788ade1545c4bd59a6cc05d8b2450c89ed113",
+    "neoforge-v022-post-5gb-acceptance-diagnostic.json": "b327f9d605a0425b5454ec73078d5510e60b8fee25ea0f412f6ea0c463c131f7",
+    "neoforge-v022-post-5gb-acceptance-histogram.txt": "4d74cb490ba3d9cea8c88a74feecea877649f4408eebf97ae95d40fdd1512e06"
+  }
+}

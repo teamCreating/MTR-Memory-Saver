@@ -1,0 +1,105 @@
+{
+  "baseline": {
+    "total_instances": 51363149,
+    "total_shallow_live_bytes": 2478233672,
+    "rows": {
+      "[B (java.base@21.0.11)": {
+        "instances": 7957562,
+        "shallow_bytes": 933407440
+      },
+      "org.mtr.libraries.com.google.gson.internal.LinkedTreeMap$Node (mtr@4.1.0-beta.2)": {
+        "instances": 4483217,
+        "shallow_bytes": 215194416
+      },
+      "java.lang.String (java.base@21.0.11)": {
+        "instances": 7810110,
+        "shallow_bytes": 187442640
+      },
+      "org.mtr.libraries.com.google.gson.JsonPrimitive (mtr@4.1.0-beta.2)": {
+        "instances": 3235109,
+        "shallow_bytes": 51761744
+      },
+      "org.mtr.libraries.com.google.gson.internal.LinkedTreeMap (mtr@4.1.0-beta.2)": {
+        "instances": 919840,
+        "shallow_bytes": 51511040
+      },
+      "org.mtr.libraries.com.google.gson.internal.LazilyParsedNumber (mtr@4.1.0-beta.2)": {
+        "instances": 1389848,
+        "shallow_bytes": 22237568
+      },
+      "org.mtr.libraries.com.google.gson.JsonArray (mtr@4.1.0-beta.2)": {
+        "instances": 988726,
+        "shallow_bytes": 15819616
+      },
+      "org.mtr.libraries.com.google.gson.JsonObject (mtr@4.1.0-beta.2)": {
+        "instances": 919840,
+        "shallow_bytes": 14717440
+      },
+      "org.mtr.libraries.com.google.gson.internal.LinkedTreeMap$EntrySet (mtr@4.1.0-beta.2)": {
+        "instances": 906900,
+        "shallow_bytes": 14510400
+      },
+      "org.mtr.resource.GroupTransformations$GroupTransformation (mtr@4.1.0-beta.2)": {
+        "instances": 3890,
+        "shallow_bytes": 155600
+      },
+      "org.mtr.render.StoredMatrixTransformations (mtr@4.1.0-beta.2)": {
+        "instances": 2234,
+        "shallow_bytes": 107232
+      }
+    }
+  },
+  "candidate": {
+    "total_instances": 30687736,
+    "total_shallow_live_bytes": 1871160520,
+    "rows": {
+      "[B (java.base@21.0.11)": {
+        "instances": 3087725,
+        "shallow_bytes": 792892552
+      },
+      "java.lang.String (java.base@21.0.11)": {
+        "instances": 2939179,
+        "shallow_bytes": 70540296
+      },
+      "org.mtr.libraries.com.google.gson.internal.LinkedTreeMap$Node (mtr@4.1.0-beta.2)": {
+        "instances": 1195263,
+        "shallow_bytes": 57372624
+      },
+      "org.mtr.libraries.com.google.gson.JsonPrimitive (mtr@4.1.0-beta.2)": {
+        "instances": 958815,
+        "shallow_bytes": 15341040
+      },
+      "org.mtr.libraries.com.google.gson.internal.LinkedTreeMap (mtr@4.1.0-beta.2)": {
+        "instances": 190893,
+        "shallow_bytes": 10690008
+      },
+      "org.mtr.libraries.com.google.gson.internal.LazilyParsedNumber (mtr@4.1.0-beta.2)": {
+        "instances": 410904,
+        "shallow_bytes": 6574464
+      },
+      "org.mtr.libraries.com.google.gson.JsonArray (mtr@4.1.0-beta.2)": {
+        "instances": 249100,
+        "shallow_bytes": 3985600
+      },
+      "org.mtr.libraries.com.google.gson.JsonObject (mtr@4.1.0-beta.2)": {
+        "instances": 190893,
+        "shallow_bytes": 3054288
+      },
+      "org.mtr.libraries.com.google.gson.internal.LinkedTreeMap$EntrySet (mtr@4.1.0-beta.2)": {
+        "instances": 177953,
+        "shallow_bytes": 2847248
+      },
+      "org.mtr.resource.GroupTransformations$GroupTransformation (mtr@4.1.0-beta.2)": {
+        "instances": 3890,
+        "shallow_bytes": 155600
+      },
+      "org.mtr.render.StoredMatrixTransformations (mtr@4.1.0-beta.2)": {
+        "instances": 2234,
+        "shallow_bytes": 107232
+      }
+    }
+  },
+  "shallow_live_bytes_saved": 607073152,
+  "shallow_live_reduction_percent": 24.496203036014595,
+  "limits": "Separate post-acceptance GC-requesting diagnostics, both 5 GiB heaps. Sum of shallow live bytes, not retained-graph analysis or ordinary peak RAM. Worlds have different transient states."
+}

@@ -1,6 +1,35 @@
 # MTR client memory companions
 
-Current optimization target: **Minecraft 1.21.1 / NeoForge 21.1.265 / MTR 4.1.0-beta.2**, prioritizing memory use. The recommended tested candidate is [mtr-memory-sharing-neoforge-v021.jar](mtr-memory-sharing-neoforge-v021.jar), version **0.2.1**.
+Current optimization target: **Minecraft 1.21.1 / NeoForge 21.1.265 / MTR 4.1.0-beta.2**, prioritizing memory use. The recommended tested companion is [mtr-memory-sharing-neoforge-v022.jar](mtr-memory-sharing-neoforge-v022.jar), version **0.2.2**.
+
+v0.2.2 shares identical nonempty property/position JSON trees by input-text SHA-256. Each vehicle keeps an independent native JsonReader map, ModelProperties, PositionDefinitions and build caches. Registration releases cache-owned trees; resource reload starts a fresh cache. All 24 existing v0.2.1 class entries are byte-identical. The unmodified-release audit passed 1,397 real inputs and 2,818 native-reader comparisons, including independent merges and unchanged input trees. [Implementation and reproduction](experiments/json-sharing/README.md).
+
+All **16 packs / 2,541 registrations** passed ordinary startup and actual F3+T reload at **5 GiB**, with 60 seconds of continuous fresh completed samples in each check. Startup sampling began after parsing completed; reload observed unfinished parsing followed by completion. Both original DC01 bodies rendered before and after reload; their distinct 5/6-floor and 10/10-doorway caches stayed identical. No diagnostic GC was requested during ordinary acceptance. [Acceptance and exact fingerprints](evidence/neoforge-v022-5gb-acceptance.json).
+
+| Candidate / test | Sampled Java heap | Windows working set | Private committed memory |
+| --- | ---: | ---: | ---: |
+| v0.2.1 startup | 3.97 GiB | 6.02 GiB | 6.17 GiB |
+| v0.2.2 startup | 2.13 GiB* | 6.00 GiB | 6.19 GiB |
+| v0.2.1 reload | 4.58 GiB | 6.63 GiB | 6.79 GiB |
+| v0.2.2 reload | 4.60 GiB | 6.57 GiB | 6.75 GiB |
+
+*The render-thread probe could not sample startup allocations while parsing blocked it. Its 2.13 GiB result covers completed observations and cannot establish the true startup heap peak. These are single-run sampled values; total process peaks changed little.
+
+The separate post-acceptance GC histogram measured **1,871,160,520 shallow live bytes (1.74 GiB)**, versus 2,478,233,672 for v0.2.1: **607,073,152 bytes / 579 MiB / 24.50% less**. Core MTR Gson rows fell from 385,752,224 to 99,865,272 shallow bytes. These diagnostics both requested GC at 5 GiB and measure shallow live objects, not retained graphs, ordinary peaks or production-world limits. [Diagnostic comparison](evidence/neoforge-v022-json-sharing-diagnostic-comparison.json).
+
+Install exactly one companion in the NeoForge client's `mods` directory alongside the fingerprinted official MTR release, replacing the previous companion. Keep all 16 repaired ZIPs enabled in `resourcepacks`. Use Java 21 and the tested arguments:
+
+```text
+-Xmx5G
+-Djdk.virtualThreadScheduler.parallelism=2
+-Djdk.virtualThreadScheduler.maxPoolSize=2
+```
+
+**5 GiB remains the lowest verified heap.** v0.2.2 exhausted 4 GiB during registration; its attempted fallback became unresponsive and was cleaned up after verifying the marked process identity. That attempt opened no integrated world and all 16 selections were restored. The successful 5 GiB client closed normally, saving its world and player through server shutdown; original formation/timetable/platform fields and every selected ZIP hash were verified. Passenger exit and broad Shanghai window/vehicle coverage remain open. Removing this companion or replacing it with the retained [v0.2.1 JAR](mtr-memory-sharing-neoforge-v021.jar) provides rollback.
+
+## Earlier v0.2.1 results
+
+The previous tested companion is [mtr-memory-sharing-neoforge-v021.jar](mtr-memory-sharing-neoforge-v021.jar), version **0.2.1**.
 
 v0.2.1 retains raw display transforms only for actual `DISPLAY` part names and releases shared source-loader references after registration. It keeps all 10 v0.2.0 packed-mesh class entries byte-identical. The independent official-release cache-consumer audit passes 10 cases and 16 actual display instances; required display data retains its original identities and native floor/doorway semantics.
 

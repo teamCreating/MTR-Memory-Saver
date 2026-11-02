@@ -1,0 +1,90 @@
+{
+  "timestamp": "2026-11-02T19:41:07.617626+08:00",
+  "method": "Read first complete saved MessagePack map; compare original selected fields without rewriting or discarding trailing old bytes.",
+  "values": {
+    "sidings": [
+      {
+        "id": -6304466250560538598,
+        "vehicleCars": [
+          {
+            "vehicleId": "mtr_custom_train_dc01_update_cab_1_native_7ea57bf708e8",
+            "length": 25.0,
+            "width": 2.0,
+            "capacity": 0,
+            "bogie1Position": -8.5,
+            "bogie2Position": 8.5,
+            "couplingPadding1": 1.0,
+            "couplingPadding2": 0.0
+          },
+          {
+            "vehicleId": "mtr_custom_train_dc01_update_cab_2_native_7b8391aef2c8",
+            "length": 25.0,
+            "width": 2.0,
+            "capacity": 0,
+            "bogie1Position": -8.5,
+            "bogie2Position": 8.5,
+            "couplingPadding1": 0.0,
+            "couplingPadding2": 1.0
+          }
+        ]
+      }
+    ],
+    "depots": [
+      {
+        "id": 8805550386485521715,
+        "routeIds": [
+          1634058583976595067
+        ],
+        "useRealTime": false,
+        "frequencies": [
+          60,
+          60,
+          60,
+          60,
+          60,
+          60,
+          60,
+          60,
+          60,
+          60,
+          60,
+          60,
+          60,
+          60,
+          60,
+          60,
+          60,
+          60,
+          60,
+          60,
+          60,
+          60,
+          60,
+          60
+        ],
+        "repeatInfinitely": false
+      }
+    ],
+    "platforms": [
+      {
+        "id": 165694310607733568,
+        "dwellTime": 120000
+      },
+      {
+        "id": 7620670858014251768,
+        "dwellTime": 120000
+      }
+    ]
+  },
+  "saved_file_sha256": {
+    "saves/Vehicle Acceptance 1_21_1/mtr/minecraft/overworld/sidings/1A/A8820958FCE6781A": "78643e86d00c318ae7073fbd30cfd81499f0e6bcefb3bacaa43a2477e2c7c8fc",
+    "saves/Vehicle Acceptance 1_21_1/mtr/minecraft/overworld/depots/33/7A33996C3645ED33": "a6ddeeba45774b28b82dd74e27dc869af28420303442adcc0870a68aebf2cd0c",
+    "saves/Vehicle Acceptance 1_21_1/mtr/minecraft/overworld/platforms/40/024CAA18FD13C340": "afdbc03889a5dcad76b8ab10757492cc871297fddfa140e640153392cb810b86",
+    "saves/Vehicle Acceptance 1_21_1/mtr/minecraft/overworld/platforms/F8/69C20FC4F21C5AF8": "3f77cfbaec6a0b6a8f8be895f645a2847ff3a9a9373a511bcc8b8123bb8372a0"
+  },
+  "enabled_pack_count": 16,
+  "all_pack_hashes_verified": true,
+  "client_closed": true,
+  "delivered_installed_sha256": "b0141879926c0f87bcd109fb081b81cd7effcfba7796322928c7cdd3e19fd730",
+  "cleanup": "Player restored to original platform/survival/empty hand/unmounted. save-all was unavailable in this singleplayer command tree; normal shutdown saved players, worlds and all dimensions, confirmed in session log."
+}
