@@ -1,0 +1,19 @@
+{
+  "timestamp": "2026-11-02T18:12:24.481215+08:00",
+  "target": {
+    "minecraft": "1.21.1",
+    "mtr": "4.1.0-beta.2"
+  },
+  "mod_loader": "neoforge",
+  "heap_gb": 4,
+  "result": "Failed Java heap exhaustion during the ordinary all-16-pack startup. Minecraft disabled external packs and recovered to 423 built-in registrations; recovery is not full-pack success.",
+  "candidate_sha256": "daed4c63017b110f22de9e98a8ab4ad9122daba98ff187bd300b532d09b8b5ef",
+  "diagnostic_gc_requested": false,
+  "next_step": "Closed normally, restored all 16 selections with validated select tool, started fresh 5 GiB comparison",
+  "evidence_sha256": {
+    "neoforge-v020-4gb-failure.log": "67840f47bee524034a7432dbdf3cc587aad660516481d9c549450ffac8f7299a",
+    "neoforge-v020-4gb-fallback-live.json": "284efc4b020045e644e0d2e129ed13a057856923c2812bd6d913e73ec70ee01e",
+    "neoforge-v020-4gb-fallback-options.txt": "cc2f2953324b74045716ea5fadb8fa87115eec5124ce613a966ccaa1424f669a",
+    "neoforge-v020-4gb-startup.json": "9829c9860febf09d83d3e864e6797ce3b6523c86aff90ac9df30df744ad21bbe"
+  }
+}
