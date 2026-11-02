@@ -1,0 +1,62 @@
+{
+  "timestamp": "2026-11-02T18:01:00.013544300+08:00",
+  "method": "Teleport only to the outside platform, then physical W input for 0.6 seconds; actual MTR riding state and native F2 screenshots.",
+  "label": "neoforge-v020-dc01-smoke",
+  "passed": true,
+  "player": {
+    "x": 52.0,
+    "y": 4.9375,
+    "z": 0.5776785073185797,
+    "yaw": -180.0,
+    "spectator": false,
+    "main_hand": "0 minecraft:air"
+  },
+  "door_value": 1.0,
+  "speed": 0.0,
+  "target": {
+    "minecraft": "1.21.1",
+    "mtr": "4.1.0-beta.2"
+  },
+  "packs": [
+    "[AI车门修复][MTR] Taiwan Train V000 EMU3000 20251107.zip",
+    "[AI车门修复][材质模型包]悠日计画 交通运输类模型 8.2505.1.zip",
+    "[AI车门修复]ChenDianMetroWayV0.5.1R.zip",
+    "[AI车门修复]HSM-2000 v1.2.1 (Adapted for MTR 4.0.x)-20260722-210944.zip",
+    "[AI车门修复]rpsync-mtr4.0.0-hxd3d-yw25t.zip",
+    "[AI车门修复]rpsync-shanghaimetroaddon_v3.4.0_creating_trimmed_v2.zip",
+    "[AI车门修复]ShirahaneVehicle v2.4.3 release_hotfix1.zip",
+    "[AI车门修复]STCP Bus Pack.zip",
+    "[AI车门修复]Zhongtong Base Pack - 1.1.0.zip",
+    "[AI车门修复]§9§l现代城市系列追加包§7-v2.0.zip",
+    "[AI车门修复]悠日交通资源包part3-260708.zip",
+    "[AI车门修复]悠日计画 故事模式用材质 8.2504.zip",
+    "[AI车门修复]悠日计画交通资源包part2 release v2.1-hotfix2.zip",
+    "[AI车门修复]新艾利都地铁_疾锋龙号(性能优化版).zip",
+    "[AI车门修复]新铁路铁轨基本轨包BY默淼yams.zip",
+    "[AI车门修复]新艾利都地铁 ERIDU-10000一期改造型.zip"
+  ],
+  "tested_vehicle_id": "mtr_custom_train_dc01_update_cab_1_native_7ea57bf708e8",
+  "car_index": 0,
+  "platform": "a",
+  "formation_id": -7202484517125031877,
+  "formation_vehicle_ids": [
+    "mtr_custom_train_dc01_update_cab_1_native_7ea57bf708e8",
+    "mtr_custom_train_dc01_update_cab_2_native_7b8391aef2c8"
+  ],
+  "alighting": {
+    "timestamp": "2026-11-02T18:01:02.020035200+08:00",
+    "passed": false,
+    "riding": true,
+    "player": {
+      "x": 52.0,
+      "y": 4.9375,
+      "z": 1.6122785078580018,
+      "yaw": -180.0,
+      "spectator": false,
+      "main_hand": "0 minecraft:air"
+    },
+    "speed": 0.0,
+    "door_value": 1.0,
+    "method": "Physical S input for 0.6 seconds from the same doorway; unmounted state and outside platform position required."
+  }
+}
