@@ -1,0 +1,139 @@
+{
+  "timestamp": "2026-11-03T03:22:42.034097+08:00",
+  "pid": 24936,
+  "reference_sha256": "455004cb7af889c1a2097a076657fe306ac67406b7d8d22950423a49b3cee829",
+  "values": {
+    "sidings": [
+      {
+        "id": -6304466250560538598,
+        "vehicleCars": [
+          {
+            "vehicleId": "mtr_custom_train_dc01_update_cab_1_native_7ea57bf708e8",
+            "length": 25.0,
+            "width": 2.0,
+            "capacity": 0,
+            "bogie1Position": -8.5,
+            "bogie2Position": 8.5,
+            "couplingPadding1": 1.0,
+            "couplingPadding2": 0.0
+          },
+          {
+            "vehicleId": "mtr_custom_train_dc01_update_cab_2_native_7b8391aef2c8",
+            "length": 25.0,
+            "width": 2.0,
+            "capacity": 0,
+            "bogie1Position": -8.5,
+            "bogie2Position": 8.5,
+            "couplingPadding1": 0.0,
+            "couplingPadding2": 1.0
+          }
+        ]
+      }
+    ],
+    "depots": [
+      {
+        "id": 8805550386485521715,
+        "routeIds": [
+          1634058583976595067
+        ],
+        "useRealTime": false,
+        "frequencies": [
+          60,
+          60,
+          60,
+          60,
+          60,
+          60,
+          60,
+          60,
+          60,
+          60,
+          60,
+          60,
+          60,
+          60,
+          60,
+          60,
+          60,
+          60,
+          60,
+          60,
+          60,
+          60,
+          60,
+          60
+        ],
+        "repeatInfinitely": false
+      }
+    ],
+    "platforms": [
+      {
+        "id": 165694310607733568,
+        "dwellTime": 120000
+      },
+      {
+        "id": 7620670858014251768,
+        "dwellTime": 120000
+      }
+    ]
+  },
+  "inventory_counts": {
+    "sidings": 1,
+    "depots": 1,
+    "platforms": 2,
+    "routes": 1
+  },
+  "player_reference_sha256": "7bb678b694c9468279259d8972ec10f5726f2357e7d66d27bb53835787c8526d",
+  "script_sha256": "bb367624a71686602c247a35573f072025f202faf1228506830f38414e89bd42",
+  "normal_shutdown": true,
+  "player_restored": true,
+  "saved_player": {
+    "position": [
+      38.5,
+      4.0,
+      15.5
+    ],
+    "yaw": -180.0,
+    "game_type": 0
+  },
+  "saved_day_time": 338985,
+  "pack_hashes_verified": 16,
+  "selected_packs": [
+    "[AI车门修复][MTR] Taiwan Train V000 EMU3000 20251107.zip",
+    "[AI车门修复][材质模型包]悠日计画 交通运输类模型 8.2505.1.zip",
+    "[AI车门修复]ChenDianMetroWayV0.5.1R.zip",
+    "[AI车门修复]HSM-2000 v1.2.1 (Adapted for MTR 4.0.x)-20260722-210944.zip",
+    "[AI车门修复]rpsync-mtr4.0.0-hxd3d-yw25t.zip",
+    "[AI车门修复]rpsync-shanghaimetroaddon_v3.4.0_creating_trimmed_v2.zip",
+    "[AI车门修复]ShirahaneVehicle v2.4.3 release_hotfix1.zip",
+    "[AI车门修复]STCP Bus Pack.zip",
+    "[AI车门修复]Zhongtong Base Pack - 1.1.0.zip",
+    "[AI车门修复]§9§l现代城市系列追加包§7-v2.0.zip",
+    "[AI车门修复]悠日交通资源包part3-260708.zip",
+    "[AI车门修复]悠日计画 故事模式用材质 8.2504.zip",
+    "[AI车门修复]悠日计画交通资源包part2 release v2.1-hotfix2.zip",
+    "[AI车门修复]新艾利都地铁_疾锋龙号(性能优化版).zip",
+    "[AI车门修复]新铁路铁轨基本轨包BY默淼yams.zip",
+    "[AI车门修复]新艾利都地铁 ERIDU-10000一期改造型.zip"
+  ],
+  "mods": [
+    {
+      "filename": "mtr-memory-sharing-neoforge.jar",
+      "sha256": "b8e903a3292cca032d6b1038d58f5f0b18be4823148e633ca4114263e2a83b6d"
+    },
+    {
+      "filename": "MTR-neoforge-4.1.0-beta.2+1.21.1.jar",
+      "sha256": "ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa"
+    },
+    {
+      "filename": "vehicle-fixture-probe.jar",
+      "sha256": "4ff35e138316e693f3dcbeb5e1313e5748dd792048a127a7080d2e7e1c976166"
+    },
+    {
+      "filename": "vehicle-memory-probe.jar",
+      "sha256": "f866ade219b5db23b2798e19f40911db71c78ff9f67862b244f1e84f5a1e197f"
+    }
+  ],
+  "method": "Read-only saved NBT and first complete MessagePack map; trailing old bytes are preserved.",
+  "limits": "Verifies fixture restoration and fingerprints; runtime rendering and memory acceptance are separate."
+}

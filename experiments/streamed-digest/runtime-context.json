@@ -1,0 +1,50 @@
+{
+  "timestamp": "2026-11-03T03:11:27.248568+08:00",
+  "target": {
+    "minecraft": "1.21.1",
+    "mtr": "4.1.0-beta.2"
+  },
+  "mod_loader": "neoforge",
+  "loader_version": "21.1.265",
+  "before_mods": [
+    {
+      "filename": "mtr-memory-sharing-neoforge.jar",
+      "sha256": "d934a8d255be16253c753b061e7d92d942985c0ee7debc1892c90ef7ecfdb40c"
+    },
+    {
+      "filename": "MTR-neoforge-4.1.0-beta.2+1.21.1.jar",
+      "sha256": "ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa"
+    },
+    {
+      "filename": "vehicle-fixture-probe.jar",
+      "sha256": "4ff35e138316e693f3dcbeb5e1313e5748dd792048a127a7080d2e7e1c976166"
+    },
+    {
+      "filename": "vehicle-memory-probe.jar",
+      "sha256": "f866ade219b5db23b2798e19f40911db71c78ff9f67862b244f1e84f5a1e197f"
+    }
+  ],
+  "after_mods": [
+    {
+      "filename": "mtr-memory-sharing-neoforge.jar",
+      "sha256": "b8e903a3292cca032d6b1038d58f5f0b18be4823148e633ca4114263e2a83b6d"
+    },
+    {
+      "filename": "MTR-neoforge-4.1.0-beta.2+1.21.1.jar",
+      "sha256": "ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa"
+    },
+    {
+      "filename": "vehicle-fixture-probe.jar",
+      "sha256": "4ff35e138316e693f3dcbeb5e1313e5748dd792048a127a7080d2e7e1c976166"
+    },
+    {
+      "filename": "vehicle-memory-probe.jar",
+      "sha256": "f866ade219b5db23b2798e19f40911db71c78ff9f67862b244f1e84f5a1e197f"
+    }
+  ],
+  "baseline_acceptance_sha256": "1a1d6e5b26c22ce264e06c0a3c7ed0823f1e46f9b44f4ebe38d440fb96971d28",
+  "saved_fixture_reference": "vehicle-memory/evidence/neoforge-v028-native-repeat-fixture-verified.json",
+  "player_reference": "vehicle-interaction/evidence/neoforge-passenger-v011-memory-v027-clock.json",
+  "rollback": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\.cache\\game-test\\streamed-digest-baseline\\mtr-memory-sharing-neoforge.jar",
+  "method": "Replace only the memory companion after verified normal stopped client; preserve exact v0.2.8 rollback and all other mod hashes."
+}

@@ -1,0 +1,70 @@
+{
+  "timestamp": "2026-11-03T03:22:42.225623+08:00",
+  "target": {
+    "minecraft": "1.21.1",
+    "mtr": "4.1.0-beta.2"
+  },
+  "mod_loader": "neoforge",
+  "loader_version": "21.1.265",
+  "pid": 24936,
+  "memory_companion_sha256": "b8e903a3292cca032d6b1038d58f5f0b18be4823148e633ca4114263e2a83b6d",
+  "jvm_arguments": [
+    "-Xms1G",
+    "-Xmx4G",
+    "-Djdk.virtualThreadScheduler.parallelism=2",
+    "-Djdk.virtualThreadScheduler.maxPoolSize=2"
+  ],
+  "phases": {
+    "startup": {
+      "status": "registered_and_parsed_stable",
+      "peak_sampled_working_set": 5343174656,
+      "peak_sampled_private_usage": 5554302976,
+      "peak_sampled_heap_used": 4074529728,
+      "peak_external_jstat_heap_used": 4065092506,
+      "external_final_stability_span_seconds": 60.016166,
+      "native_fresh_suffix_span_seconds": 60.002285
+    },
+    "reload": {
+      "status": "registered_and_parsed_stable",
+      "peak_sampled_working_set": 5962792960,
+      "peak_sampled_private_usage": 6158561280,
+      "peak_sampled_heap_used": 4100903096,
+      "peak_external_jstat_heap_used": 4097757389,
+      "external_final_stability_span_seconds": 60.017854,
+      "native_fresh_suffix_span_seconds": 59.999818
+    }
+  },
+  "native_callback_preserved": true,
+  "full_pack_registrations": 2541,
+  "selected_packs": 16,
+  "unique_completed_source_parses_per_epoch": 651,
+  "stable_seconds_per_phase": 60,
+  "both_dc01_bodies_render": true,
+  "individual_native_caches_equal_before_after_and_corrected_v028": true,
+  "passenger_companion_installed": false,
+  "normal_shutdown": true,
+  "player_and_original_layout_restored": true,
+  "saved_transport_fields_and_pack_hashes_order_verified": true,
+  "saved_day_time": 338985,
+  "diagnostic_gc_requested": false,
+  "successful_fresh_processes": 1,
+  "candidate_runtime_context_sha256": "a46fe4a8c5a221f128a3c78a9b99d53e9e096e8c337fe355c724dcd40f8675ad",
+  "allocation_audit_sha256": "062860767682076774bfa654602458fed369501336864356f306e8acb2739b01",
+  "evidence_sha256": {
+    "neoforge-v029-streamed-digest-after-reload.json": "07cf7ecddeb85ab1fdf0b7b1139cd9222e5fe13395278159f40f9858f7449b64",
+    "neoforge-v029-streamed-digest-after-reload.png": "5a6df2f516cf2dda8f958109893fcbedfe9436813648c6564c9ca73330afb7cc",
+    "neoforge-v029-streamed-digest-before-reload.json": "4d4f2adddffa4e22c4ef9993f48977530e081b0b1b0b0d6ce96274c20867deef",
+    "neoforge-v029-streamed-digest-before-reload.png": "7d066c09a41af8f0feb93d109a2efd0c21d2919ed87e3231eee73c664fd65822",
+    "neoforge-v029-streamed-digest-cache-comparison.json": "78eed3a48e29223f38b53a1962dbd2cd55db85005e41d76282977f29ac23fee5",
+    "neoforge-v029-streamed-digest-fixture-verified.json": "1826e2c6aa0fc0ec2c35db7247a67bcc5ad5b99b45c2994d36cf6cfb155a216b",
+    "neoforge-v029-streamed-digest-input-layout.json": "e22ed721ac85498e9ab934a4890deb26a07331a70516bc87e1cd73e22bb4f36c",
+    "neoforge-v029-streamed-digest-native.log": "80894af2b0075cff43e3c22e9eca36e3d716e0a78f4fc1ae21df2c317913fb2e",
+    "neoforge-v029-streamed-digest-reload-heap.json": "e17df3041aea342e4a86d3b2eb4b1232dd5dad2879679d403f444c85bd4d690a",
+    "neoforge-v029-streamed-digest-reload-request.json": "a9724496ece302ec05d73538abaecc3b3c5f609d95d0e11949f723569bbc98dd",
+    "neoforge-v029-streamed-digest-reload.json": "e30d2243183a19d175089add598ee44c4cef8167ee6452bd5c51b877560f82e7",
+    "neoforge-v029-streamed-digest-restored-player.json": "62fa778a2f235feb826bf32d6f5718ad9be2442c58c48aee1998ad6996281b34",
+    "neoforge-v029-streamed-digest-startup-heap.json": "76261d3fea041a8465fbd1615ed59434882896ea71ec5724b8b29cb4ef86f13b",
+    "neoforge-v029-streamed-digest-startup.json": "ba2fb4bc733ecb4f76172443e12a1f37414d23c2c618cf2901020574a9868650"
+  },
+  "limits": "One isolated 4 GiB corrected-native-lifecycle run; repeat and lower-heap acceptance remain pending. External jstat covers blocked startup parsing and starts before actual F3+T. Sampling clocks differ and observed values are not true maxima. Isolated allocation improvement is not proof of lower retained heap or total process RAM. Full Shanghai windows, passenger candidate, all-vehicle and post-reload gameplay remain incomplete. v0.2.8 remains recommended."
+}

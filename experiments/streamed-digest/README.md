@@ -30,4 +30,11 @@ Eight isolated hashes of 16,777,216-unit text:
 
 These measure isolated thread allocations. Single timings show a Unicode tradeoff and do not establish overall loading performance. The [initial String-backed-buffer candidate](archive/string-charbuffer/README.md) also preserved exact keys and reduced allocation but was slower, motivating the reusable array buffer. Its artifact, source and complete audit remain archived. Only the helper source changes between the two candidates; all other 24 build sources retain identical hashes.
 
-Current candidate SHA-256: `b8e903a3292cca032d6b1038d58f5f0b18be4823148e633ca4114263e2a83b6d`. Native startup, F3+T, both DC01 bodies, exact individual caches and saved-fixture restoration are pending. No lower total process RAM or smaller safe heap is claimed from the hashing change alone. v0.2.8 remains delivered; the candidate has not replaced a production instance.
+Current candidate SHA-256: `b8e903a3292cca032d6b1038d58f5f0b18be4823148e633ca4114263e2a83b6d`. One corrected-native-lifecycle [4 GiB startup / actual F3+T run](../../evidence/neoforge-v029-streamed-digest-acceptance.json) passes all 16 packs / 2,541 registrations / 651 completed unique source parses per epoch and 60 seconds of fresh stability. Both DC01 bodies render, with their distinct 5/6-floor and 10/10-doorway caches exactly equal before/after and corrected v0.2.8. The external sampler covers blocked startup parsing and starts before F3+T. No diagnostic GC was requested. The unchanged native callback is recorded in both snapshots.
+
+| Phase | External sampled heap peak | Windows working set peak | Private committed peak |
+| --- | ---: | ---: | ---: |
+| Startup | 3.786 GiB | 4.976 GiB | 5.173 GiB |
+| Actual F3+T | 3.816 GiB | 5.553 GiB | 5.736 GiB |
+
+These are one-run sampled values, not true maxima or a demonstrated process-RAM reduction against the two corrected v0.2.8 runs. Original survival player/window layout and all saved transport fields/inventory, pack hashes/order and fixed other mod hashes verify after normal shutdown. Saved DayTime advances naturally to 338985. The tested instance now holds this candidate; exact v0.2.8 rollback is preserved. Fresh repeat and lower-heap acceptance remain pending. v0.2.8 remains delivered; the candidate has not replaced a production instance.
