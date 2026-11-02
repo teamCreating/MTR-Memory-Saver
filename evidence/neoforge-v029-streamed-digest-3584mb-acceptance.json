@@ -1,0 +1,72 @@
+{
+  "timestamp": "2026-11-03T03:39:02.152647+08:00",
+  "target": {
+    "minecraft": "1.21.1",
+    "mtr": "4.1.0-beta.2"
+  },
+  "mod_loader": "neoforge",
+  "loader_version": "21.1.265",
+  "pid": 25568,
+  "heap_gb": 3.5,
+  "actual_native_heap_max": 3758096384,
+  "memory_companion_sha256": "b8e903a3292cca032d6b1038d58f5f0b18be4823148e633ca4114263e2a83b6d",
+  "jvm_arguments": [
+    "-Xms1G",
+    "-Xmx3584M",
+    "-Djdk.virtualThreadScheduler.parallelism=2",
+    "-Djdk.virtualThreadScheduler.maxPoolSize=2"
+  ],
+  "phases": {
+    "startup": {
+      "status": "registered_and_parsed_stable",
+      "peak_sampled_working_set": 4830101504,
+      "peak_sampled_private_usage": 5004894208,
+      "peak_sampled_heap_used": 3521016376,
+      "peak_external_jstat_heap_used": 3693703680,
+      "external_final_stability_span_seconds": 60.018523,
+      "native_fresh_suffix_span_seconds": 59.994228
+    },
+    "reload": {
+      "status": "registered_and_parsed_stable",
+      "peak_sampled_working_set": 5431054336,
+      "peak_sampled_private_usage": 5617991680,
+      "peak_sampled_heap_used": 3530874088,
+      "peak_external_jstat_heap_used": 3663328154,
+      "external_final_stability_span_seconds": 60.017902,
+      "native_fresh_suffix_span_seconds": 59.988248
+    }
+  },
+  "native_callback_preserved": true,
+  "full_pack_registrations": 2541,
+  "selected_packs": 16,
+  "unique_completed_source_parses_per_epoch": 651,
+  "stable_seconds_per_phase": 60,
+  "both_dc01_bodies_render": true,
+  "individual_native_caches_equal_before_after_and_corrected_v028": true,
+  "passenger_companion_installed": false,
+  "normal_shutdown": true,
+  "player_and_original_layout_restored": true,
+  "saved_transport_fields_and_pack_hashes_order_verified": true,
+  "saved_day_time": 343786,
+  "diagnostic_gc_requested": false,
+  "successful_fresh_processes": 1,
+  "candidate_runtime_context_sha256": "a46fe4a8c5a221f128a3c78a9b99d53e9e096e8c337fe355c724dcd40f8675ad",
+  "allocation_audit_sha256": "062860767682076774bfa654602458fed369501336864356f306e8acb2739b01",
+  "evidence_sha256": {
+    "neoforge-v029-streamed-digest-3584mb-after-reload.json": "a48d467b97d11a2984aebd73c6427fadb22b4c9531f9a8da521eaf2ebd1a85e6",
+    "neoforge-v029-streamed-digest-3584mb-after-reload.png": "39dc65f55b83664037085f954a442fded207b650ec0bfb87d6babc4fee954368",
+    "neoforge-v029-streamed-digest-3584mb-before-reload.json": "2a4951f5faa42c0447f8545c3b640e0ea7a5b99c3d00aae904f551aa1f6bde13",
+    "neoforge-v029-streamed-digest-3584mb-before-reload.png": "879ae1fb764a9898739985fbc30523b96012c85d24e59f7f12d290c9ff8ee7e8",
+    "neoforge-v029-streamed-digest-3584mb-cache-comparison.json": "78eed3a48e29223f38b53a1962dbd2cd55db85005e41d76282977f29ac23fee5",
+    "neoforge-v029-streamed-digest-3584mb-fixture-verified.json": "76ae269b15654a6fe4e1d53437b5427e3821e45cf59c3278207b29bf2f1807c6",
+    "neoforge-v029-streamed-digest-3584mb-input-layout.json": "b4ee79571eb6c5cc08e802e7f8b8ef2704787e35b8271ede5a457febee29dc1c",
+    "neoforge-v029-streamed-digest-3584mb-native.log": "bae3deae676d032f8b6b2ec2b1510631c605cba118eb49a325dc3fa9ccc8d119",
+    "neoforge-v029-streamed-digest-3584mb-reload-heap.json": "a2c46cb3b9838855b87dafd20e9b7dcb09707c3157ed095f59486f31cf8f162c",
+    "neoforge-v029-streamed-digest-3584mb-reload-request.json": "2a9742a22d4c8078ee4fb5dc14e63ac0d438bad4540c142173c47b5607fb2f22",
+    "neoforge-v029-streamed-digest-3584mb-reload.json": "861035e2f897819fde2ee4b5ed83bfdf1280f7e4e0213ba2a43981337acefdac",
+    "neoforge-v029-streamed-digest-3584mb-restored-player.json": "c70aa07c52277faf986d39284d3c28a6315a8eb401f3a485b512b91d1745f089",
+    "neoforge-v029-streamed-digest-3584mb-startup-heap.json": "66abcbbd2aaf5aec1da0ac811c80a2e88a54258b569c385c9e9366d8d1bc8b69",
+    "neoforge-v029-streamed-digest-3584mb-startup.json": "e2e1337ec25f685af9e1e21fd467146fd8a842158213c7ec5cf420ae12005201"
+  },
+  "limits": "One isolated 3.5 GiB corrected-native-lifecycle run; identical lower-heap repeat remains pending. External jstat covers blocked startup parsing and starts before actual F3+T. Sampling clocks differ and observed values are not true maxima. Isolated allocation improvement is not proof of lower retained heap or total process RAM. Full Shanghai windows, passenger candidate, all-vehicle and post-reload gameplay remain incomplete. v0.2.8 remains recommended."
+}

@@ -38,3 +38,15 @@ Current candidate SHA-256: `b8e903a3292cca032d6b1038d58f5f0b18be4823148e633ca411
 | Actual F3+T | 3.816 GiB | 5.553 GiB | 5.736 GiB |
 
 These are one-run sampled values, not true maxima or a demonstrated process-RAM reduction against the two corrected v0.2.8 runs. Original survival player/window layout and all saved transport fields/inventory, pack hashes/order and fixed other mod hashes verify after normal shutdown. Saved DayTime advances naturally to 338985. The tested instance now holds this candidate; exact v0.2.8 rollback is preserved. Fresh repeat and lower-heap acceptance remain pending. v0.2.8 remains delivered; the candidate has not replaced a production instance.
+
+
+## First lower-heap run
+
+The [first 3584 MiB run](../../evidence/neoforge-v029-streamed-digest-3584mb-acceptance.json) passes all-pack startup and actual F3+T, each with 2,541 registrations / 651 completed unique parses / 60 seconds of fresh stability. Both native snapshots confirm a 3.5 GiB actual heap maximum and the original MTR callback. Both DC01 bodies render and exact individual caches match before/after and corrected v0.2.8. Original player/window layout, saved native transport fields, all 16 pack hashes/order and fixed mod hashes verify after normal shutdown. Saved DayTime advances naturally to 343786.
+
+| Phase | External sampled heap peak | Windows working set peak | Private committed peak |
+| --- | ---: | ---: | ---: |
+| Startup | 3.440 GiB | 4.498 GiB | 4.661 GiB |
+| Actual F3+T | 3.412 GiB | 5.058 GiB | 5.232 GiB |
+
+The changed heap cap contributes to process memory differences; this is not a measured code-only RAM reduction. The previous v0.2.8 3.5 GiB repeat failed, so this single candidate pass does not establish a safe lower recommendation. A fresh identical repeat is required. v0.2.8 at 4 GiB remains the recommendation until repeatable candidate acceptance.
