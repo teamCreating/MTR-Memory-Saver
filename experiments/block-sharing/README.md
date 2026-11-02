@@ -1,0 +1,21 @@
+# Content-shared packed blocks (v0.2.4 candidate)
+
+Target: Minecraft 1.21.1 / NeoForge 21.1.265 / official MTR 4.1.0-beta.2. All 22 companion classes outside `PackedVertices` remain byte-identical to v0.2.2. A new lifecycle mixin opens a block pool at native resource-registration entry and releases its keys when registration returns. Existing source sharing, JSON readers, display selection, properties, vehicle state and interaction caches remain independent.
+
+The pool shares immutable compressed vertex blocks by vertex count and complete byte contents. Equal hashes alone never establish equality. Each encoded stream contains every raw position/UV/normal float bit and ARGB value in order. Textures, render stages and group names belong to separate native model stores; they are not merged by the pool. Repeated references still emit every vertex with its original multiplicity and transformations.
+
+Concurrent publication uses a content-comparing map. A read/write lock keeps epoch reset/release from racing with insertion. Pool ownership ends at registration completion; parsed meshes retain their immutable blocks. A closed pool remains empty during later uploads, and a new reload starts fresh ownership. The earlier immutable transformed views remain, but v0.2.3 alone produced no measured RAM reduction and is retained only as an experiment.
+
+Synthetic official-release checks pass 1,400,028 vertices and all GPU emission arguments. The snapshot audit checks 17,024 more vertices. A separate 33,152-vertex block audit inspects physical array identity across 128 concurrent sources, checks intentional hash collisions and count differences, preserves repeated append, verifies release, and verifies a fresh epoch. The previous v0.2.3 correctly fails this block-sharing control by retaining 128 separate arrays. Offline Log4j formatting warnings are preserved.
+
+The native parser/geometry audit passes all 391 Shanghai models / 47,373,240 vertices / 35,688 bounds. Ordinary full-pack runtime/memory acceptance remains pending. The block-audit result establishes storage correctness, not production RAM savings or a new supported heap. Keep the tested v0.2.2 delivery until runtime acceptance confirms a useful improvement.
+
+```powershell
+python -X utf8 tools/build_vehicle_memory_mod.py --instance .cache/game-test/neoforge-instance --javac '<Java 21 javac.exe>' --packed-meshes --prune-displays --share-json --share-meshes --intern-blocks --output vehicle-memory/experiments/block-sharing/mtr-memory-sharing-neoforge-v024.jar
+python -X utf8 tools/audit_packed_mesh.py --instance .cache/game-test/neoforge-instance --java '<Java 21 java.exe>' --candidate vehicle-memory/experiments/block-sharing/mtr-memory-sharing-neoforge-v024.jar --output vehicle-memory/experiments/block-sharing/synthetic-results.json
+python -X utf8 tools/audit_packed_mesh.py --instance .cache/game-test/neoforge-instance --java '<Java 21 java.exe>' --candidate vehicle-memory/experiments/block-sharing/mtr-memory-sharing-neoforge-v024.jar --snapshot-sharing --output vehicle-memory/experiments/block-sharing/snapshot-results.json
+python -X utf8 tools/audit_packed_mesh.py --instance .cache/game-test/neoforge-instance --java '<Java 21 java.exe>' --candidate vehicle-memory/experiments/block-sharing/mtr-memory-sharing-neoforge-v024.jar --block-sharing --output vehicle-memory/experiments/block-sharing/pool-results.json
+python -X utf8 tools/audit_packed_mesh.py --instance .cache/game-test/neoforge-instance --java '<Java 21 java.exe>' --candidate vehicle-memory/experiments/block-sharing/mtr-memory-sharing-neoforge-v024.jar --jobs vehicle-memory/experiments/shared-mesh/shanghai-jobs.json --output vehicle-memory/experiments/block-sharing/shanghai-release-results.json
+```
+
+Use fresh output labels to preserve another run. Model audits report encoded requested/unique payload bytes in a `.sharing.json` sidecar; those counts include repeat packing for independent bounds comparisons, exclude object overhead, and are not heap measurements. Runtime logs report each pool epoch and release. Ordinary acceptance uses both render-thread state and external read-only `jstat` counters, with diagnostic GC kept separate afterward. Install only into the stopped marked test client after auditing.
