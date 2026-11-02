@@ -1,6 +1,35 @@
 # MTR client memory companions
 
-Current optimization target: **Minecraft 1.21.1 / NeoForge 21.1.265 / official MTR 4.1.0-beta.2**. Recommended tested companion: [mtr-memory-sharing-neoforge-v027.jar](mtr-memory-sharing-neoforge-v027.jar), version **0.2.7**.
+Current optimization target: **Minecraft 1.21.1 / NeoForge 21.1.265 / official MTR 4.1.0-beta.2**. Recommended tested companion: [mtr-memory-sharing-neoforge-v028.jar](mtr-memory-sharing-neoforge-v028.jar), version **0.2.8**.
+
+v0.2.8 restores large compressed resource-text cache hits through bounded UTF-16 segments, avoiding a complete temporary char array. Small inputs retain the previous path. It preserves exact code units, first-read identity, packing, concurrent reads, reload ownership, geometry, textures and native interaction data. Thirty v0.2.7 classes are byte-identical; only the nested Text implementation changes behavior, while its enclosing cache has identical native instructions with shifted debug lines. All 8,534 real input roundtrips and 44 actual-baseline boundary comparisons pass. Isolated cache-hit allocations fall **32.75% for ASCII / 39.61% for mixed text**; full Unicode grows 0.46% and small input allocation is unchanged. [Implementation, controls and reproduction](experiments/segmented-unpack/README.md).
+
+**Two fresh 4 GiB clients each pass ordinary startup and actual foreground F3+T reload**, all **16 packs / 2,541 vehicles / 290 objects / 23 rails**, with 651 unique source parses and 60 seconds of continuous fresh completed observations in every epoch. Both actual DC01 bodies render; their distinct 5/6-floor and 10/10-doorway caches match v0.2.7 exactly before/after reload. The first run captures open doors and the repeat captures closed doors. No diagnostic GC was requested. Original player/window layout, saved transport inventory/fields, pack hashes/order and mod identities verify after normal shutdown. [Acceptance and fingerprints](evidence/neoforge-v028-acceptance.json).
+
+| Test | Sampled Java heap peak | Windows working set peak | Private committed peak |
+| --- | ---: | ---: | ---: |
+| First startup | 3.807 GiB | 5.015 GiB | 5.184 GiB |
+| First reload | 3.841 GiB | 5.551 GiB | 5.720 GiB |
+| Repeat startup | 3.793 GiB | 5.018 GiB | 5.185 GiB |
+| Repeat reload | 3.964 GiB | 5.593 GiB | 5.758 GiB |
+
+These are sampled peaks in an isolated fixture, not true maxima or production-world guarantees. Process startup peaks are about 5.02 GiB; reload still reaches about 5.6 GiB. The allocation reduction does not establish lower retained heap or lower total reload RAM than v0.2.7. Both runs kept experimental passenger v0.1.1 and the unchanged read-only probe fixed; the fixture-control probe was absent.
+
+**4 GiB is the lowest repeatably verified heap.** Three GiB exhausts the heap during startup. One complete 3.5 GiB run passed, but its fresh repeat reload failed at the native reader's final String allocation and recovered to only 423 built-ins; that recovery is not all-pack success. Both failures and restored selections are preserved. Wider Shanghai windows, all-vehicle gameplay and passenger re-entry/exit acceptance remain open; the passenger companion is still experimental.
+
+Install exactly one memory companion in the NeoForge client's `mods` directory alongside the matching official MTR release, replacing the previous memory companion. Keep repaired ZIPs in `resourcepacks`. Use Java 21 and these tested arguments:
+
+```text
+-Xms1G -Xmx4G
+-Djdk.virtualThreadScheduler.parallelism=2
+-Djdk.virtualThreadScheduler.maxPoolSize=2
+```
+
+SHA-256: `d934a8d255be16253c753b061e7d92d942985c0ee7debc1892c90ef7ecfdb40c`. Keep [v0.2.7](mtr-memory-sharing-neoforge-v027.jar) and [v0.2.2](mtr-memory-sharing-neoforge-v022.jar) for rollback. The stopped isolated client retains the exact tested v0.2.8/mod context; no production instance was replaced.
+
+## Earlier v0.2.7 results
+
+Previously tested companion target: **Minecraft 1.21.1 / NeoForge 21.1.265 / official MTR 4.1.0-beta.2**. Earlier companion: [mtr-memory-sharing-neoforge-v027.jar](mtr-memory-sharing-neoforge-v027.jar), version **0.2.7**.
 
 v0.2.7 retains v0.2.6's lossless compressed text cache and changes the native resource-text reader to bounded segments with one final String allocation. All 30 v0.2.6 class entries remain byte-identical. The active commons-io decoder comparison passes all 8,534 real text inputs and 51 synthetic cases; isolated reader allocations fall 58.1% for ASCII and 44.2% for Unicode. Geometry, textures and native interaction data are preserved. [Implementation and reproduction](experiments/segmented-reader/README.md).
 

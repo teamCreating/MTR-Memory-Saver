@@ -1,0 +1,235 @@
+{
+  "timestamp": "2026-11-03T01:37:54.844047+08:00",
+  "heap_gib": 4,
+  "phases": {
+    "startup": {
+      "pid": 21372,
+      "status": "registered_and_parsed_stable",
+      "peak_sampled_working_set": 5388083200,
+      "peak_sampled_private_usage": 5567807488,
+      "external_peak_sampled_heap_used": 4072705536,
+      "observation_count": 13
+    },
+    "reload": {
+      "pid": 21372,
+      "status": "registered_and_parsed_stable",
+      "peak_sampled_working_set": 6005317632,
+      "peak_sampled_private_usage": 6182109184,
+      "external_peak_sampled_heap_used": 4255871386,
+      "observation_count": 14
+    }
+  },
+  "native_caches_equal": true,
+  "native_caches": [
+    {
+      "vehicle_id": "mtr_custom_train_dc01_update_cab_1_native_7ea57bf708e8",
+      "cache_floors": [
+        "AABB[-1.2999999523162842, 0.9375, -13.600000381469727] -> [1.2999999523162842, 0.9375, -5.900000095367432]",
+        "AABB[-1.2999999523162842, 0.9375, -5.800000190734863] -> [1.2999999523162842, 0.9375, -0.8999999761581421]",
+        "AABB[-1.2999999523162842, 0.9375, -0.800000011920929] -> [1.2999999523162842, 0.9375, 4.099999904632568]",
+        "AABB[-1.2999999523162842, 0.9375, 4.199999809265137] -> [1.2999999523162842, 0.9375, 9.100000381469727]",
+        "AABB[-1.2999999523162842, 0.9375, 9.199999809265137] -> [1.2999999523162842, 0.9375, 12.100000381469727]"
+      ],
+      "cache_doorways": [
+        "AABB[-1.706230640411377, 0.9375, -0.90625] -> [-1.0, 0.9375, 0.90625]",
+        "AABB[-1.706230640411377, 0.9375, -5.90625] -> [-1.0, 0.9375, -4.09375]",
+        "AABB[-1.706230640411377, 0.9375, -10.90625] -> [-1.0, 0.9375, -9.09375]",
+        "AABB[-1.706230640411377, 0.9375, 4.09375] -> [-1.0, 0.9375, 5.90625]",
+        "AABB[-1.706230640411377, 0.9375, 9.09375] -> [-1.0, 0.9375, 10.90625]",
+        "AABB[1.0, 0.9375, -0.90625] -> [1.706230640411377, 0.9375, 0.90625]",
+        "AABB[1.0, 0.9375, 4.09375] -> [1.706230640411377, 0.9375, 5.90625]",
+        "AABB[1.0, 0.9375, 9.09375] -> [1.706230640411377, 0.9375, 10.90625]",
+        "AABB[1.0, 0.9375, -5.90625] -> [1.706230640411377, 0.9375, -4.09375]",
+        "AABB[1.0, 0.9375, -10.90625] -> [1.706230640411377, 0.9375, -9.09375]"
+      ]
+    },
+    {
+      "vehicle_id": "mtr_custom_train_dc01_update_cab_2_native_7b8391aef2c8",
+      "cache_floors": [
+        "AABB[-1.2999999523162842, 0.9375, -12.100000381469727] -> [1.2999999523162842, 0.9375, -10.899999618530273]",
+        "AABB[-1.2999999523162842, 0.9375, -10.800000190734863] -> [1.2999999523162842, 0.9375, -5.900000095367432]",
+        "AABB[-1.2999999523162842, 0.9375, -5.800000190734863] -> [1.2999999523162842, 0.9375, -0.8999999761581421]",
+        "AABB[-1.2999999523162842, 0.9375, -0.800000011920929] -> [1.2999999523162842, 0.9375, 4.099999904632568]",
+        "AABB[-1.2999999523162842, 0.9375, 4.199999809265137] -> [1.2999999523162842, 0.9375, 9.100000381469727]",
+        "AABB[-1.2999999523162842, 0.9375, 9.199999809265137] -> [1.2999999523162842, 0.9375, 13.600000381469727]"
+      ],
+      "cache_doorways": [
+        "AABB[-1.706230640411377, 0.9375, -0.90625] -> [-1.0, 0.9375, 0.90625]",
+        "AABB[-1.706230640411377, 0.9375, -5.90625] -> [-1.0, 0.9375, -4.09375]",
+        "AABB[-1.706230640411377, 0.9375, -10.90625] -> [-1.0, 0.9375, -9.09375]",
+        "AABB[-1.706230640411377, 0.9375, 4.09375] -> [-1.0, 0.9375, 5.90625]",
+        "AABB[-1.706230640411377, 0.9375, 9.09375] -> [-1.0, 0.9375, 10.90625]",
+        "AABB[1.0, 0.9375, -0.90625] -> [1.706230640411377, 0.9375, 0.90625]",
+        "AABB[1.0, 0.9375, 4.09375] -> [1.706230640411377, 0.9375, 5.90625]",
+        "AABB[1.0, 0.9375, 9.09375] -> [1.706230640411377, 0.9375, 10.90625]",
+        "AABB[1.0, 0.9375, -5.90625] -> [1.706230640411377, 0.9375, -4.09375]",
+        "AABB[1.0, 0.9375, -10.90625] -> [1.706230640411377, 0.9375, -9.09375]"
+      ]
+    }
+  ],
+  "render_review": "Both actual DC01 bodies and closed doors render before/after this repeat reload; first 4 GiB run independently shows open doors after reload.",
+  "cleanup": {
+    "timestamp": "2026-11-03T01:36:18.744179+08:00",
+    "pid": 21372,
+    "reference_sha256": "042d523a17d7c6721f53ccb6f04914a9a15a726fb6590135bd3e50580c29d825",
+    "values": {
+      "sidings": [
+        {
+          "id": -6304466250560538598,
+          "vehicleCars": [
+            {
+              "vehicleId": "mtr_custom_train_dc01_update_cab_1_native_7ea57bf708e8",
+              "length": 25.0,
+              "width": 2.0,
+              "capacity": 0,
+              "bogie1Position": -8.5,
+              "bogie2Position": 8.5,
+              "couplingPadding1": 1.0,
+              "couplingPadding2": 0.0
+            },
+            {
+              "vehicleId": "mtr_custom_train_dc01_update_cab_2_native_7b8391aef2c8",
+              "length": 25.0,
+              "width": 2.0,
+              "capacity": 0,
+              "bogie1Position": -8.5,
+              "bogie2Position": 8.5,
+              "couplingPadding1": 0.0,
+              "couplingPadding2": 1.0
+            }
+          ]
+        }
+      ],
+      "depots": [
+        {
+          "id": 8805550386485521715,
+          "routeIds": [
+            1634058583976595067
+          ],
+          "useRealTime": false,
+          "frequencies": [
+            60,
+            60,
+            60,
+            60,
+            60,
+            60,
+            60,
+            60,
+            60,
+            60,
+            60,
+            60,
+            60,
+            60,
+            60,
+            60,
+            60,
+            60,
+            60,
+            60,
+            60,
+            60,
+            60,
+            60
+          ],
+          "repeatInfinitely": false
+        }
+      ],
+      "platforms": [
+        {
+          "id": 165694310607733568,
+          "dwellTime": 120000
+        },
+        {
+          "id": 7620670858014251768,
+          "dwellTime": 120000
+        }
+      ]
+    },
+    "inventory_counts": {
+      "sidings": 1,
+      "depots": 1,
+      "platforms": 2,
+      "routes": 1
+    },
+    "player_reference_sha256": "7bb678b694c9468279259d8972ec10f5726f2357e7d66d27bb53835787c8526d",
+    "script_sha256": "bb367624a71686602c247a35573f072025f202faf1228506830f38414e89bd42",
+    "normal_shutdown": true,
+    "player_restored": true,
+    "saved_player": {
+      "position": [
+        38.5,
+        4.0,
+        15.5
+      ],
+      "yaw": -180.0,
+      "game_type": 0
+    },
+    "saved_day_time": 308577,
+    "pack_hashes_verified": 16,
+    "selected_packs": [
+      "[AI车门修复][MTR] Taiwan Train V000 EMU3000 20251107.zip",
+      "[AI车门修复][材质模型包]悠日计画 交通运输类模型 8.2505.1.zip",
+      "[AI车门修复]ChenDianMetroWayV0.5.1R.zip",
+      "[AI车门修复]HSM-2000 v1.2.1 (Adapted for MTR 4.0.x)-20260722-210944.zip",
+      "[AI车门修复]rpsync-mtr4.0.0-hxd3d-yw25t.zip",
+      "[AI车门修复]rpsync-shanghaimetroaddon_v3.4.0_creating_trimmed_v2.zip",
+      "[AI车门修复]ShirahaneVehicle v2.4.3 release_hotfix1.zip",
+      "[AI车门修复]STCP Bus Pack.zip",
+      "[AI车门修复]Zhongtong Base Pack - 1.1.0.zip",
+      "[AI车门修复]§9§l现代城市系列追加包§7-v2.0.zip",
+      "[AI车门修复]悠日交通资源包part3-260708.zip",
+      "[AI车门修复]悠日计画 故事模式用材质 8.2504.zip",
+      "[AI车门修复]悠日计画交通资源包part2 release v2.1-hotfix2.zip",
+      "[AI车门修复]新艾利都地铁_疾锋龙号(性能优化版).zip",
+      "[AI车门修复]新铁路铁轨基本轨包BY默淼yams.zip",
+      "[AI车门修复]新艾利都地铁 ERIDU-10000一期改造型.zip"
+    ],
+    "mods": [
+      {
+        "filename": "mtr-memory-sharing-neoforge.jar",
+        "sha256": "d934a8d255be16253c753b061e7d92d942985c0ee7debc1892c90ef7ecfdb40c"
+      },
+      {
+        "filename": "MTR-neoforge-4.1.0-beta.2+1.21.1.jar",
+        "sha256": "ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa"
+      },
+      {
+        "filename": "mtr-passenger-transition-neoforge.jar",
+        "sha256": "6ed678ccdd6f51bed9dba0e30368e2d136b14c3ae704d225db8031a4250e5845"
+      },
+      {
+        "filename": "vehicle-memory-probe.jar",
+        "sha256": "3f2e79227a623de97e3de026623e61bab16ec7deedfdd099461881657e63a8bb"
+      }
+    ],
+    "method": "Read-only saved NBT and first complete MessagePack map; trailing old bytes are preserved.",
+    "limits": "Verifies fixture restoration and fingerprints; runtime rendering and memory acceptance are separate."
+  },
+  "diagnostic_gc_requested": false,
+  "evidence_sha256": {
+    "neoforge-v028-4gb-repeat-after-reload.json": "302438b30d96f71a2882d61a4c5b3b2497c0c0ccbbfb94007bcf0d7316c2a9d6",
+    "neoforge-v028-4gb-repeat-after-reload.png": "bf274e3127217e5fdaa329f008cadf0235915f8fa1e7880b9d53c0b795b92bc6",
+    "neoforge-v028-4gb-repeat-before-reload.json": "b4b860eb2971e6101a926e87dbb2fe9d97108d026e6dcaccb81ffedc5b0d7a59",
+    "neoforge-v028-4gb-repeat-before-reload.png": "cd6efc8acbab47f4fda59eb614c9e16c0291da7402c262859e068a0c5038a589",
+    "neoforge-v028-4gb-repeat-fixture-verified.json": "f8476725bc0dfcdd8013cbf875d41c42c4f2b4adc18bdccd95dd591ebe5d7e4c",
+    "neoforge-v028-4gb-repeat-input-layout.json": "8b540bbba9559441b3336987dbcfded7c15b938241ca69c188745e490b056326",
+    "neoforge-v028-4gb-repeat-native.log": "80f42834b5ff32fbbbae81ef7bf071f069d28dc34f0dc95eb0aa47b94c497de2",
+    "neoforge-v028-4gb-repeat-reload-heap.json": "14521cf4611a254a96aaf7a1ab8df8294f4baf6631255fd59820f9708283ec89",
+    "neoforge-v028-4gb-repeat-reload-heap.log": "5c37b6c114d639c95faf2ad70e2e52b64bc27e18a336763aa2438ba2f6a05ec5",
+    "neoforge-v028-4gb-repeat-reload-load.log": "8620785dc259882a3902810f6e3be53b68832a20992a27e6cb4c7eccb3d47777",
+    "neoforge-v028-4gb-repeat-reload-request.json": "6327ee1bc31c490f4289ab84c1426dc15a935d5fddbd34411e5ac105d7ff0479",
+    "neoforge-v028-4gb-repeat-reload.json": "838ce56c1f9067355bacb018eb70bc43e409f4dbcb55bf88fcd1519e7d6c3489",
+    "neoforge-v028-4gb-repeat-restored-player.json": "0e75afde752c5d063fd8a3cc2da084a56641f369715c5a03acb39c78d343bb4b",
+    "neoforge-v028-4gb-repeat-session.log": "6858898f2d3147017953ecdbe6908a051dc96eafca179c0061009ca2a66a3e50",
+    "neoforge-v028-4gb-repeat-startup-heap.json": "e99587b21fb620a56c6c770bfbe120737433c4983f8a9b4a308a357b8ea55197",
+    "neoforge-v028-4gb-repeat-startup-heap.log": "a42de3fc896bd057345ba5c289bfedccae633d8c891f46cccd4cdf98d46a32eb",
+    "neoforge-v028-4gb-repeat-startup-load.log": "7bb741e5d68bfac17ba1f8bc8ab2f076832fad272636ff28520c73fac4129003",
+    "neoforge-v028-4gb-repeat-startup.json": "2fc11b3825c3a0146e77a39fbacac5f591a5135affcd7bd364fcda236b46a374",
+    "neoforge-v028-4gb-repeat-title.json": "01a99854d1746257e471656d271d9bd0ef2741aeabff70a4fcfadf835af0ec40",
+    "neoforge-v028-4gb-repeat-title.png": "2f221f49120a317dd25db0db630127a1b3a5ece421b7e4ec8e47a8c51e31ff28",
+    "neoforge-v028-4gb-repeat-world-selection.json": "07b791b4d93461b80524215061f9d7e2f0d053c79d0722a2931257681e1776ee",
+    "neoforge-v028-4gb-repeat-world-selection.png": "9e11afa66162245dc1611781446d6f13f12073b760bc71c66be1b1d202b5ef50"
+  }
+}
