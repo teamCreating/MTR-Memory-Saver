@@ -1,0 +1,25 @@
+{
+  "release_sha256": "ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa",
+  "bytecode_sha256": "94ac5b331d7b8ab991033ff8ab9814f90ad7a2c58ffa76d044674952e4540826",
+  "method": "readResource(Lnet/minecraft/resources/ResourceLocation;)Ljava/lang/String;",
+  "redirect_offset": 15,
+  "target": "ConcurrentMap.computeIfAbsent(Object,Function):Object",
+  "reader": "Unchanged native lambda$readResource$22(ResourceLocation,String):String passed as the original Function",
+  "cache_field_uses": [
+    "reload HEAD clear",
+    "readResource computeIfAbsent",
+    "class initializer allocate"
+  ],
+  "new_lifetime_hooks": [
+    "reload HEAD replace map",
+    "reload RETURN log payload counts and replace map"
+  ],
+  "unchanged_behavior": [
+    "resource ID key",
+    "native pack-priority resolution",
+    "native debug path",
+    "missing and empty content",
+    "read exceptions and retry",
+    "model/texture/interaction processing"
+  ]
+}
