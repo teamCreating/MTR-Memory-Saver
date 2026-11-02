@@ -1,7 +1,7 @@
 package dev.abenli.mtrmemory.mixin;
 
 import dev.abenli.mtrmemory.SharedBlockbenchCache;
-import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentMap;
 import org.mtr.MTR;
 
 import org.mtr.client.CustomResourceLoader;
@@ -14,7 +14,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(value = CustomResourceLoader.class, remap = false)
 abstract class ResourceReloadMixin {
-    @Shadow @Final private static ConcurrentHashMap<String, String> RESOURCE_CACHE;
+    @Shadow @Final private static ConcurrentMap<String, String> RESOURCE_CACHE;
     @Inject(method = "reload", at = @At("HEAD"))
     private static void startEpoch(CallbackInfo callback) {
         SharedBlockbenchCache.beginReload();
