@@ -1,0 +1,43 @@
+{
+  "timestamp": "2026-11-03T01:02:26.295300+08:00",
+  "target": {
+    "minecraft": "1.21.1",
+    "mtr": "4.1.0-beta.2"
+  },
+  "mod_loader": "neoforge",
+  "heap_gib": 3,
+  "accepted": false,
+  "world_opened": false,
+  "candidate_sha256": "d934a8d255be16253c753b061e7d92d942985c0ee7debc1892c90ef7ecfdb40c",
+  "load_report_status": "model_load_failed",
+  "failure_lines": [
+    "java.lang.OutOfMemoryError: Java heap space: failed reallocation of scalar replaced objects",
+    "java.lang.OutOfMemoryError: Java heap space: failed reallocation of scalar replaced objects",
+    "\t  java.lang.OutOfMemoryError: Java heap space: failed reallocation of scalar replaced objects",
+    "\t  java.lang.OutOfMemoryError: Java heap space: failed reallocation of scalar replaced objects"
+  ],
+  "external_heap_status": "jstat_unavailable_or_process_exited",
+  "cleanup": {
+    "timestamp": "2026-11-03T01:01:53.943197+08:00",
+    "pid": 11252,
+    "forced_stop": false,
+    "native_close_attempt": "Actual foreground Alt+F4 before cleanup; OOM client did not complete native close if forced_stop is true.",
+    "world_opened": false,
+    "process_identity_verified": false,
+    "failure": "Java heap space during all-pack startup at 3 GiB",
+    "minimum_heap_3gib_accepted": false
+  },
+  "selection_restored": true,
+  "reason": "Explicit Java heap-space failures during full-pack registration; no 3 GiB recommendation.",
+  "evidence_sha256": {
+    "neoforge-v028-3gb-cleanup.json": "64a6259752f5a48ad2f4b333f137fe394e0bd93785db67680572695e6a1fe8fb",
+    "neoforge-v028-3gb-context.json": "341f9a843b163c02b3ceb372b2eba7b036a198e985c7ec40b5c48bdfe8deeb34",
+    "neoforge-v028-3gb-failed-native.log": "92d0bd654d81f761acefe5696626a6991abebb833ebd5a0e7f455a743eb4c818",
+    "neoforge-v028-3gb-failed-session.log": "932568ffb165aca30283f8956827744c59834ba7d8db9272d7d39205e017fb6d",
+    "neoforge-v028-3gb-oom-native.log": "94a31e1b5b44ce2bd39fee255e7ea8acad8d959125b12c446e1553d49f1848d5",
+    "neoforge-v028-3gb-startup-heap.json": "57c018b1212474427141c6d5790c347441cb7790a038066f03f83113af992dbe",
+    "neoforge-v028-3gb-startup-heap.log": "bc584ecdfbb2122a4703e1032c8447247531753e527259d4c83035576e40870c",
+    "neoforge-v028-3gb-startup-load.log": "27ededf9b4faab997b647ea029c4c3bdf61a445eb86e6977dadd0ffc29f9b2af",
+    "neoforge-v028-3gb-startup.json": "cc3a69cd26f63f7a7f541a9404a4acc7cc48cb07f5d18de57e4262970393e379"
+  }
+}

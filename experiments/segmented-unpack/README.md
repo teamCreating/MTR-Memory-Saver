@@ -1,6 +1,6 @@
 # Bounded compressed resource-text restoration
 
-Target: Minecraft 1.21.1 / NeoForge 21.1.265 / official MTR 4.1.0-beta.2. Candidate: `mtr-memory-sharing-neoforge-v028.jar`, version 0.2.8. **One fresh 4 GiB startup and actual F3+T reload passed; 3 GiB exploration and repeatability pending.** Keep delivered v0.2.7 for rollback.
+Target: Minecraft 1.21.1 / NeoForge 21.1.265 / official MTR 4.1.0-beta.2. Candidate: `mtr-memory-sharing-neoforge-v028.jar`, version 0.2.8. **One fresh 4 GiB startup and actual F3+T reload passed. Three GiB startup failed; 3.5 GiB exploration and repeatability pending.** Keep delivered v0.2.7 for rollback.
 
 v0.2.7 restores a compressed cache hit through a complete `char[length]` and then copies it into a String. v0.2.8 bounds that temporary array to 4096 UTF-16 units, restores each inflater read as a String segment, and joins the segments once. Inputs up to 4096 units retain the original one-array path. Arbitrary UTF-16 units, including unpaired surrogates, are preserved; odd byte reads carry their high byte into the next read. Length validation and native cache ownership are preserved. Packing, first-read identity, null/error handling, epoch replacement and the existing native reader are unchanged.
 
@@ -39,4 +39,10 @@ Use fresh evidence output names. Build alone does not install into the test inst
 | Startup | 3.807 GiB | 5.015 GiB | 5.184 GiB |
 | F3+T reload | 3.841 GiB | 5.551 GiB | 5.720 GiB |
 
-This is one process; sampled values are not true maxima or production-world limits. The first reload process-monitor invocation failed when PowerShell converted the offset timestamp into a locale date. The successful retry began during parsing; the separate heap monitor covered the reload event. Initial failure evidence is retained. Existing transparent-model, sound and SDK-session authentication messages also occur in the previous tested client and remain visible in complete logs. Three GiB feasibility and repeatability remain open; wider Shanghai windows and passenger/vehicle gameplay remain separate unfinished work.
+This is one process; sampled values are not true maxima or production-world limits. The first reload process-monitor invocation failed when PowerShell converted the offset timestamp into a locale date. The successful retry began during parsing; the separate heap monitor covered the reload event. Initial failure evidence is retained. Existing transparent-model, sound and SDK-session authentication messages also occur in the previous tested client and remain visible in complete logs. Wider Shanghai windows and passenger/vehicle gameplay remain separate unfinished work.
+
+## Lower-heap boundary
+
+[Three GiB failure](../../evidence/neoforge-v028-3gb-failure.json): full-pack startup reached 500 completed source parses, then explicit Java heap-space errors and heavy full GC. It never opened an integrated world. Actual foreground Alt+F4 closed the client; no forced stop was required. The complete failure, independent heap monitor and unchanged mod context are preserved, and all 16 verified pack selections were restored. **Three GiB is not accepted.**
+
+The marked test launcher now supports an exact MiB limit through `--heap-mb`, mutually exclusive with `--heap-gb`. A 3584 MiB experiment uses the valid native Java argument `-Xmx3584M`, recorded as 3.5 GiB; integer GiB launches keep their previous arguments. The intermediate experiment remains pending.
