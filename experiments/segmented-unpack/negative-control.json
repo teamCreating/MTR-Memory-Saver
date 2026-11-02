@@ -1,0 +1,10 @@
+{
+  "timestamp": "2026-11-03T00:44:25.281380+08:00",
+  "baseline_sha256": "3efb9abd068998f1605639a1d6d6145a67cee978f1f3dae29bcfc4ac542badd5",
+  "candidate_sha256": "3efb9abd068998f1605639a1d6d6145a67cee978f1f3dae29bcfc4ac542badd5",
+  "audit_source_sha256": "6484e08887cb404e3caf43ba25c936b442882ec7863d4185123cf958146755bd",
+  "exit_code": 1,
+  "expected_failure": "No meaningful ASCII allocation reduction",
+  "passed": true,
+  "method": "The same allocation acceptance rejects unchanged v0.2.7 as its own candidate."
+}
