@@ -1,0 +1,29 @@
+{
+  "release_sha256": "ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa",
+  "factory_callers": [
+    "org/mtr/resource/ObjectResource.class",
+    "org/mtr/resource/RailResource.class",
+    "org/mtr/resource/VehicleModel.class"
+  ],
+  "vehicle_constructor_factory_offsets": [
+    83,
+    37,
+    75
+  ],
+  "vehicle_constructor_supplier_offsets": [
+    99,
+    47,
+    91
+  ],
+  "supplier_constructs_properties_before_return": true,
+  "native_parse_finished_owner": "org/mtr/model/BlockbenchModelLoader",
+  "native_parse_finished_call_offsets": [
+    50,
+    72,
+    80
+  ],
+  "bytecode_sha256": {
+    "released-loader.javap.txt": "a706ab7abbbbfbba775694761d7493c76456215ddcde7a872bf08768dc8c9672",
+    "released-vehicle-model.javap.txt": "7cc06c455df3711de9fd9a54a6daf400ea180823e793c536c6c3eb200be3de94"
+  }
+}

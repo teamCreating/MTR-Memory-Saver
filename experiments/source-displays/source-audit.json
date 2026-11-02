@@ -1,0 +1,45 @@
+{
+  "candidate_sha256": "781cdf3d2dbde4e000b27d13eb466a6b42f29fc37b8171e3e6a295090e416a73",
+  "baseline_sha256": "b0141879926c0f87bcd109fb081b81cd7effcfba7796322928c7cdd3e19fd730",
+  "release_sha256": "ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa",
+  "unchanged_class_entries": [
+    "dev/abenli/mtrmemory/DisplayRetention$Loader.class",
+    "dev/abenli/mtrmemory/DisplayRetention.class",
+    "dev/abenli/mtrmemory/PackedModelGroupAccess.class",
+    "dev/abenli/mtrmemory/PackedModelGroupOperations.class",
+    "dev/abenli/mtrmemory/PackedModelGroupStore.class",
+    "dev/abenli/mtrmemory/PackedVertexEmitter.class",
+    "dev/abenli/mtrmemory/PackedVertices$1Writer.class",
+    "dev/abenli/mtrmemory/PackedVertices$Block.class",
+    "dev/abenli/mtrmemory/PackedVertices$Sink.class",
+    "dev/abenli/mtrmemory/PackedVertices$Source.class",
+    "dev/abenli/mtrmemory/PackedVertices.class",
+    "dev/abenli/mtrmemory/VehicleJsonCache.class",
+    "dev/abenli/mtrmemory/mixin/DisplayPartAccess.class",
+    "dev/abenli/mtrmemory/mixin/DisplaySelectionMixin.class",
+    "dev/abenli/mtrmemory/mixin/ModelLoaderAccess.class",
+    "dev/abenli/mtrmemory/mixin/ModelLoaderCompletionMixin.class",
+    "dev/abenli/mtrmemory/mixin/PackedModelGroupMixin.class",
+    "dev/abenli/mtrmemory/mixin/ResourceReloadMixin.class",
+    "dev/abenli/mtrmemory/mixin/SourceLifetimeMixin.class",
+    "dev/abenli/mtrmemory/mixin/VehicleJsonCacheMixin.class",
+    "dev/abenli/mtrmemory/mixin/VehicleJsonEpochMixin.class",
+    "dev/abenli/mtrmemory/mixin/VehicleModelFactoryMixin.class",
+    "dev/abenli/mtrmemory/mixin/VertexColorMixin.class"
+  ],
+  "sources": {
+    "tools\\SourceDisplaySelectionAudit.java": "d1383cef2a709ce02e8951a9052f89a12002a0739659eb19ce001c9591ec3e2f",
+    "tools\\DisplayRetentionAudit.java": "feaa6ade3347bdb15530d13f91356b1b1f034382bfe9b1f66cbe3015f9bf3f90"
+  },
+  "results": {
+    "registry": {
+      "exit_code": 0,
+      "result_sha256": "d5f9de12d46b00378a3396dbf7b38cd850bb346844975ae4ff5aeed76d735752"
+    },
+    "consumer": {
+      "exit_code": 0,
+      "result_sha256": "79e9d0203b066b0bd89f184ecfb29fcc9fe79ee2f241ce003eece1a53e1c0510"
+    }
+  },
+  "limits": "Registry predicates and exact-release consumer behavior; native constructor/mixin/runtime acceptance remains separate."
+}
