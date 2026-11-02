@@ -1,0 +1,104 @@
+{
+  "timestamp": "2026-11-03T04:57:38.766754+08:00",
+  "target": {
+    "minecraft": "1.21.1",
+    "mtr": "4.1.0-beta.2"
+  },
+  "mod_loader": "neoforge",
+  "loader_version": "21.1.265",
+  "pid": 24924,
+  "jvm_arguments": [
+    "-Xms1G",
+    "-Xmx4G",
+    "-Djdk.virtualThreadScheduler.parallelism=2",
+    "-Djdk.virtualThreadScheduler.maxPoolSize=2"
+  ],
+  "mods": [
+    {
+      "filename": "mtr-memory-sharing-neoforge.jar",
+      "sha256": "b8e903a3292cca032d6b1038d58f5f0b18be4823148e633ca4114263e2a83b6d"
+    },
+    {
+      "filename": "MTR-neoforge-4.1.0-beta.2+1.21.1.jar",
+      "sha256": "ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa"
+    },
+    {
+      "filename": "mtr-passenger-transition-neoforge.jar",
+      "sha256": "6ed678ccdd6f51bed9dba0e30368e2d136b14c3ae704d225db8031a4250e5845"
+    },
+    {
+      "filename": "vehicle-fixture-probe.jar",
+      "sha256": "4ff35e138316e693f3dcbeb5e1313e5748dd792048a127a7080d2e7e1c976166"
+    },
+    {
+      "filename": "vehicle-memory-probe.jar",
+      "sha256": "f866ade219b5db23b2798e19f40911db71c78ff9f67862b244f1e84f5a1e197f"
+    }
+  ],
+  "selected_pack_count": 16,
+  "registrations": 2541,
+  "completed_unique_source_parses_per_epoch": 651,
+  "completed_parse_log_lines": [
+    "[0311月2026 04:11:09.884] [Render thread/INFO] [MinecraftTransitRailway/]: MTR memory sharing: 4608 Blockbench requests, 651 unique parses, 651 completed",
+    "[0311月2026 04:49:43.151] [Render thread/INFO] [MinecraftTransitRailway/]: MTR memory sharing: 4608 Blockbench requests, 651 unique parses, 651 completed"
+  ],
+  "requested_monotonic_stable_seconds_per_phase": 60,
+  "observed_timestamp_spans_seconds": [
+    65.288379,
+    59.999885
+  ],
+  "native_callback_preserved": true,
+  "exact_individual_caches_equal_to_corrected_baseline": true,
+  "cache_counts": [
+    [
+      5,
+      10
+    ],
+    [
+      6,
+      10
+    ]
+  ],
+  "after_reload_both_bodies_visually_reviewed": true,
+  "loading_phases": [
+    {
+      "phase": "startup",
+      "peak_sampled_heap_used": 3948748448,
+      "peak_sampled_working_set": 6050455552,
+      "peak_sampled_private_usage": 6436274176
+    },
+    {
+      "phase": "reload",
+      "peak_sampled_heap_used": 4070971552,
+      "peak_sampled_working_set": 5884514304,
+      "peak_sampled_private_usage": 6066946048
+    }
+  ],
+  "reload_external_heap_peak_sampled": 4063319859,
+  "reload_heap_samples": 48,
+  "reload_jvm_full_gc_count_delta": 1,
+  "diagnostic_gc_requested": false,
+  "reload_observer_recovery": "Preserved the failed locale-date invocation; restarted only the observer using the original ISO timestamp. Actual F3+T was sent once.",
+  "reload_process_sampling_scope": "Process observations begin after parsing completed because the first observer invocation failed. External jstat began before F3+T and covers blocked parsing. Reload working-set figures omit the parsing interval and do not establish its process peak.",
+  "gameplay_and_shutdown": "Separate acceptance; still in progress at this loading checkpoint.",
+  "tools_git_revision": "659c57a2de84a52e1f81283087909a25d544ea40",
+  "tools_sha256": {
+    "tools/game_test_load_monitor.py": "58345cbba5d52cdeb82c0364b215cc85af53078a85211703b36137893a291159",
+    "tools/game_test_heap_monitor.py": "f1bb117d4426bb56185c57aa70fcefb2801282b98550a7852d2d465f63a6e1c8",
+    "tools/memory_native_acceptance.py": "fedfbb23ae0c8b10203a9e75ab1e55bcaa41c0239091cdf081c15bb3ee1ff6f1"
+  },
+  "evidence_sha256": {
+    "vehicle-memory/evidence/neoforge-native-passenger-v011-memory-v029-startup.json": "643b950e50a7bcbc2f9347595b642069933a509315624b01d44e5581c17eb99d",
+    "vehicle-memory/evidence/neoforge-native-passenger-v011-memory-v029-reload.json": "0ca3babb902d99900f683a83ba27c54c08663652394fdc1a018f2dc058d7ea20",
+    "vehicle-memory/evidence/neoforge-native-passenger-v011-memory-v029-startup-heap.json": "36d0cc2a4ff5e1ba026ece0deac253eb6ca350dfe836f3e54665a2bc4a7fdf22",
+    "vehicle-memory/evidence/neoforge-native-passenger-v011-memory-v029-reload-heap.json": "6c620573e29a6a958328686f6a19f6e1c7b4ef14381a3e438788e0e802a2757e",
+    "vehicle-memory/evidence/neoforge-native-passenger-v011-memory-v029-before-reload.json": "5639336662f0b25715e3a3d752d937d36630fedff6044b4f3380e1041905e304",
+    "vehicle-memory/evidence/neoforge-native-passenger-v011-memory-v029-after-reload.json": "182e47d46cb7abcb0d658fad92398893a4fc0b877614fd9726eb09992d4757ff",
+    "vehicle-memory/evidence/neoforge-native-passenger-v011-memory-v029-reload-request.json": "628f156e63f56d3bf81dfb825eb2630eb15bab7c9dc8aa651083ff837a8d342a",
+    "vehicle-memory/evidence/neoforge-native-passenger-v011-memory-v029-before-reload.png": "54d6d9ccb0d5a4361de92bd8e62ca7a6e93010d91c607e1bcbbf1c5b08caf31b",
+    "vehicle-memory/evidence/neoforge-native-passenger-v011-memory-v029-after-reload.png": "8c22465c33a99802dfb23c5124f1120f3a852a4d1b8268c55e93b36f3c7f3de1",
+    "vehicle-memory/evidence/neoforge-native-passenger-v011-memory-v029-reload-observer-command-error.log": "7a6ec1af701c7c97e95cc1b8ac36717df1027fee673ffe8c889ba6bb0560aba7",
+    "vehicle-memory/evidence/neoforge-v028-native-repeat-before-reload.json": "0cc03597dd8b1f306998eaf52f73ce8c7cb9430c56cddb6fe8c263498c2b08c9"
+  },
+  "limits": "Experimental passenger v0.1.1 plus memory v0.2.9 at 4 GiB; memory-only 3.5 GiB acceptance is separate. Loading/cache/body checks do not establish all-pane, cab, all-Shanghai or formation replacement acceptance. Samples are not true maxima or code-only RAM improvements."
+}

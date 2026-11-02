@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "C:\Users\ben_l\Documents\Coding\resoucepack update\tools\game_test_load_monitor.py", line 104, in <module>
+    if __name__=='__main__':main()
+                            ~~~~^^
+  File "C:\Users\ben_l\Documents\Coding\resoucepack update\tools\game_test_load_monitor.py", line 32, in main
+    fresh_after=datetime.datetime.fromisoformat(args.not_before) if args.not_before else launched
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+ValueError: Invalid isoformat string: '11/03/2026 04:47:45'

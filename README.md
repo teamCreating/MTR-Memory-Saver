@@ -17,6 +17,8 @@ External jstat covers blocked startup parsing and starts before both reload even
 
 **3.5 GiB is the lowest repeatably verified v0.2.9 heap in this isolated fixture.** Heaps below it and production-world limits are unaccepted. Full Shanghai windows and ordinary passenger/second-car/re-entry/post-reload/all-vehicle gameplay remain open; the passenger companion stays experimental.
 
+The subsequent corrected-native **passenger v0.1.1 plus memory v0.2.9** client passes all-16-pack startup and one actual F3+T at **4 GiB**, with 2,541 registrations, 651 completed source parses per epoch and fresh completion stability. Exact individual floor/doorway caches match the corrected baseline before/after; both bodies render after reload. The initial reload observer invocation rejected a locale-converted date; only the observer was restarted with the original ISO timestamp. External jstat began before F3+T and records one JVM-initiated Full GC. Process observations began after parsing completed, so their reload working-set values omit that interval. This comparison is separate from the memory-only 3.5 GiB acceptance; gameplay and saved shutdown verification are recorded separately. [Loading checkpoint and fingerprints](evidence/neoforge-native-passenger-v011-memory-v029-loading-acceptance.json).
+
 Install exactly one memory companion in the NeoForge client's `mods` directory alongside the matching official MTR release, replacing the previous memory companion. Keep repaired ZIPs in `resourcepacks`. The tested lower-heap arguments are:
 
 ```text
