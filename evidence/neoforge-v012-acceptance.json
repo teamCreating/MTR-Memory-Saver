@@ -1,0 +1,37 @@
+{
+  "timestamp": "2026-11-02T17:17:23.432121+08:00",
+  "target": {
+    "minecraft": "1.21.1",
+    "mtr": "4.1.0-beta.2"
+  },
+  "mod_loader": "neoforge",
+  "loader_version": "21.1.265",
+  "companion_sha256": "a58fb60e350d022a4a08ad3c32b67080381f63ef483cb982218d137185b9765b",
+  "startup_8gib": "passed all 16 packs, complete parsing, 60 seconds uninterrupted stable samples",
+  "reload_8gib": "passed normal F3+T, incomplete -> complete parsing, 60 seconds uninterrupted stable samples",
+  "startup_6gib": "failed OutOfMemoryError; game resource fallback to 423 registrations is not acceptance",
+  "post_acceptance_vertex_instances": 79359867,
+  "v011_post_acceptance_vertex_instances": 79359867,
+  "conclusion": "No observed reduction in parsed full-pack vertex population. Restore tested v0.1.1 as the default; archive the v0.1.2 experiment. Single-run sampled process-memory differences are not a proven repeatable improvement.",
+  "gameplay": "Copied isolated world entered; normal instantDeploy requested for original DC01 formation. No vehicle was visible in reviewed screenshots, so rendering and passenger acceptance remain pending.",
+  "evidence_sha256": {
+    "neoforge-v012-6gb-failed-startup.json": "5b9bae34b26967afd71b222f78464bd137fa3c8899b50f2cddd4e2b2c10064d9",
+    "neoforge-v012-6gb-failed.log": "6a738923056ba4c603ff002785235dce4671c6f687c1b0c5fe6133f0b4eca7c9",
+    "neoforge-v012-6gb-fallback-options.txt": "cc2f2953324b74045716ea5fadb8fa87115eec5124ce613a966ccaa1424f669a",
+    "neoforge-v012-6gb-fallback-state.json": "4710d34ce3218984e7efef865593ab8df3a4c9f0dd030e1d6ff5a34f9e2fdefd",
+    "neoforge-v012-8gb-after-reload.json": "8b0c8dead2d6cd2c5b064eff4887a1a28cbf9a8bb81b6ec5a5bf52316f76af51",
+    "neoforge-v012-8gb-after-reload.png": "8ee53a1409515b83b8a30eb2e67d871b21f7fba76fa6038b6ce04a3936a8b854",
+    "neoforge-v012-8gb-before-reload.json": "3fcf5abf3a617cccb8e90059cc52363c81b534dc79735f4927f95cfa43568c19",
+    "neoforge-v012-8gb-before-reload.png": "755b22cfe2a1a993f842d5de94bda5ce4d0a860d485746d96cd515c62ebb5500",
+    "neoforge-v012-8gb-reload.json": "179ce10ee5dc8eb8a74c78753beb025c97840b7fd2dabb7c7c8a146b4b0f0905",
+    "neoforge-v012-8gb-reload.log": "648e0a312cbe8d9608a9a9db272480d4e812ad9f0629d6c95414898e9b01fe59",
+    "neoforge-v012-8gb-startup.json": "9603690c864163c7828434aefc2a4540c68f72bc7d26d0f9aeb8f10312043cd1",
+    "neoforge-v012-8gb-startup.log": "0f987e50ec442dcfddbea1d0d8f3ec678611dcebbe043d4393b134d791f4f32b",
+    "neoforge-v012-fixture-formation.json": "1cf503793814d41d723cf52c650a9782bd9953edcac118351a7c8ddf40660dd6",
+    "neoforge-v012-post-acceptance-diagnostic.json": "f379ecfc7be5e1746a068f1b4ac70ea2bd6a62ef1ac2d95e317210a44d5a4318",
+    "neoforge-v012-post-acceptance-histogram.txt": "e449438fada35b496ac01cc7b97410467e6b5c9284a9517d34461c6fd040b072",
+    "neoforge-v012-post-acceptance.log": "e643f95d8b1ba1da544a21e30127f8b0b37db70d959377eaf51ba7a04e25e882",
+    "neoforge-v012-vertex-identity-audit.json": "06367002d23531d8057ee406dcb1940ef9956785f998694dd6e017f1340b17f3"
+  },
+  "limits": "Heap and process memory are different measures. Histograms requested diagnostic GC only after completed ordinary acceptance, and count shallow objects rather than retained graphs."
+}
