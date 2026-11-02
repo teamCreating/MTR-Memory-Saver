@@ -1,6 +1,33 @@
 # MTR client memory companions
 
-Current optimization target: **Minecraft 1.21.1 / NeoForge 21.1.265 / MTR 4.1.0-beta.2**. The recommended tested candidate is [mtr-memory-sharing-neoforge-v020.jar](mtr-memory-sharing-neoforge-v020.jar), version **0.2.0**. It compresses retained parsed meshes without changing vertex values, geometry, textures or native interaction boxes. The original MTR JAR and repaired pack ZIPs are unchanged.
+Current optimization target: **Minecraft 1.21.1 / NeoForge 21.1.265 / MTR 4.1.0-beta.2**, prioritizing memory use. The recommended tested candidate is [mtr-memory-sharing-neoforge-v021.jar](mtr-memory-sharing-neoforge-v021.jar), version **0.2.1**.
+
+v0.2.1 retains raw display transforms only for actual `DISPLAY` part names and releases shared source-loader references after registration. It keeps all 10 v0.2.0 packed-mesh class entries byte-identical. The independent official-release cache-consumer audit passes 10 cases and 16 actual display instances; required display data retains its original identities and native floor/doorway semantics.
+
+All 16 repaired packs passed ordinary startup and actual F3+T reload at a **5 GiB heap**, with 2,541 registrations, observed unfinished-to-complete parsing and 60 seconds of continuous fresh completed samples. Both native DC01 bodies rendered before/after reload, and both distinct floor/doorway caches remain identical. The post-reload rendering observation used a spectator camera after ordinary acceptance. No diagnostic GC was requested during those ordinary checks. See [v0.2.1 acceptance and fingerprints](evidence/neoforge-v021-5gb-acceptance.json).
+
+| Candidate / test | Sampled Java heap peak | Windows working set | Private committed memory |
+| --- | ---: | ---: | ---: |
+| v0.2.0 startup | 4.58 GiB | 6.03 GiB | 6.19 GiB |
+| v0.2.1 startup | 3.97 GiB | 6.02 GiB | 6.17 GiB |
+| v0.2.0 reload | 4.66 GiB | 6.59 GiB | 6.77 GiB |
+| v0.2.1 reload | 4.58 GiB | 6.63 GiB | 6.79 GiB |
+
+The separate post-acceptance diagnostic histogram found **2.31 GiB of shallow live objects**, versus 3.04 GiB for v0.2.0: **753 MiB / 24.17% less**. Retained `StoredMatrixTransformations` fell from 2,494,194 to 2,234; no `StoredVertexData` row remains in either packed candidate. Both diagnostics requested GC at different tested heap limits and are excluded from ordinary acceptance. This shows less live metadata; total process peaks are essentially unchanged in these single runs. See [diagnostic comparison](evidence/neoforge-v021-display-retention-diagnostic-comparison.json).
+
+Install exactly one memory companion in the NeoForge client `mods` directory alongside the fingerprinted official MTR release, replacing the previous companion. Keep the 16 repaired ZIPs enabled in `resourcepacks`. The verified Java 21 settings remain:
+
+```text
+-Xmx5G
+-Djdk.virtualThreadScheduler.parallelism=2
+-Djdk.virtualThreadScheduler.maxPoolSize=2
+```
+
+Five GiB remains the lowest verified heap. The interim 4 GiB attempt exhausted the heap during registration; the final logging-counter correction does not establish 4 GiB support. Broader vehicle/window/passenger checks remain open. The isolated client is closed, its original formation/timetable/platform settings and selected pack hashes were verified, and the test player was returned to survival mode at the original platform. [Implementation and reproduction](experiments/display-retention/README.md).
+
+## Earlier v0.2.0 and Fabric results
+
+Earlier v0.2.0 target: **Minecraft 1.21.1 / NeoForge 21.1.265 / MTR 4.1.0-beta.2**. The earlier tested candidate is [mtr-memory-sharing-neoforge-v020.jar](mtr-memory-sharing-neoforge-v020.jar), version **0.2.0**. It compresses retained parsed meshes without changing vertex values, geometry, textures or native interaction boxes. The original MTR JAR and repaired pack ZIPs are unchanged.
 
 All 16 repaired packs passed ordinary startup and actual **F3+T reload at a 5 GiB Java heap**: 2,541 registrations, observed unfinished -> complete parsing and 60 seconds of continuous fresh stable observations in each check. Both DC01 car bodies, interiors and open doors rendered before and after reload; their distinct floor/doorway caches remained individually identical. No diagnostic GC was requested during the 5 GiB tests. See [5 GiB acceptance and exact fingerprints](evidence/neoforge-v020-5gb-acceptance.json).
 

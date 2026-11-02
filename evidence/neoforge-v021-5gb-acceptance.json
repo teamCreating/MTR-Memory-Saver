@@ -1,0 +1,59 @@
+{
+  "timestamp": "2026-11-02T19:06:51.658274+08:00",
+  "target": {
+    "minecraft": "1.21.1",
+    "mtr": "4.1.0-beta.2"
+  },
+  "mod_loader": "neoforge",
+  "loader_version": "21.1.265",
+  "companion_sha256": "b8b5ff5777bb36a7d1c5793c47173a204cfa8aa06e4b29c34b5037c3b7e5eef9",
+  "startup": "Passed ordinary all-16-pack 5 GiB startup: 2541 registrations, unfinished-to-complete parsing, 60 seconds of continuous fresh completed samples; no requested GC.",
+  "reload": "Passed actual F3+T reload at 5 GiB with a new registration/parser epoch, unfinished-to-complete parsing and 60 seconds of continuous fresh completed samples; no requested GC.",
+  "rendering": "Both native DC01 car bodies rendered before reload in survival mode and after reload from a spectator camera at the depot. Earlier after-reload screenshots missed the naturally moving train and do not prove rendering.",
+  "native_cache": "Both distinct native DC01 floor/doorway caches remain individually identical across reload and the final rendered observation.",
+  "diagnostic_gc": "Separate post-acceptance GC.class_histogram: shallow live bytes fell from 3267958752 to 2478233672 (24.17%); StoredMatrixTransformations fell from 2494194 to 2234. This diagnostic is excluded from ordinary memory acceptance.",
+  "ordinary_sampled_peaks": {
+    "startup": {
+      "peak_sampled_heap_used": 4261832128,
+      "peak_sampled_working_set": 6460833792,
+      "peak_sampled_private_usage": 6625234944
+    },
+    "reload": {
+      "peak_sampled_heap_used": 4913006512,
+      "peak_sampled_working_set": 7120224256,
+      "peak_sampled_private_usage": 7292661760
+    }
+  },
+  "minimum_verified_heap_gib": 5,
+  "lower_heap": "The interim 4 GiB variant failed during registration. The final metric correction does not establish 4 GiB support.",
+  "cleanup": "Camera placement beyond the test floor caused an empty-hand fall/death after ordinary acceptance. Respawned, used spectator mode for rendering only, returned to original platform/survival/unmounted state, saved and closed normally. Original saved formation/timetable/platform fields and all 16 selected pack hashes verified.",
+  "limits": "Single-run sampled heap/process peaks, not true maxima or arbitrary-world limits. Process peaks remain essentially unchanged versus v0.2.0. GC histogram is shallow live-object accounting, not retained-graph analysis. No new passenger exit or broad window/vehicle acceptance is claimed.",
+  "evidence_sha256": {
+    "neoforge-v021-4gb-failure.json": "eed5f93f24c31e6fbddc9c979e2a5219898608a844d5b3c2cf7999b57eaa2df5",
+    "neoforge-v021-4gb-failure.log": "9770b85fded9c4a53392f4f78d0b91ab663ba1efb143bfa9d85c3892487e0ff0",
+    "neoforge-v021-4gb-startup.json": "1445390831a7e12e840b074d063a89f432a1cdb5c70427fc9dfead59597bea49",
+    "neoforge-v021-5gb-after-reload-render.json": "319db37b25b3b560b8a66e8fd439ccb8d1b2a6d844eaca83f524cd82e46a5c75",
+    "neoforge-v021-5gb-after-reload-render.png": "f3823909988736ebad3af311613676e89a0855f00c9311eb36f57c1e3bc42758",
+    "neoforge-v021-5gb-after-reload-stop.json": "2359df3e460f4400d2d6f9f25b32923c474eb7eed84a2acb5e7db6582f8359c9",
+    "neoforge-v021-5gb-after-reload-stop.png": "c2e3f108241ab1dcb932c1fdc66a32a54f8d6b1db2fd0aca1ae40fc9b1e996e6",
+    "neoforge-v021-5gb-after-reload.json": "b93f6b3e2fffe7dbe177cbaa7968000aa20214cf0f0541fec4e6cde8041e00d6",
+    "neoforge-v021-5gb-after-reload.png": "1d373ebc9a5783ea81f7c5ec76d89eec311ef7f8c9b48b0253eb8ec3a8e41bff",
+    "neoforge-v021-5gb-before-reload.json": "a5fe66dadc061eea44daa6f0d6c63a6eaaa54bb11b6a73dd1d803d3b6dd2e2f6",
+    "neoforge-v021-5gb-before-reload.png": "e62331e2d0633f1fb7b93ae32fd8fe374484efe80dd38911e0a4de7d70523ddc",
+    "neoforge-v021-5gb-fixture-verified.json": "47cdff0e3348b9fed87aafae950d74a20947a79802eb5365ae9c156f9334141e",
+    "neoforge-v021-5gb-player-restored.json": "f711a463dc97a7f58aa6a0740453d00a2357baa481588a82147fb6cdc847998a",
+    "neoforge-v021-5gb-reload-request.json": "37140827e0597c45fa214ed970c00963e5e8514a0e0ea08b595af5a7831de91f",
+    "neoforge-v021-5gb-reload.json": "9d19dbb34fd1a0f02ffb8ccbb3e26c3aad760485a759b2b1310c331e3747da9d",
+    "neoforge-v021-5gb-reload.log": "3963461da9faa80a5b2bd5ee972a81713c5d0a8512e34d8c9b183904c2493f79",
+    "neoforge-v021-5gb-session.log": "145d4cbf40609b152c52b2749e57724bf364618558e35aaa832a18c661170f10",
+    "neoforge-v021-5gb-startup.json": "2a3b05a3b2a2fa36e10f67f62787a6a2b7da825e76e654b53d47d6ca792ca369",
+    "neoforge-v021-5gb-startup.log": "c299a0949204777519cd09ba8e6c75a167218720950c6befa0027acd5f4eaf07",
+    "neoforge-v021-camera-fall.json": "cc4428be4ad538cb466e3552fba9e0372f4225a801d5968b084ae4671c51d5cb",
+    "neoforge-v021-camera-fall.png": "04f2467a9b13cef732e8ec42b22354ec3c20488ff86b058f04180c799a7015f3",
+    "neoforge-v021-display-retention-diagnostic-comparison.json": "70bd66fcb9feaa914d9b71f542fe668493ff56fd1d984d4f076dbb590a591941",
+    "neoforge-v021-interim-5gb-startup.json": "b5068b7496983b5b0a3b1f5a913ab34d3fa31ae2044539ef14813f3871d9cd19",
+    "neoforge-v021-interim-5gb-startup.log": "e26de36bb1b738f1816dd500f4dfc0519f01db47995027302c519f561ffeb41d",
+    "neoforge-v021-post-5gb-acceptance-diagnostic.json": "3a63fe8bb7fe98400d53bb68ac3d0de860f1afd1b701214c54a1c97ada0c382e",
+    "neoforge-v021-post-5gb-acceptance-histogram.txt": "9aa6d6703f9474eb2d175b08e2c92a4ac7778e134b7335900dabb20e435a0398"
+  }
+}

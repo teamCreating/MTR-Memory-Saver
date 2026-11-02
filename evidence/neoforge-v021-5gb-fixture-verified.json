@@ -1,0 +1,83 @@
+{
+  "timestamp": "2026-11-02T19:04:58.935349+08:00",
+  "method": "Initial complete saved MessagePack-map decode; original formation/timetable/platform fields unchanged; original trailing bytes preserved.",
+  "values": {
+    "sidings": [
+      {
+        "id": -6304466250560538598,
+        "vehicleCars": [
+          {
+            "vehicleId": "mtr_custom_train_dc01_update_cab_1_native_7ea57bf708e8",
+            "length": 25.0,
+            "width": 2.0,
+            "capacity": 0,
+            "bogie1Position": -8.5,
+            "bogie2Position": 8.5,
+            "couplingPadding1": 1.0,
+            "couplingPadding2": 0.0
+          },
+          {
+            "vehicleId": "mtr_custom_train_dc01_update_cab_2_native_7b8391aef2c8",
+            "length": 25.0,
+            "width": 2.0,
+            "capacity": 0,
+            "bogie1Position": -8.5,
+            "bogie2Position": 8.5,
+            "couplingPadding1": 0.0,
+            "couplingPadding2": 1.0
+          }
+        ]
+      }
+    ],
+    "depots": [
+      {
+        "id": 8805550386485521715,
+        "routeIds": [
+          1634058583976595067
+        ],
+        "useRealTime": false,
+        "frequencies": [
+          60,
+          60,
+          60,
+          60,
+          60,
+          60,
+          60,
+          60,
+          60,
+          60,
+          60,
+          60,
+          60,
+          60,
+          60,
+          60,
+          60,
+          60,
+          60,
+          60,
+          60,
+          60,
+          60,
+          60
+        ],
+        "repeatInfinitely": false
+      }
+    ],
+    "platforms": [
+      {
+        "id": 165694310607733568,
+        "dwellTime": 120000
+      },
+      {
+        "id": 7620670858014251768,
+        "dwellTime": 120000
+      }
+    ]
+  },
+  "enabled_pack_count": 16,
+  "all_pack_hashes_verified": true,
+  "client_closed": true,
+  "delivered_installed_sha256": "b8b5ff5777bb36a7d1c5793c47173a204cfa8aa06e4b29c34b5037c3b7e5eef9"
+}

@@ -1,0 +1,37 @@
+{
+  "baseline": {
+    "total_shallow_live_bytes": 3267958752,
+    "total_instances": 74018773,
+    "stored_matrix_transformations": {
+      "instances": 2494194,
+      "shallow_bytes": 119721312
+    },
+    "group_transformations": {
+      "instances": 2660196,
+      "shallow_bytes": 106407840
+    },
+    "stored_vertex_data": {
+      "instances": 0,
+      "shallow_bytes": 0
+    }
+  },
+  "candidate": {
+    "total_shallow_live_bytes": 2478233672,
+    "total_instances": 51363149,
+    "stored_matrix_transformations": {
+      "instances": 2234,
+      "shallow_bytes": 107232
+    },
+    "group_transformations": {
+      "instances": 3890,
+      "shallow_bytes": 155600
+    },
+    "stored_vertex_data": {
+      "instances": 0,
+      "shallow_bytes": 0
+    }
+  },
+  "shallow_live_bytes_saved": 789725080,
+  "shallow_live_reduction_percent": 24.165699139154864,
+  "limits": "Separate post-acceptance GC-requesting diagnostics at 6/5 GiB; sum of shallow live object bytes, not retained-graph analysis or ordinary peak RAM."
+}
