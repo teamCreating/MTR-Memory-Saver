@@ -1,0 +1,92 @@
+{
+  "timestamp": "2026-11-03T03:59:58.954266+08:00",
+  "target": {
+    "minecraft": "1.21.1",
+    "mtr": "4.1.0-beta.2"
+  },
+  "mod_loader": "neoforge",
+  "loader_version": "21.1.265",
+  "version": "0.2.9",
+  "memory_companion_sha256": "b8e903a3292cca032d6b1038d58f5f0b18be4823148e633ca4114263e2a83b6d",
+  "delivery_build_sha256": "4cea95895577cb2af12b1f25d10f52307f007a6adfb16ec331dd0676a07645e7",
+  "jvm_arguments": [
+    "-Xms1G",
+    "-Xmx3584M",
+    "-Djdk.virtualThreadScheduler.parallelism=2",
+    "-Djdk.virtualThreadScheduler.maxPoolSize=2"
+  ],
+  "actual_native_heap_max": 3758096384,
+  "lowest_repeatably_verified_heap_gb": 3.5,
+  "successful_fresh_identical_lower_heap_processes": 2,
+  "additional_4gb_acceptance": "neoforge-v029-streamed-digest-acceptance.json",
+  "full_pack_registrations": 2541,
+  "selected_packs": 16,
+  "unique_completed_source_parses_per_epoch": 651,
+  "stable_seconds_per_phase": 60,
+  "native_callback_preserved": true,
+  "passenger_companion_installed": false,
+  "diagnostic_gc_requested": false,
+  "individual_native_caches_equal_across_both_runs_and_corrected_v028": true,
+  "runs": [
+    {
+      "pid": 25568,
+      "heap_gb": 3.5,
+      "phases": {
+        "startup": {
+          "status": "registered_and_parsed_stable",
+          "peak_sampled_working_set": 4830101504,
+          "peak_sampled_private_usage": 5004894208,
+          "peak_sampled_heap_used": 3521016376,
+          "peak_external_jstat_heap_used": 3693703680,
+          "external_final_stability_span_seconds": 60.018523,
+          "native_fresh_suffix_span_seconds": 59.994228
+        },
+        "reload": {
+          "status": "registered_and_parsed_stable",
+          "peak_sampled_working_set": 5431054336,
+          "peak_sampled_private_usage": 5617991680,
+          "peak_sampled_heap_used": 3530874088,
+          "peak_external_jstat_heap_used": 3663328154,
+          "external_final_stability_span_seconds": 60.017902,
+          "native_fresh_suffix_span_seconds": 59.988248
+        }
+      },
+      "saved_day_time": 343786,
+      "normal_shutdown": true
+    },
+    {
+      "pid": 17784,
+      "heap_gb": 3.5,
+      "phases": {
+        "startup": {
+          "status": "registered_and_parsed_stable",
+          "peak_sampled_working_set": 4849020928,
+          "peak_sampled_private_usage": 5027762176,
+          "peak_sampled_heap_used": 3600986728,
+          "peak_external_jstat_heap_used": 3613569638,
+          "external_final_stability_span_seconds": 60.016232,
+          "native_fresh_suffix_span_seconds": 59.996798
+        },
+        "reload": {
+          "status": "registered_and_parsed_stable",
+          "peak_sampled_working_set": 5460619264,
+          "peak_sampled_private_usage": 5632106496,
+          "peak_sampled_heap_used": 3668635736,
+          "peak_external_jstat_heap_used": 3694140109,
+          "external_final_stability_span_seconds": 60.019414,
+          "native_fresh_suffix_span_seconds": 59.988537
+        }
+      },
+      "saved_day_time": 349101,
+      "normal_shutdown": true
+    }
+  ],
+  "image_review_limits": "Both DC01 bodies are visible in each before/after epoch. The second car front end is cropped in the repeat after-reload image because the native train moves during camera commands. No full-cab or all-window acceptance is inferred.",
+  "allocation_audit_sha256": "062860767682076774bfa654602458fed369501336864356f306e8acb2739b01",
+  "evidence_sha256": {
+    "neoforge-v029-streamed-digest-3584mb-acceptance.json": "c41f425cbc6d4e49eb3534a154e22d6e3fd75441d890e2b3852ea8710ec9a887",
+    "neoforge-v029-streamed-digest-3584mb-repeat-acceptance.json": "537c140192e37db04b732b77688276d2924a4906d8133d16ac4eb9f12cbc0b0e",
+    "neoforge-v029-streamed-digest-acceptance.json": "a3712e0bd8144446886c3c345c330743d32a0300219e64fb76b306fc84e0c9b6"
+  },
+  "limits": "Two identical 3.5 GiB isolated-fixture startups and actual foreground F3+T reloads with unchanged mod/pack hashes, native lifecycle, original player/layout and saved native transport fields verified after normal shutdown. External jstat covers blocked startup parsing and precedes both reload events. Samples are not true maxima. The lower heap cap contributes to lower process RAM; do not infer a code-only or retained-heap reduction from isolated hashing allocations. Heaps below 3.5 GiB have not been accepted for v0.2.9. Production-world guarantees, full Shanghai windows and ordinary passenger/all-vehicle/post-reload gameplay remain open."
+}

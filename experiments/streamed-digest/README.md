@@ -1,6 +1,6 @@
-# Bounded resource-text digests (v0.2.9 candidate)
+# Bounded resource-text digests (v0.2.9)
 
-Target: Minecraft 1.21.1 / NeoForge 21.1.265 / official MTR 4.1.0-beta.2. This is an experimental extension of the delivered v0.2.8 memory companion. v0.2.8 remains recommended until native startup, reload and rendering acceptance passes.
+Target: Minecraft 1.21.1 / NeoForge 21.1.265 / official MTR 4.1.0-beta.2. Delivered: [mtr-memory-sharing-neoforge-v029.jar](../../mtr-memory-sharing-neoforge-v029.jar). Two identical 3.5 GiB startups and actual F3+T reloads pass with the corrected native lifecycle; keep v0.2.8 for rollback. [Final acceptance](../../evidence/neoforge-v029-acceptance.json).
 
 The shared Blockbench and vehicle-configuration caches calculate their content keys from `raw.getBytes(UTF_8)`. Each large request therefore allocates a complete encoded copy before hashing, even when a parsed input is already shared. This candidate hashes the same bytes through an 8192-byte UTF-8 encoder buffer. It reuses a 4096-unit array-backed character buffer filled from the original String. An unfinished high surrogate is carried into the next segment; the encoder uses its array path. The encoder uses the charset's default replacement for malformed UTF-16, matching String.getBytes. Supplementary characters remain intact at buffer boundaries. Inputs up to 4096 code units retain the former path.
 
@@ -37,7 +37,7 @@ Current candidate SHA-256: `b8e903a3292cca032d6b1038d58f5f0b18be4823148e633ca411
 | Startup | 3.786 GiB | 4.976 GiB | 5.173 GiB |
 | Actual F3+T | 3.816 GiB | 5.553 GiB | 5.736 GiB |
 
-These are one-run sampled values, not true maxima or a demonstrated process-RAM reduction against the two corrected v0.2.8 runs. Original survival player/window layout and all saved transport fields/inventory, pack hashes/order and fixed other mod hashes verify after normal shutdown. Saved DayTime advances naturally to 338985. The tested instance now holds this candidate; exact v0.2.8 rollback is preserved. Fresh repeat and lower-heap acceptance remain pending. v0.2.8 remains delivered; the candidate has not replaced a production instance.
+These are one-run sampled values, not true maxima or a demonstrated process-RAM reduction against the two corrected v0.2.8 runs. Original survival player/window layout and all saved transport fields/inventory, pack hashes/order and fixed other mod hashes verify after normal shutdown. Saved DayTime advances naturally to 338985. At this first-run stage the tested instance held this candidate, exact v0.2.8 rollback was preserved, and repeat/lower-heap acceptance was pending. Subsequent lower-heap acceptance is reported below. No production instance was replaced.
 
 
 ## First lower-heap run
@@ -49,4 +49,11 @@ The [first 3584 MiB run](../../evidence/neoforge-v029-streamed-digest-3584mb-acc
 | Startup | 3.440 GiB | 4.498 GiB | 4.661 GiB |
 | Actual F3+T | 3.412 GiB | 5.058 GiB | 5.232 GiB |
 
-The changed heap cap contributes to process memory differences; this is not a measured code-only RAM reduction. The previous v0.2.8 3.5 GiB repeat failed, so this single candidate pass does not establish a safe lower recommendation. A fresh identical repeat is required. v0.2.8 at 4 GiB remains the recommendation until repeatable candidate acceptance.
+The changed heap cap contributes to process memory differences; this is not a measured code-only RAM reduction. The previous v0.2.8 3.5 GiB repeat failed, so this single candidate pass does not establish a safe lower recommendation. The required identical repeat is reported below; v0.2.8 at 4 GiB was retained during this single-run stage.
+
+
+## Identical lower-heap repeat and delivery
+
+The fresh repeat passes all 16 packs / 2,541 registrations / 651 completed unique source parses, with 60-second fresh stability at startup and actual F3+T. Native max heap confirms the same 3.5 GiB cap; every other mod/pack fingerprint and JVM argument matches the first lower-heap run. External heap peaks are 3.365 / 3.440 GiB, working set 4.516 / 5.086 GiB and private committed 4.682 / 5.245 GiB. Both native car caches remain exactly equal. Both bodies are visible, but natural movement crops the second-car front after reload, so this is not full-cab or window acceptance. Normal shutdown, original player/layout, saved transport fields, pack hashes/order and mod context verify; natural saved DayTime reaches 349101.
+
+The exact audited artifact and original build metadata are copied unchanged to the delivery folder. Two identical lower-heap processes establish repeatable 3.5 GiB acceptance in the isolated fixture; lower heaps, production worlds and broader passenger/window/gameplay guarantees remain unaccepted. The reduced cap contributes to RAM differences. No diagnostic GC, clock mutation, visible geometry/texture edit or production-instance replacement.
