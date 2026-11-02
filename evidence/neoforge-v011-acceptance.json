@@ -1,0 +1,30 @@
+{
+  "timestamp": "2026-11-02T16:55:51.443163+08:00",
+  "target": {
+    "minecraft": "1.21.1",
+    "mtr": "4.1.0-beta.2"
+  },
+  "mod_loader": "neoforge",
+  "loader_version": "21.1.265",
+  "companion_sha256": "f05939fa0c900b8351d7be518e828b6f24554f1f7f5a349b238ea63184aa635d",
+  "startup": "passed ordinary 8 GiB, all 16 packs, complete parsing, 60 seconds continuous stable samples",
+  "reload": "passed actual F3+T, incomplete -> complete parsing and 60 seconds continuous stable samples",
+  "diagnostic": "Separate post-acceptance GC.class_histogram; 79,359,867 StoredVertexData records / 3,809,273,616 shallow bytes. This diagnostic does not belong to ordinary acceptance measurements.",
+  "gameplay": "Entered copied isolated acceptance world; comprehensive vehicle acceptance remains pending",
+  "evidence_sha256": {
+    "neoforge-initial-probe-failure-startup.json": "8490dd2fb68c1fb809b4f5bd586c009ae129d4b7fb3a9496f73097f53619bce9",
+    "neoforge-initial-probe-failure.log": "7112bcfc3ecc42decf68cde8b9c9283ddb899cbcb372a417a24fe6588b7bdd85",
+    "neoforge-initial-probe-failure.txt": "704d3cefc3b4d9b547a41dd236ca2f9abed45f546f3920d4a8e3dfae1741b171",
+    "neoforge-v011-8gb-after-reload.json": "15e6b5e637c7c6df0ad0d8eee2eee53504cce0b2b6196534e9fca01d4582452d",
+    "neoforge-v011-8gb-after-reload.png": "821f9b4c5d6af572cf4e07360433df3aa49c7edd4e41140b44ee378b9dc100dc",
+    "neoforge-v011-8gb-before-reload.json": "8435280e570b51777fdb990accba94d032e9a9af4d72b987600f76cb6c424702",
+    "neoforge-v011-8gb-before-reload.png": "c694a9389216d497ad885395c09dbab7df8b4fac9c81ae054b1b938915cf6f0e",
+    "neoforge-v011-8gb-reload.json": "b2f355751ace209c1095ed2e480f653746be453f1d3967a9b6b05b6a1144fb51",
+    "neoforge-v011-8gb-reload.log": "c19bd0cece2cfc512c295c6f26ae41f1f17adbcdd2721d4e8869a212397192dd",
+    "neoforge-v011-8gb-startup.json": "87ae72e0275c4067db8d8766cd94015a082a95776cf241741ad68772f1dfa060",
+    "neoforge-v011-8gb-startup.log": "f6fed6e9199c10d431ca95b9ee62a1085de54a7feec0ad808bcbe906c97decaf",
+    "neoforge-v011-post-acceptance-diagnostic.json": "8669014fb580b013c437f40cc6fa3d7f70c5ce1de2d43d7457cd64484cabe8b1",
+    "neoforge-v011-post-acceptance-histogram.txt": "68126f9a69d90066bbb5af586657422ef1606a3db162c12f2b52837fd2ae2178"
+  },
+  "limits": "Sampled peaks are not true maxima. Heap is separate from process RAM. No NeoForge original-loader comparison or lower-heap claim."
+}

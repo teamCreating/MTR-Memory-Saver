@@ -2,7 +2,7 @@
 
 Current optimization target: Minecraft **1.21.1 / NeoForge / MTR 4.1.0-beta.2**, with memory use first. The new NeoForge artifact is `mtr-memory-sharing-neoforge.jar`, built against official MTR release SHA-256 `ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa`. It uses the same parse-sharing, independent vehicle build caches, source-text cleanup and immutable white colors as the Fabric companion. Loader-specific source sets provide the appropriate Minecraft classes; the original Fabric artifact is retained.
 
-The marked separate NeoForge test instance uses NeoForge 21.1.265 and Java 21. Compilation and platform-reference checks passed. Ordinary all-16-pack startup and F3+T reload acceptance are pending. Keep the existing Fabric measurements below separate from NeoForge results.
+The separate marked test instance uses NeoForge 21.1.265 and Java 21. With the v0.1.1 companion, all 16 packs passed ordinary startup and actual F3+T reload at an 8 GiB heap with the two-carrier scheduler settings below: 2,541 registrations, complete parsing and 60 seconds of continuous stable observations. Sampled heap / working set / private commit peaks were **7.52 / 9.09 / 9.26 GiB** at startup and **7.62 / 9.93 / 10.10 GiB** during reload. Neither acceptance run requested diagnostic GC. See [NeoForge evidence](evidence/neoforge-v011-acceptance.json). Keep the Fabric measurements below separate from these results.
 
 Build and install exclusively in the stopped isolated NeoForge client:
 
@@ -27,7 +27,7 @@ Install `mtr-memory-sharing.jar` in the **Fabric client's `mods` folder**, along
 -Djdk.virtualThreadScheduler.maxPoolSize=2
 ```
 
-This tested configuration uses Java 21 and Fabric Loader 0.20.1. NeoForge is packaged separately and its runtime acceptance is pending. The observed Java heap limit is not total process RAM: native and graphics allocations add to it. Peak sampled usage does not capture every allocation spike. Wider vehicle gameplay and lower heap limits remain unverified.
+This tested Fabric configuration uses Java 21 and Fabric Loader 0.20.1. NeoForge is packaged and measured separately above. The observed Java heap limit is not total process RAM: native and graphics allocations add to it. Peak sampled usage does not capture every allocation spike. Wider vehicle gameplay and lower heap limits remain unverified.
 
 Build against the marked isolated client with Java 21:
 
