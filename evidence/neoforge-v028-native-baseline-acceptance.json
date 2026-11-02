@@ -1,0 +1,57 @@
+{
+  "timestamp": "2026-11-03T02:34:04.811607+08:00",
+  "target": {
+    "minecraft": "1.21.1",
+    "mtr": "4.1.0-beta.2"
+  },
+  "mod_loader": "neoforge",
+  "loader_version": "21.1.265",
+  "pid": 11416,
+  "memory_companion_sha256": "d934a8d255be16253c753b061e7d92d942985c0ee7debc1892c90ef7ecfdb40c",
+  "native_callback_preserved": true,
+  "native_callback_evidence": [
+    "neoforge-v028-native-baseline-before-reload.json",
+    "neoforge-v028-native-baseline-after-reload.json"
+  ],
+  "passenger_companion_installed": false,
+  "phases": {
+    "startup": {
+      "status": "registered_and_parsed_stable",
+      "peak_sampled_working_set": 5335076864,
+      "peak_sampled_private_usage": 5517283328,
+      "peak_sampled_heap_used": 3839885312
+    },
+    "reload": {
+      "status": "registered_and_parsed_stable",
+      "peak_sampled_working_set": 6064586752,
+      "peak_sampled_private_usage": 6222659584,
+      "peak_sampled_heap_used": 4069967336
+    }
+  },
+  "full_pack_registrations": 2541,
+  "stable_seconds_per_phase": 60,
+  "successful_fresh_corrected_observer_processes": 1,
+  "both_dc01_bodies_render": true,
+  "individual_native_caches_equal_before_after_and_historical_v028": true,
+  "normal_shutdown": true,
+  "player_and_original_layout_restored": true,
+  "saved_transport_fields_and_pack_hashes_order_verified": true,
+  "saved_day_time": 331585,
+  "diagnostic_gc_requested": false,
+  "limits": "One full corrected-lifecycle startup/reload pass at 4 GiB. Fresh repeat remains pending. Prior two v0.2.8 passes used the displaced-native-callback observer. Startup render-thread heap samples do not cover blocked parsing; reload external sampling began after F3+T. Native first-car entry passes without passenger companion, but both short and guarded long exit remain mounted; this is not passenger gameplay acceptance. Native depot operations compile but deployed replacement is unverified.",
+  "evidence_sha256": {
+    "neoforge-v028-native-baseline-after-reload.json": "32d9cf56a0e3175c66cdd3264eaf0722c4cdeedd72fe921b18e5c6a76b6a4bc9",
+    "neoforge-v028-native-baseline-after-reload.png": "46c3ee82e0c89171105acc1860514b717dc7b931304a30ec956a9fb347bd908f",
+    "neoforge-v028-native-baseline-before-reload.json": "f3c038b3de0461311c02699da3c48c5cd75d590c63fc55b165060765de6e311b",
+    "neoforge-v028-native-baseline-before-reload.png": "e760c8b63785adf9a2d76e9c9229baace88318fd5f4fee44c96956af64bfe060",
+    "neoforge-v028-native-baseline-cache-comparison.json": "cfc2782434067c400e7e7a6533a846713f197b720f5f6ec2ac85f0ea3b0d4907",
+    "neoforge-v028-native-baseline-fixture-verified.json": "c4fe91cec3f94bc004b544ebce8bcb5228b1b25873d5b61a8542626f45db6c92",
+    "neoforge-v028-native-baseline-input-layout.json": "a56b2a0b69b021620f2eab4084081db1d4e69401e406b896f1a3ca1ed82b175f",
+    "neoforge-v028-native-baseline-native.log": "9deab257ecb2af620f1c9a9353e2bd83ad8f8adad3ac25a36c899d597cc334f9",
+    "neoforge-v028-native-baseline-reload-heap.json": "67c5755a2c6f11b0b5085d62fbe0d57aaa055d53850be1ad540d68ac7c01abab",
+    "neoforge-v028-native-baseline-reload-request.json": "c359d7f42cff5984b5a9f2f732b773fd26d1da34eaf96e5197a89940321f43cf",
+    "neoforge-v028-native-baseline-reload.json": "802cdbe9ceeb4d2ceb5c1626ecab36caf40319a9fa21b1da70ceb1369970ac6f",
+    "neoforge-v028-native-baseline-restored-player.json": "fc52a81525527f8f7f2c02f834c1201f041fd4067b43c087d9e0dc3c54e95684",
+    "neoforge-v028-native-baseline-startup.json": "b4b71c34f75e79c54ce803f771c53ca6d61e15256c8ee12a0b1e2876bac0d7e2"
+  }
+}
