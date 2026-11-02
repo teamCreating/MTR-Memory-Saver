@@ -1,0 +1,200 @@
+{
+  "timestamp": "2026-11-02T22:10:24.219510+08:00",
+  "target": {
+    "minecraft": "1.21.1",
+    "mtr": "4.1.0-beta.2"
+  },
+  "mod_loader": "neoforge",
+  "loader_version": "21.1.265",
+  "companion_version": "0.2.6",
+  "companion_sha256": "0fabb984dfec04ef7f4f921433730499c7c0cd242f238d656b094c389ba06c93",
+  "official_mtr_sha256": "ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa",
+  "installed_mods": [
+    {
+      "filename": "mtr-memory-sharing-neoforge.jar",
+      "sha256": "0fabb984dfec04ef7f4f921433730499c7c0cd242f238d656b094c389ba06c93"
+    },
+    {
+      "filename": "MTR-neoforge-4.1.0-beta.2+1.21.1.jar",
+      "sha256": "ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa"
+    },
+    {
+      "filename": "vehicle-memory-probe.jar",
+      "sha256": "3f2e79227a623de97e3de026623e61bab16ec7deedfdd099461881657e63a8bb"
+    }
+  ],
+  "enabled_packs": [
+    {
+      "filename": "[AI车门修复][MTR] Taiwan Train V000 EMU3000 20251107.zip",
+      "sha256": "d741ccf09d7ce958dd6f282b52ffbf1dff1b36ec51af397cf8d1252a14059cb9"
+    },
+    {
+      "filename": "[AI车门修复][材质模型包]悠日计画 交通运输类模型 8.2505.1.zip",
+      "sha256": "9b7a9b19db7db6197a4652c9df31717039e47af7d1e6930e03a5ef9bf5a378bb"
+    },
+    {
+      "filename": "[AI车门修复]ChenDianMetroWayV0.5.1R.zip",
+      "sha256": "3783a1fd5b21f7d133046294be8b1562560ebce94f628b87ff104e734ed1cf9a"
+    },
+    {
+      "filename": "[AI车门修复]HSM-2000 v1.2.1 (Adapted for MTR 4.0.x)-20260722-210944.zip",
+      "sha256": "3bd4eef3eb0d23c43d70efdea3be0dcd08693a58d79a5eafebc763317d1e2d86"
+    },
+    {
+      "filename": "[AI车门修复]rpsync-mtr4.0.0-hxd3d-yw25t.zip",
+      "sha256": "1f2b7e941da4fe7239cbc59c6935b441fbc71cf9f15b6f7548e963c370210897"
+    },
+    {
+      "filename": "[AI车门修复]rpsync-shanghaimetroaddon_v3.4.0_creating_trimmed_v2.zip",
+      "sha256": "f4f9730c4dfbb8c6998b472eb90e8a1d559704f6d0df16b53ceb96556b48325e"
+    },
+    {
+      "filename": "[AI车门修复]ShirahaneVehicle v2.4.3 release_hotfix1.zip",
+      "sha256": "b5970dd8d193641909df20f61acbc5408539ba4f9a1f582d76c94aa240d3c5a3"
+    },
+    {
+      "filename": "[AI车门修复]STCP Bus Pack.zip",
+      "sha256": "1d83bb1a2d34fb4f3b4f8837ab649b37104df7036acc6501054617f0bb397b31"
+    },
+    {
+      "filename": "[AI车门修复]Zhongtong Base Pack - 1.1.0.zip",
+      "sha256": "7044e84cd07a2b6f9adf99a2dcd57d3ace22e9c627361e25b8bcf184cd8a66f6"
+    },
+    {
+      "filename": "[AI车门修复]§9§l现代城市系列追加包§7-v2.0.zip",
+      "sha256": "ad8cb6c56f3670a7eea3ba7e9a9843771451c8e28732097ec2151ecb8ce4b27b"
+    },
+    {
+      "filename": "[AI车门修复]悠日交通资源包part3-260708.zip",
+      "sha256": "4525c20d89ac07641e2426f7049de502c5d89d38c8816de154a4cc77f78b3e3c"
+    },
+    {
+      "filename": "[AI车门修复]悠日计画 故事模式用材质 8.2504.zip",
+      "sha256": "5d5c0d2933572d072cc9e85f7e7ca3065407ad437e763d9b5776720f4c21837d"
+    },
+    {
+      "filename": "[AI车门修复]悠日计画交通资源包part2 release v2.1-hotfix2.zip",
+      "sha256": "91738fe2780bb7ae2d115702788dc2f22feb73fc70bc884441b5578f87a0fb6a"
+    },
+    {
+      "filename": "[AI车门修复]新艾利都地铁_疾锋龙号(性能优化版).zip",
+      "sha256": "0536120420708cf9705dc397ac687cc0dfb2ee123a6f894cb546b0e5338bb837"
+    },
+    {
+      "filename": "[AI车门修复]新铁路铁轨基本轨包BY默淼yams.zip",
+      "sha256": "6f78adf23a2f5c26d89c3413a47ef8a09ce9997f64256b793624d8eac112879a"
+    },
+    {
+      "filename": "[AI车门修复]新艾利都地铁 ERIDU-10000一期改造型.zip",
+      "sha256": "5db45298b692e3aac2414d243ae916eed8f836b15fa93e1fc09285fdfba7f6e9"
+    }
+  ],
+  "ordinary_acceptance": {
+    "heap_gib": 4,
+    "jvm_arguments": [
+      "-Xms1G",
+      "-Xmx4G",
+      "-Djdk.virtualThreadScheduler.parallelism=2",
+      "-Djdk.virtualThreadScheduler.maxPoolSize=2"
+    ],
+    "diagnostic_gc_requested": false,
+    "startup": {
+      "first_final_completed": "2026-11-02T22:02:20.033920600+08:00",
+      "last_completed": "2026-11-02T22:03:20.039181900+08:00",
+      "fresh_completed_samples": 13,
+      "sample_timestamp_span_seconds": 60.005261,
+      "monitor_stable_threshold_seconds": 60,
+      "monitor_threshold_passed": true,
+      "probe_observed_unfinished": false
+    },
+    "reload": {
+      "first_final_completed": "2026-11-02T22:07:14.797061+08:00",
+      "last_completed": "2026-11-02T22:08:14.798473100+08:00",
+      "fresh_completed_samples": 13,
+      "sample_timestamp_span_seconds": 60.001412,
+      "monitor_stable_threshold_seconds": 60,
+      "monitor_threshold_passed": true,
+      "probe_observed_unfinished": false
+    },
+    "both_dc01_bodies_rendered_before_after": true,
+    "exact_native_floor_doorway_caches_equal_to_v022": true,
+    "native_inventory_per_epoch": {
+      "vehicles": 2541,
+      "objects": 290,
+      "rails": 23,
+      "shared_source_parses": 651
+    },
+    "source_text_cache_stats_per_epoch": {
+      "entries": 4952,
+      "compressed_entries": 4829,
+      "input_code_units": 2000187675,
+      "packed_bytes": 592010155,
+      "uncompressed_code_units": 13792
+    },
+    "ordinary_sampled_peaks": {
+      "startup": {
+        "peak_sampled_heap_used": 3966191416,
+        "peak_sampled_working_set": 5337485312,
+        "peak_sampled_private_usage": 5539807232
+      },
+      "reload": {
+        "peak_sampled_heap_used": 4001473400,
+        "peak_sampled_working_set": 5983473664,
+        "peak_sampled_private_usage": 6178222080
+      }
+    },
+    "external_heap_peaks": {
+      "startup": 4193940582,
+      "reload": 4213452595
+    }
+  },
+  "minimum_verified_heap_gib": 4,
+  "comparison_to_v022": {
+    "startup": {
+      "baseline_heap_gib": 5,
+      "candidate_heap_gib": 4,
+      "baseline_working_set_bytes": 6439616512,
+      "candidate_working_set_bytes": 5337485312,
+      "working_set_bytes_saved": 1102131200
+    },
+    "reload": {
+      "baseline_heap_gib": 5,
+      "candidate_heap_gib": 4,
+      "baseline_working_set_bytes": 7053905920,
+      "candidate_working_set_bytes": 5983473664,
+      "working_set_bytes_saved": 1070432256
+    }
+  },
+  "cleanup": "Original outside survival/empty-hand/unmounted player restored; normal shutdown saved all dimensions. Original saved transport fields, all 16 ZIP hashes, selection and delivered/installed companion identity verified.",
+  "limits": "Single-run sampled peaks and minimum heap in this isolated fixture, not true maxima or arbitrary production-world limits. External jstat covers blocked rendering. Reload final stability excludes the initial completed sample before loading; source logs independently show both complete parsing epochs. No diagnostic GC was requested. Archive compression counts are payload accounting, not retained-object measurements. Wider vehicle, Shanghai windows and passenger exit remain pending.",
+  "audit_sha256": {
+    "vehicle-memory\\experiments\\compressed-text\\mtr-memory-sharing-neoforge-v026.build.json": "30b06db654c0e01b6962c5fbd6cd59ff9359c0b42d48a6653cfa4ad740a328fa",
+    "vehicle-memory\\experiments\\compressed-text\\mtr-memory-sharing-neoforge-v026.jar": "0fabb984dfec04ef7f4f921433730499c7c0cd242f238d656b094c389ba06c93",
+    "vehicle-memory\\experiments\\compressed-text\\README.md": "58fea4254d3196fd81d53f1eb6f1b751e2036f3940be3ae4a6703c823f7be367",
+    "vehicle-memory\\experiments\\compressed-text\\release-scope.json": "043ae895cfc31942eee781fe0f4b3dbcd39839991924c47349592646af60df08",
+    "vehicle-memory\\experiments\\compressed-text\\released-custom-resource-loader.javap.txt": "94ac5b331d7b8ab991033ff8ab9814f90ad7a2c58ffa76d044674952e4540826",
+    "vehicle-memory\\experiments\\compressed-text\\text-audit-result.json": "732cb1ef81a75a2df8597dcf4553aed58891fac328ab677274fb628b547f3d50",
+    "vehicle-memory\\experiments\\compressed-text\\text-audit.json": "0e4a2d46264344e109fc442cc16617f34aded4f9ce5e53277229ed58ddc77278",
+    "vehicle-memory\\experiments\\compressed-text\\text-audit.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "vehicle-memory\\experiments\\compressed-text\\text-audit.stdout.log": "2ac9a0ada69e9af1cb627d65d0b250913096887508d9e75fb0f67cd8b6f23240"
+  },
+  "evidence_sha256": {
+    "neoforge-v026-4gb-after-reload.json": "52fdda7d26119689f0c213708d939c35ae1ecea9b56e57e65f5bb4ebca2ef928",
+    "neoforge-v026-4gb-after-reload.png": "36305996690b51e022b3191042b84bbc24af2ae24684f6f7dea86382d6199427",
+    "neoforge-v026-4gb-before-reload.json": "1a5880cab3448797858affd5c5e82f62dade3d9afdb326c5e9aa1be9f3155c5f",
+    "neoforge-v026-4gb-before-reload.png": "266e39ebe4400fd2d64a63b319b482fe553789f9ac3e2b3b333feea4bd9672cb",
+    "neoforge-v026-4gb-fixture-verified.json": "4e7b139c1412ecf9e8244f98ff45092d9afdc053de1e0f3a4fbc22beb2fa1c0a",
+    "neoforge-v026-4gb-player-restored.json": "6032c5ec727a2fe30b614a04110bc98f1c619b0ba7899581a8bb28a259aa1caa",
+    "neoforge-v026-4gb-player-restored.png": "8aedaa5c15fcd2da1bd6e21212786b3dc75fce38a698748c4e562d1cae66e0f3",
+    "neoforge-v026-4gb-reload-heap.json": "26fa3de3ff0f20bf40cbfd61e769483f4e1ecef0a11ddb5e8c8aca45b8055b09",
+    "neoforge-v026-4gb-reload-heap.log": "fa7617ac128c4cb39cb423330c88ecaa86c8a894de4380d0508f33bb719cfcab",
+    "neoforge-v026-4gb-reload-load.log": "6441325e0edc938aa3e69e10a0f338e33ffe93af8f34611c05ff7989389f3c79",
+    "neoforge-v026-4gb-reload-request.json": "711effda71f43baf2e27a3f2e99fc64d11eded8c02f6f74a240be21f7d37b34b",
+    "neoforge-v026-4gb-reload.json": "474236141f84c4e89e3ffa3dbd48d8dc763a7c8f3dc088fa17b40514f913ea69",
+    "neoforge-v026-4gb-session.log": "5286f16e6079bafd393b7364b367430e2337c7758206316ddff1363be4b02012",
+    "neoforge-v026-4gb-startup-heap.json": "4cd6a1575a03c8bdda908bba3a5cd8974784285348de4715a82a86cc6152e040",
+    "neoforge-v026-4gb-startup-heap.log": "01bdac54724bae4f5d23e591a14b4cc3d8f7f53a4e566c4ed99dcf7cf5c46982",
+    "neoforge-v026-4gb-startup-load.log": "e4e3cb55b6cf3e0cd848d9e5bda605f29d7fd9995886b6540487297e25cbfc0f",
+    "neoforge-v026-4gb-startup.json": "3e1d328a3d2cdd1dd22501ced4e83f054de4ffd7f0f7017deb4bbc71942a3fe3"
+  }
+}

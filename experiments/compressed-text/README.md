@@ -13,4 +13,6 @@ python -X utf8 tools/build_vehicle_memory_mod.py --instance .cache/game-test/neo
 python -X utf8 tools/audit_compressed_resource_text.py --instance .cache/game-test/neoforge-instance --candidate vehicle-memory/experiments/compressed-text/mtr-memory-sharing-neoforge-v026.jar --baseline vehicle-memory/mtr-memory-sharing-neoforge-v022.jar --output vehicle-memory/experiments/compressed-text/text-audit.json
 ```
 
-Native mixin execution, startup/reload, rendering and lower-heap acceptance remain pending. Install the unchanged audited artifact only into the stopped marked test client. Keep v0.2.2 as the recommended delivery until the new candidate establishes both correctness and useful memory improvement.
+Native mixin execution, full-pack startup/reload, DC01 rendering and 4 GiB acceptance now pass as recorded below. v0.2.6 is the recommended tested delivery; retain v0.2.2 for rollback.
+
+Runtime acceptance passed: all 16 packs / 2,541 registrations, 290 objects and 23 rails complete at 4 GiB on startup and actual F3+T reload, each passing the 60-second stable threshold. Both DC01 bodies render before/after; exact floors and doorways match v0.2.2. Sampled process working-set peaks are 4.97 / 5.57 GiB versus baseline 6.00 / 6.57 GiB. No diagnostic GC was requested. Published the unchanged artifact as v0.2.6, retained v0.2.2 rollback, restored original player state and closed normally; original saved transport fields and all 16 pack selections/hashes passed. [Runtime acceptance](../../evidence/neoforge-v026-4gb-acceptance.json).

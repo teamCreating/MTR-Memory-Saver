@@ -1,6 +1,33 @@
 # MTR client memory companions
 
-Current optimization target: **Minecraft 1.21.1 / NeoForge 21.1.265 / MTR 4.1.0-beta.2**, prioritizing memory use. The recommended tested companion is [mtr-memory-sharing-neoforge-v022.jar](mtr-memory-sharing-neoforge-v022.jar), version **0.2.2**.
+Current optimization target: **Minecraft 1.21.1 / NeoForge 21.1.265 / official MTR 4.1.0-beta.2**. Recommended tested companion: [mtr-memory-sharing-neoforge-v026.jar](mtr-memory-sharing-neoforge-v026.jar), version **0.2.6**.
+
+v0.2.6 keeps cached resource text compressed until registration completes, then releases the cache. Misses use the unchanged native reader; hits restore exact UTF-16 content. Every v0.2.2 model-processing class remains byte-identical. All 8,534 archive text inputs, concurrent reads and overlapping reload checks pass. [Implementation and reproduction](experiments/compressed-text/README.md).
+
+All **16 packs / 2,541 vehicles, 290 objects and 23 rails** pass ordinary startup and actual foreground **F3+T reload at 4 GiB**, each with a 60-second stable check. Both DC01 bodies render before and after reload; their exact independent 5/6-floor and 10/10-doorway caches match v0.2.2. No diagnostic GC was requested. [Acceptance and fingerprints](evidence/neoforge-v026-4gb-acceptance.json).
+
+| Candidate / test | Heap limit | Windows working set peak | Private committed peak |
+| --- | ---: | ---: | ---: |
+| v0.2.2 startup | 5 GiB | 6.00 GiB | 6.19 GiB |
+| v0.2.6 startup | 4 GiB | 4.97 GiB | 5.16 GiB |
+| v0.2.2 reload | 5 GiB | 6.57 GiB | 6.75 GiB |
+| v0.2.6 reload | 4 GiB | 5.57 GiB | 5.75 GiB |
+
+These are single-run sampled process values. The external JVM sampler covered blocked render-thread loading; its startup/reload heap peaks were 3.91 / 3.92 GiB. Each native registration epoch cached 2,000,187,675 text code units as 592,010,155 compressed bytes plus 13,792 uncompressed code units, then released the cache. This payload accounting is separate from process measurements. Four GiB is the lowest verified heap in the saved fixture; larger worlds may require more. Wider vehicle, Shanghai-window and passenger-exit checks remain open.
+
+Install exactly one companion in `mods` alongside the fingerprinted official MTR release, replacing the previous companion. Keep all 16 repaired ZIPs enabled in `resourcepacks`, and use Java 21 with the tested settings:
+
+```text
+-Xms1G -Xmx4G
+-Djdk.virtualThreadScheduler.parallelism=2
+-Djdk.virtualThreadScheduler.maxPoolSize=2
+```
+
+SHA-256: `0fabb984dfec04ef7f4f921433730499c7c0cd242f238d656b094c389ba06c93`. The test client closed normally after restoring its original player; original saved transport fields, all pack hashes and selections passed. Keep [v0.2.2](mtr-memory-sharing-neoforge-v022.jar) for rollback with its tested 5 GiB settings.
+
+## Earlier v0.2.2 results
+
+Current optimization target: **Minecraft 1.21.1 / NeoForge 21.1.265 / MTR 4.1.0-beta.2**, prioritizing memory use. The previous tested companion is [mtr-memory-sharing-neoforge-v022.jar](mtr-memory-sharing-neoforge-v022.jar), version **0.2.2**.
 
 v0.2.2 shares identical nonempty property/position JSON trees by input-text SHA-256. Each vehicle keeps an independent native JsonReader map, ModelProperties, PositionDefinitions and build caches. Registration releases cache-owned trees; resource reload starts a fresh cache. All 24 existing v0.2.1 class entries are byte-identical. The unmodified-release audit passed 1,397 real inputs and 2,818 native-reader comparisons, including independent merges and unchanged input trees. [Implementation and reproduction](experiments/json-sharing/README.md).
 
