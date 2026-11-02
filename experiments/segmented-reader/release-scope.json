@@ -1,0 +1,15 @@
+{
+  "official_mtr_sha256": "ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa",
+  "release_bytecode_sha256": "f4a9f923ae1b7a7e21123c020a95739f335c181a878c41ee776d283bd953d9bf",
+  "method": "lambda$readResource$1([Ljava/lang/String;Lnet/minecraft/resources/ResourceLocation;Ljava/io/InputStream;)V",
+  "redirect": "IOUtils.toString(InputStream,Charset)",
+  "preserved": [
+    "native resource manager and resource priority",
+    "input stream owner and closure",
+    "UTF-8 decoder replacement behavior",
+    "BOM and exact decoded UTF-16 units",
+    "native exception logging/empty fallback",
+    "debug resource reader",
+    "all v0.2.6 class entries including compressed cache and model processing"
+  ]
+}
