@@ -1,0 +1,257 @@
+{
+  "timestamp": "2026-11-03T00:55:54.666272+08:00",
+  "target": {
+    "minecraft": "1.21.1",
+    "mtr": "4.1.0-beta.2"
+  },
+  "mod_loader": "neoforge",
+  "loader_version": "21.1.265",
+  "candidate_version": "0.2.8",
+  "candidate_sha256": "d934a8d255be16253c753b061e7d92d942985c0ee7debc1892c90ef7ecfdb40c",
+  "runs": {
+    "startup": {
+      "status": "registered_and_parsed_stable",
+      "pid": 14960,
+      "peak_sampled_working_set": 5385027584,
+      "peak_sampled_private_usage": 5566738432,
+      "external_peak_sampled_heap_used": 4087709901,
+      "observations": 13
+    },
+    "reload": {
+      "status": "registered_and_parsed_stable",
+      "pid": 14960,
+      "peak_sampled_working_set": 5960708096,
+      "peak_sampled_private_usage": 6141837312,
+      "external_peak_sampled_heap_used": 4123847578,
+      "observations": 14
+    }
+  },
+  "all_pack_count": 16,
+  "vehicles": 2541,
+  "objects": 290,
+  "rails": 23,
+  "unique_source_parses_per_epoch": 651,
+  "stable_seconds_per_epoch": 60,
+  "cache_comparison": {
+    "timestamp": "2026-11-03T00:55:11.536812+08:00",
+    "passed": true,
+    "caches": [
+      {
+        "vehicle_id": "mtr_custom_train_dc01_update_cab_1_native_7ea57bf708e8",
+        "cache_floors": [
+          "AABB[-1.2999999523162842, 0.9375, -13.600000381469727] -> [1.2999999523162842, 0.9375, -5.900000095367432]",
+          "AABB[-1.2999999523162842, 0.9375, -5.800000190734863] -> [1.2999999523162842, 0.9375, -0.8999999761581421]",
+          "AABB[-1.2999999523162842, 0.9375, -0.800000011920929] -> [1.2999999523162842, 0.9375, 4.099999904632568]",
+          "AABB[-1.2999999523162842, 0.9375, 4.199999809265137] -> [1.2999999523162842, 0.9375, 9.100000381469727]",
+          "AABB[-1.2999999523162842, 0.9375, 9.199999809265137] -> [1.2999999523162842, 0.9375, 12.100000381469727]"
+        ],
+        "cache_doorways": [
+          "AABB[-1.706230640411377, 0.9375, -0.90625] -> [-1.0, 0.9375, 0.90625]",
+          "AABB[-1.706230640411377, 0.9375, -5.90625] -> [-1.0, 0.9375, -4.09375]",
+          "AABB[-1.706230640411377, 0.9375, -10.90625] -> [-1.0, 0.9375, -9.09375]",
+          "AABB[-1.706230640411377, 0.9375, 4.09375] -> [-1.0, 0.9375, 5.90625]",
+          "AABB[-1.706230640411377, 0.9375, 9.09375] -> [-1.0, 0.9375, 10.90625]",
+          "AABB[1.0, 0.9375, -0.90625] -> [1.706230640411377, 0.9375, 0.90625]",
+          "AABB[1.0, 0.9375, 4.09375] -> [1.706230640411377, 0.9375, 5.90625]",
+          "AABB[1.0, 0.9375, 9.09375] -> [1.706230640411377, 0.9375, 10.90625]",
+          "AABB[1.0, 0.9375, -5.90625] -> [1.706230640411377, 0.9375, -4.09375]",
+          "AABB[1.0, 0.9375, -10.90625] -> [1.706230640411377, 0.9375, -9.09375]"
+        ]
+      },
+      {
+        "vehicle_id": "mtr_custom_train_dc01_update_cab_2_native_7b8391aef2c8",
+        "cache_floors": [
+          "AABB[-1.2999999523162842, 0.9375, -12.100000381469727] -> [1.2999999523162842, 0.9375, -10.899999618530273]",
+          "AABB[-1.2999999523162842, 0.9375, -10.800000190734863] -> [1.2999999523162842, 0.9375, -5.900000095367432]",
+          "AABB[-1.2999999523162842, 0.9375, -5.800000190734863] -> [1.2999999523162842, 0.9375, -0.8999999761581421]",
+          "AABB[-1.2999999523162842, 0.9375, -0.800000011920929] -> [1.2999999523162842, 0.9375, 4.099999904632568]",
+          "AABB[-1.2999999523162842, 0.9375, 4.199999809265137] -> [1.2999999523162842, 0.9375, 9.100000381469727]",
+          "AABB[-1.2999999523162842, 0.9375, 9.199999809265137] -> [1.2999999523162842, 0.9375, 13.600000381469727]"
+        ],
+        "cache_doorways": [
+          "AABB[-1.706230640411377, 0.9375, -0.90625] -> [-1.0, 0.9375, 0.90625]",
+          "AABB[-1.706230640411377, 0.9375, -5.90625] -> [-1.0, 0.9375, -4.09375]",
+          "AABB[-1.706230640411377, 0.9375, -10.90625] -> [-1.0, 0.9375, -9.09375]",
+          "AABB[-1.706230640411377, 0.9375, 4.09375] -> [-1.0, 0.9375, 5.90625]",
+          "AABB[-1.706230640411377, 0.9375, 9.09375] -> [-1.0, 0.9375, 10.90625]",
+          "AABB[1.0, 0.9375, -0.90625] -> [1.706230640411377, 0.9375, 0.90625]",
+          "AABB[1.0, 0.9375, 4.09375] -> [1.706230640411377, 0.9375, 5.90625]",
+          "AABB[1.0, 0.9375, 9.09375] -> [1.706230640411377, 0.9375, 10.90625]",
+          "AABB[1.0, 0.9375, -5.90625] -> [1.706230640411377, 0.9375, -4.09375]",
+          "AABB[1.0, 0.9375, -10.90625] -> [1.706230640411377, 0.9375, -9.09375]"
+        ]
+      }
+    ],
+    "method": "Exact independent native per-car floor/doorway equality before and after reload and to delivered v0.2.7."
+  },
+  "render_review": "Actual native F2 images show both DC01 bodies, closed doors before reload and open doors after reload. Camera used native spectator mode only after stability, original survival player restored before reload and normal shutdown.",
+  "cleanup": {
+    "timestamp": "2026-11-03T00:55:54.353993+08:00",
+    "pid": 14960,
+    "reference_sha256": "042d523a17d7c6721f53ccb6f04914a9a15a726fb6590135bd3e50580c29d825",
+    "values": {
+      "sidings": [
+        {
+          "id": -6304466250560538598,
+          "vehicleCars": [
+            {
+              "vehicleId": "mtr_custom_train_dc01_update_cab_1_native_7ea57bf708e8",
+              "length": 25.0,
+              "width": 2.0,
+              "capacity": 0,
+              "bogie1Position": -8.5,
+              "bogie2Position": 8.5,
+              "couplingPadding1": 1.0,
+              "couplingPadding2": 0.0
+            },
+            {
+              "vehicleId": "mtr_custom_train_dc01_update_cab_2_native_7b8391aef2c8",
+              "length": 25.0,
+              "width": 2.0,
+              "capacity": 0,
+              "bogie1Position": -8.5,
+              "bogie2Position": 8.5,
+              "couplingPadding1": 0.0,
+              "couplingPadding2": 1.0
+            }
+          ]
+        }
+      ],
+      "depots": [
+        {
+          "id": 8805550386485521715,
+          "routeIds": [
+            1634058583976595067
+          ],
+          "useRealTime": false,
+          "frequencies": [
+            60,
+            60,
+            60,
+            60,
+            60,
+            60,
+            60,
+            60,
+            60,
+            60,
+            60,
+            60,
+            60,
+            60,
+            60,
+            60,
+            60,
+            60,
+            60,
+            60,
+            60,
+            60,
+            60,
+            60
+          ],
+          "repeatInfinitely": false
+        }
+      ],
+      "platforms": [
+        {
+          "id": 165694310607733568,
+          "dwellTime": 120000
+        },
+        {
+          "id": 7620670858014251768,
+          "dwellTime": 120000
+        }
+      ]
+    },
+    "inventory_counts": {
+      "sidings": 1,
+      "depots": 1,
+      "platforms": 2,
+      "routes": 1
+    },
+    "player_reference_sha256": "7bb678b694c9468279259d8972ec10f5726f2357e7d66d27bb53835787c8526d",
+    "script_sha256": "bb367624a71686602c247a35573f072025f202faf1228506830f38414e89bd42",
+    "normal_shutdown": true,
+    "player_restored": true,
+    "saved_player": {
+      "position": [
+        38.5,
+        4.0,
+        15.5
+      ],
+      "yaw": -180.0,
+      "game_type": 0
+    },
+    "saved_day_time": 294813,
+    "pack_hashes_verified": 16,
+    "selected_packs": [
+      "[AI车门修复][MTR] Taiwan Train V000 EMU3000 20251107.zip",
+      "[AI车门修复][材质模型包]悠日计画 交通运输类模型 8.2505.1.zip",
+      "[AI车门修复]ChenDianMetroWayV0.5.1R.zip",
+      "[AI车门修复]HSM-2000 v1.2.1 (Adapted for MTR 4.0.x)-20260722-210944.zip",
+      "[AI车门修复]rpsync-mtr4.0.0-hxd3d-yw25t.zip",
+      "[AI车门修复]rpsync-shanghaimetroaddon_v3.4.0_creating_trimmed_v2.zip",
+      "[AI车门修复]ShirahaneVehicle v2.4.3 release_hotfix1.zip",
+      "[AI车门修复]STCP Bus Pack.zip",
+      "[AI车门修复]Zhongtong Base Pack - 1.1.0.zip",
+      "[AI车门修复]§9§l现代城市系列追加包§7-v2.0.zip",
+      "[AI车门修复]悠日交通资源包part3-260708.zip",
+      "[AI车门修复]悠日计画 故事模式用材质 8.2504.zip",
+      "[AI车门修复]悠日计画交通资源包part2 release v2.1-hotfix2.zip",
+      "[AI车门修复]新艾利都地铁_疾锋龙号(性能优化版).zip",
+      "[AI车门修复]新铁路铁轨基本轨包BY默淼yams.zip",
+      "[AI车门修复]新艾利都地铁 ERIDU-10000一期改造型.zip"
+    ],
+    "mods": [
+      {
+        "filename": "mtr-memory-sharing-neoforge.jar",
+        "sha256": "d934a8d255be16253c753b061e7d92d942985c0ee7debc1892c90ef7ecfdb40c"
+      },
+      {
+        "filename": "MTR-neoforge-4.1.0-beta.2+1.21.1.jar",
+        "sha256": "ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa"
+      },
+      {
+        "filename": "mtr-passenger-transition-neoforge.jar",
+        "sha256": "6ed678ccdd6f51bed9dba0e30368e2d136b14c3ae704d225db8031a4250e5845"
+      },
+      {
+        "filename": "vehicle-memory-probe.jar",
+        "sha256": "3f2e79227a623de97e3de026623e61bab16ec7deedfdd099461881657e63a8bb"
+      }
+    ],
+    "method": "Read-only saved NBT and first complete MessagePack map; trailing old bytes are preserved.",
+    "limits": "Verifies fixture restoration and fingerprints; runtime rendering and memory acceptance are separate."
+  },
+  "diagnostic_gc_requested": false,
+  "evidence_sha256": {
+    "neoforge-v028-4gb-after-reload.json": "da65352f46dd5c6b7f1e9174815719a554e9cd0695fb3219d570b34af7b23104",
+    "neoforge-v028-4gb-after-reload.png": "570c3cbf02d14ea00e991f28e374f87515181b71cb7f1dd7b08fbb7b5228b068",
+    "neoforge-v028-4gb-before-reload.json": "f64dfd37314c99183f7910bebe473b7daf1d1e891c8716518479ab450b0a1b2a",
+    "neoforge-v028-4gb-before-reload.png": "3162828ce18aa06ed6a0ea501e0f7a5cd89acd00090c1ec7aba8aaaf6e02feb9",
+    "neoforge-v028-4gb-cache-before.json": "242c2eb64e60091f053edbcacdb0d03b6255cc7e6be8dc3f84bb0b31d066072d",
+    "neoforge-v028-4gb-cache-comparison.json": "05b3a1ebc0a4af95cf36409300be719e721f9ac9903c5d1451f459b3dcec17d5",
+    "neoforge-v028-4gb-fixture-verified.json": "df186c84f8a8e86858636ef3a34a263e19438670e2b4d467c4446f2722b0141f",
+    "neoforge-v028-4gb-inherited-context.json": "71364c879b4f1e858a8dddfd51e7471a9ac5d984e334cbebb2538229d95a951f",
+    "neoforge-v028-4gb-input-layout.json": "20ecb1a7f8f11121ab1440ddc213e28f7effef57f0c810fe50239a9debf15095",
+    "neoforge-v028-4gb-native.log": "f884bbae4268d2c2bc43de7923774acf82b37c26a0ce15fd746380de61ccb24d",
+    "neoforge-v028-4gb-reload-heap.json": "4135fdb79dc7b04e35c4491916156cedcbda46c5944cbde7af863d66502613cb",
+    "neoforge-v028-4gb-reload-heap.log": "ddbafe1306dd209294c95579ee4432f607fdf7eb9215f2a91f8067ef733c53d2",
+    "neoforge-v028-4gb-reload-load-retry.log": "e996e9c264a3221ac14e4118b34de8719c27a086e68bdc773937912185cada72",
+    "neoforge-v028-4gb-reload-load.log": "7eab6a4c97d66be5aaf3f0cf8ccb485d2886b05c7e2a6c45ed4d726c769fc3ae",
+    "neoforge-v028-4gb-reload-request.json": "b8fb4a6902aa88656a4340a406cbb58932a43deccae19955776b7b29f05bbcc4",
+    "neoforge-v028-4gb-reload.json": "36404c706d4f64e2ed97ccee461de43d430307bd86522adb9b377c5005666ed2",
+    "neoforge-v028-4gb-restored-player.json": "e6c84f369f521c01a71126b2b6ad1291dbb6f439ccee80f01b4e12283e49b8ad",
+    "neoforge-v028-4gb-session.log": "7c234f0dae91a5e1e2f89c56b6b035917a8f49bdc46a3ba33d35c93295792ac1",
+    "neoforge-v028-4gb-startup-heap.json": "6b78f028bbbf7f1d2a70104335f459c04ec90ec43d7c2674902f5339f6025c26",
+    "neoforge-v028-4gb-startup-heap.log": "b793493f2cbd0efd832d0d28baeac1718f5798602715719527698a9daedef636",
+    "neoforge-v028-4gb-startup-load.log": "583951984dd669cd62f01c5dd22652eb651b41dca4fb243e78c32b08179a37c3",
+    "neoforge-v028-4gb-startup.json": "1a27fa05067edc168bff335e6ce249c64612c2dfaa1230268ecc51d48756f96b",
+    "neoforge-v028-4gb-title.json": "3b983e1e0de077db5eee01a6f90bbad6cf5b5e2f993901c608c46b9990f64a31",
+    "neoforge-v028-4gb-title.png": "7c8678920112032cdb9729a035fab3c0b6cd2264caa76e027df6a71e9fcf5489",
+    "neoforge-v028-4gb-world-selection.json": "bfab55b77b1d671128a271f4188d50a36f851259e592c45886d71aaa0a150f1e",
+    "neoforge-v028-4gb-world-selection.png": "286d6afb9e3d7b6e2119e06b20e31e4307f1e5e9219aad1256e7fcf842f1f238"
+  },
+  "limits": "One fresh 4 GiB process. Reload process sampler retry began after PowerShell converted its ISO timestamp to a locale date; failed invocation preserved, external heap sampler covered the event. Lower process RAM and repeatability are not established; 3 GiB exploration pending."
+}

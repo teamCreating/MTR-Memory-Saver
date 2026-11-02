@@ -1,6 +1,6 @@
 # Bounded compressed resource-text restoration
 
-Target: Minecraft 1.21.1 / NeoForge 21.1.265 / official MTR 4.1.0-beta.2. Candidate: `mtr-memory-sharing-neoforge-v028.jar`, version 0.2.8. **Experimental; game acceptance pending.** Keep delivered v0.2.7 for rollback.
+Target: Minecraft 1.21.1 / NeoForge 21.1.265 / official MTR 4.1.0-beta.2. Candidate: `mtr-memory-sharing-neoforge-v028.jar`, version 0.2.8. **One fresh 4 GiB startup and actual F3+T reload passed; 3 GiB exploration and repeatability pending.** Keep delivered v0.2.7 for rollback.
 
 v0.2.7 restores a compressed cache hit through a complete `char[length]` and then copies it into a String. v0.2.8 bounds that temporary array to 4096 UTF-16 units, restores each inflater read as a String segment, and joins the segments once. Inputs up to 4096 units retain the original one-array path. Arbitrary UTF-16 units, including unpaired surrogates, are preserved; odd byte reads carry their high byte into the next read. Length validation and native cache ownership are preserved. Packing, first-read identity, null/error handling, epoch replacement and the existing native reader are unchanged.
 
@@ -28,4 +28,15 @@ python -X utf8 tools/build_vehicle_memory_mod.py --instance .cache/game-test/neo
 python -X utf8 tools/audit_segmented_resource_unpack.py --instance .cache/game-test/neoforge-instance --candidate vehicle-memory/experiments/segmented-unpack/mtr-memory-sharing-neoforge-v028.jar --baseline vehicle-memory/mtr-memory-sharing-neoforge-v027.jar --output vehicle-memory/experiments/segmented-unpack/fresh-audit.json
 ```
 
-Use fresh evidence output names. Build alone does not install into the test instance; installation requires the recorded client to be stopped. Ordinary startup/reload at a fixed heap and mod context, native rendering/cache comparisons and original-fixture restoration remain required before delivery. No lower process peak or reduced minimum heap is claimed from these isolated tests.
+Use fresh evidence output names. Build alone does not install into the test instance; installation requires the recorded client to be stopped. No lower process peak or reduced minimum heap is claimed from the isolated allocation tests.
+
+## First ordinary 4 GiB game run
+
+[Acceptance and fingerprints](../../evidence/neoforge-v028-4gb-acceptance.json): all 16 packs / 2541 vehicles / 290 objects / 23 rails, 651 unique parses per epoch, 60 seconds of continuous fresh stable observations at startup and reload. No diagnostic GC requested. Both actual DC01 car bodies and closed/open doors render; their distinct 5/6 floor and 10/10 doorway caches match v0.2.7 exactly before/after reload. Player, window input layout, saved transport fields, pack hashes/order and launch mod identities are restored/verified after normal shutdown. The experimental passenger companion stays fixed at v0.1.1; the fixture-control probe is absent.
+
+| Epoch | Sampled heap peak | Windows working set peak | Private committed peak |
+| --- | ---: | ---: | ---: |
+| Startup | 3.807 GiB | 5.015 GiB | 5.184 GiB |
+| F3+T reload | 3.841 GiB | 5.551 GiB | 5.720 GiB |
+
+This is one process; sampled values are not true maxima or production-world limits. The first reload process-monitor invocation failed when PowerShell converted the offset timestamp into a locale date. The successful retry began during parsing; the separate heap monitor covered the reload event. Initial failure evidence is retained. Existing transparent-model, sound and SDK-session authentication messages also occur in the previous tested client and remain visible in complete logs. Three GiB feasibility and repeatability remain open; wider Shanghai windows and passenger/vehicle gameplay remain separate unfinished work.
