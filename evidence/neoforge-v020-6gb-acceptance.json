@@ -1,0 +1,31 @@
+{
+  "timestamp": "2026-11-02T18:01:16.718634+08:00",
+  "target": {
+    "minecraft": "1.21.1",
+    "mtr": "4.1.0-beta.2"
+  },
+  "mod_loader": "neoforge",
+  "loader_version": "21.1.265",
+  "companion_sha256": "daed4c63017b110f22de9e98a8ab4ad9122daba98ff187bd300b532d09b8b5ef",
+  "startup": "Passed ordinary all-16-pack 6 GiB startup, 2541 registrations, completed parsing and 60 seconds of fresh continuous stable samples. No diagnostic GC.",
+  "reload": "Passed actual F3+T at 6 GiB, new completed parse epoch in log and fresh continuous stable samples for 60 seconds. No diagnostic GC.",
+  "reload_observation_limit": "Render thread blocked during parsing, so no live unfinished sample was observed. Two completed registration/parser epochs are present in the log.",
+  "native_cache": "Both original DC01 cars have ready, individually unchanged floors and doorways after reload.",
+  "rendering": "Native F2 before reload visibly shows both DC01 bodies, interiors and open doors. The first after-reload screenshot points at the ground and is cache-state evidence only.",
+  "passenger": "Smoke test pending",
+  "lower_heaps": "Not tested",
+  "evidence_sha256": {
+    "neoforge-v020-6gb-after-reload.json": "602c6731082a4682221fa0ba422bc01a55557f19edf7b39c902c8df5bffba976",
+    "neoforge-v020-6gb-after-reload.png": "3b6bc75ee35bc67a9528fd12fafe86587932eb05c2834c37d8ba737dcc3aa484",
+    "neoforge-v020-6gb-before-reload.json": "ab928580ae128849e5ef351ce39614c8ce87d0c0fa21cbfb89f945cae7695016",
+    "neoforge-v020-6gb-before-reload.png": "af26f225e5a4e19393984476b16ac5b9d344308e73fafc74ba1a2f749b6f7ec5",
+    "neoforge-v020-6gb-reload.json": "45ccdabf6ca415bfb1b096e9ee9f6e0f00dc7b2d88d25852ff3953e1c4b9ae68",
+    "neoforge-v020-6gb-reload.log": "ac06788b531bc9ad80edeb7bd1bb49c11130f1ddf13a6b50cb40c076a25099b7",
+    "neoforge-v020-6gb-startup.json": "5f2c94a267a1c30a32014b142877eaafb2122d0821731350f48284f5767d5728",
+    "neoforge-v020-6gb-startup.log": "4a3371e5fc30ed2c7a9753f397743e147882f844d64d2ab50e19ee8d68454e0e",
+    "neoforge-v020-6gb-title-live.json": "067dcbaf021ec117d16a3645eda1394eede3782516a1a8d89ded5e3f9efb7fcc",
+    "neoforge-v020-6gb-title.png": "7bac66afed125c4f0789a3671f6adab31fd4ec32751a61c9d9cffe6373136e63",
+    "neoforge-v020-reload-request.json": "5d70d1c111eb66fc8404fcc8459a74c924e538cd0f6f91ca19d63218c229f176"
+  },
+  "limits": "Sampled heap is not a true maximum or total process RAM. Broad vehicle/window/passenger coverage remains unfinished."
+}
