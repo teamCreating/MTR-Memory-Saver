@@ -24,7 +24,6 @@ public final class SharedBlockbenchCache {
     private static final IdentityHashMap<ModelLoaderBase, Entry> PENDING = new IdentityHashMap<>();
     private static final AtomicInteger REQUESTS = new AtomicInteger();
     private static final AtomicInteger COMPLETED = new AtomicInteger();
-    private static final AtomicInteger UNIQUE = new AtomicInteger();
     private static final AtomicInteger EPOCH = new AtomicInteger();
 
     private SharedBlockbenchCache() {}
@@ -37,7 +36,6 @@ public final class SharedBlockbenchCache {
         Entry entry = CACHE.computeIfAbsent(key, ignored -> {
             BlockbenchModelLoader source = new BlockbenchModelLoader(textureId);
             Entry created = new Entry(new CompletableFuture<>(), EPOCH.get());
-            UNIQUE.incrementAndGet();
             synchronized (PENDING) { PENDING.put(source, created); }
             source.loadModel(() -> new BlockbenchModel(new JsonReader(Utilities.parseJson(raw))));
             return created;
@@ -60,19 +58,11 @@ public final class SharedBlockbenchCache {
         EPOCH.incrementAndGet();
         REQUESTS.set(0);
         COMPLETED.set(0);
-        UNIQUE.set(0);
     }
 
     public static void report() {
         MTR.LOGGER.info("MTR memory sharing: {} Blockbench requests, {} unique parses, {} completed",
-                REQUESTS.get(), UNIQUE.get(), COMPLETED.get());
-    }
-
-    /** Completed facades own their inputs; pending parses keep their completion entry. */
-    public static void finishRegistration() {
-        int entries = CACHE.size();
-        CACHE.clear();
-        MTR.LOGGER.info("MTR memory sharing: released {} shared source loaders after registration", entries);
+                REQUESTS.get(), CACHE.size(), COMPLETED.get());
     }
 
     private static String digest(String raw) {
