@@ -1,0 +1,137 @@
+{
+  "timestamp": "2026-11-03T09:05:18.048412+08:00",
+  "passed": true,
+  "builder_sha256": "a32470b6f872664d0ba670f223193928b08fdd808efccf6e48b2dad6021c34e9",
+  "comparisons": [
+    {
+      "variant": "fabric-v011-restored",
+      "delivered_artifact": "vehicle-memory\\mtr-memory-sharing.jar",
+      "delivered_sha256": "d827d25274786ee64b8585f72be663399dde5a44e47e5c1a0287c5217820e79b",
+      "rebuild_sha256": "77e03f5a489fda367121b42e5e8d157a7ab9d9f882a94f6ffa1a7df4e94b4643",
+      "classes_compared": 9,
+      "all_jar_member_payloads_identical": true,
+      "sources": {
+        "vehicle-memory\\src\\dev\\abenli\\mtrmemory\\mixin\\ModelLoaderAccess.java": "35fccae4916bf7f11b182cbe8a67640d816d57922b4bd13e0644b74e44dc8cce",
+        "vehicle-memory\\src\\dev\\abenli\\mtrmemory\\mixin\\ModelLoaderCompletionMixin.java": "5331eb0e4641cc041035997bbf8bea217331cee4db83ab8a012c53884a9cba11",
+        "vehicle-memory\\src\\dev\\abenli\\mtrmemory\\mixin\\ResourceReloadMixin.java": "692eeb94c286368e6739e740d28d7ba5e173bf5b2eb8360ddb40d3be0a25b0a5",
+        "vehicle-memory\\src\\dev\\abenli\\mtrmemory\\mixin\\VehicleModelFactoryMixin.java": "e44d5920edb0e2241d15f2c6f8a38b925e66bf2a604fdc952f8afeb2860787c0",
+        "vehicle-memory\\src\\dev\\abenli\\mtrmemory\\mixin\\VertexColorMixin.java": "530e0f572b8dbc19f9464168dc35b487f4fa6916bac689ef269275760a64c184",
+        "vehicle-memory\\src-platform\\fabric\\dev\\abenli\\mtrmemory\\SharedBlockbenchCache.java": "60010493ba953f39ab44455d4202182669ca170f88990a6a13d6259164bc0afc",
+        "vehicle-memory\\src-platform\\fabric\\dev\\abenli\\mtrmemory\\SharedBlockbenchLoader.java": "bf3c8e802c83039a719d77e806c937c7ad30bce810f03b73e5e9f226f10b2227"
+      },
+      "source_mismatches": []
+    },
+    {
+      "variant": "neoforge-v011-restored",
+      "delivered_artifact": "vehicle-memory\\mtr-memory-sharing-neoforge.jar",
+      "delivered_sha256": "f05939fa0c900b8351d7be518e828b6f24554f1f7f5a349b238ea63184aa635d",
+      "rebuild_sha256": "12ec3ce0587781a55c4c8ce9a63a7510b864639e87003e19488225bd29ff615e",
+      "classes_compared": 9,
+      "all_jar_member_payloads_identical": true,
+      "sources": {
+        "vehicle-memory\\src\\dev\\abenli\\mtrmemory\\mixin\\ModelLoaderAccess.java": "35fccae4916bf7f11b182cbe8a67640d816d57922b4bd13e0644b74e44dc8cce",
+        "vehicle-memory\\src\\dev\\abenli\\mtrmemory\\mixin\\ModelLoaderCompletionMixin.java": "5331eb0e4641cc041035997bbf8bea217331cee4db83ab8a012c53884a9cba11",
+        "vehicle-memory\\src\\dev\\abenli\\mtrmemory\\mixin\\ResourceReloadMixin.java": "692eeb94c286368e6739e740d28d7ba5e173bf5b2eb8360ddb40d3be0a25b0a5",
+        "vehicle-memory\\src\\dev\\abenli\\mtrmemory\\mixin\\VehicleModelFactoryMixin.java": "e44d5920edb0e2241d15f2c6f8a38b925e66bf2a604fdc952f8afeb2860787c0",
+        "vehicle-memory\\src\\dev\\abenli\\mtrmemory\\mixin\\VertexColorMixin.java": "530e0f572b8dbc19f9464168dc35b487f4fa6916bac689ef269275760a64c184",
+        "vehicle-memory\\src\\dev\\abenli\\mtrmemory\\SharedBlockbenchCache.java": "abe356797f68b0a494b0a78ff85f8e31c8122e5af10dbde0b458083fc9ec9201",
+        "vehicle-memory\\src-platform\\neoforge\\dev\\abenli\\mtrmemory\\SharedBlockbenchLoader.java": "c22ee54705db1b3361518d0be0e27e027fd26601bb5f36acd685cc6f7a085586"
+      },
+      "source_mismatches": []
+    },
+    {
+      "variant": "neoforge-v020-restored",
+      "delivered_artifact": "vehicle-memory\\mtr-memory-sharing-neoforge-v020.jar",
+      "delivered_sha256": "daed4c63017b110f22de9e98a8ab4ad9122daba98ff187bd300b532d09b8b5ef",
+      "rebuild_sha256": "77f15fa3f6c43cf56202c8d0677c3c302d829b8e6215132f3615b5089be61849",
+      "classes_compared": 19,
+      "all_jar_member_payloads_identical": true,
+      "sources": {
+        "vehicle-memory\\src\\dev\\abenli\\mtrmemory\\mixin\\ModelLoaderAccess.java": "35fccae4916bf7f11b182cbe8a67640d816d57922b4bd13e0644b74e44dc8cce",
+        "vehicle-memory\\src\\dev\\abenli\\mtrmemory\\mixin\\ModelLoaderCompletionMixin.java": "5331eb0e4641cc041035997bbf8bea217331cee4db83ab8a012c53884a9cba11",
+        "vehicle-memory\\src\\dev\\abenli\\mtrmemory\\mixin\\ResourceReloadMixin.java": "692eeb94c286368e6739e740d28d7ba5e173bf5b2eb8360ddb40d3be0a25b0a5",
+        "vehicle-memory\\src\\dev\\abenli\\mtrmemory\\mixin\\VehicleModelFactoryMixin.java": "e44d5920edb0e2241d15f2c6f8a38b925e66bf2a604fdc952f8afeb2860787c0",
+        "vehicle-memory\\src\\dev\\abenli\\mtrmemory\\mixin\\VertexColorMixin.java": "530e0f572b8dbc19f9464168dc35b487f4fa6916bac689ef269275760a64c184",
+        "vehicle-memory\\src\\dev\\abenli\\mtrmemory\\SharedBlockbenchCache.java": "abe356797f68b0a494b0a78ff85f8e31c8122e5af10dbde0b458083fc9ec9201",
+        "vehicle-memory\\src-platform\\neoforge\\dev\\abenli\\mtrmemory\\SharedBlockbenchLoader.java": "c22ee54705db1b3361518d0be0e27e027fd26601bb5f36acd685cc6f7a085586",
+        "vehicle-memory\\experiments\\packed-mesh\\src\\dev\\abenli\\mtrmemory\\PackedModelGroupAccess.java": "e75cf4d0e91b5b00311d6463bce4a722f1fa5f7008b8295e664b9d4259a72904",
+        "vehicle-memory\\experiments\\packed-mesh\\src\\dev\\abenli\\mtrmemory\\PackedModelGroupStore.java": "6922ec7ba42473d88518944e374bb547ef80f8d1d2d13cb6f10f467aa72bfd6b",
+        "vehicle-memory\\experiments\\packed-mesh\\src\\dev\\abenli\\mtrmemory\\PackedVertices.java": "4b26097932b3ad3e21dac3060b71492c4603404a01ef5b87b64f8d229e16edde",
+        "vehicle-memory\\experiments\\packed-mesh\\src-platform\\neoforge\\dev\\abenli\\mtrmemory\\mixin\\PackedModelGroupMixin.java": "34b6619a3b414bd98db8f3acda5cd47c6c138b2e7632ed265a8e0404c79715a3",
+        "vehicle-memory\\experiments\\packed-mesh\\src-platform\\neoforge\\dev\\abenli\\mtrmemory\\PackedModelGroupOperations.java": "a192bddc66dbe692af3a07b13c8839c133b2e8af7ebe918afa4b8f4ba821815b",
+        "vehicle-memory\\experiments\\packed-mesh\\src-platform\\neoforge\\dev\\abenli\\mtrmemory\\PackedVertexEmitter.java": "61b64aac0ee43d6238d7a8bb02e961ce1121913c5597b08a788053ca339b5173"
+      },
+      "source_mismatches": []
+    },
+    {
+      "variant": "neoforge-v021-restored",
+      "delivered_artifact": "vehicle-memory\\mtr-memory-sharing-neoforge-v021.jar",
+      "delivered_sha256": "b8b5ff5777bb36a7d1c5793c47173a204cfa8aa06e4b29c34b5037c3b7e5eef9",
+      "rebuild_sha256": "fddadf7df0bff53d11bc7f4167b1a97f3eb18feb04cdfe0d47e8b720b514f12a",
+      "classes_compared": 24,
+      "all_jar_member_payloads_identical": true,
+      "sources": {
+        "vehicle-memory\\src\\dev\\abenli\\mtrmemory\\mixin\\ModelLoaderAccess.java": "35fccae4916bf7f11b182cbe8a67640d816d57922b4bd13e0644b74e44dc8cce",
+        "vehicle-memory\\src\\dev\\abenli\\mtrmemory\\mixin\\ModelLoaderCompletionMixin.java": "5331eb0e4641cc041035997bbf8bea217331cee4db83ab8a012c53884a9cba11",
+        "vehicle-memory\\src\\dev\\abenli\\mtrmemory\\mixin\\ResourceReloadMixin.java": "692eeb94c286368e6739e740d28d7ba5e173bf5b2eb8360ddb40d3be0a25b0a5",
+        "vehicle-memory\\src\\dev\\abenli\\mtrmemory\\mixin\\VehicleModelFactoryMixin.java": "e44d5920edb0e2241d15f2c6f8a38b925e66bf2a604fdc952f8afeb2860787c0",
+        "vehicle-memory\\src\\dev\\abenli\\mtrmemory\\mixin\\VertexColorMixin.java": "530e0f572b8dbc19f9464168dc35b487f4fa6916bac689ef269275760a64c184",
+        "vehicle-memory\\experiments\\packed-mesh\\src\\dev\\abenli\\mtrmemory\\PackedModelGroupAccess.java": "e75cf4d0e91b5b00311d6463bce4a722f1fa5f7008b8295e664b9d4259a72904",
+        "vehicle-memory\\experiments\\packed-mesh\\src\\dev\\abenli\\mtrmemory\\PackedModelGroupStore.java": "6922ec7ba42473d88518944e374bb547ef80f8d1d2d13cb6f10f467aa72bfd6b",
+        "vehicle-memory\\experiments\\packed-mesh\\src\\dev\\abenli\\mtrmemory\\PackedVertices.java": "4b26097932b3ad3e21dac3060b71492c4603404a01ef5b87b64f8d229e16edde",
+        "vehicle-memory\\experiments\\packed-mesh\\src-platform\\neoforge\\dev\\abenli\\mtrmemory\\mixin\\PackedModelGroupMixin.java": "34b6619a3b414bd98db8f3acda5cd47c6c138b2e7632ed265a8e0404c79715a3",
+        "vehicle-memory\\experiments\\packed-mesh\\src-platform\\neoforge\\dev\\abenli\\mtrmemory\\PackedModelGroupOperations.java": "a192bddc66dbe692af3a07b13c8839c133b2e8af7ebe918afa4b8f4ba821815b",
+        "vehicle-memory\\experiments\\packed-mesh\\src-platform\\neoforge\\dev\\abenli\\mtrmemory\\PackedVertexEmitter.java": "61b64aac0ee43d6238d7a8bb02e961ce1121913c5597b08a788053ca339b5173",
+        "vehicle-memory\\experiments\\display-retention\\src\\dev\\abenli\\mtrmemory\\DisplayRetention.java": "9593034584d2ac41b54d76efa6fc2af166002adb6d3b30cc7b56727213e9a91e",
+        "vehicle-memory\\experiments\\display-retention\\src\\dev\\abenli\\mtrmemory\\mixin\\DisplayPartAccess.java": "75c29a45c55d234e890c47cdb868868bae7ad83a9ec4b0c75fab127f3f18fa56",
+        "vehicle-memory\\experiments\\display-retention\\src\\dev\\abenli\\mtrmemory\\mixin\\DisplaySelectionMixin.java": "bafa04407622c6c23c723b90e71c54bb3ebc4c63aa667705d8541078d687802e",
+        "vehicle-memory\\experiments\\display-retention\\src\\dev\\abenli\\mtrmemory\\mixin\\SourceLifetimeMixin.java": "506ca19be6cba0dcd015401dc4f8c545119866aba9ecd1a84392832c7fb6ef6a",
+        "vehicle-memory\\experiments\\display-retention\\src\\dev\\abenli\\mtrmemory\\SharedBlockbenchCache.java": "b909034f26a6ec2b1a8b862bfcfb86ef14b5517eb8bfb46ebc1990c9f281c1cd",
+        "vehicle-memory\\experiments\\display-retention\\src\\dev\\abenli\\mtrmemory\\SharedBlockbenchLoader.java": "48a5e9c9155d284bc4d53ec31f0995723b7c9cfee6c448722fcb5e620d8aed24"
+      },
+      "source_mismatches": []
+    },
+    {
+      "variant": "neoforge-v029-restored",
+      "delivered_artifact": "vehicle-memory\\mtr-memory-sharing-neoforge-v029.jar",
+      "delivered_sha256": "b8e903a3292cca032d6b1038d58f5f0b18be4823148e633ca4114263e2a83b6d",
+      "rebuild_sha256": "e43167ebf13b78697a07531f59ecd153a4f34522d8a99c27eb5b64bc338366c0",
+      "classes_compared": 33,
+      "all_jar_member_payloads_identical": true,
+      "sources": {
+        "vehicle-memory\\src\\dev\\abenli\\mtrmemory\\mixin\\ModelLoaderAccess.java": "35fccae4916bf7f11b182cbe8a67640d816d57922b4bd13e0644b74e44dc8cce",
+        "vehicle-memory\\src\\dev\\abenli\\mtrmemory\\mixin\\ModelLoaderCompletionMixin.java": "5331eb0e4641cc041035997bbf8bea217331cee4db83ab8a012c53884a9cba11",
+        "vehicle-memory\\src\\dev\\abenli\\mtrmemory\\mixin\\ResourceReloadMixin.java": "692eeb94c286368e6739e740d28d7ba5e173bf5b2eb8360ddb40d3be0a25b0a5",
+        "vehicle-memory\\src\\dev\\abenli\\mtrmemory\\mixin\\VehicleModelFactoryMixin.java": "e44d5920edb0e2241d15f2c6f8a38b925e66bf2a604fdc952f8afeb2860787c0",
+        "vehicle-memory\\src\\dev\\abenli\\mtrmemory\\mixin\\VertexColorMixin.java": "530e0f572b8dbc19f9464168dc35b487f4fa6916bac689ef269275760a64c184",
+        "vehicle-memory\\experiments\\packed-mesh\\src\\dev\\abenli\\mtrmemory\\PackedModelGroupAccess.java": "e75cf4d0e91b5b00311d6463bce4a722f1fa5f7008b8295e664b9d4259a72904",
+        "vehicle-memory\\experiments\\packed-mesh\\src\\dev\\abenli\\mtrmemory\\PackedModelGroupStore.java": "6922ec7ba42473d88518944e374bb547ef80f8d1d2d13cb6f10f467aa72bfd6b",
+        "vehicle-memory\\experiments\\packed-mesh\\src\\dev\\abenli\\mtrmemory\\PackedVertices.java": "4b26097932b3ad3e21dac3060b71492c4603404a01ef5b87b64f8d229e16edde",
+        "vehicle-memory\\experiments\\packed-mesh\\src-platform\\neoforge\\dev\\abenli\\mtrmemory\\mixin\\PackedModelGroupMixin.java": "34b6619a3b414bd98db8f3acda5cd47c6c138b2e7632ed265a8e0404c79715a3",
+        "vehicle-memory\\experiments\\packed-mesh\\src-platform\\neoforge\\dev\\abenli\\mtrmemory\\PackedModelGroupOperations.java": "a192bddc66dbe692af3a07b13c8839c133b2e8af7ebe918afa4b8f4ba821815b",
+        "vehicle-memory\\experiments\\packed-mesh\\src-platform\\neoforge\\dev\\abenli\\mtrmemory\\PackedVertexEmitter.java": "61b64aac0ee43d6238d7a8bb02e961ce1121913c5597b08a788053ca339b5173",
+        "vehicle-memory\\experiments\\display-retention\\src\\dev\\abenli\\mtrmemory\\DisplayRetention.java": "9593034584d2ac41b54d76efa6fc2af166002adb6d3b30cc7b56727213e9a91e",
+        "vehicle-memory\\experiments\\display-retention\\src\\dev\\abenli\\mtrmemory\\mixin\\DisplayPartAccess.java": "75c29a45c55d234e890c47cdb868868bae7ad83a9ec4b0c75fab127f3f18fa56",
+        "vehicle-memory\\experiments\\display-retention\\src\\dev\\abenli\\mtrmemory\\mixin\\DisplaySelectionMixin.java": "bafa04407622c6c23c723b90e71c54bb3ebc4c63aa667705d8541078d687802e",
+        "vehicle-memory\\experiments\\display-retention\\src\\dev\\abenli\\mtrmemory\\mixin\\SourceLifetimeMixin.java": "506ca19be6cba0dcd015401dc4f8c545119866aba9ecd1a84392832c7fb6ef6a",
+        "vehicle-memory\\experiments\\display-retention\\src\\dev\\abenli\\mtrmemory\\SharedBlockbenchLoader.java": "48a5e9c9155d284bc4d53ec31f0995723b7c9cfee6c448722fcb5e620d8aed24",
+        "vehicle-memory\\experiments\\json-sharing\\src\\dev\\abenli\\mtrmemory\\mixin\\VehicleJsonCacheMixin.java": "0bbaa5c55716019b851db9e96bc500b1620b9338e2f6b02f966167630e1388e6",
+        "vehicle-memory\\experiments\\json-sharing\\src\\dev\\abenli\\mtrmemory\\mixin\\VehicleJsonEpochMixin.java": "a99b9bfdfd526c9c1287286c0e40c466e16d403f5974f3896319e41c010b91e7",
+        "vehicle-memory\\experiments\\compressed-text\\src\\dev\\abenli\\mtrmemory\\mixin\\CompressedResourceTextMixin.java": "3b7c7a236e90324a3b309e5a6b5816deb69491343bd5cf288f484f7ed610207d",
+        "vehicle-memory\\experiments\\segmented-reader\\src\\dev\\abenli\\mtrmemory\\mixin\\SegmentedResourceTextMixin.java": "16b23c01cd3a31c6fe4ae31cc24b7b28a6173c03f60e7c48d5058dcfdb4fa1a3",
+        "vehicle-memory\\experiments\\segmented-reader\\src\\dev\\abenli\\mtrmemory\\SegmentedResourceText.java": "ef208c42ec2aff43dec624bf08e6e9ca9a6b3cfdf5b1190a96af138693157814",
+        "vehicle-memory\\experiments\\segmented-unpack\\src\\dev\\abenli\\mtrmemory\\CompressedResourceTextCache.java": "47febba0cd4b9c429c64fc8d179edf0aa03f575d41b0c938c35ccca9b4b50077",
+        "vehicle-memory\\experiments\\streamed-digest\\src\\dev\\abenli\\mtrmemory\\ResourceTextDigest.java": "29718de437f3f96b8c396377d73530bca525c4a4f013d6ad068a392d6fbf5404",
+        "vehicle-memory\\experiments\\streamed-digest\\src\\dev\\abenli\\mtrmemory\\SharedBlockbenchCache.java": "9f13b0adb1faf0910227710fbe923b2e599755128ccc84384e1e1e422c48050e",
+        "vehicle-memory\\experiments\\streamed-digest\\src\\dev\\abenli\\mtrmemory\\VehicleJsonCache.java": "3909a7d1fa37c733ba60aa50a5e69e2ecba367a6a535109f6fb6658a50dfdbf9"
+      },
+      "source_mismatches": []
+    }
+  ],
+  "historical_source_aliases": {
+    "vehicle-memory/src/dev/abenli/mtrmemory/SharedBlockbenchLoader.java": "vehicle-memory/src-platform/fabric/dev/abenli/mtrmemory/SharedBlockbenchLoader.java",
+    "vehicle-memory/src/dev/abenli/mtrmemory/SharedBlockbenchCache.java (Fabric v0.1.1)": "vehicle-memory/src-platform/fabric/dev/abenli/mtrmemory/SharedBlockbenchCache.java",
+    "vehicle-memory/src/dev/abenli/mtrmemory/SharedBlockbenchCache.java (display-retention builds)": "vehicle-memory/experiments/display-retention/src/dev/abenli/mtrmemory/SharedBlockbenchCache.java"
+  },
+  "limits": "JAR timestamps differ across builds. Compares all uncompressed member payloads, including every class and loader metadata. Published artifacts and historical build records remain unchanged."
+}

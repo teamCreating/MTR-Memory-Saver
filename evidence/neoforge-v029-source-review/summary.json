@@ -1,0 +1,111 @@
+{
+  "timestamp": "2026-11-03T09:08:29.753552+08:00",
+  "status": "source_and_artifact_checks_passed",
+  "source_fix_commit": "8dfbcc6ebe927bccd7e85a36bbcb83942030bf64",
+  "target": {
+    "minecraft": "1.21.1",
+    "mtr": "4.1.0-beta.2",
+    "neoforge": "21.1.265",
+    "java": "21"
+  },
+  "regression_suite": {
+    "command": "python -X utf8 -m unittest discover -s tools -p 'test_*.py'",
+    "tests": 41,
+    "exit_code": 0
+  },
+  "resourcepack_validation": {
+    "preserved_members": 3325,
+    "obj_prefixes_verified": 74,
+    "bbmodel_prefixes_verified": 135,
+    "bbmodel_compactions_verified": 391,
+    "runtime_models_verified": 391,
+    "original_obj_groups_verified": 1850,
+    "cloned_cube_attributes_verified": 99139,
+    "preserved_native_interactions_verified": 15,
+    "supported_manifest_native_definitions": 1902
+  },
+  "source_rebuilds": [
+    {
+      "variant": "fabric-v011-restored",
+      "classes_compared": 9,
+      "all_jar_member_payloads_identical": true
+    },
+    {
+      "variant": "neoforge-v011-restored",
+      "classes_compared": 9,
+      "all_jar_member_payloads_identical": true
+    },
+    {
+      "variant": "neoforge-v020-restored",
+      "classes_compared": 19,
+      "all_jar_member_payloads_identical": true
+    },
+    {
+      "variant": "neoforge-v021-restored",
+      "classes_compared": 24,
+      "all_jar_member_payloads_identical": true
+    },
+    {
+      "variant": "neoforge-v029-restored",
+      "classes_compared": 33,
+      "all_jar_member_payloads_identical": true
+    }
+  ],
+  "native_inventory": {
+    "native_registry_rows": 2541,
+    "native_definitions": 1902,
+    "generated_native_ids": 1728,
+    "declared_fields_checked": 13314,
+    "passed": true
+  },
+  "digest": {
+    "passed": true,
+    "real_text_files": 8534,
+    "synthetic_cases": 85,
+    "concurrent_reads": 64
+  },
+  "existing_evidence_fingerprints_verified": 145,
+  "evidence_sha256": {
+    "compressed-roundtrip.json": "732cb1ef81a75a2df8597dcf4553aed58891fac328ab677274fb628b547f3d50",
+    "compressed-roundtrip.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "compressed-roundtrip.stdout.log": "2ac9a0ada69e9af1cb627d65d0b250913096887508d9e75fb0f67cd8b6f23240",
+    "display-retention.audit.json": "22b752ea294de7e6ca4f10fa35714fd8844f89fc9c2f74b2ac6853b209c09439",
+    "display-retention.json": "79e9d0203b066b0bd89f184ecfb29fcc9fe79ee2f241ce003eece1a53e1c0510",
+    "display-retention.stderr.log": "def67c7f3bdf5942ff9337153a3fd435da2da53c8e36a01ad74bf73587416055",
+    "display-retention.stdout.log": "1e5654609f5a2ce898fbd742130e805b6e4fb3bf3e78c2d96551801561d672ce",
+    "evidence-integrity.json": "eefba1755b8408cb36d50464365efee5e76c95652db68c6cdfe74c6b0cce2310",
+    "native-inventory-input.json": "813f299b25bc84157ddae8abe0f55f0339dee16718f77c002300c368627c8f5c",
+    "native-inventory.json": "9c1084ca40860fd2041a972acfa98dc745a87d64d0da51215d8782d72854edfb",
+    "native-loading-context.json": "b0f35532bd22e77f3de9bb5db75ca864a4a1a710a6d46015b59bfadc8f0493f8",
+    "packed-mesh.audit.json": "0649abeb2808fc27b2cf2119a9c15397a74f6c4bf4a254afe71681433970d2b9",
+    "packed-mesh.json": "98e0099fec4fa7744247454ce25c8d23eb744380ff60f00125dca0c3d1616a41",
+    "packed-mesh.stderr.log": "7017af1cba1e7f216af2ae9db4915e7328f2901992af7bbbf7cbc00d204dcc5c",
+    "packed-mesh.stdout.log": "c2c2093d902d8352dc13ff5537c11ef66b9e1e9f87b64b08204af6f964a405ab",
+    "rebuild-comparison.json": "7bd20c4830878408521ce98d80c428345ee7ce45ece918dfb2a59c4d7bc7ecb3",
+    "resourcepack-validation.json": "adc76212bf73465818c408d4521af84e853a908ad10e9152d62d7f393b0e9a20",
+    "review-tool-sources.json": "a7aa931a8853795bd283a382f36b96bfad857b62a9d59aa50c7b02b7058656da",
+    "segmented-reader.json": "be224ac62d86a69f1f0ef5bcb72e3b96f50403dc4ed0a87982900ecdb189d37d",
+    "segmented-reader.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "segmented-reader.stdout.log": "7e1adedc22357ff7634d9a91430b31f1243b51cd30da832d526f1c675dc729bb",
+    "segmented-unpack.json": "5e8f4907ada0f00376f8900724a6fceef3138bd21947bbc04b1ee2d48257b741",
+    "segmented-unpack.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "segmented-unpack.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "streamed-digest-audit-negative-control.json": "a1f6137d3b8c18c3157483b2d93af4a1f3a49b51e43de5336d4facd7354aaf0c",
+    "streamed-digest-audit-result.json": "05a3ccb836526878ed769231081aad5fdf8c2f03f801038a3f39aa9081bbca47",
+    "streamed-digest-audit.json": "6b36a7d7b70804ac0463ee23f193af8f8d65a9cedf2b391037e82f50439bad96",
+    "streamed-digest-audit.stderr.log": "16ed060b7afd1603d8fe92ee9a9164d4dd8f385aa6bc5a19213d175e2e8f35ac",
+    "streamed-digest-audit.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "text-and-json-audit.json": "3284fc3c08812f6744b9f6722f6eaca5648ab8a357a005e8545d4612c6cd636d",
+    "vehicle-json.json": "9de6275bb450f9d6de63ac04c484ef25558a7bd9d3a741e4ace9b4b67f87b21b",
+    "vehicle-json.stderr.log": "dff9e7806bf5377c0eb4eaabad1872a4f5e29157354d96396e53e4b82166ab58",
+    "vehicle-json.stdout.log": "d17d55cf90cb18fba700f31023d3a94e7be743573b9a6122549e7aac56128e85"
+  },
+  "limits": [
+    "Revalidated existing 3.5 GiB memory-only native startup/reload acceptance; no new native startup, reload or gameplay run.",
+    "Restored source selections reproduce published JAR member payloads; ZIP member timestamps are not reproducible archive bytes.",
+    "Retained legacy declarations and original assets/addon limitations remain documented; native replacement IDs must be used for migrated formations.",
+    "Passenger companion remains experimental; broad cab/gangway/direction/slope/audio/window and full post-reload gameplay acceptance remains incomplete.",
+    "The existing paused 02A02 isolated experiment is separate and its saved original formation restoration remains unverified.",
+    "Lower heaps and arbitrary production-world limits are not established. Isolated allocation reductions do not prove code-only process-RAM reductions."
+  ]
+}
