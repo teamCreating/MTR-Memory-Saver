@@ -43,6 +43,10 @@ cache budget to isolate codec semantics from eviction.
 
 A fresh v0.2.9 client at exactly 3072 MiB fails startup with `OutOfMemoryError` and
 falls back to 423 built-ins. The candidate's first startup completes all 16 packs,
-2,541 vehicles and 651 unique source parses. Full native reload and repeated
-process acceptance are being recorded separately; a title-screen count alone
-does not establish gameplay availability.
+2,541 vehicles and 651 unique source parses. The [first full run](../../evidence/neoforge-v030-first-acceptance.json)
+passes startup and actual foreground F3+T in the copied DC01 fixture, each with
+60 seconds of fresh completed observations. Both car bodies render before/after
+and their independent floor/doorway caches match v0.2.9 exactly. Normal shutdown,
+original player/input layout, saved transport fields and all pack/mod hashes
+verify. No diagnostic GC or clock command was requested. Repeat acceptance is in
+progress; this first pass alone does not establish repeatability.
