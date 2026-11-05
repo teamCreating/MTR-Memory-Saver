@@ -1,0 +1,4 @@
+Exception in thread "main" java.lang.AssertionError: Retained payload exceeds budget
+	at BoundedResourceTextAudit.check(BoundedResourceTextAudit.java:14)
+	at BoundedResourceTextAudit.bounded(BoundedResourceTextAudit.java:25)
+	at BoundedResourceTextAudit.main(BoundedResourceTextAudit.java:36)
