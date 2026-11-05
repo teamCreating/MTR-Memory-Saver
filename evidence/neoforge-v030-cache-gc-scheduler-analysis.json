@@ -1,0 +1,111 @@
+{
+  "timestamp": "2026-11-05T16:39:51.847134+08:00",
+  "method": "Existing jstat counters correlated with native reload logs; installed JDK source and pinned MTR bytecode inspected. No new Minecraft benchmark.",
+  "java": "Temurin 21.0.11+10",
+  "jdk_source_archive": "C:\\Users\\ben_l\\Saved Games\\Yuuniverse 1.20.1 Shenyang\\porting-output\\work\\tools\\jdk21\\jdk-21.0.11+10\\lib\\src.zip",
+  "jdk_source_archive_sha256": "c6d3f473e3e01b9eead0eafb9d5ca0c817c0e57662c3f4bc7162a645234c7afe",
+  "virtual_thread_default_scheduler_source": "    private static ForkJoinPool createDefaultScheduler() {\n        ForkJoinWorkerThreadFactory factory = pool -> {\n            PrivilegedAction<ForkJoinWorkerThread> pa = () -> new CarrierThread(pool);\n            return AccessController.doPrivileged(pa);\n        };\n        PrivilegedAction<ForkJoinPool> pa = () -> {\n            int parallelism, maxPoolSize, minRunnable;\n            String parallelismValue = System.getProperty(\"jdk.virtualThreadScheduler.parallelism\");\n            String maxPoolSizeValue = System.getProperty(\"jdk.virtualThreadScheduler.maxPoolSize\");\n            String minRunnableValue = System.getProperty(\"jdk.virtualThreadScheduler.minRunnable\");\n            if (parallelismValue != null) {\n                parallelism = Integer.parseInt(parallelismValue);\n            } else {\n                parallelism = Runtime.getRuntime().availableProcessors();\n            }\n            if (maxPoolSizeValue != null) {\n                maxPoolSize = Integer.parseInt(maxPoolSizeValue);\n                parallelism = Integer.min(parallelism, maxPoolSize);\n            } else {\n                maxPoolSize = Integer.max(parallelism, 256);\n            }\n            if (minRunnableValue != null) {\n                minRunnable = Integer.parseInt(minRunnableValue);\n            } else {\n                minRunnable = Integer.max(parallelism / 2, 1);\n            }\n            Thread.UncaughtExceptionHandler handler = (t, e) -> { };\n            boolean asyncMode = true; // FIFO\n            return new ForkJoinPool(parallelism, factory, handler, asyncMode,\n                         0, maxPoolSize, minRunnable, pool -> true, 30, SECONDS);\n        };\n        return AccessController.doPrivileged(pa);\n    }\n",
+  "pinned_mtr_jar_sha256": "ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa",
+  "released_worker_constructor_verified": "javap -p -c shows Executors.newVirtualThreadPerTaskExecutor assigned to WorkerThread.worker",
+  "runs": [
+    {
+      "run": "neoforge-v030-3gb",
+      "reload_request": "2026-11-05T14:29:46.758220+08:00",
+      "registration_log_times": [
+        "0511\u67082026 14:26:42.785",
+        "0511\u67082026 14:32:07.628"
+      ],
+      "full_gc_intervals": [
+        {
+          "from": "2026-11-05T14:30:42.328768+08:00",
+          "to": "2026-11-05T14:30:48.048460+08:00",
+          "full_gc_count_delta": 1,
+          "full_gc_seconds_delta": 0.769
+        },
+        {
+          "from": "2026-11-05T14:31:33.877173+08:00",
+          "to": "2026-11-05T14:31:40.182808+08:00",
+          "full_gc_count_delta": 1,
+          "full_gc_seconds_delta": 0.986
+        },
+        {
+          "from": "2026-11-05T14:31:45.679340+08:00",
+          "to": "2026-11-05T14:31:51.344554+08:00",
+          "full_gc_count_delta": 1,
+          "full_gc_seconds_delta": 0.978
+        },
+        {
+          "from": "2026-11-05T14:31:51.344554+08:00",
+          "to": "2026-11-05T14:31:57.343722+08:00",
+          "full_gc_count_delta": 1,
+          "full_gc_seconds_delta": 0.867
+        },
+        {
+          "from": "2026-11-05T14:31:57.343722+08:00",
+          "to": "2026-11-05T14:32:02.653452+08:00",
+          "full_gc_count_delta": 1,
+          "full_gc_seconds_delta": 0.934
+        }
+      ],
+      "count_delta_total": 5,
+      "time_delta_total": 4.534
+    },
+    {
+      "run": "neoforge-v030-3gb-repeat",
+      "reload_request": "2026-11-05T14:40:45.293867+08:00",
+      "registration_log_times": [
+        "0511\u67082026 14:37:32.995",
+        "0511\u67082026 14:43:06.434"
+      ],
+      "full_gc_intervals": [
+        {
+          "from": "2026-11-05T14:40:53.247120+08:00",
+          "to": "2026-11-05T14:40:59.669584+08:00",
+          "full_gc_count_delta": 1,
+          "full_gc_seconds_delta": 0.509
+        },
+        {
+          "from": "2026-11-05T14:41:42.964793+08:00",
+          "to": "2026-11-05T14:41:48.578203+08:00",
+          "full_gc_count_delta": 1,
+          "full_gc_seconds_delta": 0.823
+        },
+        {
+          "from": "2026-11-05T14:42:33.121671+08:00",
+          "to": "2026-11-05T14:42:38.911634+08:00",
+          "full_gc_count_delta": 1,
+          "full_gc_seconds_delta": 0.967
+        },
+        {
+          "from": "2026-11-05T14:42:44.447445+08:00",
+          "to": "2026-11-05T14:42:49.898422+08:00",
+          "full_gc_count_delta": 1,
+          "full_gc_seconds_delta": 0.883
+        },
+        {
+          "from": "2026-11-05T14:42:49.898422+08:00",
+          "to": "2026-11-05T14:42:56.145262+08:00",
+          "full_gc_count_delta": 1,
+          "full_gc_seconds_delta": 0.96
+        },
+        {
+          "from": "2026-11-05T14:43:01.454636+08:00",
+          "to": "2026-11-05T14:43:06.760980+08:00",
+          "full_gc_count_delta": 1,
+          "full_gc_seconds_delta": 0.921
+        }
+      ],
+      "count_delta_total": 6,
+      "time_delta_total": 5.063
+    }
+  ],
+  "inputs_sha256": {
+    "vehicle-memory\\evidence\\neoforge-v030-3gb-reload-heap.json": "12717971f7e962583d4f9a91a2cae7214f407dd2a016f625c9994059dbf14b6c",
+    "vehicle-memory\\evidence\\neoforge-v030-3gb-reload-request.json": "8a8a211aa4a01e3748d0acc9e3fcf95b3ce62046407a102ca1d7ab62a0eebae1",
+    "vehicle-memory\\evidence\\neoforge-v030-3gb-native.log": "cc547bd8e32d2029a76d5a1c02d2654197f534aa8bbff95783f694b3c8c7e37c",
+    "vehicle-memory\\evidence\\neoforge-v030-3gb-repeat-reload-heap.json": "32e72860eee262be7d6937abce053b042befe22c51defb203e3fcb47400df467",
+    "vehicle-memory\\evidence\\neoforge-v030-3gb-repeat-reload-request.json": "51e889fdccb2f7e5a308d44abdc7b6d89be9802526affa60683295dc2eb2007b",
+    "vehicle-memory\\evidence\\neoforge-v030-3gb-repeat-native.log": "1fc61ca0971df6062c5b1a353c6d2cd3bd24b44b66be1ec6d0950ae6970d360d"
+  },
+  "limits": "jstat interval deltas are not an event-level pause distribution, exact trigger causes or mod attribution. Scheduler properties affect the default virtual-thread scheduler; impacts on unrelated mods and pinned-thread events have not been benchmarked."
+}

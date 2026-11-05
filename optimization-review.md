@@ -4,6 +4,10 @@ Date: 2026-11-05 (UTC+08:00). Scope: read the delivered sources, pinned NeoForge
 release bytecode, existing experiment results and both preserved 3 GiB runs.
 No mod implementation, artifact, game configuration or world was changed.
 
+The subsequent [cache, Full GC and scheduler analysis](cache-gc-scheduler-analysis.md)
+examines the exact miss/hit paths, observed GC intervals, the installed JDK's global
+carrier limits and the comparisons needed to separate their performance effects.
+
 There is further opportunity, especially in transient allocations and reload
 pressure. The current evidence supports successful operation at 3 GiB in the
 fixture, but does not establish a lower safe heap or a quantified saving for the

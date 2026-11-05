@@ -25,6 +25,8 @@ Install **exactly one** memory companion in the matching NeoForge client's `mods
 -Djdk.virtualThreadScheduler.maxPoolSize=2
 ```
 
+These two properties affect the JVM's default virtual-thread scheduler globally, including other mods that use it. They do not directly cap ordinary platform-thread pools or GC workers. The carrier maximum of two also limits expansion for certain blocking operations. The recorded 3 GiB acceptance includes these settings; their loading-speed and other-mod effects have not been isolated. See the [cache, Full GC and scheduler analysis](cache-gc-scheduler-analysis.md) for the separate tradeoffs and comparison plan.
+
 SHA-256: `eb21c0062f7944a7d2c015cb2eee5a1d24c11be4af2286bbbbfa4625d6cd2d54`. Keep [v0.2.9](mtr-memory-sharing-neoforge-v029.jar) for rollback with its previously verified 3.5 GiB settings. The original build manifest accompanies the exact delivered JAR. Three GiB is repeatably verified for this fixture and pack set; larger worlds, different mod sets, all-family passenger/window/sound behavior and lower heaps remain outside this acceptance.
 
 ## Earlier v0.2.9 results
