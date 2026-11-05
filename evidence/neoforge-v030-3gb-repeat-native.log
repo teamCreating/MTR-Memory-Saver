@@ -1,0 +1,271 @@
+[0511月2026 14:34:55.449] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--username, VehicleTest, --version, neoforge-21.1.265, --gameDir, C:\Users\ben_l\Documents\Coding\resoucepack update\.cache\game-test\memory-3gb-instance, --assetsDir, C:\Users\ben_l\Documents\Coding\resoucepack update\.cache\game-test\memory-3gb-instance\assets, --assetIndex, 17, --uuid, c788e366-4d91-40a4-8e43-b8fe38f75025, --accessToken, ❄❄❄❄❄❄❄❄, --clientId, ${clientid}, --xuid, ${auth_xuid}, --userType, msa, --versionType, release, --width, 1280, --height, 720, --fml.neoForgeVersion, 21.1.265, --fml.fmlVersion, 4.0.45, --fml.mcVersion, 1.21.1, --fml.neoFormVersion, 20240808.144430, --launchTarget, forgeclient, --disableMultiplayer]
+[0511月2026 14:34:55.458] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: JVM identified as Eclipse Adoptium OpenJDK 64-Bit Server VM 21.0.11+10-LTS
+[0511月2026 14:34:55.461] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 11.0.5+main.901c6ea8 starting: java version 21.0.11 by Eclipse Adoptium; OS Windows 10 arch amd64 version 10.0
+[0511月2026 14:34:55.731] [main/INFO] [net.neoforged.fml.loading.ImmediateWindowHandler/]: Loading ImmediateWindowProvider fmlearlywindow
+[0511月2026 14:34:55.982] [main/INFO] [EARLYDISPLAY/]: Trying GL version 4.6
+[0511月2026 14:34:56.186] [main/INFO] [EARLYDISPLAY/]: Requested GL version 4.6 got version 4.6
+[0511月2026 14:34:56.573] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:/C:/Users/ben_l/Documents/Coding/resoucepack%20update/.cache/game-test/memory-3gb-instance/libraries/net/fabricmc/sponge-mixin/0.16.4+mixin.0.8.7/sponge-mixin-0.16.4+mixin.0.8.7.jar%23121!/ Service=ModLauncher Env=CLIENT
+[0511月2026 14:34:56.746] [pool-2-thread-1/INFO] [EARLYDISPLAY/]: GL info: Intel(R) HD Graphics P530 GL version 4.6.0 - Build 31.0.101.2111, Intel
+[0511月2026 14:34:57.463] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "client-1.21.1-20240808.144430-srg.jar" [locator: production client provider +net.neoforged:neoforge:21.1.265:client]
+[0511月2026 14:34:57.511] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "neoforge-21.1.265-universal.jar" [locator: PathBasedLocator[name=neoforge, paths=[C:\Users\ben_l\Documents\Coding\resoucepack update\.cache\game-test\memory-3gb-instance\libraries\net\neoforged\neoforge\21.1.265\neoforge-21.1.265-universal.jar]], reader: mod manifest]
+[0511月2026 14:34:57.531] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "mtr-memory-sharing-neoforge.jar" [locator: {mods folder locator at C:\Users\ben_l\Documents\Coding\resoucepack update\.cache\game-test\memory-3gb-instance\mods}, reader: mod manifest]
+[0511月2026 14:34:57.554] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "MTR-neoforge-4.1.0-beta.2+1.21.1.jar" [locator: {mods folder locator at C:\Users\ben_l\Documents\Coding\resoucepack update\.cache\game-test\memory-3gb-instance\mods}, reader: mod manifest]
+[0511月2026 14:34:57.564] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "vehicle-memory-probe.jar" [locator: {mods folder locator at C:\Users\ben_l\Documents\Coding\resoucepack update\.cache\game-test\memory-3gb-instance\mods}, reader: mod manifest]
+[0511月2026 14:34:57.846] [main/INFO] [net.neoforged.fml.loading.moddiscovery.locators.JarInJarDependencyLocator/]: Found 2 dependencies adding them to mods collection
+[0511月2026 14:34:57.847] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found gamelibrary file "mixinextras-neoforge-0.5.5.jar" [parent: neoforge-21.1.265-universal.jar, locator: jarinjar, reader: mod manifest]
+[0511月2026 14:34:57.847] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found library file "net.neoforged.neoforge-coremods-21.1.265.jar" [parent: neoforge-21.1.265-universal.jar, locator: jarinjar, reader: mod manifest]
+[0511月2026 14:34:57.849] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/]: 
+     Mod List:
+		Name Version (Mod Id)
+
+		Minecraft 1.21.1 (minecraft)
+		Minecraft Transit Railway 4.1.0-beta.2 (mtr)
+		MTR Memory Sharing 0.3.0 (mtr_memory_sharing)
+		NeoForge 21.1.265 (neoforge)
+		Vehicle Memory Probe 1.0.1 (vehicle_memory_probe)
+[0511月2026 14:34:58.651] [main/INFO] [mixin/]: Compatibility level set to JAVA_21
+[0511月2026 14:34:58.681] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeclient' with arguments [--version, neoforge-21.1.265, --gameDir, C:\Users\ben_l\Documents\Coding\resoucepack update\.cache\game-test\memory-3gb-instance, --assetsDir, C:\Users\ben_l\Documents\Coding\resoucepack update\.cache\game-test\memory-3gb-instance\assets, --uuid, c788e366-4d91-40a4-8e43-b8fe38f75025, --username, VehicleTest, --assetIndex, 17, --accessToken, ❄❄❄❄❄❄❄❄, --clientId, ${clientid}, --xuid, ${auth_xuid}, --userType, msa, --versionType, release, --width, 1280, --height, 720, --disableMultiplayer]
+[0511月2026 14:35:02.510] [Datafixer Bootstrap/INFO] [com.mojang.datafixers.DataFixerBuilder/]: 229 Datafixer optimizations took 727 milliseconds
+[0511月2026 14:35:02.564] [pool-9-thread-1/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.5).
+[0511月2026 14:35:10.998] [Render thread/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/ben_l/Documents/Coding/resoucepack%20update/.cache/game-test/memory-3gb-instance/libraries/net/minecraft/client/1.21.1-20240808.144430/client-1.21.1-20240808.144430-srg.jar%23191!/assets/.mcassetsroot' uses unexpected schema
+[0511月2026 14:35:10.999] [Render thread/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/ben_l/Documents/Coding/resoucepack%20update/.cache/game-test/memory-3gb-instance/libraries/net/minecraft/client/1.21.1-20240808.144430/client-1.21.1-20240808.144430-srg.jar%23191!/data/.mcassetsroot' uses unexpected schema
+[0511月2026 14:35:11.048] [Render thread/INFO] [com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService/]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[0511月2026 14:35:11.072] [Render thread/INFO] [net.minecraft.client.Minecraft/]: Setting user: VehicleTest
+[0511月2026 14:35:11.274] [Render thread/INFO] [net.minecraft.client.Minecraft/]: Backend library: LWJGL version 3.3.3+5
+[0511月2026 14:35:11.718] [modloading-worker-0/INFO] [net.neoforged.neoforge.common.NeoForgeMod/NEOFORGE-MOD]: NeoForge mod loading, version 21.1.265, for MC 1.21.1
+[0511月2026 14:35:12.064] [modloading-worker-0/INFO] [MinecraftTransitRailway/]: Starting Minecraft with arguments:
+-Xms1G
+-Xmx3072M
+-Djdk.virtualThreadScheduler.parallelism=2
+-Djdk.virtualThreadScheduler.maxPoolSize=2
+-XX:HeapDumpPath=MojangTricksIntelDriversForPerformance_javaw.exe_minecraft.exe.heapdump
+-Djava.library.path=C:\Users\ben_l\Documents\Coding\resoucepack update\.cache\game-test\memory-3gb-instance\versions\neoforge-21.1.265\natives
+-Djna.tmpdir=C:\Users\ben_l\Documents\Coding\resoucepack update\.cache\game-test\memory-3gb-instance\versions\neoforge-21.1.265\natives
+-Dorg.lwjgl.system.SharedLibraryExtractPath=C:\Users\ben_l\Documents\Coding\resoucepack update\.cache\game-test\memory-3gb-instance\versions\neoforge-21.1.265\natives
+-Dio.netty.native.workdir=C:\Users\ben_l\Documents\Coding\resoucepack update\.cache\game-test\memory-3gb-instance\versions\neoforge-21.1.265\natives
+-Dminecraft.launcher.brand=minecraft-launcher-lib
+-Dminecraft.launcher.version=8.0
+-Djava.net.preferIPv6Addresses=system
+-DignoreList=client-extra,neoforge-21.1.265.jar
+-DlibraryDirectory=C:\Users\ben_l\Documents\Coding\resoucepack update\.cache\game-test\memory-3gb-instance\libraries
+--module-path=C:\Users\ben_l\Documents\Coding\resoucepack update\.cache\game-test\memory-3gb-instance\libraries/cpw/mods/bootstraplauncher/2.0.2/bootstraplauncher-2.0.2.jar;C:\Users\ben_l\Documents\Coding\resoucepack update\.cache\game-test\memory-3gb-instance\libraries/cpw/mods/securejarhandler/3.0.8/securejarhandler-3.0.8.jar;C:\Users\ben_l\Documents\Coding\resoucepack update\.cache\game-test\memory-3gb-instance\libraries/org/ow2/asm/asm-commons/9.10.1/asm-commons-9.10.1.jar;C:\Users\ben_l\Documents\Coding\resoucepack update\.cache\game-test\memory-3gb-instance\libraries/org/ow2/asm/asm-util/9.10.1/asm-util-9.10.1.jar;C:\Users\ben_l\Documents\Coding\resoucepack update\.cache\game-test\memory-3gb-instance\libraries/org/ow2/asm/asm-analysis/9.10.1/asm-analysis-9.10.1.jar;C:\Users\ben_l\Documents\Coding\resoucepack update\.cache\game-test\memory-3gb-instance\libraries/org/ow2/asm/asm-tree/9.10.1/asm-tree-9.10.1.jar;C:\Users\ben_l\Documents\Coding\resoucepack update\.cache\game-test\memory-3gb-instance\libraries/org/ow2/asm/asm/9.10.1/asm-9.10.1.jar;C:\Users\ben_l\Documents\Coding\resoucepack update\.cache\game-test\memory-3gb-instance\libraries/net/neoforged/JarJarFileSystems/0.4.1/JarJarFileSystems-0.4.1.jar
+--add-modules=ALL-MODULE-PATH
+--add-opens=java.base/java.util.jar=cpw.mods.securejarhandler
+--add-opens=java.base/java.lang.invoke=cpw.mods.securejarhandler
+--add-exports=java.base/sun.security.util=cpw.mods.securejarhandler
+--add-exports=jdk.naming.dns/com.sun.jndi.dns=java.naming
+[0511月2026 14:35:12.069] [modloading-worker-0/INFO] [MinecraftTransitRailway/]: :  __  __ _                            __ _    
+[0511月2026 14:35:12.069] [modloading-worker-0/INFO] [MinecraftTransitRailway/]: : |  \/  (_)                          / _| |   
+[0511月2026 14:35:12.069] [modloading-worker-0/INFO] [MinecraftTransitRailway/]: : | \  / |_ _ __   ___  ___ _ __ __ _| |_| |_  
+[0511月2026 14:35:12.069] [modloading-worker-0/INFO] [MinecraftTransitRailway/]: : | |\/| | | '_ \ / _ \/ __| '__/ _` |  _| __| 
+[0511月2026 14:35:12.069] [modloading-worker-0/INFO] [MinecraftTransitRailway/]: : | |  | | | | | |  __/ (__| | | (_| | | | |_  
+[0511月2026 14:35:12.069] [modloading-worker-0/INFO] [MinecraftTransitRailway/]: : |_|__|_|_|_| |_|\___|\___|_|_ \__,_|_|  \__| 
+[0511月2026 14:35:12.070] [modloading-worker-0/INFO] [MinecraftTransitRailway/]: : |__   __|                (_) |               
+[0511月2026 14:35:12.070] [modloading-worker-0/INFO] [MinecraftTransitRailway/]: :    | |_ __ __ _ _ __  ___ _| |_              
+[0511月2026 14:35:12.070] [modloading-worker-0/INFO] [MinecraftTransitRailway/]: :    | | '__/ _` | '_ \/ __| | __|             
+[0511月2026 14:35:12.071] [modloading-worker-0/INFO] [MinecraftTransitRailway/]: :    | | | | (_| | | | \__ \ | |_              
+[0511月2026 14:35:12.071] [modloading-worker-0/INFO] [MinecraftTransitRailway/]: :    |_|_|  \__,_|_| |_|___/_|\__|             
+[0511月2026 14:35:12.071] [modloading-worker-0/INFO] [MinecraftTransitRailway/]: :  _____       _ _                             
+[0511月2026 14:35:12.071] [modloading-worker-0/INFO] [MinecraftTransitRailway/]: : |  __ \     (_) |                            
+[0511月2026 14:35:12.072] [modloading-worker-0/INFO] [MinecraftTransitRailway/]: : | |__) |__ _ _| |_      ____ _ _   _         
+[0511月2026 14:35:12.072] [modloading-worker-0/INFO] [MinecraftTransitRailway/]: : |  _  // _` | | \ \ /\ / / _` | | | |        
+[0511月2026 14:35:12.072] [modloading-worker-0/INFO] [MinecraftTransitRailway/]: : | | \ \ (_| | | |\ V  V / (_| | |_| |        
+[0511月2026 14:35:12.072] [modloading-worker-0/INFO] [MinecraftTransitRailway/]: : |_|  \_\__,_|_|_| \_/\_/ \__,_|\__, |        
+[0511月2026 14:35:12.073] [modloading-worker-0/INFO] [MinecraftTransitRailway/]: :                                 __/ |        
+[0511月2026 14:35:12.073] [modloading-worker-0/INFO] [MinecraftTransitRailway/]: :                                |___/ (4.1.0-beta.2+1.21.4) 
+[0511月2026 14:35:12.073] [modloading-worker-0/INFO] [MinecraftTransitRailway/]: :                                              
+[0511月2026 14:35:12.325] [Download-2/ERROR] [net.minecraft.client.Minecraft/]: Failed to fetch user properties
+com.mojang.authlib.exceptions.InvalidCredentialsException: Status: 401
+	at MC-BOOTSTRAP/authlib@6.0.54/com.mojang.authlib.exceptions.MinecraftClientHttpException.toAuthenticationException(MinecraftClientHttpException.java:59) ~[authlib-6.0.54.jar%23147!/:?]
+	at MC-BOOTSTRAP/authlib@6.0.54/com.mojang.authlib.yggdrasil.YggdrasilUserApiService.fetchProperties(YggdrasilUserApiService.java:150) ~[authlib-6.0.54.jar%23147!/:?]
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.client.Minecraft.lambda$new$2(Minecraft.java:431) ~[client-1.21.1-20240808.144430-srg.jar%23191!/:?]
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1768) ~[?:?]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[?:?]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[?:?]
+	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+Caused by: com.mojang.authlib.exceptions.MinecraftClientHttpException: Status: 401
+	at MC-BOOTSTRAP/authlib@6.0.54/com.mojang.authlib.minecraft.client.MinecraftClient.readInputStream(MinecraftClient.java:100) ~[authlib-6.0.54.jar%23147!/:?]
+	at MC-BOOTSTRAP/authlib@6.0.54/com.mojang.authlib.minecraft.client.MinecraftClient.get(MinecraftClient.java:57) ~[authlib-6.0.54.jar%23147!/:?]
+	at MC-BOOTSTRAP/authlib@6.0.54/com.mojang.authlib.yggdrasil.YggdrasilUserApiService.fetchProperties(YggdrasilUserApiService.java:121) ~[authlib-6.0.54.jar%23147!/:?]
+	... 5 more
+[0511月2026 14:35:12.371] [modloading-worker-0/INFO] [MinecraftTransitRailway/]: Registering Minecraft Transit Railway blocks
+[0511月2026 14:35:12.427] [modloading-worker-0/INFO] [MinecraftTransitRailway/]: Registering Minecraft Transit Railway items
+[0511月2026 14:35:12.472] [modloading-worker-0/INFO] [MinecraftTransitRailway/]: Registering Minecraft Transit Railway block entity types
+[0511月2026 14:35:12.473] [modloading-worker-0/INFO] [MinecraftTransitRailway/]: Registering Minecraft Transit Railway creative mode tabs
+[0511月2026 14:35:12.475] [modloading-worker-0/INFO] [MinecraftTransitRailway/]: Registering Minecraft Transit Railway sound events
+[0511月2026 14:35:12.477] [modloading-worker-0/INFO] [MinecraftTransitRailway/]: Registering Minecraft Transit Railway data component types
+[0511月2026 14:35:12.571] [modloading-worker-0/INFO] [MinecraftTransitRailway/]: Registering Minecraft Transit Railway key bindings
+[0511月2026 14:35:15.952] [Render thread/INFO] [net.minecraft.server.packs.resources.ReloadableResourceManager/]: Reloading ResourceManager: vanilla, file/[AI车门修复][MTR] Taiwan Train V000 EMU3000 20251107.zip, file/[AI车门修复][材质模型包]悠日计画 交通运输类模型 8.2505.1.zip, file/[AI车门修复]ChenDianMetroWayV0.5.1R.zip, file/[AI车门修复]HSM-2000 v1.2.1 (Adapted for MTR 4.0.x)-20260722-210944.zip, file/[AI车门修复]rpsync-mtr4.0.0-hxd3d-yw25t.zip, file/[AI车门修复]rpsync-shanghaimetroaddon_v3.4.0_creating_trimmed_v2.zip, file/[AI车门修复]ShirahaneVehicle v2.4.3 release_hotfix1.zip, file/[AI车门修复]STCP Bus Pack.zip, file/[AI车门修复]Zhongtong Base Pack - 1.1.0.zip, file/[AI车门修复]现代城市系列追加包-v2.0.zip, file/[AI车门修复]悠日交通资源包part3-260708.zip, file/[AI车门修复]悠日计画 故事模式用材质 8.2504.zip, file/[AI车门修复]悠日计画交通资源包part2 release v2.1-hotfix2.zip, file/[AI车门修复]新艾利都地铁_疾锋龙号(性能优化版).zip, file/[AI车门修复]新铁路铁轨基本轨包BY默淼yams.zip, file/[AI车门修复]新艾利都地铁 ERIDU-10000一期改造型.zip, mod_resources, mod/mtr, mod/mtr_memory_sharing, mod/vehicle_memory_probe, mod/neoforge
+[0511月2026 14:35:15.969] [Render thread/WARN] [net.minecraft.server.packs.FilePackResources/]: Non [a-z0-9_.-] character in namespace .DS_Store in pack C:\Users\ben_l\Documents\Coding\resoucepack update\.cache\game-test\memory-3gb-instance\resourcepacks\[AI车门修复]悠日计画 故事模式用材质 8.2504.zip, ignoring
+[0511月2026 14:35:15.994] [Render thread/WARN] [net.minecraft.server.packs.FilePackResources/]: Non [a-z0-9_.-] character in namespace .DS_Store in pack C:\Users\ben_l\Documents\Coding\resoucepack update\.cache\game-test\memory-3gb-instance\resourcepacks\[AI车门修复]悠日计画 故事模式用材质 8.2504.zip, ignoring
+[0511月2026 14:35:16.188] [Worker-Main-1/INFO] [net.minecraft.client.gui.font.providers.UnihexProvider/]: Found unifont_all_no_pua-15.1.05.hex, loading
+[0511月2026 14:35:16.248] [Worker-Main-4/WARN] [net.minecraft.server.packs.FilePackResources/]: Invalid path in datapack: mtr:sounds/.DS_Store, ignoring
+[0511月2026 14:35:16.250] [Worker-Main-4/WARN] [net.minecraft.server.packs.FilePackResources/]: Invalid path in datapack: mtr:sounds/intro/.DS_Store, ignoring
+[0511月2026 14:35:16.774] [Worker-Main-1/INFO] [net.minecraft.client.gui.font.providers.UnihexProvider/]: Found unifont_jp_patch-15.1.05.hex, loading
+[0511月2026 14:35:16.774] [Worker-Main-4/WARN] [net.minecraft.client.sounds.SoundManager/]: File mtr:sounds/hxd3d/deceleration/speed_32a.ogg does not exist, cannot add it to event mtr:aa_hxd3d_deceleration_32a
+[0511月2026 14:35:16.794] [Worker-Main-4/WARN] [net.minecraft.client.sounds.SoundManager/]: File mtr:sounds/ac04/motor10.ogg does not exist, cannot add it to event mtr:ac04_motor10
+[0511月2026 14:35:16.832] [Worker-Main-4/WARN] [net.minecraft.client.sounds.SoundManager/]: File mtr:sounds/minecart/loop.ogg does not exist, cannot add it to event mtr:minecart_loop
+[0511月2026 14:35:16.832] [Worker-Main-4/WARN] [net.minecraft.client.sounds.SoundManager/]: File mtr:sounds/minecart/motor4.ogg does not exist, cannot add it to event mtr:minecart_motor4
+[0511月2026 14:35:16.832] [Worker-Main-4/WARN] [net.minecraft.client.sounds.SoundManager/]: File mtr:sounds/minecart/motor3.ogg does not exist, cannot add it to event mtr:minecart_motor3
+[0511月2026 14:35:17.745] [Worker-Main-4/WARN] [net.minecraft.client.renderer.texture.SpriteLoader/]: Texture mtr:block/psd_door_bottom_right_1 with size 72x36 limits mip level from 4 to 2
+[0511月2026 14:35:21.563] [Render thread/WARN] [net.minecraft.client.sounds.SoundEngine/]: Missing sound for event: minecraft:item.goat_horn.play
+[0511月2026 14:35:21.563] [Render thread/WARN] [net.minecraft.client.sounds.SoundEngine/]: Missing sound for event: minecraft:entity.goat.screaming.horn_break
+[0511月2026 14:35:21.680] [Render thread/INFO] [com.mojang.blaze3d.audio.Library/]: OpenAL initialized on device OpenAL Soft on 扬声器 (Realtek High Definition Audio)
+[0511月2026 14:35:21.681] [Render thread/INFO] [net.minecraft.client.sounds.SoundEngine/SOUNDS]: Sound engine started
+[0511月2026 14:35:22.504] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 4096x2048x4 minecraft:textures/atlas/blocks.png-atlas
+[0511月2026 14:35:26.093] [Render thread/ERROR] [MinecraftTransitRailway/]: [mtr:textures/block/transparent.png] Invalid model!
+[0511月2026 14:36:03.677] [/INFO] [MinecraftTransitRailway/]: MTR memory sharing: 314 Blockbench requests, 105 unique parses, 100 completed
+[0511月2026 14:36:29.655] [/INFO] [MinecraftTransitRailway/]: MTR memory sharing: 748 Blockbench requests, 223 unique parses, 200 completed
+[0511月2026 14:36:43.528] [/INFO] [MinecraftTransitRailway/]: MTR memory sharing: 1137 Blockbench requests, 320 unique parses, 300 completed
+[0511月2026 14:37:00.601] [/INFO] [MinecraftTransitRailway/]: MTR memory sharing: 1592 Blockbench requests, 434 unique parses, 400 completed
+[0511月2026 14:37:15.836] [/INFO] [MinecraftTransitRailway/]: MTR memory sharing: 1890 Blockbench requests, 508 unique parses, 500 completed
+[0511月2026 14:37:29.179] [/INFO] [MinecraftTransitRailway/]: MTR memory sharing: 3771 Blockbench requests, 600 unique parses, 600 completed
+[0511月2026 14:37:32.989] [Render thread/WARN] [MinecraftTransitRailway/]: Custom [Rail] resource contains duplicate ID [rail1067s1]!
+[0511月2026 14:37:32.989] [Render thread/WARN] [MinecraftTransitRailway/]: Custom [Rail] resource contains duplicate ID [rail1435s1]!
+[0511月2026 14:37:32.995] [Render thread/INFO] [MinecraftTransitRailway/]: Loaded 2541 vehicles and completed door movement validation in 0.0 ms
+[0511月2026 14:37:32.995] [Render thread/INFO] [MinecraftTransitRailway/]: Loaded 142 signs
+[0511月2026 14:37:32.995] [Render thread/INFO] [MinecraftTransitRailway/]: Loaded 23 rails
+[0511月2026 14:37:32.995] [Render thread/INFO] [MinecraftTransitRailway/]: Loaded 290 objects
+[0511月2026 14:37:32.996] [Render thread/INFO] [MinecraftTransitRailway/]: Loaded 1 lifts
+[0511月2026 14:37:33.005] [Render thread/INFO] [MinecraftTransitRailway/]: MTR memory sharing: 4608 Blockbench requests, 651 unique parses, 651 completed
+[0511月2026 14:37:33.005] [Render thread/INFO] [MinecraftTransitRailway/]: MTR memory sharing: released 0 cached source-text entries after registration
+[0511月2026 14:37:33.005] [Render thread/INFO] [MinecraftTransitRailway/]: MTR memory sharing: released 651 shared source loaders after registration
+[0511月2026 14:37:33.006] [Render thread/INFO] [MinecraftTransitRailway/]: MTR memory sharing: 13314 vehicle JSON requests, 1658 unique nonempty inputs
+[0511月2026 14:37:33.007] [Render thread/INFO] [MinecraftTransitRailway/]: MTR compressed text: 1942 entries, 1897 compressed, 335694714 input code units, 100002091 packed bytes, 5451 uncompressed code units; cache released
+[0511月2026 14:37:33.007] [Render thread/INFO] [MinecraftTransitRailway/]: MTR resource text budget: 100663296 bytes, 100559813 retained weight, 100663186 peak admitted weight, 3010 evictions
+[0511月2026 14:37:33.041] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x256x4 minecraft:textures/atlas/signs.png-atlas
+[0511月2026 14:37:33.213] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x512x4 minecraft:textures/atlas/shield_patterns.png-atlas
+[0511月2026 14:37:33.483] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x512x4 minecraft:textures/atlas/banner_patterns.png-atlas
+[0511月2026 14:37:33.753] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 1024x1024x4 minecraft:textures/atlas/armor_trims.png-atlas
+[0511月2026 14:37:34.882] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 128x64x4 minecraft:textures/atlas/decorated_pot.png-atlas
+[0511月2026 14:37:34.885] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x256x4 minecraft:textures/atlas/chest.png-atlas
+[0511月2026 14:37:34.887] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x256x4 minecraft:textures/atlas/shulker_boxes.png-atlas
+[0511月2026 14:37:34.891] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x256x4 minecraft:textures/atlas/beds.png-atlas
+[0511月2026 14:37:35.209] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x256x0 minecraft:textures/atlas/particles.png-atlas
+[0511月2026 14:37:35.220] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x256x0 minecraft:textures/atlas/paintings.png-atlas
+[0511月2026 14:37:35.224] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x128x0 minecraft:textures/atlas/mob_effects.png-atlas
+[0511月2026 14:37:35.228] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 64x64x0 minecraft:textures/atlas/map_decorations.png-atlas
+[0511月2026 14:37:35.229] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 1024x512x0 minecraft:textures/atlas/gui.png-atlas
+[0511月2026 14:37:35.842] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_translucent_emissive could not find sampler named Sampler2 in the specified shader program.
+[0511月2026 14:37:36.807] [Render thread/INFO] [net.neoforged.neoforge.client.entity.animation.json.AnimationLoader/]: Loaded 0 entity animations
+[0511月2026 14:37:37.541] [IO-Worker-2/INFO] [com.mojang.realmsclient.client.RealmsClient/]: Could not authorize you against Realms server: javax.ws.rs.BadRequestException: Invalid session
+[0511月2026 14:37:37.542] [IO-Worker-2/ERROR] [com.mojang.realmsclient.RealmsAvailability/]: Couldn't connect to realms
+com.mojang.realmsclient.exception.RealmsServiceException: Realms authentication error with message 'javax.ws.rs.BadRequestException: Invalid session'
+	at TRANSFORMER/minecraft@1.21.1/com.mojang.realmsclient.client.RealmsClient.execute(RealmsClient.java:447) ~[client-1.21.1-20240808.144430-srg.jar%23191!/:?]
+	at TRANSFORMER/minecraft@1.21.1/com.mojang.realmsclient.client.RealmsClient.clientCompatible(RealmsClient.java:232) ~[client-1.21.1-20240808.144430-srg.jar%23191!/:?]
+	at TRANSFORMER/minecraft@1.21.1/com.mojang.realmsclient.RealmsAvailability.lambda$check$0(RealmsAvailability.java:51) ~[client-1.21.1-20240808.144430-srg.jar%23191!/:?]
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1768) ~[?:?]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[?:?]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[?:?]
+	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+[0511月2026 14:38:49.108] [Render thread/INFO] [net.minecraft.world.item.crafting.RecipeManager/]: Loaded 1630 recipes
+[0511月2026 14:38:49.417] [Render thread/INFO] [net.minecraft.advancements.AdvancementTree/]: Loaded 1399 advancements
+[0511月2026 14:38:51.324] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Starting integrated minecraft server version 1.21.1
+[0511月2026 14:38:51.324] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Generating keypair
+[0511月2026 14:38:51.827] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Preparing start region for dimension minecraft:overworld
+[0511月2026 14:38:52.198] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Preparing spawn area: 0%
+[0511月2026 14:38:52.313] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Time elapsed: 476 ms
+[0511月2026 14:38:52.316] [Server thread/INFO] [net.neoforged.neoforge.server.permission.PermissionAPI/]: Successfully initialized permission handler neoforge:default_handler
+[0511月2026 14:38:52.324] [Server thread/INFO] [MinecraftTransitRailway/]: Found available port: 8889
+[0511月2026 14:38:52.953] [Server thread/INFO] [MinecraftTransitRailway/]: Starting server as a non-dedicated server
+[0511月2026 14:38:53.170] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Changing view distance to 8, from 10
+[0511月2026 14:38:53.170] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Changing simulation distance to 5, from 0
+[0511月2026 14:38:54.367] [Server thread/INFO] [net.minecraft.server.players.PlayerList/]: VehicleTest[local:E:ea9ea453] logged in with entity id 1 at (38.5, 4.0, 15.5)
+[0511月2026 14:38:54.490] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: VehicleTest joined the game
+[0511月2026 14:38:54.525] [Render thread/INFO] [MinecraftTransitRailway/]: Open the Transport System Map at http://localhost:8889
+[0511月2026 14:38:54.525] [Render thread/INFO] [MinecraftTransitRailway/]: Open the Resource Pack Creator at http://localhost:8889/creator/
+[0511月2026 14:38:54.766] [Render thread/INFO] [net.minecraft.advancements.AdvancementTree/]: Loaded 2 advancements
+[0511月2026 14:39:55.813] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [VehicleTest: Set own game mode to Spectator Mode]
+[0511月2026 14:39:55.838] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Set own game mode to Spectator Mode
+[0511月2026 14:39:58.903] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [VehicleTest: Teleported VehicleTest to -55.500000, 4.500000, 20.500000]
+[0511月2026 14:39:58.966] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Teleported VehicleTest to -55.500000, 4.500000, 20.500000
+[0511月2026 14:39:59.877] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Saved screenshot as 2026-11-05_14.39.59.png
+[0511月2026 14:40:40.451] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [VehicleTest: Teleported VehicleTest to 38.500000, 4.000000, 15.500000]
+[0511月2026 14:40:40.469] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Teleported VehicleTest to 38.500000, 4.000000, 15.500000
+[0511月2026 14:40:43.492] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [VehicleTest: Set own game mode to Survival Mode]
+[0511月2026 14:40:43.499] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Set own game mode to Survival Mode
+[0511月2026 14:40:45.309] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] [Debug]: Reloaded resource packs
+[0511月2026 14:40:45.336] [Render thread/INFO] [net.minecraft.server.packs.resources.ReloadableResourceManager/]: Reloading ResourceManager: vanilla, file/[AI车门修复][MTR] Taiwan Train V000 EMU3000 20251107.zip, file/[AI车门修复][材质模型包]悠日计画 交通运输类模型 8.2505.1.zip, file/[AI车门修复]ChenDianMetroWayV0.5.1R.zip, file/[AI车门修复]HSM-2000 v1.2.1 (Adapted for MTR 4.0.x)-20260722-210944.zip, file/[AI车门修复]rpsync-mtr4.0.0-hxd3d-yw25t.zip, file/[AI车门修复]rpsync-shanghaimetroaddon_v3.4.0_creating_trimmed_v2.zip, file/[AI车门修复]ShirahaneVehicle v2.4.3 release_hotfix1.zip, file/[AI车门修复]STCP Bus Pack.zip, file/[AI车门修复]Zhongtong Base Pack - 1.1.0.zip, file/[AI车门修复]现代城市系列追加包-v2.0.zip, file/[AI车门修复]悠日交通资源包part3-260708.zip, file/[AI车门修复]悠日计画 故事模式用材质 8.2504.zip, file/[AI车门修复]悠日计画交通资源包part2 release v2.1-hotfix2.zip, file/[AI车门修复]新艾利都地铁_疾锋龙号(性能优化版).zip, file/[AI车门修复]新铁路铁轨基本轨包BY默淼yams.zip, file/[AI车门修复]新艾利都地铁 ERIDU-10000一期改造型.zip, mod_resources, mod/mtr, mod/mtr_memory_sharing, mod/vehicle_memory_probe, mod/neoforge
+[0511月2026 14:40:45.357] [Render thread/WARN] [net.minecraft.server.packs.FilePackResources/]: Non [a-z0-9_.-] character in namespace .DS_Store in pack C:\Users\ben_l\Documents\Coding\resoucepack update\.cache\game-test\memory-3gb-instance\resourcepacks\[AI车门修复]悠日计画 故事模式用材质 8.2504.zip, ignoring
+[0511月2026 14:40:45.367] [Render thread/WARN] [net.minecraft.server.packs.FilePackResources/]: Non [a-z0-9_.-] character in namespace .DS_Store in pack C:\Users\ben_l\Documents\Coding\resoucepack update\.cache\game-test\memory-3gb-instance\resourcepacks\[AI车门修复]悠日计画 故事模式用材质 8.2504.zip, ignoring
+[0511月2026 14:40:45.400] [Worker-Main-8/INFO] [net.minecraft.client.gui.font.providers.UnihexProvider/]: Found unifont_all_no_pua-15.1.05.hex, loading
+[0511月2026 14:40:45.436] [Worker-Main-9/WARN] [net.minecraft.server.packs.FilePackResources/]: Invalid path in datapack: mtr:sounds/.DS_Store, ignoring
+[0511月2026 14:40:45.437] [Worker-Main-9/WARN] [net.minecraft.server.packs.FilePackResources/]: Invalid path in datapack: mtr:sounds/intro/.DS_Store, ignoring
+[0511月2026 14:40:45.462] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
+[0511月2026 14:40:45.573] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Vehicle Acceptance 1.21.1]'/minecraft:overworld
+[0511月2026 14:40:45.589] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Vehicle Acceptance 1.21.1]'/minecraft:the_end
+[0511月2026 14:40:45.589] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Vehicle Acceptance 1.21.1]'/minecraft:the_nether
+[0511月2026 14:40:45.828] [Worker-Main-8/INFO] [net.minecraft.client.gui.font.providers.UnihexProvider/]: Found unifont_jp_patch-15.1.05.hex, loading
+[0511月2026 14:40:46.182] [Worker-Main-9/WARN] [net.minecraft.client.sounds.SoundManager/]: File mtr:sounds/hxd3d/deceleration/speed_32a.ogg does not exist, cannot add it to event mtr:aa_hxd3d_deceleration_32a
+[0511月2026 14:40:46.236] [Worker-Main-9/WARN] [net.minecraft.client.sounds.SoundManager/]: File mtr:sounds/ac04/motor10.ogg does not exist, cannot add it to event mtr:ac04_motor10
+[0511月2026 14:40:46.251] [Worker-Main-9/WARN] [net.minecraft.client.sounds.SoundManager/]: File mtr:sounds/minecart/loop.ogg does not exist, cannot add it to event mtr:minecart_loop
+[0511月2026 14:40:46.252] [Worker-Main-9/WARN] [net.minecraft.client.sounds.SoundManager/]: File mtr:sounds/minecart/motor4.ogg does not exist, cannot add it to event mtr:minecart_motor4
+[0511月2026 14:40:46.252] [Worker-Main-9/WARN] [net.minecraft.client.sounds.SoundManager/]: File mtr:sounds/minecart/motor3.ogg does not exist, cannot add it to event mtr:minecart_motor3
+[0511月2026 14:40:46.854] [Worker-Main-5/WARN] [net.minecraft.client.renderer.texture.SpriteLoader/]: Texture mtr:block/psd_door_bottom_right_1 with size 72x36 limits mip level from 4 to 2
+[0511月2026 14:40:53.142] [Render thread/WARN] [net.minecraft.client.sounds.SoundEngine/]: Missing sound for event: minecraft:item.goat_horn.play
+[0511月2026 14:40:53.143] [Render thread/WARN] [net.minecraft.client.sounds.SoundEngine/]: Missing sound for event: minecraft:entity.goat.screaming.horn_break
+[0511月2026 14:40:53.412] [Render thread/INFO] [com.mojang.blaze3d.audio.Library/]: OpenAL initialized on device OpenAL Soft on 扬声器 (Realtek High Definition Audio)
+[0511月2026 14:40:53.413] [Render thread/INFO] [net.minecraft.client.sounds.SoundEngine/SOUNDS]: Sound engine started
+[0511月2026 14:40:54.446] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 4096x2048x4 minecraft:textures/atlas/blocks.png-atlas
+[0511月2026 14:40:57.801] [Render thread/ERROR] [MinecraftTransitRailway/]: [mtr:textures/block/transparent.png] Invalid model!
+[0511月2026 14:41:33.215] [/INFO] [MinecraftTransitRailway/]: MTR memory sharing: 314 Blockbench requests, 105 unique parses, 100 completed
+[0511月2026 14:42:00.416] [/INFO] [MinecraftTransitRailway/]: MTR memory sharing: 744 Blockbench requests, 222 unique parses, 200 completed
+[0511月2026 14:42:14.932] [/INFO] [MinecraftTransitRailway/]: MTR memory sharing: 1131 Blockbench requests, 319 unique parses, 300 completed
+[0511月2026 14:42:30.203] [/INFO] [MinecraftTransitRailway/]: MTR memory sharing: 1558 Blockbench requests, 425 unique parses, 400 completed
+[0511月2026 14:42:47.382] [/INFO] [MinecraftTransitRailway/]: MTR memory sharing: 1890 Blockbench requests, 508 unique parses, 500 completed
+[0511月2026 14:43:02.949] [/INFO] [MinecraftTransitRailway/]: MTR memory sharing: 3772 Blockbench requests, 601 unique parses, 600 completed
+[0511月2026 14:43:06.432] [Render thread/WARN] [MinecraftTransitRailway/]: Custom [Rail] resource contains duplicate ID [rail1067s1]!
+[0511月2026 14:43:06.433] [Render thread/WARN] [MinecraftTransitRailway/]: Custom [Rail] resource contains duplicate ID [rail1435s1]!
+[0511月2026 14:43:06.434] [Render thread/INFO] [MinecraftTransitRailway/]: Loaded 2541 vehicles and completed door movement validation in 0.0 ms
+[0511月2026 14:43:06.434] [Render thread/INFO] [MinecraftTransitRailway/]: Loaded 142 signs
+[0511月2026 14:43:06.434] [Render thread/INFO] [MinecraftTransitRailway/]: Loaded 23 rails
+[0511月2026 14:43:06.434] [Render thread/INFO] [MinecraftTransitRailway/]: Loaded 290 objects
+[0511月2026 14:43:06.434] [Render thread/INFO] [MinecraftTransitRailway/]: Loaded 1 lifts
+[0511月2026 14:43:06.440] [Render thread/INFO] [MinecraftTransitRailway/]: MTR memory sharing: 4608 Blockbench requests, 651 unique parses, 651 completed
+[0511月2026 14:43:06.441] [Render thread/INFO] [MinecraftTransitRailway/]: MTR memory sharing: released 0 cached source-text entries after registration
+[0511月2026 14:43:06.441] [Render thread/INFO] [MinecraftTransitRailway/]: MTR memory sharing: released 651 shared source loaders after registration
+[0511月2026 14:43:06.441] [Render thread/INFO] [MinecraftTransitRailway/]: MTR memory sharing: 13314 vehicle JSON requests, 1658 unique nonempty inputs
+[0511月2026 14:43:06.442] [Render thread/INFO] [MinecraftTransitRailway/]: MTR compressed text: 1942 entries, 1897 compressed, 335694714 input code units, 100002091 packed bytes, 5451 uncompressed code units; cache released
+[0511月2026 14:43:06.442] [Render thread/INFO] [MinecraftTransitRailway/]: MTR resource text budget: 100663296 bytes, 100559813 retained weight, 100663243 peak admitted weight, 3010 evictions
+[0511月2026 14:43:06.447] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x256x4 minecraft:textures/atlas/signs.png-atlas
+[0511月2026 14:43:06.619] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x512x4 minecraft:textures/atlas/shield_patterns.png-atlas
+[0511月2026 14:43:06.914] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x512x4 minecraft:textures/atlas/banner_patterns.png-atlas
+[0511月2026 14:43:07.195] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 1024x1024x4 minecraft:textures/atlas/armor_trims.png-atlas
+[0511月2026 14:43:08.411] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 128x64x4 minecraft:textures/atlas/decorated_pot.png-atlas
+[0511月2026 14:43:08.413] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x256x4 minecraft:textures/atlas/chest.png-atlas
+[0511月2026 14:43:08.414] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x256x4 minecraft:textures/atlas/shulker_boxes.png-atlas
+[0511月2026 14:43:08.417] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x256x4 minecraft:textures/atlas/beds.png-atlas
+[0511月2026 14:43:08.436] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x256x0 minecraft:textures/atlas/particles.png-atlas
+[0511月2026 14:43:08.458] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x256x0 minecraft:textures/atlas/paintings.png-atlas
+[0511月2026 14:43:08.465] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x128x0 minecraft:textures/atlas/mob_effects.png-atlas
+[0511月2026 14:43:08.471] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 64x64x0 minecraft:textures/atlas/map_decorations.png-atlas
+[0511月2026 14:43:08.473] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 1024x512x0 minecraft:textures/atlas/gui.png-atlas
+[0511月2026 14:43:09.095] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_translucent_emissive could not find sampler named Sampler2 in the specified shader program.
+[0511月2026 14:43:10.067] [Render thread/INFO] [net.neoforged.neoforge.client.entity.animation.json.AnimationLoader/]: Loaded 0 entity animations
+[0511月2026 14:44:18.870] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [VehicleTest: Set own game mode to Spectator Mode]
+[0511月2026 14:44:18.889] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Set own game mode to Spectator Mode
+[0511月2026 14:44:21.966] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [VehicleTest: Teleported VehicleTest to -55.500000, 4.500000, 20.500000]
+[0511月2026 14:44:21.986] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Teleported VehicleTest to -55.500000, 4.500000, 20.500000
+[0511月2026 14:44:22.904] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Saved screenshot as 2026-11-05_14.44.22.png
+[0511月2026 14:44:39.878] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [VehicleTest: Teleported VehicleTest to 38.500000, 4.000000, 15.500000]
+[0511月2026 14:44:39.882] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Teleported VehicleTest to 38.500000, 4.000000, 15.500000
+[0511月2026 14:44:42.913] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [VehicleTest: Set own game mode to Survival Mode]
+[0511月2026 14:44:42.917] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Set own game mode to Survival Mode
+[0511月2026 14:44:44.807] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
+[0511月2026 14:44:44.827] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Vehicle Acceptance 1.21.1]'/minecraft:overworld
+[0511月2026 14:44:44.836] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Vehicle Acceptance 1.21.1]'/minecraft:the_end
+[0511月2026 14:44:44.837] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Vehicle Acceptance 1.21.1]'/minecraft:the_nether
+[0511月2026 14:44:46.611] [Server thread/INFO] [net.minecraft.server.network.ServerGamePacketListenerImpl/]: VehicleTest lost connection: Disconnected
+[0511月2026 14:44:46.611] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: VehicleTest left the game
+[0511月2026 14:44:46.635] [Server thread/INFO] [net.minecraft.server.network.ServerCommonPacketListenerImpl/]: Stopping singleplayer server as player logged out
+[0511月2026 14:44:46.718] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Stopping server
+[0511月2026 14:44:46.719] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving players
+[0511月2026 14:44:46.719] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving worlds
+[0511月2026 14:44:46.794] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Vehicle Acceptance 1.21.1]'/minecraft:overworld
+[0511月2026 14:44:46.828] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Vehicle Acceptance 1.21.1]'/minecraft:the_end
+[0511月2026 14:44:46.836] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Vehicle Acceptance 1.21.1]'/minecraft:the_nether
+[0511月2026 14:44:46.860] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage (Vehicle Acceptance 1_21_1): All chunks are saved
+[0511月2026 14:44:46.861] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[0511月2026 14:44:46.861] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[0511月2026 14:44:46.861] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage: All dimensions are saved
+[0511月2026 14:44:48.856] [Render thread/INFO] [net.minecraft.client.Minecraft/]: Stopping!

@@ -1,0 +1,230 @@
+{
+  "timestamp": "2026-11-05T14:45:16.837946+08:00",
+  "version": "0.3.0",
+  "heap_limit_bytes": 3221225472,
+  "successful_fresh_processes": 2,
+  "context": {
+    "target": {
+      "minecraft": "1.21.1",
+      "mtr": "4.1.0-beta.2"
+    },
+    "mod_loader": "neoforge",
+    "loader_version": "21.1.265",
+    "jvm_arguments": [
+      "-Xms1G",
+      "-Xmx3072M",
+      "-Djdk.virtualThreadScheduler.parallelism=2",
+      "-Djdk.virtualThreadScheduler.maxPoolSize=2"
+    ],
+    "mods": [
+      {
+        "filename": "mtr-memory-sharing-neoforge.jar",
+        "sha256": "eb21c0062f7944a7d2c015cb2eee5a1d24c11be4af2286bbbbfa4625d6cd2d54"
+      },
+      {
+        "filename": "MTR-neoforge-4.1.0-beta.2+1.21.1.jar",
+        "sha256": "ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa"
+      },
+      {
+        "filename": "vehicle-memory-probe.jar",
+        "sha256": "f866ade219b5db23b2798e19f40911db71c78ff9f67862b244f1e84f5a1e197f"
+      }
+    ],
+    "packs": [
+      {
+        "filename": "[AI车门修复][MTR] Taiwan Train V000 EMU3000 20251107.zip",
+        "sha256": "d741ccf09d7ce958dd6f282b52ffbf1dff1b36ec51af397cf8d1252a14059cb9"
+      },
+      {
+        "filename": "[AI车门修复][材质模型包]悠日计画 交通运输类模型 8.2505.1.zip",
+        "sha256": "9b7a9b19db7db6197a4652c9df31717039e47af7d1e6930e03a5ef9bf5a378bb"
+      },
+      {
+        "filename": "[AI车门修复]ChenDianMetroWayV0.5.1R.zip",
+        "sha256": "3783a1fd5b21f7d133046294be8b1562560ebce94f628b87ff104e734ed1cf9a"
+      },
+      {
+        "filename": "[AI车门修复]HSM-2000 v1.2.1 (Adapted for MTR 4.0.x)-20260722-210944.zip",
+        "sha256": "3bd4eef3eb0d23c43d70efdea3be0dcd08693a58d79a5eafebc763317d1e2d86"
+      },
+      {
+        "filename": "[AI车门修复]rpsync-mtr4.0.0-hxd3d-yw25t.zip",
+        "sha256": "1f2b7e941da4fe7239cbc59c6935b441fbc71cf9f15b6f7548e963c370210897"
+      },
+      {
+        "filename": "[AI车门修复]rpsync-shanghaimetroaddon_v3.4.0_creating_trimmed_v2.zip",
+        "sha256": "f4f9730c4dfbb8c6998b472eb90e8a1d559704f6d0df16b53ceb96556b48325e"
+      },
+      {
+        "filename": "[AI车门修复]ShirahaneVehicle v2.4.3 release_hotfix1.zip",
+        "sha256": "b5970dd8d193641909df20f61acbc5408539ba4f9a1f582d76c94aa240d3c5a3"
+      },
+      {
+        "filename": "[AI车门修复]STCP Bus Pack.zip",
+        "sha256": "1d83bb1a2d34fb4f3b4f8837ab649b37104df7036acc6501054617f0bb397b31"
+      },
+      {
+        "filename": "[AI车门修复]Zhongtong Base Pack - 1.1.0.zip",
+        "sha256": "7044e84cd07a2b6f9adf99a2dcd57d3ace22e9c627361e25b8bcf184cd8a66f6"
+      },
+      {
+        "filename": "[AI车门修复]§9§l现代城市系列追加包§7-v2.0.zip",
+        "sha256": "ad8cb6c56f3670a7eea3ba7e9a9843771451c8e28732097ec2151ecb8ce4b27b"
+      },
+      {
+        "filename": "[AI车门修复]悠日交通资源包part3-260708.zip",
+        "sha256": "4525c20d89ac07641e2426f7049de502c5d89d38c8816de154a4cc77f78b3e3c"
+      },
+      {
+        "filename": "[AI车门修复]悠日计画 故事模式用材质 8.2504.zip",
+        "sha256": "5d5c0d2933572d072cc9e85f7e7ca3065407ad437e763d9b5776720f4c21837d"
+      },
+      {
+        "filename": "[AI车门修复]悠日计画交通资源包part2 release v2.1-hotfix2.zip",
+        "sha256": "91738fe2780bb7ae2d115702788dc2f22feb73fc70bc884441b5578f87a0fb6a"
+      },
+      {
+        "filename": "[AI车门修复]新艾利都地铁_疾锋龙号(性能优化版).zip",
+        "sha256": "0536120420708cf9705dc397ac687cc0dfb2ee123a6f894cb546b0e5338bb837"
+      },
+      {
+        "filename": "[AI车门修复]新铁路铁轨基本轨包BY默淼yams.zip",
+        "sha256": "6f78adf23a2f5c26d89c3413a47ef8a09ce9997f64256b793624d8eac112879a"
+      },
+      {
+        "filename": "[AI车门修复]新艾利都地铁 ERIDU-10000一期改造型.zip",
+        "sha256": "5db45298b692e3aac2414d243ae916eed8f836b15fa93e1fc09285fdfba7f6e9"
+      }
+    ],
+    "launch_resource_packs": [
+      "vanilla",
+      "file/[AI车门修复][MTR] Taiwan Train V000 EMU3000 20251107.zip",
+      "file/[AI车门修复][材质模型包]悠日计画 交通运输类模型 8.2505.1.zip",
+      "file/[AI车门修复]ChenDianMetroWayV0.5.1R.zip",
+      "file/[AI车门修复]HSM-2000 v1.2.1 (Adapted for MTR 4.0.x)-20260722-210944.zip",
+      "file/[AI车门修复]rpsync-mtr4.0.0-hxd3d-yw25t.zip",
+      "file/[AI车门修复]rpsync-shanghaimetroaddon_v3.4.0_creating_trimmed_v2.zip",
+      "file/[AI车门修复]ShirahaneVehicle v2.4.3 release_hotfix1.zip",
+      "file/[AI车门修复]STCP Bus Pack.zip",
+      "file/[AI车门修复]Zhongtong Base Pack - 1.1.0.zip",
+      "file/[AI车门修复]§9§l现代城市系列追加包§7-v2.0.zip",
+      "file/[AI车门修复]悠日交通资源包part3-260708.zip",
+      "file/[AI车门修复]悠日计画 故事模式用材质 8.2504.zip",
+      "file/[AI车门修复]悠日计画交通资源包part2 release v2.1-hotfix2.zip",
+      "file/[AI车门修复]新艾利都地铁_疾锋龙号(性能优化版).zip",
+      "file/[AI车门修复]新铁路铁轨基本轨包BY默淼yams.zip",
+      "file/[AI车门修复]新艾利都地铁 ERIDU-10000一期改造型.zip"
+    ]
+  },
+  "candidate_sha256": "eb21c0062f7944a7d2c015cb2eee5a1d24c11be4af2286bbbbfa4625d6cd2d54",
+  "audit_sha256": "51fe0a154f80e43002de5ce40d0264886e8eb06938ea492b5175bba541076513",
+  "runs": [
+    {
+      "prefix": "neoforge-v030-3gb",
+      "pid": 5648,
+      "phases": {
+        "startup": {
+          "status": "registered_and_parsed_stable",
+          "peak_sampled_working_set": 4147793920,
+          "peak_sampled_private_usage": 4311404544,
+          "peak_external_heap_used": 3019123917,
+          "fresh_stability_span_seconds": 60.005156
+        },
+        "reload": {
+          "status": "registered_and_parsed_stable",
+          "peak_sampled_working_set": 5118517248,
+          "peak_sampled_private_usage": 6033604608,
+          "peak_external_heap_used": 3102983680,
+          "fresh_stability_span_seconds": 59.991535
+        }
+      },
+      "cache_budget_counters": [
+        [
+          100663296,
+          100559813,
+          100663243,
+          3010
+        ],
+        [
+          100663296,
+          100559813,
+          100663186,
+          3010
+        ]
+      ],
+      "normal_shutdown": true,
+      "native_caches_equal_to_v029": true,
+      "both_car_bodies_visible": true
+    },
+    {
+      "prefix": "neoforge-v030-3gb-repeat",
+      "pid": 25572,
+      "phases": {
+        "startup": {
+          "status": "registered_and_parsed_stable",
+          "peak_sampled_working_set": 4275912704,
+          "peak_sampled_private_usage": 4442189824,
+          "peak_external_heap_used": 3022734029,
+          "fresh_stability_span_seconds": 59.999059
+        },
+        "reload": {
+          "status": "registered_and_parsed_stable",
+          "peak_sampled_working_set": 4875960320,
+          "peak_sampled_private_usage": 5086052352,
+          "peak_external_heap_used": 3109020877,
+          "fresh_stability_span_seconds": 60.013103
+        }
+      },
+      "cache_budget_counters": [
+        [
+          100663296,
+          100559813,
+          100663186,
+          3010
+        ],
+        [
+          100663296,
+          100559813,
+          100663243,
+          3010
+        ]
+      ],
+      "normal_shutdown": true,
+      "native_caches_equal_to_v029": true,
+      "both_car_bodies_visible": true
+    }
+  ],
+  "evidence_sha256": {
+    "neoforge-v030-3gb-after-reload-review.json": "692b2cc0eb722bb35cb259c14310c76c779157aa4407ff026950f922d2a0beba",
+    "neoforge-v030-3gb-after-reload.json": "4adecf118b6a039b781ec93febd4593bcceb42a33d985e75bfaff07c7e6e3292",
+    "neoforge-v030-3gb-after-reload.png": "74dcac83922e122eaed94882f612b601927bcf4bcd97d5a5e8f8e2227d7fa7ee",
+    "neoforge-v030-3gb-before-reload-review.json": "8d6e7778f5d8e82662f7ae7ec89169e6cdf3821670a4d5775d1397647412233f",
+    "neoforge-v030-3gb-before-reload.json": "a59742de2ce351eb3c83545c322cf182501d7b24ad4f99d4e0d42ac51edaf918",
+    "neoforge-v030-3gb-before-reload.png": "85d8654560eb414dddd1f87f826ae0746db0723b653780d69b5909f43c43b392",
+    "neoforge-v030-3gb-fixture-verified.json": "a403798bfaf2dfc39d5038083c3f9eb5642c36ee3e41f7e3694d48f925dfa9f1",
+    "neoforge-v030-3gb-input-layout.json": "64a6db060066b128f4cbbc4736a2e3fd70dbc6e5e455032fd31a1d3fbe389ddf",
+    "neoforge-v030-3gb-native.log": "cc547bd8e32d2029a76d5a1c02d2654197f534aa8bbff95783f694b3c8c7e37c",
+    "neoforge-v030-3gb-reload-heap.json": "12717971f7e962583d4f9a91a2cae7214f407dd2a016f625c9994059dbf14b6c",
+    "neoforge-v030-3gb-reload-request.json": "8a8a211aa4a01e3748d0acc9e3fcf95b3ce62046407a102ca1d7ab62a0eebae1",
+    "neoforge-v030-3gb-reload.json": "229f3f9e2d0b40b0f16d97c2a60cb3a36af7a2b83ca8745e4751b6f53e11e6c7",
+    "neoforge-v030-3gb-repeat-after-reload-review.json": "a4b1ca8555a97ffc2b39b8397681723a2941a47ed1efba6652d04b4d1514b2a1",
+    "neoforge-v030-3gb-repeat-after-reload.json": "3f536beb6c6bd3660d98d01af078cf0197bfe1252b425970af8e73aa52c3eb67",
+    "neoforge-v030-3gb-repeat-after-reload.png": "e9249b285cb75b79d382804d35fe1816cb0d50d2b453b729e90298d030983c8b",
+    "neoforge-v030-3gb-repeat-before-reload-review.json": "2d7ae85b161d10ed6661b1632f4a3021121a73d4368792e960d7ebc1b730088f",
+    "neoforge-v030-3gb-repeat-before-reload.json": "e59eca4dd0de64983c8fa06514fa7a2376c5bdf58cba79bc898cab1408cd6007",
+    "neoforge-v030-3gb-repeat-before-reload.png": "855bbe155b8036bc34570bb1eb67636a2ffa4c97723a7432efbb2e68a7438aa2",
+    "neoforge-v030-3gb-repeat-fixture-verified.json": "9cc89bb4468802484cd839e515d0fc4beeb1ea8c48f2560c5e8cb4ad1373743f",
+    "neoforge-v030-3gb-repeat-input-layout.json": "2f25e5ff22b7c8c826a535a3d81a1c598e015a1d92caec6fa3d44f72e7763960",
+    "neoforge-v030-3gb-repeat-native.log": "1fc61ca0971df6062c5b1a353c6d2cd3bd24b44b66be1ec6d0950ae6970d360d",
+    "neoforge-v030-3gb-repeat-reload-heap.json": "32e72860eee262be7d6937abce053b042befe22c51defb203e3fcb47400df467",
+    "neoforge-v030-3gb-repeat-reload-request.json": "51e889fdccb2f7e5a308d44abdc7b6d89be9802526affa60683295dc2eb2007b",
+    "neoforge-v030-3gb-repeat-reload.json": "2af15654aab8630f57afee4f08fc8589e2f27ce2768f003db4ce0ce1534f6a5a",
+    "neoforge-v030-3gb-repeat-restored-player.json": "8f5cb0d93bf4efe8ec5ba1e52818dafa4878ab6b669857f335f53bb8044d278b",
+    "neoforge-v030-3gb-repeat-startup-heap.json": "ec21066de9c95c4f509f634c37d40202d8141e2b9b50d243d9ae01f8727ac9bb",
+    "neoforge-v030-3gb-repeat-startup.json": "dd87887ad75e203eeea73f528268e6b5ef2220a816e23bee116376c2b50a44bf",
+    "neoforge-v030-3gb-restored-player.json": "7a81daeb499ae2398dea369e4916fa88cac34b0823bda9f5150c58ed525ce8f1",
+    "neoforge-v030-3gb-startup-heap.json": "3128fc1be71d1c515d4bbbad8bee28f1130298d09a33fd026e5644a1d6d1d286",
+    "neoforge-v030-3gb-startup.json": "933acc919b3f1e183c24625b274ada40c2536fa4daf5f53fca969819ac81b65b"
+  },
+  "limits": "Isolated copied fixture with all 16 selected packs, memory companion and additive read-only observer. Java heap is 3 GiB; process/native/GPU memory is additional. Sampled peaks are not true maxima. Representative two-car rendering and native cache equality do not establish all-family passenger, window, sound or production-world acceptance. No diagnostic GC or clock mutation requested."
+}

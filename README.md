@@ -1,6 +1,35 @@
 # MTR client memory companions
 
-Current target: **Minecraft 1.21.1 / NeoForge 21.1.265 / official MTR 4.1.0-beta.2**, Java 21. Recommended tested companion: [mtr-memory-sharing-neoforge-v029.jar](mtr-memory-sharing-neoforge-v029.jar), version **0.2.9**.
+Current target: **Minecraft 1.21.1 / NeoForge 21.1.265 / official MTR 4.1.0-beta.2**, Java 21. Recommended tested companion: [mtr-memory-sharing-neoforge-v030.jar](mtr-memory-sharing-neoforge-v030.jar), version **0.3.0**.
+
+**Two fresh identical clients pass all-16-pack startup and actual foreground F3+T reload with an exact 3072 MiB (3 GiB) Java heap.** Each phase loads 2,541 vehicles and completes 651 unique source parses, then passes 60 seconds of fresh stability. Both DC01 car bodies render before and after reload; their independent 5/6-floor and 10/10-doorway caches match v0.2.9 exactly. The native movement/audio callback is preserved. [Acceptance, measurements and fingerprints](evidence/neoforge-v030-acceptance.json).
+
+v0.3.0 bounds the compressed resource-text cache by maximum heap size: the default is one thirty-second of the heap, **96 MiB at 3 GiB**. Least-recently-used entries are evicted and reread normally when needed. All text contents, geometry, texture quality and native model algorithms are preserved. The codec and 30 other baseline classes remain byte-identical. This removes the need to retain the earlier roughly 565 MiB of compressed text throughout registration; it trades some repeated I/O/compression for less cached data. In-flight reads and native parsing are separate from the cache budget. [Implementation and reproducible audits](experiments/bounded-text-cache/README.md).
+
+| Test | External sampled Java heap peak | Windows working set peak | Private committed peak |
+| --- | ---: | ---: | ---: |
+| Run 1 startup | 2.812 GiB | 3.863 GiB | 4.015 GiB |
+| Run 1 reload | 2.890 GiB | 4.767 GiB | 5.619 GiB |
+| Run 2 startup | 2.815 GiB | 3.982 GiB | 4.137 GiB |
+| Run 2 reload | 2.896 GiB | 4.541 GiB | 4.737 GiB |
+
+External jstat sampling covers blocked startup parsing and starts before both F3+T events. These are sampled peaks, not true maxima. **3 GiB is the Java heap allocation; total process/native/GPU memory is additional.** The smaller heap cap also affects process RAM, so this table is not a controlled code-only memory comparison. A fresh v0.2.9 client with the same 3 GiB cap failed with `OutOfMemoryError` and fell back to only 423 built-ins; that failure is preserved in [the baseline report](evidence/neoforge-v029-3gb-baseline-startup.json). Its original jstat observer timed out and did not save a final report; it supplies no accepted heap-peak comparison.
+
+All 8,534 real resource text inputs pass exact-content checks. Separate audits cover eviction, recent-use retention, empty entries, oversized inputs, concurrent misses/churn, null/error behavior and overlapping reloads; the real v0.2.9 negative control exceeds the bounded-cache requirement. Both game runs close normally after original player/input-layout restoration. Saved transport fields, pack hashes/order and mod fingerprints verify. Testing uses a dedicated copy of the existing isolated fixture with the memory companion and additive read-only observer; no passenger companion is installed. No production instance or original world was replaced, and no diagnostic GC or clock command was requested.
+
+Install **exactly one** memory companion in the matching NeoForge client's `mods` folder, replacing its older memory companion and keeping all repaired resource packs enabled. Use these tested Java 21 arguments:
+
+```text
+-Xms1G -Xmx3072M
+-Djdk.virtualThreadScheduler.parallelism=2
+-Djdk.virtualThreadScheduler.maxPoolSize=2
+```
+
+SHA-256: `eb21c0062f7944a7d2c015cb2eee5a1d24c11be4af2286bbbbfa4625d6cd2d54`. Keep [v0.2.9](mtr-memory-sharing-neoforge-v029.jar) for rollback with its previously verified 3.5 GiB settings. The original build manifest accompanies the exact delivered JAR. Three GiB is repeatably verified for this fixture and pack set; larger worlds, different mod sets, all-family passenger/window/sound behavior and lower heaps remain outside this acceptance.
+
+## Earlier v0.2.9 results
+
+Current target: **Minecraft 1.21.1 / NeoForge 21.1.265 / official MTR 4.1.0-beta.2**, Java 21. Previous tested companion: [mtr-memory-sharing-neoforge-v029.jar](mtr-memory-sharing-neoforge-v029.jar), version **0.2.9**.
 
 v0.2.9 hashes large source and vehicle-configuration inputs through bounded reusable UTF-8 buffers, removing the complete temporary byte arrays used by v0.2.8. Exact keys match both actual baseline cache methods for all **8,534 real text inputs**, 85 synthetic boundary cases, null failures and 64 concurrent reads. Thirty classes remain byte-identical; only two private digest methods and a new helper change. Geometry, textures, native interaction calculations, other cache instructions and reload ownership stay fixed. Eight isolated large hashes reduce ASCII/mixed/Unicode allocations **99.898% / 99.974% / 99.981%**; small allocation is unchanged. Single timings show a Unicode tradeoff and do not establish overall loading speed. [Implementation, controls and reproduction](experiments/streamed-digest/README.md).
 

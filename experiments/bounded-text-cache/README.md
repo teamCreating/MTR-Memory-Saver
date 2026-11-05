@@ -48,5 +48,6 @@ passes startup and actual foreground F3+T in the copied DC01 fixture, each with
 60 seconds of fresh completed observations. Both car bodies render before/after
 and their independent floor/doorway caches match v0.2.9 exactly. Normal shutdown,
 original player/input layout, saved transport fields and all pack/mod hashes
-verify. No diagnostic GC or clock command was requested. Repeat acceptance is in
-progress; this first pass alone does not establish repeatability.
+verify. No diagnostic GC or clock command was requested. The fresh identical repeat also passes. [Final two-run acceptance](../../evidence/neoforge-v030-acceptance.json)
+records startup/reload sampling, both native images, cache equality and saved shutdown verification.
+The exact candidate and build metadata are delivered as v0.3.0; retain v0.2.9 for rollback.
