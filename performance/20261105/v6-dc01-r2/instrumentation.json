@@ -1,0 +1,13 @@
+{
+  "source_sha256": "933692123308cbf9e82302d0d3374bfc1cc3ef4fa45502ee5e9fcb6edad3b149",
+  "launcher_sha256": "6bfe65ba66269eec3d66a518310dc5706958907ed480c73ca9477b8846f14238",
+  "sources": {
+    "tools\\PerformanceProbe.java": "933692123308cbf9e82302d0d3374bfc1cc3ef4fa45502ee5e9fcb6edad3b149",
+    "tools\\MemoryLoadProbeNeoForge.java": "10b2e00c686b2221aed433b6367b974a280ef82d7dddbe746e85de0fb454c13b",
+    "tools\\src-neoforge-probe\\dev\\abenli\\vehicleprobe\\mixin\\RidingTraceMixin.java": "6a019159d1bca08717db22061cc17be24b908c0381ec20e3a00e8ad64dcb9ade",
+    "tools\\src-neoforge-probe\\dev\\abenli\\vehicleprobe\\RidingTrace.java": "9f1b783946b37d3be7ec15f1ee4ad79b27bc5bf2b70935602dc7dbb9b9bdf1f0"
+  },
+  "frame_method": "Intervals between RenderFrameEvent.Pre calls, including frame pacing; not GPU present times.",
+  "tick_method": "NeoForge ServerTickEvent.Pre/Post span, excluding scheduling sleep and code outside these hooks.",
+  "profiling_overhead": "JFR profile and additive observation mod enabled; no uninstrumented control."
+}

@@ -1,0 +1,287 @@
+{
+  "timestamp": "2026-11-05T22:52:43.926972+08:00",
+  "target": {
+    "minecraft": "1.21.1",
+    "mtr": "4.1.0-beta.2-mc1.21.1-performance-v6"
+  },
+  "mod_loader": "neoforge",
+  "loader_version": "21.1.265",
+  "pid": 31900,
+  "launch_timestamp": "2026-11-05T22:50:50.930366+08:00",
+  "heap_gb": 3.0,
+  "virtual_thread_parallelism": 2,
+  "observations_not_before": "2026-11-05T22:50:50.930366+08:00",
+  "jvm_arguments": [
+    "-Xms1G",
+    "-Xmx3072M",
+    "-Djdk.virtualThreadScheduler.parallelism=2",
+    "-Djdk.virtualThreadScheduler.maxPoolSize=2",
+    "-XX:StartFlightRecording=name=performance,settings=profile,disk=true,dumponexit=true,filename=performance.jfr",
+    "-Xlog:gc*,safepoint:file=performance-gc.log:time,uptime,level,tags:filecount=0"
+  ],
+  "mods": [
+    {
+      "filename": "[自修改]MTR-4.1.0-beta.2-mc1.21.1-performance-v6.jar",
+      "sha256": "8bd419bd798c2ab2fa03e08850409387804fdeb2e4f2987c66b9984236263585"
+    },
+    {
+      "filename": "vehicle-performance-probe.jar",
+      "sha256": "6fd26e88adf905d09d80f91d3a45715795950bb1564128386f515f9436038235"
+    }
+  ],
+  "launch_resource_packs": [
+    "vanilla",
+    "file/[Vehicle test 331605b0fcbe][AI车门修复]rpsync-shanghaimetroaddon_v3.4.0_creating_trimmed_v2.zip"
+  ],
+  "packs": [
+    {
+      "filename": "[Vehicle test 331605b0fcbe][AI车门修复]rpsync-shanghaimetroaddon_v3.4.0_creating_trimmed_v2.zip",
+      "sha256": "2edfdf5470b5f26e82dc7c9aa4be5d7fbe3106fc911296981c0049e5827fefda",
+      "test_subset": {
+        "source_filename": "[AI车门修复]rpsync-shanghaimetroaddon_v3.4.0_creating_trimmed_v2.zip",
+        "source_sha256": "f4f9730c4dfbb8c6998b472eb90e8a1d559704f6d0df16b53ceb96556b48325e",
+        "vehicle_ids": [
+          "mtr_custom_train_dc01_update_cab_1_native_7ea57bf708e8",
+          "mtr_custom_train_dc01_update_cab_2_native_7b8391aef2c8"
+        ],
+        "method": "Registration subset only; all model/artwork bytes unchanged."
+      }
+    }
+  ],
+  "expected_registration_count": 425,
+  "status": "registered_and_parsed_stable",
+  "exit_code": null,
+  "peak_sampled_heap_used": 1939188160,
+  "peak_sampled_working_set": 3959066624,
+  "peak_sampled_private_usage": 4267499520,
+  "process_memory_observations": [
+    {
+      "timestamp": "2026-11-05T14:51:08.896240+00:00",
+      "working_set": 1287536640,
+      "private_usage": 1508319232,
+      "peak_working_set_since_process_start": 1302265856
+    },
+    {
+      "timestamp": "2026-11-05T14:51:13.897457+00:00",
+      "working_set": 1760444416,
+      "private_usage": 2012209152,
+      "peak_working_set_since_process_start": 1760448512
+    },
+    {
+      "timestamp": "2026-11-05T14:51:18.898012+00:00",
+      "working_set": 1939238912,
+      "private_usage": 2150690816,
+      "peak_working_set_since_process_start": 1939304448
+    },
+    {
+      "timestamp": "2026-11-05T14:51:23.899072+00:00",
+      "working_set": 2483654656,
+      "private_usage": 2727411712,
+      "peak_working_set_since_process_start": 2483658752
+    },
+    {
+      "timestamp": "2026-11-05T14:51:28.899556+00:00",
+      "working_set": 2712666112,
+      "private_usage": 2914226176,
+      "peak_working_set_since_process_start": 2712670208
+    },
+    {
+      "timestamp": "2026-11-05T14:51:33.900192+00:00",
+      "working_set": 3048583168,
+      "private_usage": 3244523520,
+      "peak_working_set_since_process_start": 3070476288
+    },
+    {
+      "timestamp": "2026-11-05T14:51:38.902094+00:00",
+      "working_set": 3959066624,
+      "private_usage": 4267499520,
+      "peak_working_set_since_process_start": 4075180032
+    },
+    {
+      "timestamp": "2026-11-05T14:51:43.904517+00:00",
+      "working_set": 3538104320,
+      "private_usage": 3731906560,
+      "peak_working_set_since_process_start": 4075180032
+    },
+    {
+      "timestamp": "2026-11-05T14:51:48.907621+00:00",
+      "working_set": 3520344064,
+      "private_usage": 3714605056,
+      "peak_working_set_since_process_start": 4075180032
+    },
+    {
+      "timestamp": "2026-11-05T14:51:53.909104+00:00",
+      "working_set": 3530629120,
+      "private_usage": 3723571200,
+      "peak_working_set_since_process_start": 4075180032
+    },
+    {
+      "timestamp": "2026-11-05T14:51:58.910990+00:00",
+      "working_set": 3602812928,
+      "private_usage": 3794620416,
+      "peak_working_set_since_process_start": 4075180032
+    },
+    {
+      "timestamp": "2026-11-05T14:52:03.912124+00:00",
+      "working_set": 3604627456,
+      "private_usage": 3795701760,
+      "peak_working_set_since_process_start": 4075180032
+    },
+    {
+      "timestamp": "2026-11-05T14:52:08.913211+00:00",
+      "working_set": 3606061056,
+      "private_usage": 3796242432,
+      "peak_working_set_since_process_start": 4075180032
+    },
+    {
+      "timestamp": "2026-11-05T14:52:13.915355+00:00",
+      "working_set": 3606417408,
+      "private_usage": 3796721664,
+      "peak_working_set_since_process_start": 4075180032
+    },
+    {
+      "timestamp": "2026-11-05T14:52:18.917465+00:00",
+      "working_set": 3608330240,
+      "private_usage": 3798642688,
+      "peak_working_set_since_process_start": 4075180032
+    },
+    {
+      "timestamp": "2026-11-05T14:52:23.919221+00:00",
+      "working_set": 3608391680,
+      "private_usage": 3798622208,
+      "peak_working_set_since_process_start": 4075180032
+    },
+    {
+      "timestamp": "2026-11-05T14:52:28.921270+00:00",
+      "working_set": 3609296896,
+      "private_usage": 3799384064,
+      "peak_working_set_since_process_start": 4075180032
+    },
+    {
+      "timestamp": "2026-11-05T14:52:33.922365+00:00",
+      "working_set": 3609509888,
+      "private_usage": 3799535616,
+      "peak_working_set_since_process_start": 4075180032
+    },
+    {
+      "timestamp": "2026-11-05T14:52:38.923869+00:00",
+      "working_set": 3609563136,
+      "private_usage": 3799535616,
+      "peak_working_set_since_process_start": 4075180032
+    },
+    {
+      "timestamp": "2026-11-05T14:52:43.925177+00:00",
+      "working_set": 3597410304,
+      "private_usage": 3785785344,
+      "peak_working_set_since_process_start": 4075180032
+    }
+  ],
+  "observations": [
+    {
+      "timestamp": "2026-11-05T22:51:41.375147200+08:00",
+      "heap_used": 1601546688,
+      "heap_max": 3221225472,
+      "registered_count": 425,
+      "model_parsing_complete": true,
+      "screen": "game"
+    },
+    {
+      "timestamp": "2026-11-05T22:51:46.361934+08:00",
+      "heap_used": 1939188160,
+      "heap_max": 3221225472,
+      "registered_count": 425,
+      "model_parsing_complete": true,
+      "screen": "game"
+    },
+    {
+      "timestamp": "2026-11-05T22:51:51.374570600+08:00",
+      "heap_used": 1603714432,
+      "heap_max": 3221225472,
+      "registered_count": 425,
+      "model_parsing_complete": true,
+      "screen": "game"
+    },
+    {
+      "timestamp": "2026-11-05T22:51:56.371463900+08:00",
+      "heap_used": 1935064448,
+      "heap_max": 3221225472,
+      "registered_count": 425,
+      "model_parsing_complete": true,
+      "screen": "game"
+    },
+    {
+      "timestamp": "2026-11-05T22:52:01.376291+08:00",
+      "heap_used": 1588322200,
+      "heap_max": 3221225472,
+      "registered_count": 425,
+      "model_parsing_complete": true,
+      "screen": "game"
+    },
+    {
+      "timestamp": "2026-11-05T22:52:06.358789300+08:00",
+      "heap_used": 1921769368,
+      "heap_max": 3221225472,
+      "registered_count": 425,
+      "model_parsing_complete": true,
+      "screen": "game"
+    },
+    {
+      "timestamp": "2026-11-05T22:52:11.372840700+08:00",
+      "heap_used": 1584505040,
+      "heap_max": 3221225472,
+      "registered_count": 425,
+      "model_parsing_complete": true,
+      "screen": "game"
+    },
+    {
+      "timestamp": "2026-11-05T22:52:16.373499500+08:00",
+      "heap_used": 1917952208,
+      "heap_max": 3221225472,
+      "registered_count": 425,
+      "model_parsing_complete": true,
+      "screen": "game"
+    },
+    {
+      "timestamp": "2026-11-05T22:52:21.365744+08:00",
+      "heap_used": 1497311288,
+      "heap_max": 3221225472,
+      "registered_count": 425,
+      "model_parsing_complete": true,
+      "screen": "game"
+    },
+    {
+      "timestamp": "2026-11-05T22:52:26.370313400+08:00",
+      "heap_used": 1828661304,
+      "heap_max": 3221225472,
+      "registered_count": 425,
+      "model_parsing_complete": true,
+      "screen": "game"
+    },
+    {
+      "timestamp": "2026-11-05T22:52:31.371054400+08:00",
+      "heap_used": 1407639248,
+      "heap_max": 3221225472,
+      "registered_count": 425,
+      "model_parsing_complete": true,
+      "screen": "game"
+    },
+    {
+      "timestamp": "2026-11-05T22:52:36.366047800+08:00",
+      "heap_used": 1737940688,
+      "heap_max": 3221225472,
+      "registered_count": 425,
+      "model_parsing_complete": true,
+      "screen": "game"
+    },
+    {
+      "timestamp": "2026-11-05T22:52:41.369973700+08:00",
+      "heap_used": 1314786344,
+      "heap_max": 3221225472,
+      "registered_count": 425,
+      "model_parsing_complete": true,
+      "screen": "game"
+    }
+  ],
+  "parse_failure_lines": [],
+  "limits": "A stable registration/parser state is loading evidence only; it does not establish vehicle rendering, passenger acceptance, reload or a measured true heap peak."
+}

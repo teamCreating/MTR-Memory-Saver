@@ -1,0 +1,144 @@
+{
+  "timestamp": "2026-11-05T22:56:27.421152+08:00",
+  "pid": 31900,
+  "target": {
+    "minecraft": "1.21.1",
+    "mtr": "4.1.0-beta.2-mc1.21.1-performance-v6"
+  },
+  "mod_loader": "neoforge",
+  "jvm_arguments": [
+    "-Xms1G",
+    "-Xmx3072M",
+    "-Djdk.virtualThreadScheduler.parallelism=2",
+    "-Djdk.virtualThreadScheduler.maxPoolSize=2",
+    "-XX:StartFlightRecording=name=performance,settings=profile,disk=true,dumponexit=true,filename=performance.jfr",
+    "-Xlog:gc*,safepoint:file=performance-gc.log:time,uptime,level,tags:filecount=0"
+  ],
+  "mods": [
+    {
+      "filename": "[自修改]MTR-4.1.0-beta.2-mc1.21.1-performance-v6.jar",
+      "sha256": "8bd419bd798c2ab2fa03e08850409387804fdeb2e4f2987c66b9984236263585"
+    },
+    {
+      "filename": "vehicle-performance-probe.jar",
+      "sha256": "6fd26e88adf905d09d80f91d3a45715795950bb1564128386f515f9436038235"
+    }
+  ],
+  "launch_timestamp": "2026-11-05T22:50:50.930366+08:00",
+  "status": "loading_monitor_completed",
+  "errors": [],
+  "method": "Read-only jstat -gc -t counters at nominal five-second intervals. No GC, histogram or heap dump requested.",
+  "peak_sampled_heap_used": 2356150272,
+  "peak_sampled_heap_committed": 2585788416,
+  "samples": [
+    {
+      "timestamp": "2026-11-05T22:56:06.571085+08:00",
+      "heap_used": 2119172096,
+      "heap_committed": 2585788416,
+      "raw_jstat": {
+        "Timestamp": "315.5",
+        "S0C": "0.0",
+        "S1C": "38912.0",
+        "S0U": "0.0",
+        "S1U": "38912.0",
+        "EC": "917504.0",
+        "EU": "569344.0",
+        "OC": "1568768.0",
+        "OU": "1461248.0",
+        "MC": "151232.0",
+        "MU": "149541.1",
+        "CCSC": "23296.0",
+        "CCSU": "22535.7",
+        "YGC": "74",
+        "YGCT": "1.962",
+        "FGC": "0",
+        "FGCT": "0.000",
+        "CGC": "36",
+        "CGCT": "0.188",
+        "GCT": "2.150"
+      }
+    },
+    {
+      "timestamp": "2026-11-05T22:56:11.849096+08:00",
+      "heap_used": 2356150272,
+      "heap_committed": 2585788416,
+      "raw_jstat": {
+        "Timestamp": "320.7",
+        "S0C": "0.0",
+        "S1C": "38912.0",
+        "S0U": "0.0",
+        "S1U": "38912.0",
+        "EC": "917504.0",
+        "EU": "800768.0",
+        "OC": "1568768.0",
+        "OU": "1461248.0",
+        "MC": "151232.0",
+        "MU": "149541.1",
+        "CCSC": "23296.0",
+        "CCSU": "22535.7",
+        "YGC": "74",
+        "YGCT": "1.962",
+        "FGC": "0",
+        "FGCT": "0.000",
+        "CGC": "36",
+        "CGCT": "0.188",
+        "GCT": "2.150"
+      }
+    },
+    {
+      "timestamp": "2026-11-05T22:56:17.133595+08:00",
+      "heap_used": 1524629504,
+      "heap_committed": 2585788416,
+      "raw_jstat": {
+        "Timestamp": "326.0",
+        "S0C": "0.0",
+        "S1C": "38912.0",
+        "S0U": "0.0",
+        "S1U": "37888.0",
+        "EC": "942080.0",
+        "EU": "104448.0",
+        "OC": "1544192.0",
+        "OU": "1346560.0",
+        "MC": "151296.0",
+        "MU": "149596.0",
+        "CCSC": "23296.0",
+        "CCSU": "22535.7",
+        "YGC": "75",
+        "YGCT": "1.974",
+        "FGC": "0",
+        "FGCT": "0.000",
+        "CGC": "38",
+        "CGCT": "0.196",
+        "GCT": "2.170"
+      }
+    },
+    {
+      "timestamp": "2026-11-05T22:56:22.419710+08:00",
+      "heap_used": 1694498816,
+      "heap_committed": 2585788416,
+      "raw_jstat": {
+        "Timestamp": "331.3",
+        "S0C": "0.0",
+        "S1C": "38912.0",
+        "S0U": "0.0",
+        "S1U": "37888.0",
+        "EC": "942080.0",
+        "EU": "270336.0",
+        "OC": "1544192.0",
+        "OU": "1346560.0",
+        "MC": "151296.0",
+        "MU": "149596.0",
+        "CCSC": "23296.0",
+        "CCSU": "22535.7",
+        "YGC": "75",
+        "YGCT": "1.974",
+        "FGC": "0",
+        "FGCT": "0.000",
+        "CGC": "38",
+        "CGCT": "0.196",
+        "GCT": "2.170"
+      }
+    }
+  ],
+  "limits": "Generation counters may change during sampling. These are sampled heap values, including blocked render-thread phases, not true maxima or process/GPU memory."
+}

@@ -1,0 +1,5296 @@
+{
+  "recording_sha256": "3eba3223f57c9320b3501d99de90e2cce253525fc1248d4106da863822289f1e",
+  "windows_sha256": "6d81abe81550c86e06bdab231e42b9bf7128731b33453f65726ffcab22a25225",
+  "analyzer_sha256": "bea58579a6f6c3981b8503f8bd059416f545f93324c9cec26bdc323393ca2ffe",
+  "export_sha256": "141fc4759c9bf200eff1238caad96574cdd3112aff69b59ba04aecf0eaecd61e",
+  "exporter_sha256": "3880e80998fe6b45eff89e9e16f04602e6d448743d76eb9e7c23a1fc3015d5e0",
+  "json_library_sha256": "ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa",
+  "event_count": 84213,
+  "windows": {
+    "startup": {
+      "start": "2026-11-05T22:50:50.930366+08:00",
+      "end": "2026-11-05T22:51:41.375147+08:00",
+      "seconds": 50.444781,
+      "event_counts": {
+        "jdk.ObjectAllocationSample": 8758,
+        "jdk.NativeMethodSample": 1783,
+        "jdk.ExecutionSample": 1294,
+        "jdk.GCHeapSummary": 102,
+        "jdk.GCPhasePause": 61,
+        "jdk.GarbageCollection": 51,
+        "jdk.CPULoad": 46,
+        "mtrtest.ClientFrame": 180,
+        "mtrtest.ServerTick": 125
+      },
+      "game_frame_interval_ms": {
+        "count": 84,
+        "mean": 23.986466666666665,
+        "p50": 17.51855,
+        "p95": 38.72162499999999,
+        "p99": 110.76351000000042,
+        "max": 321.2042,
+        "sum": 2014.8632
+      },
+      "effective_fps_from_intervals": 41.69017529329038,
+      "frames_over_50ms": 2,
+      "frames_over_100ms": 1,
+      "server_tick_event_span_ms": {
+        "count": 125,
+        "mean": 14.772067887999999,
+        "p50": 4.821194,
+        "p95": 53.30555759999999,
+        "p99": 63.11778452000003,
+        "max": 123.169215,
+        "sum": 1846.508486
+      },
+      "gc_pause_ms": {
+        "count": 61,
+        "mean": 19.683117704918033,
+        "p50": 19.321877,
+        "p95": 49.515622,
+        "p99": 82.673615,
+        "max": 84.41356999999999,
+        "sum": 1200.67018
+      },
+      "gc_causes": {
+        "G1New: G1 Evacuation Pause": 33,
+        "G1Old: Metadata GC Threshold": 2,
+        "G1New: Metadata GC Threshold": 3,
+        "G1Old: GCLocker Initiated GC": 1,
+        "G1New: GCLocker Initiated GC": 3,
+        "G1Old: G1 Humongous Allocation": 2,
+        "G1New: G1 Humongous Allocation": 2,
+        "G1Old: G1 Evacuation Pause": 5
+      },
+      "gc_events": [
+        {
+          "start": "2026-11-05T14:50:52.900471284Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.005806077,
+          "pause_seconds": 0.005806076
+        },
+        {
+          "start": "2026-11-05T14:50:53.745132274Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.005302958,
+          "pause_seconds": 0.005302958
+        },
+        {
+          "start": "2026-11-05T14:50:54.138813756Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.003896736,
+          "pause_seconds": 0.003896735
+        },
+        {
+          "start": "2026-11-05T14:50:56.597527455Z",
+          "name": "G1Old",
+          "cause": "Metadata GC Threshold",
+          "duration_seconds": 0.031647043,
+          "pause_seconds": 0.00257135
+        },
+        {
+          "start": "2026-11-05T14:50:56.580941570Z",
+          "name": "G1New",
+          "cause": "Metadata GC Threshold",
+          "duration_seconds": 0.016499291,
+          "pause_seconds": 0.01649929
+        },
+        {
+          "start": "2026-11-05T14:50:58.052826347Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.020677975,
+          "pause_seconds": 0.020677974
+        },
+        {
+          "start": "2026-11-05T14:50:58.301484456Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.022158316,
+          "pause_seconds": 0.022158316
+        },
+        {
+          "start": "2026-11-05T14:50:59.063883709Z",
+          "name": "G1Old",
+          "cause": "GCLocker Initiated GC",
+          "duration_seconds": 0.101835198,
+          "pause_seconds": 0.009879949
+        },
+        {
+          "start": "2026-11-05T14:50:59.004131276Z",
+          "name": "G1New",
+          "cause": "GCLocker Initiated GC",
+          "duration_seconds": 0.008796733,
+          "pause_seconds": 0.008796732
+        },
+        {
+          "start": "2026-11-05T14:50:59.054432881Z",
+          "name": "G1New",
+          "cause": "GCLocker Initiated GC",
+          "duration_seconds": 0.009352883,
+          "pause_seconds": 0.009352882
+        },
+        {
+          "start": "2026-11-05T14:51:01.692102642Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.029063964,
+          "pause_seconds": 0.029063963
+        },
+        {
+          "start": "2026-11-05T14:51:04.264893438Z",
+          "name": "G1Old",
+          "cause": "Metadata GC Threshold",
+          "duration_seconds": 0.205089846,
+          "pause_seconds": 0.00690632
+        },
+        {
+          "start": "2026-11-05T14:51:04.123035071Z",
+          "name": "G1New",
+          "cause": "Metadata GC Threshold",
+          "duration_seconds": 0.053272773,
+          "pause_seconds": 0.053272772
+        },
+        {
+          "start": "2026-11-05T14:51:04.215106011Z",
+          "name": "G1New",
+          "cause": "Metadata GC Threshold",
+          "duration_seconds": 0.049515622,
+          "pause_seconds": 0.049515621
+        },
+        {
+          "start": "2026-11-05T14:51:09.247180533Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.020939517,
+          "pause_seconds": 0.020939517
+        },
+        {
+          "start": "2026-11-05T14:51:10.402027256Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.025053107,
+          "pause_seconds": 0.025053106
+        },
+        {
+          "start": "2026-11-05T14:51:10.998481636Z",
+          "name": "G1Old",
+          "cause": "G1 Humongous Allocation",
+          "duration_seconds": 0.370698432,
+          "pause_seconds": 0.015559314
+        },
+        {
+          "start": "2026-11-05T14:51:10.966494053Z",
+          "name": "G1New",
+          "cause": "G1 Humongous Allocation",
+          "duration_seconds": 0.031884904,
+          "pause_seconds": 0.031884903
+        },
+        {
+          "start": "2026-11-05T14:51:13.406810850Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.024151808,
+          "pause_seconds": 0.024151808
+        },
+        {
+          "start": "2026-11-05T14:51:14.321614308Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.026434367,
+          "pause_seconds": 0.026434367
+        },
+        {
+          "start": "2026-11-05T14:51:14.837336353Z",
+          "name": "G1Old",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.399528229,
+          "pause_seconds": 0.008763778
+        },
+        {
+          "start": "2026-11-05T14:51:14.816652503Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.02057816,
+          "pause_seconds": 0.02057816
+        },
+        {
+          "start": "2026-11-05T14:51:15.780025698Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.08441357,
+          "pause_seconds": 0.084413569
+        },
+        {
+          "start": "2026-11-05T14:51:20.583862896Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.081513645,
+          "pause_seconds": 0.081513644
+        },
+        {
+          "start": "2026-11-05T14:51:20.988104476Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.036141007,
+          "pause_seconds": 0.036141007
+        },
+        {
+          "start": "2026-11-05T14:51:21.455412124Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.031731008,
+          "pause_seconds": 0.031731007
+        },
+        {
+          "start": "2026-11-05T14:51:21.024343110Z",
+          "name": "G1Old",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.992679474,
+          "pause_seconds": 0.013729356
+        },
+        {
+          "start": "2026-11-05T14:51:21.793586448Z",
+          "name": "G1New",
+          "cause": "GCLocker Initiated GC",
+          "duration_seconds": 0.029811808,
+          "pause_seconds": 0.029811807
+        },
+        {
+          "start": "2026-11-05T14:51:22.164165068Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.026472804,
+          "pause_seconds": 0.026472803
+        },
+        {
+          "start": "2026-11-05T14:51:22.423645911Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.027973291,
+          "pause_seconds": 0.027973291
+        },
+        {
+          "start": "2026-11-05T14:51:22.795335291Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.035121917,
+          "pause_seconds": 0.035121916
+        },
+        {
+          "start": "2026-11-05T14:51:22.830572515Z",
+          "name": "G1Old",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 1.093947871,
+          "pause_seconds": 0.012460068
+        },
+        {
+          "start": "2026-11-05T14:51:23.200783125Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.029975343,
+          "pause_seconds": 0.029975343
+        },
+        {
+          "start": "2026-11-05T14:51:23.509674653Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.016497822,
+          "pause_seconds": 0.016497821
+        },
+        {
+          "start": "2026-11-05T14:51:23.785721248Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.019321877,
+          "pause_seconds": 0.019321876
+        },
+        {
+          "start": "2026-11-05T14:51:24.134534206Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.025971574,
+          "pause_seconds": 0.025971573
+        },
+        {
+          "start": "2026-11-05T14:51:24.432971020Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.028625531,
+          "pause_seconds": 0.028625531
+        },
+        {
+          "start": "2026-11-05T14:51:24.728508513Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.020702828,
+          "pause_seconds": 0.020702828
+        },
+        {
+          "start": "2026-11-05T14:51:25.065374167Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.022603604,
+          "pause_seconds": 0.022603604
+        },
+        {
+          "start": "2026-11-05T14:51:24.749414155Z",
+          "name": "G1Old",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 1.157651238,
+          "pause_seconds": 0.006666133
+        },
+        {
+          "start": "2026-11-05T14:51:25.428534274Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.020603246,
+          "pause_seconds": 0.020603245
+        },
+        {
+          "start": "2026-11-05T14:51:25.759934944Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.017544137,
+          "pause_seconds": 0.017544136
+        },
+        {
+          "start": "2026-11-05T14:51:26.049197832Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.018254189,
+          "pause_seconds": 0.018254189
+        },
+        {
+          "start": "2026-11-05T14:51:26.308672725Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.027449307,
+          "pause_seconds": 0.027449307
+        },
+        {
+          "start": "2026-11-05T14:51:31.344804903Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.018769178,
+          "pause_seconds": 0.018769177
+        },
+        {
+          "start": "2026-11-05T14:51:31.363668471Z",
+          "name": "G1Old",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 1.324491791,
+          "pause_seconds": 0.006786406
+        },
+        {
+          "start": "2026-11-05T14:51:32.720904712Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.019838887,
+          "pause_seconds": 0.019838887
+        },
+        {
+          "start": "2026-11-05T14:51:33.696486204Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.021224667,
+          "pause_seconds": 0.021224667
+        },
+        {
+          "start": "2026-11-05T14:51:35.012093556Z",
+          "name": "G1New",
+          "cause": "G1 Humongous Allocation",
+          "duration_seconds": 0.023875158,
+          "pause_seconds": 0.023875158
+        },
+        {
+          "start": "2026-11-05T14:51:35.036123265Z",
+          "name": "G1Old",
+          "cause": "G1 Humongous Allocation",
+          "duration_seconds": 1.623685691,
+          "pause_seconds": 0.011330345
+        },
+        {
+          "start": "2026-11-05T14:51:39.013569771Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.048195567,
+          "pause_seconds": 0.048195566
+        }
+      ],
+      "jvm_cpu_fraction_of_machine": {
+        "count": 46,
+        "mean": 0.5024605649130435,
+        "p50": 0.5006099725,
+        "p95": 0.81039907,
+        "p99": 0.8531105974,
+        "max": 0.865461598,
+        "sum": 23.113185986
+      },
+      "sampled_threads": [
+        [
+          "FileSystemWatchService",
+          789
+        ],
+        [
+          "main",
+          556
+        ],
+        [
+          "<unnamed>",
+          531
+        ],
+        [
+          "Download-1",
+          143
+        ],
+        [
+          "pool-2-thread-1",
+          101
+        ],
+        [
+          "Worker-Main-1",
+          79
+        ],
+        [
+          "Server thread",
+          73
+        ],
+        [
+          "pool-8-thread-1",
+          69
+        ],
+        [
+          "Worker-Main-4",
+          56
+        ],
+        [
+          "background-scan-handler-0",
+          49
+        ],
+        [
+          "Worker-Main-5",
+          49
+        ],
+        [
+          "modloading-sync-worker",
+          40
+        ],
+        [
+          "Netty Server IO #1",
+          39
+        ],
+        [
+          "JFR Periodic Tasks",
+          37
+        ],
+        [
+          "qtp147405781-2722",
+          34
+        ]
+      ],
+      "sampled_leaf_methods": [
+        [
+          "sun.nio.fs.WindowsNativeDispatcher.GetQueuedCompletionStatus0",
+          789
+        ],
+        [
+          "sun.nio.ch.WEPoll.wait",
+          211
+        ],
+        [
+          "sun.nio.ch.Net.poll",
+          152
+        ],
+        [
+          "org.lwjgl.opengl.GL11C.nglTexSubImage2D",
+          111
+        ],
+        [
+          "org.lwjgl.system.JNI.invokeV",
+          84
+        ],
+        [
+          "org.mtr.libraries.com.google.gson.stream.JsonReader.nextQuotedValue",
+          75
+        ],
+        [
+          "sun.nio.ch.FileDispatcherImpl.pread0",
+          65
+        ],
+        [
+          "com.sun.management.internal.OperatingSystemImpl.getProcessCpuLoad0",
+          56
+        ],
+        [
+          "java.util.zip.Inflater.inflateBytesBytes",
+          54
+        ],
+        [
+          "org.mtr.libraries.com.google.gson.internal.LinkedTreeMap.find",
+          36
+        ],
+        [
+          "org.mtr.libraries.com.google.gson.stream.JsonReader.peekNumber",
+          34
+        ],
+        [
+          "jdk.jfr.internal.JVM.emitEvent",
+          34
+        ],
+        [
+          "sun.nio.ch.Net.accept",
+          34
+        ],
+        [
+          "java.util.Objects.equals",
+          32
+        ],
+        [
+          "org.lwjgl.opengl.GL20C.glLinkProgram",
+          32
+        ],
+        [
+          "java.util.BitSet.expandTo",
+          29
+        ],
+        [
+          "org.objectweb.asm.ClassReader.readCode",
+          26
+        ],
+        [
+          "sun.nio.fs.WindowsNativeDispatcher.GetVolumePathName0",
+          26
+        ],
+        [
+          "org.lwjgl.system.JNI.invokePV",
+          25
+        ],
+        [
+          "org.mtr.libraries.com.google.gson.stream.JsonReader.doPeek",
+          23
+        ],
+        [
+          "java.lang.AbstractStringBuilder.appendChars",
+          22
+        ],
+        [
+          "org.mtr.libraries.com.google.gson.stream.JsonReader.nextNonWhitespace",
+          19
+        ],
+        [
+          "org.mtr.core.serializer.JsonReader$$Lambda.0x000001e812ecad68.accept",
+          19
+        ],
+        [
+          "org.objectweb.asm.ClassReader.readUtf",
+          18
+        ],
+        [
+          "org.mtr.model.StoredVertexData$StoredVertexConsumer.setNormal",
+          16
+        ]
+      ],
+      "sampled_inclusive_methods": [
+        [
+          "java.lang.Thread.runWith",
+          2166
+        ],
+        [
+          "java.lang.Thread.run",
+          1640
+        ],
+        [
+          "sun.nio.fs.WindowsNativeDispatcher.GetQueuedCompletionStatus",
+          789
+        ],
+        [
+          "sun.nio.fs.WindowsNativeDispatcher.GetQueuedCompletionStatus0",
+          789
+        ],
+        [
+          "sun.nio.fs.WindowsWatchService$Poller.run",
+          789
+        ],
+        [
+          "java.util.concurrent.Executors$RunnableAdapter.call",
+          700
+        ],
+        [
+          "java.util.concurrent.FutureTask.run",
+          616
+        ],
+        [
+          "jdk.internal.vm.Continuation.enter0",
+          524
+        ],
+        [
+          "java.lang.VirtualThread$VThreadContinuation$1.run",
+          524
+        ],
+        [
+          "java.lang.VirtualThread.run",
+          524
+        ],
+        [
+          "jdk.internal.vm.Continuation.enter",
+          524
+        ],
+        [
+          "jdk.internal.vm.Continuation.enterSpecial",
+          523
+        ],
+        [
+          "org.mtr.model.BlockbenchModelLoader.lambda$loadModel$5",
+          518
+        ],
+        [
+          "org.mtr.model.BlockbenchModelLoader$$Lambda.0x000001e813124520.run",
+          518
+        ],
+        [
+          "java.util.concurrent.ThreadPoolExecutor.runWorker",
+          492
+        ],
+        [
+          "java.util.concurrent.ThreadPoolExecutor$Worker.run",
+          490
+        ],
+        [
+          "cpw.mods.bootstraplauncher.BootstrapLauncher.run",
+          458
+        ],
+        [
+          "cpw.mods.bootstraplauncher.BootstrapLauncher.main",
+          455
+        ],
+        [
+          "java.lang.invoke.LambdaForm$DMH.0x000001e812002400.invokeStatic",
+          438
+        ],
+        [
+          "java.lang.invoke.Invokers$Holder.invokeExact_MT",
+          425
+        ],
+        [
+          "org.mtr.resource.VehicleModel.lambda$getModelLoaderBase$2",
+          424
+        ],
+        [
+          "org.mtr.resource.VehicleModel$$Lambda.0x000001e81312b3b0.get",
+          424
+        ],
+        [
+          "net.minecraft.client.main.Main.main",
+          416
+        ],
+        [
+          "java.lang.invoke.LambdaForm$MH.0x000001e8123d9400.invoke",
+          409
+        ],
+        [
+          "cpw.mods.modlauncher.Launcher.run",
+          407
+        ]
+      ],
+      "sampled_leaf_by_thread": {
+        "main": [
+          [
+            "org.lwjgl.opengl.GL11C.nglTexSubImage2D",
+            111
+          ],
+          [
+            "org.lwjgl.system.JNI.invokeV",
+            84
+          ],
+          [
+            "org.lwjgl.opengl.GL20C.glLinkProgram",
+            31
+          ],
+          [
+            "sun.nio.fs.WindowsNativeDispatcher.GetVolumePathName0",
+            26
+          ],
+          [
+            "java.util.BitSet.expandTo",
+            16
+          ],
+          [
+            "sun.nio.ch.FileDispatcherImpl.pread0",
+            16
+          ],
+          [
+            "org.objectweb.asm.ClassReader.readCode",
+            10
+          ],
+          [
+            "org.lwjgl.system.JNI.invokePI",
+            9
+          ],
+          [
+            "java.lang.Thread.yield0",
+            9
+          ],
+          [
+            "java.util.zip.Inflater.inflateBytesBytes",
+            8
+          ],
+          [
+            "org.objectweb.asm.ClassReader.readUtf",
+            7
+          ],
+          [
+            "net.minecraft.world.phys.shapes.IndirectMerger.forMergedIndexes",
+            6
+          ]
+        ],
+        "ForkJoinPool.commonPool-worker-1": [
+          [
+            "java.lang.StringLatin1.indexOf",
+            1
+          ]
+        ],
+        "ForkJoinPool.commonPool-worker-4": [
+          [
+            "java.util.stream.Collectors.lambda$mapMerger$12",
+            1
+          ],
+          [
+            "jdk.nio.zipfs.ZipFileSystem.initCEN",
+            1
+          ]
+        ],
+        "background-scan-handler-2": [
+          [
+            "sun.nio.ch.FileDispatcherImpl.pread0",
+            9
+          ],
+          [
+            "java.util.zip.Inflater.inflateBytesBytes",
+            7
+          ],
+          [
+            "org.objectweb.asm.ClassReader.readUtf",
+            6
+          ],
+          [
+            "java.lang.String.getBytes",
+            1
+          ],
+          [
+            "java.io.InputStream.readNBytes",
+            1
+          ],
+          [
+            "java.lang.String.charAt",
+            1
+          ],
+          [
+            "org.objectweb.asm.ClassReader.readMethod",
+            1
+          ],
+          [
+            "java.lang.invoke.LambdaForm$MH.0x000001e81225e800.invoke",
+            1
+          ],
+          [
+            "java.util.zip.InflaterInputStream.<init>",
+            1
+          ],
+          [
+            "java.util.HashMap.resize",
+            1
+          ],
+          [
+            "java.util.LinkedList.addFirst",
+            1
+          ],
+          [
+            "jdk.nio.zipfs.ZipPath.normalize",
+            1
+          ]
+        ],
+        "background-scan-handler-0": [
+          [
+            "java.util.zip.Inflater.inflateBytesBytes",
+            15
+          ],
+          [
+            "sun.nio.ch.FileDispatcherImpl.pread0",
+            13
+          ],
+          [
+            "org.objectweb.asm.ClassReader.readUtf",
+            4
+          ],
+          [
+            "org.objectweb.asm.ClassReader.<init>",
+            2
+          ],
+          [
+            "org.objectweb.asm.ClassReader.readMethod",
+            2
+          ],
+          [
+            "java.util.HashMap.getNode",
+            2
+          ],
+          [
+            "cpw.mods.niofs.union.UnionFileSystem.byteChannel",
+            1
+          ],
+          [
+            "java.lang.String.valueOf",
+            1
+          ],
+          [
+            "java.io.InputStream.readNBytes",
+            1
+          ],
+          [
+            "jdk.nio.zipfs.ZipPath.getResolved",
+            1
+          ],
+          [
+            "java.util.Arrays.binarySearch0",
+            1
+          ],
+          [
+            "java.util.HashMap.removeNode",
+            1
+          ]
+        ],
+        "background-scan-handler-3": [
+          [
+            "java.util.zip.Inflater.inflateBytesBytes",
+            2
+          ],
+          [
+            "org.objectweb.asm.ClassReader.accept",
+            1
+          ],
+          [
+            "java.util.HashMap.entrySet",
+            1
+          ],
+          [
+            "java.lang.String.join",
+            1
+          ],
+          [
+            "sun.nio.ch.FileDispatcherImpl.pread0",
+            1
+          ]
+        ],
+        "pool-2-thread-1": [
+          [
+            "com.sun.management.internal.OperatingSystemImpl.getProcessCpuLoad0",
+            56
+          ],
+          [
+            "org.lwjgl.system.JNI.invokePV",
+            19
+          ],
+          [
+            "org.lwjgl.opengl.GL30C.glBlitFramebuffer",
+            5
+          ],
+          [
+            "java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos",
+            3
+          ],
+          [
+            "java.util.concurrent.locks.AbstractQueuedSynchronizer$Node.setStatusRelaxed",
+            2
+          ],
+          [
+            "java.util.concurrent.locks.LockSupport.setBlocker",
+            1
+          ],
+          [
+            "java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.unlinkCancelledWaiters",
+            1
+          ],
+          [
+            "java.util.concurrent.ThreadPoolExecutor.runWorker",
+            1
+          ],
+          [
+            "java.util.concurrent.Executors$RunnableAdapter.call",
+            1
+          ],
+          [
+            "java.util.stream.SliceOps.makeRef",
+            1
+          ],
+          [
+            "java.lang.invoke.Invokers$Holder.linkToTargetMethod",
+            1
+          ],
+          [
+            "java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.enableWait",
+            1
+          ]
+        ],
+        "Datafixer Bootstrap": [
+          [
+            "com.google.common.collect.ImmutableList.construct",
+            1
+          ],
+          [
+            "java.util.concurrent.ConcurrentHashMap.get",
+            1
+          ],
+          [
+            "com.mojang.datafixers.functions.Comp.all",
+            1
+          ]
+        ],
+        "pool-8-thread-1": [
+          [
+            "org.objectweb.asm.ClassReader.readCode",
+            8
+          ],
+          [
+            "sun.nio.ch.FileDispatcherImpl.pread0",
+            7
+          ],
+          [
+            "java.util.zip.Inflater.inflateBytesBytes",
+            6
+          ],
+          [
+            "it.unimi.dsi.fastutil.doubles.DoubleArrayList.getDouble",
+            3
+          ],
+          [
+            "net.minecraft.world.phys.shapes.DiscreteCubeMerger.forMergedIndexes",
+            2
+          ],
+          [
+            "java.lang.Class.forName0",
+            2
+          ],
+          [
+            "java.lang.ClassLoader.defineClass1",
+            2
+          ],
+          [
+            "java.net.URL.<init>",
+            1
+          ],
+          [
+            "org.objectweb.asm.tree.MethodNode.visitTryCatchBlock",
+            1
+          ],
+          [
+            "org.objectweb.asm.ClassReader.readUtf",
+            1
+          ],
+          [
+            "java.util.IdentityHashMap.resize",
+            1
+          ],
+          [
+            "cpw.mods.cl.ModuleClassLoader.readerToClass",
+            1
+          ]
+        ],
+        "Download-1": [
+          [
+            "sun.nio.ch.Net.poll",
+            136
+          ],
+          [
+            "java.math.BigInteger.implMulAdd",
+            2
+          ],
+          [
+            "jdk.internal.icu.impl.Trie2.createFromSerialized",
+            1
+          ],
+          [
+            "sun.security.provider.SHA5.implCompress0",
+            1
+          ],
+          [
+            "java.math.BigInteger.implMultiplyToLen",
+            1
+          ],
+          [
+            "com.sun.crypto.provider.AESCrypt.implEncryptBlock",
+            1
+          ],
+          [
+            "com.jcraft.jorbis.CodeBook.make_decode_tree",
+            1
+          ]
+        ],
+        "Yggdrasil Key Fetcher": [
+          [
+            "sun.nio.ch.Net.poll",
+            7
+          ],
+          [
+            "java.math.BigInteger.implMulAdd",
+            3
+          ],
+          [
+            "sun.security.util.math.intpoly.IntegerPolynomialP256.mult",
+            2
+          ],
+          [
+            "sun.security.util.math.intpoly.IntegerPolynomial25519.mult",
+            1
+          ],
+          [
+            "sun.security.ec.ECOperations.setSum",
+            1
+          ],
+          [
+            "sun.security.util.math.intpoly.IntegerPolynomial$MutableElement.setDifference",
+            1
+          ],
+          [
+            "sun.security.util.math.intpoly.IntegerPolynomial.multByInt",
+            1
+          ],
+          [
+            "sun.security.util.math.intpoly.IntegerPolynomialP256.carryReduce",
+            1
+          ],
+          [
+            "sun.security.util.math.intpoly.IntegerPolynomial.conditionalAssign",
+            1
+          ],
+          [
+            "sun.security.util.math.intpoly.IntegerPolynomialP256.carryReduce0",
+            1
+          ],
+          [
+            "com.sun.crypto.provider.HmacCore.engineInit",
+            1
+          ],
+          [
+            "java.net.Inet6AddressImpl.lookupAllHostAddr",
+            1
+          ]
+        ],
+        "Download-2": [
+          [
+            "sun.nio.ch.Net.poll",
+            9
+          ],
+          [
+            "java.math.BigInteger.implMulAdd",
+            2
+          ],
+          [
+            "sun.security.util.math.intpoly.IntegerPolynomial25519.mult",
+            1
+          ],
+          [
+            "sun.security.util.math.intpoly.IntegerPolynomial$MutableElement.setValue",
+            1
+          ],
+          [
+            "java.math.BigInteger.mulAdd",
+            1
+          ]
+        ],
+        "modloading-worker-0": [
+          [
+            "org.objectweb.asm.ClassReader.readCode",
+            7
+          ],
+          [
+            "sun.nio.ch.FileDispatcherImpl.pread0",
+            3
+          ],
+          [
+            "java.util.zip.Inflater.inflateBytesBytes",
+            2
+          ],
+          [
+            "org.objectweb.asm.ClassReader.readUnsignedShort",
+            1
+          ],
+          [
+            "java.util.ArrayList.grow",
+            1
+          ],
+          [
+            "org.spongepowered.asm.mixin.transformer.MixinProcessor.applyMixins",
+            1
+          ],
+          [
+            "java.io.BufferedWriter.flushBuffer",
+            1
+          ],
+          [
+            "java.util.stream.Sink$ChainedReference.<init>",
+            1
+          ],
+          [
+            "java.lang.invoke.Invokers$Holder.linkToTargetMethod",
+            1
+          ],
+          [
+            "org.objectweb.asm.tree.Util.asArrayList",
+            1
+          ],
+          [
+            "java.lang.ClassLoader.defineClass1",
+            1
+          ],
+          [
+            "sun.nio.fs.WindowsNativeDispatcher.CreateFile0",
+            1
+          ]
+        ],
+        "modloading-sync-worker": [
+          [
+            "java.util.BitSet.expandTo",
+            13
+          ],
+          [
+            "net.minecraft.world.phys.shapes.IndirectMerger.forMergedIndexes",
+            5
+          ],
+          [
+            "net.minecraft.world.phys.shapes.BitSetDiscreteVoxelShape.lambda$join$2",
+            3
+          ],
+          [
+            "net.minecraft.world.phys.shapes.BitSetDiscreteVoxelShape.lambda$join$1",
+            2
+          ],
+          [
+            "java.util.Objects.equals",
+            2
+          ],
+          [
+            "net.minecraft.world.phys.shapes.BitSetDiscreteVoxelShape.lambda$join$0",
+            2
+          ],
+          [
+            "org.objectweb.asm.tree.MethodNode.visitMethodInsn",
+            1
+          ],
+          [
+            "java.util.HashMap.getNode",
+            1
+          ],
+          [
+            "net.minecraft.world.phys.shapes.VoxelShape.get",
+            1
+          ],
+          [
+            "net.minecraft.world.phys.shapes.Shapes.joinUnoptimized",
+            1
+          ],
+          [
+            "java.util.BitSet.recalculateWordsInUse",
+            1
+          ],
+          [
+            "it.unimi.dsi.fastutil.doubles.AbstractDoubleList.equals",
+            1
+          ]
+        ],
+        "Worker-Main-3": [
+          [
+            "java.io.InputStream.readNBytes",
+            2
+          ],
+          [
+            "net.minecraft.world.level.block.state.BlockBehaviour$BlockStateBase.skipRendering",
+            2
+          ],
+          [
+            "sun.nio.ch.FileDispatcherImpl.pread0",
+            2
+          ],
+          [
+            "com.mojang.blaze3d.platform.NativeImage.isOutsideBounds",
+            1
+          ],
+          [
+            "com.mojang.blaze3d.platform.NativeImage.makePixelArray",
+            1
+          ],
+          [
+            "java.nio.channels.Channels$ReadableByteChannelImpl.read",
+            1
+          ],
+          [
+            "com.google.gson.stream.JsonReader.nextQuotedValue",
+            1
+          ],
+          [
+            "java.util.concurrent.locks.AbstractQueuedSynchronizer.acquireShared",
+            1
+          ],
+          [
+            "jdk.internal.misc.Unsafe.checkOffset",
+            1
+          ],
+          [
+            "jdk.nio.zipfs.ZipFileSystem.readFullyAt",
+            1
+          ],
+          [
+            "net.minecraft.server.level.GenerationChunkHolder.decreaseGenerationRefCount",
+            1
+          ],
+          [
+            "net.minecraft.server.level.ChunkTaskPriorityQueue.resortChunkTasks",
+            1
+          ]
+        ],
+        "Worker-Main-7": [
+          [
+            "sun.nio.ch.FileDispatcherImpl.pread0",
+            3
+          ],
+          [
+            "net.minecraft.world.level.lighting.ChunkSkyLightSources.findLowestSourceY",
+            2
+          ],
+          [
+            "java.util.zip.Inflater.inflateBytesBytes",
+            2
+          ],
+          [
+            "org.lwjgl.stb.STBImage.nstbi_load_from_memory",
+            2
+          ],
+          [
+            "java.nio.ByteBuffer.putArray",
+            1
+          ],
+          [
+            "java.lang.invoke.VarHandleByteArrayAsInts$ArrayHandle.index",
+            1
+          ],
+          [
+            "java.util.concurrent.ForkJoinPool.scan",
+            1
+          ],
+          [
+            "java.util.HashMap$TreeNode.root",
+            1
+          ],
+          [
+            "net.minecraft.server.packs.FilePackResources.listResources",
+            1
+          ],
+          [
+            "net.minecraft.server.packs.resources.Resource.open",
+            1
+          ],
+          [
+            "net.minecraft.world.level.lighting.LayerLightSectionStorage$SectionState.neighborCount",
+            1
+          ],
+          [
+            "net.minecraft.server.level.GenerationChunkHolder.decreaseGenerationRefCount",
+            1
+          ]
+        ],
+        "Worker-Main-5": [
+          [
+            "it.unimi.dsi.fastutil.Arrays.quickSort",
+            9
+          ],
+          [
+            "net.minecraft.client.gui.font.providers.UnihexProvider.decodeHex",
+            4
+          ],
+          [
+            "net.minecraft.client.searchtree.SuffixArray.generate",
+            4
+          ],
+          [
+            "net.minecraft.client.gui.font.providers.UnihexProvider$ShortContents.read",
+            2
+          ],
+          [
+            "sun.nio.ch.FileDispatcherImpl.pread0",
+            2
+          ],
+          [
+            "java.util.zip.Inflater.inflateBytesBytes",
+            2
+          ],
+          [
+            "net.minecraft.client.gui.font.providers.UnihexProvider.readFromStream",
+            1
+          ],
+          [
+            "sun.nio.ch.ChannelInputStream.read",
+            1
+          ],
+          [
+            "net.minecraft.FileUtil.decomposePath",
+            1
+          ],
+          [
+            "net.minecraft.util.FastBufferedInputStream.read",
+            1
+          ],
+          [
+            "net.minecraft.client.gui.font.providers.UnihexProvider.copyUntil",
+            1
+          ],
+          [
+            "java.lang.ThreadLocal$ThreadLocalMap.getEntry",
+            1
+          ]
+        ],
+        "Worker-Main-2": [
+          [
+            "java.util.concurrent.ForkJoinPool.awaitWork",
+            3
+          ],
+          [
+            "it.unimi.dsi.fastutil.ints.IntOpenHashSet.add",
+            2
+          ],
+          [
+            "java.util.concurrent.ForkJoinPool.runWorker",
+            2
+          ],
+          [
+            "net.minecraft.util.ZeroBitStorage.get",
+            2
+          ],
+          [
+            "org.lwjgl.stb.STBImage.nstbi_load_from_memory",
+            2
+          ],
+          [
+            "org.lwjgl.system.JNI.invokePI",
+            2
+          ],
+          [
+            "net.minecraft.server.packs.resources.FallbackResourceManager$$Lambda.0x000001e81308b3f8.accept",
+            1
+          ],
+          [
+            "java.lang.ThreadLocal$ThreadLocalMap.set",
+            1
+          ],
+          [
+            "net.minecraft.client.renderer.texture.SpriteLoader.lambda$runSpriteSuppliers$3",
+            1
+          ],
+          [
+            "net.minecraft.client.renderer.texture.Stitcher$Region.add",
+            1
+          ],
+          [
+            "net.minecraft.client.gui.font.providers.UnihexProvider.getGlyph",
+            1
+          ],
+          [
+            "it.unimi.dsi.fastutil.ints.IntOpenHashSet.rehash",
+            1
+          ]
+        ],
+        "Worker-Main-1": [
+          [
+            "com.google.common.base.Splitter$SplittingIterator.computeNext",
+            11
+          ],
+          [
+            "java.util.HashMap$TreeNode.find",
+            4
+          ],
+          [
+            "java.util.HashMap.getNode",
+            4
+          ],
+          [
+            "java.util.HashMap.putVal",
+            3
+          ],
+          [
+            "java.util.stream.AbstractPipeline.wrapSink",
+            2
+          ],
+          [
+            "java.util.stream.ReferencePipeline.map",
+            2
+          ],
+          [
+            "net.minecraft.client.renderer.block.model.multipart.KeyValueCondition.getPredicate",
+            2
+          ],
+          [
+            "net.minecraft.client.renderer.block.model.ItemModelGenerator.lambda$getSpans$0",
+            2
+          ],
+          [
+            "net.minecraft.client.renderer.block.model.multipart.MultiPart.bake",
+            2
+          ],
+          [
+            "net.minecraft.client.renderer.texture.SpriteContents$AnimatedTexture.getFrameX",
+            2
+          ],
+          [
+            "net.minecraft.world.level.chunk.ChunkAccess.getMinBuildHeight",
+            2
+          ],
+          [
+            "org.lwjgl.stb.STBImage.nstbi_load_from_memory",
+            2
+          ]
+        ],
+        "Worker-Main-6": [
+          [
+            "it.unimi.dsi.fastutil.ints.IntOpenHashSet.add",
+            3
+          ],
+          [
+            "net.minecraft.client.gui.font.FontManager.lambda$finalizeProviderLoading$15",
+            3
+          ],
+          [
+            "net.minecraft.client.gui.font.CodepointMap.get",
+            2
+          ],
+          [
+            "java.util.zip.Inflater.inflateBytesBytes",
+            2
+          ],
+          [
+            "net.minecraft.resources.ResourceLocation.isValidNamespace",
+            1
+          ],
+          [
+            "java.nio.channels.spi.AbstractInterruptibleChannel.<init>",
+            1
+          ],
+          [
+            "net.minecraft.client.renderer.texture.MipmapGenerator.generateMipLevels",
+            1
+          ],
+          [
+            "it.unimi.dsi.fastutil.ints.IntOpenHashSet.rehash",
+            1
+          ],
+          [
+            "net.minecraft.client.gui.font.providers.UnihexProvider.getGlyph",
+            1
+          ],
+          [
+            "java.lang.String.join",
+            1
+          ],
+          [
+            "net.minecraft.world.level.lighting.LevelLightEngine.retainData",
+            1
+          ],
+          [
+            "net.minecraft.client.renderer.chunk.SectionCompiler.compile",
+            1
+          ]
+        ],
+        "Worker-Main-4": [
+          [
+            "net.minecraft.client.renderer.texture.MipmapGenerator.generateMipLevels",
+            7
+          ],
+          [
+            "net.minecraft.client.renderer.texture.MipmapGenerator.alphaBlend",
+            6
+          ],
+          [
+            "net.minecraft.client.renderer.texture.MipmapGenerator.hasTransparentPixel",
+            5
+          ],
+          [
+            "net.minecraft.client.gui.font.CodepointMap.forEach",
+            4
+          ],
+          [
+            "net.minecraft.client.renderer.texture.Stitcher$Region.add",
+            3
+          ],
+          [
+            "net.minecraft.client.renderer.chunk.SectionCompiler.compile",
+            2
+          ],
+          [
+            "java.util.zip.Inflater.inflateBytesBytes",
+            2
+          ],
+          [
+            "sun.nio.ch.FileDispatcherImpl.pread0",
+            2
+          ],
+          [
+            "net.minecraft.FileUtil.decomposePath",
+            1
+          ],
+          [
+            "java.io.InputStream.readNBytes",
+            1
+          ],
+          [
+            "it.unimi.dsi.fastutil.ints.IntOpenHashSet.rehash",
+            1
+          ],
+          [
+            "it.unimi.dsi.fastutil.ints.IntOpenHashSet.add",
+            1
+          ]
+        ],
+        "<unnamed>": [
+          [
+            "org.mtr.libraries.com.google.gson.stream.JsonReader.nextQuotedValue",
+            72
+          ],
+          [
+            "org.mtr.libraries.com.google.gson.internal.LinkedTreeMap.find",
+            36
+          ],
+          [
+            "org.mtr.libraries.com.google.gson.stream.JsonReader.peekNumber",
+            34
+          ],
+          [
+            "java.util.Objects.equals",
+            26
+          ],
+          [
+            "org.mtr.libraries.com.google.gson.stream.JsonReader.doPeek",
+            23
+          ],
+          [
+            "java.lang.AbstractStringBuilder.appendChars",
+            21
+          ],
+          [
+            "org.mtr.core.serializer.JsonReader$$Lambda.0x000001e812ecad68.accept",
+            19
+          ],
+          [
+            "org.mtr.libraries.com.google.gson.stream.JsonReader.nextNonWhitespace",
+            18
+          ],
+          [
+            "org.mtr.model.StoredVertexData$StoredVertexConsumer.setNormal",
+            16
+          ],
+          [
+            "org.mtr.libraries.com.google.gson.internal.LinkedTreeMap.rebalance",
+            13
+          ],
+          [
+            "org.mtr.libraries.com.google.gson.internal.bind.JsonElementTypeAdapter.read",
+            12
+          ],
+          [
+            "org.mtr.libraries.com.google.gson.stream.JsonReader.hasNext",
+            12
+          ]
+        ],
+        "JFR Periodic Tasks": [
+          [
+            "jdk.jfr.internal.JVM.emitEvent",
+            34
+          ],
+          [
+            "java.io.ByteArrayOutputStream.ensureCapacity",
+            1
+          ],
+          [
+            "jdk.jfr.internal.MetadataWriter.writeString",
+            1
+          ],
+          [
+            "jdk.jfr.internal.MetadataWriter.buildStringPool",
+            1
+          ]
+        ],
+        "config-file-watcher-0-0": [
+          [
+            "com.electronwill.nightconfig.core.file.FileWatcher$FsWatcher.run",
+            1
+          ]
+        ],
+        "Server thread": [
+          [
+            "net.minecraft.world.level.chunk.LevelChunkSection.getBlockState",
+            4
+          ],
+          [
+            "java.util.zip.Inflater.inflateBytesBytes",
+            4
+          ],
+          [
+            "net.minecraft.util.SimpleBitStorage.unpack",
+            3
+          ],
+          [
+            "net.minecraft.server.level.GenerationChunkHolder.increaseGenerationRefCount",
+            3
+          ],
+          [
+            "net.minecraft.util.StaticCache2D.<init>",
+            2
+          ],
+          [
+            "net.minecraft.world.level.chunk.ChunkAccess.getMinBuildHeight",
+            2
+          ],
+          [
+            "org.mtr.core.data.Siding.generatePathDistancesAndTimeSegments",
+            2
+          ],
+          [
+            "java.util.ArrayList.grow",
+            2
+          ],
+          [
+            "sun.nio.ch.FileDispatcherImpl.pread0",
+            2
+          ],
+          [
+            "java.lang.Thread.yield0",
+            2
+          ],
+          [
+            "net.neoforged.neoforge.server.ServerLifecycleHooks.lambda$runModifiers$4",
+            1
+          ],
+          [
+            "org.objectweb.asm.ClassReader.readCode",
+            1
+          ]
+        ],
+        "IO-Worker-1": [
+          [
+            "org.lwjgl.system.JNI.invokePP",
+            4
+          ],
+          [
+            "net.minecraft.util.FastBufferedInputStream.read",
+            1
+          ],
+          [
+            "sun.nio.fs.WindowsFileSystemProvider.implDelete",
+            1
+          ],
+          [
+            "sun.nio.fs.WindowsPath.checkDelete",
+            1
+          ],
+          [
+            "java.util.concurrent.locks.AbstractQueuedSynchronizer.signalNext",
+            1
+          ],
+          [
+            "net.minecraft.nbt.CompoundTag.write",
+            1
+          ],
+          [
+            "java.lang.String.charAt",
+            1
+          ],
+          [
+            "sun.nio.ch.FileDispatcherImpl.pread0",
+            1
+          ]
+        ],
+        "IO-Worker-3": [
+          [
+            "net.minecraft.nbt.ListTag.write",
+            2
+          ],
+          [
+            "jdk.internal.misc.ScopedMemoryAccess.getIntInternal",
+            1
+          ],
+          [
+            "io.netty.buffer.ByteBufInputStream.readUnsignedShort",
+            1
+          ],
+          [
+            "sun.nio.fs.WindowsNativeDispatcher.GetFileAttributesEx0",
+            1
+          ]
+        ],
+        "Netty Local Client IO #0": [
+          [
+            "org.objectweb.asm.tree.MethodNode.visitInvokeDynamicInsn",
+            1
+          ],
+          [
+            "java.util.ArrayList.grow",
+            1
+          ],
+          [
+            "java.util.concurrent.atomic.AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl.accessCheck",
+            1
+          ],
+          [
+            "java.util.ArrayDeque.offer",
+            1
+          ],
+          [
+            "io.netty.channel.ChannelOutboundBuffer.setWritable",
+            1
+          ]
+        ],
+        "Netty Server IO #1": [
+          [
+            "sun.nio.ch.WEPoll.wait",
+            30
+          ],
+          [
+            "io.netty.util.internal.shaded.org.jctools.util.UnsafeRefArrayAccess.spRefElement",
+            1
+          ],
+          [
+            "io.netty.util.concurrent.DefaultPromise.notifyListeners",
+            1
+          ],
+          [
+            "io.netty.buffer.PoolThreadCache$MemoryRegionCache.allocate",
+            1
+          ],
+          [
+            "java.util.stream.Collectors$$Lambda.0x000001e8122a53a8.accept",
+            1
+          ],
+          [
+            "java.lang.invoke.DirectMethodHandle$Holder.invokeStatic",
+            1
+          ],
+          [
+            "io.netty.channel.AbstractChannelHandlerContext.invokeWrite0",
+            1
+          ],
+          [
+            "io.netty.buffer.AbstractReferenceCountedByteBuf.handleRelease",
+            1
+          ],
+          [
+            "io.netty.buffer.AbstractByteBuf.readFloat",
+            1
+          ],
+          [
+            "io.netty.util.Recycler$LocalPool.accept",
+            1
+          ]
+        ],
+        "Sound engine": [
+          [
+            "com.jcraft.jorbis.Mdct.mdct_kernel",
+            4
+          ],
+          [
+            "com.jcraft.jorbis.Mapping0.inverse",
+            3
+          ],
+          [
+            "com.jcraft.jorbis.Mdct.backward",
+            1
+          ],
+          [
+            "com.jcraft.jogg.Buffer.read1",
+            1
+          ],
+          [
+            "com.jcraft.jorbis.CodeBook.decodevv_add",
+            1
+          ],
+          [
+            "com.jcraft.jorbis.Residue0._2inverse",
+            1
+          ],
+          [
+            "com.jcraft.jorbis.CodeBook.decode",
+            1
+          ]
+        ],
+        "IO-Worker-2": [
+          [
+            "java.util.Objects.requireNonNull",
+            1
+          ]
+        ],
+        "VirtualThread-unparker": [
+          [
+            "java.util.concurrent.ThreadPoolExecutor.runWorker",
+            2
+          ]
+        ],
+        "FileSystemWatchService": [
+          [
+            "sun.nio.fs.WindowsNativeDispatcher.GetQueuedCompletionStatus0",
+            789
+          ]
+        ],
+        "HttpClient-1-SelectorManager": [
+          [
+            "sun.nio.ch.WEPoll.wait",
+            13
+          ]
+        ],
+        "NeoForge Version Check": [
+          [
+            "sun.nio.ch.UnixDomainSockets.init",
+            1
+          ]
+        ],
+        "ForkJoinPool-3-worker-1": [
+          [
+            "java.lang.VirtualThread.notifyJvmtiUnmount",
+            1
+          ]
+        ],
+        "qtp147405781-2722": [
+          [
+            "sun.nio.ch.WEPoll.wait",
+            34
+          ]
+        ],
+        "qtp147405781-2723": [
+          [
+            "sun.nio.ch.WEPoll.wait",
+            34
+          ]
+        ],
+        "qtp147405781-2724": [
+          [
+            "sun.nio.ch.WEPoll.wait",
+            34
+          ]
+        ],
+        "qtp147405781-2725": [
+          [
+            "sun.nio.ch.WEPoll.wait",
+            34
+          ]
+        ],
+        "qtp147405781-2726": [
+          [
+            "sun.nio.ch.Net.accept",
+            34
+          ]
+        ],
+        "Netty Server IO #0": [
+          [
+            "sun.nio.ch.WEPoll.wait",
+            32
+          ]
+        ],
+        "Thread-21": [
+          [
+            "sun.nio.fs.WindowsNativeDispatcher.CreateFile0",
+            1
+          ]
+        ]
+      },
+      "samples_by_event_type": {
+        "jdk.ExecutionSample": {
+          "sample_count_with_stack": 1294,
+          "leaf": [
+            [
+              "org.mtr.libraries.com.google.gson.stream.JsonReader.nextQuotedValue",
+              75
+            ],
+            [
+              "org.mtr.libraries.com.google.gson.internal.LinkedTreeMap.find",
+              36
+            ],
+            [
+              "org.mtr.libraries.com.google.gson.stream.JsonReader.peekNumber",
+              34
+            ],
+            [
+              "java.util.Objects.equals",
+              32
+            ],
+            [
+              "java.util.BitSet.expandTo",
+              29
+            ],
+            [
+              "org.objectweb.asm.ClassReader.readCode",
+              26
+            ],
+            [
+              "org.mtr.libraries.com.google.gson.stream.JsonReader.doPeek",
+              23
+            ],
+            [
+              "java.lang.AbstractStringBuilder.appendChars",
+              22
+            ],
+            [
+              "org.mtr.libraries.com.google.gson.stream.JsonReader.nextNonWhitespace",
+              19
+            ],
+            [
+              "org.mtr.core.serializer.JsonReader$$Lambda.0x000001e812ecad68.accept",
+              19
+            ],
+            [
+              "org.objectweb.asm.ClassReader.readUtf",
+              18
+            ],
+            [
+              "org.mtr.model.StoredVertexData$StoredVertexConsumer.setNormal",
+              16
+            ],
+            [
+              "org.mtr.libraries.com.google.gson.stream.JsonReader.hasNext",
+              13
+            ],
+            [
+              "org.mtr.libraries.com.google.gson.internal.LinkedTreeMap.rebalance",
+              13
+            ],
+            [
+              "java.util.ArrayList.grow",
+              12
+            ],
+            [
+              "org.mtr.libraries.com.google.gson.internal.bind.JsonElementTypeAdapter.read",
+              12
+            ],
+            [
+              "net.minecraft.world.phys.shapes.IndirectMerger.forMergedIndexes",
+              11
+            ],
+            [
+              "com.google.common.base.Splitter$SplittingIterator.computeNext",
+              11
+            ],
+            [
+              "org.mtr.libraries.it.unimi.dsi.fastutil.objects.Object2ObjectArrayMap.put",
+              11
+            ],
+            [
+              "org.mtr.libraries.com.google.gson.internal.bind.JsonElementTypeAdapter.readTerminal",
+              10
+            ],
+            [
+              "java.lang.Long.getChars",
+              9
+            ],
+            [
+              "it.unimi.dsi.fastutil.Arrays.quickSort",
+              9
+            ],
+            [
+              "net.minecraft.client.renderer.texture.MipmapGenerator.generateMipLevels",
+              8
+            ],
+            [
+              "org.mtr.libraries.com.google.gson.internal.bind.JsonElementTypeAdapter.tryBeginNesting",
+              8
+            ],
+            [
+              "org.mtr.core.serializer.JsonReader.lambda$iterateArray$18",
+              8
+            ],
+            [
+              "java.util.Random.seedUniquifier",
+              8
+            ],
+            [
+              "net.minecraft.client.model.geom.builders.PartDefinition.bake",
+              8
+            ],
+            [
+              "org.mtr.libraries.com.google.gson.stream.JsonReader.peekKeyword",
+              8
+            ],
+            [
+              "java.util.HashMap.getNode",
+              7
+            ],
+            [
+              "java.math.BigInteger.implMulAdd",
+              7
+            ]
+          ],
+          "inclusive": [
+            [
+              "java.lang.Thread.runWith",
+              800
+            ],
+            [
+              "java.util.concurrent.Executors$RunnableAdapter.call",
+              591
+            ],
+            [
+              "java.util.concurrent.FutureTask.run",
+              588
+            ],
+            [
+              "jdk.internal.vm.Continuation.enter0",
+              522
+            ],
+            [
+              "java.lang.VirtualThread$VThreadContinuation$1.run",
+              522
+            ],
+            [
+              "java.lang.VirtualThread.run",
+              522
+            ],
+            [
+              "jdk.internal.vm.Continuation.enter",
+              522
+            ],
+            [
+              "jdk.internal.vm.Continuation.enterSpecial",
+              521
+            ],
+            [
+              "org.mtr.model.BlockbenchModelLoader.lambda$loadModel$5",
+              516
+            ],
+            [
+              "org.mtr.model.BlockbenchModelLoader$$Lambda.0x000001e813124520.run",
+              516
+            ],
+            [
+              "org.mtr.resource.VehicleModel.lambda$getModelLoaderBase$2",
+              422
+            ],
+            [
+              "org.mtr.resource.VehicleModel$$Lambda.0x000001e81312b3b0.get",
+              422
+            ],
+            [
+              "org.mtr.libraries.com.google.gson.internal.bind.JsonElementTypeAdapter.read",
+              325
+            ],
+            [
+              "org.mtr.libraries.com.google.gson.JsonParser.parseReader",
+              325
+            ],
+            [
+              "org.mtr.libraries.com.google.gson.internal.Streams.parse",
+              325
+            ],
+            [
+              "org.mtr.libraries.com.google.gson.JsonParser.parseString",
+              321
+            ],
+            [
+              "org.mtr.core.tool.Utilities.parseJson",
+              321
+            ],
+            [
+              "java.lang.Thread.run",
+              276
+            ],
+            [
+              "java.util.concurrent.ForkJoinPool.runWorker",
+              275
+            ],
+            [
+              "java.util.concurrent.ForkJoinWorkerThread.run",
+              275
+            ],
+            [
+              "java.util.concurrent.ForkJoinPool.scan",
+              266
+            ],
+            [
+              "java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec",
+              264
+            ],
+            [
+              "java.util.concurrent.ForkJoinTask.doExec",
+              264
+            ],
+            [
+              "java.lang.Iterable.forEach",
+              200
+            ],
+            [
+              "java.util.stream.AbstractPipeline.wrapAndCopyInto",
+              198
+            ],
+            [
+              "java.util.stream.AbstractPipeline.evaluate",
+              197
+            ],
+            [
+              "java.util.stream.AbstractPipeline.copyInto",
+              196
+            ],
+            [
+              "java.util.concurrent.ThreadPoolExecutor$Worker.run",
+              188
+            ],
+            [
+              "java.util.concurrent.ThreadPoolExecutor.runWorker",
+              188
+            ],
+            [
+              "java.util.concurrent.CompletableFuture$AsyncSupply.run",
+              177
+            ]
+          ]
+        },
+        "jdk.NativeMethodSample": {
+          "sample_count_with_stack": 1783,
+          "leaf": [
+            [
+              "sun.nio.fs.WindowsNativeDispatcher.GetQueuedCompletionStatus0",
+              789
+            ],
+            [
+              "sun.nio.ch.WEPoll.wait",
+              211
+            ],
+            [
+              "sun.nio.ch.Net.poll",
+              152
+            ],
+            [
+              "org.lwjgl.opengl.GL11C.nglTexSubImage2D",
+              111
+            ],
+            [
+              "org.lwjgl.system.JNI.invokeV",
+              84
+            ],
+            [
+              "sun.nio.ch.FileDispatcherImpl.pread0",
+              65
+            ],
+            [
+              "com.sun.management.internal.OperatingSystemImpl.getProcessCpuLoad0",
+              56
+            ],
+            [
+              "java.util.zip.Inflater.inflateBytesBytes",
+              54
+            ],
+            [
+              "jdk.jfr.internal.JVM.emitEvent",
+              34
+            ],
+            [
+              "sun.nio.ch.Net.accept",
+              34
+            ],
+            [
+              "org.lwjgl.opengl.GL20C.glLinkProgram",
+              32
+            ],
+            [
+              "sun.nio.fs.WindowsNativeDispatcher.GetVolumePathName0",
+              26
+            ],
+            [
+              "org.lwjgl.system.JNI.invokePV",
+              25
+            ],
+            [
+              "org.lwjgl.system.JNI.invokePI",
+              13
+            ],
+            [
+              "java.lang.Thread.yield0",
+              11
+            ],
+            [
+              "org.lwjgl.stb.STBImage.nstbi_load_from_memory",
+              9
+            ],
+            [
+              "sun.nio.fs.WindowsNativeDispatcher.GetFileAttributesEx0",
+              7
+            ],
+            [
+              "org.lwjgl.system.JNI.invokePP",
+              6
+            ],
+            [
+              "org.lwjgl.opengl.GL30C.glBlitFramebuffer",
+              5
+            ],
+            [
+              "java.lang.ClassLoader.defineClass1",
+              5
+            ],
+            [
+              "com.sun.jna.Native.invokeInt",
+              4
+            ],
+            [
+              "java.io.FileDescriptor.close0",
+              3
+            ],
+            [
+              "sun.nio.fs.WindowsNativeDispatcher.CreateFile0",
+              3
+            ],
+            [
+              "org.lwjgl.system.JNI.invokePPPP",
+              3
+            ],
+            [
+              "org.lwjgl.opengl.GL11C.nglTexImage2D",
+              3
+            ],
+            [
+              "org.lwjgl.opengl.GL11C.nglDrawElements",
+              3
+            ],
+            [
+              "org.lwjgl.system.JNI.invokePNI",
+              3
+            ],
+            [
+              "sun.nio.fs.WindowsNativeDispatcher.FindFirstFile0",
+              2
+            ],
+            [
+              "java.lang.Class.forName0",
+              2
+            ],
+            [
+              "org.lwjgl.stb.STBImage.nstbi_image_free",
+              2
+            ]
+          ],
+          "inclusive": [
+            [
+              "java.lang.Thread.runWith",
+              1366
+            ],
+            [
+              "java.lang.Thread.run",
+              1364
+            ],
+            [
+              "sun.nio.fs.WindowsNativeDispatcher.GetQueuedCompletionStatus",
+              789
+            ],
+            [
+              "sun.nio.fs.WindowsNativeDispatcher.GetQueuedCompletionStatus0",
+              789
+            ],
+            [
+              "sun.nio.fs.WindowsWatchService$Poller.run",
+              789
+            ],
+            [
+              "cpw.mods.bootstraplauncher.BootstrapLauncher.run",
+              325
+            ],
+            [
+              "cpw.mods.bootstraplauncher.BootstrapLauncher.main",
+              325
+            ],
+            [
+              "java.util.concurrent.ThreadPoolExecutor.runWorker",
+              304
+            ],
+            [
+              "java.util.concurrent.ThreadPoolExecutor$Worker.run",
+              302
+            ],
+            [
+              "java.lang.invoke.LambdaForm$DMH.0x000001e812002400.invokeStatic",
+              290
+            ],
+            [
+              "cpw.mods.modlauncher.Launcher.run",
+              288
+            ],
+            [
+              "java.lang.invoke.Invokers$Holder.invokeExact_MT",
+              288
+            ],
+            [
+              "cpw.mods.modlauncher.BootstrapLaunchConsumer.accept",
+              287
+            ],
+            [
+              "cpw.mods.modlauncher.Launcher.main",
+              287
+            ],
+            [
+              "java.lang.reflect.Method.invoke",
+              285
+            ],
+            [
+              "jdk.internal.reflect.DirectMethodHandleAccessor.invokeImpl",
+              283
+            ],
+            [
+              "jdk.internal.reflect.DirectMethodHandleAccessor.invoke",
+              283
+            ],
+            [
+              "net.minecraft.client.main.Main.main",
+              283
+            ],
+            [
+              "java.lang.invoke.LambdaForm$MH.0x000001e8123d9400.invoke",
+              283
+            ],
+            [
+              "net.neoforged.fml.loading.targets.CommonLaunchHandler.runTarget",
+              281
+            ],
+            [
+              "cpw.mods.modlauncher.LaunchServiceHandlerDecorator.launch",
+              280
+            ],
+            [
+              "net.neoforged.fml.loading.targets.CommonClientLaunchHandler.runService",
+              279
+            ],
+            [
+              "net.neoforged.fml.loading.targets.CommonLaunchHandler.clientService",
+              279
+            ],
+            [
+              "cpw.mods.modlauncher.LaunchServiceHandler.launch",
+              278
+            ],
+            [
+              "net.neoforged.fml.loading.targets.CommonLaunchHandler.lambda$launchService$4",
+              278
+            ],
+            [
+              "net.neoforged.fml.loading.targets.CommonLaunchHandler$$Lambda.0x000001e8123d1050.run",
+              278
+            ],
+            [
+              "net.minecraft.client.Minecraft.runTick",
+              249
+            ],
+            [
+              "net.minecraft.client.Minecraft.run",
+              248
+            ],
+            [
+              "java.util.concurrent.CompletableFuture$AsyncSupply.run",
+              220
+            ],
+            [
+              "sun.nio.ch.WEPoll.wait",
+              211
+            ]
+          ]
+        }
+      },
+      "allocation_sample_weight_by_class": [
+        [
+          "[B",
+          4183608016
+        ],
+        [
+          "[Ljava.lang.Object;",
+          1724610544
+        ],
+        [
+          "java.lang.String",
+          1229356296
+        ],
+        [
+          "[I",
+          852518608
+        ],
+        [
+          "org.mtr.libraries.com.google.gson.JsonPrimitive",
+          607299776
+        ],
+        [
+          "[C",
+          367571232
+        ],
+        [
+          "net.minecraft.world.phys.shapes.BitSetDiscreteVoxelShape$$Lambda.0x000001e8126ad8a0",
+          361504744
+        ],
+        [
+          "java.util.stream.ReferencePipeline$Head",
+          354855536
+        ],
+        [
+          "org.mtr.libraries.com.google.gson.internal.LinkedTreeMap$Node",
+          351967232
+        ],
+        [
+          "org.mtr.libraries.com.google.gson.internal.LazilyParsedNumber",
+          333034736
+        ],
+        [
+          "[J",
+          324979608
+        ],
+        [
+          "[D",
+          247783384
+        ],
+        [
+          "java.util.stream.ReferencePipeline$3",
+          239226976
+        ],
+        [
+          "[Z",
+          232485344
+        ],
+        [
+          "net.minecraft.client.model.geom.ModelPart$Vertex",
+          231689640
+        ],
+        [
+          "net.minecraft.world.phys.shapes.BitSetDiscreteVoxelShape$$Lambda.0x000001e8126ad678",
+          200061224
+        ],
+        [
+          "org.mtr.model.StoredVertexData",
+          191766008
+        ],
+        [
+          "org.joml.Matrix3f",
+          188449296
+        ],
+        [
+          "java.util.ArrayList",
+          180251152
+        ],
+        [
+          "java.util.stream.MatchOps$$Lambda.0x000001e8121dbae0",
+          172374248
+        ]
+      ],
+      "virtual_thread_pinned_events": 0,
+      "sampled_heap_used_bytes": {
+        "count": 102,
+        "mean": 788365711.6862745,
+        "p50": 825753600.0,
+        "p95": 1658473474.3999999,
+        "p99": 1880573153.5199993,
+        "max": 1922514600,
+        "sum": 80413302592
+      }
+    },
+    "train_view_gameplay": {
+      "start": "2026-11-05T22:52:49.632226+08:00",
+      "end": "2026-11-05T22:54:49.632226+08:00",
+      "seconds": 120.0,
+      "event_counts": {
+        "mtrtest.ServerTick": 2400,
+        "jdk.ObjectAllocationSample": 5005,
+        "jdk.CPULoad": 119,
+        "jdk.NativeMethodSample": 5790,
+        "jdk.ExecutionSample": 847,
+        "mtrtest.ClientFrame": 7107,
+        "jdk.GCHeapSummary": 16,
+        "jdk.GCPhasePause": 10,
+        "jdk.GarbageCollection": 8
+      },
+      "game_frame_interval_ms": {
+        "count": 7106,
+        "mean": 16.884305206867435,
+        "p50": 16.6792,
+        "p95": 21.9257,
+        "p99": 26.366139999999984,
+        "max": 45.496,
+        "sum": 119979.8728
+      },
+      "effective_fps_from_intervals": 59.22660054695441,
+      "frames_over_50ms": 0,
+      "frames_over_100ms": 0,
+      "server_tick_event_span_ms": {
+        "count": 2400,
+        "mean": 1.1788422225,
+        "p50": 1.023444,
+        "p95": 2.0550149499999995,
+        "p99": 3.016605529999989,
+        "max": 12.031777,
+        "sum": 2829.221334
+      },
+      "gc_pause_ms": {
+        "count": 10,
+        "mean": 8.2991879,
+        "p50": 8.890760499999999,
+        "p95": 12.82817585,
+        "p99": 13.08261917,
+        "max": 13.14623,
+        "sum": 82.991879
+      },
+      "gc_causes": {
+        "G1New: G1 Evacuation Pause": 6,
+        "G1Old: G1 Evacuation Pause": 2
+      },
+      "gc_events": [
+        {
+          "start": "2026-11-05T14:53:05.517388190Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.008071658,
+          "pause_seconds": 0.008071658
+        },
+        {
+          "start": "2026-11-05T14:53:05.525552987Z",
+          "name": "G1Old",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 1.420262132,
+          "pause_seconds": 0.011149362
+        },
+        {
+          "start": "2026-11-05T14:53:22.537615257Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.008527958,
+          "pause_seconds": 0.008527958
+        },
+        {
+          "start": "2026-11-05T14:53:39.548076516Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.01314623,
+          "pause_seconds": 0.01314623
+        },
+        {
+          "start": "2026-11-05T14:53:57.015363806Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.008284352,
+          "pause_seconds": 0.008284352
+        },
+        {
+          "start": "2026-11-05T14:53:57.023863676Z",
+          "name": "G1Old",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 1.402845606,
+          "pause_seconds": 0.012119313
+        },
+        {
+          "start": "2026-11-05T14:54:15.688042589Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.009253563,
+          "pause_seconds": 0.009253563
+        },
+        {
+          "start": "2026-11-05T14:54:34.451981599Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.012439443,
+          "pause_seconds": 0.012439442
+        }
+      ],
+      "jvm_cpu_fraction_of_machine": {
+        "count": 119,
+        "mean": 0.07186049156806722,
+        "p50": 0.058163738,
+        "p95": 0.14650769762999993,
+        "p99": 0.27969041725999955,
+        "max": 0.321940143,
+        "sum": 8.5513984966
+      },
+      "sampled_threads": [
+        [
+          "main",
+          978
+        ],
+        [
+          "Netty Server IO #1",
+          647
+        ],
+        [
+          "qtp147405781-2726",
+          647
+        ],
+        [
+          "Netty Server IO #0",
+          647
+        ],
+        [
+          "FileSystemWatchService",
+          647
+        ],
+        [
+          "qtp147405781-2722",
+          647
+        ],
+        [
+          "qtp147405781-2723",
+          646
+        ],
+        [
+          "qtp147405781-2724",
+          646
+        ],
+        [
+          "qtp147405781-2725",
+          646
+        ],
+        [
+          "<unnamed>",
+          307
+        ],
+        [
+          "Server thread",
+          100
+        ],
+        [
+          "Sound engine",
+          55
+        ],
+        [
+          "VirtualThread-unparker",
+          10
+        ],
+        [
+          "Download-3",
+          5
+        ],
+        [
+          "JFR Periodic Tasks",
+          3
+        ]
+      ],
+      "sampled_leaf_methods": [
+        [
+          "sun.nio.ch.WEPoll.wait",
+          3878
+        ],
+        [
+          "sun.nio.ch.Net.accept",
+          647
+        ],
+        [
+          "sun.nio.fs.WindowsNativeDispatcher.GetQueuedCompletionStatus0",
+          647
+        ],
+        [
+          "org.lwjgl.system.JNI.invokeV",
+          440
+        ],
+        [
+          "java.util.Arrays.fill",
+          306
+        ],
+        [
+          "net.minecraft.client.multiplayer.ClientLevel.getUncachedNoiseBiome",
+          111
+        ],
+        [
+          "org.lwjgl.opengl.GL11C.nglTexSubImage2D",
+          39
+        ],
+        [
+          "org.lwjgl.opengl.GL11C.nglDrawElements",
+          36
+        ],
+        [
+          "net.minecraft.client.renderer.LevelRenderer.compileSections",
+          33
+        ],
+        [
+          "java.lang.Thread.yield0",
+          25
+        ],
+        [
+          "net.minecraft.util.ZeroBitStorage.get",
+          23
+        ],
+        [
+          "net.minecraft.server.level.ServerChunkCache.getChunk",
+          22
+        ],
+        [
+          "org.mtr.libraries.it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap.forEach",
+          20
+        ],
+        [
+          "com.jcraft.jorbis.CodeBook.decode",
+          18
+        ],
+        [
+          "it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap.get",
+          17
+        ],
+        [
+          "org.lwjgl.system.JNI.invokePV",
+          16
+        ],
+        [
+          "org.lwjgl.system.JNI.invokeD",
+          14
+        ],
+        [
+          "net.minecraft.world.level.levelgen.LegacyRandomSource.next",
+          11
+        ],
+        [
+          "net.minecraft.client.sounds.ChunkedSampleByteBuf.accept",
+          11
+        ],
+        [
+          "org.mtr.core.data.RailMath.renderSegment",
+          11
+        ],
+        [
+          "net.minecraft.client.renderer.LevelRenderer.renderLevel",
+          9
+        ],
+        [
+          "org.mtr.libraries.it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap.find",
+          8
+        ],
+        [
+          "com.jcraft.jorbis.Mdct.mdct_kernel",
+          8
+        ],
+        [
+          "org.mtr.libraries.it.unimi.dsi.fastutil.objects.ObjectArrayList.forEach",
+          7
+        ],
+        [
+          "net.minecraft.server.level.ServerChunkCache.tickChunks",
+          7
+        ]
+      ],
+      "sampled_inclusive_methods": [
+        [
+          "java.lang.Thread.runWith",
+          5658
+        ],
+        [
+          "java.lang.Thread.run",
+          5351
+        ],
+        [
+          "sun.nio.ch.WEPoll.wait",
+          3878
+        ],
+        [
+          "sun.nio.ch.SelectorImpl.lockAndDoSelect",
+          3878
+        ],
+        [
+          "sun.nio.ch.SelectorImpl.select",
+          3878
+        ],
+        [
+          "sun.nio.ch.WEPollSelectorImpl.doSelect",
+          3878
+        ],
+        [
+          "org.mtr.libraries.org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.run",
+          3233
+        ],
+        [
+          "org.mtr.libraries.org.eclipse.jetty.util.thread.QueuedThreadPool.runJob",
+          3232
+        ],
+        [
+          "org.mtr.libraries.org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.doRunJob",
+          3232
+        ],
+        [
+          "org.mtr.libraries.org.eclipse.jetty.io.ManagedSelector.select",
+          2585
+        ],
+        [
+          "org.mtr.libraries.org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.tryProduce",
+          2585
+        ],
+        [
+          "org.mtr.libraries.org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.produceTask",
+          2585
+        ],
+        [
+          "org.mtr.libraries.org.eclipse.jetty.io.ManagedSelector$SelectorProducer.select",
+          2585
+        ],
+        [
+          "org.mtr.libraries.org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.produce",
+          2585
+        ],
+        [
+          "org.mtr.libraries.org.eclipse.jetty.io.ManagedSelector.nioSelect",
+          2585
+        ],
+        [
+          "org.mtr.libraries.org.eclipse.jetty.io.ManagedSelector$$Lambda.0x000001e81344f6f0.run",
+          2585
+        ],
+        [
+          "org.mtr.libraries.org.eclipse.jetty.io.ManagedSelector$SelectorProducer.produce",
+          2585
+        ],
+        [
+          "io.netty.util.internal.ThreadExecutorMap$2.run",
+          1295
+        ],
+        [
+          "io.netty.util.concurrent.SingleThreadEventExecutor$4.run",
+          1295
+        ],
+        [
+          "io.netty.channel.nio.NioEventLoop.run",
+          1294
+        ],
+        [
+          "io.netty.channel.nio.SelectedSelectionKeySetSelector.select",
+          1294
+        ],
+        [
+          "io.netty.channel.nio.NioEventLoop.select",
+          1294
+        ],
+        [
+          "java.lang.invoke.LambdaForm$DMH.0x000001e812002400.invokeStatic",
+          985
+        ],
+        [
+          "net.minecraft.client.Minecraft.run",
+          978
+        ],
+        [
+          "java.lang.invoke.Invokers$Holder.invokeExact_MT",
+          978
+        ]
+      ],
+      "sampled_leaf_by_thread": {
+        "main": [
+          [
+            "org.lwjgl.system.JNI.invokeV",
+            439
+          ],
+          [
+            "net.minecraft.client.multiplayer.ClientLevel.getUncachedNoiseBiome",
+            111
+          ],
+          [
+            "org.lwjgl.opengl.GL11C.nglTexSubImage2D",
+            39
+          ],
+          [
+            "org.lwjgl.opengl.GL11C.nglDrawElements",
+            36
+          ],
+          [
+            "net.minecraft.client.renderer.LevelRenderer.compileSections",
+            33
+          ],
+          [
+            "net.minecraft.util.ZeroBitStorage.get",
+            22
+          ],
+          [
+            "org.mtr.libraries.it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap.forEach",
+            20
+          ],
+          [
+            "net.minecraft.server.level.ServerChunkCache.getChunk",
+            20
+          ],
+          [
+            "org.lwjgl.system.JNI.invokePV",
+            16
+          ],
+          [
+            "it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap.get",
+            14
+          ],
+          [
+            "net.minecraft.world.level.levelgen.LegacyRandomSource.next",
+            11
+          ],
+          [
+            "org.mtr.core.data.RailMath.renderSegment",
+            11
+          ]
+        ],
+        "Server thread": [
+          [
+            "java.lang.Thread.yield0",
+            25
+          ],
+          [
+            "org.lwjgl.system.JNI.invokeD",
+            14
+          ],
+          [
+            "net.minecraft.server.level.ServerChunkCache.tickChunks",
+            7
+          ],
+          [
+            "net.minecraft.world.level.BlockCollisions.computeNext",
+            4
+          ],
+          [
+            "it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap.get",
+            3
+          ],
+          [
+            "net.minecraft.server.MinecraftServer.runServer",
+            2
+          ],
+          [
+            "net.minecraft.server.level.ServerChunkCache.getChunk",
+            2
+          ],
+          [
+            "org.mtr.core.data.Vehicle.railBlockedDistance",
+            2
+          ],
+          [
+            "jdk.internal.misc.Unsafe.park",
+            2
+          ],
+          [
+            "java.lang.invoke.DirectMethodHandle.allocateInstance",
+            1
+          ],
+          [
+            "net.minecraft.server.level.ServerChunkCache.runDistanceManagerUpdates",
+            1
+          ],
+          [
+            "it.unimi.dsi.fastutil.longs.LongLinkedOpenHashSet.shiftKeys",
+            1
+          ]
+        ],
+        "<unnamed>": [
+          [
+            "java.util.Arrays.fill",
+            306
+          ],
+          [
+            "java.lang.System$2.unparkVirtualThread",
+            1
+          ]
+        ],
+        "VirtualThread-unparker": [
+          [
+            "java.util.concurrent.locks.LockSupport.unpark",
+            4
+          ],
+          [
+            "java.util.concurrent.ThreadPoolExecutor.runWorker",
+            2
+          ],
+          [
+            "java.lang.VirtualThread$$Lambda.0x000001e8134c5018.run",
+            1
+          ],
+          [
+            "java.util.concurrent.ForkJoinPool.submissionQueue",
+            1
+          ],
+          [
+            "java.util.concurrent.Executors$RunnableAdapter.call",
+            1
+          ],
+          [
+            "java.util.concurrent.ThreadPoolExecutor.compareAndDecrementWorkerCount",
+            1
+          ]
+        ],
+        "Sound engine": [
+          [
+            "com.jcraft.jorbis.CodeBook.decode",
+            18
+          ],
+          [
+            "net.minecraft.client.sounds.ChunkedSampleByteBuf.accept",
+            11
+          ],
+          [
+            "com.jcraft.jorbis.Mdct.mdct_kernel",
+            6
+          ],
+          [
+            "com.jcraft.jorbis.Mdct.backward",
+            3
+          ],
+          [
+            "com.jcraft.jorbis.DspState.synthesis_blockin",
+            3
+          ],
+          [
+            "com.jcraft.jorbis.Residue0._2inverse",
+            3
+          ],
+          [
+            "com.jcraft.jorbis.Mapping0.inverse",
+            3
+          ],
+          [
+            "com.jcraft.jorbis.CodeBook.decodevv_add",
+            2
+          ],
+          [
+            "com.jcraft.jorbis.Floor1.render_line",
+            2
+          ],
+          [
+            "net.minecraft.client.sounds.JOrbisAudioStream.copyStereo",
+            2
+          ],
+          [
+            "com.jcraft.jogg.Page.checksum",
+            1
+          ],
+          [
+            "org.lwjgl.system.JNI.invokeV",
+            1
+          ]
+        ],
+        "Netty Local Client IO #0": [
+          [
+            "org.apache.logging.log4j.core.Filter.filter",
+            1
+          ]
+        ],
+        "Netty Server IO #1": [
+          [
+            "sun.nio.ch.WEPoll.wait",
+            646
+          ],
+          [
+            "io.netty.channel.nio.SelectedSelectionKeySet.reset",
+            1
+          ]
+        ],
+        "qtp147405781-2729": [
+          [
+            "org.mtr.libraries.org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.run",
+            1
+          ]
+        ],
+        "Download-3": [
+          [
+            "com.jcraft.jorbis.Mdct.mdct_kernel",
+            2
+          ],
+          [
+            "com.jcraft.jorbis.CodeBook.make_decode_tree",
+            1
+          ],
+          [
+            "com.jcraft.jorbis.Mdct.init",
+            1
+          ],
+          [
+            "net.minecraft.client.sounds.JOrbisAudioStream.copyMono",
+            1
+          ]
+        ],
+        "JNA Cleaner": [
+          [
+            "java.util.logging.LogManager$LoggerContext.processParentHandlers",
+            1
+          ]
+        ],
+        "qtp147405781-2726": [
+          [
+            "sun.nio.ch.Net.accept",
+            647
+          ]
+        ],
+        "Netty Server IO #0": [
+          [
+            "sun.nio.ch.WEPoll.wait",
+            647
+          ]
+        ],
+        "FileSystemWatchService": [
+          [
+            "sun.nio.fs.WindowsNativeDispatcher.GetQueuedCompletionStatus0",
+            647
+          ]
+        ],
+        "qtp147405781-2722": [
+          [
+            "sun.nio.ch.WEPoll.wait",
+            647
+          ]
+        ],
+        "qtp147405781-2723": [
+          [
+            "sun.nio.ch.WEPoll.wait",
+            646
+          ]
+        ],
+        "qtp147405781-2724": [
+          [
+            "sun.nio.ch.WEPoll.wait",
+            646
+          ]
+        ],
+        "qtp147405781-2725": [
+          [
+            "sun.nio.ch.WEPoll.wait",
+            646
+          ]
+        ],
+        "JFR Periodic Tasks": [
+          [
+            "jdk.jfr.internal.JVM.emitEvent",
+            3
+          ]
+        ],
+        "IO-Worker-4": [
+          [
+            "org.lwjgl.system.JNI.invokePP",
+            3
+          ]
+        ]
+      },
+      "samples_by_event_type": {
+        "jdk.ExecutionSample": {
+          "sample_count_with_stack": 847,
+          "leaf": [
+            [
+              "java.util.Arrays.fill",
+              306
+            ],
+            [
+              "net.minecraft.client.multiplayer.ClientLevel.getUncachedNoiseBiome",
+              111
+            ],
+            [
+              "net.minecraft.client.renderer.LevelRenderer.compileSections",
+              33
+            ],
+            [
+              "net.minecraft.util.ZeroBitStorage.get",
+              23
+            ],
+            [
+              "net.minecraft.server.level.ServerChunkCache.getChunk",
+              22
+            ],
+            [
+              "org.mtr.libraries.it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap.forEach",
+              20
+            ],
+            [
+              "com.jcraft.jorbis.CodeBook.decode",
+              18
+            ],
+            [
+              "it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap.get",
+              17
+            ],
+            [
+              "net.minecraft.world.level.levelgen.LegacyRandomSource.next",
+              11
+            ],
+            [
+              "net.minecraft.client.sounds.ChunkedSampleByteBuf.accept",
+              11
+            ],
+            [
+              "org.mtr.core.data.RailMath.renderSegment",
+              11
+            ],
+            [
+              "net.minecraft.client.renderer.LevelRenderer.renderLevel",
+              9
+            ],
+            [
+              "org.mtr.libraries.it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap.find",
+              8
+            ],
+            [
+              "com.jcraft.jorbis.Mdct.mdct_kernel",
+              8
+            ],
+            [
+              "org.mtr.libraries.it.unimi.dsi.fastutil.objects.ObjectArrayList.forEach",
+              7
+            ],
+            [
+              "net.minecraft.server.level.ServerChunkCache.tickChunks",
+              7
+            ],
+            [
+              "net.minecraft.world.level.levelgen.BitRandomSource.nextInt",
+              6
+            ],
+            [
+              "net.minecraft.world.level.LevelReader.getMaxLocalRawBrightness",
+              6
+            ],
+            [
+              "net.minecraft.client.renderer.LevelRenderer.renderSectionLayer",
+              6
+            ],
+            [
+              "net.minecraft.world.level.LevelReader.getBiome",
+              6
+            ],
+            [
+              "org.mtr.resource.DoorAnimationType.getDoorAnimationZ",
+              5
+            ],
+            [
+              "java.util.Optional.ifPresent",
+              5
+            ],
+            [
+              "net.minecraft.world.level.BlockCollisions.computeNext",
+              5
+            ],
+            [
+              "it.unimi.dsi.fastutil.longs.Long2IntOpenHashMap.get",
+              4
+            ],
+            [
+              "java.lang.StrictMath.atan2",
+              4
+            ],
+            [
+              "org.mtr.libraries.it.unimi.dsi.fastutil.objects.ObjectArrayList.getElements",
+              4
+            ],
+            [
+              "java.util.concurrent.locks.LockSupport.unpark",
+              4
+            ],
+            [
+              "java.util.Objects.equals",
+              4
+            ],
+            [
+              "org.mtr.data.VehicleExtension.simulate",
+              4
+            ],
+            [
+              "org.mtr.core.data.RailMath.createList",
+              4
+            ]
+          ],
+          "inclusive": [
+            [
+              "java.lang.Thread.runWith",
+              437
+            ],
+            [
+              "java.lang.invoke.LambdaForm$DMH.0x000001e812002400.invokeStatic",
+              415
+            ],
+            [
+              "net.minecraft.client.Minecraft.run",
+              409
+            ],
+            [
+              "java.lang.invoke.Invokers$Holder.invokeExact_MT",
+              409
+            ],
+            [
+              "net.neoforged.fml.loading.targets.CommonClientLaunchHandler.runService",
+              409
+            ],
+            [
+              "net.neoforged.fml.loading.targets.CommonLaunchHandler.clientService",
+              409
+            ],
+            [
+              "cpw.mods.modlauncher.LaunchServiceHandler.launch",
+              409
+            ],
+            [
+              "jdk.internal.reflect.DirectMethodHandleAccessor.invokeImpl",
+              409
+            ],
+            [
+              "net.neoforged.fml.loading.targets.CommonLaunchHandler.lambda$launchService$4",
+              409
+            ],
+            [
+              "net.neoforged.fml.loading.targets.CommonLaunchHandler$$Lambda.0x000001e8123d1050.run",
+              409
+            ],
+            [
+              "net.neoforged.fml.loading.targets.CommonLaunchHandler.runTarget",
+              409
+            ],
+            [
+              "net.minecraft.client.main.Main.main",
+              409
+            ],
+            [
+              "java.lang.reflect.Method.invoke",
+              409
+            ],
+            [
+              "jdk.internal.reflect.DirectMethodHandleAccessor.invoke",
+              409
+            ],
+            [
+              "cpw.mods.modlauncher.LaunchServiceHandlerDecorator.launch",
+              409
+            ],
+            [
+              "net.minecraft.client.Minecraft.runTick",
+              409
+            ],
+            [
+              "java.lang.invoke.LambdaForm$MH.0x000001e8123d9400.invoke",
+              409
+            ],
+            [
+              "cpw.mods.bootstraplauncher.BootstrapLauncher.run",
+              408
+            ],
+            [
+              "cpw.mods.modlauncher.BootstrapLaunchConsumer.accept",
+              408
+            ],
+            [
+              "cpw.mods.modlauncher.Launcher.main",
+              408
+            ],
+            [
+              "cpw.mods.modlauncher.Launcher.run",
+              408
+            ],
+            [
+              "cpw.mods.bootstraplauncher.BootstrapLauncher.main",
+              404
+            ],
+            [
+              "java.util.concurrent.FutureTask.run",
+              314
+            ],
+            [
+              "java.util.concurrent.Executors$RunnableAdapter.call",
+              314
+            ],
+            [
+              "jdk.internal.vm.Continuation.enterSpecial",
+              307
+            ],
+            [
+              "jdk.internal.vm.Continuation.enter0",
+              307
+            ],
+            [
+              "java.lang.VirtualThread$VThreadContinuation$1.run",
+              307
+            ],
+            [
+              "java.lang.VirtualThread.run",
+              307
+            ],
+            [
+              "org.mtr.render.WorkerThread.lambda$start$2",
+              307
+            ],
+            [
+              "jdk.internal.vm.Continuation.enter",
+              307
+            ]
+          ]
+        },
+        "jdk.NativeMethodSample": {
+          "sample_count_with_stack": 5790,
+          "leaf": [
+            [
+              "sun.nio.ch.WEPoll.wait",
+              3878
+            ],
+            [
+              "sun.nio.ch.Net.accept",
+              647
+            ],
+            [
+              "sun.nio.fs.WindowsNativeDispatcher.GetQueuedCompletionStatus0",
+              647
+            ],
+            [
+              "org.lwjgl.system.JNI.invokeV",
+              440
+            ],
+            [
+              "org.lwjgl.opengl.GL11C.nglTexSubImage2D",
+              39
+            ],
+            [
+              "org.lwjgl.opengl.GL11C.nglDrawElements",
+              36
+            ],
+            [
+              "java.lang.Thread.yield0",
+              25
+            ],
+            [
+              "org.lwjgl.system.JNI.invokePV",
+              16
+            ],
+            [
+              "org.lwjgl.system.JNI.invokeD",
+              14
+            ],
+            [
+              "org.lwjgl.opengl.GL20C.nglUniformMatrix4fv",
+              5
+            ],
+            [
+              "org.lwjgl.opengl.GL15C.nglBufferData",
+              5
+            ],
+            [
+              "org.lwjgl.opengl.GL20C.glUseProgram",
+              5
+            ],
+            [
+              "org.lwjgl.opengl.GL20C.nglGetUniformLocation",
+              5
+            ],
+            [
+              "jdk.jfr.internal.JVM.emitEvent",
+              3
+            ],
+            [
+              "org.lwjgl.system.JNI.invokePP",
+              3
+            ],
+            [
+              "org.lwjgl.opengl.GL11C.glTexParameteri",
+              2
+            ],
+            [
+              "org.lwjgl.opengl.GL20C.glUniform1i",
+              2
+            ],
+            [
+              "org.lwjgl.opengl.GL20C.nglUniform1fv",
+              2
+            ],
+            [
+              "org.lwjgl.opengl.GL11C.glBindTexture",
+              2
+            ],
+            [
+              "jdk.internal.misc.Unsafe.park",
+              2
+            ],
+            [
+              "org.lwjgl.opengl.GL20C.nglUniform3fv",
+              2
+            ],
+            [
+              "org.lwjgl.opengl.GL11C.glClear",
+              2
+            ],
+            [
+              "org.lwjgl.opengl.GL13C.glActiveTexture",
+              1
+            ],
+            [
+              "org.lwjgl.opengl.GL11C.glPixelStorei",
+              1
+            ],
+            [
+              "org.lwjgl.opengl.GL30C.glBindVertexArray",
+              1
+            ],
+            [
+              "org.lwjgl.opengl.GL30C.glBindFramebuffer",
+              1
+            ],
+            [
+              "sun.nio.fs.WindowsNativeDispatcher.DeleteFile0",
+              1
+            ],
+            [
+              "sun.nio.fs.WindowsNativeDispatcher.CreateFile0",
+              1
+            ],
+            [
+              "org.lwjgl.opengl.GL20C.nglUniform4fv",
+              1
+            ],
+            [
+              "org.lwjgl.opengl.GL11C.glViewport",
+              1
+            ]
+          ],
+          "inclusive": [
+            [
+              "java.lang.Thread.run",
+              5221
+            ],
+            [
+              "java.lang.Thread.runWith",
+              5221
+            ],
+            [
+              "sun.nio.ch.WEPoll.wait",
+              3878
+            ],
+            [
+              "sun.nio.ch.SelectorImpl.lockAndDoSelect",
+              3878
+            ],
+            [
+              "sun.nio.ch.SelectorImpl.select",
+              3878
+            ],
+            [
+              "sun.nio.ch.WEPollSelectorImpl.doSelect",
+              3878
+            ],
+            [
+              "org.mtr.libraries.org.eclipse.jetty.util.thread.QueuedThreadPool.runJob",
+              3232
+            ],
+            [
+              "org.mtr.libraries.org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.run",
+              3232
+            ],
+            [
+              "org.mtr.libraries.org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.doRunJob",
+              3232
+            ],
+            [
+              "org.mtr.libraries.org.eclipse.jetty.io.ManagedSelector.select",
+              2585
+            ],
+            [
+              "org.mtr.libraries.org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.tryProduce",
+              2585
+            ],
+            [
+              "org.mtr.libraries.org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.produceTask",
+              2585
+            ],
+            [
+              "org.mtr.libraries.org.eclipse.jetty.io.ManagedSelector$SelectorProducer.select",
+              2585
+            ],
+            [
+              "org.mtr.libraries.org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.produce",
+              2585
+            ],
+            [
+              "org.mtr.libraries.org.eclipse.jetty.io.ManagedSelector.nioSelect",
+              2585
+            ],
+            [
+              "org.mtr.libraries.org.eclipse.jetty.io.ManagedSelector$$Lambda.0x000001e81344f6f0.run",
+              2585
+            ],
+            [
+              "org.mtr.libraries.org.eclipse.jetty.io.ManagedSelector$SelectorProducer.produce",
+              2585
+            ],
+            [
+              "io.netty.channel.nio.SelectedSelectionKeySetSelector.select",
+              1293
+            ],
+            [
+              "io.netty.channel.nio.NioEventLoop.run",
+              1293
+            ],
+            [
+              "io.netty.channel.nio.NioEventLoop.select",
+              1293
+            ],
+            [
+              "io.netty.util.internal.ThreadExecutorMap$2.run",
+              1293
+            ],
+            [
+              "io.netty.util.concurrent.SingleThreadEventExecutor$4.run",
+              1293
+            ],
+            [
+              "sun.nio.ch.ServerSocketChannelImpl.accept",
+              647
+            ],
+            [
+              "sun.nio.ch.ServerSocketChannelImpl.implAccept",
+              647
+            ],
+            [
+              "sun.nio.ch.Net.accept",
+              647
+            ],
+            [
+              "org.mtr.libraries.org.eclipse.jetty.server.ServerConnector.accept",
+              647
+            ],
+            [
+              "org.mtr.libraries.org.eclipse.jetty.server.AbstractConnector$Acceptor.run",
+              647
+            ],
+            [
+              "sun.nio.fs.WindowsNativeDispatcher.GetQueuedCompletionStatus",
+              647
+            ],
+            [
+              "sun.nio.fs.WindowsNativeDispatcher.GetQueuedCompletionStatus0",
+              647
+            ],
+            [
+              "sun.nio.fs.WindowsWatchService$Poller.run",
+              647
+            ]
+          ]
+        }
+      },
+      "allocation_sample_weight_by_class": [
+        [
+          "[Ljava.lang.Object;",
+          612042240
+        ],
+        [
+          "org.joml.Quaternionf",
+          563459952
+        ],
+        [
+          "org.joml.Matrix4f",
+          431086496
+        ],
+        [
+          "net.minecraft.world.phys.Vec3",
+          429629936
+        ],
+        [
+          "org.mtr.libraries.it.unimi.dsi.fastutil.doubles.DoubleDoubleImmutablePair",
+          275338744
+        ],
+        [
+          "org.joml.Matrix3f",
+          265314568
+        ],
+        [
+          "[B",
+          264818144
+        ],
+        [
+          "org.mtr.render.RenderRails$$Lambda.0x000001e81368e808",
+          244716392
+        ],
+        [
+          "java.lang.String",
+          240153464
+        ],
+        [
+          "org.mtr.render.StoredMatrixTransformations",
+          226128400
+        ],
+        [
+          "net.minecraft.core.BlockPos",
+          202071448
+        ],
+        [
+          "org.mtr.core.tool.Vector",
+          197596848
+        ],
+        [
+          "org.mtr.libraries.it.unimi.dsi.fastutil.objects.ObjectArrayList",
+          124386600
+        ],
+        [
+          "com.mojang.blaze3d.vertex.PoseStack$Pose",
+          122504512
+        ],
+        [
+          "org.mtr.libraries.it.unimi.dsi.fastutil.objects.ObjectIntImmutablePair",
+          109215512
+        ],
+        [
+          "org.mtr.render.MainRenderer$$Lambda.0x000001e813683868",
+          102881368
+        ],
+        [
+          "[Lorg.mtr.libraries.it.unimi.dsi.fastutil.doubles.DoubleDoubleImmutablePair;",
+          93962192
+        ],
+        [
+          "org.mtr.libraries.it.unimi.dsi.fastutil.objects.ObjectImmutableList",
+          82042848
+        ],
+        [
+          "net.minecraft.client.multiplayer.ClientLevel$$Lambda.0x000001e8135dada0",
+          71138640
+        ],
+        [
+          "org.mtr.libraries.it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap",
+          46431888
+        ]
+      ],
+      "virtual_thread_pinned_events": 0,
+      "sampled_heap_used_bytes": {
+        "count": 16,
+        "mean": 1554791136.0,
+        "p50": 1293042372.0,
+        "p95": 2021961000.0,
+        "p99": 2021964244.8,
+        "max": 2021965056,
+        "sum": 24876658176
+      }
+    },
+    "reload": {
+      "start": "2026-11-05T22:55:02.853060+08:00",
+      "end": "2026-11-05T22:55:23.326155+08:00",
+      "seconds": 20.473095,
+      "event_counts": {
+        "jdk.ObjectAllocationSample": 3621,
+        "mtrtest.ServerTick": 20,
+        "jdk.CPULoad": 20,
+        "jdk.NativeMethodSample": 949,
+        "jdk.ExecutionSample": 855,
+        "mtrtest.ClientFrame": 413,
+        "jdk.GCHeapSummary": 40,
+        "jdk.GCPhasePause": 23,
+        "jdk.GarbageCollection": 20
+      },
+      "game_frame_interval_ms": {
+        "count": 52,
+        "mean": 17.04330576923077,
+        "p50": 16.685850000000002,
+        "p95": 21.663864999999998,
+        "p99": 25.769275000000004,
+        "max": 26.8798,
+        "sum": 886.2519
+      },
+      "effective_fps_from_intervals": 58.67406320934263,
+      "frames_over_50ms": 0,
+      "frames_over_100ms": 0,
+      "server_tick_event_span_ms": {
+        "count": 20,
+        "mean": 1.79300985,
+        "p50": 1.3392355,
+        "p95": 3.4758176500000038,
+        "p99": 7.289887529999994,
+        "max": 8.243405000000001,
+        "sum": 35.860197
+      },
+      "gc_pause_ms": {
+        "count": 23,
+        "mean": 29.846532217391303,
+        "p50": 29.06448,
+        "p95": 63.77628429999998,
+        "p99": 97.95861528000006,
+        "max": 107.139155,
+        "sum": 686.470241
+      },
+      "gc_causes": {
+        "G1New: G1 Evacuation Pause": 17,
+        "G1Old: G1 Evacuation Pause": 3
+      },
+      "gc_events": [
+        {
+          "start": "2026-11-05T14:55:03.795161964Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.023882546,
+          "pause_seconds": 0.023882546
+        },
+        {
+          "start": "2026-11-05T14:55:05.080357391Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.029144504,
+          "pause_seconds": 0.029144504
+        },
+        {
+          "start": "2026-11-05T14:55:05.804922766Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.020320652,
+          "pause_seconds": 0.020320652
+        },
+        {
+          "start": "2026-11-05T14:55:05.825345314Z",
+          "name": "G1Old",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 1.904228064,
+          "pause_seconds": 0.014290653
+        },
+        {
+          "start": "2026-11-05T14:55:07.286378307Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.065409429,
+          "pause_seconds": 0.065409428
+        },
+        {
+          "start": "2026-11-05T14:55:12.623176295Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.107139155,
+          "pause_seconds": 0.107139155
+        },
+        {
+          "start": "2026-11-05T14:55:13.293040865Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.035189546,
+          "pause_seconds": 0.035189546
+        },
+        {
+          "start": "2026-11-05T14:55:13.607922716Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.030810315,
+          "pause_seconds": 0.030810314
+        },
+        {
+          "start": "2026-11-05T14:55:13.044811732Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.049077982,
+          "pause_seconds": 0.049077982
+        },
+        {
+          "start": "2026-11-05T14:55:13.328338213Z",
+          "name": "G1Old",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 1.478633164,
+          "pause_seconds": 0.010140698
+        },
+        {
+          "start": "2026-11-05T14:55:13.868583402Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.026434988,
+          "pause_seconds": 0.026434987
+        },
+        {
+          "start": "2026-11-05T14:55:14.117376363Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.02416319,
+          "pause_seconds": 0.02416319
+        },
+        {
+          "start": "2026-11-05T14:55:14.408080129Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.024643945,
+          "pause_seconds": 0.024643945
+        },
+        {
+          "start": "2026-11-05T14:55:14.881673490Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.02906448,
+          "pause_seconds": 0.02906448
+        },
+        {
+          "start": "2026-11-05T14:55:15.282732276Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.043096441,
+          "pause_seconds": 0.043096441
+        },
+        {
+          "start": "2026-11-05T14:55:15.724184662Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.042697387,
+          "pause_seconds": 0.042697387
+        },
+        {
+          "start": "2026-11-05T14:55:16.294304179Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.044698559,
+          "pause_seconds": 0.044698558
+        },
+        {
+          "start": "2026-11-05T14:55:16.807918245Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.029345434,
+          "pause_seconds": 0.029345434
+        },
+        {
+          "start": "2026-11-05T14:55:15.766954251Z",
+          "name": "G1Old",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 1.588538752,
+          "pause_seconds": 0.007150721
+        },
+        {
+          "start": "2026-11-05T14:55:17.232912144Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.029769616,
+          "pause_seconds": 0.029769615
+        }
+      ],
+      "jvm_cpu_fraction_of_machine": {
+        "count": 20,
+        "mean": 0.37027834353,
+        "p50": 0.3790302309,
+        "p95": 0.6979004408,
+        "p99": 0.72501290576,
+        "max": 0.731791022,
+        "sum": 7.4055668706
+      },
+      "sampled_threads": [
+        [
+          "<unnamed>",
+          547
+        ],
+        [
+          "Worker-Main-3",
+          147
+        ],
+        [
+          "main",
+          133
+        ],
+        [
+          "qtp147405781-2722",
+          107
+        ],
+        [
+          "qtp147405781-2723",
+          107
+        ],
+        [
+          "qtp147405781-2724",
+          107
+        ],
+        [
+          "qtp147405781-2725",
+          107
+        ],
+        [
+          "qtp147405781-2726",
+          107
+        ],
+        [
+          "Netty Server IO #0",
+          106
+        ],
+        [
+          "Netty Server IO #1",
+          106
+        ],
+        [
+          "FileSystemWatchService",
+          106
+        ],
+        [
+          "Worker-Main-7",
+          44
+        ],
+        [
+          "Server thread",
+          19
+        ],
+        [
+          "Worker-Main-4",
+          14
+        ],
+        [
+          "Worker-Main-10",
+          14
+        ]
+      ],
+      "sampled_leaf_methods": [
+        [
+          "sun.nio.ch.WEPoll.wait",
+          640
+        ],
+        [
+          "sun.nio.ch.Net.accept",
+          107
+        ],
+        [
+          "sun.nio.fs.WindowsNativeDispatcher.GetQueuedCompletionStatus0",
+          106
+        ],
+        [
+          "org.mtr.libraries.com.google.gson.stream.JsonReader.nextQuotedValue",
+          61
+        ],
+        [
+          "org.mtr.libraries.com.google.gson.internal.LinkedTreeMap.find",
+          40
+        ],
+        [
+          "java.util.Objects.equals",
+          33
+        ],
+        [
+          "org.mtr.libraries.com.google.gson.stream.JsonReader.peekNumber",
+          27
+        ],
+        [
+          "org.lwjgl.opengl.GL11C.nglTexSubImage2D",
+          27
+        ],
+        [
+          "java.lang.AbstractStringBuilder.appendChars",
+          26
+        ],
+        [
+          "org.mtr.libraries.com.google.gson.stream.JsonReader.doPeek",
+          24
+        ],
+        [
+          "org.mtr.libraries.com.google.gson.stream.JsonReader.hasNext",
+          22
+        ],
+        [
+          "java.util.ArrayList.grow",
+          21
+        ],
+        [
+          "org.lwjgl.system.JNI.invokeV",
+          19
+        ],
+        [
+          "org.mtr.libraries.com.google.gson.stream.JsonReader.nextNonWhitespace",
+          18
+        ],
+        [
+          "org.mtr.model.StoredVertexData$StoredVertexConsumer.setNormal",
+          18
+        ],
+        [
+          "org.mtr.core.serializer.JsonReader$$Lambda.0x000001e812ecad68.accept",
+          16
+        ],
+        [
+          "java.util.Arrays.fill",
+          13
+        ],
+        [
+          "net.minecraft.client.multiplayer.ClientLevel.getUncachedNoiseBiome",
+          13
+        ],
+        [
+          "java.util.HashMap.getNode",
+          12
+        ],
+        [
+          "net.minecraft.client.model.geom.builders.PartDefinition.bake",
+          12
+        ],
+        [
+          "net.minecraft.client.gui.font.CodepointMap.get",
+          11
+        ],
+        [
+          "net.minecraft.client.renderer.texture.MipmapGenerator.generateMipLevels",
+          10
+        ],
+        [
+          "java.lang.Long.getChars",
+          10
+        ],
+        [
+          "org.mtr.libraries.com.google.gson.internal.LinkedTreeMap.rebalance",
+          10
+        ],
+        [
+          "java.lang.Thread.yield0",
+          10
+        ]
+      ],
+      "sampled_inclusive_methods": [
+        [
+          "java.lang.Thread.runWith",
+          1409
+        ],
+        [
+          "java.lang.Thread.run",
+          874
+        ],
+        [
+          "sun.nio.ch.WEPoll.wait",
+          640
+        ],
+        [
+          "sun.nio.ch.SelectorImpl.lockAndDoSelect",
+          640
+        ],
+        [
+          "sun.nio.ch.SelectorImpl.select",
+          640
+        ],
+        [
+          "sun.nio.ch.WEPollSelectorImpl.doSelect",
+          640
+        ],
+        [
+          "org.mtr.libraries.org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.run",
+          536
+        ],
+        [
+          "java.util.concurrent.FutureTask.run",
+          535
+        ],
+        [
+          "jdk.internal.vm.Continuation.enter0",
+          535
+        ],
+        [
+          "java.lang.VirtualThread$VThreadContinuation$1.run",
+          535
+        ],
+        [
+          "java.lang.VirtualThread.run",
+          535
+        ],
+        [
+          "java.util.concurrent.Executors$RunnableAdapter.call",
+          535
+        ],
+        [
+          "org.mtr.libraries.org.eclipse.jetty.util.thread.QueuedThreadPool.runJob",
+          535
+        ],
+        [
+          "org.mtr.libraries.org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.doRunJob",
+          535
+        ],
+        [
+          "jdk.internal.vm.Continuation.enter",
+          534
+        ],
+        [
+          "jdk.internal.vm.Continuation.enterSpecial",
+          532
+        ],
+        [
+          "org.mtr.model.BlockbenchModelLoader.lambda$loadModel$5",
+          522
+        ],
+        [
+          "org.mtr.model.BlockbenchModelLoader$$Lambda.0x000001e813124520.run",
+          521
+        ],
+        [
+          "org.mtr.libraries.org.eclipse.jetty.io.ManagedSelector.select",
+          428
+        ],
+        [
+          "org.mtr.libraries.org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.tryProduce",
+          428
+        ],
+        [
+          "org.mtr.libraries.org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.produceTask",
+          428
+        ],
+        [
+          "org.mtr.libraries.org.eclipse.jetty.io.ManagedSelector$SelectorProducer.select",
+          428
+        ],
+        [
+          "org.mtr.libraries.org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.produce",
+          428
+        ],
+        [
+          "org.mtr.libraries.org.eclipse.jetty.io.ManagedSelector.nioSelect",
+          428
+        ],
+        [
+          "org.mtr.libraries.org.eclipse.jetty.io.ManagedSelector$$Lambda.0x000001e81344f6f0.run",
+          428
+        ]
+      ],
+      "sampled_leaf_by_thread": {
+        "main": [
+          [
+            "org.lwjgl.opengl.GL11C.nglTexSubImage2D",
+            27
+          ],
+          [
+            "org.lwjgl.system.JNI.invokeV",
+            19
+          ],
+          [
+            "org.lwjgl.opengl.GL11C.nglDrawElements",
+            6
+          ],
+          [
+            "org.lwjgl.opengl.GL20C.glLinkProgram",
+            6
+          ],
+          [
+            "net.minecraft.client.gui.font.CodepointMap.get",
+            5
+          ],
+          [
+            "net.minecraft.util.ZeroBitStorage.get",
+            3
+          ],
+          [
+            "org.mtr.libraries.com.google.gson.stream.JsonReader.nextQuotedValue",
+            3
+          ],
+          [
+            "java.util.regex.Pattern$Start.match",
+            3
+          ],
+          [
+            "it.unimi.dsi.fastutil.ints.IntOpenHashSet.add",
+            2
+          ],
+          [
+            "java.util.concurrent.ConcurrentHashMap.clear",
+            2
+          ],
+          [
+            "org.mtr.sound.BveMotorData4.<init>",
+            2
+          ],
+          [
+            "java.lang.String.substring",
+            2
+          ]
+        ],
+        "Worker-Main-3": [
+          [
+            "java.util.HashMap.getNode",
+            12
+          ],
+          [
+            "java.util.HashMap$TreeNode.find",
+            9
+          ],
+          [
+            "com.google.common.base.Splitter$SplittingIterator.computeNext",
+            8
+          ],
+          [
+            "java.util.stream.AbstractPipeline.wrapSink",
+            7
+          ],
+          [
+            "net.minecraft.client.gui.font.CodepointMap.get",
+            5
+          ],
+          [
+            "net.minecraft.client.renderer.block.model.multipart.AndCondition.getPredicate",
+            5
+          ],
+          [
+            "java.util.HashMap.get",
+            5
+          ],
+          [
+            "java.util.HashMap$KeySpliterator.forEachRemaining",
+            4
+          ],
+          [
+            "com.google.common.base.Splitter.splitToList",
+            4
+          ],
+          [
+            "java.util.ArrayList$ArrayListSpliterator.forEachRemaining",
+            4
+          ],
+          [
+            "java.util.Collections.indexedBinarySearch",
+            3
+          ],
+          [
+            "java.lang.String.hashCode",
+            3
+          ]
+        ],
+        "Worker-Main-2": [
+          [
+            "net.minecraft.client.multiplayer.ClientLevel.getUncachedNoiseBiome",
+            2
+          ],
+          [
+            "java.util.stream.ReferencePipeline$3$1.accept",
+            1
+          ],
+          [
+            "net.minecraft.resources.FileToIdConverter.fileToId",
+            1
+          ],
+          [
+            "it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap.get",
+            1
+          ],
+          [
+            "net.minecraft.server.level.ServerChunkCache.getChunk",
+            1
+          ],
+          [
+            "java.util.BitSet.expandTo",
+            1
+          ],
+          [
+            "it.unimi.dsi.fastutil.longs.Long2IntLinkedOpenHashMap.get",
+            1
+          ],
+          [
+            "java.util.zip.Inflater.inflateBytesBytes",
+            1
+          ],
+          [
+            "sun.nio.ch.FileDispatcherImpl.pread0",
+            1
+          ]
+        ],
+        "Worker-Main-7": [
+          [
+            "net.minecraft.client.renderer.texture.MipmapGenerator.generateMipLevels",
+            9
+          ],
+          [
+            "net.minecraft.client.renderer.texture.Stitcher$Region.add",
+            6
+          ],
+          [
+            "net.minecraft.client.renderer.texture.MipmapGenerator.hasTransparentPixel",
+            4
+          ],
+          [
+            "net.minecraft.client.renderer.texture.MipmapGenerator.alphaBlend",
+            3
+          ],
+          [
+            "net.minecraft.client.gui.font.providers.UnihexProvider.decodeHex",
+            2
+          ],
+          [
+            "net.minecraft.client.gui.font.providers.UnihexProvider$ShortContents.read",
+            2
+          ],
+          [
+            "net.minecraft.client.multiplayer.ClientLevel.calculateBlockTint",
+            2
+          ],
+          [
+            "net.minecraft.client.gui.font.providers.UnihexProvider.readFromStream",
+            1
+          ],
+          [
+            "net.minecraft.client.gui.font.CodepointMap.put",
+            1
+          ],
+          [
+            "net.minecraft.client.gui.font.providers.UnihexProvider.copyUntil",
+            1
+          ],
+          [
+            "net.minecraft.client.gui.font.providers.UnihexProvider$Definition$$Lambda.0x000001e8130c2968.accept",
+            1
+          ],
+          [
+            "net.minecraft.client.gui.font.providers.UnihexProvider$LineData.mask",
+            1
+          ]
+        ],
+        "Server thread": [
+          [
+            "java.lang.Thread.yield0",
+            10
+          ],
+          [
+            "org.lwjgl.system.JNI.invokeD",
+            4
+          ],
+          [
+            "java.util.concurrent.locks.LockSupport.parkNanos",
+            2
+          ],
+          [
+            "net.minecraft.server.PlayerAdvancements$$Lambda.0x000001e8136d9d48.accept",
+            1
+          ],
+          [
+            "com.mojang.blaze3d.systems.RenderSystem$$Lambda.0x000001e812c91000.getAsLong",
+            1
+          ],
+          [
+            "jdk.internal.misc.Unsafe.park",
+            1
+          ]
+        ],
+        "<unnamed>": [
+          [
+            "org.mtr.libraries.com.google.gson.stream.JsonReader.nextQuotedValue",
+            58
+          ],
+          [
+            "org.mtr.libraries.com.google.gson.internal.LinkedTreeMap.find",
+            40
+          ],
+          [
+            "java.util.Objects.equals",
+            32
+          ],
+          [
+            "org.mtr.libraries.com.google.gson.stream.JsonReader.peekNumber",
+            27
+          ],
+          [
+            "java.lang.AbstractStringBuilder.appendChars",
+            26
+          ],
+          [
+            "org.mtr.libraries.com.google.gson.stream.JsonReader.doPeek",
+            24
+          ],
+          [
+            "org.mtr.libraries.com.google.gson.stream.JsonReader.hasNext",
+            22
+          ],
+          [
+            "org.mtr.model.StoredVertexData$StoredVertexConsumer.setNormal",
+            18
+          ],
+          [
+            "org.mtr.libraries.com.google.gson.stream.JsonReader.nextNonWhitespace",
+            17
+          ],
+          [
+            "java.util.ArrayList.grow",
+            17
+          ],
+          [
+            "org.mtr.core.serializer.JsonReader$$Lambda.0x000001e812ecad68.accept",
+            15
+          ],
+          [
+            "java.util.Arrays.fill",
+            13
+          ]
+        ],
+        "Worker-Main-4": [
+          [
+            "net.minecraft.client.multiplayer.ClientLevel.getUncachedNoiseBiome",
+            2
+          ],
+          [
+            "net.minecraft.client.gui.font.providers.BitmapProvider$Definition.getActualGlyphWidth",
+            1
+          ],
+          [
+            "com.mojang.blaze3d.platform.NativeImage.makePixelArray",
+            1
+          ],
+          [
+            "net.minecraft.client.resources.model.ModelManager.lambda$loadBlockStates$14",
+            1
+          ],
+          [
+            "com.google.gson.stream.JsonReader.doPeek",
+            1
+          ],
+          [
+            "it.unimi.dsi.fastutil.ints.IntOpenHashSet$SetIterator.nextInt",
+            1
+          ],
+          [
+            "it.unimi.dsi.fastutil.ints.IntOpenHashSet.rehash",
+            1
+          ],
+          [
+            "net.minecraft.client.gui.font.FontManager.lambda$finalizeProviderLoading$15",
+            1
+          ],
+          [
+            "it.unimi.dsi.fastutil.longs.Long2IntLinkedOpenHashMap.get",
+            1
+          ],
+          [
+            "it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap.get",
+            1
+          ],
+          [
+            "net.minecraft.world.level.block.state.BlockBehaviour$BlockStateBase.skipRendering",
+            1
+          ],
+          [
+            "java.lang.ThreadLocal$ThreadLocalMap.getEntry",
+            1
+          ]
+        ],
+        "Worker-Main-9": [
+          [
+            "it.unimi.dsi.fastutil.ints.IntOpenHashSet.rehash",
+            2
+          ],
+          [
+            "java.nio.channels.Channels$ReadableByteChannelImpl.read",
+            1
+          ],
+          [
+            "net.minecraft.client.renderer.texture.MipmapGenerator.generateMipLevels",
+            1
+          ],
+          [
+            "it.unimi.dsi.fastutil.ints.AbstractIntCollection.addAll",
+            1
+          ],
+          [
+            "net.minecraft.client.gui.font.FontManager.lambda$finalizeProviderLoading$15",
+            1
+          ],
+          [
+            "it.unimi.dsi.fastutil.ints.IntOpenHashSet.add",
+            1
+          ],
+          [
+            "net.minecraft.world.level.block.state.BlockBehaviour$BlockStateBase.skipRendering",
+            1
+          ],
+          [
+            "net.minecraft.client.multiplayer.ClientLevel.calculateBlockTint",
+            1
+          ],
+          [
+            "net.minecraft.client.multiplayer.ClientLevel.getUncachedNoiseBiome",
+            1
+          ],
+          [
+            "org.lwjgl.system.JNI.invokePNI",
+            1
+          ]
+        ],
+        "Worker-Main-1": [
+          [
+            "com.mojang.blaze3d.platform.NativeImage.makePixelArray",
+            1
+          ],
+          [
+            "java.util.ArrayList$Itr.next",
+            1
+          ],
+          [
+            "java.util.HashMap.forEach",
+            1
+          ],
+          [
+            "java.util.EnumMap.unmaskNull",
+            1
+          ],
+          [
+            "com.google.gson.stream.JsonReader.nextNonWhitespace",
+            1
+          ],
+          [
+            "java.lang.ThreadLocal.get",
+            1
+          ],
+          [
+            "java.util.BitSet.expandTo",
+            1
+          ],
+          [
+            "net.minecraft.client.multiplayer.ClientLevel.getUncachedNoiseBiome",
+            1
+          ],
+          [
+            "java.util.zip.Inflater.inflateBytesBytes",
+            1
+          ],
+          [
+            "sun.nio.ch.FileDispatcherImpl.pread0",
+            1
+          ]
+        ],
+        "Worker-Main-10": [
+          [
+            "it.unimi.dsi.fastutil.ints.IntOpenHashSet.rehash",
+            2
+          ],
+          [
+            "net.minecraft.client.gui.font.providers.UnihexProvider$Definition$$Lambda.0x000001e8130c2968.accept",
+            1
+          ],
+          [
+            "it.unimi.dsi.fastutil.ints.AbstractIntCollection.addAll",
+            1
+          ],
+          [
+            "net.minecraft.client.gui.font.CodepointMap.get",
+            1
+          ],
+          [
+            "it.unimi.dsi.fastutil.ints.IntOpenHashSet.forEach",
+            1
+          ],
+          [
+            "net.minecraft.world.level.LevelReader.getBiome",
+            1
+          ],
+          [
+            "net.minecraft.client.renderer.block.ModelBlockRenderer.tesselateWithAO",
+            1
+          ],
+          [
+            "java.lang.ThreadLocal$ThreadLocalMap.getEntry",
+            1
+          ],
+          [
+            "net.minecraft.world.level.block.state.BlockBehaviour$BlockStateBase.skipRendering",
+            1
+          ],
+          [
+            "net.minecraft.world.level.levelgen.LegacyRandomSource.next",
+            1
+          ],
+          [
+            "net.minecraft.client.multiplayer.ClientLevel.getUncachedNoiseBiome",
+            1
+          ],
+          [
+            "java.util.zip.Inflater.inflateBytesBytes",
+            1
+          ]
+        ],
+        "Sound engine": [
+          [
+            "com.jcraft.jorbis.Mdct.mdct_kernel",
+            1
+          ]
+        ],
+        "qtp147405781-2730": [
+          [
+            "org.mtr.libraries.org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.run",
+            1
+          ]
+        ],
+        "qtp147405781-2722": [
+          [
+            "sun.nio.ch.WEPoll.wait",
+            107
+          ]
+        ],
+        "qtp147405781-2723": [
+          [
+            "sun.nio.ch.WEPoll.wait",
+            107
+          ]
+        ],
+        "qtp147405781-2724": [
+          [
+            "sun.nio.ch.WEPoll.wait",
+            107
+          ]
+        ],
+        "qtp147405781-2725": [
+          [
+            "sun.nio.ch.WEPoll.wait",
+            107
+          ]
+        ],
+        "qtp147405781-2726": [
+          [
+            "sun.nio.ch.Net.accept",
+            107
+          ]
+        ],
+        "Netty Server IO #0": [
+          [
+            "sun.nio.ch.WEPoll.wait",
+            106
+          ]
+        ],
+        "Netty Server IO #1": [
+          [
+            "sun.nio.ch.WEPoll.wait",
+            106
+          ]
+        ],
+        "FileSystemWatchService": [
+          [
+            "sun.nio.fs.WindowsNativeDispatcher.GetQueuedCompletionStatus0",
+            106
+          ]
+        ]
+      },
+      "samples_by_event_type": {
+        "jdk.ExecutionSample": {
+          "sample_count_with_stack": 855,
+          "leaf": [
+            [
+              "org.mtr.libraries.com.google.gson.stream.JsonReader.nextQuotedValue",
+              61
+            ],
+            [
+              "org.mtr.libraries.com.google.gson.internal.LinkedTreeMap.find",
+              40
+            ],
+            [
+              "java.util.Objects.equals",
+              33
+            ],
+            [
+              "org.mtr.libraries.com.google.gson.stream.JsonReader.peekNumber",
+              27
+            ],
+            [
+              "java.lang.AbstractStringBuilder.appendChars",
+              26
+            ],
+            [
+              "org.mtr.libraries.com.google.gson.stream.JsonReader.doPeek",
+              24
+            ],
+            [
+              "org.mtr.libraries.com.google.gson.stream.JsonReader.hasNext",
+              22
+            ],
+            [
+              "java.util.ArrayList.grow",
+              21
+            ],
+            [
+              "org.mtr.libraries.com.google.gson.stream.JsonReader.nextNonWhitespace",
+              18
+            ],
+            [
+              "org.mtr.model.StoredVertexData$StoredVertexConsumer.setNormal",
+              18
+            ],
+            [
+              "org.mtr.core.serializer.JsonReader$$Lambda.0x000001e812ecad68.accept",
+              16
+            ],
+            [
+              "java.util.Arrays.fill",
+              13
+            ],
+            [
+              "net.minecraft.client.multiplayer.ClientLevel.getUncachedNoiseBiome",
+              13
+            ],
+            [
+              "java.util.HashMap.getNode",
+              12
+            ],
+            [
+              "net.minecraft.client.model.geom.builders.PartDefinition.bake",
+              12
+            ],
+            [
+              "net.minecraft.client.gui.font.CodepointMap.get",
+              11
+            ],
+            [
+              "net.minecraft.client.renderer.texture.MipmapGenerator.generateMipLevels",
+              10
+            ],
+            [
+              "java.lang.Long.getChars",
+              10
+            ],
+            [
+              "org.mtr.libraries.com.google.gson.internal.LinkedTreeMap.rebalance",
+              10
+            ],
+            [
+              "java.util.HashMap$TreeNode.find",
+              9
+            ],
+            [
+              "java.util.stream.AbstractPipeline.wrapSink",
+              9
+            ],
+            [
+              "org.mtr.libraries.com.google.gson.internal.bind.JsonElementTypeAdapter.read",
+              9
+            ],
+            [
+              "com.google.common.base.Splitter$SplittingIterator.computeNext",
+              8
+            ],
+            [
+              "org.mtr.libraries.com.google.gson.internal.LinkedTreeMap.put",
+              8
+            ],
+            [
+              "org.mtr.libraries.com.google.gson.stream.JsonReader.nextName",
+              8
+            ],
+            [
+              "java.util.HashMap$EntrySpliterator.forEachRemaining",
+              8
+            ],
+            [
+              "org.mtr.libraries.com.google.gson.stream.JsonReader.peekKeyword",
+              7
+            ],
+            [
+              "org.mtr.libraries.it.unimi.dsi.fastutil.objects.Object2ObjectArrayMap.put",
+              7
+            ],
+            [
+              "java.lang.StringLatin1.trim",
+              7
+            ],
+            [
+              "net.minecraft.util.ZeroBitStorage.get",
+              6
+            ]
+          ],
+          "inclusive": [
+            [
+              "java.lang.Thread.runWith",
+              540
+            ],
+            [
+              "java.util.concurrent.FutureTask.run",
+              534
+            ],
+            [
+              "jdk.internal.vm.Continuation.enter0",
+              534
+            ],
+            [
+              "java.lang.VirtualThread$VThreadContinuation$1.run",
+              534
+            ],
+            [
+              "java.lang.VirtualThread.run",
+              534
+            ],
+            [
+              "java.util.concurrent.Executors$RunnableAdapter.call",
+              534
+            ],
+            [
+              "jdk.internal.vm.Continuation.enter",
+              533
+            ],
+            [
+              "jdk.internal.vm.Continuation.enterSpecial",
+              531
+            ],
+            [
+              "org.mtr.model.BlockbenchModelLoader.lambda$loadModel$5",
+              521
+            ],
+            [
+              "org.mtr.model.BlockbenchModelLoader$$Lambda.0x000001e813124520.run",
+              520
+            ],
+            [
+              "org.mtr.resource.VehicleModel.lambda$getModelLoaderBase$2",
+              412
+            ],
+            [
+              "org.mtr.resource.VehicleModel$$Lambda.0x000001e81312b3b0.get",
+              412
+            ],
+            [
+              "org.mtr.libraries.com.google.gson.JsonParser.parseReader",
+              327
+            ],
+            [
+              "org.mtr.libraries.com.google.gson.internal.Streams.parse",
+              327
+            ],
+            [
+              "org.mtr.libraries.com.google.gson.internal.bind.JsonElementTypeAdapter.read",
+              326
+            ],
+            [
+              "org.mtr.libraries.com.google.gson.JsonParser.parseString",
+              326
+            ],
+            [
+              "org.mtr.core.tool.Utilities.parseJson",
+              326
+            ],
+            [
+              "java.util.concurrent.ForkJoinPool.runWorker",
+              240
+            ],
+            [
+              "java.util.concurrent.ForkJoinTask.doExec",
+              240
+            ],
+            [
+              "java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec",
+              240
+            ],
+            [
+              "java.util.concurrent.ForkJoinPool.scan",
+              240
+            ],
+            [
+              "java.util.concurrent.ForkJoinWorkerThread.run",
+              240
+            ],
+            [
+              "java.util.stream.AbstractPipeline.wrapAndCopyInto",
+              126
+            ],
+            [
+              "java.util.stream.AbstractPipeline.evaluate",
+              126
+            ],
+            [
+              "java.util.concurrent.CompletableFuture$Completion.exec",
+              124
+            ],
+            [
+              "java.util.stream.AbstractPipeline.copyInto",
+              121
+            ],
+            [
+              "org.mtr.libraries.it.unimi.dsi.fastutil.objects.ObjectArrayList.forEach",
+              121
+            ],
+            [
+              "java.lang.Iterable.forEach",
+              119
+            ],
+            [
+              "java.util.HashMap.forEach",
+              116
+            ],
+            [
+              "java.util.stream.ReferencePipeline.collect",
+              111
+            ]
+          ]
+        },
+        "jdk.NativeMethodSample": {
+          "sample_count_with_stack": 949,
+          "leaf": [
+            [
+              "sun.nio.ch.WEPoll.wait",
+              640
+            ],
+            [
+              "sun.nio.ch.Net.accept",
+              107
+            ],
+            [
+              "sun.nio.fs.WindowsNativeDispatcher.GetQueuedCompletionStatus0",
+              106
+            ],
+            [
+              "org.lwjgl.opengl.GL11C.nglTexSubImage2D",
+              27
+            ],
+            [
+              "org.lwjgl.system.JNI.invokeV",
+              19
+            ],
+            [
+              "java.lang.Thread.yield0",
+              10
+            ],
+            [
+              "org.lwjgl.opengl.GL11C.nglDrawElements",
+              6
+            ],
+            [
+              "org.lwjgl.opengl.GL20C.glLinkProgram",
+              6
+            ],
+            [
+              "java.util.zip.Inflater.inflateBytesBytes",
+              5
+            ],
+            [
+              "sun.nio.ch.FileDispatcherImpl.pread0",
+              4
+            ],
+            [
+              "org.lwjgl.system.JNI.invokeD",
+              4
+            ],
+            [
+              "org.lwjgl.system.JNI.invokePI",
+              2
+            ],
+            [
+              "org.lwjgl.stb.STBImage.nstbi_load_from_memory",
+              2
+            ],
+            [
+              "org.lwjgl.opengl.GL30C.nglDeleteVertexArrays",
+              2
+            ],
+            [
+              "org.lwjgl.opengl.GL11C.glViewport",
+              1
+            ],
+            [
+              "org.lwjgl.opengl.GL20C.nglUniform4fv",
+              1
+            ],
+            [
+              "org.lwjgl.system.JNI.invokePNI",
+              1
+            ],
+            [
+              "org.lwjgl.system.JNI.invokePP",
+              1
+            ],
+            [
+              "org.lwjgl.system.JNI.invokePPZ",
+              1
+            ],
+            [
+              "jdk.internal.misc.Unsafe.park",
+              1
+            ],
+            [
+              "org.lwjgl.opengl.GL20C.nglShaderSource",
+              1
+            ],
+            [
+              "org.lwjgl.opengl.GL20C.nglUniformMatrix4fv",
+              1
+            ],
+            [
+              "org.lwjgl.opengl.GL20C.nglGetUniformLocation",
+              1
+            ]
+          ],
+          "inclusive": [
+            [
+              "java.lang.Thread.runWith",
+              869
+            ],
+            [
+              "java.lang.Thread.run",
+              868
+            ],
+            [
+              "sun.nio.ch.WEPoll.wait",
+              640
+            ],
+            [
+              "sun.nio.ch.SelectorImpl.lockAndDoSelect",
+              640
+            ],
+            [
+              "sun.nio.ch.SelectorImpl.select",
+              640
+            ],
+            [
+              "sun.nio.ch.WEPollSelectorImpl.doSelect",
+              640
+            ],
+            [
+              "org.mtr.libraries.org.eclipse.jetty.util.thread.QueuedThreadPool.runJob",
+              535
+            ],
+            [
+              "org.mtr.libraries.org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.run",
+              535
+            ],
+            [
+              "org.mtr.libraries.org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.doRunJob",
+              535
+            ],
+            [
+              "org.mtr.libraries.org.eclipse.jetty.io.ManagedSelector.select",
+              428
+            ],
+            [
+              "org.mtr.libraries.org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.tryProduce",
+              428
+            ],
+            [
+              "org.mtr.libraries.org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.produceTask",
+              428
+            ],
+            [
+              "org.mtr.libraries.org.eclipse.jetty.io.ManagedSelector$SelectorProducer.select",
+              428
+            ],
+            [
+              "org.mtr.libraries.org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.produce",
+              428
+            ],
+            [
+              "org.mtr.libraries.org.eclipse.jetty.io.ManagedSelector.nioSelect",
+              428
+            ],
+            [
+              "org.mtr.libraries.org.eclipse.jetty.io.ManagedSelector$$Lambda.0x000001e81344f6f0.run",
+              428
+            ],
+            [
+              "org.mtr.libraries.org.eclipse.jetty.io.ManagedSelector$SelectorProducer.produce",
+              428
+            ],
+            [
+              "io.netty.channel.nio.SelectedSelectionKeySetSelector.select",
+              212
+            ],
+            [
+              "io.netty.channel.nio.NioEventLoop.run",
+              212
+            ],
+            [
+              "io.netty.channel.nio.NioEventLoop.select",
+              212
+            ],
+            [
+              "io.netty.util.internal.ThreadExecutorMap$2.run",
+              212
+            ],
+            [
+              "io.netty.util.concurrent.SingleThreadEventExecutor$4.run",
+              212
+            ],
+            [
+              "sun.nio.ch.ServerSocketChannelImpl.accept",
+              107
+            ],
+            [
+              "sun.nio.ch.ServerSocketChannelImpl.implAccept",
+              107
+            ],
+            [
+              "sun.nio.ch.Net.accept",
+              107
+            ],
+            [
+              "org.mtr.libraries.org.eclipse.jetty.server.ServerConnector.accept",
+              107
+            ],
+            [
+              "org.mtr.libraries.org.eclipse.jetty.server.AbstractConnector$Acceptor.run",
+              107
+            ],
+            [
+              "sun.nio.fs.WindowsNativeDispatcher.GetQueuedCompletionStatus",
+              106
+            ],
+            [
+              "sun.nio.fs.WindowsNativeDispatcher.GetQueuedCompletionStatus0",
+              106
+            ],
+            [
+              "sun.nio.fs.WindowsWatchService$Poller.run",
+              106
+            ]
+          ]
+        }
+      },
+      "allocation_sample_weight_by_class": [
+        [
+          "[B",
+          1541919352
+        ],
+        [
+          "[Ljava.lang.Object;",
+          950495288
+        ],
+        [
+          "[I",
+          751842640
+        ],
+        [
+          "org.mtr.libraries.com.google.gson.internal.LinkedTreeMap$Node",
+          566570272
+        ],
+        [
+          "java.lang.String",
+          517903344
+        ],
+        [
+          "org.mtr.libraries.com.google.gson.JsonPrimitive",
+          443109072
+        ],
+        [
+          "org.mtr.model.StoredVertexData",
+          363866712
+        ],
+        [
+          "java.util.HashMap",
+          346939808
+        ],
+        [
+          "[J",
+          344451456
+        ],
+        [
+          "java.util.stream.ReferencePipeline$Head",
+          343755176
+        ],
+        [
+          "[C",
+          301724992
+        ],
+        [
+          "java.util.stream.ReduceOps$3",
+          268937544
+        ],
+        [
+          "org.joml.Vector3f",
+          266765528
+        ],
+        [
+          "org.mtr.libraries.com.google.gson.internal.LinkedTreeMap",
+          246525392
+        ],
+        [
+          "net.minecraft.client.model.geom.ModelPart$Vertex",
+          238935440
+        ],
+        [
+          "[S",
+          199308968
+        ],
+        [
+          "com.google.common.base.Splitter$1$1",
+          182697376
+        ],
+        [
+          "[Ljava.util.HashMap$Node;",
+          179120952
+        ],
+        [
+          "org.joml.Matrix4f",
+          178539136
+        ],
+        [
+          "[D",
+          177681904
+        ]
+      ],
+      "virtual_thread_pinned_events": 0,
+      "sampled_heap_used_bytes": {
+        "count": 40,
+        "mean": 1760697774.6,
+        "p50": 1692401664.0,
+        "p95": 2190894694.4,
+        "p99": 2209737605.12,
+        "max": 2216689664,
+        "sum": 70427910984
+      }
+    }
+  },
+  "limits": [
+    "Frame intervals are CPU render-loop intervals including pacing, not GPU presentation times.",
+    "Tick spans cover NeoForge event hooks, not full authoritative MSPT; no TPS derived from them.",
+    "Execution/NativeMethod sample counts are statistical observations, not exact CPU milliseconds.",
+    "Allocation weights estimate allocation traffic, not retained heap.",
+    "JFR profile and observation instrumentation add overhead; no uninstrumented control."
+  ]
+}

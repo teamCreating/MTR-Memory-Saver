@@ -1,0 +1,19 @@
+Compiled from "StoredVertexData.java"
+public final class org.mtr.model.StoredVertexData extends java.lang.Record {
+  public org.mtr.model.StoredVertexData(float, float, float, int, float, float, float, float, float);
+  public org.mtr.model.StoredVertexData modify(double, double, double, boolean);
+  public static void write(net.minecraft.client.model.geom.ModelPart, org.mtr.libraries.it.unimi.dsi.fastutil.objects.ObjectArrayList<org.mtr.model.StoredVertexData>);
+  public static void apply(org.mtr.libraries.it.unimi.dsi.fastutil.objects.ObjectArrayList<org.mtr.model.StoredVertexData>, com.mojang.blaze3d.vertex.VertexConsumer);
+  public final java.lang.String toString();
+  public final int hashCode();
+  public final boolean equals(java.lang.Object);
+  public float x();
+  public float y();
+  public float z();
+  public int color();
+  public float u();
+  public float v();
+  public float normalX();
+  public float normalY();
+  public float normalZ();
+}

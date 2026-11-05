@@ -1,0 +1,5300 @@
+{
+  "recording_sha256": "dba4603e2815fce51bf3923564fc23f0943f145eebf5fcbd79a8b45a52eebf35",
+  "windows_sha256": "a9c0d2125a379a4e23b6ec93f2bd147d314172ee2021f4e2efe889a46a623cc9",
+  "analyzer_sha256": "bea58579a6f6c3981b8503f8bd059416f545f93324c9cec26bdc323393ca2ffe",
+  "export_sha256": "6fec88d27adada616b32aaff4f34539b7bc502d3ab55058a21be53c1b5ef8772",
+  "exporter_sha256": "3880e80998fe6b45eff89e9e16f04602e6d448743d76eb9e7c23a1fc3015d5e0",
+  "json_library_sha256": "ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa",
+  "event_count": 41085,
+  "windows": {
+    "failed_startup": {
+      "start": "2026-11-05T22:38:58.317292+08:00",
+      "end": "2026-11-05T22:46:54.625877+08:00",
+      "seconds": 476.308585,
+      "event_counts": {
+        "jdk.ObjectAllocationSample": 28609,
+        "jdk.CPULoad": 102,
+        "jdk.NativeMethodSample": 4210,
+        "jdk.ExecutionSample": 6211,
+        "jdk.GCHeapSummary": 1004,
+        "jdk.GCPhasePause": 447,
+        "jdk.GarbageCollection": 502,
+        "mtrtest.ClientFrame": 0,
+        "mtrtest.ServerTick": 0
+      },
+      "game_frame_interval_ms": {
+        "count": 0
+      },
+      "effective_fps_from_intervals": null,
+      "frames_over_50ms": 0,
+      "frames_over_100ms": 0,
+      "server_tick_event_span_ms": {
+        "count": 0
+      },
+      "gc_pause_ms": {
+        "count": 447,
+        "mean": 759.7781101431767,
+        "p50": 33.740704,
+        "p95": 2388.4117362999996,
+        "p99": 2555.68923564,
+        "max": 2994.000003,
+        "sum": 339620.815234
+      },
+      "gc_causes": {
+        "G1New: G1 Evacuation Pause": 216,
+        "G1Old: Metadata GC Threshold": 4,
+        "G1New: Metadata GC Threshold": 4,
+        "G1Old: G1 Evacuation Pause": 54,
+        "G1Old: G1 Humongous Allocation": 26,
+        "G1New: GCLocker Initiated GC": 3,
+        "G1New: G1 Humongous Allocation": 29,
+        "G1Full: G1 Compaction Pause": 165,
+        "G1Old: GCLocker Initiated GC": 1
+      },
+      "gc_events": [
+        {
+          "start": "2026-11-05T14:38:59.841285431Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.00651457,
+          "pause_seconds": 0.006514569
+        },
+        {
+          "start": "2026-11-05T14:39:00.782380606Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.005652908,
+          "pause_seconds": 0.005652908
+        },
+        {
+          "start": "2026-11-05T14:39:01.196001048Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.004408189,
+          "pause_seconds": 0.004408189
+        },
+        {
+          "start": "2026-11-05T14:39:02.331618064Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.006598079,
+          "pause_seconds": 0.006598078
+        },
+        {
+          "start": "2026-11-05T14:39:04.039715971Z",
+          "name": "G1Old",
+          "cause": "Metadata GC Threshold",
+          "duration_seconds": 0.031370218,
+          "pause_seconds": 0.003933984
+        },
+        {
+          "start": "2026-11-05T14:39:04.015908844Z",
+          "name": "G1New",
+          "cause": "Metadata GC Threshold",
+          "duration_seconds": 0.023715407,
+          "pause_seconds": 0.023715407
+        },
+        {
+          "start": "2026-11-05T14:39:05.670794699Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.030565401,
+          "pause_seconds": 0.030565401
+        },
+        {
+          "start": "2026-11-05T14:39:06.785751064Z",
+          "name": "G1Old",
+          "cause": "Metadata GC Threshold",
+          "duration_seconds": 0.0670259,
+          "pause_seconds": 0.007112414
+        },
+        {
+          "start": "2026-11-05T14:39:06.452251180Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.029943367,
+          "pause_seconds": 0.029943366
+        },
+        {
+          "start": "2026-11-05T14:39:06.771580682Z",
+          "name": "G1New",
+          "cause": "Metadata GC Threshold",
+          "duration_seconds": 0.014056934,
+          "pause_seconds": 0.014056934
+        },
+        {
+          "start": "2026-11-05T14:39:08.727784818Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.032623301,
+          "pause_seconds": 0.0326233
+        },
+        {
+          "start": "2026-11-05T14:39:11.652031866Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.060003656,
+          "pause_seconds": 0.060003655
+        },
+        {
+          "start": "2026-11-05T14:39:12.363390295Z",
+          "name": "G1Old",
+          "cause": "Metadata GC Threshold",
+          "duration_seconds": 0.228067347,
+          "pause_seconds": 0.015286088
+        },
+        {
+          "start": "2026-11-05T14:39:12.289749585Z",
+          "name": "G1New",
+          "cause": "Metadata GC Threshold",
+          "duration_seconds": 0.073376759,
+          "pause_seconds": 0.073376759
+        },
+        {
+          "start": "2026-11-05T14:39:17.021518955Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.025217843,
+          "pause_seconds": 0.025217843
+        },
+        {
+          "start": "2026-11-05T14:39:18.308451180Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.027714718,
+          "pause_seconds": 0.027714718
+        },
+        {
+          "start": "2026-11-05T14:39:19.286211545Z",
+          "name": "G1New",
+          "cause": "Metadata GC Threshold",
+          "duration_seconds": 0.032379282,
+          "pause_seconds": 0.032379282
+        },
+        {
+          "start": "2026-11-05T14:39:19.318707731Z",
+          "name": "G1Old",
+          "cause": "Metadata GC Threshold",
+          "duration_seconds": 0.34045267,
+          "pause_seconds": 0.009660745
+        },
+        {
+          "start": "2026-11-05T14:39:21.488143806Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.026529804,
+          "pause_seconds": 0.026529803
+        },
+        {
+          "start": "2026-11-05T14:39:22.454634646Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.034885308,
+          "pause_seconds": 0.034885308
+        },
+        {
+          "start": "2026-11-05T14:39:22.992989610Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.024070566,
+          "pause_seconds": 0.024070566
+        },
+        {
+          "start": "2026-11-05T14:39:24.088146155Z",
+          "name": "G1Old",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.576557352,
+          "pause_seconds": 0.01969014
+        },
+        {
+          "start": "2026-11-05T14:39:24.007203695Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.080837059,
+          "pause_seconds": 0.080837059
+        },
+        {
+          "start": "2026-11-05T14:39:29.711326331Z",
+          "name": "G1Old",
+          "cause": "G1 Humongous Allocation",
+          "duration_seconds": 1.235511367,
+          "pause_seconds": 0.008972963
+        },
+        {
+          "start": "2026-11-05T14:39:29.874076430Z",
+          "name": "G1New",
+          "cause": "GCLocker Initiated GC",
+          "duration_seconds": 0.02966863,
+          "pause_seconds": 0.029668629
+        },
+        {
+          "start": "2026-11-05T14:39:29.342046983Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.086559607,
+          "pause_seconds": 0.086559606
+        },
+        {
+          "start": "2026-11-05T14:39:29.651679770Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.04071067,
+          "pause_seconds": 0.040710669
+        },
+        {
+          "start": "2026-11-05T14:39:29.700090685Z",
+          "name": "G1New",
+          "cause": "G1 Humongous Allocation",
+          "duration_seconds": 0.011122504,
+          "pause_seconds": 0.011122503
+        },
+        {
+          "start": "2026-11-05T14:39:32.007480855Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.059875598,
+          "pause_seconds": 0.059875598
+        },
+        {
+          "start": "2026-11-05T14:39:32.657431674Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.050539208,
+          "pause_seconds": 0.050539207
+        },
+        {
+          "start": "2026-11-05T14:39:32.729166185Z",
+          "name": "G1New",
+          "cause": "G1 Humongous Allocation",
+          "duration_seconds": 0.024850258,
+          "pause_seconds": 0.024850257
+        },
+        {
+          "start": "2026-11-05T14:39:33.274609956Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.041284914,
+          "pause_seconds": 0.041284913
+        },
+        {
+          "start": "2026-11-05T14:39:32.754114689Z",
+          "name": "G1Old",
+          "cause": "G1 Humongous Allocation",
+          "duration_seconds": 0.967123818,
+          "pause_seconds": 0.006441848
+        },
+        {
+          "start": "2026-11-05T14:39:34.612686619Z",
+          "name": "G1New",
+          "cause": "G1 Humongous Allocation",
+          "duration_seconds": 0.043018327,
+          "pause_seconds": 0.043018327
+        },
+        {
+          "start": "2026-11-05T14:39:33.797839693Z",
+          "name": "G1New",
+          "cause": "GCLocker Initiated GC",
+          "duration_seconds": 0.056836439,
+          "pause_seconds": 0.056836438
+        },
+        {
+          "start": "2026-11-05T14:39:34.497370936Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.068156095,
+          "pause_seconds": 0.068156094
+        },
+        {
+          "start": "2026-11-05T14:39:34.655855695Z",
+          "name": "G1Old",
+          "cause": "G1 Humongous Allocation",
+          "duration_seconds": 1.151341029,
+          "pause_seconds": 0.006385574
+        },
+        {
+          "start": "2026-11-05T14:39:36.555602104Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.104339688,
+          "pause_seconds": 0.104339688
+        },
+        {
+          "start": "2026-11-05T14:39:38.394888988Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.160585885,
+          "pause_seconds": 0.160585884
+        },
+        {
+          "start": "2026-11-05T14:39:39.607167128Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.139521719,
+          "pause_seconds": 0.139521718
+        },
+        {
+          "start": "2026-11-05T14:39:40.849923583Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.129555203,
+          "pause_seconds": 0.129555203
+        },
+        {
+          "start": "2026-11-05T14:39:41.950342617Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.137973248,
+          "pause_seconds": 0.137973248
+        },
+        {
+          "start": "2026-11-05T14:39:42.485608581Z",
+          "name": "G1New",
+          "cause": "G1 Humongous Allocation",
+          "duration_seconds": 0.085482259,
+          "pause_seconds": 0.085482258
+        },
+        {
+          "start": "2026-11-05T14:39:43.683866030Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.103419482,
+          "pause_seconds": 0.103419481
+        },
+        {
+          "start": "2026-11-05T14:39:42.571218319Z",
+          "name": "G1Old",
+          "cause": "G1 Humongous Allocation",
+          "duration_seconds": 2.381000807,
+          "pause_seconds": 0.01190749
+        },
+        {
+          "start": "2026-11-05T14:39:44.675194923Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.107578872,
+          "pause_seconds": 0.107578872
+        },
+        {
+          "start": "2026-11-05T14:39:45.634937032Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.072544565,
+          "pause_seconds": 0.072544565
+        },
+        {
+          "start": "2026-11-05T14:39:46.651279355Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.046594841,
+          "pause_seconds": 0.04659484
+        },
+        {
+          "start": "2026-11-05T14:39:46.860517682Z",
+          "name": "G1New",
+          "cause": "G1 Humongous Allocation",
+          "duration_seconds": 0.033740704,
+          "pause_seconds": 0.033740704
+        },
+        {
+          "start": "2026-11-05T14:39:48.237028385Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.047788347,
+          "pause_seconds": 0.047788346
+        },
+        {
+          "start": "2026-11-05T14:39:46.894366085Z",
+          "name": "G1Old",
+          "cause": "G1 Humongous Allocation",
+          "duration_seconds": 3.496172219,
+          "pause_seconds": 0.031508975
+        },
+        {
+          "start": "2026-11-05T14:39:49.839198056Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.043375011,
+          "pause_seconds": 0.043375011
+        },
+        {
+          "start": "2026-11-05T14:39:51.824378715Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.063592053,
+          "pause_seconds": 0.063592052
+        },
+        {
+          "start": "2026-11-05T14:39:52.951711573Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.137243766,
+          "pause_seconds": 0.137243765
+        },
+        {
+          "start": "2026-11-05T14:39:53.130674935Z",
+          "name": "G1New",
+          "cause": "G1 Humongous Allocation",
+          "duration_seconds": 0.048172512,
+          "pause_seconds": 0.048172511
+        },
+        {
+          "start": "2026-11-05T14:39:54.221410407Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.06697502,
+          "pause_seconds": 0.066975019
+        },
+        {
+          "start": "2026-11-05T14:39:55.588863988Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.096843519,
+          "pause_seconds": 0.096843518
+        },
+        {
+          "start": "2026-11-05T14:39:53.178952439Z",
+          "name": "G1Old",
+          "cause": "G1 Humongous Allocation",
+          "duration_seconds": 3.393834304,
+          "pause_seconds": 0.0085869
+        },
+        {
+          "start": "2026-11-05T14:39:58.800896607Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.139728862,
+          "pause_seconds": 0.139728861
+        },
+        {
+          "start": "2026-11-05T14:40:01.045030358Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.148054796,
+          "pause_seconds": 0.148054796
+        },
+        {
+          "start": "2026-11-05T14:40:02.047578218Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.108342937,
+          "pause_seconds": 0.108342936
+        },
+        {
+          "start": "2026-11-05T14:40:02.408707128Z",
+          "name": "G1New",
+          "cause": "G1 Humongous Allocation",
+          "duration_seconds": 0.023681286,
+          "pause_seconds": 0.023681286
+        },
+        {
+          "start": "2026-11-05T14:40:02.818395980Z",
+          "name": "G1New",
+          "cause": "G1 Humongous Allocation",
+          "duration_seconds": 0.024120852,
+          "pause_seconds": 0.024120851
+        },
+        {
+          "start": "2026-11-05T14:40:03.134126670Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.035197306,
+          "pause_seconds": 0.035197306
+        },
+        {
+          "start": "2026-11-05T14:40:02.432575063Z",
+          "name": "G1Old",
+          "cause": "G1 Humongous Allocation",
+          "duration_seconds": 2.264783659,
+          "pause_seconds": 0.0
+        },
+        {
+          "start": "2026-11-05T14:40:03.321225616Z",
+          "name": "G1New",
+          "cause": "G1 Humongous Allocation",
+          "duration_seconds": 0.030796197,
+          "pause_seconds": 0.030796196
+        },
+        {
+          "start": "2026-11-05T14:40:03.352192833Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.34479063,
+          "pause_seconds": 1.344790629
+        },
+        {
+          "start": "2026-11-05T14:40:04.894340708Z",
+          "name": "G1New",
+          "cause": "G1 Humongous Allocation",
+          "duration_seconds": 0.030577494,
+          "pause_seconds": 0.030577494
+        },
+        {
+          "start": "2026-11-05T14:40:05.931332964Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.151337971,
+          "pause_seconds": 0.15133797
+        },
+        {
+          "start": "2026-11-05T14:40:06.804639723Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.228609267,
+          "pause_seconds": 0.228609267
+        },
+        {
+          "start": "2026-11-05T14:40:07.820421438Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.237084537,
+          "pause_seconds": 0.237084536
+        },
+        {
+          "start": "2026-11-05T14:40:09.151434390Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.13277753,
+          "pause_seconds": 0.132777529
+        },
+        {
+          "start": "2026-11-05T14:40:04.925380037Z",
+          "name": "G1Old",
+          "cause": "G1 Humongous Allocation",
+          "duration_seconds": 5.102236016,
+          "pause_seconds": 0.007336429
+        },
+        {
+          "start": "2026-11-05T14:40:10.376795934Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.076098896,
+          "pause_seconds": 0.076098896
+        },
+        {
+          "start": "2026-11-05T14:40:11.993856817Z",
+          "name": "G1New",
+          "cause": "G1 Humongous Allocation",
+          "duration_seconds": 0.028308849,
+          "pause_seconds": 0.028308849
+        },
+        {
+          "start": "2026-11-05T14:40:11.669375016Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.056588523,
+          "pause_seconds": 0.056588522
+        },
+        {
+          "start": "2026-11-05T14:40:13.442248608Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.035972394,
+          "pause_seconds": 0.035972393
+        },
+        {
+          "start": "2026-11-05T14:40:14.337551165Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.046859922,
+          "pause_seconds": 0.046859921
+        },
+        {
+          "start": "2026-11-05T14:40:15.223802155Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.043313907,
+          "pause_seconds": 0.043313907
+        },
+        {
+          "start": "2026-11-05T14:40:12.022270646Z",
+          "name": "G1Old",
+          "cause": "G1 Humongous Allocation",
+          "duration_seconds": 4.189954166,
+          "pause_seconds": 0.005135889
+        },
+        {
+          "start": "2026-11-05T14:40:16.662328358Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.065667727,
+          "pause_seconds": 0.065667726
+        },
+        {
+          "start": "2026-11-05T14:40:17.850506388Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.084983476,
+          "pause_seconds": 0.084983476
+        },
+        {
+          "start": "2026-11-05T14:40:18.094531686Z",
+          "name": "G1New",
+          "cause": "G1 Humongous Allocation",
+          "duration_seconds": 0.04968357,
+          "pause_seconds": 0.04968357
+        },
+        {
+          "start": "2026-11-05T14:40:19.698788783Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.047419044,
+          "pause_seconds": 0.047419044
+        },
+        {
+          "start": "2026-11-05T14:40:20.850475081Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.07991131,
+          "pause_seconds": 0.079911309
+        },
+        {
+          "start": "2026-11-05T14:40:21.984832183Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.067719342,
+          "pause_seconds": 0.067719342
+        },
+        {
+          "start": "2026-11-05T14:40:18.144463512Z",
+          "name": "G1Old",
+          "cause": "G1 Humongous Allocation",
+          "duration_seconds": 4.706780632,
+          "pause_seconds": 0.005858906
+        },
+        {
+          "start": "2026-11-05T14:40:23.029103597Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.088392742,
+          "pause_seconds": 0.088392741
+        },
+        {
+          "start": "2026-11-05T14:40:23.918036665Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.081027013,
+          "pause_seconds": 0.081027012
+        },
+        {
+          "start": "2026-11-05T14:40:24.847116467Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.044080874,
+          "pause_seconds": 0.044080874
+        },
+        {
+          "start": "2026-11-05T14:40:25.756266698Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.041737935,
+          "pause_seconds": 0.041737934
+        },
+        {
+          "start": "2026-11-05T14:40:27.316519649Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.036710297,
+          "pause_seconds": 0.036710297
+        },
+        {
+          "start": "2026-11-05T14:40:26.693216313Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.040141816,
+          "pause_seconds": 0.040141816
+        },
+        {
+          "start": "2026-11-05T14:40:27.984495528Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.028915733,
+          "pause_seconds": 0.028915733
+        },
+        {
+          "start": "2026-11-05T14:40:28.555019618Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.034539961,
+          "pause_seconds": 0.03453996
+        },
+        {
+          "start": "2026-11-05T14:40:28.993427462Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.027741612,
+          "pause_seconds": 0.027741612
+        },
+        {
+          "start": "2026-11-05T14:40:24.891373625Z",
+          "name": "G1Old",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 4.941047739,
+          "pause_seconds": 0.005135298
+        },
+        {
+          "start": "2026-11-05T14:40:29.582676010Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.028417429,
+          "pause_seconds": 0.028417428
+        },
+        {
+          "start": "2026-11-05T14:40:30.002625534Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.029441183,
+          "pause_seconds": 0.029441183
+        },
+        {
+          "start": "2026-11-05T14:40:30.394609617Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.031049362,
+          "pause_seconds": 0.031049361
+        },
+        {
+          "start": "2026-11-05T14:40:31.203950826Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.024652107,
+          "pause_seconds": 0.024652107
+        },
+        {
+          "start": "2026-11-05T14:40:31.613289543Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.028506841,
+          "pause_seconds": 0.02850684
+        },
+        {
+          "start": "2026-11-05T14:40:30.771349743Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.023885953,
+          "pause_seconds": 0.023885952
+        },
+        {
+          "start": "2026-11-05T14:40:32.051648244Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.022378928,
+          "pause_seconds": 0.022378927
+        },
+        {
+          "start": "2026-11-05T14:40:32.375090125Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.023218194,
+          "pause_seconds": 0.023218194
+        },
+        {
+          "start": "2026-11-05T14:40:32.691852121Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.030961725,
+          "pause_seconds": 0.030961725
+        },
+        {
+          "start": "2026-11-05T14:40:30.795367468Z",
+          "name": "G1Old",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 4.760181726,
+          "pause_seconds": 0.0
+        },
+        {
+          "start": "2026-11-05T14:40:33.705421770Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.00908683,
+          "pause_seconds": 0.009086829
+        },
+        {
+          "start": "2026-11-05T14:40:33.714599677Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.84053545,
+          "pause_seconds": 1.84053545
+        },
+        {
+          "start": "2026-11-05T14:40:32.990970068Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.023627786,
+          "pause_seconds": 0.023627785
+        },
+        {
+          "start": "2026-11-05T14:40:33.295612150Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.019709975,
+          "pause_seconds": 0.019709975
+        },
+        {
+          "start": "2026-11-05T14:40:33.567531828Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.047536199,
+          "pause_seconds": 0.047536199
+        },
+        {
+          "start": "2026-11-05T14:40:35.862700710Z",
+          "name": "G1New",
+          "cause": "G1 Humongous Allocation",
+          "duration_seconds": 0.013259579,
+          "pause_seconds": 0.013259578
+        },
+        {
+          "start": "2026-11-05T14:40:36.262318375Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.0224315,
+          "pause_seconds": 0.0224315
+        },
+        {
+          "start": "2026-11-05T14:40:36.631159043Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.025808244,
+          "pause_seconds": 0.025808244
+        },
+        {
+          "start": "2026-11-05T14:40:37.002215247Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.026566166,
+          "pause_seconds": 0.026566165
+        },
+        {
+          "start": "2026-11-05T14:40:37.353672172Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.026325529,
+          "pause_seconds": 0.026325528
+        },
+        {
+          "start": "2026-11-05T14:40:37.764520681Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.022947353,
+          "pause_seconds": 0.022947353
+        },
+        {
+          "start": "2026-11-05T14:40:38.234336301Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.023111481,
+          "pause_seconds": 0.02311148
+        },
+        {
+          "start": "2026-11-05T14:40:38.600533393Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.023527954,
+          "pause_seconds": 0.023527953
+        },
+        {
+          "start": "2026-11-05T14:40:35.876079867Z",
+          "name": "G1Old",
+          "cause": "G1 Humongous Allocation",
+          "duration_seconds": 5.982793723,
+          "pause_seconds": 0.0
+        },
+        {
+          "start": "2026-11-05T14:40:38.970008908Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.020643312,
+          "pause_seconds": 0.020643311
+        },
+        {
+          "start": "2026-11-05T14:40:39.343031002Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.020068978,
+          "pause_seconds": 0.020068977
+        },
+        {
+          "start": "2026-11-05T14:40:39.687689643Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.023527514,
+          "pause_seconds": 0.023527513
+        },
+        {
+          "start": "2026-11-05T14:40:39.949894187Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.029000921,
+          "pause_seconds": 0.02900092
+        },
+        {
+          "start": "2026-11-05T14:40:40.004966460Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.0072667,
+          "pause_seconds": 0.007266699
+        },
+        {
+          "start": "2026-11-05T14:40:40.012326853Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.846197565,
+          "pause_seconds": 1.846197565
+        },
+        {
+          "start": "2026-11-05T14:40:42.038746624Z",
+          "name": "G1Old",
+          "cause": "G1 Humongous Allocation",
+          "duration_seconds": 2.596387089,
+          "pause_seconds": 0.0
+        },
+        {
+          "start": "2026-11-05T14:40:42.028058211Z",
+          "name": "G1New",
+          "cause": "G1 Humongous Allocation",
+          "duration_seconds": 0.010581653,
+          "pause_seconds": 0.010581652
+        },
+        {
+          "start": "2026-11-05T14:40:42.537280856Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.026536961,
+          "pause_seconds": 0.026536961
+        },
+        {
+          "start": "2026-11-05T14:40:42.717925327Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.041478571,
+          "pause_seconds": 0.04147857
+        },
+        {
+          "start": "2026-11-05T14:40:42.763344593Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.001554774,
+          "pause_seconds": 0.001554774
+        },
+        {
+          "start": "2026-11-05T14:40:42.764988491Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.869914943,
+          "pause_seconds": 1.869914942
+        },
+        {
+          "start": "2026-11-05T14:40:44.848749043Z",
+          "name": "G1Old",
+          "cause": "G1 Humongous Allocation",
+          "duration_seconds": 2.460722633,
+          "pause_seconds": 0.0
+        },
+        {
+          "start": "2026-11-05T14:40:45.399640368Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.909573116,
+          "pause_seconds": 1.909573115
+        },
+        {
+          "start": "2026-11-05T14:40:44.836020124Z",
+          "name": "G1New",
+          "cause": "G1 Humongous Allocation",
+          "duration_seconds": 0.012640846,
+          "pause_seconds": 0.012640846
+        },
+        {
+          "start": "2026-11-05T14:40:45.274613943Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.038995118,
+          "pause_seconds": 0.038995117
+        },
+        {
+          "start": "2026-11-05T14:40:45.391113440Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.008374883,
+          "pause_seconds": 0.008374883
+        },
+        {
+          "start": "2026-11-05T14:40:47.651571353Z",
+          "name": "G1Old",
+          "cause": "G1 Humongous Allocation",
+          "duration_seconds": 2.434973404,
+          "pause_seconds": 0.0
+        },
+        {
+          "start": "2026-11-05T14:40:47.641327460Z",
+          "name": "G1New",
+          "cause": "G1 Humongous Allocation",
+          "duration_seconds": 0.010128652,
+          "pause_seconds": 0.010128651
+        },
+        {
+          "start": "2026-11-05T14:40:48.061987069Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.032807405,
+          "pause_seconds": 0.032807405
+        },
+        {
+          "start": "2026-11-05T14:40:48.183056026Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.019604039,
+          "pause_seconds": 0.019604038
+        },
+        {
+          "start": "2026-11-05T14:40:48.202809644Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.883333146,
+          "pause_seconds": 1.883333146
+        },
+        {
+          "start": "2026-11-05T14:40:50.496520402Z",
+          "name": "G1Old",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 1.897600073,
+          "pause_seconds": 0.0
+        },
+        {
+          "start": "2026-11-05T14:40:50.467557876Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.023242745,
+          "pause_seconds": 0.023242744
+        },
+        {
+          "start": "2026-11-05T14:40:50.493612790Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.002774272,
+          "pause_seconds": 0.002774271
+        },
+        {
+          "start": "2026-11-05T14:40:50.496741297Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.897104461,
+          "pause_seconds": 1.89710446
+        },
+        {
+          "start": "2026-11-05T14:40:52.589675758Z",
+          "name": "G1Old",
+          "cause": "G1 Humongous Allocation",
+          "duration_seconds": 2.141468244,
+          "pause_seconds": 0.0
+        },
+        {
+          "start": "2026-11-05T14:40:52.581118997Z",
+          "name": "G1New",
+          "cause": "G1 Humongous Allocation",
+          "duration_seconds": 0.008441282,
+          "pause_seconds": 0.008441281
+        },
+        {
+          "start": "2026-11-05T14:40:52.885439616Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.022016721,
+          "pause_seconds": 0.02201672
+        },
+        {
+          "start": "2026-11-05T14:40:52.921242920Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.004265854,
+          "pause_seconds": 0.004265853
+        },
+        {
+          "start": "2026-11-05T14:40:52.925693673Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.805170332,
+          "pause_seconds": 1.805170331
+        },
+        {
+          "start": "2026-11-05T14:41:30.685168503Z",
+          "name": "G1Old",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 1.907057251,
+          "pause_seconds": 0.0
+        },
+        {
+          "start": "2026-11-05T14:41:34.561163537Z",
+          "name": "G1Old",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 1.863865805,
+          "pause_seconds": 0.0
+        },
+        {
+          "start": "2026-11-05T14:41:34.561377489Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.863425536,
+          "pause_seconds": 1.863425535
+        },
+        {
+          "start": "2026-11-05T14:40:55.044202227Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.017483233,
+          "pause_seconds": 0.017483232
+        },
+        {
+          "start": "2026-11-05T14:40:55.076571376Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.01016437,
+          "pause_seconds": 0.01016437
+        },
+        {
+          "start": "2026-11-05T14:40:55.087074371Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.872998004,
+          "pause_seconds": 1.872998003
+        },
+        {
+          "start": "2026-11-05T14:40:57.122746411Z",
+          "name": "G1New",
+          "cause": "G1 Humongous Allocation",
+          "duration_seconds": 0.005933209,
+          "pause_seconds": 0.005933208
+        },
+        {
+          "start": "2026-11-05T14:40:57.362724141Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.021816157,
+          "pause_seconds": 0.021816156
+        },
+        {
+          "start": "2026-11-05T14:40:57.384704755Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 2.193752953,
+          "pause_seconds": 2.193752952
+        },
+        {
+          "start": "2026-11-05T14:40:59.780753647Z",
+          "name": "G1New",
+          "cause": "G1 Humongous Allocation",
+          "duration_seconds": 0.017671743,
+          "pause_seconds": 0.017671743
+        },
+        {
+          "start": "2026-11-05T14:40:59.841946891Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.025279962,
+          "pause_seconds": 0.025279961
+        },
+        {
+          "start": "2026-11-05T14:40:59.867364087Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 2.17272653,
+          "pause_seconds": 2.172726529
+        },
+        {
+          "start": "2026-11-05T14:41:02.230544493Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.020091297,
+          "pause_seconds": 0.020091296
+        },
+        {
+          "start": "2026-11-05T14:41:02.250784969Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 2.153270512,
+          "pause_seconds": 2.153270511
+        },
+        {
+          "start": "2026-11-05T14:41:04.581247535Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.017264068,
+          "pause_seconds": 0.017264068
+        },
+        {
+          "start": "2026-11-05T14:41:04.598888544Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 2.152099707,
+          "pause_seconds": 2.152099707
+        },
+        {
+          "start": "2026-11-05T14:41:06.779459725Z",
+          "name": "G1New",
+          "cause": "G1 Humongous Allocation",
+          "duration_seconds": 0.003637965,
+          "pause_seconds": 0.003637964
+        },
+        {
+          "start": "2026-11-05T14:41:06.952382118Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.013552192,
+          "pause_seconds": 0.013552192
+        },
+        {
+          "start": "2026-11-05T14:41:06.970525664Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.003294647,
+          "pause_seconds": 0.003294646
+        },
+        {
+          "start": "2026-11-05T14:41:06.973998975Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.876753211,
+          "pause_seconds": 1.87675321
+        },
+        {
+          "start": "2026-11-05T14:41:09.025332316Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.030790234,
+          "pause_seconds": 0.030790233
+        },
+        {
+          "start": "2026-11-05T14:41:09.056310581Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.85507138,
+          "pause_seconds": 1.855071379
+        },
+        {
+          "start": "2026-11-05T14:41:11.049339744Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.011545271,
+          "pause_seconds": 0.01154527
+        },
+        {
+          "start": "2026-11-05T14:41:11.061216470Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.848916661,
+          "pause_seconds": 1.848916661
+        },
+        {
+          "start": "2026-11-05T14:41:13.029181713Z",
+          "name": "G1New",
+          "cause": "G1 Humongous Allocation",
+          "duration_seconds": 0.018427163,
+          "pause_seconds": 0.018427163
+        },
+        {
+          "start": "2026-11-05T14:41:13.068551225Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.01446628,
+          "pause_seconds": 0.01446628
+        },
+        {
+          "start": "2026-11-05T14:41:13.088992893Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.003961363,
+          "pause_seconds": 0.003961362
+        },
+        {
+          "start": "2026-11-05T14:41:13.093101971Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.867015737,
+          "pause_seconds": 1.867015737
+        },
+        {
+          "start": "2026-11-05T14:41:15.074790744Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.013153414,
+          "pause_seconds": 0.013153413
+        },
+        {
+          "start": "2026-11-05T14:41:15.088097940Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.831243141,
+          "pause_seconds": 1.831243141
+        },
+        {
+          "start": "2026-11-05T14:41:17.042940771Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.010497142,
+          "pause_seconds": 0.010497142
+        },
+        {
+          "start": "2026-11-05T14:41:17.053793491Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.868074263,
+          "pause_seconds": 1.868074263
+        },
+        {
+          "start": "2026-11-05T14:41:19.003753998Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.033367825,
+          "pause_seconds": 0.033367825
+        },
+        {
+          "start": "2026-11-05T14:41:19.037307909Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.863591463,
+          "pause_seconds": 1.863591462
+        },
+        {
+          "start": "2026-11-05T14:41:20.948859170Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.00520123,
+          "pause_seconds": 0.00520123
+        },
+        {
+          "start": "2026-11-05T14:41:20.954397996Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.850211634,
+          "pause_seconds": 1.850211633
+        },
+        {
+          "start": "2026-11-05T14:41:22.893538888Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.007003988,
+          "pause_seconds": 0.007003987
+        },
+        {
+          "start": "2026-11-05T14:41:22.900705297Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.850976683,
+          "pause_seconds": 1.850976683
+        },
+        {
+          "start": "2026-11-05T14:41:24.871005473Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.009479835,
+          "pause_seconds": 0.009479835
+        },
+        {
+          "start": "2026-11-05T14:41:24.880927245Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.917102969,
+          "pause_seconds": 1.917102968
+        },
+        {
+          "start": "2026-11-05T14:41:26.822423003Z",
+          "name": "G1New",
+          "cause": "G1 Humongous Allocation",
+          "duration_seconds": 0.006994222,
+          "pause_seconds": 0.006994222
+        },
+        {
+          "start": "2026-11-05T14:41:26.852829241Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.021880629,
+          "pause_seconds": 0.021880628
+        },
+        {
+          "start": "2026-11-05T14:41:26.879052056Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.003849739,
+          "pause_seconds": 0.003849739
+        },
+        {
+          "start": "2026-11-05T14:40:55.086844415Z",
+          "name": "G1Old",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 1.873498681,
+          "pause_seconds": 0.0
+        },
+        {
+          "start": "2026-11-05T14:40:57.128785881Z",
+          "name": "G1Old",
+          "cause": "G1 Humongous Allocation",
+          "duration_seconds": 2.449957171,
+          "pause_seconds": 0.0
+        },
+        {
+          "start": "2026-11-05T14:40:59.798530486Z",
+          "name": "G1Old",
+          "cause": "G1 Humongous Allocation",
+          "duration_seconds": 2.241827474,
+          "pause_seconds": 0.0
+        },
+        {
+          "start": "2026-11-05T14:41:04.598609143Z",
+          "name": "G1Old",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 2.152638762,
+          "pause_seconds": 0.0
+        },
+        {
+          "start": "2026-11-05T14:41:06.783199190Z",
+          "name": "G1Old",
+          "cause": "G1 Humongous Allocation",
+          "duration_seconds": 2.068304139,
+          "pause_seconds": 0.0
+        },
+        {
+          "start": "2026-11-05T14:41:11.060998404Z",
+          "name": "G1Old",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 1.84938283,
+          "pause_seconds": 0.0
+        },
+        {
+          "start": "2026-11-05T14:41:13.047723239Z",
+          "name": "G1Old",
+          "cause": "G1 Humongous Allocation",
+          "duration_seconds": 1.912655052,
+          "pause_seconds": 0.0
+        },
+        {
+          "start": "2026-11-05T14:41:17.053548167Z",
+          "name": "G1Old",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 1.868571271,
+          "pause_seconds": 0.0
+        },
+        {
+          "start": "2026-11-05T14:41:20.954173502Z",
+          "name": "G1Old",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 1.850678492,
+          "pause_seconds": 0.0
+        },
+        {
+          "start": "2026-11-05T14:41:24.880613728Z",
+          "name": "G1Old",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 1.917674974,
+          "pause_seconds": 0.0
+        },
+        {
+          "start": "2026-11-05T14:41:26.829624734Z",
+          "name": "G1Old",
+          "cause": "G1 Humongous Allocation",
+          "duration_seconds": 1.955633463,
+          "pause_seconds": 0.0
+        },
+        {
+          "start": "2026-11-05T14:41:26.883042563Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.90196966,
+          "pause_seconds": 1.90196966
+        },
+        {
+          "start": "2026-11-05T14:41:28.805940031Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.005838464,
+          "pause_seconds": 0.005838464
+        },
+        {
+          "start": "2026-11-05T14:41:28.811931558Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.86171158,
+          "pause_seconds": 1.86171158
+        },
+        {
+          "start": "2026-11-05T14:41:30.681514690Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.003502983,
+          "pause_seconds": 0.003502983
+        },
+        {
+          "start": "2026-11-05T14:41:30.685293459Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.906660581,
+          "pause_seconds": 1.90666058
+        },
+        {
+          "start": "2026-11-05T14:41:32.646450232Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.002366959,
+          "pause_seconds": 0.002366958
+        },
+        {
+          "start": "2026-11-05T14:41:32.648982569Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.838289071,
+          "pause_seconds": 1.838289071
+        },
+        {
+          "start": "2026-11-05T14:41:34.554441628Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.006609394,
+          "pause_seconds": 0.006609393
+        },
+        {
+          "start": "2026-11-05T14:41:38.445868580Z",
+          "name": "G1Old",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 1.880625112,
+          "pause_seconds": 0.0
+        },
+        {
+          "start": "2026-11-05T14:41:42.281129676Z",
+          "name": "G1Old",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 1.898086844,
+          "pause_seconds": 0.0
+        },
+        {
+          "start": "2026-11-05T14:41:46.120877918Z",
+          "name": "G1Old",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 1.881144332,
+          "pause_seconds": 0.0
+        },
+        {
+          "start": "2026-11-05T14:41:40.375689523Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.87993898,
+          "pause_seconds": 1.87993898
+        },
+        {
+          "start": "2026-11-05T14:41:42.273381481Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.007602405,
+          "pause_seconds": 0.007602404
+        },
+        {
+          "start": "2026-11-05T14:41:42.281364271Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.897575517,
+          "pause_seconds": 1.897575517
+        },
+        {
+          "start": "2026-11-05T14:41:44.204865599Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.010187955,
+          "pause_seconds": 0.010187955
+        },
+        {
+          "start": "2026-11-05T14:41:44.215219525Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.863631431,
+          "pause_seconds": 1.863631431
+        },
+        {
+          "start": "2026-11-05T14:41:46.111140711Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.009622836,
+          "pause_seconds": 0.009622835
+        },
+        {
+          "start": "2026-11-05T14:41:46.121088336Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.880686424,
+          "pause_seconds": 1.880686424
+        },
+        {
+          "start": "2026-11-05T14:41:36.521417571Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.007003485,
+          "pause_seconds": 0.007003485
+        },
+        {
+          "start": "2026-11-05T14:41:36.528605297Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.856310813,
+          "pause_seconds": 1.856310813
+        },
+        {
+          "start": "2026-11-05T14:41:38.435960253Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.009801775,
+          "pause_seconds": 0.009801775
+        },
+        {
+          "start": "2026-11-05T14:41:38.446067686Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.880177466,
+          "pause_seconds": 1.880177466
+        },
+        {
+          "start": "2026-11-05T14:41:40.361498409Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.013999206,
+          "pause_seconds": 0.013999205
+        },
+        {
+          "start": "2026-11-05T14:41:49.917680062Z",
+          "name": "G1Old",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 1.860925892,
+          "pause_seconds": 0.0
+        },
+        {
+          "start": "2026-11-05T14:41:53.724261371Z",
+          "name": "G1Old",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 1.884327802,
+          "pause_seconds": 0.0
+        },
+        {
+          "start": "2026-11-05T14:41:57.498243383Z",
+          "name": "G1Old",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 1.882752546,
+          "pause_seconds": 0.0
+        },
+        {
+          "start": "2026-11-05T14:42:01.301957639Z",
+          "name": "G1Old",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 1.885708515,
+          "pause_seconds": 0.0
+        },
+        {
+          "start": "2026-11-05T14:42:05.123888614Z",
+          "name": "G1Old",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 1.899838861,
+          "pause_seconds": 0.0
+        },
+        {
+          "start": "2026-11-05T14:42:07.031610207Z",
+          "name": "G1Old",
+          "cause": "G1 Humongous Allocation",
+          "duration_seconds": 1.864274827,
+          "pause_seconds": 0.0
+        },
+        {
+          "start": "2026-11-05T14:42:10.810422019Z",
+          "name": "G1Old",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 1.876823756,
+          "pause_seconds": 0.0
+        },
+        {
+          "start": "2026-11-05T14:42:14.623305998Z",
+          "name": "G1Old",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 1.871720788,
+          "pause_seconds": 0.0
+        },
+        {
+          "start": "2026-11-05T14:42:18.394495219Z",
+          "name": "G1Old",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 1.872534927,
+          "pause_seconds": 0.0
+        },
+        {
+          "start": "2026-11-05T14:42:14.619696217Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.003493678,
+          "pause_seconds": 0.003493678
+        },
+        {
+          "start": "2026-11-05T14:42:14.623520884Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.87122471,
+          "pause_seconds": 1.87122471
+        },
+        {
+          "start": "2026-11-05T14:42:16.503857221Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.002440033,
+          "pause_seconds": 0.002440032
+        },
+        {
+          "start": "2026-11-05T14:42:16.506445512Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.873345877,
+          "pause_seconds": 1.873345876
+        },
+        {
+          "start": "2026-11-05T14:42:18.392001410Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.002383696,
+          "pause_seconds": 0.002383695
+        },
+        {
+          "start": "2026-11-05T14:42:18.394715498Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.872076567,
+          "pause_seconds": 1.872076566
+        },
+        {
+          "start": "2026-11-05T14:41:48.009210636Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.001789532,
+          "pause_seconds": 0.001789531
+        },
+        {
+          "start": "2026-11-05T14:41:48.011134630Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.873710258,
+          "pause_seconds": 1.873710258
+        },
+        {
+          "start": "2026-11-05T14:41:49.913275477Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.004298434,
+          "pause_seconds": 0.004298434
+        },
+        {
+          "start": "2026-11-05T14:41:49.917891148Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.860437925,
+          "pause_seconds": 1.860437925
+        },
+        {
+          "start": "2026-11-05T14:41:51.812413926Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.004621845,
+          "pause_seconds": 0.004621845
+        },
+        {
+          "start": "2026-11-05T14:41:51.817190189Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.864705372,
+          "pause_seconds": 1.864705372
+        },
+        {
+          "start": "2026-11-05T14:41:53.717797016Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.00633802,
+          "pause_seconds": 0.00633802
+        },
+        {
+          "start": "2026-11-05T14:41:53.724495173Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.883820736,
+          "pause_seconds": 1.883820735
+        },
+        {
+          "start": "2026-11-05T14:41:55.619935901Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.004962257,
+          "pause_seconds": 0.004962256
+        },
+        {
+          "start": "2026-11-05T14:41:55.625038421Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.850448956,
+          "pause_seconds": 1.850448955
+        },
+        {
+          "start": "2026-11-05T14:41:57.491824698Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.006317963,
+          "pause_seconds": 0.006317963
+        },
+        {
+          "start": "2026-11-05T14:41:57.498434170Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.882334042,
+          "pause_seconds": 1.882334042
+        },
+        {
+          "start": "2026-11-05T14:41:59.395388711Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.004093765,
+          "pause_seconds": 0.004093765
+        },
+        {
+          "start": "2026-11-05T14:41:59.399627429Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.865717947,
+          "pause_seconds": 1.865717947
+        },
+        {
+          "start": "2026-11-05T14:42:01.288556444Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.01327696,
+          "pause_seconds": 0.01327696
+        },
+        {
+          "start": "2026-11-05T14:42:01.302258577Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.885168363,
+          "pause_seconds": 1.885168363
+        },
+        {
+          "start": "2026-11-05T14:42:03.192144217Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.003377539,
+          "pause_seconds": 0.003377538
+        },
+        {
+          "start": "2026-11-05T14:42:03.195661197Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.909752358,
+          "pause_seconds": 1.909752358
+        },
+        {
+          "start": "2026-11-05T14:42:05.119043932Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.004734277,
+          "pause_seconds": 0.004734276
+        },
+        {
+          "start": "2026-11-05T14:42:05.124070894Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.899326217,
+          "pause_seconds": 1.899326217
+        },
+        {
+          "start": "2026-11-05T14:42:07.029073203Z",
+          "name": "G1New",
+          "cause": "G1 Humongous Allocation",
+          "duration_seconds": 0.002422114,
+          "pause_seconds": 0.002422113
+        },
+        {
+          "start": "2026-11-05T14:42:07.037182898Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.002790474,
+          "pause_seconds": 0.002790474
+        },
+        {
+          "start": "2026-11-05T14:42:07.040123695Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.855533835,
+          "pause_seconds": 1.855533834
+        },
+        {
+          "start": "2026-11-05T14:42:08.907371135Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.006994528,
+          "pause_seconds": 0.006994528
+        },
+        {
+          "start": "2026-11-05T14:42:08.914594045Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.886564844,
+          "pause_seconds": 1.886564844
+        },
+        {
+          "start": "2026-11-05T14:42:10.806477373Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.003803743,
+          "pause_seconds": 0.003803743
+        },
+        {
+          "start": "2026-11-05T14:42:10.810553792Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.876442627,
+          "pause_seconds": 1.876442626
+        },
+        {
+          "start": "2026-11-05T14:42:12.698201477Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.004279427,
+          "pause_seconds": 0.004279426
+        },
+        {
+          "start": "2026-11-05T14:42:12.702625156Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.905635944,
+          "pause_seconds": 1.905635944
+        },
+        {
+          "start": "2026-11-05T14:42:22.154504168Z",
+          "name": "G1Old",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 1.867332448,
+          "pause_seconds": 0.0
+        },
+        {
+          "start": "2026-11-05T14:42:26.136247644Z",
+          "name": "G1Old",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 1.920179535,
+          "pause_seconds": 0.0
+        },
+        {
+          "start": "2026-11-05T14:42:29.963930601Z",
+          "name": "G1Old",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 1.889973234,
+          "pause_seconds": 0.0
+        },
+        {
+          "start": "2026-11-05T14:42:33.768284965Z",
+          "name": "G1Old",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 1.879296133,
+          "pause_seconds": 0.0
+        },
+        {
+          "start": "2026-11-05T14:42:31.868480010Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.88185818,
+          "pause_seconds": 1.88185818
+        },
+        {
+          "start": "2026-11-05T14:42:33.764311664Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.003853965,
+          "pause_seconds": 0.003853964
+        },
+        {
+          "start": "2026-11-05T14:42:33.768502741Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.878670656,
+          "pause_seconds": 1.878670656
+        },
+        {
+          "start": "2026-11-05T14:42:20.273304755Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.001562157,
+          "pause_seconds": 0.001562156
+        },
+        {
+          "start": "2026-11-05T14:42:20.275039699Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.853525962,
+          "pause_seconds": 1.853525961
+        },
+        {
+          "start": "2026-11-05T14:42:22.149840221Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.004531575,
+          "pause_seconds": 0.004531575
+        },
+        {
+          "start": "2026-11-05T14:42:22.154711331Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.866828132,
+          "pause_seconds": 1.866828131
+        },
+        {
+          "start": "2026-11-05T14:42:24.034604176Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.004651117,
+          "pause_seconds": 0.004651116
+        },
+        {
+          "start": "2026-11-05T14:42:24.039421201Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 2.053111028,
+          "pause_seconds": 2.053111028
+        },
+        {
+          "start": "2026-11-05T14:42:26.129976746Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.00616892,
+          "pause_seconds": 0.00616892
+        },
+        {
+          "start": "2026-11-05T14:42:26.136469405Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.919690471,
+          "pause_seconds": 1.91969047
+        },
+        {
+          "start": "2026-11-05T14:42:28.074854350Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.003719656,
+          "pause_seconds": 0.003719656
+        },
+        {
+          "start": "2026-11-05T14:42:28.078725470Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.874394703,
+          "pause_seconds": 1.874394702
+        },
+        {
+          "start": "2026-11-05T14:42:29.959807661Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.004014891,
+          "pause_seconds": 0.00401489
+        },
+        {
+          "start": "2026-11-05T14:42:29.964139337Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.889456192,
+          "pause_seconds": 1.889456191
+        },
+        {
+          "start": "2026-11-05T14:42:31.863997697Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.004337996,
+          "pause_seconds": 0.004337996
+        },
+        {
+          "start": "2026-11-05T14:42:35.666139970Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.003222871,
+          "pause_seconds": 0.003222871
+        },
+        {
+          "start": "2026-11-05T14:42:35.669500253Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.83195142,
+          "pause_seconds": 1.831951419
+        },
+        {
+          "start": "2026-11-05T14:42:37.501593575Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 2.994000003,
+          "pause_seconds": 2.994000003
+        },
+        {
+          "start": "2026-11-05T14:42:40.507057231Z",
+          "name": "G1Old",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 1.902252373,
+          "pause_seconds": 0.0
+        },
+        {
+          "start": "2026-11-05T14:42:44.354833494Z",
+          "name": "G1Old",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 1.884828544,
+          "pause_seconds": 0.0
+        },
+        {
+          "start": "2026-11-05T14:42:48.139576859Z",
+          "name": "G1Old",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 1.895159445,
+          "pause_seconds": 0.0
+        },
+        {
+          "start": "2026-11-05T14:42:54.441635690Z",
+          "name": "G1Old",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 4.216484988,
+          "pause_seconds": 0.0
+        },
+        {
+          "start": "2026-11-05T14:43:00.577031105Z",
+          "name": "G1Old",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 1.916864414,
+          "pause_seconds": 0.0
+        },
+        {
+          "start": "2026-11-05T14:43:07.040320683Z",
+          "name": "G1Old",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 4.265951032,
+          "pause_seconds": 0.0
+        },
+        {
+          "start": "2026-11-05T14:43:15.807317886Z",
+          "name": "G1Old",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 1.883229304,
+          "pause_seconds": 0.0
+        },
+        {
+          "start": "2026-11-05T14:43:17.709541283Z",
+          "name": "G1New",
+          "cause": "G1 Humongous Allocation",
+          "duration_seconds": 0.002537855,
+          "pause_seconds": 0.002537855
+        },
+        {
+          "start": "2026-11-05T14:42:40.503251216Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.003695822,
+          "pause_seconds": 0.003695821
+        },
+        {
+          "start": "2026-11-05T14:42:40.507312329Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.90159654,
+          "pause_seconds": 1.90159654
+        },
+        {
+          "start": "2026-11-05T14:42:42.430468520Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.005630543,
+          "pause_seconds": 0.005630543
+        },
+        {
+          "start": "2026-11-05T14:42:42.436291663Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.898569462,
+          "pause_seconds": 1.898569461
+        },
+        {
+          "start": "2026-11-05T14:42:44.349283929Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.00543447,
+          "pause_seconds": 0.005434469
+        },
+        {
+          "start": "2026-11-05T14:42:44.355065241Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.884319474,
+          "pause_seconds": 1.884319473
+        },
+        {
+          "start": "2026-11-05T14:42:46.243867974Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.004497292,
+          "pause_seconds": 0.004497292
+        },
+        {
+          "start": "2026-11-05T14:42:46.248518260Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.880557062,
+          "pause_seconds": 1.880557061
+        },
+        {
+          "start": "2026-11-05T14:42:48.133389325Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.006081689,
+          "pause_seconds": 0.006081688
+        },
+        {
+          "start": "2026-11-05T14:42:48.139797998Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.894676085,
+          "pause_seconds": 1.894676085
+        },
+        {
+          "start": "2026-11-05T14:42:50.047200400Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.010467572,
+          "pause_seconds": 0.010467572
+        },
+        {
+          "start": "2026-11-05T14:42:50.057828632Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.874417296,
+          "pause_seconds": 1.874417296
+        },
+        {
+          "start": "2026-11-05T14:42:51.932414418Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 2.503232156,
+          "pause_seconds": 2.503232156
+        },
+        {
+          "start": "2026-11-05T14:42:54.439083930Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.002361572,
+          "pause_seconds": 0.002361572
+        },
+        {
+          "start": "2026-11-05T14:42:54.441865140Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.856773955,
+          "pause_seconds": 1.856773954
+        },
+        {
+          "start": "2026-11-05T14:42:56.298778497Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 2.359075886,
+          "pause_seconds": 2.359075886
+        },
+        {
+          "start": "2026-11-05T14:42:58.658527889Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.001199094,
+          "pause_seconds": 0.001199093
+        },
+        {
+          "start": "2026-11-05T14:42:58.659847964Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.894265919,
+          "pause_seconds": 1.894265918
+        },
+        {
+          "start": "2026-11-05T14:43:00.567103736Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.009784341,
+          "pause_seconds": 0.00978434
+        },
+        {
+          "start": "2026-11-05T14:43:00.577164674Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.916472139,
+          "pause_seconds": 1.916472138
+        },
+        {
+          "start": "2026-11-05T14:43:02.547875705Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.003731505,
+          "pause_seconds": 0.003731505
+        },
+        {
+          "start": "2026-11-05T14:43:02.551852532Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.91421679,
+          "pause_seconds": 1.91421679
+        },
+        {
+          "start": "2026-11-05T14:43:04.466215155Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 2.571426609,
+          "pause_seconds": 2.571426608
+        },
+        {
+          "start": "2026-11-05T14:43:07.038083246Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.002091074,
+          "pause_seconds": 0.002091073
+        },
+        {
+          "start": "2026-11-05T14:43:07.040543804Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.896355757,
+          "pause_seconds": 1.896355757
+        },
+        {
+          "start": "2026-11-05T14:43:08.937057577Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 2.368800589,
+          "pause_seconds": 2.368800589
+        },
+        {
+          "start": "2026-11-05T14:43:11.315595967Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.001577972,
+          "pause_seconds": 0.001577971
+        },
+        {
+          "start": "2026-11-05T14:43:11.317338566Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.924738684,
+          "pause_seconds": 1.924738683
+        },
+        {
+          "start": "2026-11-05T14:43:13.242229542Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 2.562183213,
+          "pause_seconds": 2.562183213
+        },
+        {
+          "start": "2026-11-05T14:43:15.804893889Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.002320414,
+          "pause_seconds": 0.002320414
+        },
+        {
+          "start": "2026-11-05T14:43:15.807534861Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.882763606,
+          "pause_seconds": 1.882763606
+        },
+        {
+          "start": "2026-11-05T14:43:17.712186902Z",
+          "name": "G1Old",
+          "cause": "G1 Humongous Allocation",
+          "duration_seconds": 1.915190422,
+          "pause_seconds": 0.0
+        },
+        {
+          "start": "2026-11-05T14:43:24.015693619Z",
+          "name": "G1Old",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 8.828393781,
+          "pause_seconds": 0.0
+        },
+        {
+          "start": "2026-11-05T14:43:34.745811107Z",
+          "name": "G1Old",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 4.287163526,
+          "pause_seconds": 0.0
+        },
+        {
+          "start": "2026-11-05T14:43:43.291579925Z",
+          "name": "G1Old",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 8.578659835,
+          "pause_seconds": 0.0
+        },
+        {
+          "start": "2026-11-05T14:43:51.874092380Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.00165954,
+          "pause_seconds": 0.001659539
+        },
+        {
+          "start": "2026-11-05T14:43:51.875914162Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.873747755,
+          "pause_seconds": 1.873747755
+        },
+        {
+          "start": "2026-11-05T14:43:17.723954102Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.006284933,
+          "pause_seconds": 0.006284933
+        },
+        {
+          "start": "2026-11-05T14:43:17.730379592Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.896393371,
+          "pause_seconds": 1.896393371
+        },
+        {
+          "start": "2026-11-05T14:43:19.638962262Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.009740856,
+          "pause_seconds": 0.009740855
+        },
+        {
+          "start": "2026-11-05T14:43:19.648852660Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.870935571,
+          "pause_seconds": 1.870935571
+        },
+        {
+          "start": "2026-11-05T14:43:21.519935445Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 2.484589124,
+          "pause_seconds": 2.484589124
+        },
+        {
+          "start": "2026-11-05T14:43:24.010190489Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.005383858,
+          "pause_seconds": 0.005383858
+        },
+        {
+          "start": "2026-11-05T14:43:24.015916361Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.907354815,
+          "pause_seconds": 1.907354814
+        },
+        {
+          "start": "2026-11-05T14:43:25.923446326Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 2.517607984,
+          "pause_seconds": 2.517607984
+        },
+        {
+          "start": "2026-11-05T14:43:28.441450245Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.001493465,
+          "pause_seconds": 0.001493465
+        },
+        {
+          "start": "2026-11-05T14:43:28.443088823Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.890246494,
+          "pause_seconds": 1.890246494
+        },
+        {
+          "start": "2026-11-05T14:43:30.333474460Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 2.510338403,
+          "pause_seconds": 2.510338403
+        },
+        {
+          "start": "2026-11-05T14:43:32.844183064Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.001357059,
+          "pause_seconds": 0.001357059
+        },
+        {
+          "start": "2026-11-05T14:43:32.845688433Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.883671624,
+          "pause_seconds": 1.883671624
+        },
+        {
+          "start": "2026-11-05T14:43:34.738635059Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.007067839,
+          "pause_seconds": 0.007067839
+        },
+        {
+          "start": "2026-11-05T14:43:34.746032788Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.894805111,
+          "pause_seconds": 1.894805111
+        },
+        {
+          "start": "2026-11-05T14:43:36.641009417Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 2.391684715,
+          "pause_seconds": 2.391684715
+        },
+        {
+          "start": "2026-11-05T14:43:39.033096019Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.001555302,
+          "pause_seconds": 0.001555302
+        },
+        {
+          "start": "2026-11-05T14:43:39.034792642Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.858130019,
+          "pause_seconds": 1.858130019
+        },
+        {
+          "start": "2026-11-05T14:43:40.893080748Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 2.39569085,
+          "pause_seconds": 2.395690849
+        },
+        {
+          "start": "2026-11-05T14:43:43.289261854Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.002204414,
+          "pause_seconds": 0.002204414
+        },
+        {
+          "start": "2026-11-05T14:43:43.291803642Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.873878252,
+          "pause_seconds": 1.873878251
+        },
+        {
+          "start": "2026-11-05T14:43:45.165844600Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 2.478360424,
+          "pause_seconds": 2.478360424
+        },
+        {
+          "start": "2026-11-05T14:43:47.644527554Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.001325931,
+          "pause_seconds": 0.00132593
+        },
+        {
+          "start": "2026-11-05T14:43:47.646002288Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.885700191,
+          "pause_seconds": 1.88570019
+        },
+        {
+          "start": "2026-11-05T14:43:49.531842071Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 2.338169334,
+          "pause_seconds": 2.338169333
+        },
+        {
+          "start": "2026-11-05T14:44:37.476638003Z",
+          "name": "G1Old",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 4.200509228,
+          "pause_seconds": 0.0
+        },
+        {
+          "start": "2026-11-05T14:44:43.570209833Z",
+          "name": "G1Old",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 4.23752141,
+          "pause_seconds": 0.0
+        },
+        {
+          "start": "2026-11-05T14:44:52.146633717Z",
+          "name": "G1Old",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 4.239580377,
+          "pause_seconds": 0.0
+        },
+        {
+          "start": "2026-11-05T14:45:00.552886786Z",
+          "name": "G1Old",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 4.296207212,
+          "pause_seconds": 0.0
+        },
+        {
+          "start": "2026-11-05T14:45:09.077428890Z",
+          "name": "G1Old",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 4.232939332,
+          "pause_seconds": 0.0
+        },
+        {
+          "start": "2026-11-05T14:45:15.196837896Z",
+          "name": "G1New",
+          "cause": "G1 Humongous Allocation",
+          "duration_seconds": 0.002647684,
+          "pause_seconds": 0.002647684
+        },
+        {
+          "start": "2026-11-05T14:43:53.754943100Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.004084588,
+          "pause_seconds": 0.004084587
+        },
+        {
+          "start": "2026-11-05T14:43:53.759178438Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.878839572,
+          "pause_seconds": 1.878839571
+        },
+        {
+          "start": "2026-11-05T14:43:55.643619257Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.003252003,
+          "pause_seconds": 0.003252003
+        },
+        {
+          "start": "2026-11-05T14:43:55.647016479Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.860913668,
+          "pause_seconds": 1.860913668
+        },
+        {
+          "start": "2026-11-05T14:43:57.508107170Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 2.369563753,
+          "pause_seconds": 2.369563753
+        },
+        {
+          "start": "2026-11-05T14:43:59.880562304Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.002575081,
+          "pause_seconds": 0.00257508
+        },
+        {
+          "start": "2026-11-05T14:43:59.883453411Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.861769662,
+          "pause_seconds": 1.861769661
+        },
+        {
+          "start": "2026-11-05T14:44:01.745367899Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 2.475792235,
+          "pause_seconds": 2.475792234
+        },
+        {
+          "start": "2026-11-05T14:44:04.223909131Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.001401392,
+          "pause_seconds": 0.001401392
+        },
+        {
+          "start": "2026-11-05T14:44:04.225441015Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.858602907,
+          "pause_seconds": 1.858602907
+        },
+        {
+          "start": "2026-11-05T14:44:06.197260772Z",
+          "name": "G1New",
+          "cause": "G1 Humongous Allocation",
+          "duration_seconds": 0.006955539,
+          "pause_seconds": 0.006955539
+        },
+        {
+          "start": "2026-11-05T14:44:06.204479542Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.879318049,
+          "pause_seconds": 1.879318048
+        },
+        {
+          "start": "2026-11-05T14:44:08.091613979Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.004601377,
+          "pause_seconds": 0.004601376
+        },
+        {
+          "start": "2026-11-05T14:44:08.096365989Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.886667387,
+          "pause_seconds": 1.886667386
+        },
+        {
+          "start": "2026-11-05T14:44:09.983175269Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 2.548827409,
+          "pause_seconds": 2.548827409
+        },
+        {
+          "start": "2026-11-05T14:44:12.532479188Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.002601335,
+          "pause_seconds": 0.002601335
+        },
+        {
+          "start": "2026-11-05T14:44:12.535478825Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.877626321,
+          "pause_seconds": 1.877626321
+        },
+        {
+          "start": "2026-11-05T14:44:14.413244982Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 2.46697958,
+          "pause_seconds": 2.466979579
+        },
+        {
+          "start": "2026-11-05T14:44:16.880818695Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.00137635,
+          "pause_seconds": 0.00137635
+        },
+        {
+          "start": "2026-11-05T14:44:16.882325124Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.866626023,
+          "pause_seconds": 1.866626022
+        },
+        {
+          "start": "2026-11-05T14:44:18.754562708Z",
+          "name": "G1New",
+          "cause": "GCLocker Initiated GC",
+          "duration_seconds": 0.00333981,
+          "pause_seconds": 0.00333981
+        },
+        {
+          "start": "2026-11-05T14:44:18.758173964Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.885864277,
+          "pause_seconds": 1.885864276
+        },
+        {
+          "start": "2026-11-05T14:44:20.647881285Z",
+          "name": "G1New",
+          "cause": "G1 Humongous Allocation",
+          "duration_seconds": 0.003186215,
+          "pause_seconds": 0.003186214
+        },
+        {
+          "start": "2026-11-05T14:44:20.651438066Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.889367826,
+          "pause_seconds": 1.889367826
+        },
+        {
+          "start": "2026-11-05T14:44:22.541073457Z",
+          "name": "G1New",
+          "cause": "G1 Humongous Allocation",
+          "duration_seconds": 0.002572772,
+          "pause_seconds": 0.002572772
+        },
+        {
+          "start": "2026-11-05T14:44:22.543782538Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.876934587,
+          "pause_seconds": 1.876934586
+        },
+        {
+          "start": "2026-11-05T14:44:24.420865158Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 2.556904149,
+          "pause_seconds": 2.556904149
+        },
+        {
+          "start": "2026-11-05T14:44:26.978131850Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.001432342,
+          "pause_seconds": 0.001432341
+        },
+        {
+          "start": "2026-11-05T14:44:26.979810979Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.877881649,
+          "pause_seconds": 1.877881648
+        },
+        {
+          "start": "2026-11-05T14:43:53.759293297Z",
+          "name": "G1Old",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 1.879008574,
+          "pause_seconds": 0.0
+        },
+        {
+          "start": "2026-11-05T14:43:59.883242242Z",
+          "name": "G1Old",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 4.338198988,
+          "pause_seconds": 0.0
+        },
+        {
+          "start": "2026-11-05T14:44:06.204317014Z",
+          "name": "G1Old",
+          "cause": "G1 Humongous Allocation",
+          "duration_seconds": 1.879794721,
+          "pause_seconds": 0.0
+        },
+        {
+          "start": "2026-11-05T14:44:12.535202036Z",
+          "name": "G1Old",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 4.34531973,
+          "pause_seconds": 0.0
+        },
+        {
+          "start": "2026-11-05T14:44:18.758031169Z",
+          "name": "G1Old",
+          "cause": "GCLocker Initiated GC",
+          "duration_seconds": 1.886261084,
+          "pause_seconds": 0.0
+        },
+        {
+          "start": "2026-11-05T14:44:20.651181113Z",
+          "name": "G1Old",
+          "cause": "G1 Humongous Allocation",
+          "duration_seconds": 6.326826487,
+          "pause_seconds": 0.0
+        },
+        {
+          "start": "2026-11-05T14:44:31.221247875Z",
+          "name": "G1Old",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 1.861355368,
+          "pause_seconds": 0.0
+        },
+        {
+          "start": "2026-11-05T14:44:28.857911370Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 2.35992956,
+          "pause_seconds": 2.359929559
+        },
+        {
+          "start": "2026-11-05T14:44:31.218474466Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.00266699,
+          "pause_seconds": 0.002666989
+        },
+        {
+          "start": "2026-11-05T14:44:31.221506830Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.860861441,
+          "pause_seconds": 1.86086144
+        },
+        {
+          "start": "2026-11-05T14:44:33.088894123Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.00237056,
+          "pause_seconds": 0.00237056
+        },
+        {
+          "start": "2026-11-05T14:44:33.091474461Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.87087537,
+          "pause_seconds": 1.870875369
+        },
+        {
+          "start": "2026-11-05T14:44:34.962511067Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 2.507983042,
+          "pause_seconds": 2.507983041
+        },
+        {
+          "start": "2026-11-05T14:44:37.473947178Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.002587129,
+          "pause_seconds": 0.002587129
+        },
+        {
+          "start": "2026-11-05T14:44:37.476853850Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.846573163,
+          "pause_seconds": 1.846573162
+        },
+        {
+          "start": "2026-11-05T14:44:39.323576459Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 2.353290314,
+          "pause_seconds": 2.353290314
+        },
+        {
+          "start": "2026-11-05T14:44:41.677336448Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.001267322,
+          "pause_seconds": 0.001267322
+        },
+        {
+          "start": "2026-11-05T14:44:41.678767925Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.883234728,
+          "pause_seconds": 1.883234728
+        },
+        {
+          "start": "2026-11-05T14:44:43.567558096Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.002552507,
+          "pause_seconds": 0.002552507
+        },
+        {
+          "start": "2026-11-05T14:44:43.570418601Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.868475339,
+          "pause_seconds": 1.868475339
+        },
+        {
+          "start": "2026-11-05T14:44:45.439036272Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 2.367864019,
+          "pause_seconds": 2.367864018
+        },
+        {
+          "start": "2026-11-05T14:44:47.807958461Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.001285182,
+          "pause_seconds": 0.001285182
+        },
+        {
+          "start": "2026-11-05T14:44:47.809383706Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.873283965,
+          "pause_seconds": 1.873283964
+        },
+        {
+          "start": "2026-11-05T14:44:49.682836922Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 2.461155306,
+          "pause_seconds": 2.461155305
+        },
+        {
+          "start": "2026-11-05T14:44:52.144320548Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.002208217,
+          "pause_seconds": 0.002208217
+        },
+        {
+          "start": "2026-11-05T14:44:52.146857139Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.878339112,
+          "pause_seconds": 1.878339112
+        },
+        {
+          "start": "2026-11-05T14:44:54.025333326Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 2.360641506,
+          "pause_seconds": 2.360641505
+        },
+        {
+          "start": "2026-11-05T14:44:56.386482896Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.001325623,
+          "pause_seconds": 0.001325622
+        },
+        {
+          "start": "2026-11-05T14:44:56.387946825Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.829069133,
+          "pause_seconds": 1.829069133
+        },
+        {
+          "start": "2026-11-05T14:44:58.217175599Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 2.33175753,
+          "pause_seconds": 2.331757529
+        },
+        {
+          "start": "2026-11-05T14:45:00.549907656Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.002849665,
+          "pause_seconds": 0.002849664
+        },
+        {
+          "start": "2026-11-05T14:45:00.553138615Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.880540805,
+          "pause_seconds": 1.880540805
+        },
+        {
+          "start": "2026-11-05T14:45:02.433882955Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 2.414952153,
+          "pause_seconds": 2.414952153
+        },
+        {
+          "start": "2026-11-05T14:45:04.849514055Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.001312006,
+          "pause_seconds": 0.001312006
+        },
+        {
+          "start": "2026-11-05T14:45:04.850969106Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.864932369,
+          "pause_seconds": 1.864932368
+        },
+        {
+          "start": "2026-11-05T14:45:06.716046682Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 2.358300029,
+          "pause_seconds": 2.358300029
+        },
+        {
+          "start": "2026-11-05T14:45:09.074692653Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.002627136,
+          "pause_seconds": 0.002627136
+        },
+        {
+          "start": "2026-11-05T14:45:09.077690917Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.872173389,
+          "pause_seconds": 1.872173388
+        },
+        {
+          "start": "2026-11-05T14:45:10.950033545Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 2.360057613,
+          "pause_seconds": 2.360057613
+        },
+        {
+          "start": "2026-11-05T14:45:13.311236740Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.001291899,
+          "pause_seconds": 0.001291898
+        },
+        {
+          "start": "2026-11-05T14:45:13.313052473Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.84381153,
+          "pause_seconds": 1.84381153
+        },
+        {
+          "start": "2026-11-05T14:45:15.199588579Z",
+          "name": "G1Old",
+          "cause": "G1 Humongous Allocation",
+          "duration_seconds": 1.913367192,
+          "pause_seconds": 0.0
+        },
+        {
+          "start": "2026-11-05T14:45:21.496192243Z",
+          "name": "G1Old",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 4.238184933,
+          "pause_seconds": 0.0
+        },
+        {
+          "start": "2026-11-05T14:45:27.627962833Z",
+          "name": "G1Old",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 4.405377543,
+          "pause_seconds": 0.0
+        },
+        {
+          "start": "2026-11-05T14:45:33.917872827Z",
+          "name": "G1Old",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 4.209807094,
+          "pause_seconds": 0.0
+        },
+        {
+          "start": "2026-11-05T14:45:40.007222253Z",
+          "name": "G1Old",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 1.897221236,
+          "pause_seconds": 0.0
+        },
+        {
+          "start": "2026-11-05T14:45:35.789270884Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 2.337254474,
+          "pause_seconds": 2.337254473
+        },
+        {
+          "start": "2026-11-05T14:45:38.128537157Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.001912569,
+          "pause_seconds": 0.001912568
+        },
+        {
+          "start": "2026-11-05T14:45:38.130600869Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.865246444,
+          "pause_seconds": 1.865246443
+        },
+        {
+          "start": "2026-11-05T14:45:40.003596675Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.003526782,
+          "pause_seconds": 0.003526782
+        },
+        {
+          "start": "2026-11-05T14:45:40.007426732Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.896625836,
+          "pause_seconds": 1.896625835
+        },
+        {
+          "start": "2026-11-05T14:45:15.214444874Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.009247532,
+          "pause_seconds": 0.009247532
+        },
+        {
+          "start": "2026-11-05T14:45:15.223890146Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.888646265,
+          "pause_seconds": 1.888646265
+        },
+        {
+          "start": "2026-11-05T14:45:17.127353220Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.007549147,
+          "pause_seconds": 0.007549147
+        },
+        {
+          "start": "2026-11-05T14:45:17.135042021Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.861115672,
+          "pause_seconds": 1.861115672
+        },
+        {
+          "start": "2026-11-05T14:45:18.996317004Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 2.496543659,
+          "pause_seconds": 2.496543658
+        },
+        {
+          "start": "2026-11-05T14:45:21.493712854Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.002341641,
+          "pause_seconds": 0.002341641
+        },
+        {
+          "start": "2026-11-05T14:45:21.496412126Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.879999284,
+          "pause_seconds": 1.879999283
+        },
+        {
+          "start": "2026-11-05T14:45:23.376712669Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 2.356372575,
+          "pause_seconds": 2.356372574
+        },
+        {
+          "start": "2026-11-05T14:45:25.734686990Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.001604436,
+          "pause_seconds": 0.001604436
+        },
+        {
+          "start": "2026-11-05T14:45:25.736462752Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.875796331,
+          "pause_seconds": 1.87579633
+        },
+        {
+          "start": "2026-11-05T14:45:27.621413773Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.006413427,
+          "pause_seconds": 0.006413427
+        },
+        {
+          "start": "2026-11-05T14:45:27.628109486Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.89655541,
+          "pause_seconds": 1.89655541
+        },
+        {
+          "start": "2026-11-05T14:45:29.524926150Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 2.508077047,
+          "pause_seconds": 2.508077046
+        },
+        {
+          "start": "2026-11-05T14:45:32.033697662Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.001600448,
+          "pause_seconds": 0.001600448
+        },
+        {
+          "start": "2026-11-05T14:45:32.035460670Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.874115939,
+          "pause_seconds": 1.874115938
+        },
+        {
+          "start": "2026-11-05T14:45:33.914209072Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.00356165,
+          "pause_seconds": 0.00356165
+        },
+        {
+          "start": "2026-11-05T14:45:33.918123818Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.870951655,
+          "pause_seconds": 1.870951655
+        },
+        {
+          "start": "2026-11-05T14:45:46.346381275Z",
+          "name": "G1Old",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 4.232186301,
+          "pause_seconds": 0.0
+        },
+        {
+          "start": "2026-11-05T14:45:54.922422948Z",
+          "name": "G1Old",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 4.411496753,
+          "pause_seconds": 0.0
+        },
+        {
+          "start": "2026-11-05T14:46:03.520644360Z",
+          "name": "G1Old",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 1.855542703,
+          "pause_seconds": 0.0
+        },
+        {
+          "start": "2026-11-05T14:46:03.520784735Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.854998243,
+          "pause_seconds": 1.854998243
+        },
+        {
+          "start": "2026-11-05T14:46:05.413303567Z",
+          "name": "G1New",
+          "cause": "G1 Humongous Allocation",
+          "duration_seconds": 0.002384127,
+          "pause_seconds": 0.002384126
+        },
+        {
+          "start": "2026-11-05T14:45:41.912532142Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.003074486,
+          "pause_seconds": 0.003074485
+        },
+        {
+          "start": "2026-11-05T14:45:41.915758208Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.85951488,
+          "pause_seconds": 1.85951488
+        },
+        {
+          "start": "2026-11-05T14:45:43.775454015Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 2.567643061,
+          "pause_seconds": 2.567643061
+        },
+        {
+          "start": "2026-11-05T14:45:46.343832676Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.002428497,
+          "pause_seconds": 0.002428496
+        },
+        {
+          "start": "2026-11-05T14:45:46.346638363Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.887979997,
+          "pause_seconds": 1.887979996
+        },
+        {
+          "start": "2026-11-05T14:45:48.234760245Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 2.343559022,
+          "pause_seconds": 2.343559022
+        },
+        {
+          "start": "2026-11-05T14:45:50.581698095Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.001359535,
+          "pause_seconds": 0.001359534
+        },
+        {
+          "start": "2026-11-05T14:45:50.583206908Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.861019084,
+          "pause_seconds": 1.861019083
+        },
+        {
+          "start": "2026-11-05T14:45:52.444363524Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 2.473875607,
+          "pause_seconds": 2.473875606
+        },
+        {
+          "start": "2026-11-05T14:45:54.919817878Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.002487213,
+          "pause_seconds": 0.002487212
+        },
+        {
+          "start": "2026-11-05T14:45:54.922650154Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.896443337,
+          "pause_seconds": 1.896443337
+        },
+        {
+          "start": "2026-11-05T14:45:56.819257235Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 2.514362775,
+          "pause_seconds": 2.514362775
+        },
+        {
+          "start": "2026-11-05T14:45:59.334055353Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.001434631,
+          "pause_seconds": 0.001434631
+        },
+        {
+          "start": "2026-11-05T14:45:59.335655870Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.865182226,
+          "pause_seconds": 1.865182226
+        },
+        {
+          "start": "2026-11-05T14:46:01.201014030Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 2.316192762,
+          "pause_seconds": 2.316192762
+        },
+        {
+          "start": "2026-11-05T14:46:03.517736142Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.002764448,
+          "pause_seconds": 0.002764447
+        },
+        {
+          "start": "2026-11-05T14:46:05.415796743Z",
+          "name": "G1Old",
+          "cause": "G1 Humongous Allocation",
+          "duration_seconds": 2.038338,
+          "pause_seconds": 0.0
+        },
+        {
+          "start": "2026-11-05T14:46:11.914504683Z",
+          "name": "G1Old",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 4.265063041,
+          "pause_seconds": 0.0
+        },
+        {
+          "start": "2026-11-05T14:46:07.489765259Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.866370771,
+          "pause_seconds": 1.86637077
+        },
+        {
+          "start": "2026-11-05T14:46:09.356278981Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 2.554263033,
+          "pause_seconds": 2.554263033
+        },
+        {
+          "start": "2026-11-05T14:46:11.911602110Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.00275613,
+          "pause_seconds": 0.00275613
+        },
+        {
+          "start": "2026-11-05T14:46:11.914643690Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.883235292,
+          "pause_seconds": 1.883235291
+        },
+        {
+          "start": "2026-11-05T14:46:13.798049222Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 2.380774786,
+          "pause_seconds": 2.380774786
+        },
+        {
+          "start": "2026-11-05T14:46:16.179995525Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.001411574,
+          "pause_seconds": 0.001411573
+        },
+        {
+          "start": "2026-11-05T14:46:16.181573700Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.843948487,
+          "pause_seconds": 1.843948486
+        },
+        {
+          "start": "2026-11-05T14:46:05.557940312Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.008553153,
+          "pause_seconds": 0.008553152
+        },
+        {
+          "start": "2026-11-05T14:46:05.566638292Z",
+          "name": "G1Full",
+          "cause": "G1 Compaction Pause",
+          "duration_seconds": 1.883629059,
+          "pause_seconds": 1.883629059
+        },
+        {
+          "start": "2026-11-05T14:46:07.480564953Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.00904974,
+          "pause_seconds": 0.00904974
+        }
+      ],
+      "jvm_cpu_fraction_of_machine": {
+        "count": 102,
+        "mean": 0.5574073221401961,
+        "p50": 0.53312803,
+        "p95": 0.9306171404799995,
+        "p99": 0.955702329206,
+        "max": 0.9611916194,
+        "sum": 56.8555468583
+      },
+      "sampled_threads": [
+        [
+          "<unnamed>",
+          5615
+        ],
+        [
+          "FileSystemWatchService",
+          3004
+        ],
+        [
+          "main",
+          706
+        ],
+        [
+          "pool-2-thread-1",
+          377
+        ],
+        [
+          "JFR Periodic Tasks",
+          205
+        ],
+        [
+          "Worker-Main-6",
+          99
+        ],
+        [
+          "pool-8-thread-1",
+          64
+        ],
+        [
+          "background-scan-handler-0",
+          54
+        ],
+        [
+          "modloading-sync-worker",
+          47
+        ],
+        [
+          "background-scan-handler-2",
+          38
+        ],
+        [
+          "Worker-Main-2",
+          31
+        ],
+        [
+          "Download-2",
+          22
+        ],
+        [
+          "Worker-Main-3",
+          21
+        ],
+        [
+          "modloading-worker-0",
+          19
+        ],
+        [
+          "Yggdrasil Key Fetcher",
+          17
+        ]
+      ],
+      "sampled_leaf_methods": [
+        [
+          "sun.nio.fs.WindowsNativeDispatcher.GetQueuedCompletionStatus0",
+          3004
+        ],
+        [
+          "java.util.Objects.equals",
+          625
+        ],
+        [
+          "org.mtr.libraries.com.google.gson.stream.JsonReader.peekNumber",
+          326
+        ],
+        [
+          "com.sun.management.internal.OperatingSystemImpl.getProcessCpuLoad0",
+          317
+        ],
+        [
+          "org.mtr.libraries.com.google.gson.stream.JsonReader.nextQuotedValue",
+          299
+        ],
+        [
+          "org.mtr.libraries.com.google.gson.stream.JsonReader.nextNonWhitespace",
+          218
+        ],
+        [
+          "org.mtr.libraries.it.unimi.dsi.fastutil.objects.ObjectArrayList.grow",
+          212
+        ],
+        [
+          "jdk.jfr.internal.JVM.emitEvent",
+          203
+        ],
+        [
+          "java.lang.StringLatin1.trim",
+          195
+        ],
+        [
+          "it.unimi.dsi.fastutil.objects.Object2ObjectArrayMap.findKey",
+          166
+        ],
+        [
+          "java.util.zip.Inflater.inflateBytesBytes",
+          166
+        ],
+        [
+          "java.util.ArrayList.grow",
+          154
+        ],
+        [
+          "net.minecraft.client.model.geom.ModelPart.render",
+          145
+        ],
+        [
+          "org.mtr.libraries.com.google.gson.internal.LinkedTreeMap.find",
+          138
+        ],
+        [
+          "org.mtr.libraries.com.google.gson.stream.JsonReader.doPeek",
+          121
+        ],
+        [
+          "it.unimi.dsi.fastutil.objects.Object2ObjectArrayMap.get",
+          118
+        ],
+        [
+          "org.lwjgl.opengl.GL11C.nglTexSubImage2D",
+          101
+        ],
+        [
+          "net.minecraft.client.model.geom.builders.PartDefinition.bake",
+          98
+        ],
+        [
+          "jdk.internal.math.FloatingDecimal$ASCIIToBinaryBuffer.doubleValue",
+          95
+        ],
+        [
+          "org.mtr.libraries.com.google.gson.stream.JsonReader.hasNext",
+          89
+        ],
+        [
+          "org.mtr.libraries.it.unimi.dsi.fastutil.objects.Object2ObjectArrayMap.put",
+          87
+        ],
+        [
+          "sun.nio.ch.FileDispatcherImpl.pread0",
+          84
+        ],
+        [
+          "java.util.Map.forEach",
+          73
+        ],
+        [
+          "org.mtr.libraries.com.google.gson.stream.JsonReader.nextString",
+          72
+        ],
+        [
+          "java.lang.Long.getChars",
+          66
+        ]
+      ],
+      "sampled_inclusive_methods": [
+        [
+          "java.lang.Thread.runWith",
+          9312
+        ],
+        [
+          "java.util.concurrent.Executors$RunnableAdapter.call",
+          5892
+        ],
+        [
+          "java.util.concurrent.FutureTask.run",
+          5542
+        ],
+        [
+          "java.lang.VirtualThread.run",
+          5453
+        ],
+        [
+          "jdk.internal.vm.Continuation.enter0",
+          5453
+        ],
+        [
+          "java.lang.VirtualThread$VThreadContinuation$1.run",
+          5453
+        ],
+        [
+          "jdk.internal.vm.Continuation.enter",
+          5449
+        ],
+        [
+          "jdk.internal.vm.Continuation.enterSpecial",
+          5428
+        ],
+        [
+          "org.mtr.model.BlockbenchModelLoader.lambda$loadModel$5",
+          4733
+        ],
+        [
+          "org.mtr.model.BlockbenchModelLoader$$Lambda.0x000001c18210a980.run",
+          4728
+        ],
+        [
+          "java.lang.Thread.run",
+          3857
+        ],
+        [
+          "sun.nio.fs.WindowsNativeDispatcher.GetQueuedCompletionStatus",
+          3004
+        ],
+        [
+          "sun.nio.fs.WindowsWatchService$Poller.run",
+          3004
+        ],
+        [
+          "sun.nio.fs.WindowsNativeDispatcher.GetQueuedCompletionStatus0",
+          3004
+        ],
+        [
+          "org.mtr.resource.VehicleModel$$Lambda.0x000001c182128d80.get",
+          2758
+        ],
+        [
+          "org.mtr.resource.VehicleModel.lambda$getModelLoaderBase$2",
+          2758
+        ],
+        [
+          "org.mtr.libraries.it.unimi.dsi.fastutil.objects.ObjectArrayList.forEach",
+          2013
+        ],
+        [
+          "org.mtr.model.BlockbenchModelLoader.lambda$loadModel$4",
+          1894
+        ],
+        [
+          "org.mtr.model.BlockbenchModelLoader$$Lambda.0x000001c18210f948.accept",
+          1876
+        ],
+        [
+          "org.mtr.libraries.com.google.gson.internal.Streams.parse",
+          1756
+        ],
+        [
+          "org.mtr.libraries.com.google.gson.JsonParser.parseReader",
+          1756
+        ],
+        [
+          "org.mtr.libraries.com.google.gson.internal.bind.JsonElementTypeAdapter.read",
+          1755
+        ],
+        [
+          "org.mtr.libraries.com.google.gson.JsonParser.parseString",
+          1752
+        ],
+        [
+          "org.mtr.core.tool.Utilities.parseJson",
+          1752
+        ],
+        [
+          "org.mtr.model.BlockbenchModelLoader.lambda$loadModel$3",
+          1645
+        ]
+      ],
+      "sampled_leaf_by_thread": {
+        "main": [
+          [
+            "org.lwjgl.opengl.GL11C.nglTexSubImage2D",
+            101
+          ],
+          [
+            "org.lwjgl.system.JNI.invokeV",
+            59
+          ],
+          [
+            "java.util.zip.Inflater.inflateBytesBytes",
+            57
+          ],
+          [
+            "sun.nio.fs.WindowsNativeDispatcher.GetVolumePathName0",
+            30
+          ],
+          [
+            "org.mtr.libraries.com.google.gson.stream.JsonReader.nextQuotedValue",
+            25
+          ],
+          [
+            "java.io.RandomAccessFile.readBytes0",
+            22
+          ],
+          [
+            "sun.nio.ch.FileDispatcherImpl.pread0",
+            17
+          ],
+          [
+            "java.lang.System.currentTimeMillis",
+            13
+          ],
+          [
+            "java.util.ArrayList.grow",
+            10
+          ],
+          [
+            "org.mtr.resource.MinecraftModelResource.equals",
+            9
+          ],
+          [
+            "org.lwjgl.system.JNI.invokePI",
+            9
+          ],
+          [
+            "java.util.Arrays.copyOf",
+            8
+          ]
+        ],
+        "ForkJoinPool.commonPool-worker-6": [
+          [
+            "jdk.nio.zipfs.ZipFileSystem$IndexNode.normalize",
+            1
+          ],
+          [
+            "java.util.HashMap.putVal",
+            1
+          ]
+        ],
+        "pool-2-thread-1": [
+          [
+            "com.sun.management.internal.OperatingSystemImpl.getProcessCpuLoad0",
+            317
+          ],
+          [
+            "org.lwjgl.system.JNI.invokePV",
+            15
+          ],
+          [
+            "java.util.concurrent.ThreadPoolExecutor.runWorker",
+            6
+          ],
+          [
+            "org.lwjgl.opengl.GL30C.glBlitFramebuffer",
+            4
+          ],
+          [
+            "sun.security.provider.SHA.implCompress0",
+            2
+          ],
+          [
+            "java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos",
+            2
+          ],
+          [
+            "java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take",
+            2
+          ],
+          [
+            "java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.unlinkCancelledWaiters",
+            2
+          ],
+          [
+            "java.util.concurrent.FutureTask.runAndReset",
+            2
+          ],
+          [
+            "java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.compareTo",
+            2
+          ],
+          [
+            "java.lang.System.nanoTime",
+            2
+          ],
+          [
+            "jdk.internal.misc.Unsafe.park",
+            2
+          ]
+        ],
+        "background-scan-handler-0": [
+          [
+            "sun.nio.ch.FileDispatcherImpl.pread0",
+            29
+          ],
+          [
+            "java.util.zip.Inflater.inflateBytesBytes",
+            10
+          ],
+          [
+            "org.objectweb.asm.ClassReader.readMethod",
+            2
+          ],
+          [
+            "java.util.HashMap.getNode",
+            2
+          ],
+          [
+            "org.objectweb.asm.ClassReader.readUtf",
+            2
+          ],
+          [
+            "org.objectweb.asm.ClassVisitor.visitNestMember",
+            1
+          ],
+          [
+            "java.util.Arrays.copyOf",
+            1
+          ],
+          [
+            "java.util.concurrent.locks.ReentrantReadWriteLock$WriteLock.lock",
+            1
+          ],
+          [
+            "org.objectweb.asm.ClassReader.readBootstrapMethodsAttribute",
+            1
+          ],
+          [
+            "java.lang.ThreadLocal$ThreadLocalMap.getEntry",
+            1
+          ],
+          [
+            "jdk.nio.zipfs.ZipPath.toAbsolutePath",
+            1
+          ],
+          [
+            "java.util.LinkedList.listIterator",
+            1
+          ]
+        ],
+        "background-scan-handler-2": [
+          [
+            "sun.nio.ch.FileDispatcherImpl.pread0",
+            10
+          ],
+          [
+            "java.util.zip.Inflater.inflateBytesBytes",
+            9
+          ],
+          [
+            "java.io.InputStream.readNBytes",
+            4
+          ],
+          [
+            "org.objectweb.asm.ClassReader.readUtf",
+            3
+          ],
+          [
+            "org.objectweb.asm.ClassReader.readStream",
+            2
+          ],
+          [
+            "java.util.Arrays.copyOf",
+            1
+          ],
+          [
+            "org.objectweb.asm.ClassReader.accept",
+            1
+          ],
+          [
+            "java.util.ArrayList.grow",
+            1
+          ],
+          [
+            "java.lang.invoke.DirectMethodHandle.checkCast",
+            1
+          ],
+          [
+            "net.neoforged.fml.loading.modscan.Scanner$$Lambda.0x000001c18134d240.accept",
+            1
+          ],
+          [
+            "java.util.Arrays.copyOfRange",
+            1
+          ],
+          [
+            "org.objectweb.asm.ClassReader.readInt",
+            1
+          ]
+        ],
+        "background-scan-handler-3": [
+          [
+            "org.objectweb.asm.ClassReader.readUtf",
+            2
+          ],
+          [
+            "sun.nio.ch.FileDispatcherImpl.pread0",
+            2
+          ],
+          [
+            "org.objectweb.asm.Type.hashCode",
+            1
+          ],
+          [
+            "java.util.stream.Sink$ChainedReference.<init>",
+            1
+          ],
+          [
+            "java.util.zip.Inflater.inflateBytesBytes",
+            1
+          ]
+        ],
+        "Datafixer Bootstrap": [
+          [
+            "java.util.HashMap.putVal",
+            1
+          ],
+          [
+            "java.lang.invoke.MethodHandle.updateForm",
+            1
+          ],
+          [
+            "com.mojang.datafixers.types.Type.everywhere",
+            1
+          ],
+          [
+            "com.mojang.datafixers.TypeRewriteRule$Seq.cap1",
+            1
+          ],
+          [
+            "com.mojang.datafixers.types.templates.Product$1.apply",
+            1
+          ],
+          [
+            "com.google.common.base.Preconditions.checkNotNull",
+            1
+          ],
+          [
+            "jdk.internal.org.objectweb.asm.ClassWriter.toByteArray",
+            1
+          ],
+          [
+            "java.lang.invoke.LambdaForm$MH.0x000001c181261000.guard",
+            1
+          ],
+          [
+            "java.util.Objects.equals",
+            1
+          ],
+          [
+            "java.lang.invoke.DirectMethodHandle$Holder.invokeStatic",
+            1
+          ],
+          [
+            "java.util.Objects.hashCode",
+            1
+          ]
+        ],
+        "pool-8-thread-1": [
+          [
+            "sun.nio.ch.FileDispatcherImpl.pread0",
+            12
+          ],
+          [
+            "org.objectweb.asm.ClassReader.readUtf",
+            4
+          ],
+          [
+            "org.objectweb.asm.ClassReader.readCode",
+            4
+          ],
+          [
+            "java.util.zip.Inflater.inflateBytesBytes",
+            3
+          ],
+          [
+            "com.google.common.collect.RegularImmutableMap.get",
+            2
+          ],
+          [
+            "net.minecraft.world.level.block.Blocks.<clinit>",
+            2
+          ],
+          [
+            "java.util.Objects.requireNonNull",
+            1
+          ],
+          [
+            "org.objectweb.asm.ClassReader.readMethod",
+            1
+          ],
+          [
+            "org.objectweb.asm.tree.ClassNode.visitInnerClass",
+            1
+          ],
+          [
+            "org.objectweb.asm.tree.MethodNode.accept",
+            1
+          ],
+          [
+            "jdk.internal.org.objectweb.asm.SymbolTable.addConstantUtf8Reference",
+            1
+          ],
+          [
+            "java.util.IdentityHashMap.resize",
+            1
+          ]
+        ],
+        "Yggdrasil Key Fetcher": [
+          [
+            "sun.nio.ch.Net.poll",
+            12
+          ],
+          [
+            "sun.security.util.math.intpoly.IntegerPolynomial25519.mult",
+            1
+          ],
+          [
+            "sun.security.util.math.intpoly.IntegerPolynomial$MutableElement.setSum",
+            1
+          ],
+          [
+            "sun.security.util.math.intpoly.IntegerPolynomialP256.carryReduce",
+            1
+          ],
+          [
+            "sun.security.provider.SHA2.implCompress0",
+            1
+          ],
+          [
+            "com.sun.crypto.provider.GHASH.blockMult",
+            1
+          ]
+        ],
+        "Download-1": [
+          [
+            "sun.nio.ch.Net.poll",
+            9
+          ],
+          [
+            "java.math.BigInteger.implMulAdd",
+            3
+          ],
+          [
+            "sun.security.util.math.intpoly.IntegerPolynomial25519.mult",
+            1
+          ],
+          [
+            "java.math.BigInteger.montReduce",
+            1
+          ],
+          [
+            "sun.security.provider.SHA2.<init>",
+            1
+          ]
+        ],
+        "Download-2": [
+          [
+            "sun.nio.ch.Net.poll",
+            21
+          ],
+          [
+            "sun.security.util.math.intpoly.IntegerPolynomial25519.carryReduce",
+            1
+          ]
+        ],
+        "modloading-worker-0": [
+          [
+            "org.objectweb.asm.ClassReader.readCode",
+            8
+          ],
+          [
+            "sun.nio.ch.FileDispatcherImpl.pread0",
+            4
+          ],
+          [
+            "org.objectweb.asm.tree.MethodNode.visitLineNumber",
+            2
+          ],
+          [
+            "org.objectweb.asm.tree.MethodNode.visitInsn",
+            1
+          ],
+          [
+            "java.util.concurrent.ConcurrentHashMap.get",
+            1
+          ],
+          [
+            "org.objectweb.asm.ClassReader.readUtf",
+            1
+          ],
+          [
+            "java.util.LinkedHashMap$LinkedHashIterator.nextNode",
+            1
+          ],
+          [
+            "java.util.zip.Inflater.inflateBytesBytes",
+            1
+          ]
+        ],
+        "modloading-sync-worker": [
+          [
+            "net.minecraft.world.phys.shapes.IndirectMerger.forMergedIndexes",
+            10
+          ],
+          [
+            "java.util.BitSet.expandTo",
+            7
+          ],
+          [
+            "net.minecraft.world.phys.shapes.BitSetDiscreteVoxelShape.lambda$join$0",
+            7
+          ],
+          [
+            "net.minecraft.world.phys.shapes.BitSetDiscreteVoxelShape.lambda$join$1",
+            4
+          ],
+          [
+            "java.util.BitSet.recalculateWordsInUse",
+            3
+          ],
+          [
+            "net.minecraft.world.phys.shapes.IndirectMerger.<init>",
+            2
+          ],
+          [
+            "net.minecraft.world.phys.shapes.DiscreteCubeMerger.forMergedIndexes",
+            2
+          ],
+          [
+            "net.minecraft.world.phys.shapes.BitSetDiscreteVoxelShape.forAllBoxes",
+            2
+          ],
+          [
+            "sun.nio.ch.FileDispatcherImpl.pread0",
+            2
+          ],
+          [
+            "com.google.common.collect.RegularImmutableMap.checkNoConflictInKeyBucket",
+            1
+          ],
+          [
+            "java.lang.AbstractStringBuilder.ensureCapacityInternal",
+            1
+          ],
+          [
+            "net.minecraft.world.phys.shapes.VoxelShape.lambda$optimize$0",
+            1
+          ]
+        ],
+        "Worker-Main-2": [
+          [
+            "net.minecraft.client.renderer.texture.MipmapGenerator.alphaBlend",
+            7
+          ],
+          [
+            "net.minecraft.client.renderer.texture.MipmapGenerator.generateMipLevels",
+            4
+          ],
+          [
+            "net.minecraft.client.renderer.texture.Stitcher$Region.add",
+            3
+          ],
+          [
+            "java.util.stream.StreamSpliterators$AbstractWrappingSpliterator.fillBuffer",
+            1
+          ],
+          [
+            "java.nio.file.FileTreeIterator.fetchNextIfNeeded",
+            1
+          ],
+          [
+            "java.nio.file.FileTreeWalker.visit",
+            1
+          ],
+          [
+            "it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap$ValueSpliterator.acceptOnIndex",
+            1
+          ],
+          [
+            "net.minecraft.resources.ResourceLocation.isValidPath",
+            1
+          ],
+          [
+            "net.minecraft.server.packs.FilePackResources.listResources",
+            1
+          ],
+          [
+            "net.minecraft.resources.ResourceLocation.validPathChar",
+            1
+          ],
+          [
+            "net.minecraft.client.resources.sounds.SoundEventRegistrationSerializer.getSounds",
+            1
+          ],
+          [
+            "java.lang.AbstractStringBuilder.appendChars",
+            1
+          ]
+        ],
+        "Worker-Main-6": [
+          [
+            "com.google.common.base.Splitter$SplittingIterator.computeNext",
+            7
+          ],
+          [
+            "net.minecraft.client.gui.font.providers.UnihexProvider.decodeHex",
+            6
+          ],
+          [
+            "java.util.HashMap.getNode",
+            5
+          ],
+          [
+            "java.util.Objects.equals",
+            5
+          ],
+          [
+            "net.minecraft.util.FastBufferedInputStream.read",
+            4
+          ],
+          [
+            "java.util.HashMap.putVal",
+            4
+          ],
+          [
+            "java.util.Collections.indexedBinarySearch",
+            4
+          ],
+          [
+            "net.minecraft.client.gui.font.providers.UnihexProvider$ShortContents.read",
+            3
+          ],
+          [
+            "java.util.HashMap$TreeNode.getTreeNode",
+            3
+          ],
+          [
+            "org.lwjgl.system.JNI.invokePI",
+            3
+          ],
+          [
+            "net.minecraft.client.gui.font.providers.UnihexProvider.copyUntil",
+            2
+          ],
+          [
+            "net.minecraft.client.gui.font.providers.UnihexProvider.readFromStream",
+            2
+          ]
+        ],
+        "Worker-Main-3": [
+          [
+            "net.minecraft.client.gui.font.CodepointMap.get",
+            10
+          ],
+          [
+            "org.lwjgl.stb.STBImage.nstbi_load_from_memory",
+            2
+          ],
+          [
+            "com.mojang.blaze3d.platform.NativeImage.makePixelArray",
+            1
+          ],
+          [
+            "net.minecraft.server.packs.FilePackResources.listResources",
+            1
+          ],
+          [
+            "java.util.jar.JavaUtilJarAccessImpl.entryFor",
+            1
+          ],
+          [
+            "java.util.TimSort.mergeAt",
+            1
+          ],
+          [
+            "it.unimi.dsi.fastutil.ints.IntOpenHashSet.add",
+            1
+          ],
+          [
+            "it.unimi.dsi.fastutil.ints.IntOpenHashSet$SetIterator.nextInt",
+            1
+          ],
+          [
+            "net.minecraft.client.gui.font.CodepointMap.forEach",
+            1
+          ],
+          [
+            "org.lwjgl.system.JNI.invokePNI",
+            1
+          ],
+          [
+            "org.lwjgl.system.JNI.invokePI",
+            1
+          ]
+        ],
+        "Worker-Main-5": [
+          [
+            "java.util.zip.Inflater.inflateBytesBytes",
+            3
+          ],
+          [
+            "net.minecraft.resources.ResourceLocation.withDefaultNamespace",
+            1
+          ],
+          [
+            "java.util.TreeMap$EntryIterator.next",
+            1
+          ],
+          [
+            "org.lwjgl.stb.STBImage.nstbi_load_from_memory",
+            1
+          ],
+          [
+            "sun.nio.ch.FileDispatcherImpl.pread0",
+            1
+          ]
+        ],
+        "Worker-Main-1": [
+          [
+            "net.minecraft.client.renderer.texture.MipmapGenerator.generateMipLevels",
+            2
+          ],
+          [
+            "org.lwjgl.stb.STBImage.nstbi_load_from_memory",
+            2
+          ],
+          [
+            "com.mojang.blaze3d.platform.NativeImage.mappedCopy",
+            1
+          ],
+          [
+            "com.google.gson.internal.LinkedTreeMap.find",
+            1
+          ],
+          [
+            "net.minecraft.server.packs.FilePackResources.listResources",
+            1
+          ],
+          [
+            "java.util.zip.ZipFile.getZipEntry",
+            1
+          ],
+          [
+            "net.minecraft.client.renderer.texture.atlas.sources.PalettedPermutations.lambda$createPaletteMapping$7",
+            1
+          ],
+          [
+            "sun.nio.ch.FileDispatcherImpl.pread0",
+            1
+          ],
+          [
+            "java.util.zip.Inflater.inflateBytesBytes",
+            1
+          ]
+        ],
+        "Worker-Main-7": [
+          [
+            "sun.nio.ch.FileDispatcherImpl.pread0",
+            3
+          ],
+          [
+            "net.minecraft.client.renderer.block.model.BlockElement$Deserializer.getVector3f",
+            1
+          ],
+          [
+            "java.lang.ThreadLocal$ThreadLocalMap.remove",
+            1
+          ],
+          [
+            "com.google.common.collect.CollectCollectors.toImmutableList",
+            1
+          ],
+          [
+            "java.util.Collections$SynchronizedCollection.remove",
+            1
+          ]
+        ],
+        "Worker-Main-4": [
+          [
+            "sun.nio.ch.FileDispatcherImpl.pread0",
+            3
+          ],
+          [
+            "java.util.zip.Inflater.inflateBytesBytes",
+            3
+          ],
+          [
+            "org.lwjgl.system.JNI.invokePI",
+            3
+          ],
+          [
+            "net.minecraft.client.gui.font.CodepointMap.get",
+            2
+          ],
+          [
+            "java.lang.AbstractStringBuilder.appendChars",
+            1
+          ],
+          [
+            "it.unimi.dsi.fastutil.ints.IntOpenHashSet.rehash",
+            1
+          ],
+          [
+            "org.lwjgl.stb.STBImage.nstbi_load_from_memory",
+            1
+          ]
+        ],
+        "config-file-watcher-0-0": [
+          [
+            "com.electronwill.nightconfig.core.file.FileWatcher$FsWatcher.run",
+            2
+          ],
+          [
+            "java.util.concurrent.LinkedBlockingDeque.pollFirst",
+            2
+          ],
+          [
+            "java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.newConditionNode",
+            2
+          ],
+          [
+            "java.util.concurrent.LinkedBlockingDeque.poll",
+            1
+          ],
+          [
+            "java.util.concurrent.locks.LockSupport.parkNanos",
+            1
+          ],
+          [
+            "java.util.concurrent.locks.ReentrantLock$NonfairSync.tryAcquire",
+            1
+          ]
+        ],
+        "<unnamed>": [
+          [
+            "java.util.Objects.equals",
+            610
+          ],
+          [
+            "org.mtr.libraries.com.google.gson.stream.JsonReader.peekNumber",
+            322
+          ],
+          [
+            "org.mtr.libraries.com.google.gson.stream.JsonReader.nextQuotedValue",
+            274
+          ],
+          [
+            "org.mtr.libraries.it.unimi.dsi.fastutil.objects.ObjectArrayList.grow",
+            211
+          ],
+          [
+            "org.mtr.libraries.com.google.gson.stream.JsonReader.nextNonWhitespace",
+            210
+          ],
+          [
+            "java.lang.StringLatin1.trim",
+            189
+          ],
+          [
+            "it.unimi.dsi.fastutil.objects.Object2ObjectArrayMap.findKey",
+            166
+          ],
+          [
+            "net.minecraft.client.model.geom.ModelPart.render",
+            145
+          ],
+          [
+            "java.util.ArrayList.grow",
+            140
+          ],
+          [
+            "org.mtr.libraries.com.google.gson.internal.LinkedTreeMap.find",
+            131
+          ],
+          [
+            "it.unimi.dsi.fastutil.objects.Object2ObjectArrayMap.get",
+            118
+          ],
+          [
+            "org.mtr.libraries.com.google.gson.stream.JsonReader.doPeek",
+            116
+          ]
+        ],
+        "JFR Periodic Tasks": [
+          [
+            "jdk.jfr.internal.JVM.emitEvent",
+            203
+          ],
+          [
+            "jdk.jfr.internal.periodic.PeriodicEvents.doPeriodic",
+            2
+          ]
+        ],
+        "ForkJoinPool.commonPool-worker-7": [
+          [
+            "java.util.concurrent.ForkJoinPool.deregisterWorker",
+            1
+          ]
+        ],
+        "FileSystemWatchService": [
+          [
+            "sun.nio.fs.WindowsNativeDispatcher.GetQueuedCompletionStatus0",
+            3004
+          ]
+        ],
+        "IO-Worker-1": [
+          [
+            "org.lwjgl.system.JNI.invokePP",
+            4
+          ]
+        ],
+        "NeoForge Version Check": [
+          [
+            "sun.nio.ch.UnixDomainSockets.bind0",
+            2
+          ]
+        ],
+        "HttpClient-1-SelectorManager": [
+          [
+            "sun.nio.ch.WEPoll.wait",
+            10
+          ]
+        ],
+        "JNA Cleaner": [
+          [
+            "jdk.internal.reflect.Reflection.getCallerClass",
+            1
+          ]
+        ],
+        "IO-Worker-2": [
+          [
+            "org.lwjgl.system.JNI.invokePP",
+            1
+          ]
+        ]
+      },
+      "samples_by_event_type": {
+        "jdk.ExecutionSample": {
+          "sample_count_with_stack": 6211,
+          "leaf": [
+            [
+              "java.util.Objects.equals",
+              625
+            ],
+            [
+              "org.mtr.libraries.com.google.gson.stream.JsonReader.peekNumber",
+              326
+            ],
+            [
+              "org.mtr.libraries.com.google.gson.stream.JsonReader.nextQuotedValue",
+              299
+            ],
+            [
+              "org.mtr.libraries.com.google.gson.stream.JsonReader.nextNonWhitespace",
+              218
+            ],
+            [
+              "org.mtr.libraries.it.unimi.dsi.fastutil.objects.ObjectArrayList.grow",
+              212
+            ],
+            [
+              "java.lang.StringLatin1.trim",
+              195
+            ],
+            [
+              "it.unimi.dsi.fastutil.objects.Object2ObjectArrayMap.findKey",
+              166
+            ],
+            [
+              "java.util.ArrayList.grow",
+              154
+            ],
+            [
+              "net.minecraft.client.model.geom.ModelPart.render",
+              145
+            ],
+            [
+              "org.mtr.libraries.com.google.gson.internal.LinkedTreeMap.find",
+              138
+            ],
+            [
+              "org.mtr.libraries.com.google.gson.stream.JsonReader.doPeek",
+              121
+            ],
+            [
+              "it.unimi.dsi.fastutil.objects.Object2ObjectArrayMap.get",
+              118
+            ],
+            [
+              "net.minecraft.client.model.geom.builders.PartDefinition.bake",
+              98
+            ],
+            [
+              "jdk.internal.math.FloatingDecimal$ASCIIToBinaryBuffer.doubleValue",
+              95
+            ],
+            [
+              "org.mtr.libraries.com.google.gson.stream.JsonReader.hasNext",
+              89
+            ],
+            [
+              "org.mtr.libraries.it.unimi.dsi.fastutil.objects.Object2ObjectArrayMap.put",
+              87
+            ],
+            [
+              "java.util.Map.forEach",
+              73
+            ],
+            [
+              "org.mtr.libraries.com.google.gson.stream.JsonReader.nextString",
+              72
+            ],
+            [
+              "java.lang.Long.getChars",
+              66
+            ],
+            [
+              "net.minecraft.client.model.geom.ModelPart$Polygon.<init>",
+              63
+            ],
+            [
+              "java.lang.Integer.formatUnsignedInt",
+              62
+            ],
+            [
+              "java.util.Arrays.copyOf",
+              58
+            ],
+            [
+              "org.mtr.libraries.com.google.gson.internal.bind.JsonElementTypeAdapter.readTerminal",
+              58
+            ],
+            [
+              "it.unimi.dsi.fastutil.objects.Object2ObjectArrayMap.put",
+              58
+            ],
+            [
+              "jdk.internal.math.FDBigInteger.mult",
+              56
+            ],
+            [
+              "java.lang.String.charAt",
+              55
+            ],
+            [
+              "jdk.internal.math.FloatingDecimal.readJavaFormatString",
+              55
+            ],
+            [
+              "org.mtr.libraries.com.google.gson.internal.bind.JsonElementTypeAdapter.read",
+              55
+            ],
+            [
+              "org.mtr.libraries.it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap.find",
+              53
+            ],
+            [
+              "jdk.internal.math.FDBigInteger.leftShift",
+              52
+            ]
+          ],
+          "inclusive": [
+            [
+              "java.lang.Thread.runWith",
+              5542
+            ],
+            [
+              "java.util.concurrent.Executors$RunnableAdapter.call",
+              5427
+            ],
+            [
+              "java.util.concurrent.FutureTask.run",
+              5415
+            ],
+            [
+              "java.lang.VirtualThread.run",
+              5350
+            ],
+            [
+              "jdk.internal.vm.Continuation.enter0",
+              5350
+            ],
+            [
+              "java.lang.VirtualThread$VThreadContinuation$1.run",
+              5350
+            ],
+            [
+              "jdk.internal.vm.Continuation.enter",
+              5346
+            ],
+            [
+              "jdk.internal.vm.Continuation.enterSpecial",
+              5325
+            ],
+            [
+              "org.mtr.model.BlockbenchModelLoader.lambda$loadModel$5",
+              4632
+            ],
+            [
+              "org.mtr.model.BlockbenchModelLoader$$Lambda.0x000001c18210a980.run",
+              4627
+            ],
+            [
+              "org.mtr.resource.VehicleModel$$Lambda.0x000001c182128d80.get",
+              2657
+            ],
+            [
+              "org.mtr.resource.VehicleModel.lambda$getModelLoaderBase$2",
+              2657
+            ],
+            [
+              "org.mtr.libraries.it.unimi.dsi.fastutil.objects.ObjectArrayList.forEach",
+              2013
+            ],
+            [
+              "org.mtr.model.BlockbenchModelLoader.lambda$loadModel$4",
+              1894
+            ],
+            [
+              "org.mtr.model.BlockbenchModelLoader$$Lambda.0x000001c18210f948.accept",
+              1876
+            ],
+            [
+              "org.mtr.libraries.com.google.gson.internal.bind.JsonElementTypeAdapter.read",
+              1754
+            ],
+            [
+              "org.mtr.libraries.com.google.gson.internal.Streams.parse",
+              1754
+            ],
+            [
+              "org.mtr.libraries.com.google.gson.JsonParser.parseReader",
+              1754
+            ],
+            [
+              "org.mtr.libraries.com.google.gson.JsonParser.parseString",
+              1752
+            ],
+            [
+              "org.mtr.core.tool.Utilities.parseJson",
+              1752
+            ],
+            [
+              "org.mtr.model.BlockbenchModelLoader.lambda$loadModel$3",
+              1645
+            ],
+            [
+              "org.mtr.model.BlockbenchModelLoader$$Lambda.0x000001c18213ac18.accept",
+              1639
+            ],
+            [
+              "org.mtr.model.NewOptimizedModelGroup.add",
+              1593
+            ],
+            [
+              "java.util.stream.AbstractPipeline.wrapAndCopyInto",
+              1421
+            ],
+            [
+              "java.util.stream.AbstractPipeline.evaluate",
+              1421
+            ],
+            [
+              "java.util.stream.AbstractPipeline.copyInto",
+              1420
+            ],
+            [
+              "java.util.stream.ReduceOps$ReduceOp.evaluateSequential",
+              1343
+            ],
+            [
+              "java.util.stream.ReferencePipeline.collect",
+              1308
+            ],
+            [
+              "java.util.HashMap$EntrySpliterator.forEachRemaining",
+              1258
+            ],
+            [
+              "net.minecraft.client.model.geom.builders.PartDefinition.bake",
+              1257
+            ]
+          ]
+        },
+        "jdk.NativeMethodSample": {
+          "sample_count_with_stack": 4210,
+          "leaf": [
+            [
+              "sun.nio.fs.WindowsNativeDispatcher.GetQueuedCompletionStatus0",
+              3004
+            ],
+            [
+              "com.sun.management.internal.OperatingSystemImpl.getProcessCpuLoad0",
+              317
+            ],
+            [
+              "jdk.jfr.internal.JVM.emitEvent",
+              203
+            ],
+            [
+              "java.util.zip.Inflater.inflateBytesBytes",
+              166
+            ],
+            [
+              "org.lwjgl.opengl.GL11C.nglTexSubImage2D",
+              101
+            ],
+            [
+              "sun.nio.ch.FileDispatcherImpl.pread0",
+              84
+            ],
+            [
+              "org.lwjgl.system.JNI.invokeV",
+              59
+            ],
+            [
+              "java.io.RandomAccessFile.readBytes0",
+              43
+            ],
+            [
+              "sun.nio.ch.Net.poll",
+              42
+            ],
+            [
+              "sun.nio.fs.WindowsNativeDispatcher.GetVolumePathName0",
+              30
+            ],
+            [
+              "org.lwjgl.system.JNI.invokePV",
+              21
+            ],
+            [
+              "org.lwjgl.system.JNI.invokePI",
+              16
+            ],
+            [
+              "java.lang.System.currentTimeMillis",
+              13
+            ],
+            [
+              "sun.nio.ch.WEPoll.wait",
+              10
+            ],
+            [
+              "org.lwjgl.stb.STBImage.nstbi_load_from_memory",
+              8
+            ],
+            [
+              "com.sun.jna.Native.invokeInt",
+              7
+            ],
+            [
+              "org.lwjgl.system.JNI.invokePP",
+              7
+            ],
+            [
+              "java.lang.Thread.sleep0",
+              6
+            ],
+            [
+              "java.lang.Thread.yield0",
+              5
+            ],
+            [
+              "java.lang.Throwable.fillInStackTrace",
+              5
+            ],
+            [
+              "sun.nio.fs.WindowsNativeDispatcher.GetFileAttributesEx0",
+              4
+            ],
+            [
+              "sun.nio.ch.FileDispatcherImpl.read0",
+              4
+            ],
+            [
+              "org.lwjgl.system.JNI.invokePPPP",
+              4
+            ],
+            [
+              "org.lwjgl.opengl.GL30C.glBlitFramebuffer",
+              4
+            ],
+            [
+              "java.io.RandomAccessFile.seek0",
+              4
+            ],
+            [
+              "sun.nio.fs.WindowsNativeDispatcher.FindFirstFile0",
+              3
+            ],
+            [
+              "org.lwjgl.opengl.GL20C.glLinkProgram",
+              3
+            ],
+            [
+              "org.lwjgl.system.JNI.invokePPZ",
+              3
+            ],
+            [
+              "java.io.WinNTFileSystem.canonicalize0",
+              2
+            ],
+            [
+              "java.lang.ClassLoader.defineClass0",
+              2
+            ]
+          ],
+          "inclusive": [
+            [
+              "java.lang.Thread.runWith",
+              3770
+            ],
+            [
+              "java.lang.Thread.run",
+              3666
+            ],
+            [
+              "sun.nio.fs.WindowsNativeDispatcher.GetQueuedCompletionStatus",
+              3004
+            ],
+            [
+              "sun.nio.fs.WindowsWatchService$Poller.run",
+              3004
+            ],
+            [
+              "sun.nio.fs.WindowsNativeDispatcher.GetQueuedCompletionStatus0",
+              3004
+            ],
+            [
+              "java.util.concurrent.Executors$RunnableAdapter.call",
+              465
+            ],
+            [
+              "java.util.concurrent.ThreadPoolExecutor.runWorker",
+              463
+            ],
+            [
+              "java.util.concurrent.ThreadPoolExecutor$Worker.run",
+              463
+            ],
+            [
+              "java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run",
+              353
+            ],
+            [
+              "java.util.concurrent.FutureTask.runAndReset",
+              338
+            ],
+            [
+              "net.neoforged.fml.earlydisplay.PerformanceInfo.update",
+              318
+            ],
+            [
+              "net.neoforged.fml.earlydisplay.DisplayWindow$$Lambda.0x000001c18126f3a8.run",
+              318
+            ],
+            [
+              "com.sun.management.internal.OperatingSystemImpl.getProcessCpuLoad",
+              317
+            ],
+            [
+              "com.sun.management.internal.OperatingSystemImpl.getProcessCpuLoad0",
+              317
+            ],
+            [
+              "java.util.zip.InflaterInputStream.read",
+              296
+            ],
+            [
+              "cpw.mods.bootstraplauncher.BootstrapLauncher.run",
+              284
+            ],
+            [
+              "cpw.mods.bootstraplauncher.BootstrapLauncher.main",
+              284
+            ],
+            [
+              "cpw.mods.modlauncher.Launcher.main",
+              246
+            ],
+            [
+              "cpw.mods.modlauncher.BootstrapLaunchConsumer.accept",
+              246
+            ],
+            [
+              "cpw.mods.modlauncher.Launcher.run",
+              245
+            ],
+            [
+              "java.lang.invoke.LambdaForm$DMH.0x000001c181002400.invokeStatic",
+              243
+            ],
+            [
+              "java.lang.invoke.Invokers$Holder.invokeExact_MT",
+              237
+            ],
+            [
+              "net.minecraft.client.main.Main.main",
+              233
+            ],
+            [
+              "jdk.internal.reflect.DirectMethodHandleAccessor.invoke",
+              233
+            ],
+            [
+              "jdk.internal.reflect.DirectMethodHandleAccessor.invokeImpl",
+              233
+            ],
+            [
+              "java.lang.reflect.Method.invoke",
+              233
+            ],
+            [
+              "java.lang.invoke.LambdaForm$MH.0x000001c1813d9400.invoke",
+              233
+            ],
+            [
+              "net.neoforged.fml.loading.targets.CommonLaunchHandler.lambda$launchService$4",
+              231
+            ],
+            [
+              "net.neoforged.fml.loading.targets.CommonClientLaunchHandler.runService",
+              231
+            ],
+            [
+              "net.neoforged.fml.loading.targets.CommonLaunchHandler.runTarget",
+              231
+            ]
+          ]
+        }
+      },
+      "allocation_sample_weight_by_class": [
+        [
+          "[B",
+          17511668992
+        ],
+        [
+          "[Ljava.lang.Object;",
+          10183369288
+        ],
+        [
+          "[I",
+          6932948008
+        ],
+        [
+          "java.lang.String",
+          4538138920
+        ],
+        [
+          "org.mtr.model.StoredVertexData",
+          4039925328
+        ],
+        [
+          "[J",
+          3014420008
+        ],
+        [
+          "[C",
+          2867896176
+        ],
+        [
+          "org.mtr.libraries.com.google.gson.internal.LinkedTreeMap$Node",
+          2638800120
+        ],
+        [
+          "net.minecraft.client.model.geom.ModelPart$Vertex",
+          2198313400
+        ],
+        [
+          "jdk.internal.math.FDBigInteger",
+          1536561600
+        ],
+        [
+          "jdk.internal.math.FloatingDecimal$ASCIIToBinaryBuffer",
+          1534311192
+        ],
+        [
+          "org.mtr.libraries.com.google.gson.JsonPrimitive",
+          1172634928
+        ],
+        [
+          "org.joml.Vector3f",
+          1166590528
+        ],
+        [
+          "java.util.stream.ReferencePipeline$Head",
+          1161089352
+        ],
+        [
+          "org.joml.Matrix4f",
+          973899968
+        ],
+        [
+          "java.util.stream.ReferencePipeline$3",
+          951883088
+        ],
+        [
+          "[D",
+          878991824
+        ],
+        [
+          "org.mtr.libraries.com.google.gson.internal.LazilyParsedNumber",
+          863493024
+        ],
+        [
+          "[S",
+          843809136
+        ],
+        [
+          "[Ljava.util.HashMap$Node;",
+          805746624
+        ]
+      ],
+      "virtual_thread_pinned_events": 0,
+      "sampled_heap_used_bytes": {
+        "count": 1004,
+        "mean": 7703905216.231075,
+        "p50": 8573853400.0,
+        "p95": 8585199404.8,
+        "p99": 8587934408.0,
+        "max": 8588499520,
+        "sum": 7734720837096
+      }
+    }
+  },
+  "limits": [
+    "Frame intervals are CPU render-loop intervals including pacing, not GPU presentation times.",
+    "Tick spans cover NeoForge event hooks, not full authoritative MSPT; no TPS derived from them.",
+    "Execution/NativeMethod sample counts are statistical observations, not exact CPU milliseconds.",
+    "Allocation weights estimate allocation traffic, not retained heap.",
+    "JFR profile and observation instrumentation add overhead; no uninstrumented control."
+  ]
+}
