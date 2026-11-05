@@ -1,0 +1,115 @@
+{
+  "timestamp": "2026-11-05T16:31:30.055462+08:00",
+  "method": "Read-only reanalysis of preserved raw native logs and sampled jstat/Windows counters. No new client run, GC request, histogram or heap dump.",
+  "delivered_jar_sha256": "eb21c0062f7944a7d2c015cb2eee5a1d24c11be4af2286bbbbfa4625d6cd2d54",
+  "observations": [
+    {
+      "run": "neoforge-v030-3gb",
+      "phase": "startup",
+      "launch_timestamp": "2026-11-05T14:24:06.679011+08:00",
+      "first_heap_sample": "2026-11-05T14:27:05.254621+08:00",
+      "last_heap_sample": "2026-11-05T14:27:58.583484+08:00",
+      "heap_samples": 11,
+      "first_process_sample": "2026-11-05T06:27:03.508805+00:00",
+      "observed_gc_counter_deltas": {
+        "YGC": 1.0,
+        "YGCT": 0.019,
+        "FGC": 0.0,
+        "FGCT": 0.0,
+        "CGC": 0.0,
+        "CGCT": 0.0,
+        "GCT": 0.02
+      },
+      "sampled_heap_peak_bytes": 3019123917,
+      "sampled_working_set_peak_bytes": 4147793920,
+      "process_lifetime_working_set_peak_bytes": 4299386880,
+      "startup_parsing_covered": false
+    },
+    {
+      "run": "neoforge-v030-3gb",
+      "phase": "reload",
+      "launch_timestamp": "2026-11-05T14:24:06.679011+08:00",
+      "first_heap_sample": "2026-11-05T14:29:30.401388+08:00",
+      "last_heap_sample": "2026-11-05T14:33:15.990268+08:00",
+      "heap_samples": 41,
+      "first_process_sample": "2026-11-05T06:29:49.637141+00:00",
+      "observed_gc_counter_deltas": {
+        "YGC": 274.0,
+        "YGCT": 5.475,
+        "FGC": 5.0,
+        "FGCT": 4.534,
+        "CGC": 65.0,
+        "CGCT": 0.272,
+        "GCT": 10.281
+      },
+      "sampled_heap_peak_bytes": 3102983680,
+      "sampled_working_set_peak_bytes": 5118517248,
+      "process_lifetime_working_set_peak_bytes": 5625446400,
+      "startup_parsing_covered": null
+    },
+    {
+      "run": "neoforge-v030-3gb-repeat",
+      "phase": "startup",
+      "launch_timestamp": "2026-11-05T14:34:50.815687+08:00",
+      "first_heap_sample": "2026-11-05T14:34:53.876919+08:00",
+      "last_heap_sample": "2026-11-05T14:38:41.462628+08:00",
+      "heap_samples": 42,
+      "first_process_sample": "2026-11-05T06:34:52.289199+00:00",
+      "observed_gc_counter_deltas": {
+        "YGC": 234.0,
+        "YGCT": 5.872,
+        "FGC": 1.0,
+        "FGCT": 0.949,
+        "CGC": 74.0,
+        "CGCT": 0.288,
+        "GCT": 7.109
+      },
+      "sampled_heap_peak_bytes": 3022734029,
+      "sampled_working_set_peak_bytes": 4275912704,
+      "process_lifetime_working_set_peak_bytes": 4300554240,
+      "startup_parsing_covered": true
+    },
+    {
+      "run": "neoforge-v030-3gb-repeat",
+      "phase": "reload",
+      "launch_timestamp": "2026-11-05T14:34:50.815687+08:00",
+      "first_heap_sample": "2026-11-05T14:40:29.289226+08:00",
+      "last_heap_sample": "2026-11-05T14:44:14.242258+08:00",
+      "heap_samples": 41,
+      "first_process_sample": "2026-11-05T06:40:48.891504+00:00",
+      "observed_gc_counter_deltas": {
+        "YGC": 268.0,
+        "YGCT": 5.445,
+        "FGC": 6.0,
+        "FGCT": 5.063,
+        "CGC": 69.0,
+        "CGCT": 0.291,
+        "GCT": 10.799
+      },
+      "sampled_heap_peak_bytes": 3109020877,
+      "sampled_working_set_peak_bytes": 4875960320,
+      "process_lifetime_working_set_peak_bytes": 5758382080,
+      "startup_parsing_covered": null
+    }
+  ],
+  "inputs_sha256": {
+    "vehicle-memory\\evidence\\neoforge-v030-3gb-startup.json": "933acc919b3f1e183c24625b274ada40c2536fa4daf5f53fca969819ac81b65b",
+    "vehicle-memory\\evidence\\neoforge-v030-3gb-startup-heap.json": "3128fc1be71d1c515d4bbbad8bee28f1130298d09a33fd026e5644a1d6d1d286",
+    "vehicle-memory\\evidence\\neoforge-v030-3gb-reload.json": "229f3f9e2d0b40b0f16d97c2a60cb3a36af7a2b83ca8745e4751b6f53e11e6c7",
+    "vehicle-memory\\evidence\\neoforge-v030-3gb-reload-heap.json": "12717971f7e962583d4f9a91a2cae7214f407dd2a016f625c9994059dbf14b6c",
+    "vehicle-memory\\evidence\\neoforge-v030-3gb-native.log": "cc547bd8e32d2029a76d5a1c02d2654197f534aa8bbff95783f694b3c8c7e37c",
+    "vehicle-memory\\evidence\\neoforge-v030-3gb-reload-request.json": "8a8a211aa4a01e3748d0acc9e3fcf95b3ce62046407a102ca1d7ab62a0eebae1",
+    "vehicle-memory\\evidence\\neoforge-v030-3gb-repeat-startup.json": "dd87887ad75e203eeea73f528268e6b5ef2220a816e23bee116376c2b50a44bf",
+    "vehicle-memory\\evidence\\neoforge-v030-3gb-repeat-startup-heap.json": "ec21066de9c95c4f509f634c37d40202d8141e2b9b50d243d9ae01f8727ac9bb",
+    "vehicle-memory\\evidence\\neoforge-v030-3gb-repeat-reload.json": "2af15654aab8630f57afee4f08fc8589e2f27ce2768f003db4ce0ce1534f6a5a",
+    "vehicle-memory\\evidence\\neoforge-v030-3gb-repeat-reload-heap.json": "32e72860eee262be7d6937abce053b042befe22c51defb203e3fcb47400df467",
+    "vehicle-memory\\evidence\\neoforge-v030-3gb-repeat-native.log": "1fc61ca0971df6062c5b1a353c6d2cd3bd24b44b66be1ec6d0950ae6970d360d",
+    "vehicle-memory\\evidence\\neoforge-v030-3gb-repeat-reload-request.json": "51e889fdccb2f7e5a308d44abdc7b6d89be9802526affa60683295dc2eb2007b"
+  },
+  "corrections": [
+    "First startup native registration completed at 14:26:42.785 +08:00. Process sampling began at 14:27:03.508805 +08:00 and jstat at 14:27:05.254621 +08:00; that startup sampling misses parsing.",
+    "Second startup jstat begins at 14:34:53.876919 +08:00 before registration completion at 14:37:32.995 +08:00. Both reload jstat samplers precede their actual F3+T requests.",
+    "Windows peak_working_set_since_process_start preserves a process-lifetime OS peak, including intervals between samples. It must not be labelled a phase-only peak or a five-second sampled current working set."
+  ],
+  "limits": "GC deltas cover first-to-last sample windows, including pre-reload and stability time. Windows working set includes resident heap and non-heap allocations; subtracting independent heap/process peaks does not isolate native memory. No current allocation profile or retained-object dominator analysis is available."
+}

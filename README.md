@@ -8,12 +8,12 @@ v0.3.0 bounds the compressed resource-text cache by maximum heap size: the defau
 
 | Test | External sampled Java heap peak | Windows working set peak | Private committed peak |
 | --- | ---: | ---: | ---: |
-| Run 1 startup | 2.812 GiB | 3.863 GiB | 4.015 GiB |
+| Run 1 startup (post-registration samples only) | 2.812 GiB | 3.863 GiB | 4.015 GiB |
 | Run 1 reload | 2.890 GiB | 4.767 GiB | 5.619 GiB |
 | Run 2 startup | 2.815 GiB | 3.982 GiB | 4.137 GiB |
 | Run 2 reload | 2.896 GiB | 4.541 GiB | 4.737 GiB |
 
-External jstat sampling covers blocked startup parsing and starts before both F3+T events. These are sampled peaks, not true maxima. **3 GiB is the Java heap allocation; total process/native/GPU memory is additional.** The smaller heap cap also affects process RAM, so this table is not a controlled code-only memory comparison. A fresh v0.2.9 client with the same 3 GiB cap failed with `OutOfMemoryError` and fell back to only 423 built-ins; that failure is preserved in [the baseline report](evidence/neoforge-v029-3gb-baseline-startup.json). Its original jstat observer timed out and did not save a final report; it supplies no accepted heap-peak comparison.
+**Measurement review:** first-startup jstat and process sampling began after registration completed, so that row misses parsing peaks. The repeat startup's jstat covers parsing, and both reload jstat samplers start before F3+T. These are sampled peaks, not true maxima. The preserved Windows process-lifetime working-set high-water marks reach **5.239 / 5.363 GiB** by the two reload observations; these include intervals between samples and are not phase-only peaks. **3 GiB is the Java heap allocation; total process/native/GPU memory is additional.** The smaller heap cap also affects process RAM, so this table is not a controlled code-only memory comparison. A fresh v0.2.9 client with the same 3 GiB cap failed with `OutOfMemoryError` and fell back to only 423 built-ins; that failure is preserved in [the baseline report](evidence/neoforge-v029-3gb-baseline-startup.json). Its original jstat observer timed out and did not save a final report; it supplies no accepted heap-peak comparison. [Further optimization analysis and corrected measurement details](optimization-review.md).
 
 All 8,534 real resource text inputs pass exact-content checks. Separate audits cover eviction, recent-use retention, empty entries, oversized inputs, concurrent misses/churn, null/error behavior and overlapping reloads; the real v0.2.9 negative control exceeds the bounded-cache requirement. Both game runs close normally after original player/input-layout restoration. Saved transport fields, pack hashes/order and mod fingerprints verify. Testing uses a dedicated copy of the existing isolated fixture with the memory companion and additive read-only observer; no passenger companion is installed. No production instance or original world was replaced, and no diagnostic GC or clock command was requested.
 
