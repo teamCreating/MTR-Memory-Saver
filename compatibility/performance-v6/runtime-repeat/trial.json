@@ -1,0 +1,84 @@
+{
+  "timestamp": "2026-11-06T11:11:07.830090+08:00",
+  "pid": 33716,
+  "passed": true,
+  "metrics": {
+    "startup": {
+      "seconds_to_fresh_world": 156.92031,
+      "fresh_stability_seconds": 59.998321,
+      "native_completion": "[0611月2026 11:04:10.380] [Render thread/INFO] [MinecraftTransitRailway/]: MTR memory sharing: 4608 Blockbench requests, 651 unique parses, 651 completed"
+    },
+    "reload": {
+      "seconds_to_fresh_world": 133.990776,
+      "fresh_stability_seconds": 59.989767,
+      "native_completion": "[0611月2026 11:08:33.975] [Render thread/INFO] [MinecraftTransitRailway/]: MTR memory sharing: 4608 Blockbench requests, 651 unique parses, 651 completed"
+    }
+  },
+  "native_caches_equal_before_after_and_official": true,
+  "cars": [
+    {
+      "vehicle_id": "mtr_custom_train_dc01_update_cab_1_native_7ea57bf708e8",
+      "cache_ready": true,
+      "cache_floors": [
+        "AABB[-1.2999999523162842, 0.9375, -13.600000381469727] -> [1.2999999523162842, 0.9375, -5.900000095367432]",
+        "AABB[-1.2999999523162842, 0.9375, -5.800000190734863] -> [1.2999999523162842, 0.9375, -0.8999999761581421]",
+        "AABB[-1.2999999523162842, 0.9375, -0.800000011920929] -> [1.2999999523162842, 0.9375, 4.099999904632568]",
+        "AABB[-1.2999999523162842, 0.9375, 4.199999809265137] -> [1.2999999523162842, 0.9375, 9.100000381469727]",
+        "AABB[-1.2999999523162842, 0.9375, 9.199999809265137] -> [1.2999999523162842, 0.9375, 12.100000381469727]"
+      ],
+      "cache_doorways": [
+        "AABB[-1.706230640411377, 0.9375, -0.90625] -> [-1.0, 0.9375, 0.90625]",
+        "AABB[-1.706230640411377, 0.9375, -5.90625] -> [-1.0, 0.9375, -4.09375]",
+        "AABB[-1.706230640411377, 0.9375, -10.90625] -> [-1.0, 0.9375, -9.09375]",
+        "AABB[-1.706230640411377, 0.9375, 4.09375] -> [-1.0, 0.9375, 5.90625]",
+        "AABB[-1.706230640411377, 0.9375, 9.09375] -> [-1.0, 0.9375, 10.90625]",
+        "AABB[1.0, 0.9375, -0.90625] -> [1.706230640411377, 0.9375, 0.90625]",
+        "AABB[1.0, 0.9375, 4.09375] -> [1.706230640411377, 0.9375, 5.90625]",
+        "AABB[1.0, 0.9375, 9.09375] -> [1.706230640411377, 0.9375, 10.90625]",
+        "AABB[1.0, 0.9375, -5.90625] -> [1.706230640411377, 0.9375, -4.09375]",
+        "AABB[1.0, 0.9375, -10.90625] -> [1.706230640411377, 0.9375, -9.09375]"
+      ]
+    },
+    {
+      "vehicle_id": "mtr_custom_train_dc01_update_cab_2_native_7b8391aef2c8",
+      "cache_ready": true,
+      "cache_floors": [
+        "AABB[-1.2999999523162842, 0.9375, -12.100000381469727] -> [1.2999999523162842, 0.9375, -10.899999618530273]",
+        "AABB[-1.2999999523162842, 0.9375, -10.800000190734863] -> [1.2999999523162842, 0.9375, -5.900000095367432]",
+        "AABB[-1.2999999523162842, 0.9375, -5.800000190734863] -> [1.2999999523162842, 0.9375, -0.8999999761581421]",
+        "AABB[-1.2999999523162842, 0.9375, -0.800000011920929] -> [1.2999999523162842, 0.9375, 4.099999904632568]",
+        "AABB[-1.2999999523162842, 0.9375, 4.199999809265137] -> [1.2999999523162842, 0.9375, 9.100000381469727]",
+        "AABB[-1.2999999523162842, 0.9375, 9.199999809265137] -> [1.2999999523162842, 0.9375, 13.600000381469727]"
+      ],
+      "cache_doorways": [
+        "AABB[-1.706230640411377, 0.9375, -0.90625] -> [-1.0, 0.9375, 0.90625]",
+        "AABB[-1.706230640411377, 0.9375, -5.90625] -> [-1.0, 0.9375, -4.09375]",
+        "AABB[-1.706230640411377, 0.9375, -10.90625] -> [-1.0, 0.9375, -9.09375]",
+        "AABB[-1.706230640411377, 0.9375, 4.09375] -> [-1.0, 0.9375, 5.90625]",
+        "AABB[-1.706230640411377, 0.9375, 9.09375] -> [-1.0, 0.9375, 10.90625]",
+        "AABB[1.0, 0.9375, -0.90625] -> [1.706230640411377, 0.9375, 0.90625]",
+        "AABB[1.0, 0.9375, 4.09375] -> [1.706230640411377, 0.9375, 5.90625]",
+        "AABB[1.0, 0.9375, 9.09375] -> [1.706230640411377, 0.9375, 10.90625]",
+        "AABB[1.0, 0.9375, -5.90625] -> [1.706230640411377, 0.9375, -4.09375]",
+        "AABB[1.0, 0.9375, -10.90625] -> [1.706230640411377, 0.9375, -9.09375]"
+      ]
+    }
+  ],
+  "gpu_lifecycle_checks": {
+    "repeated_build_reuses_native_map": true,
+    "native_built_models_field_set": true,
+    "built_destination_releases_packed_staging": true,
+    "shared_source_staging_retained": true,
+    "add_after_build_rejected": true,
+    "merge_after_build_rejected": true,
+    "closed_facade_not_repopulated": true,
+    "closed_facade_not_marked_loaded": true,
+    "facades_have_independent_gpu_models": true,
+    "closed_facade_disposes_own_gpu_model": true,
+    "other_facade_gpu_model_still_open": true,
+    "other_facade_remains_cached": true
+  },
+  "recording": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\.cache\\game-test\\v031-v6-3g-repeat\\performance.jfr",
+  "recording_sha256": "b1036aa515df3765bb84621780514895e665742dcb6b2210b189cd74aac85021",
+  "limits": "Two DC01 car views and exact native caches; wider family/boarding/audio and long-session testing are not established."
+}

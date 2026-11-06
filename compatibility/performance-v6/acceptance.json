@@ -1,0 +1,350 @@
+{
+  "timestamp": "2026-11-06T11:12:09.949130+08:00",
+  "passed": true,
+  "candidate_sha256": "ab6d372f458299bf1ce116a5a05101de3cc110b731149d668f13324adfb23dcb",
+  "mtr_sha256": "8bd419bd798c2ab2fa03e08850409387804fdeb2e4f2987c66b9984236263585",
+  "official_v030_unchanged": true,
+  "two_equivalent_launch_configurations": true,
+  "mod_payload_comparison": {
+    "[自修改]MTR-4.1.0-beta.2-mc1.21.1-performance-v6.jar": {
+      "same_archive_sha256": true
+    },
+    "mtr-memory-sharing-neoforge.jar": {
+      "same_archive_sha256": true
+    },
+    "vehicle-performance-probe.jar": {
+      "same_archive_sha256": false,
+      "all_member_payloads_equal": true,
+      "member_count": 18
+    }
+  },
+  "trials": {
+    "runtime-first": {
+      "pid": 20884,
+      "passed": true,
+      "metrics": {
+        "startup": {
+          "seconds_to_fresh_world": 155.159551,
+          "fresh_stability_seconds": 59.997844,
+          "native_completion": "[0611月2026 10:53:09.774] [Render thread/INFO] [MinecraftTransitRailway/]: MTR memory sharing: 4608 Blockbench requests, 651 unique parses, 651 completed"
+        },
+        "reload": {
+          "seconds_to_fresh_world": 136.87986,
+          "fresh_stability_seconds": 59.729672,
+          "native_completion": "[0611月2026 10:58:02.673] [Render thread/INFO] [MinecraftTransitRailway/]: MTR memory sharing: 4608 Blockbench requests, 651 unique parses, 651 completed"
+        }
+      },
+      "windows": {
+        "startup": {
+          "seconds": 155.159551,
+          "effective_fps_from_intervals": 17.277661605340796,
+          "game_frame_interval_ms": {
+            "count": 75,
+            "mean": 57.87820266666667,
+            "p50": 21.843,
+            "p95": 60.34526999999997,
+            "p99": 786.7562500000099,
+            "max": 2220.9595,
+            "sum": 4340.8652
+          },
+          "server_tick_event_span_ms": {
+            "count": 131,
+            "mean": 14.532120038167939,
+            "p50": 5.2655710000000004,
+            "p95": 48.755168999999995,
+            "p99": 101.27144599999991,
+            "max": 118.98320199999999,
+            "sum": 1903.707725
+          },
+          "gc_pause_ms": {
+            "count": 342,
+            "mean": 22.017233023391814,
+            "p50": 12.600242999999999,
+            "p95": 54.0598925,
+            "p99": 107.49893570999987,
+            "max": 888.289129,
+            "sum": 7529.893694
+          },
+          "jvm_cpu_fraction_of_machine": {
+            "count": 149,
+            "mean": 0.4833681580738255,
+            "p50": 0.502766093,
+            "p95": 0.7786120559999999,
+            "p99": 0.82368662248,
+            "max": 0.8704004096,
+            "sum": 72.021855553
+          },
+          "full_gc_count": 2,
+          "sampled_memory_bytes": {
+            "heap_used": 3037931520,
+            "current_working_set": 4986777600,
+            "private_commitment": 5194305536,
+            "process_lifetime_working_set_watermark": 5255024640
+          },
+          "jstat_first_sample": "2026-11-06T10:51:50.044449+08:00"
+        },
+        "reload": {
+          "seconds": 136.87986,
+          "effective_fps_from_intervals": null,
+          "game_frame_interval_ms": {
+            "count": 0
+          },
+          "server_tick_event_span_ms": {
+            "count": 1,
+            "mean": 1.549177,
+            "p50": 1.549177,
+            "p95": 1.549177,
+            "p99": 1.549177,
+            "max": 1.549177,
+            "sum": 1.549177
+          },
+          "gc_pause_ms": {
+            "count": 357,
+            "mean": 37.84749392997199,
+            "p50": 10.930863,
+            "p95": 76.07926679999996,
+            "p99": 834.42275508,
+            "max": 889.136591,
+            "sum": 13511.555333
+          },
+          "jvm_cpu_fraction_of_machine": {
+            "count": 131,
+            "mean": 0.48762612924732823,
+            "p50": 0.512505275,
+            "p95": 0.763562319,
+            "p99": 0.8192752194699999,
+            "max": 0.855196311,
+            "sum": 63.8790229314
+          },
+          "full_gc_count": 11,
+          "sampled_memory_bytes": {
+            "heap_used": 3212639949,
+            "current_working_set": 5539840000,
+            "private_commitment": 5795344384,
+            "process_lifetime_working_set_watermark": 5791752192
+          },
+          "jstat_first_sample": "2026-11-06T10:56:00.666934+08:00"
+        },
+        "post_reload_gameplay": {
+          "seconds": 59.729672,
+          "effective_fps_from_intervals": 58.90876922152202,
+          "game_frame_interval_ms": {
+            "count": 3432,
+            "mean": 16.97540134032634,
+            "p50": 16.6838,
+            "p95": 22.680519999999998,
+            "p99": 29.646170000000005,
+            "max": 55.3118,
+            "sum": 58259.5774
+          },
+          "server_tick_event_span_ms": {
+            "count": 1166,
+            "mean": 1.5425011629502574,
+            "p50": 1.1656240000000002,
+            "p95": 3.628739,
+            "p99": 8.841045199999934,
+            "max": 25.924788,
+            "sum": 1798.556356
+          },
+          "gc_pause_ms": {
+            "count": 8,
+            "mean": 20.372879,
+            "p50": 13.577467500000001,
+            "p95": 43.2014668,
+            "p99": 45.64440856,
+            "max": 46.255144,
+            "sum": 162.983032
+          },
+          "jvm_cpu_fraction_of_machine": {
+            "count": 59,
+            "mean": 0.13628786370847457,
+            "p50": 0.0698134795,
+            "p95": 0.5858764312999992,
+            "p99": 0.7827213622200001,
+            "max": 0.807833066,
+            "sum": 8.0409839588
+          },
+          "full_gc_count": 0
+        }
+      },
+      "recording": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\.cache\\game-test\\v031-v6-3g-first\\performance.jfr",
+      "recording_sha256": "9d7fa5a617fbcb35a4f2d93e5801b87210ab37548a7d58ebef3340d83b07c052"
+    },
+    "runtime-repeat": {
+      "pid": 33716,
+      "passed": true,
+      "metrics": {
+        "startup": {
+          "seconds_to_fresh_world": 156.92031,
+          "fresh_stability_seconds": 59.998321,
+          "native_completion": "[0611月2026 11:04:10.380] [Render thread/INFO] [MinecraftTransitRailway/]: MTR memory sharing: 4608 Blockbench requests, 651 unique parses, 651 completed"
+        },
+        "reload": {
+          "seconds_to_fresh_world": 133.990776,
+          "fresh_stability_seconds": 59.989767,
+          "native_completion": "[0611月2026 11:08:33.975] [Render thread/INFO] [MinecraftTransitRailway/]: MTR memory sharing: 4608 Blockbench requests, 651 unique parses, 651 completed"
+        }
+      },
+      "windows": {
+        "startup": {
+          "seconds": 156.92031,
+          "effective_fps_from_intervals": 16.22545354541814,
+          "game_frame_interval_ms": {
+            "count": 71,
+            "mean": 61.631559154929576,
+            "p50": 21.5879,
+            "p95": 67.68209999999999,
+            "p99": 924.6703699999945,
+            "max": 2287.1937,
+            "sum": 4375.8407
+          },
+          "server_tick_event_span_ms": {
+            "count": 132,
+            "mean": 13.803013757575759,
+            "p50": 5.318782000000001,
+            "p95": 48.31175539999997,
+            "p99": 82.21003527999999,
+            "max": 147.366483,
+            "sum": 1821.997816
+          },
+          "gc_pause_ms": {
+            "count": 355,
+            "mean": 21.81345747323944,
+            "p50": 12.438113000000001,
+            "p95": 52.28389440000003,
+            "p99": 105.77193659999922,
+            "max": 832.3910930000001,
+            "sum": 7743.777403
+          },
+          "jvm_cpu_fraction_of_machine": {
+            "count": 150,
+            "mean": 0.5057310230506666,
+            "p50": 0.5342748315,
+            "p95": 0.7550419224499998,
+            "p99": 0.8374497578099998,
+            "max": 0.8920404552,
+            "sum": 75.8596534576
+          },
+          "full_gc_count": 2,
+          "sampled_memory_bytes": {
+            "heap_used": 3006601114,
+            "current_working_set": 4748099584,
+            "private_commitment": 4931010560,
+            "process_lifetime_working_set_watermark": 5270556672
+          },
+          "jstat_first_sample": "2026-11-06T11:02:31.806056+08:00"
+        },
+        "reload": {
+          "seconds": 133.990776,
+          "effective_fps_from_intervals": 57.23950745873008,
+          "game_frame_interval_ms": {
+            "count": 61,
+            "mean": 17.47045081967213,
+            "p50": 16.7467,
+            "p95": 31.8611,
+            "p99": 39.434799999999996,
+            "max": 41.1103,
+            "sum": 1065.6975
+          },
+          "server_tick_event_span_ms": {
+            "count": 24,
+            "mean": 10.026131541666667,
+            "p50": 6.351181,
+            "p95": 35.876799249999976,
+            "p99": 38.75164058,
+            "max": 39.180741,
+            "sum": 240.627157
+          },
+          "gc_pause_ms": {
+            "count": 368,
+            "mean": 37.05096775271739,
+            "p50": 10.884128,
+            "p95": 70.36730424999996,
+            "p99": 839.13183877,
+            "max": 860.298718,
+            "sum": 13634.756133
+          },
+          "jvm_cpu_fraction_of_machine": {
+            "count": 128,
+            "mean": 0.503202662871875,
+            "p50": 0.5437147005499999,
+            "p95": 0.80244927096,
+            "p99": 0.84993876751,
+            "max": 0.8628856864,
+            "sum": 64.4099408476
+          },
+          "full_gc_count": 10,
+          "sampled_memory_bytes": {
+            "heap_used": 3152696013,
+            "current_working_set": 5268676608,
+            "private_commitment": 5794230272,
+            "process_lifetime_working_set_watermark": 5807980544
+          },
+          "jstat_first_sample": "2026-11-06T11:06:36.607240+08:00"
+        },
+        "post_reload_gameplay": {
+          "seconds": 59.989767,
+          "effective_fps_from_intervals": 58.86839633132821,
+          "game_frame_interval_ms": {
+            "count": 3530,
+            "mean": 16.987043342776204,
+            "p50": 16.69045,
+            "p95": 22.427075,
+            "p99": 29.610621000000002,
+            "max": 102.5118,
+            "sum": 59964.263
+          },
+          "server_tick_event_span_ms": {
+            "count": 1200,
+            "mean": 1.4381826125,
+            "p50": 1.251757,
+            "p95": 2.6153919499999994,
+            "p99": 4.860733929999999,
+            "max": 18.601691,
+            "sum": 1725.819135
+          },
+          "gc_pause_ms": {
+            "count": 9,
+            "mean": 16.660353555555556,
+            "p50": 8.602136,
+            "p95": 40.714577199999994,
+            "p99": 44.06128344,
+            "max": 44.89796,
+            "sum": 149.943182
+          },
+          "jvm_cpu_fraction_of_machine": {
+            "count": 60,
+            "mean": 0.09534443159166667,
+            "p50": 0.0611535525,
+            "p95": 0.2266552241999998,
+            "p99": 0.504183784239999,
+            "max": 0.675935182,
+            "sum": 5.7206658955
+          },
+          "full_gc_count": 0
+        }
+      },
+      "recording": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\.cache\\game-test\\v031-v6-3g-repeat\\performance.jfr",
+      "recording_sha256": "b1036aa515df3765bb84621780514895e665742dcb6b2210b189cd74aac85021"
+    }
+  },
+  "source_preservation": {
+    "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\.cache\\game-test\\memory-3gb-instance": {
+      "marker_options_level_unchanged": true,
+      "pack_hashes_verified": 16,
+      "mod_hashes_verified": 3,
+      "fingerprints": {
+        "vehicle-test-instance.json": "af49f34c02885b0442d724840fb8eac71a134db6c2a518e6601c7478f980ba8c",
+        "options.txt": "a0a84a7563d03e7328cc861666acc7ff47b01d2e405949bcfd0452e3965f411c",
+        "saves/Vehicle Acceptance 1_21_1/level.dat": "91a4e563f77be3657b72897a7fd7ee2baa64a6ea823786351999f90dd5b5c559"
+      }
+    }
+  },
+  "synthetic_checked_vertices": 1400028,
+  "native_models": 9,
+  "native_vertices": 1267536,
+  "native_mismatches": 0,
+  "tool_sha256": "c277e00e9e612817a980d7264ad1445cf5907ea92da69fd7d5d397e7b31e89e7",
+  "finalizer_sha256": "d22ad9bf5c1ecc0e1b7594634ef88e70b63dc61ef640db731606273f9add3f00",
+  "limits": "Sampled memory is not a true maximum. Java heap excludes additional native/process/GPU memory. Capped DC01 scenes do not establish uncapped speed, broad passenger/audio acceptance, production load or long-session leak freedom."
+}

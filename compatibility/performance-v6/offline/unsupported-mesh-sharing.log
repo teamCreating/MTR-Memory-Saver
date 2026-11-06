@@ -1,0 +1,11 @@
+usage: build_vehicle_memory_mod.py [-h] [--instance INSTANCE] --javac JAVAC
+                                   [--output OUTPUT] [--install-test]
+                                   [--performance-v6] [--mtr-jar MTR_JAR]
+                                   [--packed-meshes] [--prune-displays]
+                                   [--share-json] [--share-meshes]
+                                   [--intern-blocks] [--source-displays]
+                                   [--compress-texts] [--segment-text-reads]
+                                   [--segment-text-unpacks]
+                                   [--stream-text-digests]
+                                   [--bound-text-cache]
+build_vehicle_memory_mod.py: error: --performance-v6 requires NeoForge, explicit --output/--mtr-jar and the bounded v0.3.0 configuration without other mesh/source experiments.

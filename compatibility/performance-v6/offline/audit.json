@@ -1,0 +1,61 @@
+{
+  "candidate_sha256": "ab6d372f458299bf1ce116a5a05101de3cc110b731149d668f13324adfb23dcb",
+  "baseline_sha256": "eb21c0062f7944a7d2c015cb2eee5a1d24c11be4af2286bbbbfa4625d6cd2d54",
+  "mtr_sha256": "8bd419bd798c2ab2fa03e08850409387804fdeb2e4f2987c66b9984236263585",
+  "changed_classes": [
+    "dev/abenli/mtrmemory/PackedVertices.class",
+    "dev/abenli/mtrmemory/SharedBlockbenchLoader.class",
+    "dev/abenli/mtrmemory/mixin/PackedModelGroupMixin.class"
+  ],
+  "unchanged_classes": [
+    "dev/abenli/mtrmemory/CompressedResourceTextCache$Epoch.class",
+    "dev/abenli/mtrmemory/CompressedResourceTextCache$Text.class",
+    "dev/abenli/mtrmemory/CompressedResourceTextCache.class",
+    "dev/abenli/mtrmemory/DisplayRetention$Loader.class",
+    "dev/abenli/mtrmemory/DisplayRetention.class",
+    "dev/abenli/mtrmemory/PackedModelGroupAccess.class",
+    "dev/abenli/mtrmemory/PackedModelGroupOperations.class",
+    "dev/abenli/mtrmemory/PackedModelGroupStore.class",
+    "dev/abenli/mtrmemory/PackedVertexEmitter.class",
+    "dev/abenli/mtrmemory/PackedVertices$1Writer.class",
+    "dev/abenli/mtrmemory/PackedVertices$Block.class",
+    "dev/abenli/mtrmemory/PackedVertices$Sink.class",
+    "dev/abenli/mtrmemory/PackedVertices$Source.class",
+    "dev/abenli/mtrmemory/ResourceTextDigest.class",
+    "dev/abenli/mtrmemory/SegmentedResourceText.class",
+    "dev/abenli/mtrmemory/SharedBlockbenchCache$Entry.class",
+    "dev/abenli/mtrmemory/SharedBlockbenchCache$Key.class",
+    "dev/abenli/mtrmemory/SharedBlockbenchCache.class",
+    "dev/abenli/mtrmemory/VehicleJsonCache.class",
+    "dev/abenli/mtrmemory/mixin/CompressedResourceTextMixin.class",
+    "dev/abenli/mtrmemory/mixin/DisplayPartAccess.class",
+    "dev/abenli/mtrmemory/mixin/DisplaySelectionMixin.class",
+    "dev/abenli/mtrmemory/mixin/ModelLoaderAccess.class",
+    "dev/abenli/mtrmemory/mixin/ModelLoaderCompletionMixin.class",
+    "dev/abenli/mtrmemory/mixin/ResourceReloadMixin.class",
+    "dev/abenli/mtrmemory/mixin/SegmentedResourceTextMixin.class",
+    "dev/abenli/mtrmemory/mixin/SourceLifetimeMixin.class",
+    "dev/abenli/mtrmemory/mixin/VehicleJsonCacheMixin.class",
+    "dev/abenli/mtrmemory/mixin/VehicleJsonEpochMixin.class",
+    "dev/abenli/mtrmemory/mixin/VehicleModelFactoryMixin.class"
+  ],
+  "old_color_abi_rejected": true,
+  "old_source_sha256": "4b26097932b3ad3e21dac3060b71492c4603404a01ef5b87b64f8d229e16edde",
+  "results": {
+    "synthetic": {
+      "exit_code": 0,
+      "result_sha256": "98e0099fec4fa7744247454ce25c8d23eb744380ff60f00125dca0c3d1616a41"
+    },
+    "native-models": {
+      "exit_code": 0,
+      "result_sha256": "73035ee0a5b50e1d9363122d213741e0806617cbbed5bf366b92c282846a11fc"
+    }
+  },
+  "script_sha256": "26f4b77b9a065f4d4975c4c2696ced6610eb48d1d2205012f067480203d1ca93",
+  "sources": {
+    "tools\\PackedMeshAudit.java": "8abd97e47d01e10ce23bddf884276151004f326f263e78f4e14e92e60c23a118",
+    "tools\\PackedReleaseModelAudit.java": "7a74b0e905654af29e44cf7928f07d680d9e934031e8bca356a4d32dd695991f"
+  },
+  "jobs_sha256": "ba2ec66db5e5b61f8c046fcea0eac57c491becd068ed7f86340bccb35c0a86a7",
+  "limits": "Native GPU caching/close ownership requires the separate in-game compatibility probe."
+}

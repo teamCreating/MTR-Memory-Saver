@@ -1,8 +1,10 @@
 # MTR client memory companions
 
-Current target: **Minecraft 1.21.1 / NeoForge 21.1.265 / official MTR 4.1.0-beta.2**, Java 21. Recommended tested companion: [mtr-memory-sharing-neoforge-v030.jar](mtr-memory-sharing-neoforge-v030.jar), version **0.3.0**.
+For the custom **MTR Performance v6**, use the separately tested [v0.3.1-v6 companion and installation guide](compatibility/performance-v6/README.md). It preserves v0.3.0's memory features while adapting integer colors and native model lifetimes. Two fresh full-16-pack clients pass startup and F3+T at 3072 MiB, with repeated GPU ownership checks and exact DC01 floor/doorway caches.
 
-[2026-11-05 runtime performance and Performance v6 tests](performance/20261105/README.md): full-stack v0.3.0 passes at 3 GiB but has significant reload GC; deployed v6 alone fails the same 16 packs at 8 GiB and passes a separate two-car subset. The delivered companion is not directly ABI-compatible with v6. The report includes frame intervals, JFR hotspots, GC causes, process/GPU accounting and native evidence.
+Official-release target: **Minecraft 1.21.1 / NeoForge 21.1.265 / official MTR 4.1.0-beta.2**, Java 21. Recommended tested companion: [mtr-memory-sharing-neoforge-v030.jar](mtr-memory-sharing-neoforge-v030.jar), version **0.3.0**.
+
+[2026-11-05 runtime performance and Performance v6 tests](performance/20261105/README.md): full-stack v0.3.0 passes at 3 GiB but has significant reload GC; deployed v6 alone fails the same 16 packs at 8 GiB and passes a separate two-car subset. The original v0.3.0 is not directly ABI-compatible with v6; the new compatibility variant above addresses that mismatch. The earlier report includes frame intervals, JFR hotspots, GC causes, process/GPU accounting and native evidence.
 
 **Two fresh identical clients pass all-16-pack startup and actual foreground F3+T reload with an exact 3072 MiB (3 GiB) Java heap.** Each phase loads 2,541 vehicles and completes 651 unique source parses, then passes 60 seconds of fresh stability. Both DC01 car bodies render before and after reload; their independent 5/6-floor and 10/10-doorway caches match v0.2.9 exactly. The native movement/audio callback is preserved. [Acceptance, measurements and fingerprints](evidence/neoforge-v030-acceptance.json).
 

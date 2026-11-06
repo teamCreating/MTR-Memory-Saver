@@ -1,0 +1,31 @@
+{
+  "timestamp": "2026-11-06T11:03:22.173926+08:00",
+  "baseline_sha256": "eb21c0062f7944a7d2c015cb2eee5a1d24c11be4af2286bbbbfa4625d6cd2d54",
+  "rebuilt_sha256": "dd783e060400401839148b09b7245c4c6c8ea0c79014db83f108150f06bcfdcd",
+  "all_member_payloads_equal": true,
+  "member_count": 42,
+  "official_mtr_sha256": "ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa",
+  "synthetic": {
+    "comparisons": 27,
+    "mismatches": 0,
+    "random_vertices": 100000,
+    "checked_vertices": 1400028,
+    "arithmetic_nan_payload_variations": 1111,
+    "random_payload_bytes": 3601101,
+    "regular_vertices": 100000,
+    "regular_payload_bytes": 812132
+  },
+  "guards": {
+    "wrong-jar": {
+      "exit_code": 1,
+      "rejected": true,
+      "log": "wrong-jar.log"
+    },
+    "unsupported-mesh-sharing": {
+      "exit_code": 2,
+      "rejected": true,
+      "log": "unsupported-mesh-sharing.log"
+    }
+  },
+  "setup_note": "An initial ad-hoc MTR-*.jar glob selected the companion on case-insensitive Windows; the corrected check uses the exact official path and SHA-256."
+}

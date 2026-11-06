@@ -1,0 +1,485 @@
+{
+  "timestamp": "2026-11-06T10:59:06.674134+08:00",
+  "target": {
+    "minecraft": "1.21.1",
+    "mtr": "4.1.0-beta.2-mc1.21.1-performance-v6"
+  },
+  "mod_loader": "neoforge",
+  "loader_version": "21.1.265",
+  "pid": 20884,
+  "launch_timestamp": "2026-11-06T10:50:50.221431+08:00",
+  "heap_gb": 3.0,
+  "virtual_thread_parallelism": 2,
+  "observations_not_before": "2026-11-06T10:55:49.692579+08:00",
+  "jvm_arguments": [
+    "-Xms1G",
+    "-Xmx3072M",
+    "-Djdk.virtualThreadScheduler.parallelism=2",
+    "-Djdk.virtualThreadScheduler.maxPoolSize=2",
+    "-XX:StartFlightRecording=name=performance,settings=profile,disk=true,dumponexit=true,filename=performance.jfr",
+    "-Xlog:gc*,safepoint:file=performance-gc.log:time,uptime,level,tags:filecount=0"
+  ],
+  "mods": [
+    {
+      "filename": "[自修改]MTR-4.1.0-beta.2-mc1.21.1-performance-v6.jar",
+      "sha256": "8bd419bd798c2ab2fa03e08850409387804fdeb2e4f2987c66b9984236263585"
+    },
+    {
+      "filename": "mtr-memory-sharing-neoforge.jar",
+      "sha256": "ab6d372f458299bf1ce116a5a05101de3cc110b731149d668f13324adfb23dcb"
+    },
+    {
+      "filename": "vehicle-performance-probe.jar",
+      "sha256": "36ed7499ad285388413c19cf101841d061c591eaaf08759d7b2a4c65c60a259a"
+    }
+  ],
+  "launch_resource_packs": [
+    "vanilla",
+    "file/[AI车门修复][MTR] Taiwan Train V000 EMU3000 20251107.zip",
+    "file/[AI车门修复][材质模型包]悠日计画 交通运输类模型 8.2505.1.zip",
+    "file/[AI车门修复]ChenDianMetroWayV0.5.1R.zip",
+    "file/[AI车门修复]HSM-2000 v1.2.1 (Adapted for MTR 4.0.x)-20260722-210944.zip",
+    "file/[AI车门修复]rpsync-mtr4.0.0-hxd3d-yw25t.zip",
+    "file/[AI车门修复]rpsync-shanghaimetroaddon_v3.4.0_creating_trimmed_v2.zip",
+    "file/[AI车门修复]ShirahaneVehicle v2.4.3 release_hotfix1.zip",
+    "file/[AI车门修复]STCP Bus Pack.zip",
+    "file/[AI车门修复]Zhongtong Base Pack - 1.1.0.zip",
+    "file/[AI车门修复]§9§l现代城市系列追加包§7-v2.0.zip",
+    "file/[AI车门修复]悠日交通资源包part3-260708.zip",
+    "file/[AI车门修复]悠日计画 故事模式用材质 8.2504.zip",
+    "file/[AI车门修复]悠日计画交通资源包part2 release v2.1-hotfix2.zip",
+    "file/[AI车门修复]新艾利都地铁_疾锋龙号(性能优化版).zip",
+    "file/[AI车门修复]新铁路铁轨基本轨包BY默淼yams.zip",
+    "file/[AI车门修复]新艾利都地铁 ERIDU-10000一期改造型.zip"
+  ],
+  "packs": [
+    {
+      "filename": "[AI车门修复][MTR] Taiwan Train V000 EMU3000 20251107.zip",
+      "sha256": "d741ccf09d7ce958dd6f282b52ffbf1dff1b36ec51af397cf8d1252a14059cb9"
+    },
+    {
+      "filename": "[AI车门修复][材质模型包]悠日计画 交通运输类模型 8.2505.1.zip",
+      "sha256": "9b7a9b19db7db6197a4652c9df31717039e47af7d1e6930e03a5ef9bf5a378bb"
+    },
+    {
+      "filename": "[AI车门修复]ChenDianMetroWayV0.5.1R.zip",
+      "sha256": "3783a1fd5b21f7d133046294be8b1562560ebce94f628b87ff104e734ed1cf9a"
+    },
+    {
+      "filename": "[AI车门修复]HSM-2000 v1.2.1 (Adapted for MTR 4.0.x)-20260722-210944.zip",
+      "sha256": "3bd4eef3eb0d23c43d70efdea3be0dcd08693a58d79a5eafebc763317d1e2d86"
+    },
+    {
+      "filename": "[AI车门修复]rpsync-mtr4.0.0-hxd3d-yw25t.zip",
+      "sha256": "1f2b7e941da4fe7239cbc59c6935b441fbc71cf9f15b6f7548e963c370210897"
+    },
+    {
+      "filename": "[AI车门修复]rpsync-shanghaimetroaddon_v3.4.0_creating_trimmed_v2.zip",
+      "sha256": "f4f9730c4dfbb8c6998b472eb90e8a1d559704f6d0df16b53ceb96556b48325e"
+    },
+    {
+      "filename": "[AI车门修复]ShirahaneVehicle v2.4.3 release_hotfix1.zip",
+      "sha256": "b5970dd8d193641909df20f61acbc5408539ba4f9a1f582d76c94aa240d3c5a3"
+    },
+    {
+      "filename": "[AI车门修复]STCP Bus Pack.zip",
+      "sha256": "1d83bb1a2d34fb4f3b4f8837ab649b37104df7036acc6501054617f0bb397b31"
+    },
+    {
+      "filename": "[AI车门修复]Zhongtong Base Pack - 1.1.0.zip",
+      "sha256": "7044e84cd07a2b6f9adf99a2dcd57d3ace22e9c627361e25b8bcf184cd8a66f6"
+    },
+    {
+      "filename": "[AI车门修复]§9§l现代城市系列追加包§7-v2.0.zip",
+      "sha256": "ad8cb6c56f3670a7eea3ba7e9a9843771451c8e28732097ec2151ecb8ce4b27b"
+    },
+    {
+      "filename": "[AI车门修复]悠日交通资源包part3-260708.zip",
+      "sha256": "4525c20d89ac07641e2426f7049de502c5d89d38c8816de154a4cc77f78b3e3c"
+    },
+    {
+      "filename": "[AI车门修复]悠日计画 故事模式用材质 8.2504.zip",
+      "sha256": "5d5c0d2933572d072cc9e85f7e7ca3065407ad437e763d9b5776720f4c21837d"
+    },
+    {
+      "filename": "[AI车门修复]悠日计画交通资源包part2 release v2.1-hotfix2.zip",
+      "sha256": "91738fe2780bb7ae2d115702788dc2f22feb73fc70bc884441b5578f87a0fb6a"
+    },
+    {
+      "filename": "[AI车门修复]新艾利都地铁_疾锋龙号(性能优化版).zip",
+      "sha256": "0536120420708cf9705dc397ac687cc0dfb2ee123a6f894cb546b0e5338bb837"
+    },
+    {
+      "filename": "[AI车门修复]新铁路铁轨基本轨包BY默淼yams.zip",
+      "sha256": "6f78adf23a2f5c26d89c3413a47ef8a09ce9997f64256b793624d8eac112879a"
+    },
+    {
+      "filename": "[AI车门修复]新艾利都地铁 ERIDU-10000一期改造型.zip",
+      "sha256": "5db45298b692e3aac2414d243ae916eed8f836b15fa93e1fc09285fdfba7f6e9"
+    }
+  ],
+  "expected_registration_count": 2541,
+  "status": "registered_and_parsed_stable",
+  "exit_code": null,
+  "peak_sampled_heap_used": 3043693968,
+  "peak_sampled_working_set": 5539840000,
+  "peak_sampled_private_usage": 5795344384,
+  "process_memory_observations": [
+    {
+      "timestamp": "2026-11-06T02:55:50.944050+00:00",
+      "working_set": 4807057408,
+      "private_usage": 5043679232,
+      "peak_working_set_since_process_start": 5255024640
+    },
+    {
+      "timestamp": "2026-11-06T02:55:55.945575+00:00",
+      "working_set": 5539840000,
+      "private_usage": 5795344384,
+      "peak_working_set_since_process_start": 5791752192
+    },
+    {
+      "timestamp": "2026-11-06T02:56:00.947108+00:00",
+      "working_set": 4893458432,
+      "private_usage": 5104472064,
+      "peak_working_set_since_process_start": 5791752192
+    },
+    {
+      "timestamp": "2026-11-06T02:56:05.948851+00:00",
+      "working_set": 4856901632,
+      "private_usage": 5065433088,
+      "peak_working_set_since_process_start": 5791752192
+    },
+    {
+      "timestamp": "2026-11-06T02:56:10.949986+00:00",
+      "working_set": 4812894208,
+      "private_usage": 5026111488,
+      "peak_working_set_since_process_start": 5791752192
+    },
+    {
+      "timestamp": "2026-11-06T02:56:15.951116+00:00",
+      "working_set": 4820795392,
+      "private_usage": 5033906176,
+      "peak_working_set_since_process_start": 5791752192
+    },
+    {
+      "timestamp": "2026-11-06T02:56:20.952290+00:00",
+      "working_set": 4822482944,
+      "private_usage": 5035507712,
+      "peak_working_set_since_process_start": 5791752192
+    },
+    {
+      "timestamp": "2026-11-06T02:56:25.954177+00:00",
+      "working_set": 4829016064,
+      "private_usage": 5042692096,
+      "peak_working_set_since_process_start": 5791752192
+    },
+    {
+      "timestamp": "2026-11-06T02:56:30.956095+00:00",
+      "working_set": 4829499392,
+      "private_usage": 5043212288,
+      "peak_working_set_since_process_start": 5791752192
+    },
+    {
+      "timestamp": "2026-11-06T02:56:35.957383+00:00",
+      "working_set": 4831653888,
+      "private_usage": 5045268480,
+      "peak_working_set_since_process_start": 5791752192
+    },
+    {
+      "timestamp": "2026-11-06T02:56:40.961288+00:00",
+      "working_set": 4835213312,
+      "private_usage": 5045415936,
+      "peak_working_set_since_process_start": 5791752192
+    },
+    {
+      "timestamp": "2026-11-06T02:56:45.963039+00:00",
+      "working_set": 4846485504,
+      "private_usage": 5053915136,
+      "peak_working_set_since_process_start": 5791752192
+    },
+    {
+      "timestamp": "2026-11-06T02:56:50.964125+00:00",
+      "working_set": 4846436352,
+      "private_usage": 5053796352,
+      "peak_working_set_since_process_start": 5791752192
+    },
+    {
+      "timestamp": "2026-11-06T02:56:55.965765+00:00",
+      "working_set": 4811517952,
+      "private_usage": 5012619264,
+      "peak_working_set_since_process_start": 5791752192
+    },
+    {
+      "timestamp": "2026-11-06T02:57:00.967350+00:00",
+      "working_set": 4816162816,
+      "private_usage": 5018968064,
+      "peak_working_set_since_process_start": 5791752192
+    },
+    {
+      "timestamp": "2026-11-06T02:57:05.968602+00:00",
+      "working_set": 4817780736,
+      "private_usage": 5020205056,
+      "peak_working_set_since_process_start": 5791752192
+    },
+    {
+      "timestamp": "2026-11-06T02:57:10.970223+00:00",
+      "working_set": 4818206720,
+      "private_usage": 5020561408,
+      "peak_working_set_since_process_start": 5791752192
+    },
+    {
+      "timestamp": "2026-11-06T02:57:15.971051+00:00",
+      "working_set": 4818657280,
+      "private_usage": 5020880896,
+      "peak_working_set_since_process_start": 5791752192
+    },
+    {
+      "timestamp": "2026-11-06T02:57:20.972764+00:00",
+      "working_set": 4819058688,
+      "private_usage": 5021249536,
+      "peak_working_set_since_process_start": 5791752192
+    },
+    {
+      "timestamp": "2026-11-06T02:57:25.974012+00:00",
+      "working_set": 4820164608,
+      "private_usage": 5022064640,
+      "peak_working_set_since_process_start": 5791752192
+    },
+    {
+      "timestamp": "2026-11-06T02:57:30.975375+00:00",
+      "working_set": 4821651456,
+      "private_usage": 5023621120,
+      "peak_working_set_since_process_start": 5791752192
+    },
+    {
+      "timestamp": "2026-11-06T02:57:35.977137+00:00",
+      "working_set": 4822118400,
+      "private_usage": 5024051200,
+      "peak_working_set_since_process_start": 5791752192
+    },
+    {
+      "timestamp": "2026-11-06T02:57:40.978927+00:00",
+      "working_set": 4826210304,
+      "private_usage": 5028167680,
+      "peak_working_set_since_process_start": 5791752192
+    },
+    {
+      "timestamp": "2026-11-06T02:57:45.980196+00:00",
+      "working_set": 4832825344,
+      "private_usage": 5034598400,
+      "peak_working_set_since_process_start": 5791752192
+    },
+    {
+      "timestamp": "2026-11-06T02:57:51.201138+00:00",
+      "working_set": 4838567936,
+      "private_usage": 5061816320,
+      "peak_working_set_since_process_start": 5791752192
+    },
+    {
+      "timestamp": "2026-11-06T02:57:56.344042+00:00",
+      "working_set": 4840005632,
+      "private_usage": 5063241728,
+      "peak_working_set_since_process_start": 5791752192
+    },
+    {
+      "timestamp": "2026-11-06T02:58:01.350423+00:00",
+      "working_set": 4813889536,
+      "private_usage": 5012643840,
+      "peak_working_set_since_process_start": 5791752192
+    },
+    {
+      "timestamp": "2026-11-06T02:58:06.639415+00:00",
+      "working_set": 4900052992,
+      "private_usage": 5095170048,
+      "peak_working_set_since_process_start": 5791752192
+    },
+    {
+      "timestamp": "2026-11-06T02:58:11.651761+00:00",
+      "working_set": 4926668800,
+      "private_usage": 5117988864,
+      "peak_working_set_since_process_start": 5791752192
+    },
+    {
+      "timestamp": "2026-11-06T02:58:16.653335+00:00",
+      "working_set": 4764852224,
+      "private_usage": 4955377664,
+      "peak_working_set_since_process_start": 5791752192
+    },
+    {
+      "timestamp": "2026-11-06T02:58:21.654836+00:00",
+      "working_set": 4716937216,
+      "private_usage": 4912427008,
+      "peak_working_set_since_process_start": 5791752192
+    },
+    {
+      "timestamp": "2026-11-06T02:58:26.656531+00:00",
+      "working_set": 4753858560,
+      "private_usage": 4944609280,
+      "peak_working_set_since_process_start": 5791752192
+    },
+    {
+      "timestamp": "2026-11-06T02:58:31.658747+00:00",
+      "working_set": 4754227200,
+      "private_usage": 4944928768,
+      "peak_working_set_since_process_start": 5791752192
+    },
+    {
+      "timestamp": "2026-11-06T02:58:36.659958+00:00",
+      "working_set": 4754903040,
+      "private_usage": 4945522688,
+      "peak_working_set_since_process_start": 5791752192
+    },
+    {
+      "timestamp": "2026-11-06T02:58:41.663833+00:00",
+      "working_set": 4755582976,
+      "private_usage": 4946194432,
+      "peak_working_set_since_process_start": 5791752192
+    },
+    {
+      "timestamp": "2026-11-06T02:58:46.666069+00:00",
+      "working_set": 4755615744,
+      "private_usage": 4946202624,
+      "peak_working_set_since_process_start": 5791752192
+    },
+    {
+      "timestamp": "2026-11-06T02:58:51.667532+00:00",
+      "working_set": 4757499904,
+      "private_usage": 4948598784,
+      "peak_working_set_since_process_start": 5791752192
+    },
+    {
+      "timestamp": "2026-11-06T02:58:56.669180+00:00",
+      "working_set": 4757463040,
+      "private_usage": 4948520960,
+      "peak_working_set_since_process_start": 5791752192
+    },
+    {
+      "timestamp": "2026-11-06T02:59:01.670629+00:00",
+      "working_set": 4758097920,
+      "private_usage": 4949094400,
+      "peak_working_set_since_process_start": 5791752192
+    },
+    {
+      "timestamp": "2026-11-06T02:59:06.671937+00:00",
+      "working_set": 4757946368,
+      "private_usage": 4948942848,
+      "peak_working_set_since_process_start": 5791752192
+    }
+  ],
+  "observations": [
+    {
+      "timestamp": "2026-11-06T10:55:50.373846900+08:00",
+      "heap_used": 2651992752,
+      "heap_max": 3221225472,
+      "registered_count": 2541,
+      "model_parsing_complete": true,
+      "screen": "game"
+    },
+    {
+      "timestamp": "2026-11-06T10:58:06.572439100+08:00",
+      "heap_used": 3043647168,
+      "heap_max": 3221225472,
+      "registered_count": 2541,
+      "model_parsing_complete": true,
+      "screen": "game"
+    },
+    {
+      "timestamp": "2026-11-06T10:58:11.296321600+08:00",
+      "heap_used": 3043693968,
+      "heap_max": 3221225472,
+      "registered_count": 2541,
+      "model_parsing_complete": true,
+      "screen": "game"
+    },
+    {
+      "timestamp": "2026-11-06T10:58:16.299061500+08:00",
+      "heap_used": 2662501920,
+      "heap_max": 3221225472,
+      "registered_count": 2541,
+      "model_parsing_complete": true,
+      "screen": "game"
+    },
+    {
+      "timestamp": "2026-11-06T10:58:21.302893500+08:00",
+      "heap_used": 2852294176,
+      "heap_max": 3221225472,
+      "registered_count": 2541,
+      "model_parsing_complete": true,
+      "screen": "game"
+    },
+    {
+      "timestamp": "2026-11-06T10:58:26.306839900+08:00",
+      "heap_used": 3041037848,
+      "heap_max": 3221225472,
+      "registered_count": 2541,
+      "model_parsing_complete": true,
+      "screen": "game"
+    },
+    {
+      "timestamp": "2026-11-06T10:58:31.318243900+08:00",
+      "heap_used": 2621476952,
+      "heap_max": 3221225472,
+      "registered_count": 2541,
+      "model_parsing_complete": true,
+      "screen": "game"
+    },
+    {
+      "timestamp": "2026-11-06T10:58:36.298823700+08:00",
+      "heap_used": 2808933512,
+      "heap_max": 3221225472,
+      "registered_count": 2541,
+      "model_parsing_complete": true,
+      "screen": "game"
+    },
+    {
+      "timestamp": "2026-11-06T10:58:41.301224300+08:00",
+      "heap_used": 2997682784,
+      "heap_max": 3221225472,
+      "registered_count": 2541,
+      "model_parsing_complete": true,
+      "screen": "game"
+    },
+    {
+      "timestamp": "2026-11-06T10:58:46.307771100+08:00",
+      "heap_used": 2580660784,
+      "heap_max": 3221225472,
+      "registered_count": 2541,
+      "model_parsing_complete": true,
+      "screen": "game"
+    },
+    {
+      "timestamp": "2026-11-06T10:58:51.310158+08:00",
+      "heap_used": 2769404736,
+      "heap_max": 3221225472,
+      "registered_count": 2541,
+      "model_parsing_complete": true,
+      "screen": "game"
+    },
+    {
+      "timestamp": "2026-11-06T10:58:56.303237100+08:00",
+      "heap_used": 2956050992,
+      "heap_max": 3221225472,
+      "registered_count": 2541,
+      "model_parsing_complete": true,
+      "screen": "game"
+    },
+    {
+      "timestamp": "2026-11-06T10:59:01.304972700+08:00",
+      "heap_used": 2444763840,
+      "heap_max": 3221225472,
+      "registered_count": 2541,
+      "model_parsing_complete": true,
+      "screen": "game"
+    },
+    {
+      "timestamp": "2026-11-06T10:59:06.302111600+08:00",
+      "heap_used": 2632864064,
+      "heap_max": 3221225472,
+      "registered_count": 2541,
+      "model_parsing_complete": true,
+      "screen": "game"
+    }
+  ],
+  "parse_failure_lines": [],
+  "limits": "A stable registration/parser state is loading evidence only; it does not establish vehicle rendering, passenger acceptance, reload or a measured true heap peak."
+}
