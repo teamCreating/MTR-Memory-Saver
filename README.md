@@ -1,5 +1,7 @@
 # MTR client memory companions
 
+For **NeoForge 21.1.248**, use the [matching official/v6 builds and installation guide](compatibility/neoforge-21.1.248/README.md). Each compiles against the real loader release and preserves all corresponding companion class payloads.
+
 For the custom **MTR Performance v6**, use the separately tested [v0.3.1-v6 companion and installation guide](compatibility/performance-v6/README.md). It preserves v0.3.0's memory features while adapting integer colors and native model lifetimes. Two fresh full-16-pack clients pass startup and F3+T at 3072 MiB, with repeated GPU ownership checks and exact DC01 floor/doorway caches.
 
 Official-release target: **Minecraft 1.21.1 / NeoForge 21.1.265 / official MTR 4.1.0-beta.2**, Java 21. Recommended tested companion: [mtr-memory-sharing-neoforge-v030.jar](mtr-memory-sharing-neoforge-v030.jar), version **0.3.0**.

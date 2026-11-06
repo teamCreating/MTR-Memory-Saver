@@ -1,0 +1,96 @@
+{
+  "timestamp": "2026-11-06T15:54:09.495842+08:00",
+  "passed": true,
+  "target": {
+    "minecraft": "1.21.1",
+    "neoforge": "21.1.248",
+    "fml": "4.0.43",
+    "java": 21
+  },
+  "trials": {
+    "performance-v6": {
+      "passed": true,
+      "pid": 25316,
+      "phases": {
+        "startup": {
+          "seconds_to_fresh_world": 165.813261,
+          "fresh_stability_seconds": 59.995071,
+          "native_completion": "[0611月2026 15:38:26.174] [Render thread/INFO] [MinecraftTransitRailway/]: MTR memory sharing: 4608 Blockbench requests, 651 unique parses, 651 completed",
+          "sampled_heap_used": 3020589670,
+          "sampled_working_set": 4738404352,
+          "sampled_private_commit": 4914618368,
+          "jstat_first_sample": "2026-11-06T15:36:16.785443+08:00"
+        },
+        "reload": {
+          "seconds_to_fresh_world": 136.722806,
+          "fresh_stability_seconds": 59.899941,
+          "native_completion": "[0611月2026 15:42:14.188] [Render thread/INFO] [MinecraftTransitRailway/]: MTR memory sharing: 4608 Blockbench requests, 651 unique parses, 651 completed",
+          "sampled_heap_used": 3145259008,
+          "sampled_working_set": 4939264000,
+          "sampled_private_commit": 5116424192,
+          "jstat_first_sample": "2026-11-06T15:40:06.895240+08:00"
+        }
+      },
+      "native_callback_preserved": true,
+      "normal_shutdown_and_fixture_verified": true,
+      "representative_visual_review": true,
+      "gpu_lifecycle_checks": {
+        "repeated_build_reuses_native_map": true,
+        "native_built_models_field_set": true,
+        "built_destination_releases_packed_staging": true,
+        "shared_source_staging_retained": true,
+        "add_after_build_rejected": true,
+        "merge_after_build_rejected": true,
+        "closed_facade_not_repopulated": true,
+        "closed_facade_not_marked_loaded": true,
+        "facades_have_independent_gpu_models": true,
+        "closed_facade_disposes_own_gpu_model": true,
+        "other_facade_gpu_model_still_open": true,
+        "other_facade_remains_cached": true
+      },
+      "recording": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\.cache\\game-test\\nf248-v6-3g\\performance.jfr",
+      "recording_sha256": "f7a1e78b05ee6c6f03aeba842f5ad298a461d546a8a4fbe560316ae3a6d86dda"
+    },
+    "official": {
+      "passed": true,
+      "pid": 22832,
+      "phases": {
+        "startup": {
+          "seconds_to_fresh_world": 166.738352,
+          "fresh_stability_seconds": 60.010879,
+          "native_completion": "[0611月2026 15:47:01.586] [Render thread/INFO] [MinecraftTransitRailway/]: MTR memory sharing: 4608 Blockbench requests, 651 unique parses, 651 completed",
+          "sampled_heap_used": 3040104038,
+          "sampled_working_set": 4741447680,
+          "sampled_private_commit": 4920766464,
+          "jstat_first_sample": "2026-11-06T15:44:34.846087+08:00"
+        },
+        "reload": {
+          "seconds_to_fresh_world": 143.539875,
+          "fresh_stability_seconds": 59.994321,
+          "native_completion": "[0611月2026 15:50:54.625] [Render thread/INFO] [MinecraftTransitRailway/]: MTR memory sharing: 4608 Blockbench requests, 651 unique parses, 651 completed",
+          "sampled_heap_used": 3126817382,
+          "sampled_working_set": 5137461248,
+          "sampled_private_commit": 5366910976,
+          "jstat_first_sample": "2026-11-06T15:48:46.687655+08:00"
+        }
+      },
+      "native_callback_preserved": true,
+      "normal_shutdown_and_fixture_verified": true,
+      "representative_visual_review": true,
+      "gpu_lifecycle_checks": null,
+      "recording": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\.cache\\game-test\\nf248-official-3g\\performance.jfr",
+      "recording_sha256": "24c98364112ef47a8e3fbcdb8d44fc4353c82c8b642665a6e006893d4072cdb1"
+    }
+  },
+  "build_audit_sha256": "ce1fceab704ea99668d6d827f2a5dcebf50637b10163791ca27b38078ed61665",
+  "original_fixture_preserved": {
+    "marker_options_level_sha256": {
+      "vehicle-test-instance.json": "af49f34c02885b0442d724840fb8eac71a134db6c2a518e6601c7478f980ba8c",
+      "options.txt": "a0a84a7563d03e7328cc861666acc7ff47b01d2e405949bcfd0452e3965f411c",
+      "saves/Vehicle Acceptance 1_21_1/level.dat": "91a4e563f77be3657b72897a7fd7ee2baa64a6ea823786351999f90dd5b5c559"
+    },
+    "pack_hashes_verified": 16,
+    "mod_hashes_verified": 3
+  },
+  "limits": "One fresh startup and actual F3+T per MTR release, with nominal sixty-second fresh stable observations. Java heap excludes native/process/GPU memory. Timings are acceptance observations with JFR and an existing background server, not controlled performance comparisons. Wider family visuals, physical boarding/cab traversal and long-session behavior remain untested."
+}

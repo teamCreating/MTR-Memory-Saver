@@ -1,5 +1,7 @@
 # MTR Performance v6 memory companion
 
+For **NeoForge 21.1.248**, use the [separate v0.3.1-v6 nf248 build](../neoforge-21.1.248/README.md). The historical artifact and trials below target 21.1.265.
+
 **v0.3.1-v6** adapts the v0.3.0 memory features to the deployed custom v6 release. [Download the companion](mtr-memory-sharing-neoforge-v031-v6.jar). Two fresh clients pass the complete 16-pack fixture at **3072 MiB**, including startup, native F3+T, GPU ownership checks and DC01 rendering before/after reload. [Acceptance and fingerprints](acceptance.json).
 
 ## Install

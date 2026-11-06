@@ -1,0 +1,40 @@
+{
+  "timestamp": "2026-11-06T15:35:23.411826+08:00",
+  "passed": true,
+  "loader": "21.1.248",
+  "variants": {
+    "official": {
+      "candidate": "vehicle-memory\\compatibility\\neoforge-21.1.248\\mtr-memory-sharing-neoforge-v030-nf248.jar",
+      "candidate_sha256": "b9c95bbe79c6c76fe6a0c9af6bdb4f9ed7ce6b007fecdb1c9f543544ce562f02",
+      "baseline_sha256": "eb21c0062f7944a7d2c015cb2eee5a1d24c11be4af2286bbbbfa4625d6cd2d54",
+      "all_class_payloads_identical": true,
+      "class_count": 34,
+      "changed_members": [
+        "META-INF/neoforge.mods.toml"
+      ],
+      "only_change": "Minimum NeoForge dependency: [21.1.265,) -> [21.1.248,)",
+      "compiled_against": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\.cache\\game-test\\neoforge-21.1.248-base\\libraries\\net\\neoforged\\neoforge\\21.1.248\\neoforge-21.1.248-client.jar",
+      "active_client_sha256": "01ba27020f208050884661ff393be3c392e02853d91825f9d5f1bb694282e83b"
+    },
+    "performance-v6": {
+      "candidate": "vehicle-memory\\compatibility\\neoforge-21.1.248\\mtr-memory-sharing-neoforge-v031-v6-nf248.jar",
+      "candidate_sha256": "43da91dce144cc0a1a1e65307ba385cc9d89eb3a5057f07e7eab7529dca39174",
+      "baseline_sha256": "ab6d372f458299bf1ce116a5a05101de3cc110b731149d668f13324adfb23dcb",
+      "all_class_payloads_identical": true,
+      "class_count": 34,
+      "changed_members": [
+        "META-INF/neoforge.mods.toml"
+      ],
+      "only_change": "Minimum NeoForge dependency: [21.1.265,) -> [21.1.248,)",
+      "compiled_against": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\.cache\\game-test\\neoforge-21.1.248-base\\libraries\\net\\neoforged\\neoforge\\21.1.248\\neoforge-21.1.248-client.jar",
+      "active_client_sha256": "01ba27020f208050884661ff393be3c392e02853d91825f9d5f1bb694282e83b"
+    }
+  },
+  "fixture_source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\.cache\\game-test\\memory-3gb-instance",
+  "source_hashes": {
+    "vehicle-test-instance.json": "af49f34c02885b0442d724840fb8eac71a134db6c2a518e6601c7478f980ba8c",
+    "options.txt": "a0a84a7563d03e7328cc861666acc7ff47b01d2e405949bcfd0452e3965f411c",
+    "saves/Vehicle Acceptance 1_21_1/level.dat": "91a4e563f77be3657b72897a7fd7ee2baa64a6ea823786351999f90dd5b5c559"
+  },
+  "preparation_note": "Official NeoForge installer succeeded. The repair delivery folder lacked original ZIPs; the frozen fixture supplied all sixteen hash-verified archives instead."
+}

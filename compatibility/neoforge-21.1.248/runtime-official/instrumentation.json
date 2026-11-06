@@ -1,0 +1,10 @@
+{
+  "source_sha256": "933692123308cbf9e82302d0d3374bfc1cc3ef4fa45502ee5e9fcb6edad3b149",
+  "launcher_sha256": "8694a420ac55488e2d9a4ec978570e54cdb394f804aeb5b4e0accdf5ec839522",
+  "sources": {
+    "tools\\PerformanceProbe.java": "933692123308cbf9e82302d0d3374bfc1cc3ef4fa45502ee5e9fcb6edad3b149"
+  },
+  "frame_method": "Intervals between RenderFrameEvent.Pre calls, including frame pacing; not GPU present times.",
+  "tick_method": "NeoForge ServerTickEvent.Pre/Post span, excluding scheduling sleep and code outside these hooks.",
+  "profiling_overhead": "JFR profile and additive observation mod enabled; no uninstrumented control."
+}

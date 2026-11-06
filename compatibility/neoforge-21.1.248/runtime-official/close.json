@@ -1,0 +1,240 @@
+{
+  "timestamp": "2026-11-06T15:52:31.727976+08:00",
+  "pid": 22832,
+  "action": "close",
+  "before": {
+    "timestamp": "2026-11-06T15:52:31.485985600+08:00",
+    "heap_used": 2728167392,
+    "heap_max": 3221225472,
+    "model_parsing_complete": true,
+    "server_port": 8889,
+    "native_end_client_tick_callback_class": "org.mtr.MTRClient$$Lambda/0x0000022f01ec6a70",
+    "registered_count": 2541,
+    "screen": "game",
+    "active_riding_state": {
+      "ridingVehicleId": 0,
+      "ridingVehicleCarNumber": 0,
+      "ridingVehicleX": 0.0,
+      "ridingVehicleY": 0.0,
+      "ridingVehicleZ": 0.0,
+      "isOnGangway": false,
+      "ridingPositionCache": null,
+      "ridingPositionCacheOld": null
+    },
+    "player": {
+      "x": 38.5,
+      "y": 4.0,
+      "z": 15.5,
+      "yaw": -180.0,
+      "spectator": false,
+      "main_hand": "0 minecraft:air"
+    },
+    "vehicles": [
+      {
+        "id": -7026018492343574645,
+        "transportMode": "TRAIN",
+        "name": "",
+        "color": 0,
+        "speed": 0.0,
+        "railProgress": 420.5309721067506,
+        "elapsedDwellTime": 1049,
+        "nextStoppingIndexAto": 7,
+        "nextStoppingIndexManual": 7,
+        "reversed": true,
+        "departureIndex": 3,
+        "sidingDepartureTime": 1754829,
+        "door_value": 1.0,
+        "riding": false,
+        "extra_data": {
+          "depotId": 8805550386485521715,
+          "sidingId": -6304466250560538598,
+          "previousRouteId": 0,
+          "previousPlatformId": 165694310607733568,
+          "previousStationId": -6814147209257674688,
+          "previousRouteColor": 0,
+          "previousRouteName": "",
+          "previousRouteNumber": "",
+          "previousRouteType": "NORMAL",
+          "previousRouteCircularState": "NONE",
+          "previousStationName": "Vehicle Acceptance B",
+          "previousRouteDestination": "",
+          "thisRouteId": 0,
+          "thisPlatformId": 0,
+          "thisStationId": 0,
+          "thisRouteColor": 0,
+          "thisRouteName": "",
+          "thisRouteNumber": "",
+          "thisRouteType": "NORMAL",
+          "thisRouteCircularState": "NONE",
+          "thisStationName": "",
+          "thisRouteDestination": "",
+          "nextRouteId": 0,
+          "nextPlatformId": 0,
+          "nextStationId": 0,
+          "nextRouteColor": 0,
+          "nextRouteName": "",
+          "nextRouteNumber": "",
+          "nextRouteType": "NORMAL",
+          "nextRouteCircularState": "NONE",
+          "nextStationName": "",
+          "nextRouteDestination": "",
+          "isTerminating": false,
+          "interchangeColorsForStationNameList": [],
+          "stoppingPoint": 420.5309721067506,
+          "powerLevel": -1,
+          "speedTarget": 0.0,
+          "doorTarget": true,
+          "isCurrentlyManual": false,
+          "railLength": 80.0,
+          "totalVehicleLength": 50.0,
+          "repeatIndex1": 3,
+          "repeatIndex2": 0,
+          "acceleration": 4e-06,
+          "deceleration": 4e-06,
+          "isManualAllowed": false,
+          "maxManualSpeed": 0.0002777777777777778,
+          "manualToAutomaticTime": 10000,
+          "totalDistance": 777.0619370216241,
+          "defaultPosition": 65.0,
+          "vehicleCars": [
+            {
+              "vehicleId": "mtr_custom_train_dc01_update_cab_1_native_7ea57bf708e8",
+              "length": 25.0,
+              "width": 2.0,
+              "capacity": 0,
+              "bogie1Position": -8.5,
+              "bogie2Position": 8.5,
+              "couplingPadding1": 1.0,
+              "couplingPadding2": 0.0
+            },
+            {
+              "vehicleId": "mtr_custom_train_dc01_update_cab_2_native_7b8391aef2c8",
+              "length": 25.0,
+              "width": 2.0,
+              "capacity": 0,
+              "bogie1Position": -8.5,
+              "bogie2Position": 8.5,
+              "couplingPadding1": 0.0,
+              "couplingPadding2": 1.0
+            }
+          ],
+          "path": [
+            {
+              "savedRailBaseId": 165694310607733568,
+              "dwellTime": 120000,
+              "stopIndex": 1,
+              "startDistance": 356.5309721067506,
+              "endDistance": 420.5309721067506,
+              "startPosition": {
+                "x": 0,
+                "y": 4,
+                "z": 96
+              },
+              "startAngle": "E",
+              "endPosition": {
+                "x": 64,
+                "y": 4,
+                "z": 96
+              },
+              "endAngle": "W",
+              "speedLimit": 40
+            },
+            {
+              "savedRailBaseId": 0,
+              "dwellTime": 0,
+              "stopIndex": 2,
+              "startDistance": 420.5309721067506,
+              "endDistance": 452.5309721067506,
+              "startPosition": {
+                "x": 64,
+                "y": 4,
+                "z": 96
+              },
+              "startAngle": "E",
+              "endPosition": {
+                "x": 96,
+                "y": 4,
+                "z": 96
+              },
+              "endAngle": "W",
+              "speedLimit": 40
+            }
+          ],
+          "ridingEntities": []
+        },
+        "positions": [
+          {
+            "vehicle_id": "mtr_custom_train_dc01_update_cab_1_native_7ea57bf708e8",
+            "cache_ready": true,
+            "cache_floors": [
+              "AABB[-1.2999999523162842, 0.9375, -13.600000381469727] -> [1.2999999523162842, 0.9375, -5.900000095367432]",
+              "AABB[-1.2999999523162842, 0.9375, -5.800000190734863] -> [1.2999999523162842, 0.9375, -0.8999999761581421]",
+              "AABB[-1.2999999523162842, 0.9375, -0.800000011920929] -> [1.2999999523162842, 0.9375, 4.099999904632568]",
+              "AABB[-1.2999999523162842, 0.9375, 4.199999809265137] -> [1.2999999523162842, 0.9375, 9.100000381469727]",
+              "AABB[-1.2999999523162842, 0.9375, 9.199999809265137] -> [1.2999999523162842, 0.9375, 12.100000381469727]"
+            ],
+            "cache_doorways": [
+              "AABB[-1.706230640411377, 0.9375, -0.90625] -> [-1.0, 0.9375, 0.90625]",
+              "AABB[-1.706230640411377, 0.9375, -5.90625] -> [-1.0, 0.9375, -4.09375]",
+              "AABB[-1.706230640411377, 0.9375, -10.90625] -> [-1.0, 0.9375, -9.09375]",
+              "AABB[-1.706230640411377, 0.9375, 4.09375] -> [-1.0, 0.9375, 5.90625]",
+              "AABB[-1.706230640411377, 0.9375, 9.09375] -> [-1.0, 0.9375, 10.90625]",
+              "AABB[1.0, 0.9375, -0.90625] -> [1.706230640411377, 0.9375, 0.90625]",
+              "AABB[1.0, 0.9375, 4.09375] -> [1.706230640411377, 0.9375, 5.90625]",
+              "AABB[1.0, 0.9375, 9.09375] -> [1.706230640411377, 0.9375, 10.90625]",
+              "AABB[1.0, 0.9375, -5.90625] -> [1.706230640411377, 0.9375, -4.09375]",
+              "AABB[1.0, 0.9375, -10.90625] -> [1.706230640411377, 0.9375, -9.09375]"
+            ],
+            "bogies": [
+              {
+                "position1": "PositionAndTiltAngle[position=Vector[x=17.5, y=4.0, z=96.5], tiltAngle=0.0]",
+                "position2": "PositionAndTiltAngle[position=Vector[x=19.5, y=4.0, z=96.5], tiltAngle=0.0]"
+              },
+              {
+                "position1": "PositionAndTiltAngle[position=Vector[x=34.5, y=4.0, z=96.5], tiltAngle=0.0]",
+                "position2": "PositionAndTiltAngle[position=Vector[x=36.5, y=4.0, z=96.5], tiltAngle=0.0]"
+              }
+            ]
+          },
+          {
+            "vehicle_id": "mtr_custom_train_dc01_update_cab_2_native_7b8391aef2c8",
+            "cache_ready": true,
+            "cache_floors": [
+              "AABB[-1.2999999523162842, 0.9375, -12.100000381469727] -> [1.2999999523162842, 0.9375, -10.899999618530273]",
+              "AABB[-1.2999999523162842, 0.9375, -10.800000190734863] -> [1.2999999523162842, 0.9375, -5.900000095367432]",
+              "AABB[-1.2999999523162842, 0.9375, -5.800000190734863] -> [1.2999999523162842, 0.9375, -0.8999999761581421]",
+              "AABB[-1.2999999523162842, 0.9375, -0.800000011920929] -> [1.2999999523162842, 0.9375, 4.099999904632568]",
+              "AABB[-1.2999999523162842, 0.9375, 4.199999809265137] -> [1.2999999523162842, 0.9375, 9.100000381469727]",
+              "AABB[-1.2999999523162842, 0.9375, 9.199999809265137] -> [1.2999999523162842, 0.9375, 13.600000381469727]"
+            ],
+            "cache_doorways": [
+              "AABB[-1.706230640411377, 0.9375, -0.90625] -> [-1.0, 0.9375, 0.90625]",
+              "AABB[-1.706230640411377, 0.9375, -5.90625] -> [-1.0, 0.9375, -4.09375]",
+              "AABB[-1.706230640411377, 0.9375, -10.90625] -> [-1.0, 0.9375, -9.09375]",
+              "AABB[-1.706230640411377, 0.9375, 4.09375] -> [-1.0, 0.9375, 5.90625]",
+              "AABB[-1.706230640411377, 0.9375, 9.09375] -> [-1.0, 0.9375, 10.90625]",
+              "AABB[1.0, 0.9375, -0.90625] -> [1.706230640411377, 0.9375, 0.90625]",
+              "AABB[1.0, 0.9375, 4.09375] -> [1.706230640411377, 0.9375, 5.90625]",
+              "AABB[1.0, 0.9375, 9.09375] -> [1.706230640411377, 0.9375, 10.90625]",
+              "AABB[1.0, 0.9375, -5.90625] -> [1.706230640411377, 0.9375, -4.09375]",
+              "AABB[1.0, 0.9375, -10.90625] -> [1.706230640411377, 0.9375, -9.09375]"
+            ],
+            "bogies": [
+              {
+                "position1": "PositionAndTiltAngle[position=Vector[x=42.5, y=4.0, z=96.5], tiltAngle=0.0]",
+                "position2": "PositionAndTiltAngle[position=Vector[x=44.5, y=4.0, z=96.5], tiltAngle=0.0]"
+              },
+              {
+                "position1": "PositionAndTiltAngle[position=Vector[x=59.5, y=4.0, z=96.5], tiltAngle=0.0]",
+                "position2": "PositionAndTiltAngle[position=Vector[x=61.5, y=4.0, z=96.5], tiltAngle=0.0]"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "saved_to_title": true,
+  "completed": "2026-11-06T15:52:34.677580+08:00",
+  "source_world": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\.cache\\game-test\\neoforge-21.1.248-base\\saves\\Vehicle Acceptance 1_21_1"
+}
