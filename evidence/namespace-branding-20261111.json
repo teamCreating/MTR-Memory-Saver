@@ -1,0 +1,103 @@
+{
+  "timestamp": "2026-11-11T17:17:31.939896+08:00",
+  "java_sources_with_only_package_changes": 51,
+  "builds": [
+    {
+      "name": "fabric-baseline",
+      "artifact": "dist/local/site-benli06/fabric-baseline-site-benli06.jar",
+      "baseline_sha256": "d827d25274786ee64b8585f72be663399dde5a44e47e5c1a0287c5217820e79b",
+      "candidate_sha256": "b2719bfcc1f4f912b1f89e1b0eda2e82b2cac2d698c2cc5a703d52df5ece74d1",
+      "previous_package": "dev.abenli.mtrmemory",
+      "java_package": "site.benli06",
+      "classes_equal_after_namespace_normalization": 9,
+      "mixin_targets_present": 5,
+      "loader_identity_and_dependencies_unchanged": true,
+      "resource_files_verified": [
+        "assets/mtr_memory_sharing/lang/en_us.json",
+        "assets/mtr_memory_sharing/lang/zh_cn.json",
+        "pack.mcmeta",
+        "pack.png"
+      ],
+      "pack_format": 34,
+      "localized_description_key": "pack.mtr_memory_sharing.description",
+      "icon_dimensions": [
+        512,
+        512
+      ],
+      "icon_sha256": "bd53525f848a8848a9dbb065c3a1d03dbc1e12b994f1cd5dd34ebd40780ca39b"
+    },
+    {
+      "name": "neoforge-baseline",
+      "artifact": "dist/local/site-benli06/neoforge-baseline-site-benli06.jar",
+      "baseline_sha256": "f05939fa0c900b8351d7be518e828b6f24554f1f7f5a349b238ea63184aa635d",
+      "candidate_sha256": "e12bbfab4be8991b6569113ef28bc39a2a479c999f73a5fda7843a11fb22ccd8",
+      "previous_package": "dev.abenli.mtrmemory",
+      "java_package": "site.benli06",
+      "classes_equal_after_namespace_normalization": 9,
+      "mixin_targets_present": 5,
+      "loader_identity_and_dependencies_unchanged": true,
+      "resource_files_verified": [
+        "assets/mtr_memory_sharing/lang/en_us.json",
+        "assets/mtr_memory_sharing/lang/zh_cn.json",
+        "pack.mcmeta",
+        "pack.png"
+      ],
+      "pack_format": 34,
+      "localized_description_key": "pack.mtr_memory_sharing.description",
+      "icon_dimensions": [
+        512,
+        512
+      ],
+      "icon_sha256": "bd53525f848a8848a9dbb065c3a1d03dbc1e12b994f1cd5dd34ebd40780ca39b"
+    },
+    {
+      "name": "neoforge-nf248-v030",
+      "artifact": "dist/local/site-benli06/neoforge-nf248-v030-site-benli06.jar",
+      "baseline_sha256": "b9c95bbe79c6c76fe6a0c9af6bdb4f9ed7ce6b007fecdb1c9f543544ce562f02",
+      "candidate_sha256": "d6a62822c9424b523f261355a20fde699c49ac856e32197074e3334e27fb5f7c",
+      "previous_package": "dev.abenli.mtrmemory",
+      "java_package": "site.benli06",
+      "classes_equal_after_namespace_normalization": 34,
+      "mixin_targets_present": 13,
+      "loader_identity_and_dependencies_unchanged": true,
+      "resource_files_verified": [
+        "assets/mtr_memory_sharing/lang/en_us.json",
+        "assets/mtr_memory_sharing/lang/zh_cn.json",
+        "pack.mcmeta",
+        "pack.png"
+      ],
+      "pack_format": 34,
+      "localized_description_key": "pack.mtr_memory_sharing.description",
+      "icon_dimensions": [
+        512,
+        512
+      ],
+      "icon_sha256": "bd53525f848a8848a9dbb065c3a1d03dbc1e12b994f1cd5dd34ebd40780ca39b"
+    },
+    {
+      "name": "neoforge-nf248-v031-v6",
+      "artifact": "dist/local/site-benli06/neoforge-nf248-v031-v6-site-benli06.jar",
+      "baseline_sha256": "43da91dce144cc0a1a1e65307ba385cc9d89eb3a5057f07e7eab7529dca39174",
+      "candidate_sha256": "86354b056e6f9bea63f7c9df1b9d86d8699f89e44bf27cdb3b854afcce91e9a2",
+      "previous_package": "dev.abenli.mtrmemory",
+      "java_package": "site.benli06",
+      "classes_equal_after_namespace_normalization": 34,
+      "mixin_targets_present": 13,
+      "loader_identity_and_dependencies_unchanged": true,
+      "resource_files_verified": [
+        "assets/mtr_memory_sharing/lang/en_us.json",
+        "assets/mtr_memory_sharing/lang/zh_cn.json",
+        "pack.mcmeta",
+        "pack.png"
+      ],
+      "pack_format": 34,
+      "localized_description_key": "pack.mtr_memory_sharing.description",
+      "icon_dimensions": [
+        512,
+        512
+      ],
+      "icon_sha256": "bd53525f848a8848a9dbb065c3a1d03dbc1e12b994f1cd5dd34ebd40780ca39b"
+    }
+  ],
+  "runtime_acceptance": "No new gameplay test; class-file comparison checks namespace-only code changes and packaged resources."
+}

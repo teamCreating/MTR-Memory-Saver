@@ -10,6 +10,8 @@ import uuid
 import zipfile
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
+JAVA_PACKAGE = 'site.benli06'
+RESOURCE_ROOT = ROOT / 'src/main/resources'
 
 
 def read_json(path):
@@ -206,11 +208,17 @@ def main():
                                '-d', str(build), *map(str, sources)])
     if compiled.returncode:
         raise SystemExit(f'javac failed with exit code {compiled.returncode}; no artifact installed.')
+    resources = sorted(path for path in RESOURCE_ROOT.rglob('*') if path.is_file())
+    for resource in resources:
+        target = build / resource.relative_to(RESOURCE_ROOT)
+        target.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(resource, target)
     if loader == 'fabric':
         save_json(build / 'fabric.mod.json', {
             'schemaVersion': 1, 'id': 'mtr_memory_sharing', 'version': version,
             'name': 'MTR Memory Sharing', 'environment': 'client',
             'authors': ['A-BenLi06'], 'license': 'MIT',
+            'icon': 'pack.png',
             'mixins': ['mtr-memory-sharing.mixins.json'],
             'depends': {'fabricloader': '>=' + marker['loader'], 'java': '>=21',
                         'minecraft': '=' + marker['target']['minecraft'], 'mtr': '=' + marker['target']['mtr']},
@@ -227,6 +235,8 @@ modId = "mtr_memory_sharing"
 version = "''' + version + '''"
 displayName = "MTR Memory Sharing"
 authors = "A-BenLi06"
+logoFile = "pack.png"
+logoBlur = false
 description = "Shares identical parsed vehicle model inputs across independent vehicle loaders."
 
 [[dependencies.mtr_memory_sharing]]
@@ -254,7 +264,7 @@ side = "CLIENT"
 config = "mtr-memory-sharing.mixins.json"
 ''', encoding='utf-8')
     save_json(build / 'mtr-memory-sharing.mixins.json', {
-        'required': True, 'minVersion': '0.8', 'package': 'dev.abenli.mtrmemory.mixin',
+        'required': True, 'minVersion': '0.8', 'package': JAVA_PACKAGE + '.mixin',
         'compatibilityLevel': 'JAVA_21', 'client': [
             'ModelLoaderAccess', 'ModelLoaderCompletionMixin', 'VehicleModelFactoryMixin',
             'ResourceReloadMixin'] + ([] if args.performance_v6 else ['VertexColorMixin'])
@@ -290,6 +300,8 @@ config = "mtr-memory-sharing.mixins.json"
         'mod_loader': loader, 'loader_version': marker['loader'],
         'minecraft_jar_sha256': digest(game[0]), 'release_jar_sha256': expected,
         'output_sha256': digest(output), 'sources': {str(s.relative_to(ROOT)): digest(s) for s in sources},
+        'java_package': JAVA_PACKAGE,
+        'resources': {str(r.relative_to(ROOT)): digest(r) for r in resources},
         'installed_test': args.install_test,
     })
     print(f'Built {output}; installed in test client: {args.install_test}', flush=True)

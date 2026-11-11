@@ -3,9 +3,17 @@
 This directory is an independent Git repository. Start with the
 [standalone build guide](BUILDING.md) and [artifact index](dist/README.md).
 
+Current sources use the Java package `site.benli06` and Mixin package
+`site.benli06.mixin`. Builds include the Minecraft 1.21.1 `pack.mcmeta`, localized
+pack description and [pack icon](src/main/resources/pack.png), also shown by Fabric
+and NeoForge. Historical JARs retain their original package and acceptance scope.
+The [namespace and packaging checks](evidence/namespace-branding-20261111.json)
+verify four new builds against their corresponding historical binaries.
+
 | Directory | Contents |
 | --- | --- |
 | `src/main/java/` | Common companion source |
+| `src/main/resources/` | Pack metadata, icon and language files |
 | `src/platform/<loader>/java/` | Fabric and NeoForge overrides |
 | `src/experiments/` | Explicit feature variants and archived alternatives |
 | `src/compatibility/` | Release-specific source adaptations |
@@ -17,7 +25,8 @@ This directory is an independent Git repository. Start with the
 The parent resource-pack repository no longer tracks this directory. The extracted
 Git history preserves the original memory changes; [repository-origin.json](repository-origin.json)
 records the parent revision and old-to-new file paths. Source and delivered JAR
-bytes are preserved. Original JSON/log evidence retains paths at recording time.
+bytes were preserved during extraction. Subsequent source changes are recorded in
+[walkthrough.md](walkthrough.md). Original JSON/log evidence retains paths at recording time.
 Historical command examples below use the resource-pack project root; new standalone
 commands are in [BUILDING.md](BUILDING.md).
 

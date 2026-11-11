@@ -4,6 +4,12 @@ Run these commands from this repository root. The build needs Python 3.11+, a
 Java 21 JDK, and a prepared Minecraft 1.21.1 client with the audited MTR release
 and matching loader libraries. No resource-pack project Python modules are needed.
 
+Current builds use `site.benli06` (`site.benli06.mixin` for Mixins). The unchanged
+mod ID is `mtr_memory_sharing`. Historical delivery JARs use the previous package;
+check out revision `37f3bb7` to reproduce those original member payloads. Existing
+runtime acceptance describes those historical binaries. New builds record their
+Java package and resource hashes in the adjacent build manifest.
+
 ```powershell
 python -m venv .venv
 .venv/Scripts/python.exe -m pip install -r requirements.txt
@@ -72,3 +78,38 @@ The resource-pack project's `tools/build_vehicle_memory_mod.py` remains a small
 compatibility entry point for its fixture/audit scripts. Their historical examples
 run from that project's root; standalone builds use the commands on this page.
 Runtime evidence and integration tooling retain their original fixture scope.
+
+## Pack metadata and icon
+
+All files in `src/main/resources/` are copied to the JAR root during every build.
+`pack.mcmeta` declares resource pack format 34 for the supported Minecraft 1.21.1
+target. Its translated description is supplied by `assets/mtr_memory_sharing/lang/`;
+add locale files there to extend translations. `pack.png` is a 512 × 512 RGBA PNG
+used by the pack and both loader metadata files.
+
+The icon is original geometric artwork: a train framed by memory-chip pins, with
+railway tracks and no language-specific lettering. Its editable source is
+`tools/render_pack_icon.py`. Pillow is optional and is only needed to regenerate it:
+
+```powershell
+.venv/Scripts/python.exe -m pip install -r requirements-artwork.txt
+.venv/Scripts/python.exe tools/render_pack_icon.py
+```
+
+The committed PNG is used directly by normal builds; icon-generation dependencies
+are not required to build or run the mod.
+
+To verify a new build against its matching historical JAR, use:
+
+```powershell
+.venv/Scripts/python.exe tools/verify_namespace_relocation.py `
+  --baseline '<matching historical JAR>' --candidate '<new JAR>' `
+  --output .cache/namespace-verification.json
+```
+
+The verifier compares actual class files after normalizing constant-pool package
+names, checks every declared Mixin class, and verifies loader metadata, translations,
+icon and resource hashes. It changes no JAR bytes. Historical external Java audit
+tools target the earlier namespace; their original results retain that scope.
+The [2026-11-11 build checks](evidence/namespace-branding-20261111.json) cover both
+baseline loaders and official/v6 NeoForge 21.1.248 with the current namespace.
