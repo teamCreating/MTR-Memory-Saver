@@ -11,8 +11,8 @@ The archived interim build failed full-pack startup at 4 GiB with heap exhaustio
 Build with Java 21 into an explicit output, adding `--install-test` only for a stopped marked client:
 
 ```powershell
-python -X utf8 tools/build_vehicle_memory_mod.py --instance .cache/game-test/neoforge-instance --javac <javac.exe> --packed-meshes --prune-displays --output vehicle-memory/experiments/display-retention/mtr-memory-sharing-neoforge-v021.jar
-python -X utf8 tools/audit_display_retention.py --instance .cache/game-test/neoforge-instance --candidate vehicle-memory/experiments/display-retention/mtr-memory-sharing-neoforge-v021.jar --baseline vehicle-memory/mtr-memory-sharing-neoforge-v020.jar --output vehicle-memory/experiments/display-retention/consumer-audit.json
+python -X utf8 tools/build_vehicle_memory_mod.py --instance .cache/game-test/neoforge-instance --javac <javac.exe> --packed-meshes --prune-displays --output vehicle-memory/dist/experiments/display-retention/mtr-memory-sharing-neoforge-v021.jar
+python -X utf8 tools/audit_display_retention.py --instance .cache/game-test/neoforge-instance --candidate vehicle-memory/dist/experiments/display-retention/mtr-memory-sharing-neoforge-v021.jar --baseline vehicle-memory/dist/releases/mtr-memory-sharing-neoforge-v020.jar --output vehicle-memory/experiments/display-retention/consumer-audit.json
 ```
 
 Ordinary memory measurements exclude diagnostic GC. Five GiB is still the lowest previously verified full-pack heap; this candidate does not establish 4 GiB support or repair the pending passenger exit/window issues.

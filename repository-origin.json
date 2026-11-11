@@ -1,0 +1,552 @@
+{
+  "parent_commit": "2c005600e0273fa5f880cf07fd3a30769b1ad6c6",
+  "history": "Git subtree history of vehicle-memory; build-tool history remains in the parent repository.",
+  "legacy_paths": "Original build and runtime evidence retains paths at recording time. These mappings resolve moved files without rewriting evidence.",
+  "moves": [
+    {
+      "from": "vehicle-memory/archive/mtr-memory-sharing-neoforge-v011.build.json",
+      "to": "dist/archive/mtr-memory-sharing-neoforge-v011.build.json",
+      "sha256": "cacb0489f485c517528ef9bac640838c9d9db93b9c55b0c4bb2b66b5852fc6ee"
+    },
+    {
+      "from": "vehicle-memory/archive/mtr-memory-sharing-neoforge-v011.jar",
+      "to": "dist/archive/mtr-memory-sharing-neoforge-v011.jar",
+      "sha256": "f05939fa0c900b8351d7be518e828b6f24554f1f7f5a349b238ea63184aa635d"
+    },
+    {
+      "from": "vehicle-memory/archive/mtr-memory-sharing-neoforge-v012.build.json",
+      "to": "dist/archive/mtr-memory-sharing-neoforge-v012.build.json",
+      "sha256": "e88545cd1387a110773d3da17b66d2d1a9fd2d7e1cd72a35f0bc85c394eef45b"
+    },
+    {
+      "from": "vehicle-memory/archive/mtr-memory-sharing-neoforge-v012.jar",
+      "to": "dist/archive/mtr-memory-sharing-neoforge-v012.jar",
+      "sha256": "a58fb60e350d022a4a08ad3c32b67080381f63ef483cb982218d137185b9765b"
+    },
+    {
+      "from": "vehicle-memory/compatibility/neoforge-21.1.248/mtr-memory-sharing-neoforge-v030-nf248.build.json",
+      "to": "dist/compatibility/neoforge-21.1.248/mtr-memory-sharing-neoforge-v030-nf248.build.json",
+      "sha256": "de9e1ccb9e6f5d26fae3ab922411f42f79776490fe4b6488c349f0d0144efc80"
+    },
+    {
+      "from": "vehicle-memory/compatibility/neoforge-21.1.248/mtr-memory-sharing-neoforge-v030-nf248.jar",
+      "to": "dist/compatibility/neoforge-21.1.248/mtr-memory-sharing-neoforge-v030-nf248.jar",
+      "sha256": "b9c95bbe79c6c76fe6a0c9af6bdb4f9ed7ce6b007fecdb1c9f543544ce562f02"
+    },
+    {
+      "from": "vehicle-memory/compatibility/neoforge-21.1.248/mtr-memory-sharing-neoforge-v031-v6-nf248.build.json",
+      "to": "dist/compatibility/neoforge-21.1.248/mtr-memory-sharing-neoforge-v031-v6-nf248.build.json",
+      "sha256": "957395b38794228753849a68a5697fce7e4ad7e93dfcb0f907abc7cc88311ceb"
+    },
+    {
+      "from": "vehicle-memory/compatibility/neoforge-21.1.248/mtr-memory-sharing-neoforge-v031-v6-nf248.jar",
+      "to": "dist/compatibility/neoforge-21.1.248/mtr-memory-sharing-neoforge-v031-v6-nf248.jar",
+      "sha256": "43da91dce144cc0a1a1e65307ba385cc9d89eb3a5057f07e7eab7529dca39174"
+    },
+    {
+      "from": "vehicle-memory/compatibility/performance-v6/mtr-memory-sharing-neoforge-v031-v6.build.json",
+      "to": "dist/compatibility/performance-v6/mtr-memory-sharing-neoforge-v031-v6.build.json",
+      "sha256": "de8dda72b600e670e4f853dc151a00e02d3bb6bd7768c63828dd26cdedb845a9"
+    },
+    {
+      "from": "vehicle-memory/compatibility/performance-v6/mtr-memory-sharing-neoforge-v031-v6.jar",
+      "to": "dist/compatibility/performance-v6/mtr-memory-sharing-neoforge-v031-v6.jar",
+      "sha256": "ab6d372f458299bf1ce116a5a05101de3cc110b731149d668f13324adfb23dcb"
+    },
+    {
+      "from": "vehicle-memory/compatibility/performance-v6/src/dev/abenli/mtrmemory/PackedVertices.java",
+      "to": "src/compatibility/performance-v6/java/dev/abenli/mtrmemory/PackedVertices.java",
+      "sha256": "a11e1134a4d4158a6f8b3a7d0c825d60b7a3026b152b1ead9e5c7ac63b4c8d76"
+    },
+    {
+      "from": "vehicle-memory/compatibility/performance-v6/src/dev/abenli/mtrmemory/SharedBlockbenchLoader.java",
+      "to": "src/compatibility/performance-v6/java/dev/abenli/mtrmemory/SharedBlockbenchLoader.java",
+      "sha256": "ebfad04c2b2422fcc846e67f32c6a24a477058ce99ddb2cc5583bdf6a02b97e5"
+    },
+    {
+      "from": "vehicle-memory/compatibility/performance-v6/src/dev/abenli/mtrmemory/mixin/PackedModelGroupMixin.java",
+      "to": "src/compatibility/performance-v6/java/dev/abenli/mtrmemory/mixin/PackedModelGroupMixin.java",
+      "sha256": "1803de5cc91fca431b0eeb4566c40ff625c16c4fe82736290e49726d6d6f22f3"
+    },
+    {
+      "from": "vehicle-memory/compatibility/performance-v6/src/dev/abenli/mtrmemory/mixin/V6LoaderLifecycleMixin.java",
+      "to": "src/compatibility/performance-v6/java/dev/abenli/mtrmemory/mixin/V6LoaderLifecycleMixin.java",
+      "sha256": "aa24ac531fd4a54b8ad59307238b1308d44796578b2214202d6c3f65c24a7746"
+    },
+    {
+      "from": "vehicle-memory/experiments/block-sharing/mtr-memory-sharing-neoforge-v024.build.json",
+      "to": "dist/experiments/block-sharing/mtr-memory-sharing-neoforge-v024.build.json",
+      "sha256": "2f53d2177d3d64baf532a74205be78dd1caa61eeb18f10b81c3c31843c1fadcf"
+    },
+    {
+      "from": "vehicle-memory/experiments/block-sharing/mtr-memory-sharing-neoforge-v024.jar",
+      "to": "dist/experiments/block-sharing/mtr-memory-sharing-neoforge-v024.jar",
+      "sha256": "bf54084293b4f3427cf61bd8b77ab2efe42e8aeb51bd8f19fbad6248fcdf1570"
+    },
+    {
+      "from": "vehicle-memory/experiments/block-sharing/src/dev/abenli/mtrmemory/PackedVertices.java",
+      "to": "src/experiments/block-sharing/java/dev/abenli/mtrmemory/PackedVertices.java",
+      "sha256": "8e60f5be3163dd84868e845d9af479c1330280489b4c5f227a13b563afe15cfb"
+    },
+    {
+      "from": "vehicle-memory/experiments/block-sharing/src/dev/abenli/mtrmemory/mixin/PackedBlockLifetimeMixin.java",
+      "to": "src/experiments/block-sharing/java/dev/abenli/mtrmemory/mixin/PackedBlockLifetimeMixin.java",
+      "sha256": "11ce9748dc2a3832b41c2946bbc7ceb28ddf5e6c0169512f989bf26c5158fef6"
+    },
+    {
+      "from": "vehicle-memory/experiments/bounded-text-cache/mtr-memory-sharing-neoforge-v030.build.json",
+      "to": "dist/experiments/bounded-text-cache/mtr-memory-sharing-neoforge-v030.build.json",
+      "sha256": "6f3b4ebe5de2affa158e117ceac8ce825314c47d0eab96e48afaeece7199d1aa"
+    },
+    {
+      "from": "vehicle-memory/experiments/bounded-text-cache/mtr-memory-sharing-neoforge-v030.jar",
+      "to": "dist/experiments/bounded-text-cache/mtr-memory-sharing-neoforge-v030.jar",
+      "sha256": "eb21c0062f7944a7d2c015cb2eee5a1d24c11be4af2286bbbbfa4625d6cd2d54"
+    },
+    {
+      "from": "vehicle-memory/experiments/bounded-text-cache/src/dev/abenli/mtrmemory/CompressedResourceTextCache.java",
+      "to": "src/experiments/bounded-text-cache/java/dev/abenli/mtrmemory/CompressedResourceTextCache.java",
+      "sha256": "63147f63eccea980c1f04b3ca5a9b6fc52acc74f5c49281fd896d1702bbead0c"
+    },
+    {
+      "from": "vehicle-memory/experiments/bounded-text-cache/src/dev/abenli/mtrmemory/mixin/CompressedResourceTextMixin.java",
+      "to": "src/experiments/bounded-text-cache/java/dev/abenli/mtrmemory/mixin/CompressedResourceTextMixin.java",
+      "sha256": "3ee652c7ba4d70144550659c8c8fab7282ede92be24fe5f41bbc6eda0890e2ad"
+    },
+    {
+      "from": "vehicle-memory/experiments/compressed-text/mtr-memory-sharing-neoforge-v026.build.json",
+      "to": "dist/experiments/compressed-text/mtr-memory-sharing-neoforge-v026.build.json",
+      "sha256": "30b06db654c0e01b6962c5fbd6cd59ff9359c0b42d48a6653cfa4ad740a328fa"
+    },
+    {
+      "from": "vehicle-memory/experiments/compressed-text/mtr-memory-sharing-neoforge-v026.jar",
+      "to": "dist/experiments/compressed-text/mtr-memory-sharing-neoforge-v026.jar",
+      "sha256": "0fabb984dfec04ef7f4f921433730499c7c0cd242f238d656b094c389ba06c93"
+    },
+    {
+      "from": "vehicle-memory/experiments/compressed-text/src/dev/abenli/mtrmemory/CompressedResourceTextCache.java",
+      "to": "src/experiments/compressed-text/java/dev/abenli/mtrmemory/CompressedResourceTextCache.java",
+      "sha256": "e46c8ff4cf5a857310d7f7fdde85e2a157b176f1aa9aea932f6a3bcb68869af1"
+    },
+    {
+      "from": "vehicle-memory/experiments/compressed-text/src/dev/abenli/mtrmemory/mixin/CompressedResourceTextMixin.java",
+      "to": "src/experiments/compressed-text/java/dev/abenli/mtrmemory/mixin/CompressedResourceTextMixin.java",
+      "sha256": "3b7c7a236e90324a3b309e5a6b5816deb69491343bd5cf288f484f7ed610207d"
+    },
+    {
+      "from": "vehicle-memory/experiments/display-retention/archive/mtr-memory-sharing-neoforge-v021-interim.build.json",
+      "to": "dist/experiments/display-retention/archive/mtr-memory-sharing-neoforge-v021-interim.build.json",
+      "sha256": "013bc38ff7225f3c478125c0377c5d226dbb92955886194c7397b290243cc583"
+    },
+    {
+      "from": "vehicle-memory/experiments/display-retention/archive/mtr-memory-sharing-neoforge-v021-interim.jar",
+      "to": "dist/experiments/display-retention/archive/mtr-memory-sharing-neoforge-v021-interim.jar",
+      "sha256": "c77ee835d7dfefe3c3be14d46bf8e4b28c2d75b793b6c9eec57c51d5ed65cb8c"
+    },
+    {
+      "from": "vehicle-memory/experiments/display-retention/mtr-memory-sharing-neoforge-v021.build.json",
+      "to": "dist/experiments/display-retention/mtr-memory-sharing-neoforge-v021.build.json",
+      "sha256": "1811d3bf049e34a607ad2e9f53ecd4c2af4abdad9a4d8612c7bd37cf194798bb"
+    },
+    {
+      "from": "vehicle-memory/experiments/display-retention/mtr-memory-sharing-neoforge-v021.jar",
+      "to": "dist/experiments/display-retention/mtr-memory-sharing-neoforge-v021.jar",
+      "sha256": "b8b5ff5777bb36a7d1c5793c47173a204cfa8aa06e4b29c34b5037c3b7e5eef9"
+    },
+    {
+      "from": "vehicle-memory/experiments/display-retention/src/dev/abenli/mtrmemory/DisplayRetention.java",
+      "to": "src/experiments/display-retention/java/dev/abenli/mtrmemory/DisplayRetention.java",
+      "sha256": "9593034584d2ac41b54d76efa6fc2af166002adb6d3b30cc7b56727213e9a91e"
+    },
+    {
+      "from": "vehicle-memory/experiments/display-retention/src/dev/abenli/mtrmemory/SharedBlockbenchCache.java",
+      "to": "src/experiments/display-retention/java/dev/abenli/mtrmemory/SharedBlockbenchCache.java",
+      "sha256": "b909034f26a6ec2b1a8b862bfcfb86ef14b5517eb8bfb46ebc1990c9f281c1cd"
+    },
+    {
+      "from": "vehicle-memory/experiments/display-retention/src/dev/abenli/mtrmemory/SharedBlockbenchLoader.java",
+      "to": "src/experiments/display-retention/java/dev/abenli/mtrmemory/SharedBlockbenchLoader.java",
+      "sha256": "48a5e9c9155d284bc4d53ec31f0995723b7c9cfee6c448722fcb5e620d8aed24"
+    },
+    {
+      "from": "vehicle-memory/experiments/display-retention/src/dev/abenli/mtrmemory/mixin/DisplayPartAccess.java",
+      "to": "src/experiments/display-retention/java/dev/abenli/mtrmemory/mixin/DisplayPartAccess.java",
+      "sha256": "75c29a45c55d234e890c47cdb868868bae7ad83a9ec4b0c75fab127f3f18fa56"
+    },
+    {
+      "from": "vehicle-memory/experiments/display-retention/src/dev/abenli/mtrmemory/mixin/DisplaySelectionMixin.java",
+      "to": "src/experiments/display-retention/java/dev/abenli/mtrmemory/mixin/DisplaySelectionMixin.java",
+      "sha256": "bafa04407622c6c23c723b90e71c54bb3ebc4c63aa667705d8541078d687802e"
+    },
+    {
+      "from": "vehicle-memory/experiments/display-retention/src/dev/abenli/mtrmemory/mixin/SourceLifetimeMixin.java",
+      "to": "src/experiments/display-retention/java/dev/abenli/mtrmemory/mixin/SourceLifetimeMixin.java",
+      "sha256": "506ca19be6cba0dcd015401dc4f8c545119866aba9ecd1a84392832c7fb6ef6a"
+    },
+    {
+      "from": "vehicle-memory/experiments/json-sharing/mtr-memory-sharing-neoforge-v022.build.json",
+      "to": "dist/experiments/json-sharing/mtr-memory-sharing-neoforge-v022.build.json",
+      "sha256": "d3dcd2464194ed3a4f46b8b6076de1a56143db71cd085eeebcaa7c77462633e9"
+    },
+    {
+      "from": "vehicle-memory/experiments/json-sharing/mtr-memory-sharing-neoforge-v022.jar",
+      "to": "dist/experiments/json-sharing/mtr-memory-sharing-neoforge-v022.jar",
+      "sha256": "b0141879926c0f87bcd109fb081b81cd7effcfba7796322928c7cdd3e19fd730"
+    },
+    {
+      "from": "vehicle-memory/experiments/json-sharing/src/dev/abenli/mtrmemory/VehicleJsonCache.java",
+      "to": "src/experiments/json-sharing/java/dev/abenli/mtrmemory/VehicleJsonCache.java",
+      "sha256": "af087220124edbd9d3c734a8ee9e8bad773e29b2e46adc8e87e38893037e9fc0"
+    },
+    {
+      "from": "vehicle-memory/experiments/json-sharing/src/dev/abenli/mtrmemory/mixin/VehicleJsonCacheMixin.java",
+      "to": "src/experiments/json-sharing/java/dev/abenli/mtrmemory/mixin/VehicleJsonCacheMixin.java",
+      "sha256": "0bbaa5c55716019b851db9e96bc500b1620b9338e2f6b02f966167630e1388e6"
+    },
+    {
+      "from": "vehicle-memory/experiments/json-sharing/src/dev/abenli/mtrmemory/mixin/VehicleJsonEpochMixin.java",
+      "to": "src/experiments/json-sharing/java/dev/abenli/mtrmemory/mixin/VehicleJsonEpochMixin.java",
+      "sha256": "a99b9bfdfd526c9c1287286c0e40c466e16d403f5974f3896319e41c010b91e7"
+    },
+    {
+      "from": "vehicle-memory/experiments/packed-mesh/mtr-memory-sharing-neoforge-v020.build.json",
+      "to": "dist/experiments/packed-mesh/mtr-memory-sharing-neoforge-v020.build.json",
+      "sha256": "4f1d4621cafbb17cffa00f58d310f9b732a63593d1fde062004f822191f9456b"
+    },
+    {
+      "from": "vehicle-memory/experiments/packed-mesh/mtr-memory-sharing-neoforge-v020.jar",
+      "to": "dist/experiments/packed-mesh/mtr-memory-sharing-neoforge-v020.jar",
+      "sha256": "daed4c63017b110f22de9e98a8ab4ad9122daba98ff187bd300b532d09b8b5ef"
+    },
+    {
+      "from": "vehicle-memory/experiments/packed-mesh/src-platform/neoforge/dev/abenli/mtrmemory/PackedModelGroupOperations.java",
+      "to": "src/experiments/packed-mesh/platform/neoforge/java/dev/abenli/mtrmemory/PackedModelGroupOperations.java",
+      "sha256": "a192bddc66dbe692af3a07b13c8839c133b2e8af7ebe918afa4b8f4ba821815b"
+    },
+    {
+      "from": "vehicle-memory/experiments/packed-mesh/src-platform/neoforge/dev/abenli/mtrmemory/PackedVertexEmitter.java",
+      "to": "src/experiments/packed-mesh/platform/neoforge/java/dev/abenli/mtrmemory/PackedVertexEmitter.java",
+      "sha256": "61b64aac0ee43d6238d7a8bb02e961ce1121913c5597b08a788053ca339b5173"
+    },
+    {
+      "from": "vehicle-memory/experiments/packed-mesh/src-platform/neoforge/dev/abenli/mtrmemory/mixin/PackedModelGroupMixin.java",
+      "to": "src/experiments/packed-mesh/platform/neoforge/java/dev/abenli/mtrmemory/mixin/PackedModelGroupMixin.java",
+      "sha256": "34b6619a3b414bd98db8f3acda5cd47c6c138b2e7632ed265a8e0404c79715a3"
+    },
+    {
+      "from": "vehicle-memory/experiments/packed-mesh/src/dev/abenli/mtrmemory/PackedModelGroupAccess.java",
+      "to": "src/experiments/packed-mesh/java/dev/abenli/mtrmemory/PackedModelGroupAccess.java",
+      "sha256": "e75cf4d0e91b5b00311d6463bce4a722f1fa5f7008b8295e664b9d4259a72904"
+    },
+    {
+      "from": "vehicle-memory/experiments/packed-mesh/src/dev/abenli/mtrmemory/PackedModelGroupStore.java",
+      "to": "src/experiments/packed-mesh/java/dev/abenli/mtrmemory/PackedModelGroupStore.java",
+      "sha256": "6922ec7ba42473d88518944e374bb547ef80f8d1d2d13cb6f10f467aa72bfd6b"
+    },
+    {
+      "from": "vehicle-memory/experiments/packed-mesh/src/dev/abenli/mtrmemory/PackedVertices.java",
+      "to": "src/experiments/packed-mesh/java/dev/abenli/mtrmemory/PackedVertices.java",
+      "sha256": "4b26097932b3ad3e21dac3060b71492c4603404a01ef5b87b64f8d229e16edde"
+    },
+    {
+      "from": "vehicle-memory/experiments/segmented-reader/mtr-memory-sharing-neoforge-v027.build.json",
+      "to": "dist/experiments/segmented-reader/mtr-memory-sharing-neoforge-v027.build.json",
+      "sha256": "2b673348216eab6e325f6a702c4c536174d516fc0f4df7dd2cbb474df6fd30ac"
+    },
+    {
+      "from": "vehicle-memory/experiments/segmented-reader/mtr-memory-sharing-neoforge-v027.jar",
+      "to": "dist/experiments/segmented-reader/mtr-memory-sharing-neoforge-v027.jar",
+      "sha256": "3efb9abd068998f1605639a1d6d6145a67cee978f1f3dae29bcfc4ac542badd5"
+    },
+    {
+      "from": "vehicle-memory/experiments/segmented-reader/src/dev/abenli/mtrmemory/SegmentedResourceText.java",
+      "to": "src/experiments/segmented-reader/java/dev/abenli/mtrmemory/SegmentedResourceText.java",
+      "sha256": "ef208c42ec2aff43dec624bf08e6e9ca9a6b3cfdf5b1190a96af138693157814"
+    },
+    {
+      "from": "vehicle-memory/experiments/segmented-reader/src/dev/abenli/mtrmemory/mixin/SegmentedResourceTextMixin.java",
+      "to": "src/experiments/segmented-reader/java/dev/abenli/mtrmemory/mixin/SegmentedResourceTextMixin.java",
+      "sha256": "16b23c01cd3a31c6fe4ae31cc24b7b28a6173c03f60e7c48d5058dcfdb4fa1a3"
+    },
+    {
+      "from": "vehicle-memory/experiments/segmented-unpack/archive/mtr-memory-sharing-neoforge-v028-initial.build.json",
+      "to": "dist/experiments/segmented-unpack/archive/mtr-memory-sharing-neoforge-v028-initial.build.json",
+      "sha256": "389f361a287bb673c1c95dd2e9a8effb21c710c5594599c0a369996f21f615e4"
+    },
+    {
+      "from": "vehicle-memory/experiments/segmented-unpack/archive/mtr-memory-sharing-neoforge-v028-initial.jar",
+      "to": "dist/experiments/segmented-unpack/archive/mtr-memory-sharing-neoforge-v028-initial.jar",
+      "sha256": "c86fef0b06fe14f29e58b0cbfd934d22aa070736c41de27faea8e7a21d651f46"
+    },
+    {
+      "from": "vehicle-memory/experiments/segmented-unpack/mtr-memory-sharing-neoforge-v028.build.json",
+      "to": "dist/experiments/segmented-unpack/mtr-memory-sharing-neoforge-v028.build.json",
+      "sha256": "2475855cb78a06ef087194074faff9e28054178b171a316de65ac246bea676f8"
+    },
+    {
+      "from": "vehicle-memory/experiments/segmented-unpack/mtr-memory-sharing-neoforge-v028.jar",
+      "to": "dist/experiments/segmented-unpack/mtr-memory-sharing-neoforge-v028.jar",
+      "sha256": "d934a8d255be16253c753b061e7d92d942985c0ee7debc1892c90ef7ecfdb40c"
+    },
+    {
+      "from": "vehicle-memory/experiments/segmented-unpack/src/dev/abenli/mtrmemory/CompressedResourceTextCache.java",
+      "to": "src/experiments/segmented-unpack/java/dev/abenli/mtrmemory/CompressedResourceTextCache.java",
+      "sha256": "47febba0cd4b9c429c64fc8d179edf0aa03f575d41b0c938c35ccca9b4b50077"
+    },
+    {
+      "from": "vehicle-memory/experiments/shared-mesh/mtr-memory-sharing-neoforge-v023.build.json",
+      "to": "dist/experiments/shared-mesh/mtr-memory-sharing-neoforge-v023.build.json",
+      "sha256": "a7ff2e617d17dd5d4b891662c954be568fa204e1728556451aeffba97b7a3fa9"
+    },
+    {
+      "from": "vehicle-memory/experiments/shared-mesh/mtr-memory-sharing-neoforge-v023.jar",
+      "to": "dist/experiments/shared-mesh/mtr-memory-sharing-neoforge-v023.jar",
+      "sha256": "1bb75cfd491b70e014a1b375b09d1dbe799bbe5f12127e2a64e72b2b71f094da"
+    },
+    {
+      "from": "vehicle-memory/experiments/shared-mesh/src/dev/abenli/mtrmemory/PackedVertices.java",
+      "to": "src/experiments/shared-mesh/java/dev/abenli/mtrmemory/PackedVertices.java",
+      "sha256": "584d13d408e370f7a2612fd894741ab83b9ff2d987b196424dd762cf946746ef"
+    },
+    {
+      "from": "vehicle-memory/experiments/source-displays/mtr-memory-sharing-neoforge-v025.build.json",
+      "to": "dist/experiments/source-displays/mtr-memory-sharing-neoforge-v025.build.json",
+      "sha256": "146596b71965766b9b27fac18c67ae811294cfa471a8c3d8a6646aed7200d956"
+    },
+    {
+      "from": "vehicle-memory/experiments/source-displays/mtr-memory-sharing-neoforge-v025.jar",
+      "to": "dist/experiments/source-displays/mtr-memory-sharing-neoforge-v025.jar",
+      "sha256": "781cdf3d2dbde4e000b27d13eb466a6b42f29fc37b8171e3e6a295090e416a73"
+    },
+    {
+      "from": "vehicle-memory/experiments/source-displays/src/dev/abenli/mtrmemory/SharedBlockbenchCache.java",
+      "to": "src/experiments/source-displays/java/dev/abenli/mtrmemory/SharedBlockbenchCache.java",
+      "sha256": "cbf30458b29b97974f388d019b606a19579d0c405b26f55795122cb34eedf0f3"
+    },
+    {
+      "from": "vehicle-memory/experiments/source-displays/src/dev/abenli/mtrmemory/SharedBlockbenchLoader.java",
+      "to": "src/experiments/source-displays/java/dev/abenli/mtrmemory/SharedBlockbenchLoader.java",
+      "sha256": "62afed63b8bfdd4dfb3b9658c0265126f8f899b6bf798b1d13b555575c72655f"
+    },
+    {
+      "from": "vehicle-memory/experiments/source-displays/src/dev/abenli/mtrmemory/mixin/SourceDisplayPartsMixin.java",
+      "to": "src/experiments/source-displays/java/dev/abenli/mtrmemory/mixin/SourceDisplayPartsMixin.java",
+      "sha256": "edab28af3ed5210813e2095f5bd74fe76a66e211a9c2369a5bbaa7f900579332"
+    },
+    {
+      "from": "vehicle-memory/experiments/source-displays/src/dev/abenli/mtrmemory/mixin/SourceParseCompletionMixin.java",
+      "to": "src/experiments/source-displays/java/dev/abenli/mtrmemory/mixin/SourceParseCompletionMixin.java",
+      "sha256": "42f4f91a55e970a3c2b90853fa426e910fad089d565f775552bdba1b9f8f133b"
+    },
+    {
+      "from": "vehicle-memory/experiments/source-displays/src/dev/abenli/mtrmemory/mixin/VehicleSourceSelectionMixin.java",
+      "to": "src/experiments/source-displays/java/dev/abenli/mtrmemory/mixin/VehicleSourceSelectionMixin.java",
+      "sha256": "ded90e3265b877df50c7836bda60d298893057eb54283f53c5d6003fd22e0a3b"
+    },
+    {
+      "from": "vehicle-memory/experiments/streamed-digest/archive/string-charbuffer/mtr-memory-sharing-neoforge-v029.build.json",
+      "to": "dist/experiments/streamed-digest/archive/string-charbuffer/mtr-memory-sharing-neoforge-v029.build.json",
+      "sha256": "fb4006a8a44582c4e9f287da3642387c7c3572a7e45e1d42494badd034985b49"
+    },
+    {
+      "from": "vehicle-memory/experiments/streamed-digest/archive/string-charbuffer/mtr-memory-sharing-neoforge-v029.jar",
+      "to": "dist/experiments/streamed-digest/archive/string-charbuffer/mtr-memory-sharing-neoforge-v029.jar",
+      "sha256": "db813fd95264f00a380aba619702b1548d67957a88907a3903767d05e7b15adf"
+    },
+    {
+      "from": "vehicle-memory/experiments/streamed-digest/archive/string-charbuffer/src/dev/abenli/mtrmemory/ResourceTextDigest.java",
+      "to": "src/experiments/streamed-digest/archive/string-charbuffer/java/dev/abenli/mtrmemory/ResourceTextDigest.java",
+      "sha256": "5b4b5562c3534f6b4d7d4b224623d88332981e29f08d89844c7780e257b05d96"
+    },
+    {
+      "from": "vehicle-memory/experiments/streamed-digest/archive/string-charbuffer/src/dev/abenli/mtrmemory/SharedBlockbenchCache.java",
+      "to": "src/experiments/streamed-digest/archive/string-charbuffer/java/dev/abenli/mtrmemory/SharedBlockbenchCache.java",
+      "sha256": "9f13b0adb1faf0910227710fbe923b2e599755128ccc84384e1e1e422c48050e"
+    },
+    {
+      "from": "vehicle-memory/experiments/streamed-digest/archive/string-charbuffer/src/dev/abenli/mtrmemory/VehicleJsonCache.java",
+      "to": "src/experiments/streamed-digest/archive/string-charbuffer/java/dev/abenli/mtrmemory/VehicleJsonCache.java",
+      "sha256": "3909a7d1fa37c733ba60aa50a5e69e2ecba367a6a535109f6fb6658a50dfdbf9"
+    },
+    {
+      "from": "vehicle-memory/experiments/streamed-digest/mtr-memory-sharing-neoforge-v029.build.json",
+      "to": "dist/experiments/streamed-digest/mtr-memory-sharing-neoforge-v029.build.json",
+      "sha256": "4cea95895577cb2af12b1f25d10f52307f007a6adfb16ec331dd0676a07645e7"
+    },
+    {
+      "from": "vehicle-memory/experiments/streamed-digest/mtr-memory-sharing-neoforge-v029.jar",
+      "to": "dist/experiments/streamed-digest/mtr-memory-sharing-neoforge-v029.jar",
+      "sha256": "b8e903a3292cca032d6b1038d58f5f0b18be4823148e633ca4114263e2a83b6d"
+    },
+    {
+      "from": "vehicle-memory/experiments/streamed-digest/src/dev/abenli/mtrmemory/ResourceTextDigest.java",
+      "to": "src/experiments/streamed-digest/java/dev/abenli/mtrmemory/ResourceTextDigest.java",
+      "sha256": "29718de437f3f96b8c396377d73530bca525c4a4f013d6ad068a392d6fbf5404"
+    },
+    {
+      "from": "vehicle-memory/experiments/streamed-digest/src/dev/abenli/mtrmemory/SharedBlockbenchCache.java",
+      "to": "src/experiments/streamed-digest/java/dev/abenli/mtrmemory/SharedBlockbenchCache.java",
+      "sha256": "9f13b0adb1faf0910227710fbe923b2e599755128ccc84384e1e1e422c48050e"
+    },
+    {
+      "from": "vehicle-memory/experiments/streamed-digest/src/dev/abenli/mtrmemory/VehicleJsonCache.java",
+      "to": "src/experiments/streamed-digest/java/dev/abenli/mtrmemory/VehicleJsonCache.java",
+      "sha256": "3909a7d1fa37c733ba60aa50a5e69e2ecba367a6a535109f6fb6658a50dfdbf9"
+    },
+    {
+      "from": "vehicle-memory/experiments/vertex-identity/src/dev/abenli/mtrmemory/VertexSharing.java",
+      "to": "src/experiments/vertex-identity/java/dev/abenli/mtrmemory/VertexSharing.java",
+      "sha256": "12da059ad8abb66a2d0ebae0380206a2f69c7bb5dcab2836712b3a6ac1ea19c5"
+    },
+    {
+      "from": "vehicle-memory/experiments/vertex-identity/src/dev/abenli/mtrmemory/mixin/VertexIdentityMixin.java",
+      "to": "src/experiments/vertex-identity/java/dev/abenli/mtrmemory/mixin/VertexIdentityMixin.java",
+      "sha256": "e4a36a77d8e05ca8a6269e9bf50ef4d5a72534b87316e4a71b9389884ac9b3eb"
+    },
+    {
+      "from": "vehicle-memory/mtr-memory-sharing-neoforge-v020.build.json",
+      "to": "dist/releases/mtr-memory-sharing-neoforge-v020.build.json",
+      "sha256": "4f1d4621cafbb17cffa00f58d310f9b732a63593d1fde062004f822191f9456b"
+    },
+    {
+      "from": "vehicle-memory/mtr-memory-sharing-neoforge-v020.jar",
+      "to": "dist/releases/mtr-memory-sharing-neoforge-v020.jar",
+      "sha256": "daed4c63017b110f22de9e98a8ab4ad9122daba98ff187bd300b532d09b8b5ef"
+    },
+    {
+      "from": "vehicle-memory/mtr-memory-sharing-neoforge-v021.build.json",
+      "to": "dist/releases/mtr-memory-sharing-neoforge-v021.build.json",
+      "sha256": "1811d3bf049e34a607ad2e9f53ecd4c2af4abdad9a4d8612c7bd37cf194798bb"
+    },
+    {
+      "from": "vehicle-memory/mtr-memory-sharing-neoforge-v021.jar",
+      "to": "dist/releases/mtr-memory-sharing-neoforge-v021.jar",
+      "sha256": "b8b5ff5777bb36a7d1c5793c47173a204cfa8aa06e4b29c34b5037c3b7e5eef9"
+    },
+    {
+      "from": "vehicle-memory/mtr-memory-sharing-neoforge-v022.build.json",
+      "to": "dist/releases/mtr-memory-sharing-neoforge-v022.build.json",
+      "sha256": "d3dcd2464194ed3a4f46b8b6076de1a56143db71cd085eeebcaa7c77462633e9"
+    },
+    {
+      "from": "vehicle-memory/mtr-memory-sharing-neoforge-v022.jar",
+      "to": "dist/releases/mtr-memory-sharing-neoforge-v022.jar",
+      "sha256": "b0141879926c0f87bcd109fb081b81cd7effcfba7796322928c7cdd3e19fd730"
+    },
+    {
+      "from": "vehicle-memory/mtr-memory-sharing-neoforge-v026.build.json",
+      "to": "dist/releases/mtr-memory-sharing-neoforge-v026.build.json",
+      "sha256": "30b06db654c0e01b6962c5fbd6cd59ff9359c0b42d48a6653cfa4ad740a328fa"
+    },
+    {
+      "from": "vehicle-memory/mtr-memory-sharing-neoforge-v026.jar",
+      "to": "dist/releases/mtr-memory-sharing-neoforge-v026.jar",
+      "sha256": "0fabb984dfec04ef7f4f921433730499c7c0cd242f238d656b094c389ba06c93"
+    },
+    {
+      "from": "vehicle-memory/mtr-memory-sharing-neoforge-v027.build.json",
+      "to": "dist/releases/mtr-memory-sharing-neoforge-v027.build.json",
+      "sha256": "2b673348216eab6e325f6a702c4c536174d516fc0f4df7dd2cbb474df6fd30ac"
+    },
+    {
+      "from": "vehicle-memory/mtr-memory-sharing-neoforge-v027.jar",
+      "to": "dist/releases/mtr-memory-sharing-neoforge-v027.jar",
+      "sha256": "3efb9abd068998f1605639a1d6d6145a67cee978f1f3dae29bcfc4ac542badd5"
+    },
+    {
+      "from": "vehicle-memory/mtr-memory-sharing-neoforge-v028.build.json",
+      "to": "dist/releases/mtr-memory-sharing-neoforge-v028.build.json",
+      "sha256": "2475855cb78a06ef087194074faff9e28054178b171a316de65ac246bea676f8"
+    },
+    {
+      "from": "vehicle-memory/mtr-memory-sharing-neoforge-v028.jar",
+      "to": "dist/releases/mtr-memory-sharing-neoforge-v028.jar",
+      "sha256": "d934a8d255be16253c753b061e7d92d942985c0ee7debc1892c90ef7ecfdb40c"
+    },
+    {
+      "from": "vehicle-memory/mtr-memory-sharing-neoforge-v029.build.json",
+      "to": "dist/releases/mtr-memory-sharing-neoforge-v029.build.json",
+      "sha256": "4cea95895577cb2af12b1f25d10f52307f007a6adfb16ec331dd0676a07645e7"
+    },
+    {
+      "from": "vehicle-memory/mtr-memory-sharing-neoforge-v029.jar",
+      "to": "dist/releases/mtr-memory-sharing-neoforge-v029.jar",
+      "sha256": "b8e903a3292cca032d6b1038d58f5f0b18be4823148e633ca4114263e2a83b6d"
+    },
+    {
+      "from": "vehicle-memory/mtr-memory-sharing-neoforge-v030.build.json",
+      "to": "dist/releases/mtr-memory-sharing-neoforge-v030.build.json",
+      "sha256": "6f3b4ebe5de2affa158e117ceac8ce825314c47d0eab96e48afaeece7199d1aa"
+    },
+    {
+      "from": "vehicle-memory/mtr-memory-sharing-neoforge-v030.jar",
+      "to": "dist/releases/mtr-memory-sharing-neoforge-v030.jar",
+      "sha256": "eb21c0062f7944a7d2c015cb2eee5a1d24c11be4af2286bbbbfa4625d6cd2d54"
+    },
+    {
+      "from": "vehicle-memory/mtr-memory-sharing-neoforge.build.json",
+      "to": "dist/releases/mtr-memory-sharing-neoforge.build.json",
+      "sha256": "cacb0489f485c517528ef9bac640838c9d9db93b9c55b0c4bb2b66b5852fc6ee"
+    },
+    {
+      "from": "vehicle-memory/mtr-memory-sharing-neoforge.jar",
+      "to": "dist/releases/mtr-memory-sharing-neoforge.jar",
+      "sha256": "f05939fa0c900b8351d7be518e828b6f24554f1f7f5a349b238ea63184aa635d"
+    },
+    {
+      "from": "vehicle-memory/mtr-memory-sharing.build.json",
+      "to": "dist/releases/mtr-memory-sharing.build.json",
+      "sha256": "6d9af38b817a1872c375b5d3fef666a9fd6f98c7d65247b5256dc125f2ec12e1"
+    },
+    {
+      "from": "vehicle-memory/mtr-memory-sharing.jar",
+      "to": "dist/releases/mtr-memory-sharing.jar",
+      "sha256": "d827d25274786ee64b8585f72be663399dde5a44e47e5c1a0287c5217820e79b"
+    },
+    {
+      "from": "vehicle-memory/src-platform/fabric/dev/abenli/mtrmemory/SharedBlockbenchCache.java",
+      "to": "src/platform/fabric/java/dev/abenli/mtrmemory/SharedBlockbenchCache.java",
+      "sha256": "60010493ba953f39ab44455d4202182669ca170f88990a6a13d6259164bc0afc"
+    },
+    {
+      "from": "vehicle-memory/src-platform/fabric/dev/abenli/mtrmemory/SharedBlockbenchLoader.java",
+      "to": "src/platform/fabric/java/dev/abenli/mtrmemory/SharedBlockbenchLoader.java",
+      "sha256": "bf3c8e802c83039a719d77e806c937c7ad30bce810f03b73e5e9f226f10b2227"
+    },
+    {
+      "from": "vehicle-memory/src-platform/neoforge/dev/abenli/mtrmemory/SharedBlockbenchLoader.java",
+      "to": "src/platform/neoforge/java/dev/abenli/mtrmemory/SharedBlockbenchLoader.java",
+      "sha256": "c22ee54705db1b3361518d0be0e27e027fd26601bb5f36acd685cc6f7a085586"
+    },
+    {
+      "from": "vehicle-memory/src/dev/abenli/mtrmemory/SharedBlockbenchCache.java",
+      "to": "src/main/java/dev/abenli/mtrmemory/SharedBlockbenchCache.java",
+      "sha256": "abe356797f68b0a494b0a78ff85f8e31c8122e5af10dbde0b458083fc9ec9201"
+    },
+    {
+      "from": "vehicle-memory/src/dev/abenli/mtrmemory/mixin/ModelLoaderAccess.java",
+      "to": "src/main/java/dev/abenli/mtrmemory/mixin/ModelLoaderAccess.java",
+      "sha256": "35fccae4916bf7f11b182cbe8a67640d816d57922b4bd13e0644b74e44dc8cce"
+    },
+    {
+      "from": "vehicle-memory/src/dev/abenli/mtrmemory/mixin/ModelLoaderCompletionMixin.java",
+      "to": "src/main/java/dev/abenli/mtrmemory/mixin/ModelLoaderCompletionMixin.java",
+      "sha256": "5331eb0e4641cc041035997bbf8bea217331cee4db83ab8a012c53884a9cba11"
+    },
+    {
+      "from": "vehicle-memory/src/dev/abenli/mtrmemory/mixin/ResourceReloadMixin.java",
+      "to": "src/main/java/dev/abenli/mtrmemory/mixin/ResourceReloadMixin.java",
+      "sha256": "692eeb94c286368e6739e740d28d7ba5e173bf5b2eb8360ddb40d3be0a25b0a5"
+    },
+    {
+      "from": "vehicle-memory/src/dev/abenli/mtrmemory/mixin/VehicleModelFactoryMixin.java",
+      "to": "src/main/java/dev/abenli/mtrmemory/mixin/VehicleModelFactoryMixin.java",
+      "sha256": "e44d5920edb0e2241d15f2c6f8a38b925e66bf2a604fdc952f8afeb2860787c0"
+    },
+    {
+      "from": "vehicle-memory/src/dev/abenli/mtrmemory/mixin/VertexColorMixin.java",
+      "to": "src/main/java/dev/abenli/mtrmemory/mixin/VertexColorMixin.java",
+      "sha256": "530e0f572b8dbc19f9464168dc35b487f4fa6916bac689ef269275760a64c184"
+    }
+  ]
+}

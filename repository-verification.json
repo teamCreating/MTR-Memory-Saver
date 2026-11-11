@@ -1,0 +1,53 @@
+{
+  "timestamp": "2026-11-11T11:45:24.254135+08:00",
+  "integrity": {
+    "timestamp": "2026-11-11T11:40:51.359327+08:00",
+    "preserved_non_markdown_files": 974,
+    "java_sources": 51,
+    "preserved_delivery_jars": 29,
+    "broken_markdown_links": []
+  },
+  "rebuilds": [
+    {
+      "name": "fabric-baseline",
+      "baseline": "dist/releases/mtr-memory-sharing.jar",
+      "matching_jar_members": 17,
+      "baseline_sha256": "d827d25274786ee64b8585f72be663399dde5a44e47e5c1a0287c5217820e79b",
+      "rebuilt_sha256": "26ae69f323682d239297479d0666a3f93e56b425cdc6e9f62a79f58c490779c3",
+      "isolated_python": true,
+      "member_payloads_identical": true
+    },
+    {
+      "name": "neoforge-baseline",
+      "baseline": "dist/releases/mtr-memory-sharing-neoforge.jar",
+      "matching_jar_members": 17,
+      "baseline_sha256": "f05939fa0c900b8351d7be518e828b6f24554f1f7f5a349b238ea63184aa635d",
+      "rebuilt_sha256": "2212c940a976b68a881c4a571b1e197ed16a62e381358abae42b1a6c44f35a8c",
+      "isolated_python": true,
+      "member_payloads_identical": true
+    },
+    {
+      "name": "neoforge-nf248-v030",
+      "baseline": "dist/compatibility/neoforge-21.1.248/mtr-memory-sharing-neoforge-v030-nf248.jar",
+      "matching_jar_members": 42,
+      "baseline_sha256": "b9c95bbe79c6c76fe6a0c9af6bdb4f9ed7ce6b007fecdb1c9f543544ce562f02",
+      "rebuilt_sha256": "b8c2aecfb84a78ac9d0a78040d2cdf92ec6502fb4baefd1e612624fad0ac331f",
+      "isolated_python": true,
+      "member_payloads_identical": true
+    },
+    {
+      "name": "neoforge-nf248-v031-v6",
+      "baseline": "dist/compatibility/neoforge-21.1.248/mtr-memory-sharing-neoforge-v031-v6-nf248.jar",
+      "matching_jar_members": 42,
+      "baseline_sha256": "43da91dce144cc0a1a1e65307ba385cc9d89eb3a5057f07e7eab7529dca39174",
+      "rebuilt_sha256": "e3f99c9f1454ca22eee5e1db0b5f487bdd1a3bc8bee45bc3822ebb40ba9f100d",
+      "isolated_python": true,
+      "member_payloads_identical": true
+    }
+  ],
+  "regressions": {
+    "active_client_patch_tests": 4,
+    "parent_performance_analysis_tests": 4
+  },
+  "limits": "Directory/build refactoring only. No new game session or runtime acceptance. Original empty source directories remain because automatic approval policy blocked their removal."
+}

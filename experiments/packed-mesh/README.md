@@ -7,7 +7,7 @@ The mixin replaces the audited release's `NewOptimizedModelGroup.add`, `merge` a
 The candidate is excluded from default builds. Build it explicitly:
 
 ```powershell
-python -X utf8 tools/build_vehicle_memory_mod.py --instance '.cache/game-test/neoforge-instance' --javac '<Java 21 javac.exe>' --packed-meshes --output 'vehicle-memory/experiments/packed-mesh/mtr-memory-sharing-neoforge-v020.jar'
+python -X utf8 tools/build_vehicle_memory_mod.py --instance '.cache/game-test/neoforge-instance' --javac '<Java 21 javac.exe>' --packed-meshes --output 'vehicle-memory/dist/experiments/packed-mesh/mtr-memory-sharing-neoforge-v020.jar'
 ```
 
 `tools/audit_packed_mesh.py` runs unmodified official NeoForge MTR beta.2 methods outside a mixin runtime. The synthetic audit checks raw round trips, all 11 emitted GPU arguments, transformations, appended blocks, empty meshes, transparent colors, stage/texture keys and bounds. The real-model audit invokes the official Blockbench parser and compares every parsed group, generated bounds, ordinary merges and mirrored merges, with strict raw bit checks.

@@ -1,0 +1,5 @@
+# Preserve fingerprinted source, manifest and evidence bytes across checkouts.
+* -text whitespace=cr-at-eol
+*.jar binary
+*.png binary
+*.log -whitespace

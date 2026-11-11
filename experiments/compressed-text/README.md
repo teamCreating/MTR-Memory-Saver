@@ -9,8 +9,8 @@ Compression stores exact UTF-16 code units, including BOM, newlines, supplementa
 All 8,534 text files in the original MTR JAR and 16 selected pack archives pass exact roundtrips. Synthetic, empty/null/error/retry, namespace isolation, 64 concurrent reads with one native miss and overlapping reload checks pass. Offline requested inputs total 2,902,944,597 code units; compressed payloads total 1,026,235,694 bytes with 150,148 code units retained uncompressed. These are archive input totals, not the effective native cache population or runtime RAM measurements. [Audit](text-audit.json).
 
 ```powershell
-python -X utf8 tools/build_vehicle_memory_mod.py --instance .cache/game-test/neoforge-instance --javac '<Java 21 javac.exe>' --packed-meshes --prune-displays --share-json --compress-texts --output vehicle-memory/experiments/compressed-text/mtr-memory-sharing-neoforge-v026.jar
-python -X utf8 tools/audit_compressed_resource_text.py --instance .cache/game-test/neoforge-instance --candidate vehicle-memory/experiments/compressed-text/mtr-memory-sharing-neoforge-v026.jar --baseline vehicle-memory/mtr-memory-sharing-neoforge-v022.jar --output vehicle-memory/experiments/compressed-text/text-audit.json
+python -X utf8 tools/build_vehicle_memory_mod.py --instance .cache/game-test/neoforge-instance --javac '<Java 21 javac.exe>' --packed-meshes --prune-displays --share-json --compress-texts --output vehicle-memory/dist/experiments/compressed-text/mtr-memory-sharing-neoforge-v026.jar
+python -X utf8 tools/audit_compressed_resource_text.py --instance .cache/game-test/neoforge-instance --candidate vehicle-memory/dist/experiments/compressed-text/mtr-memory-sharing-neoforge-v026.jar --baseline vehicle-memory/dist/releases/mtr-memory-sharing-neoforge-v022.jar --output vehicle-memory/experiments/compressed-text/text-audit.json
 ```
 
 Native mixin execution, full-pack startup/reload, DC01 rendering and 4 GiB acceptance now pass as recorded below. v0.2.6 is the recommended tested delivery; retain v0.2.2 for rollback.

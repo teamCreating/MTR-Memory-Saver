@@ -4,8 +4,8 @@ Target: **Minecraft 1.21.1 / NeoForge 21.1.248 / FML 4.0.43 / Java 21**. These s
 
 | MTR release | Companion | SHA-256 |
 | --- | --- | --- |
-| Custom `4.1.0-beta.2-mc1.21.1-performance-v6` | [v0.3.1-v6 for 21.1.248](mtr-memory-sharing-neoforge-v031-v6-nf248.jar) | `43da91dce144cc0a1a1e65307ba385cc9d89eb3a5057f07e7eab7529dca39174` |
-| Official `4.1.0-beta.2` | [v0.3.0 for 21.1.248](mtr-memory-sharing-neoforge-v030-nf248.jar) | `b9c95bbe79c6c76fe6a0c9af6bdb4f9ed7ce6b007fecdb1c9f543544ce562f02` |
+| Custom `4.1.0-beta.2-mc1.21.1-performance-v6` | [v0.3.1-v6 for 21.1.248](../../dist/compatibility/neoforge-21.1.248/mtr-memory-sharing-neoforge-v031-v6-nf248.jar) | `43da91dce144cc0a1a1e65307ba385cc9d89eb3a5057f07e7eab7529dca39174` |
+| Official `4.1.0-beta.2` | [v0.3.0 for 21.1.248](../../dist/compatibility/neoforge-21.1.248/mtr-memory-sharing-neoforge-v030-nf248.jar) | `b9c95bbe79c6c76fe6a0c9af6bdb4f9ed7ce6b007fecdb1c9f543544ce562f02` |
 
 Stop the client, retain the previous memory companion outside `mods`, and install exactly one companion matching the MTR release. The custom v6 JAR must have SHA-256 `8bd419bd798c2ab2fa03e08850409387804fdeb2e4f2987c66b9984236263585`; the official NeoForge MTR JAR must have SHA-256 `ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa`. Keep the existing repaired resource packs enabled. Test observer mods are separate from installation.
 

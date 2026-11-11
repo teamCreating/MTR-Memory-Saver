@@ -1,6 +1,6 @@
 # Bounded resource-text digests (v0.2.9)
 
-Target: Minecraft 1.21.1 / NeoForge 21.1.265 / official MTR 4.1.0-beta.2. Delivered: [mtr-memory-sharing-neoforge-v029.jar](../../mtr-memory-sharing-neoforge-v029.jar). Two identical 3.5 GiB startups and actual F3+T reloads pass with the corrected native lifecycle; keep v0.2.8 for rollback. [Final acceptance](../../evidence/neoforge-v029-acceptance.json).
+Target: Minecraft 1.21.1 / NeoForge 21.1.265 / official MTR 4.1.0-beta.2. Delivered: [mtr-memory-sharing-neoforge-v029.jar](../../dist/releases/mtr-memory-sharing-neoforge-v029.jar). Two identical 3.5 GiB startups and actual F3+T reloads pass with the corrected native lifecycle; keep v0.2.8 for rollback. [Final acceptance](../../evidence/neoforge-v029-acceptance.json).
 
 The shared Blockbench and vehicle-configuration caches calculate their content keys from `raw.getBytes(UTF_8)`. Each large request therefore allocates a complete encoded copy before hashing, even when a parsed input is already shared. This candidate hashes the same bytes through an 8192-byte UTF-8 encoder buffer. It reuses a 4096-unit array-backed character buffer filled from the original String. An unfinished high surrogate is carried into the next segment; the encoder uses its array path. The encoder uses the charset's default replacement for malformed UTF-16, matching String.getBytes. Supplementary characters remain intact at buffer boundaries. Inputs up to 4096 code units retain the former path.
 
@@ -11,8 +11,8 @@ Build and independently audit from the project root:
 ```powershell
 $testMarker = Get-Content .cache/game-test/neoforge-instance/vehicle-test-instance.json | ConvertFrom-Json
 $testJavac = Join-Path (Split-Path $testMarker.java) 'javac.exe'
-python -X utf8 tools/build_vehicle_memory_mod.py --instance .cache/game-test/neoforge-instance --javac $testJavac --packed-meshes --prune-displays --share-json --compress-texts --segment-text-reads --segment-text-unpacks --stream-text-digests --output vehicle-memory/experiments/streamed-digest/mtr-memory-sharing-neoforge-v029.jar
-python -X utf8 tools/audit_streamed_resource_digest.py --instance .cache/game-test/neoforge-instance --candidate vehicle-memory/experiments/streamed-digest/mtr-memory-sharing-neoforge-v029.jar --baseline vehicle-memory/mtr-memory-sharing-neoforge-v028.jar --output vehicle-memory/experiments/streamed-digest/fresh-audit.json
+python -X utf8 tools/build_vehicle_memory_mod.py --instance .cache/game-test/neoforge-instance --javac $testJavac --packed-meshes --prune-displays --share-json --compress-texts --segment-text-reads --segment-text-unpacks --stream-text-digests --output vehicle-memory/dist/experiments/streamed-digest/mtr-memory-sharing-neoforge-v029.jar
+python -X utf8 tools/audit_streamed_resource_digest.py --instance .cache/game-test/neoforge-instance --candidate vehicle-memory/dist/experiments/streamed-digest/mtr-memory-sharing-neoforge-v029.jar --baseline vehicle-memory/dist/releases/mtr-memory-sharing-neoforge-v028.jar --output vehicle-memory/experiments/streamed-digest/fresh-audit.json
 ```
 
 The audit loads the actual v0.2.8 cache classes in a separate classloader and compares both private cache digest methods in both versions. It covers all archive text inputs, Unicode and unpaired-surrogate boundaries, null failures, concurrent hashing and thread allocation counters. An unchanged-baseline negative control must fail the allocation requirement. The disassembly comparison excludes only the digest body and normalizes constant-pool reference numbering and comment-column padding; native instruction offsets, operands, comments and other method bodies remain compared.

@@ -12,12 +12,12 @@ The exact audited artifact passed ordinary full-16-pack startup and actual F3+T 
 
 The 4 GiB attempt failed with heap exhaustion during registration and unresponsive pack recovery; it opened no integrated world. The separate post-5-GiB-acceptance GC diagnostic measures 1,871,160,520 shallow live bytes, down from v0.2.1's 2,478,233,672: 579 MiB / 24.50% less. Sampled working-set/private-commit peaks are 6.00/6.19 GiB at startup and 6.57/6.75 GiB at reload. The startup heap sample misses parsing allocations; total process peaks changed little. Five GiB remains the lowest verified heap.
 
-The audited JAR is copied unchanged to the separately versioned [v0.2.2 delivery](../../mtr-memory-sharing-neoforge-v022.jar). [Runtime acceptance](../../evidence/neoforge-v022-5gb-acceptance.json) records fingerprints, camera/player restoration and saved transport verification. Passenger exit and wider window/vehicle acceptance remain open.
+The audited JAR is copied unchanged to the separately versioned [v0.2.2 delivery](../../dist/releases/mtr-memory-sharing-neoforge-v022.jar). [Runtime acceptance](../../evidence/neoforge-v022-5gb-acceptance.json) records fingerprints, camera/player restoration and saved transport verification. Passenger exit and wider window/vehicle acceptance remain open.
 
 ```powershell
-python -X utf8 tools/build_vehicle_memory_mod.py --instance .cache/game-test/neoforge-instance --javac <javac.exe> --packed-meshes --prune-displays --share-json --output vehicle-memory/experiments/json-sharing/mtr-memory-sharing-neoforge-v022.jar
+python -X utf8 tools/build_vehicle_memory_mod.py --instance .cache/game-test/neoforge-instance --javac <javac.exe> --packed-meshes --prune-displays --share-json --output vehicle-memory/dist/experiments/json-sharing/mtr-memory-sharing-neoforge-v022.jar
 python -X utf8 tools/inventory_vehicle_json.py --instance .cache/game-test/neoforge-instance --jobs vehicle-memory/experiments/json-sharing/consumer-jobs.json --report vehicle-memory/experiments/json-sharing/native-input-inventory.json
-python -X utf8 tools/audit_vehicle_json_sharing.py --instance .cache/game-test/neoforge-instance --candidate vehicle-memory/experiments/json-sharing/mtr-memory-sharing-neoforge-v022.jar --baseline vehicle-memory/mtr-memory-sharing-neoforge-v021.jar --jobs vehicle-memory/experiments/json-sharing/consumer-jobs.json --output vehicle-memory/experiments/json-sharing/consumer-audit.json
+python -X utf8 tools/audit_vehicle_json_sharing.py --instance .cache/game-test/neoforge-instance --candidate vehicle-memory/dist/experiments/json-sharing/mtr-memory-sharing-neoforge-v022.jar --baseline vehicle-memory/dist/releases/mtr-memory-sharing-neoforge-v021.jar --jobs vehicle-memory/experiments/json-sharing/consumer-jobs.json --output vehicle-memory/experiments/json-sharing/consumer-audit.json
 ```
 
 Install into the stopped marked test client only after auditing. Ordinary acceptance excludes diagnostic GC. No lower-heap or broad passenger/window acceptance is claimed by the offline audit.

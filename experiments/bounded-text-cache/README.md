@@ -30,8 +30,8 @@ unchanged.
 ```powershell
 $testMarker = Get-Content .cache/game-test/neoforge-instance/vehicle-test-instance.json | ConvertFrom-Json
 $testJavac = Join-Path (Split-Path $testMarker.java) javac.exe
-python -X utf8 tools/build_vehicle_memory_mod.py --instance .cache/game-test/neoforge-instance --javac $testJavac --packed-meshes --prune-displays --share-json --compress-texts --segment-text-reads --segment-text-unpacks --stream-text-digests --bound-text-cache --output vehicle-memory/experiments/bounded-text-cache/mtr-memory-sharing-neoforge-v030.jar
-python -X utf8 tools/audit_bounded_resource_text.py --instance .cache/game-test/neoforge-instance --candidate vehicle-memory/experiments/bounded-text-cache/mtr-memory-sharing-neoforge-v030.jar --baseline vehicle-memory/mtr-memory-sharing-neoforge-v029.jar --output vehicle-memory/experiments/bounded-text-cache/fresh-audit.json
+python -X utf8 tools/build_vehicle_memory_mod.py --instance .cache/game-test/neoforge-instance --javac $testJavac --packed-meshes --prune-displays --share-json --compress-texts --segment-text-reads --segment-text-unpacks --stream-text-digests --bound-text-cache --output vehicle-memory/dist/experiments/bounded-text-cache/mtr-memory-sharing-neoforge-v030.jar
+python -X utf8 tools/audit_bounded_resource_text.py --instance .cache/game-test/neoforge-instance --candidate vehicle-memory/dist/experiments/bounded-text-cache/mtr-memory-sharing-neoforge-v030.jar --baseline vehicle-memory/dist/releases/mtr-memory-sharing-neoforge-v029.jar --output vehicle-memory/experiments/bounded-text-cache/fresh-audit.json
 ```
 
 [Offline checks](audit.json) pass all 8,534 real resource-text inputs, exact UTF-16

@@ -2,7 +2,7 @@
 
 For **NeoForge 21.1.248**, use the [separate v0.3.1-v6 nf248 build](../neoforge-21.1.248/README.md). The historical artifact and trials below target 21.1.265.
 
-**v0.3.1-v6** adapts the v0.3.0 memory features to the deployed custom v6 release. [Download the companion](mtr-memory-sharing-neoforge-v031-v6.jar). Two fresh clients pass the complete 16-pack fixture at **3072 MiB**, including startup, native F3+T, GPU ownership checks and DC01 rendering before/after reload. [Acceptance and fingerprints](acceptance.json).
+**v0.3.1-v6** adapts the v0.3.0 memory features to the deployed custom v6 release. [Download the companion](../../dist/compatibility/performance-v6/mtr-memory-sharing-neoforge-v031-v6.jar). Two fresh clients pass the complete 16-pack fixture at **3072 MiB**, including startup, native F3+T, GPU ownership checks and DC01 rendering before/after reload. [Acceptance and fingerprints](acceptance.json).
 
 ## Install
 
@@ -93,4 +93,4 @@ python -X utf8 tools/build_vehicle_memory_mod.py `
   --output .cache/game-test/v6-rebuild/mtr-memory-sharing-neoforge-v031-v6.jar
 ```
 
-Use `tools/audit_v6_memory_compatibility.py` with `--instance`, `--candidate`, `--baseline`, `--mtr-jar`, a fresh `--output-dir` and the preserved `--jobs` file for offline validation. `tools/performance_test_instance.py` accepts `--companion-jar` and `--v6-compatibility-probe` to prepare a fresh copied trial. Run the startup/heap monitors, write its `v6-compatibility-request.json` after world entry, capture the native train camera, request real F3+T and monitor a new resource epoch. `tools/finish_v6_memory_trial.py` verifies caches, restores/closes the trial and preserves logs/windows. Analyze its closed JFR with `tools/analyze_performance_jfr.py`, then use `tools/summarize_v6_memory_trials.py` to verify both trials and source preservation. The [build metadata](mtr-memory-sharing-neoforge-v031-v6.build.json) pins all companion source hashes.
+Use `tools/audit_v6_memory_compatibility.py` with `--instance`, `--candidate`, `--baseline`, `--mtr-jar`, a fresh `--output-dir` and the preserved `--jobs` file for offline validation. `tools/performance_test_instance.py` accepts `--companion-jar` and `--v6-compatibility-probe` to prepare a fresh copied trial. Run the startup/heap monitors, write its `v6-compatibility-request.json` after world entry, capture the native train camera, request real F3+T and monitor a new resource epoch. `tools/finish_v6_memory_trial.py` verifies caches, restores/closes the trial and preserves logs/windows. Analyze its closed JFR with `tools/analyze_performance_jfr.py`, then use `tools/summarize_v6_memory_trials.py` to verify both trials and source preservation. The [build metadata](../../dist/compatibility/performance-v6/mtr-memory-sharing-neoforge-v031-v6.build.json) pins all companion source hashes.

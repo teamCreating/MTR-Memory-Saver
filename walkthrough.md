@@ -1,0 +1,13 @@
+# Walkthrough
+
+## 2026-11-11T11:45:24.254135+08:00 (UTC+08:00)
+
+Extracted this module into an independent Git repository, preserving 66 memory-subtree commits from parent revision 2c005600e0273fa5f880cf07fd3a30769b1ad6c6. The extracted history tip is 609199f75991dafb021f6df28a955fbe1fe2c37d before this layout commit. Build-tool history remains available in the parent repository; the standalone builder and its tests are now owned here. No remote is configured.
+
+Consolidated 51 Java files under src/main, src/platform, src/experiments and src/compatibility. Moved all 29 existing JARs and their original manifests into dist/releases, dist/compatibility, dist/experiments and dist/archive. JARs and new dist/local builds are ignored, while delivery manifests and the generated artifact index remain tracked. Kept historical guides and evidence in their existing report directories. repository-origin.json records all 109 file moves and their original hashes so recording-time paths remain interpretable without rewriting evidence.
+
+Removed the builder's game_test_instance import and implicit parent paths. The standalone build requires an explicit external prepared instance, installs its launcher dependency through requirements.txt, resolves sources relative to its own repository and places intermediate classes in ignored build/. Existing release hashes, variant selection and loader checks remain intact. The parent's small compatibility entry point preserves fixture imports and its legacy default instance. Added BUILDING.md and updated delivery links and historical command paths. Byte-preserving Git attributes retain fingerprinted source/evidence bytes; some previously normalized text blobs now record the exact existing working-file line endings.
+
+Validation: all 974 original non-Markdown files retain their SHA-256; all 29 JARs match their original manifests; all module Markdown links resolve. Four active-client classpath tests and four parent performance analyzer tests pass. Installed dependencies in an isolated virtual environment and rebuilt with Python isolated mode from an unrelated working directory: Fabric baseline, NeoForge baseline, official NeoForge 21.1.248 v0.3.0 and its Performance-v6 v0.3.1-v6 variant. All 17/17/42/42 JAR member payloads respectively match the original deliveries; only container timestamps differ. See repository-verification.json. No game was launched and no delivered mod or external instance was modified.
+
+Automatic approval rejected verified-empty-directory cleanup with only "blocked by policy" and no more specific reason. The now-empty old source directories remain locally; Git does not track empty directories. Source and artifact files are fully relocated.
