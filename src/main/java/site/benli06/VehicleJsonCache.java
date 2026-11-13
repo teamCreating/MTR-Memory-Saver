@@ -1,50 +1,53 @@
 package site.benli06;
 
-import java.nio.charset.StandardCharsets;
-import java.security.MessageDigest;
-import java.util.HexFormat;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.atomic.AtomicInteger;
+import java.util.HashMap;
+import java.util.concurrent.CancellationException;
 import org.mtr.MTR;
 import org.mtr.core.tool.Utilities;
 import org.mtr.libraries.com.google.gson.JsonObject;
 
-/** Vehicle constructors read these trees through independent JsonReader maps. */
+/** Vehicle constructors use independent JsonReader maps over generation-scoped trees. */
 public final class VehicleJsonCache {
-    private static final ConcurrentHashMap<String, JsonObject> CACHE = new ConcurrentHashMap<>();
-    private static final AtomicInteger REQUESTS = new AtomicInteger();
-    private static final AtomicInteger UNIQUE = new AtomicInteger();
+    private static final class Epoch {
+        final HashMap<String, JsonObject> values = new HashMap<>();
+        boolean retired;
+        int requests, unique;
+    }
+    private static volatile Epoch current = new Epoch();
     private VehicleJsonCache() {}
-
     public static JsonObject parse(String raw) {
-        // Preserve the release's null/malformed/empty handling and repeated diagnostics.
         if (raw == null) return Utilities.parseJson(null);
-        REQUESTS.incrementAndGet();
-        String key = digest(raw);
-        JsonObject existing = CACHE.get(key);
-        if (existing != null) return existing;
-        JsonObject parsed = Utilities.parseJson(raw);
-        if (parsed.isEmpty()) return parsed;
-        existing = CACHE.putIfAbsent(key, parsed);
-        if (existing != null) return existing;
-        UNIQUE.incrementAndGet();
-        return parsed;
+        try (var scope = ReadAdmission.GLOBAL.open()) {
+            ReadAdmission.GLOBAL.checkLength(raw.length());
+            Epoch epoch = current;
+            String key = digest(raw);
+            synchronized (epoch) {
+                if (epoch.retired) throw new CancellationException("Vehicle JSON generation retired");
+                epoch.requests++;
+                JsonObject existing = epoch.values.get(key);
+                if (existing != null) return existing;
+            }
+            JsonObject parsed = Utilities.parseJson(raw);
+            synchronized (epoch) {
+                if (epoch.retired) throw new CancellationException("Vehicle JSON generation retired");
+                if (parsed.isEmpty()) return parsed;
+                JsonObject existing = epoch.values.putIfAbsent(key, parsed);
+                if (existing != null) return existing;
+                epoch.unique++;
+                return parsed;
+            }
+        }
     }
-
-    public static void beginReload() {
-        CACHE.clear();
-        REQUESTS.set(0);
-        UNIQUE.set(0);
+    public static synchronized void beginReload() {
+        Epoch old = current;
+        synchronized (old) { old.retired = true; old.values.clear(); current = new Epoch(); }
     }
-
-    public static void finishRegistration() {
-        MTR.LOGGER.info("MTR memory sharing: {} vehicle JSON requests, {} unique nonempty inputs",
-                REQUESTS.get(), UNIQUE.get());
-        // Readers retain required children; later requests can parse resource text again.
-        CACHE.clear();
+    public static synchronized void finishRegistration() {
+        Epoch old = current;
+        synchronized (old) {
+            MTR.LOGGER.info("MTR memory sharing: {} vehicle JSON requests, {} unique nonempty inputs", old.requests, old.unique);
+            old.retired = true; old.values.clear(); current = new Epoch();
+        }
     }
-
-    private static String digest(String raw) {
-        return ResourceTextDigest.sha256(raw);
-    }
+    private static String digest(String raw) { return ResourceTextDigest.sha256(raw); }
 }

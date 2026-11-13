@@ -11,21 +11,32 @@ import site.benli06.mixin.ModelLoaderAccess;
 public final class SharedBlockbenchLoader extends ModelLoaderBase implements DisplayRetention.Loader {
     private Set<String> displayNames;
     private boolean closed;
+    private volatile Throwable failure;
 
     SharedBlockbenchLoader(ResourceLocation texture, CompletableFuture<ModelLoaderBase> source) {
         super(texture, VertexFormat.Mode.QUADS);
-        source.thenAccept(loaded -> {
+        source.whenComplete((loaded, error) -> {
             synchronized (this) {
                 if (closed) return;
+                if (error != null) { failed(error); return; }
+                try {
                 ModelLoaderAccess data = (ModelLoaderAccess) loaded;
                 data.meshes().forEach(this::addModel);
                 data.displays().forEach((name, parts) -> {
                     if (displayNames == null || displayNames.contains(name)) addModelDisplayParts(name, parts);
                 });
                 setModelLoaded();
+                } catch (Throwable publicationError) { failed(publicationError); }
             }
         });
     }
+
+    private void failed(Throwable error) {
+        failure = error;
+        if (!(error instanceof java.util.concurrent.CancellationException))
+            org.mtr.MTR.LOGGER.error("Shared Blockbench loader failed", error);
+    }
+    public Throwable failure() { return failure; }
 
     /** Serialize native close with asynchronous publication into this facade only. */
     public synchronized void beforeNativeClose() {

@@ -26,10 +26,14 @@ abstract class CompressedResourceTextMixin {
     private static void finish(CallbackInfo callback) {
         long[] stats = CompressedResourceTextCache.statistics();
         long[] budget = CompressedResourceTextCache.budgetStatistics();
+        long[] activity = CompressedResourceTextCache.activity();
         CompressedResourceTextCache.clear();
         MTR.LOGGER.info("MTR compressed text: {} entries, {} compressed, {} input code units, {} packed bytes, {} uncompressed code units; cache released",
                 stats[0], stats[1], stats[2], stats[3], stats[4]);
         MTR.LOGGER.info("MTR resource text budget: {} bytes, {} retained weight, {} peak admitted weight, {} evictions",
                 budget[0], budget[1], budget[2], budget[3]);
+        MTR.LOGGER.info("MTR resource text activity: {} reads, {} hits, {} unpacks, {} compression attempts, {} bypasses, {} failures, {} pending; {} active read scopes, peak {}",
+                activity[0], activity[1], activity[2], activity[3], activity[4], activity[5], activity[6],
+                site.benli06.ReadAdmission.GLOBAL.active(), site.benli06.ReadAdmission.GLOBAL.peak());
     }
 }

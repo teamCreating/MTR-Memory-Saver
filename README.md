@@ -47,6 +47,10 @@ target, MTR hash, exact loader, version, source/resource hashes and artifact has
 Reproducible JAR ordering/timestamps permit meaningful rebuild comparisons.
 The Mixin compatibility plugin checks the loaded MTR bytes before installing hooks.
 
+Version 0.4.1 adds bounded descriptor scheduling, provider/path fast hits,
+generation retirement, terminal parse failure and guarded text admission. See the
+[runtime contract](docs/RUNTIME_DESIGN.md) and [acceptance procedure](docs/ACCEPTANCE.md).
+
 Historical guides and measurements are indexed in [HISTORY.md](docs/HISTORY.md)
 and [TECHNICAL.md](TECHNICAL.md). New candidate tests and performance reports have
 separate artifact identities. GPU lifetime and gameplay require runtime acceptance;

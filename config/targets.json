@@ -25,7 +25,7 @@
     "v6-nf265": {"variant": "v6", "neoForge": "21.1.265"}
   },
   "mixins": [
-    "ModelLoaderAccess", "ModelLoaderCompletionMixin", "VehicleModelFactoryMixin",
+    "ModelLoaderAccess", "ModelLoaderCompletionMixin", "BlockbenchParseExecutorMixin", "VehicleModelFactoryMixin",
     "ResourceReloadMixin", "PackedModelGroupMixin", "DisplayPartAccess",
     "DisplaySelectionMixin", "SourceLifetimeMixin", "VehicleJsonCacheMixin",
     "VehicleJsonEpochMixin", "CompressedResourceTextMixin", "SegmentedResourceTextMixin"

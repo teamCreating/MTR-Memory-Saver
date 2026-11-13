@@ -35,6 +35,7 @@ public final class ResourceTextDigest {
             CoderResult result;
             int offset = 0;
             while (true) {
+                if (Thread.currentThread().isInterrupted()) throw new java.util.concurrent.CancellationException("Resource digest interrupted");
                 input.compact();
                 int count = Math.min(input.remaining(), raw.length() - offset);
                 raw.getChars(offset, offset + count, input.array(), input.position());

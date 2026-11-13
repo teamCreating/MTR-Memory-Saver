@@ -1,0 +1,37 @@
+{
+  "timestamp": "2026-11-14T00:23:14.3755915+08:00",
+  "utc_offset": "+08:00",
+  "version": "0.4.1",
+  "targets": [
+    {
+      "target": "official-nf248",
+      "artifact_sha256": "062716b855b5d25bd34dabb07d0473a819a8fbe1de5c103a977c6343ccf372cb",
+      "build_test_releaseBundle": "passed",
+      "lifecycle_tests": 17,
+      "fingerprint_tests": 3
+    },
+    {
+      "target": "official-nf265",
+      "artifact_sha256": "7def6005563830ffeee299cb27fb8df5d937e14f93d6aca3692b9b18078287dc",
+      "build_test_releaseBundle": "passed",
+      "lifecycle_tests": 17,
+      "fingerprint_tests": 3
+    },
+    {
+      "target": "v6-nf248",
+      "artifact_sha256": "c5390fff02ad9603c0e7c28663b0ec628ed7053e9ea89f9789d3232d55db16b1",
+      "build_test_releaseBundle": "passed",
+      "lifecycle_tests": 17,
+      "fingerprint_tests": 3
+    },
+    {
+      "target": "v6-nf265",
+      "artifact_sha256": "c40dc113c5f30a750202bc0caf394bcd0f39af10f15feff20382e1ea1050eae9",
+      "build_test_releaseBundle": "passed",
+      "lifecycle_tests": 17,
+      "fingerprint_tests": 3
+    }
+  ],
+  "churn_generations": 1000,
+  "limits": "Headless tests and target builds; actual Mixin, native GPU and game latency acceptance not yet recorded."
+}
