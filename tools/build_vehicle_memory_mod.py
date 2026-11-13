@@ -12,6 +12,7 @@ import zipfile
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 JAVA_PACKAGE = 'site.benli06'
 RESOURCE_ROOT = ROOT / 'src/main/resources'
+MOD_NAME = 'MTR Memory Saver'
 
 
 def read_json(path):
@@ -216,7 +217,7 @@ def main():
     if loader == 'fabric':
         save_json(build / 'fabric.mod.json', {
             'schemaVersion': 1, 'id': 'mtr_memory_sharing', 'version': version,
-            'name': 'MTR Memory Sharing', 'environment': 'client',
+            'name': MOD_NAME, 'environment': 'client',
             'authors': ['A-BenLi06'], 'license': 'MIT',
             'icon': 'pack.png',
             'mixins': ['mtr-memory-sharing.mixins.json'],
@@ -233,7 +234,7 @@ license = "MIT"
 [[mods]]
 modId = "mtr_memory_sharing"
 version = "''' + version + '''"
-displayName = "MTR Memory Sharing"
+displayName = "''' + MOD_NAME + '''"
 authors = "A-BenLi06"
 logoFile = "pack.png"
 logoBlur = false

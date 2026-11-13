@@ -1,4 +1,4 @@
-# MTR client memory companions
+# MTR Memory Saver
 
 This directory is an independent Git repository. Start with the
 [standalone build guide](BUILDING.md) and [artifact index](dist/README.md).

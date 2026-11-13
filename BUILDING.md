@@ -1,4 +1,4 @@
-# Build MTR Memory Sharing
+# Build MTR Memory Saver
 
 Run these commands from this repository root. The build needs Python 3.11+, a
 Java 21 JDK, and a prepared Minecraft 1.21.1 client with the audited MTR release

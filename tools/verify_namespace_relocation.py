@@ -6,7 +6,7 @@ import struct
 import tomllib
 import zipfile
 
-from build_vehicle_memory_mod import JAVA_PACKAGE, RESOURCE_ROOT, ROOT, digest, read_json, save_json
+from build_vehicle_memory_mod import JAVA_PACKAGE, MOD_NAME, RESOURCE_ROOT, ROOT, digest, read_json, save_json
 
 
 def relocated_class(data, previous, current):
@@ -68,13 +68,19 @@ def verify(baseline, candidate):
             metadata_file = 'fabric.mod.json'
             metadata = json.loads(new.read(metadata_file))
             icon = metadata.pop('icon')
-            assert metadata == json.loads(old.read(metadata_file)), 'Fabric identity or dependency changed'
+            assert metadata['name'] == MOD_NAME
+            baseline_metadata = json.loads(old.read(metadata_file))
+            baseline_metadata['name'] = MOD_NAME
+            assert metadata == baseline_metadata, 'Fabric identity or dependency changed'
         else:
             metadata_file = 'META-INF/neoforge.mods.toml'
             metadata = tomllib.loads(new.read(metadata_file).decode())
             icon = metadata['mods'][0].pop('logoFile')
             assert metadata['mods'][0].pop('logoBlur') is False
-            assert metadata == tomllib.loads(old.read(metadata_file).decode()), 'NeoForge identity or dependency changed'
+            assert metadata['mods'][0]['displayName'] == MOD_NAME
+            baseline_metadata = tomllib.loads(old.read(metadata_file).decode())
+            baseline_metadata['mods'][0]['displayName'] = MOD_NAME
+            assert metadata == baseline_metadata, 'NeoForge identity or dependency changed'
         resources = {p.relative_to(RESOURCE_ROOT).as_posix(): p for p in RESOURCE_ROOT.rglob('*') if p.is_file()}
         for name, path in resources.items():
             assert new.read(name) == path.read_bytes(), name
