@@ -1,0 +1,39 @@
+{
+  "timestamp": "2026-11-13T23:54:48.263474+08:00",
+  "version": "0.4.0",
+  "targets": [
+    {
+      "target": "official-nf248",
+      "version": "0.4.0",
+      "artifact_sha256": "2da554aaa25daf4438cd994d916f858cd8becb1f8432bd73b63867bc1050eb2f",
+      "baseline_class_members": 34,
+      "unchanged_baseline_classes": 34,
+      "different_classes": []
+    },
+    {
+      "target": "official-nf265",
+      "version": "0.4.0",
+      "artifact_sha256": "3de78d4e614c749cccac9732b7d79db68ed1af25d9d5c119b1df1335f960efed",
+      "baseline_class_members": 34,
+      "unchanged_baseline_classes": 34,
+      "different_classes": []
+    },
+    {
+      "target": "v6-nf248",
+      "version": "0.4.0",
+      "artifact_sha256": "a4be786ba2b655b3faf9634100314bdb65ccb52681002b516938cf752a9f8878",
+      "baseline_class_members": 34,
+      "unchanged_baseline_classes": 34,
+      "different_classes": []
+    },
+    {
+      "target": "v6-nf265",
+      "version": "0.4.0",
+      "artifact_sha256": "97661498861544c355d0f1af4b1f069c52927552d04f322c971e14f1665bbfd0",
+      "baseline_class_members": 34,
+      "unchanged_baseline_classes": 34,
+      "different_classes": []
+    }
+  ],
+  "runtime_acceptance": "Builds and headless tests only; runtime compatibility plugin/GPU not claimed."
+}

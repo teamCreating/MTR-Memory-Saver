@@ -1,0 +1,26 @@
+name: Build and test
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+jobs:
+  official:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        target: [official-nf248, official-nf265]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: gradle/actions/setup-gradle@v4
+      - run: ./gradlew releaseBundle -Ptarget=${{ matrix.target }} --console=plain
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mtr-memory-saver-${{ matrix.target }}
+          path: |
+            build/releases/*.zip
+            build/reports/tests/**
+          if-no-files-found: error
