@@ -14,6 +14,8 @@ def targetName = providers.gradleProperty('target').getOrElse(matrix.default)
 def target = matrix.targets[targetName]
 if (target == null) throw new GradleException("Unknown target '${targetName}'. Choose ${matrix.targets.keySet()}.")
 def mtr = matrix.mtr[target.variant]
+def acceptanceProbe = providers.gradleProperty('acceptanceProbe').map { it.toBoolean() }.getOrElse(false)
+def probeIds = ['vehicle_performance_probe', 'mtr_memory_loader_probe'] + (target.variant == 'v6' ? ['v6_memory_compatibility_probe'] : [])
 version = providers.gradleProperty('modVersion').get()
 if (!(version ==~ /0\.\d+\.\d+(?:[-+][A-Za-z0-9.-]+)?/)) {
     throw new GradleException('Development releases must use a 0.x.x version.')
@@ -33,6 +35,15 @@ neoForge {
         client {
             client()
             gameDirectory = file("build/run/${targetName}")
+            if (acceptanceProbe) {
+                jvmArguments.add('-Xmx3g')
+                systemProperty('mtr.memory.acceptance', 'true')
+                systemProperty('mtr.memory.acceptance.exit', 'true')
+                if (target.variant == 'v6') {
+                    systemProperty('mtr.memory.acceptance.gpuAtTitle', 'true')
+                    systemProperty('mtr.memory.acceptance.gpuIterations', '100')
+                }
+            }
         }
     }
     mods {
@@ -46,11 +57,23 @@ sourceSets {
         if (target.variant == 'v6') java.exclude('**/VertexColorMixin.java')
         resources.srcDir(layout.buildDirectory.dir("generated/resources/${targetName}"))
     }
-    test { java.srcDirs = ['src/test/java'] }
+    test {
+        java.srcDirs = ['src/test/java', 'tools/acceptance/java']
+        compileClasspath += sourceSets.main.compileClasspath
+        runtimeClasspath += sourceSets.main.compileClasspath
+    }
+    probe {
+        java.srcDirs = ['tools/probes/common/java']
+        if (target.variant == 'v6') java.srcDir('tools/probes/v6/java')
+        compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
+        resources.srcDir(layout.buildDirectory.dir("generated/probe/${targetName}"))
+    }
 }
 
-def mtrFile = providers.gradleProperty('mtrJar').map { file(it) }
-        .getOrElse(file(".cache/dependencies/mtr-${target.variant}.jar"))
+def suppliedMtr = providers.gradleProperty('mtrJar').map { file(it) }.getOrNull()
+// A verified canonical dependency name also avoids Windows Java argument-file
+// decoding failures for user-supplied non-ASCII artifact filenames.
+def mtrFile = file(".cache/dependencies/mtr-${mtr.sha256}.jar")
 def sha256 = { File value ->
     MessageDigest md = MessageDigest.getInstance('SHA-256')
     value.withInputStream { input ->
@@ -62,12 +85,20 @@ def sha256 = { File value ->
 
 tasks.register('prepareMtr') {
     inputs.property('releaseSha256', mtr.sha256)
+    if (suppliedMtr != null) inputs.file(suppliedMtr)
     outputs.file(mtrFile)
     // Verify even a previously cached or explicitly supplied artifact.
     outputs.upToDateWhen { false }
     doLast {
+        if (suppliedMtr != null) {
+            if (!suppliedMtr.isFile() || sha256(suppliedMtr) != mtr.sha256)
+                throw new GradleException('Supplied MTR fingerprint differs from the selected target.')
+            mtrFile.parentFile.mkdirs()
+            if (!mtrFile.isFile() || sha256(mtrFile) != mtr.sha256)
+                Files.copy(suppliedMtr.toPath(), mtrFile.toPath(), StandardCopyOption.REPLACE_EXISTING)
+        }
         if (!mtrFile.isFile()) {
-            if (!mtr.url || providers.gradleProperty('mtrJar').isPresent()) {
+            if (!mtr.url) {
                 throw new GradleException("Supply the audited ${target.variant} MTR JAR with -PmtrJar=<path>. No game instance is required.")
             }
             mtrFile.parentFile.mkdirs()
@@ -82,6 +113,14 @@ tasks.register('prepareMtr') {
             } finally { if (partial.exists()) partial.delete() }
         }
         if (sha256(mtrFile) != mtr.sha256) throw new GradleException('MTR fingerprint differs from the selected target; version labels are insufficient.')
+        new java.util.zip.ZipFile(mtrFile).withCloseable { zip ->
+            def entry = zip.getEntry('META-INF/neoforge.mods.toml')
+            if (entry == null) throw new GradleException('Audited MTR loader metadata is missing.')
+            String metadata = zip.getInputStream(entry).withCloseable { it.getText('UTF-8') }
+            def declared = metadata =~ /(?m)^version\s*=\s*"([^"]+)"/
+            if (!declared.find() || declared.group(1) != mtr.version)
+                throw new GradleException('The target matrix MTR version differs from its audited binary metadata.')
+        }
     }
 }
 
@@ -92,6 +131,8 @@ dependencies {
     testImplementation platform('org.junit:junit-bom:5.11.4')
     testImplementation 'org.junit.jupiter:junit-jupiter'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    // Match the strict Minecraft 1.21.1 runtime constraint.
+    testRuntimeOnly 'org.apache.logging.log4j:log4j-core:2.22.1'
 }
 
 tasks.withType(JavaCompile).configureEach {
@@ -163,6 +204,10 @@ tasks.named('test') {
     maxHeapSize = '768m'
     testLogging { events 'failed', 'skipped'; exceptionFormat 'full' }
 }
+
+if (acceptanceProbe) {
+    probeIds.each { id -> neoForge.mods.register(id) { sourceSet sourceSets.probe } }
+}
 tasks.withType(AbstractArchiveTask).configureEach {
     preserveFileTimestamps = false
     reproducibleFileOrder = true
@@ -218,11 +263,73 @@ tasks.register('verifyRelease') {
     }
 }
 tasks.named('build') { dependsOn tasks.named('verifyRelease') }
+tasks.register('bundleReadme') {
+    inputs.file('config/targets.json')
+    inputs.property('target', targetName)
+    inputs.property('version', project.version.toString())
+    def destination = layout.buildDirectory.file("generated/delivery/${targetName}/README.md")
+    outputs.file(destination)
+    doLast {
+        File output = destination.get().asFile
+        output.parentFile.mkdirs()
+        output.setText("""# ${matrix.modName} ${version}
+
+Target: `${targetName}`. Install `${base.archivesName.get()}-${version}.jar` into the client's mods directory.
+
+Required: Minecraft ${matrix.minecraft}, NeoForge ${target.neoForge} exactly, MTR ${mtr.version}.
+MTR SHA-256: `${mtr.sha256}`.
+
+See [installation and rollback](docs/INSTALL.md), [support and validation scope](docs/SUPPORT.md) and [license](LICENSE).
+The adjacent build JSON records the companion JAR hash and build inputs.
+This is a development candidate; full-pack performance and long-session acceptance remain separate.
+""", 'UTF-8')
+    }
+}
+
 tasks.register('releaseBundle', Zip) {
     dependsOn tasks.named('build')
     archiveBaseName = "${rootProject.name}-${targetName}"
     destinationDirectory = layout.buildDirectory.dir('releases')
     from(tasks.jar.archiveFile)
     from(tasks.named('buildManifest').map { it.outputs.files })
-    from('LICENSE', 'README.md', 'docs/INSTALL.md', 'docs/SUPPORT.md')
+    from('LICENSE')
+    from(tasks.named('bundleReadme').map { it.outputs.files })
+    from('docs') { include('INSTALL.md', 'SUPPORT.md'); into('docs') }
+    from('config/targets.json') { into('config') }
+}
+
+// Optional tools are separate artifacts and never included in the product JAR.
+tasks.register('generateProbeMetadata') {
+    inputs.property('target', targetName)
+    inputs.property('version', project.version.toString())
+    outputs.dir(layout.buildDirectory.dir("generated/probe/${targetName}"))
+    doLast {
+        File metadata = file("build/generated/probe/${targetName}/META-INF/neoforge.mods.toml")
+        metadata.parentFile.mkdirs()
+        metadata.setText('modLoader="javafml"\nloaderVersion="[4,)"\nlicense="MIT"\n' + probeIds.collect { id ->
+            "[[mods]]\nmodId=\"${id}\"\nversion=\"${version}\"\ndisplayName=\"MTR Memory Acceptance Probe\"\n"
+        }.join(''), 'UTF-8')
+    }
+}
+tasks.named('processProbeResources') { dependsOn tasks.named('generateProbeMetadata') }
+tasks.register('probeJar', Jar) {
+    dependsOn tasks.named('probeClasses')
+    archiveClassifier = 'acceptance-probe'
+    from(sourceSets.probe.output)
+    from('LICENSE')
+}
+
+tasks.register('auditModels', JavaExec) {
+    dependsOn tasks.named('testClasses')
+    classpath = sourceSets.test.runtimeClasspath
+    javaLauncher = javaToolchains.launcherFor { languageVersion = JavaLanguageVersion.of(matrix.java as int) }
+    mainClass = 'site.benli06.audit.PackedReleaseModelAudit'
+    maxHeapSize = providers.gradleProperty('auditHeap').getOrElse('3g')
+    doFirst {
+        if (!providers.gradleProperty('auditJobs').isPresent()) throw new GradleException('Supply -PauditJobs=<fingerprinted job JSON>.')
+        File output = file(providers.gradleProperty('auditOutput').getOrElse("build/acceptance/models-${targetName}.json"))
+        if (output.exists()) throw new GradleException('Use a fresh audit output.')
+        output.parentFile.mkdirs()
+        args(file(providers.gradleProperty('auditJobs').get()).absolutePath, output.absolutePath)
+    }
 }

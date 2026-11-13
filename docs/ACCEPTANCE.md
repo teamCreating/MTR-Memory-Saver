@@ -1,7 +1,10 @@
 # Acceptance and performance procedure
 
-No 0.4.x game/GPU pass is recorded yet. A build, headless test or migrated probe is
-not a substitute for one. Historical 0.3.x trials retain their original identities.
+0.4.2 records NF248 official/v6 development-client Mixin smoke checks and 100 v6
+synthetic GPU ownership cycles. Full-pack performance, packaged-release/world
+acceptance and long-session validation remain unrecorded. A build or headless
+test is not a substitute for those checks. Historical 0.3.x trials retain their
+original identities.
 
 ## Reproducible headless checks
 

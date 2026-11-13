@@ -45,6 +45,10 @@ identify its input packs, world, target binaries, heap and process, exercise act
 Mixin application and verify completed reload epochs. Historical instance helpers
 remain available under `tools/legacy/` for reproducing earlier reports.
 
+The native reference audits and paired benchmark are documented in
+[tools/acceptance/README.md](tools/acceptance/README.md). `probeJar` creates a
+separate optional client observation tool; ordinary bundles exclude it.
+
 ## Artwork and resources
 
 `src/main/resources/` provides pack format 34 metadata, locale descriptions and the
@@ -54,3 +58,9 @@ normal builds use the committed PNG and need no artwork/Python dependencies.
 
 See [SUPPORT.md](docs/SUPPORT.md), [INSTALL.md](docs/INSTALL.md), the
 [engineering review](docs/ENGINEERING_REVIEW.md) and [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+
+Supplied/downloaded MTR bytes are checked and cached under a SHA-named JAR in
+`.cache/dependencies/` before compilation/testing. Supplied filenames remain
+unchanged. This gives a stable dependency identity and avoids Windows launcher
+argument-file failures for non-ASCII supplied artifact names. The build also checks
+the audited JAR's actual loader metadata version against the selected matrix.

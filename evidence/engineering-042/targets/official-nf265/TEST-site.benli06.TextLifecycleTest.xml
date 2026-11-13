@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="site.benli06.TextLifecycleTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2026-11-13T16:57:25.624Z" hostname="DESKTOP-885HHP9" time="0.133">
+  <properties/>
+  <testcase name="incompressibleUtf16RemainsExact()" classname="site.benli06.TextLifecycleTest" time="0.016"/>
+  <testcase name="exactCodeUnitsAndFirstReaderIdentity()" classname="site.benli06.TextLifecycleTest" time="0.011"/>
+  <testcase name="nestedAdmissionAndInterruptedWaitDoNotLeak()" classname="site.benli06.TextLifecycleTest" time="0.005"/>
+  <testcase name="repeatedTextGenerationsReturnToZero()" classname="site.benli06.TextLifecycleTest" time="0.058"/>
+  <testcase name="concurrentSingleFlightAndFailureRetry()" classname="site.benli06.TextLifecycleTest" time="0.014"/>
+  <testcase name="reloadDuringReaderCannotPublishOldText()" classname="site.benli06.TextLifecycleTest" time="0.007"/>
+  <testcase name="segmentedGuardAndIoFailureReleaseAdmissionWithoutClosingNativeStream()" classname="site.benli06.TextLifecycleTest" time="0.005"/>
+  <testcase name="oversizedInputsBypassCompressionAndNeverExceedLruWeight()" classname="site.benli06.TextLifecycleTest" time="0.005"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

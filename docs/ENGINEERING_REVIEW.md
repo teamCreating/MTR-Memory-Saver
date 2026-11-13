@@ -89,3 +89,39 @@ These changes can make development and verification reproducible. They do not
 convert a short benchmark into a long-session GPU leak proof or promise universal
 MTR compatibility. Public release hosting also remains a separate action until a
 remote/release destination is configured.
+
+## Engineering changes completed — 2026-11-14 (UTC+08:00)
+
+The active line has advanced through **0.4.0**, **0.4.1** and **0.4.2**. These are
+development candidates, with a single version authority and four closed presets.
+
+| Original gap | Implemented change | Evidence boundary |
+| --- | --- | --- |
+| Instance-bound builds and source substitution | Gradle bootstrap, canonical common/target sources, deterministic bundles | Four builds; 0.4.0 historical-class equivalence and clean rebuild hash equality |
+| Unbounded raw queued work and hanging failed loads | Descriptor admission, provider/path fast hits, native inline parse scope, failure/timeout/retirement cleanup | Adversarial lifecycle tests and 1,000-generation churn |
+| Cache budget applied after compression | Pre-compression oversized bypass, pre-insertion LRU eviction, bounded compression and decoded-size checks | Exact UTF-16, admission and failure tests |
+| Audits outside the independent repository | Native mesh/display/JSON audits, explicit real-model runner, standalone JFR analyzer and optional client probe JAR | Native-reference tests, three actual model parses, NF248 official/v6 client Mixin smoke and 100 v6 GPU ownership cycles |
+| Memory-only performance claims | Three alternating paired real-input source-lookup runs with hashes, equal 3 GiB heap, JFR and GC logs | Microbenchmark only; a digest substitutes for native parsed meshes |
+| Compatibility/download ambiguity | Exact MTR runtime guard, exact loader ranges, support matrix, license, local release bundles and CI | Public release hosting and full-client support certification remain unrecorded |
+
+The paired source benchmark lowered digest calls from 24 to 8 and allocation from
+about 1.59 GB to 458 MB for four exact inputs over two generations and three
+queries. Baseline elapsed time ranged from 17.36 to 44.23 seconds; candidate ranged
+from 4.16 to 5.42 seconds. The unusually slow first baseline is preserved. This is
+evidence for reducing repeated source work, not a whole-game loading/GC/frame
+improvement. Reports and raw data are under `evidence/engineering-042/`.
+
+Real client checks also found an incorrect v6 metadata version in the initial
+0.4.0/0.4.1 presets. Those builds compiled but their strict dependency rejected the
+custom version at startup. 0.4.2 corrects the exact version and verifies metadata
+against the audited binary during every build. The original failed run is retained.
+The official/v6 client smoke passes and v6's 100 synthetic GPU cycles establish
+specific client injection/ownership behavior, using current development classes;
+they do not certify a complete packaged release or a long gameplay session.
+
+The next release gate is a controlled full-pack comparison, followed by repeated
+reload and a long route session.
+The historical Full-GC pause cost remains unresolved at that level. Provider-held
+data, native/foreign parsing, JSON/model expansion and GPU lifetime still prevent a
+whole-load memory ceiling. Engineering made these limits explicit and testable;
+it did not eliminate them by lowering the minimum startup heap.

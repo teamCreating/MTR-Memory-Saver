@@ -56,4 +56,7 @@ and [TECHNICAL.md](TECHNICAL.md). New candidate tests and performance reports ha
 separate artifact identities. GPU lifetime and gameplay require runtime acceptance;
 a successful compile or class-file comparison is not such acceptance.
 
+The independent [acceptance tools](tools/acceptance/README.md) cover native reference
+audits, paired real-input source lookup, JFR analysis and optional client probes.
+
 ![Pack icon](src/main/resources/pack.png)

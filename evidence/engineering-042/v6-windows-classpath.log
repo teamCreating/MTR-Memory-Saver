@@ -1,0 +1,38 @@
+
+> Configure project :
+Creating Minecraft artifacts without recompilation.
+
+> Task :createMinecraftArtifacts UP-TO-DATE
+> Task :prepareMtr
+> Task :compileJava UP-TO-DATE
+> Task :generateMetadata
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+> Task :compileTestJava UP-TO-DATE
+> Task :processTestResources NO-SOURCE
+> Task :testClasses UP-TO-DATE
+
+> Task :test
+MTR TEST INPUTS: [[path:C:\Users\ben_l\Documents\Coding\resoucepack update\.cache\game-test\nf248-v6-3g\mods\[自修改]MTR-4.1.0-beta.2-mc1.21.1-performance-v6.jar, exists:true]]
+
+> Task :test FAILED
+
+[Incubating] Problems report is available at: file:///C:/Users/ben_l/Documents/Coding/resoucepack%20update/vehicle-memory/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':test'.
+> There were failing tests. See the report at: file:///C:/Users/ben_l/Documents/Coding/resoucepack%20update/vehicle-memory/build/reports/tests/test/index.html
+
+* Try:
+> Run with --scan to get full insights.
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.14.3/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD FAILED in 12s
+7 actionable tasks: 3 executed, 4 up-to-date
