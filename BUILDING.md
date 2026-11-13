@@ -1,5 +1,9 @@
 # Build MTR Memory Saver
 
+See the [technical report](TECHNICAL.md) for source selection, exact tested version
+combinations, runtime evidence and compatibility boundaries. A successful build
+or loader dependency declaration alone does not establish gameplay acceptance.
+
 Run these commands from this repository root. The build needs Python 3.11+, a
 Java 21 JDK, and a prepared Minecraft 1.21.1 client with the audited MTR release
 and matching loader libraries. No resource-pack project Python modules are needed.

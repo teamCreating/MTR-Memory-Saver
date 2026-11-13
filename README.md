@@ -3,6 +3,11 @@
 This directory is an independent Git repository. Start with the
 [standalone build guide](BUILDING.md) and [artifact index](dist/README.md).
 
+The [technical report](TECHNICAL.md) explains the selected implementation, data
+ownership, version-specific ABI/lifecycle changes, actual runtime controls and
+measurement limits. It distinguishes historical gameplay-tested binaries from
+current namespace/branding builds and the separately validated native catalogue.
+
 Current sources use the Java package `site.benli06` and Mixin package
 `site.benli06.mixin`. Builds include the Minecraft 1.21.1 `pack.mcmeta`, localized
 pack description and [pack icon](src/main/resources/pack.png), also shown by Fabric
@@ -40,7 +45,7 @@ Official-release target: **Minecraft 1.21.1 / NeoForge 21.1.265 / official MTR 4
 
 **Two fresh identical clients pass all-16-pack startup and actual foreground F3+T reload with an exact 3072 MiB (3 GiB) Java heap.** Each phase loads 2,541 vehicles and completes 651 unique source parses, then passes 60 seconds of fresh stability. Both DC01 car bodies render before and after reload; their independent 5/6-floor and 10/10-doorway caches match v0.2.9 exactly. The native movement/audio callback is preserved. [Acceptance, measurements and fingerprints](evidence/neoforge-v030-acceptance.json).
 
-v0.3.0 bounds the compressed resource-text cache by maximum heap size: the default is one thirty-second of the heap, **96 MiB at 3 GiB**. Least-recently-used entries are evicted and reread normally when needed. All text contents, geometry, texture quality and native model algorithms are preserved. The codec and 30 other baseline classes remain byte-identical. This removes the need to retain the earlier roughly 565 MiB of compressed text throughout registration; it trades some repeated I/O/compression for less cached data. In-flight reads and native parsing are separate from the cache budget. [Implementation and reproducible audits](experiments/bounded-text-cache/README.md).
+v0.3.0 bounds admitted compressed resource-text cache weight by maximum heap size: the default is one thirty-second of the heap, **96 MiB at 3 GiB**. Least-recently-used entries are evicted and reread normally when needed. All text contents, geometry, texture quality and native model algorithms are preserved. In the historical v0.2.9/v0.3.0 comparison, the codec and 30 other class entries remain byte-identical. This removes the need to retain the earlier roughly 565 MiB of compressed text throughout registration; eviction can require repeated reading/compression, but hit ratio, physical I/O and that timing cost were not measured. In-flight reads, temporary entries, native parsing and exact JVM overhead are separate from the admitted-weight budget. [Implementation and reproducible audits](experiments/bounded-text-cache/README.md).
 
 | Test | External sampled Java heap peak | Windows working set peak | Private committed peak |
 | --- | ---: | ---: | ---: |
