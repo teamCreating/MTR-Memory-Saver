@@ -57,6 +57,29 @@ by regression tests; it has no game-instance import. Run its `--help` for argume
 
 ## Optional client probes
 
+`tools/packaged_client.py` prepares a fresh ordinary NeoForge instance from an
+explicit stopped SDK test client, then launches the actual companion JAR through
+the public `minecraft-launcher-lib` command API. It does not add development
+classes to the client classpath. Install optional launcher requirements from
+`requirements-client.txt`. Preparation verifies embedded/build/target identities,
+records world and ordered archive hashes, and creates a separate launch plan.
+Launching refuses changed settings, mods, packs or world bytes.
+
+```powershell
+python tools/packaged_client.py prepare --source '<stopped SDK instance>' `
+  --instance '<fresh instance>' --companion '<official candidate JAR>' `
+  --probe '<matching acceptance probe JAR>' --username '<SDK profile>' --smoke
+python tools/packaged_client.py launch --instance '<prepared instance>'
+```
+
+Add `--faults` to request malformed-model failure/retry checks. A separate
+`--expect-binary-rejection` preparation changes only the copied MTR ZIP comment,
+preserving its version/classes while changing its whole-JAR fingerprint. That
+negative run must be rejected by the actual runtime guard. For full-pack/world
+work, omit `--smoke`, supply `--catalogue '<catalog.json>'` and `--world '<saved
+SDK world>'`, and record `--jfr` when profiling. The runner observes the selected
+official target; no v6 client is created.
+
 `gradlew probeJar` builds a separate observation JAR. It is excluded from the mod
 and release bundle. Enable it only in an isolated client with
 `-Dmtr.memory.acceptance=true`, and include its hash/overhead in the run manifest.

@@ -34,8 +34,10 @@ public final class LoaderLifecycleProbe {
         JsonObject report = new JsonObject();
         report.addProperty("timestamp", OffsetDateTime.now().toString());
         try {
-            report.add("request", org.mtr.libraries.com.google.gson.JsonParser.parseString(Files.readString(instance.resolve("loader-lifecycle-request.json"))));
-            report.add("checks", audit()); report.addProperty("passed", true);
+            JsonObject request = org.mtr.libraries.com.google.gson.JsonParser.parseString(Files.readString(instance.resolve("loader-lifecycle-request.json"))).getAsJsonObject();
+            report.add("request", request);
+            JsonObject checks = new JsonObject(); report.add("checks", checks);
+            audit(checks, request.has("faults") && request.get("faults").getAsBoolean()); report.addProperty("passed", true);
         } catch (Throwable error) {
             report.addProperty("passed", false); report.addProperty("error", error.toString());
             java.io.StringWriter trace = new java.io.StringWriter(); error.printStackTrace(new java.io.PrintWriter(trace));
@@ -59,8 +61,7 @@ public final class LoaderLifecycleProbe {
     private static boolean loaded(ModelLoaderBase loader) throws Exception {
         Field field = ModelLoaderBase.class.getDeclaredField("modelLoaded"); field.setAccessible(true); return field.getBoolean(loader);
     }
-    private static JsonObject audit() throws Exception {
-        JsonObject checks = new JsonObject();
+    private static void audit(JsonObject checks, boolean faults) throws Exception {
         check(checks, "quiescent_before_probe", SharedBlockbenchCache.statistics().outstanding() == 0);
         var reads = new AtomicInteger(); var fail = new java.util.concurrent.atomic.AtomicBoolean();
         ResourceProvider provider = ignored -> {
@@ -87,6 +88,29 @@ public final class LoaderLifecycleProbe {
         SharedBlockbenchCache.finishRegistration();
         check(checks, "tickets_permits_and_keys_released", SharedBlockbenchCache.statistics().outstanding() == 0
                 && SharedBlockbenchCache.statistics().paths() == 0 && ReadAdmission.GLOBAL.active() == 0);
-        return checks;
+        if (faults) auditFaults(checks);
+    }
+    private static void auditFaults(JsonObject checks) throws Exception {
+        String valid = "{\"meta\":{\"format_version\":\"4.10\"},\"elements\":[],\"outliner\":[],\"textures\":[]}";
+        String[] names = {"missing", "truncated", "wrong_root"};
+        String[] inputs = {null, "{", "[]"};
+        for (int index = 0; index < inputs.length; index++) {
+            final String invalid = inputs[index];
+            var repaired = new java.util.concurrent.atomic.AtomicBoolean();
+            ResourceProvider provider = ignored -> repaired.get() ? valid : invalid;
+            SharedBlockbenchCache.beginReload();
+            ModelLoaderBase failed = factory(provider);
+            var failure = failed.getClass().getDeclaredMethod("failure"); failure.setAccessible(true);
+            check(checks, names[index] + "_terminal_failure", ModelLoaderBase.awaitParsing(10_000)
+                    && !loaded(failed) && failure.invoke(failed) != null
+                    && SharedBlockbenchCache.statistics().pending() == 0);
+            repaired.set(true);
+            ModelLoaderBase retry = factory(provider);
+            check(checks, names[index] + "_same_path_retry", ModelLoaderBase.awaitParsing(10_000) && loaded(retry));
+        }
+        SharedBlockbenchCache.finishRegistration();
+        check(checks, "fault_counts_settled", ModelLoaderBase.awaitParsing(10_000)
+                && SharedBlockbenchCache.statistics().outstanding() == 0
+                && SharedBlockbenchCache.statistics().pending() == 0 && ReadAdmission.GLOBAL.active() == 0);
     }
 }
