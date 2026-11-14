@@ -1,4 +1,4 @@
-# Runtime contract — 0.4.3
+# Runtime contract — 0.4.4
 
 `GenerationWorkCache` is a Java-only scheduling core. Resource/provider identity,
 normalized model path, texture and flip flag form the fast key. A hit returns its
@@ -29,6 +29,9 @@ thread-local module parse scope. Foreign MTR tasks retain their original executo
 The native parser still owns its separate native ticket. Publication is accepted
 only after that Runnable returns and `setModelLoaded` was observed for the same
 source. A caught native error without publication becomes a terminal shared error.
+Blockbench inputs use the native Gson parser directly: malformed/truncated or
+non-object JSON fails rather than inheriting the utility's empty-object fallback.
+Valid model data still uses the native Blockbench schema and baking algorithm.
 The official/v6 facades record publication failures and remain unloaded on failure.
 v6 serializes late publication with native consumer close; shared source staging
 and each consumer's built GPU models retain their existing separate ownership.

@@ -7,7 +7,7 @@ import java.util.concurrent.FutureTask;
 import java.util.concurrent.CompletionException;
 import org.mtr.MTR;
 import org.mtr.core.serializer.JsonReader;
-import org.mtr.core.tool.Utilities;
+import org.mtr.libraries.com.google.gson.JsonParser;
 import org.mtr.model.BlockbenchModelLoader;
 import org.mtr.model.ModelLoaderBase;
 import org.mtr.resource.BlockbenchModel;
@@ -46,7 +46,7 @@ public final class SharedBlockbenchCache {
                 OWNED_PARSE.set(capture);
                 try {
                     source.loadModel(() -> {
-                        try { return new BlockbenchModel(new JsonReader(Utilities.parseJson(raw))); }
+                        try { return parseInput(raw); }
                         catch (Throwable error) { capture.failure = error; throw error; }
                     });
                     if (!capture.loaded) throw new IllegalStateException("Native Blockbench parse ended without publication: " + modelId, capture.failure);
@@ -72,6 +72,10 @@ public final class SharedBlockbenchCache {
         if (capture != null && capture.source == source) capture.loaded = true;
     }
     public static void beginReload() { CACHE.beginReload(); }
+    /** Keep the native parser, but never turn its malformed-input exception into a successful empty model. */
+    static BlockbenchModel parseInput(String raw) {
+        return new BlockbenchModel(new JsonReader(JsonParser.parseString(raw).getAsJsonObject()));
+    }
     public static void finishRegistration() { CACHE.finishRegistration(); }
     public static GenerationWorkCache.Statistics statistics() { return CACHE.statistics(); }
     public static void report() {

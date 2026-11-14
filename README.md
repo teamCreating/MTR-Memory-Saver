@@ -57,6 +57,10 @@ configured limits explicitly. Current validation focuses on official MTR
 4.1.0-beta.2; new v6 validation is paused. Candidate-specific runtime evidence is
 required before extending the historical support claims.
 
+Version 0.4.4 propagates malformed Blockbench input failures through the native
+parser and shared-future cleanup instead of caching successful empty fallbacks.
+Valid inputs retain the original schema and model algorithm.
+
 Historical guides and measurements are indexed in [HISTORY.md](docs/HISTORY.md)
 and [TECHNICAL.md](TECHNICAL.md). New candidate tests and performance reports have
 separate artifact identities. GPU lifetime and gameplay require runtime acceptance;

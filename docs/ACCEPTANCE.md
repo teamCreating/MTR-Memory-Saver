@@ -11,6 +11,14 @@ acceptance and long-session validation remain unrecorded. A build or headless
 test is not a substitute for those checks. Historical 0.3.x trials retain their
 original identities.
 
+0.4.4 adds actual official-nf248 packaged-client fault checks: missing, truncated,
+wrong-root and oversized input, correction/retry, and native-parser retirement.
+The optional observation JAR pauses the real submission after the native ticket
+starts, allowing verification that canceled running work retains its ownership
+until actual exit. This fault hook is excluded from product releases. It does not
+replace the full-pack/world/reload/long-session procedure below. New v6 validation
+is paused; current runs target official MTR 4.1.0-beta.2.
+
 ## Reproducible headless checks
 
 Run `gradlew test` and the standalone Python tests for each preset. Exercise both

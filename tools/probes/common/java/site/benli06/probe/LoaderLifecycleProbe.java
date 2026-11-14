@@ -86,7 +86,7 @@ public final class LoaderLifecycleProbe {
         ModelLoaderBase retry = factory(provider);
         check(checks, "failed_path_retry", ModelLoaderBase.awaitParsing(10_000) && loaded(retry));
         SharedBlockbenchCache.finishRegistration();
-        check(checks, "tickets_permits_and_keys_released", SharedBlockbenchCache.statistics().outstanding() == 0
+        check(checks, "tickets_permits_and_keys_released", settled()
                 && SharedBlockbenchCache.statistics().paths() == 0 && ReadAdmission.GLOBAL.active() == 0);
         if (faults) auditFaults(checks);
     }
@@ -108,9 +108,46 @@ public final class LoaderLifecycleProbe {
             ModelLoaderBase retry = factory(provider);
             check(checks, names[index] + "_same_path_retry", ModelLoaderBase.awaitParsing(10_000) && loaded(retry));
         }
+        SharedBlockbenchCache.beginReload();
+        long limit = ReadAdmission.GLOBAL.maxCodeUnits();
+        String oversized = "a".repeat(Math.toIntExact(limit + 1));
+        ModelLoaderBase oversize = factory(ignored -> oversized);
+        var oversizeFailure = oversize.getClass().getDeclaredMethod("failure"); oversizeFailure.setAccessible(true);
+        check(checks, "oversized_resource_terminal_failure", ModelLoaderBase.awaitParsing(10_000)
+                && !loaded(oversize) && oversizeFailure.invoke(oversize) != null);
+        auditNativeRetirement(checks, valid);
         SharedBlockbenchCache.finishRegistration();
-        check(checks, "fault_counts_settled", ModelLoaderBase.awaitParsing(10_000)
-                && SharedBlockbenchCache.statistics().outstanding() == 0
+        check(checks, "fault_counts_settled", settled()
                 && SharedBlockbenchCache.statistics().pending() == 0 && ReadAdmission.GLOBAL.active() == 0);
+    }
+    private static void auditNativeRetirement(JsonObject checks, String valid) throws Exception {
+        SharedBlockbenchCache.beginReload();
+        ResourceProvider provider = ignored -> valid;
+        ModelLoaderBase old;
+        ModelLoaderBase fresh;
+        try (var gate = NativeParserPause.arm()) {
+            old = factory(provider);
+            check(checks, "actual_native_parser_paused", gate.awaitEntered() && !ModelLoaderBase.awaitParsing(1));
+            SharedBlockbenchCache.beginReload();
+            var failure = old.getClass().getDeclaredMethod("failure"); failure.setAccessible(true);
+            check(checks, "canceled_native_facade_terminal", !loaded(old) && failure.invoke(old) instanceof java.util.concurrent.CancellationException);
+            check(checks, "running_native_owner_keeps_ticket_and_permit", !ModelLoaderBase.awaitParsing(1)
+                    && SharedBlockbenchCache.statistics().outstanding() == 1 && ReadAdmission.GLOBAL.active() == 1);
+            fresh = factory(provider);
+            long started = System.nanoTime();
+            while (!loaded(fresh) && System.nanoTime() - started < java.util.concurrent.TimeUnit.SECONDS.toNanos(5)) Thread.sleep(2);
+            check(checks, "replacement_publishes_while_old_native_parse_is_blocked", loaded(fresh));
+        }
+        check(checks, "native_retirement_cleanup", settled());
+        check(checks, "late_native_publication_cannot_repopulate_retired_facade", !loaded(old) && loaded(fresh));
+    }
+    private static boolean settled() throws InterruptedException {
+        long started = System.nanoTime();
+        do {
+            if (ModelLoaderBase.awaitParsing(1) && SharedBlockbenchCache.statistics().outstanding() == 0
+                    && ReadAdmission.GLOBAL.active() == 0) return true;
+            Thread.sleep(2);
+        } while (System.nanoTime() - started < java.util.concurrent.TimeUnit.SECONDS.toNanos(10));
+        return false;
     }
 }

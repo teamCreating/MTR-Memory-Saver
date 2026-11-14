@@ -308,7 +308,11 @@ tasks.register('generateProbeMetadata') {
         metadata.parentFile.mkdirs()
         metadata.setText('modLoader="javafml"\nloaderVersion="[4,)"\nlicense="MIT"\n' + probeIds.collect { id ->
             "[[mods]]\nmodId=\"${id}\"\nversion=\"${version}\"\ndisplayName=\"MTR Memory Acceptance Probe\"\n"
-        }.join(''), 'UTF-8')
+        }.join('') + '\n[[mixins]]\nconfig="mtr-memory-acceptance.mixins.json"\n', 'UTF-8')
+        file("build/generated/probe/${targetName}/mtr-memory-acceptance.mixins.json").setText(
+                JsonOutput.prettyPrint(JsonOutput.toJson([required: true, minVersion: '0.8',
+                package: matrix.javaPackage + '.probe.mixin', compatibilityLevel: 'JAVA_21',
+                client: ['NativeParserPauseMixin'], injectors: [defaultRequire: 1]])) + '\n', 'UTF-8')
     }
 }
 tasks.named('processProbeResources') { dependsOn tasks.named('generateProbeMetadata') }
