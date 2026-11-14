@@ -1,0 +1,69 @@
+{
+  "schema": 1,
+  "scope": "official_launcher_performance_preparation_tool_tests",
+  "timestamp_start": "2026-11-15T06:59:09.423055+08:00",
+  "timestamp_end": "2026-11-15T06:59:53.291226+08:00",
+  "utc_offset": "+08:00",
+  "command": [
+    "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.venv\\Scripts\\python.exe",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tools",
+    "-p",
+    "test_packaged_client.py",
+    "-v"
+  ],
+  "exit_code": 0,
+  "source_before": {
+    "tools/packaged_client.py": "e864544d5c9530c354bbb6d2182994b584fdc3e95db74b1a89cb6a86d6324090",
+    "tools/legacy_identity.py": "f69223d0ab5763702fede5007ea5a343af3be38baf727ff86f2537297b2963d6",
+    "tools/test_packaged_client.py": "2e9882e6ec6e8db71b4efeb5b484e04f2d248fbc277287d4b93bd31f0467e7e1",
+    "config/legacy-baselines.json": "ea524641583b26ecaab3b12b29d25162232942ff08b64916435801cb7d671447",
+    "config/targets.json": "e3d1d3a81d4fe8d7e60ba376654c943cc9766ce1d213b119fe7f6b175ac1d4ff"
+  },
+  "source_after": {
+    "tools/packaged_client.py": "e864544d5c9530c354bbb6d2182994b584fdc3e95db74b1a89cb6a86d6324090",
+    "tools/legacy_identity.py": "f69223d0ab5763702fede5007ea5a343af3be38baf727ff86f2537297b2963d6",
+    "tools/test_packaged_client.py": "2e9882e6ec6e8db71b4efeb5b484e04f2d248fbc277287d4b93bd31f0467e7e1",
+    "config/legacy-baselines.json": "ea524641583b26ecaab3b12b29d25162232942ff08b64916435801cb7d671447",
+    "config/targets.json": "e3d1d3a81d4fe8d7e60ba376654c943cc9766ce1d213b119fe7f6b175ac1d4ff"
+  },
+  "sources_unchanged": true,
+  "legacy_before": {
+    "dist/compatibility/neoforge-21.1.248/mtr-memory-sharing-neoforge-v030-nf248.jar": {
+      "jar_sha256": "b9c95bbe79c6c76fe6a0c9af6bdb4f9ed7ce6b007fecdb1c9f543544ce562f02",
+      "manifest_sha256": "de9e1ccb9e6f5d26fae3ab922411f42f79776490fe4b6488c349f0d0144efc80"
+    },
+    "dist/releases/mtr-memory-sharing-neoforge-v030.jar": {
+      "jar_sha256": "eb21c0062f7944a7d2c015cb2eee5a1d24c11be4af2286bbbbfa4625d6cd2d54",
+      "manifest_sha256": "6f3b4ebe5de2affa158e117ceac8ce825314c47d0eab96e48afaeece7199d1aa"
+    }
+  },
+  "legacy_after": {
+    "dist/compatibility/neoforge-21.1.248/mtr-memory-sharing-neoforge-v030-nf248.jar": {
+      "jar_sha256": "b9c95bbe79c6c76fe6a0c9af6bdb4f9ed7ce6b007fecdb1c9f543544ce562f02",
+      "manifest_sha256": "de9e1ccb9e6f5d26fae3ab922411f42f79776490fe4b6488c349f0d0144efc80"
+    },
+    "dist/releases/mtr-memory-sharing-neoforge-v030.jar": {
+      "jar_sha256": "eb21c0062f7944a7d2c015cb2eee5a1d24c11be4af2286bbbbfa4625d6cd2d54",
+      "manifest_sha256": "6f3b4ebe5de2affa158e117ceac8ce825314c47d0eab96e48afaeece7199d1aa"
+    }
+  },
+  "original_legacy_bytes_unchanged": true,
+  "client_execution": "Only synthetic filesystem preparation and mocked Java/client launch; harmless Python child exit/timeout tests use real children.",
+  "runtime_qualification": "not_collected",
+  "v6_validation": "paused",
+  "outputs": {
+    "tests.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "tests.stderr.log": "02a8ab7b48f788fa25a886a86ec571016a3412ff4b2a134b3f1017ac6b7c98f1"
+  },
+  "snapshots": {
+    "packaged_client.py": "e864544d5c9530c354bbb6d2182994b584fdc3e95db74b1a89cb6a86d6324090",
+    "legacy_identity.py": "f69223d0ab5763702fede5007ea5a343af3be38baf727ff86f2537297b2963d6",
+    "test_packaged_client.py": "2e9882e6ec6e8db71b4efeb5b484e04f2d248fbc277287d4b93bd31f0467e7e1",
+    "legacy-baselines.json": "ea524641583b26ecaab3b12b29d25162232942ff08b64916435801cb7d671447",
+    "targets.json": "e3d1d3a81d4fe8d7e60ba376654c943cc9766ce1d213b119fe7f6b175ac1d4ff"
+  }
+}
