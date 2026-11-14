@@ -1,0 +1,51 @@
+{
+  "recording": {
+    "events": [{
+      "type": "mtrtest.ClientFrame", 
+      "values": {
+        "startTime": "2026-11-15T07:06:33.690601695+08:00", 
+        "duration": "PT0S", 
+        "eventThread": {
+          "osName": "Test worker", 
+          "osThreadId": 36472, 
+          "javaName": "Test worker", 
+          "javaThreadId": 1, 
+          "group": {
+            "parent": {
+              "parent": null, 
+              "name": "system"
+            }, 
+            "name": "main"
+          }, 
+          "virtual": false
+        }, 
+        "stackTrace": null, 
+        "intervalMs": 12.5, 
+        "inWorld": true, 
+        "paused": false, 
+        "screen": "game"
+      }
+    }, {
+      "type": "mtrtest.ServerTick", 
+      "values": {
+        "startTime": "2026-11-15T07:06:33.705532645+08:00", 
+        "duration": "PT0.000010762S", 
+        "eventThread": {
+          "osName": "Test worker", 
+          "osThreadId": 36472, 
+          "javaName": "Test worker", 
+          "javaThreadId": 1, 
+          "group": {
+            "parent": {
+              "parent": null, 
+              "name": "system"
+            }, 
+            "name": "main"
+          }, 
+          "virtual": false
+        }, 
+        "stackTrace": null
+      }
+    }]
+  }
+}

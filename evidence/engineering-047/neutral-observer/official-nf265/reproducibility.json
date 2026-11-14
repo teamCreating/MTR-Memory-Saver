@@ -1,0 +1,20 @@
+{
+  "started": "2026-11-15T06:58:31.1511851+08:00",
+  "ended": "2026-11-15T06:59:02.9534291+08:00",
+  "utc_offset": "+08:00",
+  "command": [
+    "./gradlew.bat",
+    "-Ptarget=official-nf265",
+    "-PmodVersion=0.3.0",
+    "neutralProbeJar",
+    "neutralProbeManifest",
+    "--rerun-tasks"
+  ],
+  "powershell_properties": "Explicit quoted literal strings",
+  "java_home": "C:\\Users\\ben_l\\Saved Games\\Yuuniverse 1.20.1 Shenyang\\porting-output\\work\\tools\\jdk21\\jdk-21.0.11+10",
+  "exit_code": 0,
+  "reference_sha256": "a6d19fdfb08acff925675c52e9c6f641253d67031b53c5854e75a81f9c19bbb7",
+  "rebuilt_sha256": "a6d19fdfb08acff925675c52e9c6f641253d67031b53c5854e75a81f9c19bbb7",
+  "byte_identity": true,
+  "scope": "Native JAR reproducibility and independence from product modVersion; no baseline game was run"
+}

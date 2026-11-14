@@ -1,0 +1,18 @@
+{
+  "started": "2026-11-15T07:06:39.1026917+08:00",
+  "ended": "2026-11-15T07:07:13.0728485+08:00",
+  "utc_offset": "+08:00",
+  "command": [
+    "./gradlew.bat",
+    "-Ptarget=official-nf248",
+    "-PmodVersion=0.3.0",
+    "neutralProbeJar",
+    "neutralProbeManifest",
+    "--rerun-tasks"
+  ],
+  "exit_code": 0,
+  "reference_sha256": "9c63841b48853eda714b31db6ac8367f5f204708a2006d69c0768ced351deaea",
+  "rebuilt_sha256": "9c63841b48853eda714b31db6ac8367f5f204708a2006d69c0768ced351deaea",
+  "byte_identity": true,
+  "scope": "Engineering reproducibility/property independence, no baseline game"
+}

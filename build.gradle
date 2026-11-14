@@ -337,3 +337,162 @@ tasks.register('auditModels', JavaExec) {
         args(file(providers.gradleProperty('auditJobs').get()).absolutePath, output.absolutePath)
     }
 }
+
+// Native observations are byte-identical across companion versions. Neither the
+// source set nor its tests include main/probe output or a companion dependency.
+def neutralSpecFile = file('tools/probes/neutral/observer.json')
+def neutralSpec = new JsonSlurper().parse(neutralSpecFile)
+sourceSets {
+    neutralProbe {
+        java.srcDirs = ['tools/probes/neutral/java']
+        compileClasspath += sourceSets.main.compileClasspath
+        resources.srcDir(layout.buildDirectory.dir("generated/neutral-probe/${targetName}"))
+    }
+    neutralProbeTest {
+        java.srcDirs = ['tools/probes/neutral/test']
+        compileClasspath += sourceSets.neutralProbe.output + sourceSets.main.compileClasspath
+        runtimeClasspath += sourceSets.neutralProbe.output + sourceSets.main.compileClasspath
+    }
+}
+configurations {
+    neutralProbeTestImplementation.extendsFrom testImplementation
+    neutralProbeTestRuntimeOnly.extendsFrom testRuntimeOnly
+}
+gradle.taskGraph.whenReady { graph ->
+    if (target.variant != 'official' && graph.allTasks.any { it.name.toLowerCase(Locale.ROOT).contains('neutralprobe') })
+        throw new GradleException('The native observer supports only the audited official MTR targets.')
+}
+
+tasks.register('generateNeutralProbeMetadata') {
+    inputs.files(neutralSpecFile, file('config/targets.json'))
+    inputs.property('target', targetName)
+    def destination = layout.buildDirectory.dir("generated/neutral-probe/${targetName}")
+    outputs.dir(destination)
+    doLast {
+        File output = destination.get().asFile
+        def writeJson = { String path, Object value ->
+            File destinationFile = new File(output, path)
+            destinationFile.parentFile.mkdirs()
+            destinationFile.setText(JsonOutput.prettyPrint(JsonOutput.toJson(value)) + '\n', 'UTF-8')
+        }
+        writeJson('mtr-native-observer-target.json', [schema_version: neutralSpec.schema_version,
+                probe_kind: neutralSpec.probe_kind, observer_version: neutralSpec.observer_version,
+                mod_id: neutralSpec.mod_id, target: targetName, variant: target.variant,
+                minecraft: matrix.minecraft, java: matrix.java, neoForge: target.neoForge,
+                mtrVersion: mtr.version, mtrSha256: mtr.sha256,
+                frame_event: neutralSpec.frame_event, server_tick_event: neutralSpec.server_tick_event,
+                snapshot_path: neutralSpec.snapshot_path, epochs_path: neutralSpec.epochs_path])
+        writeJson('capabilities.json', [schema_version: neutralSpec.schema_version,
+                probe_kind: neutralSpec.probe_kind, capabilities: neutralSpec.capabilities])
+        writeJson('mtr-native-observer.mixins.json', [required: true, minVersion: '0.8',
+                package: 'dev.abenli.neutralprobe.mixin', plugin: 'dev.abenli.neutralprobe.NativeCompatibilityPlugin',
+                compatibilityLevel: 'JAVA_21', client: ['NativePendingAccess', 'NativeClientDataAccess',
+                'VehicleCacheAccess', 'VehicleProgressAccess', 'NativeResourceEpochMixin'],
+                injectors: [defaultRequire: 1]])
+        File metadata = new File(output, 'META-INF/neoforge.mods.toml')
+        metadata.parentFile.mkdirs()
+        metadata.setText("""modLoader="javafml"
+loaderVersion="[4,)"
+license="MIT"
+[[mods]]
+modId="${neutralSpec.mod_id}"
+version="${neutralSpec.observer_version}"
+displayName="MTR Native Observer"
+authors="A-BenLi06"
+description="Native client state and frame observations."
+[[dependencies.${neutralSpec.mod_id}]]
+modId="neoforge"
+type="required"
+versionRange="[${target.neoForge}]"
+ordering="NONE"
+side="CLIENT"
+[[dependencies.${neutralSpec.mod_id}]]
+modId="minecraft"
+type="required"
+versionRange="[${matrix.minecraft}]"
+ordering="NONE"
+side="CLIENT"
+[[dependencies.${neutralSpec.mod_id}]]
+modId="mtr"
+type="required"
+versionRange="[${mtr.version}]"
+ordering="AFTER"
+side="CLIENT"
+[[mixins]]
+config="mtr-native-observer.mixins.json"
+""", 'UTF-8')
+    }
+}
+tasks.named('processNeutralProbeResources') { dependsOn tasks.named('generateNeutralProbeMetadata') }
+tasks.register('neutralProbeJar', Jar) {
+    dependsOn tasks.named('neutralProbeClasses')
+    archiveBaseName = "mtr-native-observer-${targetName}"
+    archiveVersion = neutralSpec.observer_version
+    from(sourceSets.neutralProbe.output)
+    from('LICENSE')
+    manifest.attributes('Implementation-Version': neutralSpec.observer_version, 'MTR-Native-Observer-Target': targetName)
+}
+tasks.register('neutralProbeTest', Test) {
+    testClassesDirs = sourceSets.neutralProbeTest.output.classesDirs
+    classpath = sourceSets.neutralProbeTest.runtimeClasspath
+    useJUnitPlatform()
+    maxHeapSize = '512m'
+    systemProperty('neutralProbeJfrOutput', layout.buildDirectory.file("neutral-probe/${targetName}/frame-events.jfr").get().asFile.absolutePath)
+    testLogging { events 'failed', 'skipped'; exceptionFormat 'full' }
+}
+tasks.register('neutralProbeManifest') {
+    dependsOn tasks.named('neutralProbeJar')
+    inputs.file(tasks.named('neutralProbeJar').flatMap { it.archiveFile })
+    inputs.files(sourceSets.neutralProbe.allSource, neutralSpecFile, file('config/targets.json'), file('build.gradle'))
+    def destination = layout.buildDirectory.file("libs/mtr-native-observer-${targetName}-${neutralSpec.observer_version}.build.json")
+    outputs.file(destination)
+    doLast {
+        File jarFile = tasks.named('neutralProbeJar').get().archiveFile.get().asFile
+        def hashes = [:]
+        (sourceSets.neutralProbe.allSource.files + neutralSpecFile + file('config/targets.json') + file('build.gradle'))
+                .findAll { it.isFile() }.sort { it.path }.each { hashes[relativePath(it).replace('\\', '/')] = sha256(it) }
+        destination.get().asFile.setText(JsonOutput.prettyPrint(JsonOutput.toJson([
+                schema_version: neutralSpec.schema_version, observer_version: neutralSpec.observer_version,
+                target: targetName, artifact: jarFile.name, sha256: sha256(jarFile),
+                mtrSha256: mtr.sha256, neoForge: target.neoForge, minecraft: matrix.minecraft, java: matrix.java,
+                capabilities: neutralSpec.capabilities, inputs: hashes,
+                scope: 'Tool engineering only; actual loader application, client qualification and observer-off calibration remain unverified'])) + '\n', 'UTF-8')
+    }
+}
+tasks.register('verifyNeutralProbe') {
+    dependsOn tasks.named('neutralProbeManifest'), tasks.named('neutralProbeTest')
+    inputs.file(tasks.named('neutralProbeJar').flatMap { it.archiveFile })
+    doLast {
+        File jarFile = tasks.named('neutralProbeJar').get().archiveFile.get().asFile
+        new java.util.zip.ZipFile(jarFile).withCloseable { zip ->
+            def json = { String path ->
+                def entry = zip.getEntry(path)
+                if (entry == null) throw new GradleException("Missing native observer resource ${path}")
+                zip.getInputStream(entry).withCloseable { new JsonSlurper().parse(it) }
+            }
+            def identity = json('mtr-native-observer-target.json')
+            if (identity.target != targetName || identity.mtrSha256 != mtr.sha256 || identity.neoForge != target.neoForge
+                    || identity.observer_version != neutralSpec.observer_version || identity.variant != 'official')
+                throw new GradleException('Native observer target metadata differs from its selected target.')
+            if (json('capabilities.json').capabilities != neutralSpec.capabilities)
+                throw new GradleException('Native observer capabilities differ from their source contract.')
+            def mixins = json('mtr-native-observer.mixins.json')
+            (mixins.client.collect { mixins.package + '.' + it } + mixins.plugin + 'dev.abenli.neutralprobe.NativeObserver').each { name ->
+                if (zip.getEntry(name.replace('.', '/') + '.class') == null)
+                    throw new GradleException("Missing native observer class ${name}")
+            }
+            zip.entries().each { entry ->
+                if (entry.name.endsWith('.class')) {
+                    if (!entry.name.startsWith('dev/abenli/neutralprobe/'))
+                        throw new GradleException("Unexpected native observer class ${entry.name}")
+                    String pool = zip.getInputStream(entry).withCloseable { new String(it.readAllBytes(), java.nio.charset.StandardCharsets.ISO_8859_1) }
+                    ['site/benli06', 'site.benli06', 'getCachedVehicleResource', 'awaitParsing', 'java/lang/reflect'].each { forbidden ->
+                        if (pool.contains(forbidden)) throw new GradleException("Forbidden native observer class reference ${forbidden}")
+                    }
+                }
+            }
+        }
+        def recorded = new JsonSlurper().parse(file("build/libs/mtr-native-observer-${targetName}-${neutralSpec.observer_version}.build.json"))
+        if (recorded.sha256 != sha256(jarFile)) throw new GradleException('Native observer manifest is stale.')
+    }
+}

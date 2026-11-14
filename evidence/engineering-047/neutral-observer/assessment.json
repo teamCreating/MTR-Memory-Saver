@@ -1,0 +1,39 @@
+{
+  "timestamp": "2026-11-15T07:09:23.9286507+08:00",
+  "utc_offset": "+08:00",
+  "scope": "Official native observer tool engineering only",
+  "targets": [
+    {
+      "target": "official-nf248",
+      "artifact": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-047\\neutral-observer\\official-nf248\\final\\mtr-native-observer-official-nf248-1.0.0.jar",
+      "sha256": "9c63841b48853eda714b31db6ac8367f5f204708a2006d69c0768ced351deaea",
+      "class_count": 20,
+      "manifest_inputs": 21,
+      "junit_tests": 14,
+      "junit_failures": 0,
+      "jfr_frame_events": 1,
+      "jfr_tick_events": 1,
+      "packaging_and_source_integrity": true,
+      "actual_mixin_client_run": false
+    },
+    {
+      "target": "official-nf265",
+      "artifact": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-047\\neutral-observer\\official-nf265\\final\\mtr-native-observer-official-nf265-1.0.0.jar",
+      "sha256": "28eb3e453cfa463cb5b8c8addf990bdb2bfc4551f492771fc759192efe05421a",
+      "class_count": 20,
+      "manifest_inputs": 21,
+      "junit_tests": 14,
+      "junit_failures": 0,
+      "jfr_frame_events": 1,
+      "jfr_tick_events": 1,
+      "packaging_and_source_integrity": true,
+      "actual_mixin_client_run": false
+    }
+  ],
+  "remaining": [
+    "Actual NeoForge client Mixin application on both exact loaders",
+    "Current-input qualification of baseline and candidate with identical observer bytes",
+    "Real native reload and steady frame/JFR coverage",
+    "Observer-off instrumentation calibration"
+  ]
+}
