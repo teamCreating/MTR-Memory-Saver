@@ -121,3 +121,7 @@ Preserved exact failed full-run logs, GC log, native observer, preliminary raw O
 Evidence, bytecode references, full catalogue/text measurements, build identities and fresh JUnit XML are archived under evidence/engineering-045/. Updated support, runtime/acceptance guides and coverage plan. Required full-pack repair/reload/two-hour/performance and changed-artifact delivery work remain active. Only this repository, its ignored isolated instances and associated temporary test recordings were changed; no ordinary world/resource pack was modified.
 
 Final verification resolves all changed documentation links and both release ZIP navigation trees, verifies every archived reference hash and confirms probe classes are absent from product JARs. A narrowly scoped Git whitespace attribute preserves the exact captured javap transcripts and their indexed line-ending/terminal bytes, as existing attributes already do for raw logs. Edited production code, tools and documentation pass the whitespace audit.
+
+## 2026-11-15T04:28:25.479219+08:00 (UTC+08:00)
+
+Completed the tracked-evidence inventory audit. The repository-wide class-file ignore rule omitted the three archived native text-measurement class files while their hashes were already indexed. Explicitly included only those evidence binaries so a clean checkout contains every indexed file; no product or runtime behavior changed. Rechecked the tracked inventory and exact Git blob hashes against the 0.4.5 evidence index.
