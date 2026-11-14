@@ -1,0 +1,30 @@
+Compiled from "MixinInitialisationError.java"
+public class org.spongepowered.asm.launch.MixinInitialisationError extends org.spongepowered.asm.mixin.throwables.MixinError {
+  public org.spongepowered.asm.launch.MixinInitialisationError();
+    Code:
+       0: aload_0
+       1: invokespecial #3                  // Method org/spongepowered/asm/mixin/throwables/MixinError."<init>":()V
+       4: return
+
+  public org.spongepowered.asm.launch.MixinInitialisationError(java.lang.String);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokespecial #4                  // Method org/spongepowered/asm/mixin/throwables/MixinError."<init>":(Ljava/lang/String;)V
+       5: return
+
+  public org.spongepowered.asm.launch.MixinInitialisationError(java.lang.Throwable);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokespecial #6                  // Method org/spongepowered/asm/mixin/throwables/MixinError."<init>":(Ljava/lang/Throwable;)V
+       5: return
+
+  public org.spongepowered.asm.launch.MixinInitialisationError(java.lang.String, java.lang.Throwable);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_2
+       3: invokespecial #5                  // Method org/spongepowered/asm/mixin/throwables/MixinError."<init>":(Ljava/lang/String;Ljava/lang/Throwable;)V
+       6: return
+}

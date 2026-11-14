@@ -1,0 +1,558 @@
+Compiled from "ResourcePackCreatorOperationServlet.java"
+public final class org.mtr.servlet.ResourcePackCreatorOperationServlet extends org.mtr.servlet.AbstractResourcePackCreatorServlet {
+  private static org.mtr.sound.VehicleSoundBase vehicleSoundBase;
+
+  private static long motorSoundExpiry;
+
+  private static float speed;
+
+  private static float targetSpeed;
+
+  private static float acceleration;
+
+  private static int doorMultiplier;
+
+  public org.mtr.servlet.ResourcePackCreatorOperationServlet();
+    Code:
+       0: aload_0
+       1: invokespecial #33                 // Method org/mtr/servlet/AbstractResourcePackCreatorServlet."<init>":()V
+       4: return
+
+  protected void doGet(org.mtr.libraries.jakarta.servlet.http.HttpServletRequest, org.mtr.libraries.jakarta.servlet.http.HttpServletResponse);
+    Code:
+       0: aload_1
+       1: invokeinterface #43,  1           // InterfaceMethod org/mtr/libraries/jakarta/servlet/http/HttpServletRequest.startAsync:()Lorg/mtr/libraries/jakarta/servlet/AsyncContext;
+       6: astore_3
+       7: aload_3
+       8: lconst_0
+       9: invokeinterface #49,  3           // InterfaceMethod org/mtr/libraries/jakarta/servlet/AsyncContext.setTimeout:(J)V
+      14: aload_1
+      15: aload_2
+      16: invokestatic  #52                 // Method setEncoding:(Lorg/mtr/libraries/jakarta/servlet/http/HttpServletRequest;Lorg/mtr/libraries/jakarta/servlet/http/HttpServletResponse;)V
+      19: invokestatic  #58                 // Method net/minecraft/client/Minecraft.getInstance:()Lnet/minecraft/client/Minecraft;
+      22: astore        4
+      24: aload_1
+      25: invokeinterface #62,  1           // InterfaceMethod org/mtr/libraries/jakarta/servlet/http/HttpServletRequest.getPathInfo:()Ljava/lang/String;
+      30: astore        5
+      32: iconst_m1
+      33: istore        6
+      35: aload         5
+      37: invokevirtual #68                 // Method java/lang/String.hashCode:()I
+      40: lookupswitch  { // 5
+           -1715174294: 140
+             -10477383: 124
+            1393151948: 92
+            1646335491: 156
+            1936982693: 108
+               default: 169
+          }
+      92: aload         5
+      94: ldc           #72                 // String /refresh
+      96: invokevirtual #76                 // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+      99: ifeq          169
+     102: iconst_0
+     103: istore        6
+     105: goto          169
+     108: aload         5
+     110: ldc           #78                 // String /play-sound
+     112: invokevirtual #76                 // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+     115: ifeq          169
+     118: iconst_1
+     119: istore        6
+     121: goto          169
+     124: aload         5
+     126: ldc           #80                 // String /preview
+     128: invokevirtual #76                 // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+     131: ifeq          169
+     134: iconst_2
+     135: istore        6
+     137: goto          169
+     140: aload         5
+     142: ldc           #82                 // String /force-reload
+     144: invokevirtual #76                 // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+     147: ifeq          169
+     150: iconst_3
+     151: istore        6
+     153: goto          169
+     156: aload         5
+     158: ldc           #84                 // String /resume-game
+     160: invokevirtual #76                 // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+     163: ifeq          169
+     166: iconst_4
+     167: istore        6
+     169: iload         6
+     171: tableswitch   { // 0 to 4
+                     0: 204
+                     1: 241
+                     2: 250
+                     3: 259
+                     4: 274
+               default: 295
+          }
+     204: getstatic     #88                 // Field resourceWrapper:Lorg/mtr/resource/ResourceWrapper;
+     207: ifnonnull     232
+     210: invokestatic  #92                 // Method getBackupFile:()Ljava/nio/file/Path;
+     213: iconst_0
+     214: anewarray     #94                 // class java/nio/file/LinkOption
+     217: invokestatic  #100                // Method java/nio/file/Files.exists:(Ljava/nio/file/Path;[Ljava/nio/file/LinkOption;)Z
+     220: ifeq          232
+     223: aload_2
+     224: aload_3
+     225: aconst_null
+     226: invokestatic  #104                // Method returnStandardResponse:(Lorg/mtr/libraries/jakarta/servlet/http/HttpServletResponse;Lorg/mtr/libraries/jakarta/servlet/AsyncContext;Ljava/lang/String;)V
+     229: goto          300
+     232: aload_2
+     233: aload_3
+     234: aconst_null
+     235: invokestatic  #104                // Method returnStandardResponse:(Lorg/mtr/libraries/jakarta/servlet/http/HttpServletResponse;Lorg/mtr/libraries/jakarta/servlet/AsyncContext;Ljava/lang/String;)V
+     238: goto          300
+     241: aload_1
+     242: aload_2
+     243: aload_3
+     244: invokestatic  #108                // Method playSound:(Lorg/mtr/libraries/jakarta/servlet/http/HttpServletRequest;Lorg/mtr/libraries/jakarta/servlet/http/HttpServletResponse;Lorg/mtr/libraries/jakarta/servlet/AsyncContext;)V
+     247: goto          300
+     250: aload_1
+     251: aload_2
+     252: aload_3
+     253: invokestatic  #111                // Method preview:(Lorg/mtr/libraries/jakarta/servlet/http/HttpServletRequest;Lorg/mtr/libraries/jakarta/servlet/http/HttpServletResponse;Lorg/mtr/libraries/jakarta/servlet/AsyncContext;)V
+     256: goto          300
+     259: aload         4
+     261: aload_2
+     262: aload_3
+     263: invokedynamic #128,  0            // InvokeDynamic #0:run:(Lorg/mtr/libraries/jakarta/servlet/http/HttpServletResponse;Lorg/mtr/libraries/jakarta/servlet/AsyncContext;)Ljava/lang/Runnable;
+     268: invokevirtual #132                // Method net/minecraft/client/Minecraft.execute:(Ljava/lang/Runnable;)V
+     271: goto          300
+     274: aload         4
+     276: aload         4
+     278: invokedynamic #140,  0            // InvokeDynamic #1:run:(Lnet/minecraft/client/Minecraft;)Ljava/lang/Runnable;
+     283: invokevirtual #132                // Method net/minecraft/client/Minecraft.execute:(Ljava/lang/Runnable;)V
+     286: aload_2
+     287: aload_3
+     288: aconst_null
+     289: invokestatic  #104                // Method returnStandardResponse:(Lorg/mtr/libraries/jakarta/servlet/http/HttpServletResponse;Lorg/mtr/libraries/jakarta/servlet/AsyncContext;Ljava/lang/String;)V
+     292: goto          300
+     295: aload_2
+     296: aload_3
+     297: invokestatic  #143                // Method returnErrorResponse:(Lorg/mtr/libraries/jakarta/servlet/http/HttpServletResponse;Lorg/mtr/libraries/jakarta/servlet/AsyncContext;)V
+     300: return
+
+  protected void doPost(org.mtr.libraries.jakarta.servlet.http.HttpServletRequest, org.mtr.libraries.jakarta.servlet.http.HttpServletResponse);
+    Code:
+       0: aload_1
+       1: invokeinterface #43,  1           // InterfaceMethod org/mtr/libraries/jakarta/servlet/http/HttpServletRequest.startAsync:()Lorg/mtr/libraries/jakarta/servlet/AsyncContext;
+       6: astore_3
+       7: aload_3
+       8: lconst_0
+       9: invokeinterface #49,  3           // InterfaceMethod org/mtr/libraries/jakarta/servlet/AsyncContext.setTimeout:(J)V
+      14: aload_1
+      15: aload_2
+      16: invokestatic  #52                 // Method setEncoding:(Lorg/mtr/libraries/jakarta/servlet/http/HttpServletRequest;Lorg/mtr/libraries/jakarta/servlet/http/HttpServletResponse;)V
+      19: ldc           #154                // String /update
+      21: aload_1
+      22: invokeinterface #62,  1           // InterfaceMethod org/mtr/libraries/jakarta/servlet/http/HttpServletRequest.getPathInfo:()Ljava/lang/String;
+      27: invokevirtual #76                 // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+      30: ifeq          42
+      33: aload_1
+      34: aload_2
+      35: aload_3
+      36: invokestatic  #157                // Method update:(Lorg/mtr/libraries/jakarta/servlet/http/HttpServletRequest;Lorg/mtr/libraries/jakarta/servlet/http/HttpServletResponse;Lorg/mtr/libraries/jakarta/servlet/AsyncContext;)V
+      39: goto          47
+      42: aload_2
+      43: aload_3
+      44: invokestatic  #143                // Method returnErrorResponse:(Lorg/mtr/libraries/jakarta/servlet/http/HttpServletResponse;Lorg/mtr/libraries/jakarta/servlet/AsyncContext;)V
+      47: return
+
+  public static void tick(long);
+    Code:
+       0: invokestatic  #164                // Method java/lang/System.currentTimeMillis:()J
+       3: getstatic     #166                // Field motorSoundExpiry:J
+       6: lcmp
+       7: ifle          26
+      10: getstatic     #168                // Field vehicleSoundBase:Lorg/mtr/sound/VehicleSoundBase;
+      13: ifnull        26
+      16: getstatic     #168                // Field vehicleSoundBase:Lorg/mtr/sound/VehicleSoundBase;
+      19: invokevirtual #171                // Method org/mtr/sound/VehicleSoundBase.dispose:()V
+      22: aconst_null
+      23: putstatic     #168                // Field vehicleSoundBase:Lorg/mtr/sound/VehicleSoundBase;
+      26: getstatic     #168                // Field vehicleSoundBase:Lorg/mtr/sound/VehicleSoundBase;
+      29: ifnull        147
+      32: invokestatic  #58                 // Method net/minecraft/client/Minecraft.getInstance:()Lnet/minecraft/client/Minecraft;
+      35: getfield      #175                // Field net/minecraft/client/Minecraft.player:Lnet/minecraft/client/player/LocalPlayer;
+      38: astore_2
+      39: aload_2
+      40: ifnull        147
+      43: getstatic     #177                // Field speed:F
+      46: fstore_3
+      47: lload_0
+      48: l2f
+      49: getstatic     #179                // Field acceleration:F
+      52: fmul
+      53: fstore        4
+      55: getstatic     #181                // Field targetSpeed:F
+      58: getstatic     #177                // Field speed:F
+      61: fcmpl
+      62: ifle          83
+      65: getstatic     #181                // Field targetSpeed:F
+      68: getstatic     #177                // Field speed:F
+      71: fload         4
+      73: fadd
+      74: invokestatic  #187                // Method java/lang/Math.min:(FF)F
+      77: putstatic     #177                // Field speed:F
+      80: goto          108
+      83: getstatic     #181                // Field targetSpeed:F
+      86: getstatic     #177                // Field speed:F
+      89: fcmpg
+      90: ifge          108
+      93: getstatic     #181                // Field targetSpeed:F
+      96: getstatic     #177                // Field speed:F
+      99: fload         4
+     101: fsub
+     102: invokestatic  #192                // Method java/lang/Math.max:(FF)F
+     105: putstatic     #177                // Field speed:F
+     108: getstatic     #168                // Field vehicleSoundBase:Lorg/mtr/sound/VehicleSoundBase;
+     111: new           #7                  // class org/mtr/sound/VehicleSoundBase$VehicleSoundParameters
+     114: dup
+     115: new           #12                 // class org/mtr/sound/VehicleSoundBase$RunSoundInfo
+     118: dup
+     119: iconst_0
+     120: iconst_0
+     121: fconst_1
+     122: invokespecial #195                // Method org/mtr/sound/VehicleSoundBase$RunSoundInfo."<init>":(IIF)V
+     125: aload_2
+     126: invokevirtual #199                // Method net/minecraft/client/player/LocalPlayer.blockPosition:()Lnet/minecraft/core/BlockPos;
+     129: getstatic     #177                // Field speed:F
+     132: getstatic     #177                // Field speed:F
+     135: fload_3
+     136: fsub
+     137: getstatic     #179                // Field acceleration:F
+     140: iconst_1
+     141: invokespecial #202                // Method org/mtr/sound/VehicleSoundBase$VehicleSoundParameters."<init>":(Lorg/mtr/sound/VehicleSoundBase$RunSoundInfo;Lnet/minecraft/core/BlockPos;FFFZ)V
+     144: invokevirtual #206                // Method org/mtr/sound/VehicleSoundBase.playVehicleSound:(Lorg/mtr/sound/VehicleSoundBase$VehicleSoundParameters;)V
+     147: return
+
+  private static void update(org.mtr.libraries.jakarta.servlet.http.HttpServletRequest, org.mtr.libraries.jakarta.servlet.http.HttpServletResponse, org.mtr.libraries.jakarta.servlet.AsyncContext);
+    Code:
+       0: new           #214                // class org/mtr/resource/ResourceWrapper
+       3: dup
+       4: new           #216                // class org/mtr/core/serializer/JsonReader
+       7: dup
+       8: aload_0
+       9: invokeinterface #220,  1          // InterfaceMethod org/mtr/libraries/jakarta/servlet/http/HttpServletRequest.getReader:()Ljava/io/BufferedReader;
+      14: invokestatic  #226                // Method org/mtr/libraries/com/google/gson/JsonParser.parseReader:(Ljava/io/Reader;)Lorg/mtr/libraries/com/google/gson/JsonElement;
+      17: invokespecial #229                // Method org/mtr/core/serializer/JsonReader."<init>":(Lorg/mtr/libraries/com/google/gson/JsonElement;)V
+      20: new           #231                // class org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList
+      23: dup
+      24: invokestatic  #237                // Method org/mtr/client/CustomResourceLoader.getMinecraftModelResources:()Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList;
+      27: invokespecial #240                // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList."<init>":(Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectList;)V
+      30: new           #231                // class org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList
+      33: dup
+      34: invokestatic  #243                // Method org/mtr/client/CustomResourceLoader.getTextureResources:()Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList;
+      37: invokespecial #240                // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList."<init>":(Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectList;)V
+      40: invokespecial #246                // Method org/mtr/resource/ResourceWrapper."<init>":(Lorg/mtr/core/serializer/JsonReader;Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList;Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList;)V
+      43: putstatic     #88                 // Field resourceWrapper:Lorg/mtr/resource/ResourceWrapper;
+      46: getstatic     #88                 // Field resourceWrapper:Lorg/mtr/resource/ResourceWrapper;
+      49: invokevirtual #249                // Method org/mtr/resource/ResourceWrapper.clean:()V
+      52: aload_1
+      53: aload_2
+      54: aload_0
+      55: ldc           #251                // String id
+      57: invokeinterface #255,  2          // InterfaceMethod org/mtr/libraries/jakarta/servlet/http/HttpServletRequest.getParameter:(Ljava/lang/String;)Ljava/lang/String;
+      62: invokestatic  #104                // Method returnStandardResponse:(Lorg/mtr/libraries/jakarta/servlet/http/HttpServletResponse;Lorg/mtr/libraries/jakarta/servlet/AsyncContext;Ljava/lang/String;)V
+      65: goto          86
+      68: astore_3
+      69: getstatic     #261                // Field org/mtr/MTR.LOGGER:Lorg/apache/logging/log4j/Logger;
+      72: ldc_w         #263                // String
+      75: aload_3
+      76: invokeinterface #269,  3          // InterfaceMethod org/apache/logging/log4j/Logger.error:(Ljava/lang/String;Ljava/lang/Throwable;)V
+      81: aload_1
+      82: aload_2
+      83: invokestatic  #143                // Method returnErrorResponse:(Lorg/mtr/libraries/jakarta/servlet/http/HttpServletResponse;Lorg/mtr/libraries/jakarta/servlet/AsyncContext;)V
+      86: return
+    Exception table:
+       from    to  target type
+           0    65    68   Class java/lang/Exception
+
+  private static void playSound(org.mtr.libraries.jakarta.servlet.http.HttpServletRequest, org.mtr.libraries.jakarta.servlet.http.HttpServletResponse, org.mtr.libraries.jakarta.servlet.AsyncContext);
+    Code:
+       0: aload_0
+       1: ldc           #251                // String id
+       3: invokeinterface #255,  2          // InterfaceMethod org/mtr/libraries/jakarta/servlet/http/HttpServletRequest.getParameter:(Ljava/lang/String;)Ljava/lang/String;
+       8: astore_3
+       9: aload_0
+      10: ldc_w         #273                // String type
+      13: invokeinterface #255,  2          // InterfaceMethod org/mtr/libraries/jakarta/servlet/http/HttpServletRequest.getParameter:(Ljava/lang/String;)Ljava/lang/String;
+      18: astore        4
+      20: aload_0
+      21: ldc_w         #275                // String mode
+      24: invokeinterface #255,  2          // InterfaceMethod org/mtr/libraries/jakarta/servlet/http/HttpServletRequest.getParameter:(Ljava/lang/String;)Ljava/lang/String;
+      29: astore        5
+      31: aload_0
+      32: ldc_w         #277                // String value
+      35: invokeinterface #255,  2          // InterfaceMethod org/mtr/libraries/jakarta/servlet/http/HttpServletRequest.getParameter:(Ljava/lang/String;)Ljava/lang/String;
+      40: invokestatic  #281                // Method parseInt:(Ljava/lang/String;)I
+      43: istore        6
+      45: aload_0
+      46: ldc_w         #283                // String speed-sound-count
+      49: invokeinterface #255,  2          // InterfaceMethod org/mtr/libraries/jakarta/servlet/http/HttpServletRequest.getParameter:(Ljava/lang/String;)Ljava/lang/String;
+      54: invokestatic  #281                // Method parseInt:(Ljava/lang/String;)I
+      57: istore        7
+      59: ldc_w         #285                // String true
+      62: aload_0
+      63: ldc_w         #287                // String use-acceleration-sounds-when-coasting
+      66: invokeinterface #255,  2          // InterfaceMethod org/mtr/libraries/jakarta/servlet/http/HttpServletRequest.getParameter:(Ljava/lang/String;)Ljava/lang/String;
+      71: invokevirtual #291                // Method java/lang/String.equalsIgnoreCase:(Ljava/lang/String;)Z
+      74: istore        8
+      76: ldc_w         #285                // String true
+      79: aload_0
+      80: ldc_w         #293                // String constant-playback-speed
+      83: invokeinterface #255,  2          // InterfaceMethod org/mtr/libraries/jakarta/servlet/http/HttpServletRequest.getParameter:(Ljava/lang/String;)Ljava/lang/String;
+      88: invokevirtual #291                // Method java/lang/String.equalsIgnoreCase:(Ljava/lang/String;)Z
+      91: istore        9
+      93: aload_3
+      94: ifnull        107
+      97: aload         4
+      99: ifnull        107
+     102: aload         5
+     104: ifnonnull     113
+     107: aload_1
+     108: aload_2
+     109: invokestatic  #143                // Method returnErrorResponse:(Lorg/mtr/libraries/jakarta/servlet/http/HttpServletResponse;Lorg/mtr/libraries/jakarta/servlet/AsyncContext;)V
+     112: return
+     113: invokestatic  #58                 // Method net/minecraft/client/Minecraft.getInstance:()Lnet/minecraft/client/Minecraft;
+     116: astore        10
+     118: aload         10
+     120: aload         10
+     122: aload         4
+     124: aload_3
+     125: iload         7
+     127: iload         8
+     129: iload         9
+     131: aload         5
+     133: iload         6
+     135: invokedynamic #301,  0            // InvokeDynamic #2:run:(Lnet/minecraft/client/Minecraft;Ljava/lang/String;Ljava/lang/String;IZZLjava/lang/String;I)Ljava/lang/Runnable;
+     140: invokevirtual #132                // Method net/minecraft/client/Minecraft.execute:(Ljava/lang/Runnable;)V
+     143: aload_1
+     144: aload_2
+     145: aconst_null
+     146: invokestatic  #104                // Method returnStandardResponse:(Lorg/mtr/libraries/jakarta/servlet/http/HttpServletResponse;Lorg/mtr/libraries/jakarta/servlet/AsyncContext;Ljava/lang/String;)V
+     149: return
+
+  private static void preview(org.mtr.libraries.jakarta.servlet.http.HttpServletRequest, org.mtr.libraries.jakarta.servlet.http.HttpServletResponse, org.mtr.libraries.jakarta.servlet.AsyncContext);
+    Code:
+       0: aload_0
+       1: ldc_w         #308                // String doors
+       4: invokeinterface #255,  2          // InterfaceMethod org/mtr/libraries/jakarta/servlet/http/HttpServletRequest.getParameter:(Ljava/lang/String;)Ljava/lang/String;
+       9: astore_3
+      10: ldc_w         #310                // String open
+      13: aload_3
+      14: invokevirtual #76                 // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+      17: ifeq          27
+      20: iconst_1
+      21: putstatic     #312                // Field doorMultiplier:I
+      24: goto          41
+      27: ldc_w         #314                // String close
+      30: aload_3
+      31: invokevirtual #76                 // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+      34: ifeq          41
+      37: iconst_m1
+      38: putstatic     #312                // Field doorMultiplier:I
+      41: aload_1
+      42: aload_2
+      43: aconst_null
+      44: invokestatic  #104                // Method returnStandardResponse:(Lorg/mtr/libraries/jakarta/servlet/http/HttpServletResponse;Lorg/mtr/libraries/jakarta/servlet/AsyncContext;Ljava/lang/String;)V
+      47: return
+
+  private static int parseInt(java.lang.String);
+    Code:
+       0: aload_0
+       1: ifnonnull     8
+       4: iconst_0
+       5: goto          12
+       8: aload_0
+       9: invokestatic  #317                // Method java/lang/Integer.parseInt:(Ljava/lang/String;)I
+      12: ireturn
+      13: astore_1
+      14: iconst_0
+      15: ireturn
+    Exception table:
+       from    to  target type
+           0    12    13   Class java/lang/Exception
+
+  public static int getDoorMultiplier();
+    Code:
+       0: getstatic     #312                // Field doorMultiplier:I
+       3: ireturn
+
+  private static void lambda$playSound$3(net.minecraft.client.Minecraft, java.lang.String, java.lang.String, int, boolean, boolean, java.lang.String, int);
+    Code:
+       0: aload_0
+       1: getfield      #175                // Field net/minecraft/client/Minecraft.player:Lnet/minecraft/client/player/LocalPlayer;
+       4: astore        8
+       6: aload         8
+       8: ifnull        370
+      11: aload_1
+      12: getstatic     #326                // Field java/util/Locale.ENGLISH:Ljava/util/Locale;
+      15: invokevirtual #330                // Method java/lang/String.toLowerCase:(Ljava/util/Locale;)Ljava/lang/String;
+      18: astore        10
+      20: iconst_m1
+      21: istore        11
+      23: aload         10
+      25: invokevirtual #68                 // Method java/lang/String.hashCode:()I
+      28: lookupswitch  { // 2
+           -1106578487: 73
+                 97937: 56
+               default: 87
+          }
+      56: aload         10
+      58: ldc_w         #332                // String bve
+      61: invokevirtual #76                 // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+      64: ifeq          87
+      67: iconst_0
+      68: istore        11
+      70: goto          87
+      73: aload         10
+      75: ldc_w         #334                // String legacy
+      78: invokevirtual #76                 // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+      81: ifeq          87
+      84: iconst_1
+      85: istore        11
+      87: iload         11
+      89: lookupswitch  { // 2
+                     0: 116
+                     1: 134
+               default: 154
+          }
+     116: new           #336                // class org/mtr/sound/BveVehicleSound
+     119: dup
+     120: new           #338                // class org/mtr/sound/BveVehicleSoundConfig
+     123: dup
+     124: aload_2
+     125: invokespecial #341                // Method org/mtr/sound/BveVehicleSoundConfig."<init>":(Ljava/lang/String;)V
+     128: invokespecial #344                // Method org/mtr/sound/BveVehicleSound."<init>":(Lorg/mtr/sound/BveVehicleSoundConfig;)V
+     131: goto          155
+     134: new           #346                // class org/mtr/sound/LegacyVehicleSound
+     137: dup
+     138: aload_2
+     139: iload_3
+     140: iload         4
+     142: iload         5
+     144: aload_2
+     145: ldc2_w        #347                // double 0.5d
+     148: invokespecial #351                // Method org/mtr/sound/LegacyVehicleSound."<init>":(Ljava/lang/String;IZZLjava/lang/String;D)V
+     151: goto          155
+     154: aconst_null
+     155: astore        9
+     157: aload         9
+     159: ifnull        370
+     162: aload         6
+     164: getstatic     #326                // Field java/util/Locale.ENGLISH:Ljava/util/Locale;
+     167: invokevirtual #330                // Method java/lang/String.toLowerCase:(Ljava/util/Locale;)Ljava/lang/String;
+     170: astore        10
+     172: iconst_m1
+     173: istore        11
+     175: aload         10
+     177: invokevirtual #68                 // Method java/lang/String.hashCode:()I
+     180: lookupswitch  { // 3
+           -1577772263: 250
+           -1436008183: 233
+             109641799: 216
+               default: 264
+          }
+     216: aload         10
+     218: ldc_w         #352                // String speed
+     221: invokevirtual #76                 // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+     224: ifeq          264
+     227: iconst_0
+     228: istore        11
+     230: goto          264
+     233: aload         10
+     235: ldc_w         #354                // String door-open
+     238: invokevirtual #76                 // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+     241: ifeq          264
+     244: iconst_1
+     245: istore        11
+     247: goto          264
+     250: aload         10
+     252: ldc_w         #356                // String door-close
+     255: invokevirtual #76                 // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+     258: ifeq          264
+     261: iconst_2
+     262: istore        11
+     264: iload         11
+     266: tableswitch   { // 0 to 2
+                     0: 292
+                     1: 343
+                     2: 358
+               default: 370
+          }
+     292: aload         9
+     294: putstatic     #168                // Field vehicleSoundBase:Lorg/mtr/sound/VehicleSoundBase;
+     297: invokestatic  #164                // Method java/lang/System.currentTimeMillis:()J
+     300: ldc2_w        #357                // long 5000l
+     303: ladd
+     304: putstatic     #166                // Field motorSoundExpiry:J
+     307: getstatic     #181                // Field targetSpeed:F
+     310: putstatic     #177                // Field speed:F
+     313: iload         7
+     315: i2f
+     316: ldc_w         #359                // float 3600.0f
+     319: fdiv
+     320: putstatic     #181                // Field targetSpeed:F
+     323: getstatic     #181                // Field targetSpeed:F
+     326: getstatic     #177                // Field speed:F
+     329: fsub
+     330: invokestatic  #363                // Method java/lang/Math.abs:(F)F
+     333: ldc_w         #364                // float 200.0f
+     336: fdiv
+     337: putstatic     #179                // Field acceleration:F
+     340: goto          370
+     343: aload         9
+     345: aload         8
+     347: invokevirtual #199                // Method net/minecraft/client/player/LocalPlayer.blockPosition:()Lnet/minecraft/core/BlockPos;
+     350: dconst_1
+     351: dconst_0
+     352: invokevirtual #368                // Method org/mtr/sound/VehicleSoundBase.playDoorSound:(Lnet/minecraft/core/BlockPos;DD)V
+     355: goto          370
+     358: aload         9
+     360: aload         8
+     362: invokevirtual #199                // Method net/minecraft/client/player/LocalPlayer.blockPosition:()Lnet/minecraft/core/BlockPos;
+     365: dconst_0
+     366: dconst_1
+     367: invokevirtual #368                // Method org/mtr/sound/VehicleSoundBase.playDoorSound:(Lnet/minecraft/core/BlockPos;DD)V
+     370: return
+
+  private static void lambda$doGet$2(net.minecraft.client.Minecraft);
+    Code:
+       0: aload_0
+       1: new           #371                // class org/mtr/screen/FakePauseScreen
+       4: dup
+       5: invokespecial #372                // Method org/mtr/screen/FakePauseScreen."<init>":()V
+       8: invokevirtual #376                // Method net/minecraft/client/Minecraft.setScreen:(Lnet/minecraft/client/gui/screens/Screen;)V
+      11: return
+
+  private static void lambda$doGet$1(org.mtr.libraries.jakarta.servlet.http.HttpServletResponse, org.mtr.libraries.jakarta.servlet.AsyncContext);
+    Code:
+       0: new           #378                // class org/mtr/screen/ReloadCustomResourcesScreen
+       3: dup
+       4: aload_0
+       5: aload_1
+       6: invokedynamic #383,  0            // InvokeDynamic #3:run:(Lorg/mtr/libraries/jakarta/servlet/http/HttpServletResponse;Lorg/mtr/libraries/jakarta/servlet/AsyncContext;)Ljava/lang/Runnable;
+      11: invokespecial #385                // Method org/mtr/screen/ReloadCustomResourcesScreen."<init>":(Ljava/lang/Runnable;)V
+      14: invokestatic  #391                // Method org/mtr/libraries/gg/essential/universal/UMinecraft.setCurrentScreenObj:(Ljava/lang/Object;)V
+      17: return
+
+  private static void lambda$doGet$0(org.mtr.libraries.jakarta.servlet.http.HttpServletResponse, org.mtr.libraries.jakarta.servlet.AsyncContext);
+    Code:
+       0: invokestatic  #394                // Method org/mtr/client/CustomResourceLoader.reload:()V
+       3: aload_0
+       4: aload_1
+       5: ldc_w         #263                // String
+       8: invokestatic  #104                // Method returnStandardResponse:(Lorg/mtr/libraries/jakarta/servlet/http/HttpServletResponse;Lorg/mtr/libraries/jakarta/servlet/AsyncContext;Ljava/lang/String;)V
+      11: return
+
+  static {};
+    Code:
+       0: iconst_m1
+       1: putstatic     #312                // Field doorMultiplier:I
+       4: return
+}

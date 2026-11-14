@@ -1,0 +1,59 @@
+  public static org.mtr.resource.CustomResources convert(org.mtr.libraries.com.google.gson.JsonObject, org.mtr.resource.ResourceProvider);
+    Code:
+       0: aload_0
+       1: invokevirtual #7                  // Method org/mtr/libraries/com/google/gson/JsonObject.getAsJsonObject:()Lorg/mtr/libraries/com/google/gson/JsonObject;
+       4: ldc           #13                 // String custom_trains
+       6: invokevirtual #15                 // Method org/mtr/libraries/com/google/gson/JsonObject.has:(Ljava/lang/String;)Z
+       9: istore_2
+      10: aload_0
+      11: invokevirtual #7                  // Method org/mtr/libraries/com/google/gson/JsonObject.getAsJsonObject:()Lorg/mtr/libraries/com/google/gson/JsonObject;
+      14: ldc           #19                 // String custom_signs
+      16: invokevirtual #15                 // Method org/mtr/libraries/com/google/gson/JsonObject.has:(Ljava/lang/String;)Z
+      19: istore_3
+      20: iload_2
+      21: ifne          45
+      24: iload_3
+      25: ifne          45
+      28: new           #21                 // class org/mtr/resource/CustomResources
+      31: dup
+      32: new           #23                 // class org/mtr/core/serializer/JsonReader
+      35: dup
+      36: aload_0
+      37: invokespecial #25                 // Method org/mtr/core/serializer/JsonReader."<init>":(Lorg/mtr/libraries/com/google/gson/JsonElement;)V
+      40: aload_1
+      41: invokespecial #28                 // Method org/mtr/resource/CustomResources."<init>":(Lorg/mtr/core/serializer/ReaderBase;Lorg/mtr/resource/ResourceProvider;)V
+      44: areturn
+      45: new           #31                 // class org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList
+      48: dup
+      49: invokespecial #33                 // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList."<init>":()V
+      52: astore        4
+      54: iload_2
+      55: ifeq          80
+      58: aload_0
+      59: ldc           #13                 // String custom_trains
+      61: invokevirtual #34                 // Method org/mtr/libraries/com/google/gson/JsonObject.getAsJsonObject:(Ljava/lang/String;)Lorg/mtr/libraries/com/google/gson/JsonObject;
+      64: invokevirtual #37                 // Method org/mtr/libraries/com/google/gson/JsonObject.entrySet:()Ljava/util/Set;
+      67: aload         4
+      69: aload_1
+      70: invokedynamic #41,  0             // InvokeDynamic #0:accept:(Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList;Lorg/mtr/resource/ResourceProvider;)Ljava/util/function/Consumer;
+      75: invokeinterface #45,  2           // InterfaceMethod java/util/Set.forEach:(Ljava/util/function/Consumer;)V
+      80: new           #31                 // class org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList
+      83: dup
+      84: invokespecial #33                 // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList."<init>":()V
+      87: astore        5
+      89: iload_3
+      90: ifeq          114
+      93: aload_0
+      94: ldc           #19                 // String custom_signs
+      96: invokevirtual #34                 // Method org/mtr/libraries/com/google/gson/JsonObject.getAsJsonObject:(Ljava/lang/String;)Lorg/mtr/libraries/com/google/gson/JsonObject;
+      99: invokevirtual #37                 // Method org/mtr/libraries/com/google/gson/JsonObject.entrySet:()Ljava/util/Set;
+     102: aload         5
+     104: invokedynamic #51,  0             // InvokeDynamic #1:accept:(Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList;)Ljava/util/function/Consumer;
+     109: invokeinterface #45,  2           // InterfaceMethod java/util/Set.forEach:(Ljava/util/function/Consumer;)V
+     114: new           #21                 // class org/mtr/resource/CustomResources
+     117: dup
+     118: aload         4
+     120: aload         5
+     122: invokespecial #54                 // Method org/mtr/resource/CustomResources."<init>":(Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList;Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList;)V
+     125: areturn
+

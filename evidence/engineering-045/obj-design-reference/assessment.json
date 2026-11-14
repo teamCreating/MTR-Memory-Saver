@@ -1,0 +1,61 @@
+{
+  "timestamp": "2026-11-15T04:20:00.797596+08:00",
+  "scope": "Official MTR 4.1.0-beta.2 OBJ design audit; no game launch, no v6, no production edits",
+  "fixture": [
+    {
+      "archive": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\[MTR4.1\u539f\u751f\u76ee\u5f55]\u4ea7\u7269\\[MTR4.1]rpsync-mtr4.0.0-hxd3d-yw25t.zip",
+      "entry": "assets/mtr/hxd3d/25t__doors_b351ad1ecabb.obj",
+      "bytes": 102035449,
+      "sha256": "e43f1b6b3d1819044094218e5d38c317be4d4a6800582cae0cfdff9f662041bc",
+      "decoded_utf16_units": 102035449,
+      "non_ascii_input_bytes": 0
+    }
+  ],
+  "current_default_guard_at_3g": 100663296,
+  "fixture_default_guard_rejected": true,
+  "guard_failure_log": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-045-profile\\logs\\latest.log",
+  "native_obj_contract": {
+    "draw_mode": "TRIANGLES",
+    "raw_read_location": "VehicleModel.getModelLoaderBase synchronously calls provider.get before ObjModelLoader.loadModel",
+    "executor": "MainRenderer.WORKER_THREAD.worker created by Executors.newVirtualThreadPerTaskExecutor",
+    "submission": "ObjModelLoader.loadModel increments parseStarted, then captures raw String/functions/flags in submitted Runnable",
+    "parse": "String -> IOUtils.toInputStream UTF_8 -> ObjReader InputStreamReader US_ASCII -> native ObjSplitting/ObjUtils.convertToRenderable -> native StoredVertexData",
+    "mtl_parse": "Referenced MTL String -> UTF_8 InputStream -> MtlReader default-charset InputStreamReader; MTL failure logs and continues fallback",
+    "completion": "Runnable sets modelLoaded only after all groups/materials are loaded; parseFinished executes on success, caught Exception and finally exceptional exit",
+    "submission_failure": "No catch/finally around ExecutorService.submit after parseStarted; a rejected submit can leak native ticket; module inline redirect should bypass the native executor for its owned calls",
+    "material_context": "MTL and texture resolution are anchored in the ORIGINAL factory modelString through getResourceFromSamePath; material options and flip flag affect output",
+    "ownership": "Share source mesh staging only; separate ModelLoaderBase TRIANGLES facades keep builtModel1/builtModel2 private",
+    "raw_read_error_fallback": "ResourceManagerHelper catches a decode/read Exception and returns its initialized empty String. Managed OBJ descriptor admission alone does not distinguish a real empty OBJ from a swallowed read/guard failure."
+  },
+  "minimal_design": [
+    "Repair default text guard using a documented heap-derived sizing policy and replay exact largest fixture; do not special-case paths or increase threshold by measured delta",
+    "Treat OBJ admission/shared sources as a distinct engineering expansion of the declared BB/foreign-native boundary, justified by real workload evidence rather than claiming an existing total-process bound",
+    "Reuse GenerationWorkCache with descriptor-only suppliers and ReadAdmission.GLOBAL; capture generation before admission; read raw and MTL only inside owned admitted worker scope",
+    "Add ObjModelLoader executor redirect to same generic native-owned scope mechanism, so original native Runnable runs inline; preserve all native reader/material/bake code",
+    "Use a provider-identity/modelId/original-model-anchor/texture/flip key and path-scoped content key until a complete material dependency/resolver equivalence key exists; raw OBJ digest alone is insufficient",
+    "Create independent TRIANGLES facades from native source mesh maps; do not share per-consumer built holders or mutate shared groups",
+    "Use generic native capture loaded-after-Runnable check to make native parse-without-publication a terminal failed future; keep native MTL fallback semantics",
+    "For managed native resource reads, preserve original decode/read/missing failures with an ownership-scoped error handoff checked before BoundedTextCache publication; do not reject every empty OBJ String. MTL-specific native fallback stays intact.",
+    "Retire/finish/report OBJ work with same lifecycle gates and observe OBJ plus BB stats so quiescence cannot accidentally omit OBJ tasks"
+  ],
+  "required_tests": [
+    "Native-reference bitwise mesh/group/stage/texture/bounds/triangle/winding/normal/UV equivalence for quads, groups, material options, MTL Kd/d/mapKd and flipV",
+    "UTF8 to US_ASCII reference equivalence for non-ASCII OBJ names/comments and default-charset MTL names; do not replace the InputStream reader with StringReader",
+    "Provider+same-path path-hit read count; same raw in different original anchors/providers must not alias material/texture results",
+    "Repeated same OBJ source gives distinct facades and independent builtModel holder ownership; native source staging is unchanged by facade reset/build",
+    "Malformed OBJ/native bake exception yields unloaded terminal facade, zero pending future, same-path correction retry, balanced module/native tickets and permits; allow legitimate native empty models",
+    "Native MTL missing/malformed input retains native fallback and warning; explicit resource-limit errors remain observable",
+    "Actual ResourceManagerHelper missing/oversize/decode/read-error paths must not turn a managed raw OBJ source into a successful empty model; compare a truly empty input separately.",
+    "Queued/running cancellation, timeout ignoring interruption, replacement generation and admission wait retirement; hold tickets/permits until actual native exit",
+    "Actual official packaged OBJ factory/executor Mixin application plus paused parser/reload/retry fault probe; headless tests alone cannot prove hooks",
+    "Exact full-16-pack run verifies largest input no longer guard-rejected, real rendered geometry and settled BB/OBJ/native counts, then full reload/long-session/performance gates"
+  ],
+  "runtime_verified": false,
+  "input_source_hashes": {
+    "src/main/java/site/benli06/ReadAdmission.java": "2a6a01bfe384c52d0b9caa6a5ba7f8387b4f74775b49e9f0a45b778a8d07e175",
+    "src/main/java/site/benli06/SharedBlockbenchCache.java": "7fdd6c66602557370f476bef65781f8a28a4e6ca7785d1c6c4cf6c33497f7d07",
+    "src/main/java/site/benli06/mixin/VehicleModelFactoryMixin.java": "1fb9b2984cd917cf5010158bbb4a0312a80a8931535036ec1394ca04633e98bc",
+    "src/main/java/site/benli06/mixin/BlockbenchParseExecutorMixin.java": "6d3e9567457cf46a9593980dc0bb7144147dd9f92cbf0a680209522d999c34a2",
+    "src/targets/official/java/site/benli06/SharedBlockbenchLoader.java": "62d081e56e318bddf4a6a26116cb12d9aa36f8cbe1934e4607b621e7fdc626a9"
+  }
+}

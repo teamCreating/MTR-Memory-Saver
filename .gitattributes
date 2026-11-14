@@ -5,3 +5,5 @@
 *.jfr binary
 *.log -whitespace
 evidence/engineering-042/*-crash.txt -whitespace
+# Preserve exact captured javap transcripts, including native terminal line endings.
+evidence/engineering-045/**/*.javap.txt -whitespace

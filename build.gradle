@@ -15,7 +15,7 @@ def target = matrix.targets[targetName]
 if (target == null) throw new GradleException("Unknown target '${targetName}'. Choose ${matrix.targets.keySet()}.")
 def mtr = matrix.mtr[target.variant]
 def acceptanceProbe = providers.gradleProperty('acceptanceProbe').map { it.toBoolean() }.getOrElse(false)
-def probeIds = ['vehicle_performance_probe', 'mtr_memory_loader_probe'] + (target.variant == 'v6' ? ['v6_memory_compatibility_probe'] : [])
+def probeIds = ['vehicle_performance_probe', 'mtr_memory_loader_probe', 'mtr_packaged_client_observer'] + (target.variant == 'v6' ? ['v6_memory_compatibility_probe'] : [])
 version = providers.gradleProperty('modVersion').get()
 if (!(version ==~ /0\.\d+\.\d+(?:[-+][A-Za-z0-9.-]+)?/)) {
     throw new GradleException('Development releases must use a 0.x.x version.')
@@ -312,7 +312,7 @@ tasks.register('generateProbeMetadata') {
         file("build/generated/probe/${targetName}/mtr-memory-acceptance.mixins.json").setText(
                 JsonOutput.prettyPrint(JsonOutput.toJson([required: true, minVersion: '0.8',
                 package: matrix.javaPackage + '.probe.mixin', compatibilityLevel: 'JAVA_21',
-                client: ['NativeParserPauseMixin'], injectors: [defaultRequire: 1]])) + '\n', 'UTF-8')
+                client: ['NativeParserPauseMixin', 'ResourceEpochObservationMixin'], injectors: [defaultRequire: 1]])) + '\n', 'UTF-8')
     }
 }
 tasks.named('processProbeResources') { dependsOn tasks.named('generateProbeMetadata') }

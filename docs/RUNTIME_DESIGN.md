@@ -1,4 +1,4 @@
-# Runtime contract — 0.4.4
+# Runtime contract — 0.4.5
 
 `GenerationWorkCache` is a Java-only scheduling core. Resource/provider identity,
 normalized model path, texture and flip flag form the fast key. A hit returns its
@@ -13,6 +13,11 @@ submitted work both have a 300-second timeout. Failures remove the path/content
 entry so later requests can retry. Reload retires the whole generation under one
 lock, replaces it, cancels pending futures and removes queued tasks. Registration
 completion releases successful source keys, including results that finish later.
+
+The required compatibility plugin reports an incompatible dependency through
+Mixin's standard `MixinInitialisationError`, preserving the fingerprint cause.
+A plain Exception during configuration selection is logged and skipped by the
+actual Mixin runtime, so it cannot implement the required startup rejection.
 
 Each model, text and vehicle-JSON call captures its resource generation before
 waiting for admission. Retirement cancels waiting callers before they read or
@@ -71,7 +76,10 @@ silently disabling checks or substituting defaults.
 | `mtr.memory.textCacheBytes` | 100,663,296 | Conservative admitted cache-weight limit |
 
 At a 3 GiB heap the text limit is 100,663,296 code units. The historical largest
-65,255,687-byte model is below that decoded limit. Four payload bytes per code unit
+65,255,687-byte Blockbench model is below that decoded limit, but is not referenced
+by current vehicle declarations. The 0.4.5 actual full-pack test rejects a valid
+102,035,449-code-unit OBJ; this default-limit defect remains to be repaired.
+Four payload bytes per code unit
 is a sizing allowance for segmented decoding plus final text, not an accounting
 proof of all live Java objects. Compression capacity rounding, unreachable objects
 awaiting GC, caller-held Strings, native JSON/model structures, native foreign

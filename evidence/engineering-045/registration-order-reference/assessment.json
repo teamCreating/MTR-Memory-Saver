@@ -1,0 +1,186 @@
+{
+  "timestamp": "2026-11-15T03:57:47.117472+08:00",
+  "scope": "Official MTR 4.1.0-beta.2 normal registration/reload entry ordering; static binary call-chain audit, not runtime certification",
+  "jdk": "openjdk version \"21.0.12\" 2026-07-21 LTS\r\nOpenJDK Runtime Environment Temurin-21.0.12+8 (build 21.0.12+8-LTS)\r\nOpenJDK 64-Bit Server VM Temurin-21.0.12+8 (build 21.0.12+8-LTS, mixed mode, sharing)\r\n",
+  "input_hashes": {
+    "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\dependencies\\mtr-ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa.jar": "ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa",
+    "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\.cache\\game-test\\nf248-official-3g\\libraries\\net\\neoforged\\neoforge\\21.1.248\\neoforge-21.1.248-client.jar": "01ba27020f208050884661ff393be3c392e02853d91825f9d5f1bb694282e83b",
+    "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\.cache\\game-test\\nf248-official-3g\\libraries\\net\\minecraft\\client\\1.21.1-20240808.144430\\client-1.21.1-20240808.144430-srg.jar": "a649bd3ce77f122d0f83ae1b37b4b303e662470f928b9bee5fbc76580805ffd4",
+    "C:\\Users\\ben_l\\.gradle\\caches\\modules-2\\files-2.1\\net.neoforged\\neoforge\\21.1.248\\f0378c9b210dfc258170b6412a85fdffe4aea7fe\\neoforge-21.1.248-sources.jar": "b4b912457549ff586873ce78b39b08af96f11a0e3a54c6b77576c6a25907083f"
+  },
+  "commands": [
+    {
+      "class": "org.mtr.client.CustomResourceLoader",
+      "command": [
+        "C:\\Users\\ben_l\\.gradle\\jdks\\eclipse_adoptium-21-amd64-windows.2\\bin\\javap.exe",
+        "-classpath",
+        "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\dependencies\\mtr-ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa.jar",
+        "-c",
+        "-p",
+        "org.mtr.client.CustomResourceLoader"
+      ],
+      "output": "org.mtr.client.CustomResourceLoader.javap.txt",
+      "exit_code": 0
+    },
+    {
+      "class": "org.mtr.resource.ResourceManagerHelper",
+      "command": [
+        "C:\\Users\\ben_l\\.gradle\\jdks\\eclipse_adoptium-21-amd64-windows.2\\bin\\javap.exe",
+        "-classpath",
+        "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\dependencies\\mtr-ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa.jar",
+        "-c",
+        "-p",
+        "org.mtr.resource.ResourceManagerHelper"
+      ],
+      "output": "org.mtr.resource.ResourceManagerHelper.javap.txt",
+      "exit_code": 0
+    },
+    {
+      "class": "org.mtr.MTRClient",
+      "command": [
+        "C:\\Users\\ben_l\\.gradle\\jdks\\eclipse_adoptium-21-amd64-windows.2\\bin\\javap.exe",
+        "-classpath",
+        "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\dependencies\\mtr-ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa.jar",
+        "-c",
+        "-p",
+        "org.mtr.MTRClient"
+      ],
+      "output": "org.mtr.MTRClient.javap.txt",
+      "exit_code": 0
+    },
+    {
+      "class": "org.mtr.registry.EventRegistryClient",
+      "command": [
+        "C:\\Users\\ben_l\\.gradle\\jdks\\eclipse_adoptium-21-amd64-windows.2\\bin\\javap.exe",
+        "-classpath",
+        "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\dependencies\\mtr-ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa.jar",
+        "-c",
+        "-p",
+        "org.mtr.registry.EventRegistryClient"
+      ],
+      "output": "org.mtr.registry.EventRegistryClient.javap.txt",
+      "exit_code": 0
+    },
+    {
+      "class": "org.mtr.neoforge.ModEventBusClient",
+      "command": [
+        "C:\\Users\\ben_l\\.gradle\\jdks\\eclipse_adoptium-21-amd64-windows.2\\bin\\javap.exe",
+        "-classpath",
+        "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\dependencies\\mtr-ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa.jar",
+        "-c",
+        "-p",
+        "org.mtr.neoforge.ModEventBusClient"
+      ],
+      "output": "org.mtr.neoforge.ModEventBusClient.javap.txt",
+      "exit_code": 0
+    },
+    {
+      "class": "org.mtr.item.ItemDashboard",
+      "command": [
+        "C:\\Users\\ben_l\\.gradle\\jdks\\eclipse_adoptium-21-amd64-windows.2\\bin\\javap.exe",
+        "-classpath",
+        "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\dependencies\\mtr-ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa.jar",
+        "-c",
+        "-p",
+        "org.mtr.item.ItemDashboard"
+      ],
+      "output": "org.mtr.item.ItemDashboard.javap.txt",
+      "exit_code": 0
+    },
+    {
+      "class": "org.mtr.servlet.ResourcePackCreatorOperationServlet",
+      "command": [
+        "C:\\Users\\ben_l\\.gradle\\jdks\\eclipse_adoptium-21-amd64-windows.2\\bin\\javap.exe",
+        "-classpath",
+        "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\dependencies\\mtr-ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa.jar",
+        "-c",
+        "-p",
+        "org.mtr.servlet.ResourcePackCreatorOperationServlet"
+      ],
+      "output": "org.mtr.servlet.ResourcePackCreatorOperationServlet.javap.txt",
+      "exit_code": 0
+    },
+    {
+      "class": "org.mtr.servlet.ResourcePackCreatorUploadServlet",
+      "command": [
+        "C:\\Users\\ben_l\\.gradle\\jdks\\eclipse_adoptium-21-amd64-windows.2\\bin\\javap.exe",
+        "-classpath",
+        "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\dependencies\\mtr-ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa.jar",
+        "-c",
+        "-p",
+        "org.mtr.servlet.ResourcePackCreatorUploadServlet"
+      ],
+      "output": "org.mtr.servlet.ResourcePackCreatorUploadServlet.javap.txt",
+      "exit_code": 0
+    },
+    {
+      "class": "org.mtr.screen.ReloadCustomResourcesScreen",
+      "command": [
+        "C:\\Users\\ben_l\\.gradle\\jdks\\eclipse_adoptium-21-amd64-windows.2\\bin\\javap.exe",
+        "-classpath",
+        "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\dependencies\\mtr-ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa.jar",
+        "-c",
+        "-p",
+        "org.mtr.screen.ReloadCustomResourcesScreen"
+      ],
+      "output": "org.mtr.screen.ReloadCustomResourcesScreen.javap.txt",
+      "exit_code": 0
+    },
+    {
+      "class": "org.mtr.model.ModelLoaderBase",
+      "command": [
+        "C:\\Users\\ben_l\\.gradle\\jdks\\eclipse_adoptium-21-amd64-windows.2\\bin\\javap.exe",
+        "-classpath",
+        "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\dependencies\\mtr-ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa.jar",
+        "-c",
+        "-p",
+        "org.mtr.model.ModelLoaderBase"
+      ],
+      "output": "org.mtr.model.ModelLoaderBase.javap.txt",
+      "exit_code": 0
+    },
+    {
+      "class": "net.minecraft.client.renderer.texture.TextureAtlas",
+      "command": [
+        "C:\\Users\\ben_l\\.gradle\\jdks\\eclipse_adoptium-21-amd64-windows.2\\bin\\javap.exe",
+        "-classpath",
+        "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\.cache\\game-test\\nf248-official-3g\\libraries\\net\\neoforged\\neoforge\\21.1.248\\neoforge-21.1.248-client.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\.cache\\game-test\\nf248-official-3g\\libraries\\net\\minecraft\\client\\1.21.1-20240808.144430\\client-1.21.1-20240808.144430-srg.jar",
+        "-c",
+        "-p",
+        "net.minecraft.client.renderer.texture.TextureAtlas"
+      ],
+      "output": "net.minecraft.client.renderer.texture.TextureAtlas.javap.txt",
+      "exit_code": 0
+    },
+    {
+      "class": "com.mojang.blaze3d.platform.TextureUtil",
+      "command": [
+        "C:\\Users\\ben_l\\.gradle\\jdks\\eclipse_adoptium-21-amd64-windows.2\\bin\\javap.exe",
+        "-classpath",
+        "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\.cache\\game-test\\nf248-official-3g\\libraries\\net\\neoforged\\neoforge\\21.1.248\\neoforge-21.1.248-client.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\.cache\\game-test\\nf248-official-3g\\libraries\\net\\minecraft\\client\\1.21.1-20240808.144430\\client-1.21.1-20240808.144430-srg.jar",
+        "-c",
+        "-p",
+        "com.mojang.blaze3d.platform.TextureUtil"
+      ],
+      "output": "com.mojang.blaze3d.platform.TextureUtil.javap.txt",
+      "exit_code": 0
+    }
+  ],
+  "normal_direct_reload_callers": [
+    "org.mtr.MTRClient.lambda$init$63",
+    "org.mtr.item.ItemDashboard.use (DEBUG/shift/client only)",
+    "org.mtr.servlet.ResourcePackCreatorOperationServlet.lambda$doGet$0",
+    "org.mtr.servlet.ResourcePackCreatorUploadServlet.lambda$doGet$0"
+  ],
+  "entry_thread_evidence": {
+    "resource_reload": "TextureAtlas.upload invokes ClientHooks.onTextureAtlasStitched after TextureUtil.prepareImage (assertOnRenderThreadOrInit); ModEventBusClient synchronously runs blocks-atlas callback",
+    "servlets": "Minecraft.execute schedules screen creation; ReloadCustomResourcesScreen.render synchronously task.run on frame 11; no worker submission",
+    "debug_dashboard": "Client item-use path directly invokes reload"
+  },
+  "registration_completion": "SourceLifetimeMixin injects reload RETURN and synchronously invokes finishRegistration; not a native future completion callback",
+  "native_completion": "ModelLoaderCompletionMixin invokes SharedBlockbenchCache.completed only; no finishRegistration invocation",
+  "await_parsing": "reload invokes ModelLoaderBase.awaitParsing(60000); implementation uses AtomicInteger and Thread.sleep(5), without pumping Minecraft task queue",
+  "conclusion": "No cross-generation late registration completion path established for normal official callers. Do not change product API from a hypothetical callback race. Observe actual HEAD/RETURN thread, sequence and stack nesting through 20 full-pack reloads before declaring runtime ordering verified.",
+  "runtime_ordering_verified": false,
+  "v6_verified": false
+}

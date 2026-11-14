@@ -1,0 +1,49 @@
+  public void checkLength(long);
+    Code:
+       0: invokestatic  #128                // Method java/lang/Thread.currentThread:()Ljava/lang/Thread;
+       3: invokevirtual #170                // Method java/lang/Thread.isInterrupted:()Z
+       6: ifeq          19
+       9: new           #102                // class java/util/concurrent/CancellationException
+      12: dup
+      13: ldc           #173                // String Resource read interrupted
+      15: invokespecial #106                // Method java/util/concurrent/CancellationException."<init>":(Ljava/lang/String;)V
+      18: athrow
+      19: lload_1
+      20: aload_0
+      21: getfield      #53                 // Field maxCodeUnits:J
+      24: lcmp
+      25: ifle          45
+      28: new           #175                // class java/lang/IllegalStateException
+      31: dup
+      32: aload_0
+      33: getfield      #53                 // Field maxCodeUnits:J
+      36: invokedynamic #177,  0            // InvokeDynamic #6:makeConcatWithConstants:(J)Ljava/lang/String;
+      41: invokespecial #180                // Method java/lang/IllegalStateException."<init>":(Ljava/lang/String;)V
+      44: athrow
+      45: return
+
+  public long maxCodeUnits();
+    Code:
+       0: aload_0
+       1: getfield      #53                 // Field maxCodeUnits:J
+       4: lreturn
+
+  static {};
+    Code:
+       0: new           #18                 // class site/benli06/ReadAdmission
+       3: dup
+       4: ldc           #183                // String mtr.memory.readers
+       6: iconst_2
+       7: invokestatic  #185                // Method positiveProperty:(Ljava/lang/String;I)I
+      10: ldc           #189                // String mtr.memory.maxTextCodeUnits
+      12: ldc2_w        #35                 // long 2147483639l
+      15: invokestatic  #191                // Method java/lang/Runtime.getRuntime:()Ljava/lang/Runtime;
+      18: invokevirtual #197                // Method java/lang/Runtime.maxMemory:()J
+      21: ldc2_w        #200                // long 32l
+      24: ldiv
+      25: invokestatic  #202                // Method java/lang/Math.min:(JJ)J
+      28: invokestatic  #57                 // Method positiveLongProperty:(Ljava/lang/String;J)J
+      31: invokespecial #208                // Method "<init>":(IJ)V
+      34: putstatic     #211                // Field GLOBAL:Lsite/benli06/ReadAdmission;
+      37: return
+}

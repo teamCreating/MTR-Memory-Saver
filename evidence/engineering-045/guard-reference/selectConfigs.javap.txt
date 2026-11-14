@@ -1,0 +1,60 @@
+private void selectConfigs(org.spongepowered.asm.mixin.MixinEnvironment);
+    Code:
+       0: invokestatic  #175                // Method org/spongepowered/asm/mixin/Mixins.getConfigs:()Ljava/util/Set;
+       3: invokeinterface #282,  1          // InterfaceMethod java/util/Set.iterator:()Ljava/util/Iterator;
+       8: astore_2
+       9: aload_2
+      10: invokeinterface #273,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+      15: ifeq          120
+      18: aload_2
+      19: invokeinterface #274,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+      24: checkcast     #86                 // class org/spongepowered/asm/mixin/transformer/Config
+      27: astore_3
+      28: aload_3
+      29: invokevirtual #184                // Method org/spongepowered/asm/mixin/transformer/Config.get:()Lorg/spongepowered/asm/mixin/transformer/MixinConfig;
+      32: astore        4
+      34: aload         4
+      36: aload_1
+      37: invokevirtual #203                // Method org/spongepowered/asm/mixin/transformer/MixinConfig.select:(Lorg/spongepowered/asm/mixin/MixinEnvironment;)Z
+      40: ifeq          89
+      43: aload_2
+      44: invokeinterface #275,  1          // InterfaceMethod java/util/Iterator.remove:()V
+      49: getstatic     #138                // Field logger:Lorg/spongepowered/asm/logging/ILogger;
+      52: aload_0
+      53: getfield      #144                // Field verboseLoggingLevel:Lorg/spongepowered/asm/logging/Level;
+      56: ldc           #36                 // String Selecting config {}
+      58: iconst_1
+      59: anewarray     #50                 // class java/lang/Object
+      62: dup
+      63: iconst_0
+      64: aload         4
+      66: aastore
+      67: invokeinterface #287,  4          // InterfaceMethod org/spongepowered/asm/logging/ILogger.log:(Lorg/spongepowered/asm/logging/Level;Ljava/lang/String;[Ljava/lang/Object;)V
+      72: aload         4
+      74: invokevirtual #198                // Method org/spongepowered/asm/mixin/transformer/MixinConfig.onSelect:()V
+      77: aload_0
+      78: getfield      #139                // Field pendingConfigs:Ljava/util/List;
+      81: aload         4
+      83: invokeinterface #276,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+      88: pop
+      89: goto          117
+      92: astore        4
+      94: getstatic     #138                // Field logger:Lorg/spongepowered/asm/logging/ILogger;
+      97: ldc           #20                 // String Failed to select mixin config: %s
+      99: iconst_1
+     100: anewarray     #50                 // class java/lang/Object
+     103: dup
+     104: iconst_0
+     105: aload_3
+     106: aastore
+     107: invokestatic  #155                // Method java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+     110: aload         4
+     112: invokeinterface #288,  3          // InterfaceMethod org/spongepowered/asm/logging/ILogger.warn:(Ljava/lang/String;Ljava/lang/Throwable;)V
+     117: goto          9
+     120: aload_0
+     121: getfield      #139                // Field pendingConfigs:Ljava/util/List;
+     124: invokestatic  #165                // Method java/util/Collections.sort:(Ljava/util/List;)V
+     127: return
+    Exception table:
+       from    to  target type
+          28    89    92   Class java/lang/Exception

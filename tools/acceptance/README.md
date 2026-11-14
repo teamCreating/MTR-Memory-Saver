@@ -80,6 +80,28 @@ work, omit `--smoke`, supply `--catalogue '<catalog.json>'` and `--world '<saved
 SDK world>'`, and record `--jfr` when profiling. The runner observes the selected
 official target; no v6 client is created.
 
+`launch --wait-seconds 60` preserves the actual child's exit code, including
+nonzero guard rejection. An observation timeout records that the process remains
+live and leaves it running. `prepare --nmt summary` explicitly freezes optional
+native memory tracking before launch; keep this and JFR identical in paired arms.
+
+`tools/observe_packaged_client.py` validates the launched process handle, start
+time, arguments and frozen inputs. It saves its running source, raw JSONL samples
+and the native log. `startup` requires stable registration and ownership cleanup;
+`route --duration 7200` requires fresh explicitly unpaused world/vehicle state
+through the real duration, with vehicle and game-time progression. Optional GPU
+counter paths are selected from the local OS, rather than assuming their language.
+Requested NMT/GPU observations that are unavailable cannot pass.
+
+For the current catalogue, `--expected-count 1091 --expected-declarations 1092`
+separates distinct ID strings from the native declaration-list count. For 20 full
+reloads, use `reloads --require-reloads 20 --reload-events '<input receipts.jsonl>'`.
+The external input actor calls `capture_reload_before` before actual F3+T and
+`confirm_reload_input` with the actual input provider's issued/confirmed timestamps.
+The observer performs no game input. Every successful input must match a distinct
+full ResourceManager reload, native method boundaries and subsequent settled
+ownership. Merely polling or invoking the creator's native reload cannot pass.
+
 `gradlew probeJar` builds a separate observation JAR. It is excluded from the mod
 and release bundle. Enable it only in an isolated client with
 `-Dmtr.memory.acceptance=true`, and include its hash/overhead in the run manifest.

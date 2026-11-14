@@ -1,0 +1,389 @@
+Compiled from "WorkerThread.java"
+public final class org.mtr.render.WorkerThread {
+  private static final int MAX_OCCLUSION_CHUNK_DISTANCE;
+
+  private int renderDistance;
+
+  private org.mtr.libraries.com.logisticscraft.occlusionculling.OcclusionCullingInstance occlusionCullingInstance;
+
+  private boolean canStart;
+
+  private int runCooldown;
+
+  public final java.util.concurrent.ExecutorService worker;
+
+  private final java.util.concurrent.atomic.AtomicReference<java.util.function.Consumer<org.mtr.libraries.com.logisticscraft.occlusionculling.OcclusionCullingInstance>> occlusionQueueVehicle;
+
+  private final java.util.concurrent.atomic.AtomicReference<java.util.function.Consumer<org.mtr.libraries.com.logisticscraft.occlusionculling.OcclusionCullingInstance>> occlusionQueueLift;
+
+  private final java.util.Deque<java.lang.Runnable> dynamicTextureQueue;
+
+  private final java.lang.Object dynamicTextureLock;
+
+  private volatile java.lang.Thread loopThread;
+
+  private static final int COOLDOWN;
+
+  private static final int DYNAMIC_TEXTURE_QUEUE_LIMIT;
+
+  private static final int DYNAMIC_TEXTURE_BATCH;
+
+  private static final long IDLE_PARK_NANOS;
+
+  public org.mtr.render.WorkerThread();
+    Code:
+       0: aload_0
+       1: invokespecial #50                 // Method java/lang/Object."<init>":()V
+       4: aload_0
+       5: new           #52                 // class org/mtr/libraries/com/logisticscraft/occlusionculling/OcclusionCullingInstance
+       8: dup
+       9: iconst_1
+      10: new           #7                  // class org/mtr/render/WorkerThread$CullingDataProvider
+      13: dup
+      14: invokespecial #53                 // Method org/mtr/render/WorkerThread$CullingDataProvider."<init>":()V
+      17: invokespecial #56                 // Method org/mtr/libraries/com/logisticscraft/occlusionculling/OcclusionCullingInstance."<init>":(ILorg/mtr/libraries/com/logisticscraft/occlusionculling/DataProvider;)V
+      20: putfield      #58                 // Field occlusionCullingInstance:Lorg/mtr/libraries/com/logisticscraft/occlusionculling/OcclusionCullingInstance;
+      23: aload_0
+      24: iconst_1
+      25: putfield      #60                 // Field canStart:Z
+      28: aload_0
+      29: invokestatic  #66                 // Method java/util/concurrent/Executors.newVirtualThreadPerTaskExecutor:()Ljava/util/concurrent/ExecutorService;
+      32: putfield      #68                 // Field worker:Ljava/util/concurrent/ExecutorService;
+      35: aload_0
+      36: new           #70                 // class java/util/concurrent/atomic/AtomicReference
+      39: dup
+      40: invokespecial #71                 // Method java/util/concurrent/atomic/AtomicReference."<init>":()V
+      43: putfield      #73                 // Field occlusionQueueVehicle:Ljava/util/concurrent/atomic/AtomicReference;
+      46: aload_0
+      47: new           #70                 // class java/util/concurrent/atomic/AtomicReference
+      50: dup
+      51: invokespecial #71                 // Method java/util/concurrent/atomic/AtomicReference."<init>":()V
+      54: putfield      #75                 // Field occlusionQueueLift:Ljava/util/concurrent/atomic/AtomicReference;
+      57: aload_0
+      58: new           #77                 // class java/util/ArrayDeque
+      61: dup
+      62: invokespecial #78                 // Method java/util/ArrayDeque."<init>":()V
+      65: putfield      #80                 // Field dynamicTextureQueue:Ljava/util/Deque;
+      68: aload_0
+      69: new           #4                  // class java/lang/Object
+      72: dup
+      73: invokespecial #50                 // Method java/lang/Object."<init>":()V
+      76: putfield      #82                 // Field dynamicTextureLock:Ljava/lang/Object;
+      79: return
+
+  public void start();
+    Code:
+       0: aload_0
+       1: getfield      #60                 // Field canStart:Z
+       4: ifeq          34
+       7: invokestatic  #89                 // Method isRunning:()Z
+      10: ifeq          34
+      13: aload_0
+      14: iconst_0
+      15: putfield      #60                 // Field canStart:Z
+      18: aload_0
+      19: getfield      #68                 // Field worker:Ljava/util/concurrent/ExecutorService;
+      22: aload_0
+      23: invokedynamic #105,  0            // InvokeDynamic #0:run:(Lorg/mtr/render/WorkerThread;)Ljava/lang/Runnable;
+      28: invokeinterface #111,  2          // InterfaceMethod java/util/concurrent/ExecutorService.submit:(Ljava/lang/Runnable;)Ljava/util/concurrent/Future;
+      33: pop
+      34: aload_0
+      35: getfield      #113                // Field runCooldown:I
+      38: bipush        100
+      40: if_icmpne     66
+      43: aload_0
+      44: iconst_1
+      45: putfield      #60                 // Field canStart:Z
+      48: aload_0
+      49: iconst_0
+      50: putfield      #113                // Field runCooldown:I
+      53: getstatic     #119                // Field org/mtr/MTR.LOGGER:Lorg/apache/logging/log4j/Logger;
+      56: ldc           #121                // String Restarting worker thread
+      58: invokeinterface #127,  2          // InterfaceMethod org/apache/logging/log4j/Logger.debug:(Ljava/lang/String;)V
+      63: goto          76
+      66: aload_0
+      67: dup
+      68: getfield      #113                // Field runCooldown:I
+      71: iconst_1
+      72: iadd
+      73: putfield      #113                // Field runCooldown:I
+      76: return
+
+  public void shutdown();
+    Code:
+       0: aload_0
+       1: getfield      #68                 // Field worker:Ljava/util/concurrent/ExecutorService;
+       4: invokeinterface #132,  1          // InterfaceMethod java/util/concurrent/ExecutorService.shutdownNow:()Ljava/util/List;
+       9: pop
+      10: return
+
+  public void scheduleVehicles(java.util.function.Consumer<org.mtr.libraries.com.logisticscraft.occlusionculling.OcclusionCullingInstance>);
+    Code:
+       0: aload_0
+       1: getfield      #73                 // Field occlusionQueueVehicle:Ljava/util/concurrent/atomic/AtomicReference;
+       4: aload_1
+       5: invokevirtual #139                // Method java/util/concurrent/atomic/AtomicReference.set:(Ljava/lang/Object;)V
+       8: aload_0
+       9: invokevirtual #142                // Method wake:()V
+      12: return
+
+  public void scheduleLifts(java.util.function.Consumer<org.mtr.libraries.com.logisticscraft.occlusionculling.OcclusionCullingInstance>);
+    Code:
+       0: aload_0
+       1: getfield      #75                 // Field occlusionQueueLift:Ljava/util/concurrent/atomic/AtomicReference;
+       4: aload_1
+       5: invokevirtual #139                // Method java/util/concurrent/atomic/AtomicReference.set:(Ljava/lang/Object;)V
+       8: aload_0
+       9: invokevirtual #142                // Method wake:()V
+      12: return
+
+  public void scheduleDynamicTextures(java.lang.Runnable);
+    Code:
+       0: aload_0
+       1: getfield      #82                 // Field dynamicTextureLock:Ljava/lang/Object;
+       4: dup
+       5: astore_2
+       6: monitorenter
+       7: aload_0
+       8: getfield      #80                 // Field dynamicTextureQueue:Ljava/util/Deque;
+      11: invokeinterface #154,  1          // InterfaceMethod java/util/Deque.size:()I
+      16: sipush        256
+      19: if_icmplt     35
+      22: aload_0
+      23: getfield      #80                 // Field dynamicTextureQueue:Ljava/util/Deque;
+      26: invokeinterface #158,  1          // InterfaceMethod java/util/Deque.pollFirst:()Ljava/lang/Object;
+      31: pop
+      32: goto          7
+      35: aload_0
+      36: getfield      #80                 // Field dynamicTextureQueue:Ljava/util/Deque;
+      39: aload_1
+      40: invokeinterface #161,  2          // InterfaceMethod java/util/Deque.addLast:(Ljava/lang/Object;)V
+      45: aload_2
+      46: monitorexit
+      47: goto          55
+      50: astore_3
+      51: aload_2
+      52: monitorexit
+      53: aload_3
+      54: athrow
+      55: aload_0
+      56: invokevirtual #142                // Method wake:()V
+      59: return
+    Exception table:
+       from    to  target type
+           7    47    50   any
+          50    53    50   any
+
+  private void drainDynamicTextureBatch();
+    Code:
+       0: iconst_0
+       1: istore_1
+       2: iload_1
+       3: bipush        8
+       5: if_icmpge     72
+       8: aload_0
+       9: getfield      #82                 // Field dynamicTextureLock:Ljava/lang/Object;
+      12: dup
+      13: astore_3
+      14: monitorenter
+      15: aload_0
+      16: getfield      #80                 // Field dynamicTextureQueue:Ljava/util/Deque;
+      19: invokeinterface #158,  1          // InterfaceMethod java/util/Deque.pollFirst:()Ljava/lang/Object;
+      24: checkcast     #170                // class java/lang/Runnable
+      27: astore_2
+      28: aload_3
+      29: monitorexit
+      30: goto          40
+      33: astore        4
+      35: aload_3
+      36: monitorexit
+      37: aload         4
+      39: athrow
+      40: aload_2
+      41: ifnonnull     45
+      44: return
+      45: aload_2
+      46: invokeinterface #172,  1          // InterfaceMethod java/lang/Runnable.run:()V
+      51: goto          66
+      54: astore_3
+      55: getstatic     #119                // Field org/mtr/MTR.LOGGER:Lorg/apache/logging/log4j/Logger;
+      58: ldc           #174                // String Dynamic texture generation task failed
+      60: aload_3
+      61: invokeinterface #178,  3          // InterfaceMethod org/apache/logging/log4j/Logger.error:(Ljava/lang/String;Ljava/lang/Throwable;)V
+      66: iinc          1, 1
+      69: goto          2
+      72: return
+    Exception table:
+       from    to  target type
+          15    30    33   any
+          33    37    33   any
+          45    51    54   Class java/lang/Exception
+
+  private boolean hasWork();
+    Code:
+       0: aload_0
+       1: getfield      #73                 // Field occlusionQueueVehicle:Ljava/util/concurrent/atomic/AtomicReference;
+       4: invokevirtual #186                // Method java/util/concurrent/atomic/AtomicReference.get:()Ljava/lang/Object;
+       7: ifnonnull     20
+      10: aload_0
+      11: getfield      #75                 // Field occlusionQueueLift:Ljava/util/concurrent/atomic/AtomicReference;
+      14: invokevirtual #186                // Method java/util/concurrent/atomic/AtomicReference.get:()Ljava/lang/Object;
+      17: ifnull        22
+      20: iconst_1
+      21: ireturn
+      22: aload_0
+      23: getfield      #82                 // Field dynamicTextureLock:Ljava/lang/Object;
+      26: dup
+      27: astore_1
+      28: monitorenter
+      29: aload_0
+      30: getfield      #80                 // Field dynamicTextureQueue:Ljava/util/Deque;
+      33: invokeinterface #189,  1          // InterfaceMethod java/util/Deque.isEmpty:()Z
+      38: ifne          45
+      41: iconst_1
+      42: goto          46
+      45: iconst_0
+      46: aload_1
+      47: monitorexit
+      48: ireturn
+      49: astore_2
+      50: aload_1
+      51: monitorexit
+      52: aload_2
+      53: athrow
+    Exception table:
+       from    to  target type
+          29    48    49   any
+          49    52    49   any
+
+  private void wake();
+    Code:
+       0: aload_0
+       1: getfield      #191                // Field loopThread:Ljava/lang/Thread;
+       4: astore_1
+       5: aload_1
+       6: ifnull        13
+       9: aload_1
+      10: invokestatic  #197                // Method java/util/concurrent/locks/LockSupport.unpark:(Ljava/lang/Thread;)V
+      13: return
+
+  private void updateInstance();
+    Code:
+       0: invokestatic  #207                // Method net/minecraft/client/Minecraft.getInstance:()Lnet/minecraft/client/Minecraft;
+       3: getfield      #211                // Field net/minecraft/client/Minecraft.levelRenderer:Lnet/minecraft/client/renderer/LevelRenderer;
+       6: invokevirtual #217                // Method net/minecraft/client/renderer/LevelRenderer.getLastViewDistance:()D
+       9: d2i
+      10: istore_1
+      11: aload_0
+      12: getfield      #219                // Field renderDistance:I
+      15: iload_1
+      16: if_icmpeq     54
+      19: aload_0
+      20: iload_1
+      21: putfield      #219                // Field renderDistance:I
+      24: aload_0
+      25: new           #52                 // class org/mtr/libraries/com/logisticscraft/occlusionculling/OcclusionCullingInstance
+      28: dup
+      29: aload_0
+      30: getfield      #219                // Field renderDistance:I
+      33: bipush        32
+      35: invokestatic  #225                // Method java/lang/Math.min:(II)I
+      38: bipush        16
+      40: imul
+      41: new           #7                  // class org/mtr/render/WorkerThread$CullingDataProvider
+      44: dup
+      45: invokespecial #53                 // Method org/mtr/render/WorkerThread$CullingDataProvider."<init>":()V
+      48: invokespecial #56                 // Method org/mtr/libraries/com/logisticscraft/occlusionculling/OcclusionCullingInstance."<init>":(ILorg/mtr/libraries/com/logisticscraft/occlusionculling/DataProvider;)V
+      51: putfield      #58                 // Field occlusionCullingInstance:Lorg/mtr/libraries/com/logisticscraft/occlusionculling/OcclusionCullingInstance;
+      54: return
+
+  private static boolean isRunning();
+    Code:
+       0: invokestatic  #207                // Method net/minecraft/client/Minecraft.getInstance:()Lnet/minecraft/client/Minecraft;
+       3: invokevirtual #227                // Method net/minecraft/client/Minecraft.isRunning:()Z
+       6: ireturn
+
+  private static <T> void run(java.util.concurrent.atomic.AtomicReference<T>, java.util.function.Consumer<T>);
+    Code:
+       0: aload_0
+       1: aconst_null
+       2: invokevirtual #233                // Method java/util/concurrent/atomic/AtomicReference.getAndSet:(Ljava/lang/Object;)Ljava/lang/Object;
+       5: astore_2
+       6: aload_2
+       7: ifnull        17
+      10: aload_1
+      11: aload_2
+      12: invokeinterface #238,  2          // InterfaceMethod java/util/function/Consumer.accept:(Ljava/lang/Object;)V
+      17: goto          32
+      20: astore_2
+      21: getstatic     #119                // Field org/mtr/MTR.LOGGER:Lorg/apache/logging/log4j/Logger;
+      24: ldc           #240                // String Occlusion culling task failed
+      26: aload_2
+      27: invokeinterface #178,  3          // InterfaceMethod org/apache/logging/log4j/Logger.error:(Ljava/lang/String;Ljava/lang/Throwable;)V
+      32: return
+    Exception table:
+       from    to  target type
+           0    17    20   Class java/lang/Exception
+
+  private void lambda$start$2();
+    Code:
+       0: aload_0
+       1: invokestatic  #249                // Method java/lang/Thread.currentThread:()Ljava/lang/Thread;
+       4: putfield      #191                // Field loopThread:Ljava/lang/Thread;
+       7: invokestatic  #89                 // Method isRunning:()Z
+      10: ifeq          95
+      13: aload_0
+      14: getfield      #73                 // Field occlusionQueueVehicle:Ljava/util/concurrent/atomic/AtomicReference;
+      17: invokevirtual #186                // Method java/util/concurrent/atomic/AtomicReference.get:()Ljava/lang/Object;
+      20: ifnonnull     33
+      23: aload_0
+      24: getfield      #75                 // Field occlusionQueueLift:Ljava/util/concurrent/atomic/AtomicReference;
+      27: invokevirtual #186                // Method java/util/concurrent/atomic/AtomicReference.get:()Ljava/lang/Object;
+      30: ifnull        70
+      33: aload_0
+      34: invokevirtual #251                // Method updateInstance:()V
+      37: aload_0
+      38: getfield      #58                 // Field occlusionCullingInstance:Lorg/mtr/libraries/com/logisticscraft/occlusionculling/OcclusionCullingInstance;
+      41: invokevirtual #254                // Method org/mtr/libraries/com/logisticscraft/occlusionculling/OcclusionCullingInstance.resetCache:()V
+      44: aload_0
+      45: getfield      #73                 // Field occlusionQueueVehicle:Ljava/util/concurrent/atomic/AtomicReference;
+      48: aload_0
+      49: invokedynamic #263,  0            // InvokeDynamic #1:accept:(Lorg/mtr/render/WorkerThread;)Ljava/util/function/Consumer;
+      54: invokestatic  #265                // Method run:(Ljava/util/concurrent/atomic/AtomicReference;Ljava/util/function/Consumer;)V
+      57: aload_0
+      58: getfield      #75                 // Field occlusionQueueLift:Ljava/util/concurrent/atomic/AtomicReference;
+      61: aload_0
+      62: invokedynamic #270,  0            // InvokeDynamic #2:accept:(Lorg/mtr/render/WorkerThread;)Ljava/util/function/Consumer;
+      67: invokestatic  #265                // Method run:(Ljava/util/concurrent/atomic/AtomicReference;Ljava/util/function/Consumer;)V
+      70: aload_0
+      71: invokevirtual #272                // Method drainDynamicTextureBatch:()V
+      74: aload_0
+      75: invokevirtual #274                // Method hasWork:()Z
+      78: ifne          87
+      81: ldc2_w        #45                 // long 10000000l
+      84: invokestatic  #278                // Method java/util/concurrent/locks/LockSupport.parkNanos:(J)V
+      87: aload_0
+      88: iconst_0
+      89: putfield      #113                // Field runCooldown:I
+      92: goto          7
+      95: aload_0
+      96: aconst_null
+      97: putfield      #191                // Field loopThread:Ljava/lang/Thread;
+     100: return
+
+  private void lambda$start$1(java.util.function.Consumer);
+    Code:
+       0: aload_1
+       1: aload_0
+       2: getfield      #58                 // Field occlusionCullingInstance:Lorg/mtr/libraries/com/logisticscraft/occlusionculling/OcclusionCullingInstance;
+       5: invokeinterface #238,  2          // InterfaceMethod java/util/function/Consumer.accept:(Ljava/lang/Object;)V
+      10: return
+
+  private void lambda$start$0(java.util.function.Consumer);
+    Code:
+       0: aload_1
+       1: aload_0
+       2: getfield      #58                 // Field occlusionCullingInstance:Lorg/mtr/libraries/com/logisticscraft/occlusionculling/OcclusionCullingInstance;
+       5: invokeinterface #238,  2          // InterfaceMethod java/util/function/Consumer.accept:(Ljava/lang/Object;)V
+      10: return
+}

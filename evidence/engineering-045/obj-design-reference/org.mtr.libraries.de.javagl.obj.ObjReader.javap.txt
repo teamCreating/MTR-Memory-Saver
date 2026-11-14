@@ -1,0 +1,362 @@
+Compiled from "ObjReader.java"
+public class org.mtr.libraries.de.javagl.obj.ObjReader {
+  public static org.mtr.libraries.de.javagl.obj.Obj read(java.io.InputStream) throws java.io.IOException;
+    Code:
+       0: aload_0
+       1: invokestatic  #20                 // Method org/mtr/libraries/de/javagl/obj/Objs.create:()Lorg/mtr/libraries/de/javagl/obj/Obj;
+       4: invokestatic  #23                 // Method read:(Ljava/io/InputStream;Lorg/mtr/libraries/de/javagl/obj/WritableObj;)Lorg/mtr/libraries/de/javagl/obj/WritableObj;
+       7: checkcast     #25                 // class org/mtr/libraries/de/javagl/obj/Obj
+      10: areturn
+
+  public static <T extends org.mtr.libraries.de.javagl.obj.WritableObj> T read(java.io.InputStream, T) throws java.io.IOException;
+    Code:
+       0: new           #30                 // class java/io/BufferedReader
+       3: dup
+       4: new           #32                 // class java/io/InputStreamReader
+       7: dup
+       8: aload_0
+       9: getstatic     #38                 // Field java/nio/charset/StandardCharsets.US_ASCII:Ljava/nio/charset/Charset;
+      12: invokespecial #42                 // Method java/io/InputStreamReader."<init>":(Ljava/io/InputStream;Ljava/nio/charset/Charset;)V
+      15: invokespecial #45                 // Method java/io/BufferedReader."<init>":(Ljava/io/Reader;)V
+      18: astore_2
+      19: aload_2
+      20: aload_1
+      21: invokestatic  #49                 // Method readImpl:(Ljava/io/BufferedReader;Lorg/mtr/libraries/de/javagl/obj/WritableObj;)Lorg/mtr/libraries/de/javagl/obj/WritableObj;
+      24: areturn
+
+  public static org.mtr.libraries.de.javagl.obj.Obj read(java.io.Reader) throws java.io.IOException;
+    Code:
+       0: aload_0
+       1: invokestatic  #20                 // Method org/mtr/libraries/de/javagl/obj/Objs.create:()Lorg/mtr/libraries/de/javagl/obj/Obj;
+       4: invokestatic  #58                 // Method read:(Ljava/io/Reader;Lorg/mtr/libraries/de/javagl/obj/WritableObj;)Lorg/mtr/libraries/de/javagl/obj/WritableObj;
+       7: checkcast     #25                 // class org/mtr/libraries/de/javagl/obj/Obj
+      10: areturn
+
+  public static <T extends org.mtr.libraries.de.javagl.obj.WritableObj> T read(java.io.Reader, T) throws java.io.IOException;
+    Code:
+       0: aload_0
+       1: instanceof    #30                 // class java/io/BufferedReader
+       4: ifeq          16
+       7: aload_0
+       8: checkcast     #30                 // class java/io/BufferedReader
+      11: aload_1
+      12: invokestatic  #49                 // Method readImpl:(Ljava/io/BufferedReader;Lorg/mtr/libraries/de/javagl/obj/WritableObj;)Lorg/mtr/libraries/de/javagl/obj/WritableObj;
+      15: areturn
+      16: new           #30                 // class java/io/BufferedReader
+      19: dup
+      20: aload_0
+      21: invokespecial #45                 // Method java/io/BufferedReader."<init>":(Ljava/io/Reader;)V
+      24: aload_1
+      25: invokestatic  #49                 // Method readImpl:(Ljava/io/BufferedReader;Lorg/mtr/libraries/de/javagl/obj/WritableObj;)Lorg/mtr/libraries/de/javagl/obj/WritableObj;
+      28: areturn
+
+  private static <T extends org.mtr.libraries.de.javagl.obj.WritableObj> T readImpl(java.io.BufferedReader, T) throws java.io.IOException;
+    Code:
+       0: new           #63                 // class org/mtr/libraries/de/javagl/obj/ObjFaceParser
+       3: dup
+       4: invokespecial #66                 // Method org/mtr/libraries/de/javagl/obj/ObjFaceParser."<init>":()V
+       7: astore_2
+       8: ldc           #68                 // String
+      10: astore_3
+      11: iconst_0
+      12: istore        4
+      14: iconst_0
+      15: istore        5
+      17: iconst_0
+      18: istore        6
+      20: aload_0
+      21: invokevirtual #76                 // Method java/io/BufferedReader.readLine:()Ljava/lang/String;
+      24: astore        7
+      26: aload         7
+      28: ifnonnull     34
+      31: goto          621
+      34: aload         7
+      36: invokevirtual #79                 // Method java/lang/String.trim:()Ljava/lang/String;
+      39: astore        7
+      41: iconst_0
+      42: istore        8
+      44: aload         7
+      46: ldc           #81                 // String \\
+      48: invokevirtual #85                 // Method java/lang/String.endsWith:(Ljava/lang/String;)Z
+      51: ifeq          100
+      54: aload         7
+      56: iconst_0
+      57: aload         7
+      59: invokevirtual #89                 // Method java/lang/String.length:()I
+      62: iconst_2
+      63: isub
+      64: invokevirtual #93                 // Method java/lang/String.substring:(II)Ljava/lang/String;
+      67: astore        7
+      69: aload_0
+      70: invokevirtual #76                 // Method java/io/BufferedReader.readLine:()Ljava/lang/String;
+      73: astore        9
+      75: aload         9
+      77: ifnonnull     86
+      80: iconst_1
+      81: istore        8
+      83: goto          100
+      86: aload         7
+      88: aload         9
+      90: invokedynamic #105,  0            // InvokeDynamic #0:makeConcatWithConstants:(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+      95: astore        7
+      97: goto          44
+     100: iload         8
+     102: ifeq          108
+     105: goto          621
+     108: new           #107                // class java/util/StringTokenizer
+     111: dup
+     112: aload         7
+     114: invokespecial #110                // Method java/util/StringTokenizer."<init>":(Ljava/lang/String;)V
+     117: astore        9
+     119: aload         9
+     121: invokevirtual #114                // Method java/util/StringTokenizer.hasMoreTokens:()Z
+     124: ifne          130
+     127: goto          20
+     130: aload         9
+     132: invokevirtual #117                // Method java/util/StringTokenizer.nextToken:()Ljava/lang/String;
+     135: invokevirtual #120                // Method java/lang/String.toLowerCase:()Ljava/lang/String;
+     138: astore        10
+     140: aload         10
+     142: astore        11
+     144: iconst_m1
+     145: istore        12
+     147: aload         11
+     149: invokevirtual #123                // Method java/lang/String.hashCode:()I
+     152: lookupswitch  { // 8
+           -1063936832: 276
+            -836034370: 292
+                   102: 341
+                   103: 308
+                   111: 324
+                   118: 228
+                  3768: 260
+                  3774: 244
+               default: 355
+          }
+     228: aload         11
+     230: ldc           #125                // String v
+     232: invokevirtual #129                // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+     235: ifeq          355
+     238: iconst_0
+     239: istore        12
+     241: goto          355
+     244: aload         11
+     246: ldc           #131                // String vt
+     248: invokevirtual #129                // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+     251: ifeq          355
+     254: iconst_1
+     255: istore        12
+     257: goto          355
+     260: aload         11
+     262: ldc           #133                // String vn
+     264: invokevirtual #129                // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+     267: ifeq          355
+     270: iconst_2
+     271: istore        12
+     273: goto          355
+     276: aload         11
+     278: ldc           #135                // String mtllib
+     280: invokevirtual #129                // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+     283: ifeq          355
+     286: iconst_3
+     287: istore        12
+     289: goto          355
+     292: aload         11
+     294: ldc           #137                // String usemtl
+     296: invokevirtual #129                // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+     299: ifeq          355
+     302: iconst_4
+     303: istore        12
+     305: goto          355
+     308: aload         11
+     310: ldc           #139                // String g
+     312: invokevirtual #129                // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+     315: ifeq          355
+     318: iconst_5
+     319: istore        12
+     321: goto          355
+     324: aload         11
+     326: ldc           #141                // String o
+     328: invokevirtual #129                // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+     331: ifeq          355
+     334: bipush        6
+     336: istore        12
+     338: goto          355
+     341: aload         11
+     343: ldc           #143                // String f
+     345: invokevirtual #129                // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+     348: ifeq          355
+     351: bipush        7
+     353: istore        12
+     355: iload         12
+     357: tableswitch   { // 0 to 7
+                     0: 404
+                     1: 421
+                     2: 438
+                     3: 455
+                     4: 481
+                     5: 504
+                     6: 504
+                     7: 558
+               default: 618
+          }
+     404: aload_1
+     405: aload         9
+     407: invokestatic  #149                // Method org/mtr/libraries/de/javagl/obj/Utils.readFloatTuple:(Ljava/util/StringTokenizer;)Lorg/mtr/libraries/de/javagl/obj/FloatTuple;
+     410: invokeinterface #153,  2          // InterfaceMethod org/mtr/libraries/de/javagl/obj/WritableObj.addVertex:(Lorg/mtr/libraries/de/javagl/obj/FloatTuple;)V
+     415: iinc          4, 1
+     418: goto          618
+     421: aload_1
+     422: aload         9
+     424: invokestatic  #149                // Method org/mtr/libraries/de/javagl/obj/Utils.readFloatTuple:(Ljava/util/StringTokenizer;)Lorg/mtr/libraries/de/javagl/obj/FloatTuple;
+     427: invokeinterface #156,  2          // InterfaceMethod org/mtr/libraries/de/javagl/obj/WritableObj.addTexCoord:(Lorg/mtr/libraries/de/javagl/obj/FloatTuple;)V
+     432: iinc          5, 1
+     435: goto          618
+     438: aload_1
+     439: aload         9
+     441: invokestatic  #149                // Method org/mtr/libraries/de/javagl/obj/Utils.readFloatTuple:(Ljava/util/StringTokenizer;)Lorg/mtr/libraries/de/javagl/obj/FloatTuple;
+     444: invokeinterface #159,  2          // InterfaceMethod org/mtr/libraries/de/javagl/obj/WritableObj.addNormal:(Lorg/mtr/libraries/de/javagl/obj/FloatTuple;)V
+     449: iinc          6, 1
+     452: goto          618
+     455: aload         7
+     457: bipush        6
+     459: invokevirtual #162                // Method java/lang/String.substring:(I)Ljava/lang/String;
+     462: invokevirtual #79                 // Method java/lang/String.trim:()Ljava/lang/String;
+     465: astore        13
+     467: aload_1
+     468: aload         13
+     470: invokestatic  #168                // Method java/util/Collections.singleton:(Ljava/lang/Object;)Ljava/util/Set;
+     473: invokeinterface #172,  2          // InterfaceMethod org/mtr/libraries/de/javagl/obj/WritableObj.setMtlFileNames:(Ljava/util/Collection;)V
+     478: goto          618
+     481: aload         7
+     483: bipush        6
+     485: invokevirtual #162                // Method java/lang/String.substring:(I)Ljava/lang/String;
+     488: invokevirtual #79                 // Method java/lang/String.trim:()Ljava/lang/String;
+     491: astore        13
+     493: aload_1
+     494: aload         13
+     496: invokeinterface #175,  2          // InterfaceMethod org/mtr/libraries/de/javagl/obj/WritableObj.setActiveMaterialGroupName:(Ljava/lang/String;)V
+     501: goto          618
+     504: aload_3
+     505: aload         10
+     507: invokevirtual #129                // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+     510: ifne          523
+     513: aload_3
+     514: invokevirtual #178                // Method java/lang/String.isEmpty:()Z
+     517: ifne          523
+     520: goto          618
+     523: aload         7
+     525: iconst_1
+     526: invokevirtual #162                // Method java/lang/String.substring:(I)Ljava/lang/String;
+     529: invokevirtual #79                 // Method java/lang/String.trim:()Ljava/lang/String;
+     532: astore        14
+     534: aload         14
+     536: invokestatic  #182                // Method readStrings:(Ljava/lang/String;)[Ljava/lang/String;
+     539: astore        15
+     541: aload_1
+     542: aload         15
+     544: invokestatic  #188                // Method java/util/Arrays.asList:([Ljava/lang/Object;)Ljava/util/List;
+     547: invokeinterface #191,  2          // InterfaceMethod org/mtr/libraries/de/javagl/obj/WritableObj.setActiveGroupNames:(Ljava/util/Collection;)V
+     552: aload         10
+     554: astore_3
+     555: goto          618
+     558: aload_2
+     559: aload         7
+     561: invokevirtual #194                // Method org/mtr/libraries/de/javagl/obj/ObjFaceParser.parse:(Ljava/lang/String;)V
+     564: aload_2
+     565: invokevirtual #198                // Method org/mtr/libraries/de/javagl/obj/ObjFaceParser.getVertexIndices:()[I
+     568: astore        14
+     570: aload_2
+     571: invokevirtual #201                // Method org/mtr/libraries/de/javagl/obj/ObjFaceParser.getTexCoordIndices:()[I
+     574: astore        15
+     576: aload_2
+     577: invokevirtual #204                // Method org/mtr/libraries/de/javagl/obj/ObjFaceParser.getNormalIndices:()[I
+     580: astore        16
+     582: aload         14
+     584: iload         4
+     586: invokestatic  #208                // Method makeIndicesAbsolute:([II)V
+     589: aload         15
+     591: iload         5
+     593: invokestatic  #208                // Method makeIndicesAbsolute:([II)V
+     596: aload         16
+     598: iload         6
+     600: invokestatic  #208                // Method makeIndicesAbsolute:([II)V
+     603: aload_1
+     604: aload         14
+     606: aload         15
+     608: aload         16
+     610: invokestatic  #213                // Method org/mtr/libraries/de/javagl/obj/ObjFaces.create:([I[I[I)Lorg/mtr/libraries/de/javagl/obj/ObjFace;
+     613: invokeinterface #217,  2          // InterfaceMethod org/mtr/libraries/de/javagl/obj/WritableObj.addFace:(Lorg/mtr/libraries/de/javagl/obj/ObjFace;)V
+     618: goto          20
+     621: aload_1
+     622: areturn
+
+  private static void makeIndicesAbsolute(int[], int);
+    Code:
+       0: aload_0
+       1: ifnonnull     5
+       4: return
+       5: iconst_0
+       6: istore_2
+       7: iload_2
+       8: aload_0
+       9: arraylength
+      10: if_icmpge     43
+      13: aload_0
+      14: iload_2
+      15: iaload
+      16: ifge          30
+      19: aload_0
+      20: iload_2
+      21: iload_1
+      22: aload_0
+      23: iload_2
+      24: iaload
+      25: iadd
+      26: iastore
+      27: goto          37
+      30: aload_0
+      31: iload_2
+      32: dup2
+      33: iaload
+      34: iconst_1
+      35: isub
+      36: iastore
+      37: iinc          2, 1
+      40: goto          7
+      43: return
+
+  private static java.lang.String[] readStrings(java.lang.String);
+    Code:
+       0: new           #107                // class java/util/StringTokenizer
+       3: dup
+       4: aload_0
+       5: invokespecial #110                // Method java/util/StringTokenizer."<init>":(Ljava/lang/String;)V
+       8: astore_1
+       9: new           #242                // class java/util/ArrayList
+      12: dup
+      13: invokespecial #243                // Method java/util/ArrayList."<init>":()V
+      16: astore_2
+      17: aload_1
+      18: invokevirtual #114                // Method java/util/StringTokenizer.hasMoreTokens:()Z
+      21: ifeq          38
+      24: aload_2
+      25: aload_1
+      26: invokevirtual #117                // Method java/util/StringTokenizer.nextToken:()Ljava/lang/String;
+      29: invokeinterface #248,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+      34: pop
+      35: goto          17
+      38: aload_2
+      39: aload_2
+      40: invokeinterface #251,  1          // InterfaceMethod java/util/List.size:()I
+      45: anewarray     #72                 // class java/lang/String
+      48: invokeinterface #255,  2          // InterfaceMethod java/util/List.toArray:([Ljava/lang/Object;)[Ljava/lang/Object;
+      53: checkcast     #256                // class "[Ljava/lang/String;"
+      56: areturn
+
+  private org.mtr.libraries.de.javagl.obj.ObjReader();
+    Code:
+       0: aload_0
+       1: invokespecial #261                // Method java/lang/Object."<init>":()V
+       4: return
+}

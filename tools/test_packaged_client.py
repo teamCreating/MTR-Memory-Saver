@@ -2,10 +2,49 @@ import copy
 import hashlib
 import json
 import pathlib
+import subprocess
+import sys
 import tempfile
 import unittest
 import zipfile
 import packaged_client as client
+
+
+class ProcessExitObservationTest(unittest.TestCase):
+    def test_retains_real_zero_and_nonzero_exits(self):
+        for code in (0, 7):
+            with self.subTest(code=code):
+                process = subprocess.Popen([sys.executable, "-c", "raise SystemExit(" + str(code) + ")"])
+                result = client.observe_exit(process, 10)
+                self.assertTrue(result["exited"])
+                self.assertEqual(result["exit_code"], code)
+                self.assertEqual(result["pid"], process.pid)
+
+    def test_timeout_leaves_the_actual_child_running(self):
+        process = subprocess.Popen([sys.executable, "-c", "import time; time.sleep(0.5)"])
+        try:
+            result = client.observe_exit(process, 0.01)
+            self.assertFalse(result["exited"])
+            self.assertIsNone(result["exit_code"])
+            self.assertIsNone(process.poll())
+            self.assertEqual(process.wait(timeout=10), 0)
+        finally:
+            if process.poll() is None:
+                process.terminate()
+                process.wait(timeout=10)
+
+
+class InstrumentationConfigurationTest(unittest.TestCase):
+    def test_native_tracking_requires_a_frozen_explicit_mode(self):
+        plan = {"heap_mib": 3072, "smoke": False, "jfr": False}
+        self.assertFalse(any("NativeMemoryTracking" in item for item in client.jvm_arguments(plan)))
+        for mode in ("summary", "detail"):
+            with self.subTest(mode=mode):
+                plan["native_memory_tracking"] = mode
+                self.assertIn("-XX:NativeMemoryTracking=" + mode, client.jvm_arguments(plan))
+        plan["native_memory_tracking"] = "unsupported"
+        with self.assertRaisesRegex(ValueError, "tracking mode"):
+            client.jvm_arguments(plan)
 
 
 class PackagedArtifactTest(unittest.TestCase):

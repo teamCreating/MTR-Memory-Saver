@@ -1,0 +1,50 @@
+{
+  "commands": [
+    [
+      "C:\\Users\\ben_l\\.gradle\\jdks\\eclipse_adoptium-21-amd64-windows.2\\bin\\javac.exe",
+      "-proc:none",
+      "--release",
+      "21",
+      "-encoding",
+      "UTF-8",
+      "-cp",
+      "C:\\Users\\ben_l\\.gradle\\caches\\modules-2\\files-2.1\\commons-io\\commons-io\\2.15.1\\f11560da189ab563a5c8e351941415430e9304ea\\commons-io-2.15.1.jar",
+      "-d",
+      "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\large-text-reference\\classes",
+      "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\large-text-reference\\Measure.java",
+      "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\large-text-reference\\MeasureLargest.java"
+    ],
+    [
+      "C:\\Users\\ben_l\\.gradle\\jdks\\eclipse_adoptium-21-amd64-windows.2\\bin\\java.exe",
+      "-Xmx256m",
+      "-cp",
+      "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\large-text-reference\\classes",
+      "Measure",
+      "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\large-text-reference\\entries.tsv",
+      "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\large-text-reference\\measurements.tsv"
+    ],
+    [
+      "C:\\Users\\ben_l\\.gradle\\jdks\\eclipse_adoptium-21-amd64-windows.2\\bin\\java.exe",
+      "-Xmx768m",
+      "--add-opens=java.base/java.lang=ALL-UNNAMED",
+      "-cp",
+      "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\large-text-reference\\classes;C:\\Users\\ben_l\\.gradle\\caches\\modules-2\\files-2.1\\commons-io\\commons-io\\2.15.1\\f11560da189ab563a5c8e351941415430e9304ea\\commons-io-2.15.1.jar",
+      "MeasureLargest",
+      "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\large-text-reference\\largest.tsv",
+      "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\large-text-reference\\largest-native-string.json"
+    ]
+  ],
+  "exit_codes": [
+    0,
+    0,
+    0
+  ],
+  "exact_largest_string_and_all_measurements_agree": true,
+  "bbmodel_payload_hashes_match_prior_reference": true,
+  "working_directory": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory",
+  "path_normalization": "Actual workspace-relative argv path operands are normalized here to absolute paths; heap/class names and other operands are unchanged.",
+  "terminal_stream_measurement_session": {
+    "session_id": 70097,
+    "exit_code": 0
+  }
+}

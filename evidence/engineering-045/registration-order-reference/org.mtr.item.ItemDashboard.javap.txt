@@ -1,0 +1,225 @@
+Compiled from "ItemDashboard.java"
+public class org.mtr.item.ItemDashboard extends net.minecraft.world.item.Item {
+  private final org.mtr.core.data.TransportMode transportMode;
+
+  private static final int SEARCH_RADIUS;
+
+  public org.mtr.item.ItemDashboard(org.mtr.core.data.TransportMode, net.minecraft.world.item.Item$Properties);
+    Code:
+       0: aload_0
+       1: aload_2
+       2: iconst_1
+       3: invokevirtual #1                  // Method net/minecraft/world/item/Item$Properties.stacksTo:(I)Lnet/minecraft/world/item/Item$Properties;
+       6: invokespecial #7                  // Method net/minecraft/world/item/Item."<init>":(Lnet/minecraft/world/item/Item$Properties;)V
+       9: aload_0
+      10: aload_1
+      11: putfield      #13                 // Field transportMode:Lorg/mtr/core/data/TransportMode;
+      14: return
+
+  public net.minecraft.world.InteractionResultHolder<net.minecraft.world.item.ItemStack> use(net.minecraft.world.level.Level, net.minecraft.world.entity.player.Player, net.minecraft.world.InteractionHand);
+    Code:
+       0: getstatic     #19                 // Field org/mtr/Keys.DEBUG:Z
+       3: ifeq          26
+       6: aload_2
+       7: invokevirtual #25                 // Method net/minecraft/world/entity/player/Player.isShiftKeyDown:()Z
+      10: ifeq          26
+      13: aload_1
+      14: invokevirtual #31                 // Method net/minecraft/world/level/Level.isClientSide:()Z
+      17: ifeq          105
+      20: invokestatic  #36                 // Method org/mtr/client/CustomResourceLoader.reload:()V
+      23: goto          105
+      26: aload_1
+      27: invokevirtual #31                 // Method net/minecraft/world/level/Level.isClientSide:()Z
+      30: ifne          105
+      33: aload_2
+      34: invokevirtual #25                 // Method net/minecraft/world/entity/player/Player.isShiftKeyDown:()Z
+      37: ifeq          90
+      40: aload_2
+      41: invokevirtual #42                 // Method net/minecraft/world/entity/player/Player.blockPosition:()Lnet/minecraft/core/BlockPos;
+      44: invokestatic  #46                 // Method org/mtr/MTR.blockPosToPosition:(Lnet/minecraft/core/BlockPos;)Lorg/mtr/core/data/Position;
+      47: astore        4
+      49: ldc           #54                 // String get_data
+      51: aload_1
+      52: invokevirtual #56                 // Method net/minecraft/world/level/Level.getServer:()Lnet/minecraft/server/MinecraftServer;
+      55: aload_1
+      56: new           #60                 // class org/mtr/core/operation/DataRequest
+      59: dup
+      60: aload_2
+      61: invokevirtual #62                 // Method net/minecraft/world/entity/player/Player.getUUID:()Ljava/util/UUID;
+      64: aload         4
+      66: ldc2_w        #66                 // long 5l
+      69: invokespecial #68                 // Method org/mtr/core/operation/DataRequest."<init>":(Ljava/util/UUID;Lorg/mtr/core/data/Position;J)V
+      72: aload_0
+      73: aload         4
+      75: aload_1
+      76: aload_2
+      77: invokedynamic #71,  0             // InvokeDynamic #0:accept:(Lorg/mtr/item/ItemDashboard;Lorg/mtr/core/data/Position;Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/player/Player;)Ljava/util/function/Consumer;
+      82: ldc           #75                 // class org/mtr/core/operation/DataResponse
+      84: invokestatic  #77                 // Method org/mtr/MTR.sendMessageC2S:(Ljava/lang/String;Lnet/minecraft/server/MinecraftServer;Lnet/minecraft/world/level/Level;Lorg/mtr/core/serializer/SerializedDataBase;Ljava/util/function/Consumer;Ljava/lang/Class;)V
+      87: goto          105
+      90: aload_1
+      91: checkcast     #81                 // class net/minecraft/server/level/ServerLevel
+      94: aload_2
+      95: checkcast     #83                 // class net/minecraft/server/level/ServerPlayer
+      98: aload_0
+      99: getfield      #13                 // Field transportMode:Lorg/mtr/core/data/TransportMode;
+     102: invokestatic  #85                 // Method org/mtr/packet/PacketOpenDashboardScreen.sendDirectlyToServer:(Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/server/level/ServerPlayer;Lorg/mtr/core/data/TransportMode;)V
+     105: aload_0
+     106: aload_1
+     107: aload_2
+     108: aload_3
+     109: invokespecial #91                 // Method net/minecraft/world/item/Item.use:(Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/InteractionHand;)Lnet/minecraft/world/InteractionResultHolder;
+     112: areturn
+
+  private static <T extends org.mtr.core.data.AreaBase<T, U>, U extends org.mtr.core.data.SavedRailBase<U, T>> T findNearbyArea(org.mtr.core.data.Position, org.mtr.libraries.it.unimi.dsi.fastutil.objects.ObjectArraySet<T>);
+    Code:
+       0: aload_1
+       1: invokevirtual #95                 // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArraySet.stream:()Ljava/util/stream/Stream;
+       4: aload_0
+       5: invokedynamic #101,  0            // InvokeDynamic #1:test:(Lorg/mtr/core/data/Position;)Ljava/util/function/Predicate;
+      10: invokeinterface #105,  2          // InterfaceMethod java/util/stream/Stream.filter:(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;
+      15: invokeinterface #111,  1          // InterfaceMethod java/util/stream/Stream.findFirst:()Ljava/util/Optional;
+      20: aconst_null
+      21: invokevirtual #115                // Method java/util/Optional.orElse:(Ljava/lang/Object;)Ljava/lang/Object;
+      24: checkcast     #121                // class org/mtr/core/data/AreaBase
+      27: areturn
+
+  private static <T extends org.mtr.core.data.SavedRailBase<T, U>, U extends org.mtr.core.data.AreaBase<U, T>> T findNearbySavedRail(org.mtr.core.data.Position, org.mtr.libraries.it.unimi.dsi.fastutil.objects.ObjectArraySet<T>);
+    Code:
+       0: aload_1
+       1: invokevirtual #95                 // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArraySet.stream:()Ljava/util/stream/Stream;
+       4: aload_0
+       5: invokedynamic #123,  0            // InvokeDynamic #2:test:(Lorg/mtr/core/data/Position;)Ljava/util/function/Predicate;
+      10: invokeinterface #105,  2          // InterfaceMethod java/util/stream/Stream.filter:(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;
+      15: aload_0
+      16: invokedynamic #124,  0            // InvokeDynamic #3:applyAsDouble:(Lorg/mtr/core/data/Position;)Ljava/util/function/ToDoubleFunction;
+      21: invokestatic  #128                // InterfaceMethod java/util/Comparator.comparingDouble:(Ljava/util/function/ToDoubleFunction;)Ljava/util/Comparator;
+      24: invokeinterface #134,  2          // InterfaceMethod java/util/stream/Stream.min:(Ljava/util/Comparator;)Ljava/util/Optional;
+      29: aconst_null
+      30: invokevirtual #115                // Method java/util/Optional.orElse:(Ljava/lang/Object;)Ljava/lang/Object;
+      33: checkcast     #138                // class org/mtr/core/data/SavedRailBase
+      36: areturn
+
+  private static double lambda$findNearbySavedRail$3(org.mtr.core.data.Position, org.mtr.core.data.SavedRailBase);
+    Code:
+       0: aload_1
+       1: aload_0
+       2: invokevirtual #140                // Method org/mtr/core/data/SavedRailBase.getApproximateClosestDistance:(Lorg/mtr/core/data/Position;)D
+       5: dreturn
+
+  private static boolean lambda$findNearbySavedRail$2(org.mtr.core.data.Position, org.mtr.core.data.SavedRailBase);
+    Code:
+       0: aload_1
+       1: aload_0
+       2: ldc2_w        #144                // double 5.0d
+       5: invokevirtual #146                // Method org/mtr/core/data/SavedRailBase.closeTo:(Lorg/mtr/core/data/Position;D)Z
+       8: ireturn
+
+  private static boolean lambda$findNearbyArea$1(org.mtr.core.data.Position, org.mtr.core.data.AreaBase);
+    Code:
+       0: aload_1
+       1: aload_0
+       2: invokevirtual #150                // Method org/mtr/core/data/AreaBase.inArea:(Lorg/mtr/core/data/Position;)Z
+       5: ireturn
+
+  private void lambda$use$0(org.mtr.core.data.Position, net.minecraft.world.level.Level, net.minecraft.world.entity.player.Player, org.mtr.core.operation.DataResponse);
+    Code:
+       0: new           #154                // class org/mtr/core/data/ClientData
+       3: dup
+       4: invokespecial #156                // Method org/mtr/core/data/ClientData."<init>":()V
+       7: astore        5
+       9: new           #75                 // class org/mtr/core/operation/DataResponse
+      12: dup
+      13: new           #158                // class org/mtr/core/serializer/JsonReader
+      16: dup
+      17: aload         4
+      19: invokestatic  #160                // InterfaceMethod org/mtr/core/tool/Utilities.getJsonObjectFromData:(Lorg/mtr/core/serializer/SerializedDataBase;)Lorg/mtr/libraries/com/google/gson/JsonObject;
+      22: invokespecial #166                // Method org/mtr/core/serializer/JsonReader."<init>":(Lorg/mtr/libraries/com/google/gson/JsonElement;)V
+      25: aload         5
+      27: invokespecial #169                // Method org/mtr/core/operation/DataResponse."<init>":(Lorg/mtr/core/serializer/ReaderBase;Lorg/mtr/core/data/ClientData;)V
+      30: invokevirtual #172                // Method org/mtr/core/operation/DataResponse.write:()V
+      33: aload_1
+      34: aload         5
+      36: getfield      #175                // Field org/mtr/core/data/ClientData.stations:Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArraySet;
+      39: invokestatic  #179                // Method findNearbyArea:(Lorg/mtr/core/data/Position;Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArraySet;)Lorg/mtr/core/data/AreaBase;
+      42: checkcast     #183                // class org/mtr/core/data/Station
+      45: astore        6
+      47: aload_1
+      48: aload         5
+      50: getfield      #185                // Field org/mtr/core/data/ClientData.depots:Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArraySet;
+      53: invokestatic  #179                // Method findNearbyArea:(Lorg/mtr/core/data/Position;Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArraySet;)Lorg/mtr/core/data/AreaBase;
+      56: checkcast     #188                // class org/mtr/core/data/Depot
+      59: astore        7
+      61: aload         6
+      63: ifnull        137
+      66: aload_1
+      67: aload         6
+      69: getfield      #190                // Field org/mtr/core/data/Station.savedRails:Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArraySet;
+      72: invokestatic  #193                // Method findNearbySavedRail:(Lorg/mtr/core/data/Position;Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArraySet;)Lorg/mtr/core/data/SavedRailBase;
+      75: checkcast     #197                // class org/mtr/core/data/Platform
+      78: astore        8
+      80: aload         8
+      82: ifnonnull     111
+      85: aload_2
+      86: checkcast     #81                 // class net/minecraft/server/level/ServerLevel
+      89: aload_3
+      90: checkcast     #83                 // class net/minecraft/server/level/ServerPlayer
+      93: aload_0
+      94: getfield      #13                 // Field transportMode:Lorg/mtr/core/data/TransportMode;
+      97: getstatic     #199                // Field org/mtr/packet/PacketOpenDashboardScreen$ScreenType.STATION:Lorg/mtr/packet/PacketOpenDashboardScreen$ScreenType;
+     100: aload         6
+     102: invokevirtual #205                // Method org/mtr/core/data/Station.getId:()J
+     105: invokestatic  #209                // Method org/mtr/packet/PacketOpenDashboardScreen.sendDirectlyToServer:(Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/server/level/ServerPlayer;Lorg/mtr/core/data/TransportMode;Lorg/mtr/packet/PacketOpenDashboardScreen$ScreenType;J)V
+     108: goto          134
+     111: aload_2
+     112: checkcast     #81                 // class net/minecraft/server/level/ServerLevel
+     115: aload_3
+     116: checkcast     #83                 // class net/minecraft/server/level/ServerPlayer
+     119: aload_0
+     120: getfield      #13                 // Field transportMode:Lorg/mtr/core/data/TransportMode;
+     123: getstatic     #212                // Field org/mtr/packet/PacketOpenDashboardScreen$ScreenType.PLATFORM:Lorg/mtr/packet/PacketOpenDashboardScreen$ScreenType;
+     126: aload         8
+     128: invokevirtual #215                // Method org/mtr/core/data/Platform.getId:()J
+     131: invokestatic  #209                // Method org/mtr/packet/PacketOpenDashboardScreen.sendDirectlyToServer:(Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/server/level/ServerPlayer;Lorg/mtr/core/data/TransportMode;Lorg/mtr/packet/PacketOpenDashboardScreen$ScreenType;J)V
+     134: goto          228
+     137: aload         7
+     139: ifnull        213
+     142: aload_1
+     143: aload         7
+     145: getfield      #216                // Field org/mtr/core/data/Depot.savedRails:Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArraySet;
+     148: invokestatic  #193                // Method findNearbySavedRail:(Lorg/mtr/core/data/Position;Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArraySet;)Lorg/mtr/core/data/SavedRailBase;
+     151: checkcast     #217                // class org/mtr/core/data/Siding
+     154: astore        8
+     156: aload         8
+     158: ifnonnull     187
+     161: aload_2
+     162: checkcast     #81                 // class net/minecraft/server/level/ServerLevel
+     165: aload_3
+     166: checkcast     #83                 // class net/minecraft/server/level/ServerPlayer
+     169: aload_0
+     170: getfield      #13                 // Field transportMode:Lorg/mtr/core/data/TransportMode;
+     173: getstatic     #219                // Field org/mtr/packet/PacketOpenDashboardScreen$ScreenType.DEPOT:Lorg/mtr/packet/PacketOpenDashboardScreen$ScreenType;
+     176: aload         7
+     178: invokevirtual #222                // Method org/mtr/core/data/Depot.getId:()J
+     181: invokestatic  #209                // Method org/mtr/packet/PacketOpenDashboardScreen.sendDirectlyToServer:(Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/server/level/ServerPlayer;Lorg/mtr/core/data/TransportMode;Lorg/mtr/packet/PacketOpenDashboardScreen$ScreenType;J)V
+     184: goto          210
+     187: aload_2
+     188: checkcast     #81                 // class net/minecraft/server/level/ServerLevel
+     191: aload_3
+     192: checkcast     #83                 // class net/minecraft/server/level/ServerPlayer
+     195: aload_0
+     196: getfield      #13                 // Field transportMode:Lorg/mtr/core/data/TransportMode;
+     199: getstatic     #223                // Field org/mtr/packet/PacketOpenDashboardScreen$ScreenType.SIDING:Lorg/mtr/packet/PacketOpenDashboardScreen$ScreenType;
+     202: aload         8
+     204: invokevirtual #226                // Method org/mtr/core/data/Siding.getId:()J
+     207: invokestatic  #209                // Method org/mtr/packet/PacketOpenDashboardScreen.sendDirectlyToServer:(Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/server/level/ServerPlayer;Lorg/mtr/core/data/TransportMode;Lorg/mtr/packet/PacketOpenDashboardScreen$ScreenType;J)V
+     210: goto          228
+     213: aload_2
+     214: checkcast     #81                 // class net/minecraft/server/level/ServerLevel
+     217: aload_3
+     218: checkcast     #83                 // class net/minecraft/server/level/ServerPlayer
+     221: aload_0
+     222: getfield      #13                 // Field transportMode:Lorg/mtr/core/data/TransportMode;
+     225: invokestatic  #85                 // Method org/mtr/packet/PacketOpenDashboardScreen.sendDirectlyToServer:(Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/server/level/ServerPlayer;Lorg/mtr/core/data/TransportMode;)V
+     228: return
+}

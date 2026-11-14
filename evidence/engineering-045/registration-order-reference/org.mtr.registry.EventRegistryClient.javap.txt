@@ -1,0 +1,74 @@
+Compiled from "EventRegistryClient.java"
+public final class org.mtr.registry.EventRegistryClient {
+  public org.mtr.registry.EventRegistryClient();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: return
+
+  public static void registerStartClientTick(java.lang.Runnable);
+    Code:
+       0: aload_0
+       1: putstatic     #7                  // Field org/mtr/neoforge/MainEventBusClient.startClientTickRunnable:Ljava/lang/Runnable;
+       4: return
+
+  public static void registerEndClientTick(java.lang.Runnable);
+    Code:
+       0: aload_0
+       1: putstatic     #13                 // Field org/mtr/neoforge/MainEventBusClient.endClientTickRunnable:Ljava/lang/Runnable;
+       4: return
+
+  public static void registerStartWorldTick(java.util.function.Consumer<net.minecraft.client.multiplayer.ClientLevel>);
+    Code:
+       0: aload_0
+       1: putstatic     #16                 // Field org/mtr/neoforge/MainEventBusClient.startWorldTickRunnable:Ljava/util/function/Consumer;
+       4: return
+
+  public static void registerEndWorldTick(java.util.function.Consumer<net.minecraft.client.multiplayer.ClientLevel>);
+    Code:
+       0: aload_0
+       1: putstatic     #20                 // Field org/mtr/neoforge/MainEventBusClient.endWorldTickRunnable:Ljava/util/function/Consumer;
+       4: return
+
+  public static void registerClientJoin(java.lang.Runnable);
+    Code:
+       0: aload_0
+       1: putstatic     #23                 // Field org/mtr/neoforge/MainEventBusClient.clientJoinRunnable:Ljava/lang/Runnable;
+       4: return
+
+  public static void registerClientDisconnect(java.lang.Runnable);
+    Code:
+       0: aload_0
+       1: putstatic     #26                 // Field org/mtr/neoforge/MainEventBusClient.clientDisconnectRunnable:Ljava/lang/Runnable;
+       4: return
+
+  public static void registerChunkLoad(java.util.function.BiConsumer<net.minecraft.client.multiplayer.ClientLevel, net.minecraft.world.level.chunk.ChunkAccess>);
+    Code:
+       0: aload_0
+       1: putstatic     #29                 // Field org/mtr/neoforge/ModEventBusClient.chunkLoadConsumer:Ljava/util/function/BiConsumer;
+       4: return
+
+  public static void registerChunkUnload(java.util.function.BiConsumer<net.minecraft.client.multiplayer.ClientLevel, net.minecraft.world.level.chunk.ChunkAccess>);
+    Code:
+       0: aload_0
+       1: putstatic     #35                 // Field org/mtr/neoforge/ModEventBusClient.chunkUnloadConsumer:Ljava/util/function/BiConsumer;
+       4: return
+
+  public static void registerResourceReloadEvent(java.lang.Runnable);
+    Code:
+       0: aload_0
+       1: putstatic     #38                 // Field org/mtr/neoforge/ModEventBusClient.resourceReloadRunnable:Ljava/lang/Runnable;
+       4: return
+
+  public static void registerWorldRenderEvent(org.mtr.MTRClient$WorldRenderCallback);
+    Code:
+       0: aload_0
+       1: putstatic     #41                 // Field org/mtr/neoforge/MainEventBusClient.worldRenderCallback:Lorg/mtr/MTRClient$WorldRenderCallback;
+       4: return
+
+  public static void registerHudLayerRenderEvent(java.util.function.Consumer<net.minecraft.client.gui.GuiGraphics>);
+    Code:
+       0: aload_0
+       1: putstatic     #45                 // Field org/mtr/neoforge/MainEventBusClient.hudLayerRenderCallback:Ljava/util/function/Consumer;
+       4: return
+}

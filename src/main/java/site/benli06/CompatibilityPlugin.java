@@ -1,15 +1,12 @@
 package site.benli06;
 
 import java.io.InputStream;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.security.MessageDigest;
-import java.util.HexFormat;
 import java.util.List;
 import java.util.Set;
 import net.neoforged.fml.loading.LoadingModList;
 import org.mtr.libraries.com.google.gson.JsonParser;
 import org.objectweb.asm.tree.ClassNode;
+import org.spongepowered.asm.launch.MixinInitialisationError;
 import org.spongepowered.asm.mixin.extensibility.IMixinConfigPlugin;
 import org.spongepowered.asm.mixin.extensibility.IMixinInfo;
 
@@ -24,7 +21,9 @@ public final class CompatibilityPlugin implements IMixinConfigPlugin {
             if (file == null) throw new IllegalStateException("MTR is not available during compatibility verification");
             BinaryFingerprint.require(file.getFile().getFilePath(), target.get("mtrSha256").getAsString());
         } catch (Exception error) {
-            throw new IllegalStateException("MTR Memory Saver cannot apply this build to the loaded MTR binary", error);
+            // Mixin treats Exceptions during configuration selection as optional failures.
+            // Its standard fatal initialization type preserves this required prerequisite.
+            throw new MixinInitialisationError("MTR Memory Saver cannot apply this build to the loaded MTR binary", error);
         }
     }
 

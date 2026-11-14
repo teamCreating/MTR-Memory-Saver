@@ -1,0 +1,555 @@
+Compiled from "ObjModelLoader.java"
+public final class org.mtr.model.ObjModelLoader extends org.mtr.model.ModelLoaderBase {
+  public org.mtr.model.ObjModelLoader(net.minecraft.resources.ResourceLocation);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: getstatic     #21                 // Field com/mojang/blaze3d/vertex/VertexFormat$Mode.TRIANGLES:Lcom/mojang/blaze3d/vertex/VertexFormat$Mode;
+       5: invokespecial #24                 // Method org/mtr/model/ModelLoaderBase."<init>":(Lnet/minecraft/resources/ResourceLocation;Lcom/mojang/blaze3d/vertex/VertexFormat$Mode;)V
+       8: return
+
+  public void loadModel(java.lang.String, java.util.function.Function<java.lang.String, java.lang.String>, java.util.function.Function<java.lang.String, net.minecraft.resources.ResourceLocation>, boolean, boolean);
+    Code:
+       0: aload_0
+       1: invokevirtual #35                 // Method canLoadModel:()Z
+       4: ifeq          35
+       7: invokestatic  #39                 // Method parseStarted:()V
+      10: getstatic     #45                 // Field org/mtr/render/MainRenderer.WORKER_THREAD:Lorg/mtr/render/WorkerThread;
+      13: getfield      #51                 // Field org/mtr/render/WorkerThread.worker:Ljava/util/concurrent/ExecutorService;
+      16: aload_0
+      17: aload_1
+      18: aload_2
+      19: iload         4
+      21: aload_3
+      22: iload         5
+      24: invokedynamic #68,  0             // InvokeDynamic #0:run:(Lorg/mtr/model/ObjModelLoader;Ljava/lang/String;Ljava/util/function/Function;ZLjava/util/function/Function;Z)Ljava/lang/Runnable;
+      29: invokeinterface #74,  2           // InterfaceMethod java/util/concurrent/ExecutorService.submit:(Ljava/lang/Runnable;)Ljava/util/concurrent/Future;
+      34: pop
+      35: return
+
+  private org.mtr.model.NewOptimizedModelGroup loadModel(org.mtr.libraries.de.javagl.obj.Obj, org.mtr.libraries.it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap<java.lang.String, org.mtr.libraries.de.javagl.obj.Mtl>, java.util.function.Function<java.lang.String, net.minecraft.resources.ResourceLocation>, boolean);
+    Code:
+       0: new           #88                 // class org/mtr/model/NewOptimizedModelGroup
+       3: dup
+       4: invokespecial #90                 // Method org/mtr/model/NewOptimizedModelGroup."<init>":()V
+       7: astore        5
+       9: aload_1
+      10: invokestatic  #96                 // Method org/mtr/libraries/de/javagl/obj/ObjSplitting.splitByMaterialGroups:(Lorg/mtr/libraries/de/javagl/obj/ReadableObj;)Ljava/util/Map;
+      13: aload_0
+      14: iload         4
+      16: aload_2
+      17: aload_3
+      18: aload         5
+      20: invokedynamic #109,  0            // InvokeDynamic #1:accept:(Lorg/mtr/model/ObjModelLoader;ZLorg/mtr/libraries/it/unimi/dsi/fastutil/objects/Object2ObjectOpenHashMap;Ljava/util/function/Function;Lorg/mtr/model/NewOptimizedModelGroup;)Ljava/util/function/BiConsumer;
+      25: invokeinterface #115,  2          // InterfaceMethod java/util/Map.forEach:(Ljava/util/function/BiConsumer;)V
+      30: aload         5
+      32: areturn
+
+  private static org.mtr.model.StoredVertexData writeVertex(org.mtr.libraries.de.javagl.obj.Obj, org.mtr.libraries.de.javagl.obj.ObjFace, int, boolean, java.awt.Color);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: iload_2
+       3: invokeinterface #131,  2          // InterfaceMethod org/mtr/libraries/de/javagl/obj/ObjFace.getVertexIndex:(I)I
+       8: invokeinterface #137,  2          // InterfaceMethod org/mtr/libraries/de/javagl/obj/Obj.getVertex:(I)Lorg/mtr/libraries/de/javagl/obj/FloatTuple;
+      13: astore        5
+      15: aload_0
+      16: aload_1
+      17: iload_2
+      18: invokeinterface #140,  2          // InterfaceMethod org/mtr/libraries/de/javagl/obj/ObjFace.getTexCoordIndex:(I)I
+      23: invokeinterface #143,  2          // InterfaceMethod org/mtr/libraries/de/javagl/obj/Obj.getTexCoord:(I)Lorg/mtr/libraries/de/javagl/obj/FloatTuple;
+      28: astore        6
+      30: aload_0
+      31: aload_1
+      32: iload_2
+      33: invokeinterface #146,  2          // InterfaceMethod org/mtr/libraries/de/javagl/obj/ObjFace.getNormalIndex:(I)I
+      38: invokeinterface #149,  2          // InterfaceMethod org/mtr/libraries/de/javagl/obj/Obj.getNormal:(I)Lorg/mtr/libraries/de/javagl/obj/FloatTuple;
+      43: astore        7
+      45: new           #151                // class org/mtr/model/StoredVertexData
+      48: dup
+      49: aload         5
+      51: invokeinterface #157,  1          // InterfaceMethod org/mtr/libraries/de/javagl/obj/FloatTuple.getX:()F
+      56: aload         5
+      58: invokeinterface #160,  1          // InterfaceMethod org/mtr/libraries/de/javagl/obj/FloatTuple.getY:()F
+      63: aload         5
+      65: invokeinterface #163,  1          // InterfaceMethod org/mtr/libraries/de/javagl/obj/FloatTuple.getZ:()F
+      70: aload         4
+      72: ifnonnull     97
+      75: new           #165                // class java/awt/Color
+      78: dup
+      79: sipush        255
+      82: sipush        255
+      85: sipush        255
+      88: sipush        255
+      91: invokespecial #168                // Method java/awt/Color."<init>":(IIII)V
+      94: goto          99
+      97: aload         4
+      99: aload         6
+     101: invokeinterface #157,  1          // InterfaceMethod org/mtr/libraries/de/javagl/obj/FloatTuple.getX:()F
+     106: iload_3
+     107: ifeq          122
+     110: fconst_1
+     111: aload         6
+     113: invokeinterface #160,  1          // InterfaceMethod org/mtr/libraries/de/javagl/obj/FloatTuple.getY:()F
+     118: fsub
+     119: goto          129
+     122: aload         6
+     124: invokeinterface #160,  1          // InterfaceMethod org/mtr/libraries/de/javagl/obj/FloatTuple.getY:()F
+     129: aload         7
+     131: invokeinterface #157,  1          // InterfaceMethod org/mtr/libraries/de/javagl/obj/FloatTuple.getX:()F
+     136: aload         7
+     138: invokeinterface #160,  1          // InterfaceMethod org/mtr/libraries/de/javagl/obj/FloatTuple.getY:()F
+     143: aload         7
+     145: invokeinterface #163,  1          // InterfaceMethod org/mtr/libraries/de/javagl/obj/FloatTuple.getZ:()F
+     150: invokespecial #171                // Method org/mtr/model/StoredVertexData."<init>":(FFFLjava/awt/Color;FFFFF)V
+     153: areturn
+
+  private static org.mtr.libraries.it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap<java.lang.String, java.lang.String> splitMaterialOptions(java.lang.String);
+    Code:
+       0: new           #187                // class org/mtr/libraries/it/unimi/dsi/fastutil/objects/Object2ObjectOpenHashMap
+       3: dup
+       4: invokespecial #188                // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/Object2ObjectOpenHashMap."<init>":()V
+       7: astore_1
+       8: aload_0
+       9: ldc           #190                // String #
+      11: iconst_2
+      12: invokevirtual #196                // Method java/lang/String.split:(Ljava/lang/String;I)[Ljava/lang/String;
+      15: astore_2
+      16: aload_1
+      17: ldc           #198                // String
+      19: aload_2
+      20: iconst_0
+      21: aaload
+      22: invokevirtual #202                // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/Object2ObjectOpenHashMap.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+      25: pop
+      26: aload_2
+      27: arraylength
+      28: iconst_1
+      29: if_icmple     140
+      32: aload_2
+      33: iconst_1
+      34: aaload
+      35: ldc           #204                // String ,
+      37: invokevirtual #207                // Method java/lang/String.split:(Ljava/lang/String;)[Ljava/lang/String;
+      40: astore_3
+      41: aload_3
+      42: arraylength
+      43: istore        4
+      45: iconst_0
+      46: istore        5
+      48: iload         5
+      50: iload         4
+      52: if_icmpge     140
+      55: aload_3
+      56: iload         5
+      58: aaload
+      59: astore        6
+      61: aload         6
+      63: ldc           #211                // String =
+      65: iconst_2
+      66: invokevirtual #196                // Method java/lang/String.split:(Ljava/lang/String;I)[Ljava/lang/String;
+      69: astore        7
+      71: aload         7
+      73: arraylength
+      74: iconst_1
+      75: if_icmple     94
+      78: aload_1
+      79: aload         7
+      81: iconst_0
+      82: aaload
+      83: aload         7
+      85: iconst_1
+      86: aaload
+      87: invokevirtual #202                // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/Object2ObjectOpenHashMap.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+      90: pop
+      91: goto          134
+      94: aload_1
+      95: ldc           #190                // String #
+      97: invokevirtual #215                // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/Object2ObjectOpenHashMap.containsKey:(Ljava/lang/Object;)Z
+     100: ifne          117
+     103: aload_1
+     104: ldc           #190                // String #
+     106: aload         7
+     108: iconst_0
+     109: aaload
+     110: invokevirtual #202                // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/Object2ObjectOpenHashMap.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     113: pop
+     114: goto          134
+     117: aload_1
+     118: aload         7
+     120: iconst_0
+     121: aaload
+     122: getstatic     #221                // Field java/util/Locale.ROOT:Ljava/util/Locale;
+     125: invokevirtual #225                // Method java/lang/String.toLowerCase:(Ljava/util/Locale;)Ljava/lang/String;
+     128: ldc           #227                // String 1
+     130: invokevirtual #202                // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/Object2ObjectOpenHashMap.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     133: pop
+     134: iinc          5, 1
+     137: goto          48
+     140: aload_1
+     141: areturn
+
+  private static java.lang.String formatFilePath(java.lang.String);
+    Code:
+       0: aload_0
+       1: ldc           #237                // String \\\\
+       3: ldc           #239                // String /
+       5: invokevirtual #243                // Method java/lang/String.replace:(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+       8: ldc           #245                // String \\
+      10: ldc           #239                // String /
+      12: invokevirtual #243                // Method java/lang/String.replace:(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+      15: areturn
+
+  private static org.mtr.resource.RenderStage getRenderStage(java.lang.String);
+    Code:
+       0: aload_0
+       1: ifnonnull     6
+       4: aconst_null
+       5: areturn
+       6: aload_0
+       7: getstatic     #251                // Field java/util/Locale.ENGLISH:Ljava/util/Locale;
+      10: invokevirtual #225                // Method java/lang/String.toLowerCase:(Ljava/util/Locale;)Ljava/lang/String;
+      13: astore_1
+      14: iconst_m1
+      15: istore_2
+      16: aload_1
+      17: invokevirtual #255                // Method java/lang/String.hashCode:()I
+      20: lookupswitch  { // 4
+           -1355349274: 79
+             102970646: 64
+             570406320: 94
+             661982026: 109
+               default: 121
+          }
+      64: aload_1
+      65: ldc_w         #257                // String light
+      68: invokevirtual #260                // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+      71: ifeq          121
+      74: iconst_0
+      75: istore_2
+      76: goto          121
+      79: aload_1
+      80: ldc_w         #262                // String always_on_light
+      83: invokevirtual #260                // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+      86: ifeq          121
+      89: iconst_1
+      90: istore_2
+      91: goto          121
+      94: aload_1
+      95: ldc_w         #264                // String interior
+      98: invokevirtual #260                // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+     101: ifeq          121
+     104: iconst_2
+     105: istore_2
+     106: goto          121
+     109: aload_1
+     110: ldc_w         #266                // String interior_translucent
+     113: invokevirtual #260                // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+     116: ifeq          121
+     119: iconst_3
+     120: istore_2
+     121: iload_2
+     122: tableswitch   { // 0 to 3
+                     0: 152
+                     1: 158
+                     2: 164
+                     3: 170
+               default: 176
+          }
+     152: getstatic     #272                // Field org/mtr/resource/RenderStage.LIGHT:Lorg/mtr/resource/RenderStage;
+     155: goto          177
+     158: getstatic     #275                // Field org/mtr/resource/RenderStage.ALWAYS_ON_LIGHT:Lorg/mtr/resource/RenderStage;
+     161: goto          177
+     164: getstatic     #278                // Field org/mtr/resource/RenderStage.INTERIOR:Lorg/mtr/resource/RenderStage;
+     167: goto          177
+     170: getstatic     #281                // Field org/mtr/resource/RenderStage.INTERIOR_TRANSLUCENT:Lorg/mtr/resource/RenderStage;
+     173: goto          177
+     176: aconst_null
+     177: areturn
+
+  private void lambda$loadModel$5(boolean, org.mtr.libraries.it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap, java.util.function.Function, org.mtr.model.NewOptimizedModelGroup, java.lang.String, org.mtr.libraries.de.javagl.obj.Obj);
+    Code:
+       0: aload         6
+       2: invokeinterface #285,  1          // InterfaceMethod org/mtr/libraries/de/javagl/obj/Obj.getNumFaces:()I
+       7: ifle          407
+      10: aload         5
+      12: invokestatic  #287                // Method splitMaterialOptions:(Ljava/lang/String;)Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/Object2ObjectOpenHashMap;
+      15: astore        7
+      17: aload         7
+      19: ldc           #198                // String
+      21: invokevirtual #291                // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/Object2ObjectOpenHashMap.get:(Ljava/lang/Object;)Ljava/lang/Object;
+      24: checkcast     #192                // class java/lang/String
+      27: astore        8
+      29: iload_1
+      30: ifne          55
+      33: aload         7
+      35: ldc_w         #293                // String flipv
+      38: ldc_w         #295                // String 0
+      41: invokevirtual #298                // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/Object2ObjectOpenHashMap.getOrDefault:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+      44: checkcast     #192                // class java/lang/String
+      47: ldc           #227                // String 1
+      49: invokevirtual #260                // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+      52: ifeq          59
+      55: iconst_1
+      56: goto          60
+      59: iconst_0
+      60: istore        9
+      62: aload_2
+      63: invokevirtual #301                // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/Object2ObjectOpenHashMap.isEmpty:()Z
+      66: ifne          209
+      69: aload_2
+      70: aload         5
+      72: invokevirtual #291                // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/Object2ObjectOpenHashMap.get:(Ljava/lang/Object;)Ljava/lang/Object;
+      75: checkcast     #303                // class org/mtr/libraries/de/javagl/obj/Mtl
+      78: astore        12
+      80: aload         12
+      82: ifnonnull     94
+      85: aconst_null
+      86: astore        10
+      88: aconst_null
+      89: astore        11
+      91: goto          206
+      94: aload         12
+      96: invokeinterface #309,  1          // InterfaceMethod org/mtr/libraries/de/javagl/obj/Mtl.getMapKd:()Ljava/lang/String;
+     101: invokestatic  #314                // Method org/apache/commons/lang3/StringUtils.isEmpty:(Ljava/lang/CharSequence;)Z
+     104: ifeq          113
+     107: aconst_null
+     108: astore        10
+     110: goto          134
+     113: aload_3
+     114: aload         12
+     116: invokeinterface #309,  1          // InterfaceMethod org/mtr/libraries/de/javagl/obj/Mtl.getMapKd:()Ljava/lang/String;
+     121: invokestatic  #316                // Method formatFilePath:(Ljava/lang/String;)Ljava/lang/String;
+     124: invokeinterface #319,  2          // InterfaceMethod java/util/function/Function.apply:(Ljava/lang/Object;)Ljava/lang/Object;
+     129: checkcast     #321                // class net/minecraft/resources/ResourceLocation
+     132: astore        10
+     134: aload         12
+     136: invokeinterface #325,  1          // InterfaceMethod org/mtr/libraries/de/javagl/obj/Mtl.getKd:()Lorg/mtr/libraries/de/javagl/obj/FloatTuple;
+     141: astore        13
+     143: aload         13
+     145: ifnonnull     152
+     148: aconst_null
+     149: goto          204
+     152: new           #165                // class java/awt/Color
+     155: dup
+     156: aload         13
+     158: invokeinterface #157,  1          // InterfaceMethod org/mtr/libraries/de/javagl/obj/FloatTuple.getX:()F
+     163: aload         13
+     165: invokeinterface #160,  1          // InterfaceMethod org/mtr/libraries/de/javagl/obj/FloatTuple.getY:()F
+     170: aload         13
+     172: invokeinterface #163,  1          // InterfaceMethod org/mtr/libraries/de/javagl/obj/FloatTuple.getZ:()F
+     177: aload         12
+     179: invokeinterface #329,  1          // InterfaceMethod org/mtr/libraries/de/javagl/obj/Mtl.getD:()Ljava/lang/Float;
+     184: ifnonnull     191
+     187: fconst_1
+     188: goto          201
+     191: aload         12
+     193: invokeinterface #329,  1          // InterfaceMethod org/mtr/libraries/de/javagl/obj/Mtl.getD:()Ljava/lang/Float;
+     198: invokevirtual #334                // Method java/lang/Float.floatValue:()F
+     201: invokespecial #337                // Method java/awt/Color."<init>":(FFFF)V
+     204: astore        11
+     206: goto          243
+     209: aload         8
+     211: ldc_w         #339                // String _
+     214: invokevirtual #260                // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+     217: ifeq          224
+     220: aconst_null
+     221: goto          238
+     224: aload_3
+     225: aload         8
+     227: invokestatic  #316                // Method formatFilePath:(Ljava/lang/String;)Ljava/lang/String;
+     230: invokeinterface #319,  2          // InterfaceMethod java/util/function/Function.apply:(Ljava/lang/Object;)Ljava/lang/Object;
+     235: checkcast     #321                // class net/minecraft/resources/ResourceLocation
+     238: astore        10
+     240: aconst_null
+     241: astore        11
+     243: aload         6
+     245: invokestatic  #345                // Method org/mtr/libraries/de/javagl/obj/ObjUtils.convertToRenderable:(Lorg/mtr/libraries/de/javagl/obj/ReadableObj;)Lorg/mtr/libraries/de/javagl/obj/Obj;
+     248: astore        12
+     250: new           #347                // class org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList
+     253: dup
+     254: invokespecial #348                // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList."<init>":()V
+     257: astore        13
+     259: iconst_0
+     260: istore        14
+     262: iload         14
+     264: aload         12
+     266: invokeinterface #285,  1          // InterfaceMethod org/mtr/libraries/de/javagl/obj/Obj.getNumFaces:()I
+     271: if_icmpge     345
+     274: aload         12
+     276: iload         14
+     278: invokeinterface #352,  2          // InterfaceMethod org/mtr/libraries/de/javagl/obj/Obj.getFace:(I)Lorg/mtr/libraries/de/javagl/obj/ObjFace;
+     283: astore        15
+     285: aload         13
+     287: aload         12
+     289: aload         15
+     291: iconst_0
+     292: iload         9
+     294: aload         11
+     296: invokestatic  #354                // Method writeVertex:(Lorg/mtr/libraries/de/javagl/obj/Obj;Lorg/mtr/libraries/de/javagl/obj/ObjFace;IZLjava/awt/Color;)Lorg/mtr/model/StoredVertexData;
+     299: invokevirtual #357                // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList.add:(Ljava/lang/Object;)Z
+     302: pop
+     303: aload         13
+     305: aload         12
+     307: aload         15
+     309: iconst_1
+     310: iload         9
+     312: aload         11
+     314: invokestatic  #354                // Method writeVertex:(Lorg/mtr/libraries/de/javagl/obj/Obj;Lorg/mtr/libraries/de/javagl/obj/ObjFace;IZLjava/awt/Color;)Lorg/mtr/model/StoredVertexData;
+     317: invokevirtual #357                // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList.add:(Ljava/lang/Object;)Z
+     320: pop
+     321: aload         13
+     323: aload         12
+     325: aload         15
+     327: iconst_2
+     328: iload         9
+     330: aload         11
+     332: invokestatic  #354                // Method writeVertex:(Lorg/mtr/libraries/de/javagl/obj/Obj;Lorg/mtr/libraries/de/javagl/obj/ObjFace;IZLjava/awt/Color;)Lorg/mtr/model/StoredVertexData;
+     335: invokevirtual #357                // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList.add:(Ljava/lang/Object;)Z
+     338: pop
+     339: iinc          14, 1
+     342: goto          262
+     345: aload         4
+     347: aload         7
+     349: ldc           #190                // String #
+     351: invokevirtual #291                // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/Object2ObjectOpenHashMap.get:(Ljava/lang/Object;)Ljava/lang/Object;
+     354: checkcast     #192                // class java/lang/String
+     357: invokestatic  #359                // Method getRenderStage:(Ljava/lang/String;)Lorg/mtr/resource/RenderStage;
+     360: aload         10
+     362: ifnonnull     382
+     365: aload         11
+     367: ifnull        382
+     370: ldc_w         #361                // String mtr
+     373: ldc_w         #363                // String textures/block/white.png
+     376: invokestatic  #367                // Method net/minecraft/resources/ResourceLocation.fromNamespaceAndPath:(Ljava/lang/String;Ljava/lang/String;)Lnet/minecraft/resources/ResourceLocation;
+     379: goto          396
+     382: aload         10
+     384: ifnonnull     394
+     387: aload_0
+     388: getfield      #369                // Field defaultTexture:Lnet/minecraft/resources/ResourceLocation;
+     391: goto          396
+     394: aload         10
+     396: aload         13
+     398: invokedynamic #381,  0            // InvokeDynamic #2:accept:(Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList;)Ljava/util/function/Consumer;
+     403: aconst_null
+     404: invokevirtual #384                // Method org/mtr/model/NewOptimizedModelGroup.add:(Lorg/mtr/resource/RenderStage;Lnet/minecraft/resources/ResourceLocation;Ljava/util/function/Consumer;Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList;)V
+     407: return
+
+  private static void lambda$loadModel$4(org.mtr.libraries.it.unimi.dsi.fastutil.objects.ObjectArrayList, org.mtr.libraries.it.unimi.dsi.fastutil.objects.ObjectArrayList);
+    Code:
+       0: aload_1
+       1: aload_0
+       2: invokevirtual #401                // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList.addAll:(Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectList;)Z
+       5: pop
+       6: return
+
+  private void lambda$loadModel$3(java.lang.String, java.util.function.Function, boolean, java.util.function.Function, boolean);
+    Code:
+       0: aload_1
+       1: getstatic     #410                // Field java/nio/charset/StandardCharsets.UTF_8:Ljava/nio/charset/Charset;
+       4: invokestatic  #416                // Method org/apache/commons/io/IOUtils.toInputStream:(Ljava/lang/String;Ljava/nio/charset/Charset;)Ljava/io/InputStream;
+       7: invokestatic  #422                // Method org/mtr/libraries/de/javagl/obj/ObjReader.read:(Ljava/io/InputStream;)Lorg/mtr/libraries/de/javagl/obj/Obj;
+      10: astore        6
+      12: new           #187                // class org/mtr/libraries/it/unimi/dsi/fastutil/objects/Object2ObjectOpenHashMap
+      15: dup
+      16: invokespecial #188                // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/Object2ObjectOpenHashMap."<init>":()V
+      19: astore        7
+      21: aload         6
+      23: invokeinterface #426,  1          // InterfaceMethod org/mtr/libraries/de/javagl/obj/Obj.getMtlFileNames:()Ljava/util/List;
+      28: aload_2
+      29: aload         7
+      31: invokedynamic #436,  0            // InvokeDynamic #3:accept:(Ljava/util/function/Function;Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/Object2ObjectOpenHashMap;)Ljava/util/function/Consumer;
+      36: invokeinterface #441,  2          // InterfaceMethod java/util/List.forEach:(Ljava/util/function/Consumer;)V
+      41: iload_3
+      42: ifeq          70
+      45: aload         6
+      47: invokestatic  #444                // Method org/mtr/libraries/de/javagl/obj/ObjSplitting.splitByGroups:(Lorg/mtr/libraries/de/javagl/obj/ReadableObj;)Ljava/util/Map;
+      50: aload_0
+      51: aload         7
+      53: aload         4
+      55: iload         5
+      57: invokedynamic #452,  0            // InvokeDynamic #4:accept:(Lorg/mtr/model/ObjModelLoader;Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/Object2ObjectOpenHashMap;Ljava/util/function/Function;Z)Ljava/util/function/BiConsumer;
+      62: invokeinterface #115,  2          // InterfaceMethod java/util/Map.forEach:(Ljava/util/function/BiConsumer;)V
+      67: goto          88
+      70: aload_0
+      71: ldc           #198                // String
+      73: aload_0
+      74: aload         6
+      76: aload         7
+      78: aload         4
+      80: iload         5
+      82: invokevirtual #454                // Method loadModel:(Lorg/mtr/libraries/de/javagl/obj/Obj;Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/Object2ObjectOpenHashMap;Ljava/util/function/Function;Z)Lorg/mtr/model/NewOptimizedModelGroup;
+      85: invokevirtual #458                // Method addModel:(Ljava/lang/String;Lorg/mtr/model/NewOptimizedModelGroup;)V
+      88: aload_0
+      89: invokevirtual #461                // Method setModelLoaded:()V
+      92: invokestatic  #464                // Method parseFinished:()V
+      95: goto          131
+      98: astore        6
+     100: getstatic     #470                // Field org/mtr/MTR.LOGGER:Lorg/apache/logging/log4j/Logger;
+     103: ldc_w         #472                // String Failed to parse OBJ model for texture [{}]
+     106: aload_0
+     107: getfield      #369                // Field defaultTexture:Lnet/minecraft/resources/ResourceLocation;
+     110: aload         6
+     112: invokeinterface #478,  4          // InterfaceMethod org/apache/logging/log4j/Logger.error:(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V
+     117: invokestatic  #464                // Method parseFinished:()V
+     120: goto          131
+     123: astore        8
+     125: invokestatic  #464                // Method parseFinished:()V
+     128: aload         8
+     130: athrow
+     131: return
+    Exception table:
+       from    to  target type
+           0    92    98   Class java/lang/Exception
+           0    92   123   any
+          98   117   123   any
+         123   125   123   any
+
+  private void lambda$loadModel$2(org.mtr.libraries.it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap, java.util.function.Function, boolean, java.lang.String, org.mtr.libraries.de.javagl.obj.Obj);
+    Code:
+       0: aload_0
+       1: aload         4
+       3: aload_0
+       4: aload         5
+       6: aload_1
+       7: aload_2
+       8: iload_3
+       9: invokevirtual #454                // Method loadModel:(Lorg/mtr/libraries/de/javagl/obj/Obj;Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/Object2ObjectOpenHashMap;Ljava/util/function/Function;Z)Lorg/mtr/model/NewOptimizedModelGroup;
+      12: invokevirtual #458                // Method addModel:(Ljava/lang/String;Lorg/mtr/model/NewOptimizedModelGroup;)V
+      15: return
+
+  private static void lambda$loadModel$1(java.util.function.Function, org.mtr.libraries.it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap, java.lang.String);
+    Code:
+       0: aload_0
+       1: aload_2
+       2: invokestatic  #316                // Method formatFilePath:(Ljava/lang/String;)Ljava/lang/String;
+       5: invokeinterface #319,  2          // InterfaceMethod java/util/function/Function.apply:(Ljava/lang/Object;)Ljava/lang/Object;
+      10: checkcast     #192                // class java/lang/String
+      13: getstatic     #410                // Field java/nio/charset/StandardCharsets.UTF_8:Ljava/nio/charset/Charset;
+      16: invokestatic  #416                // Method org/apache/commons/io/IOUtils.toInputStream:(Ljava/lang/String;Ljava/nio/charset/Charset;)Ljava/io/InputStream;
+      19: invokestatic  #487                // Method org/mtr/libraries/de/javagl/obj/MtlReader.read:(Ljava/io/InputStream;)Ljava/util/List;
+      22: aload_1
+      23: invokedynamic #497,  0            // InvokeDynamic #5:accept:(Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/Object2ObjectOpenHashMap;)Ljava/util/function/Consumer;
+      28: invokeinterface #441,  2          // InterfaceMethod java/util/List.forEach:(Ljava/util/function/Consumer;)V
+      33: goto          50
+      36: astore_3
+      37: getstatic     #470                // Field org/mtr/MTR.LOGGER:Lorg/apache/logging/log4j/Logger;
+      40: ldc_w         #499                // String Failed to parse MTL file [{}] referenced by OBJ model
+      43: aload_2
+      44: aload_3
+      45: invokeinterface #478,  4          // InterfaceMethod org/apache/logging/log4j/Logger.error:(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V
+      50: return
+    Exception table:
+       from    to  target type
+           0    33    36   Class java/lang/Exception
+
+  private static void lambda$loadModel$0(org.mtr.libraries.it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap, org.mtr.libraries.de.javagl.obj.Mtl);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokeinterface #503,  1          // InterfaceMethod org/mtr/libraries/de/javagl/obj/Mtl.getName:()Ljava/lang/String;
+       7: aload_1
+       8: invokevirtual #202                // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/Object2ObjectOpenHashMap.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+      11: pop
+      12: return
+}

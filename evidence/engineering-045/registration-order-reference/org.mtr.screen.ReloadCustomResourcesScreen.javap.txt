@@ -1,0 +1,83 @@
+Compiled from "ReloadCustomResourcesScreen.java"
+public class org.mtr.screen.ReloadCustomResourcesScreen extends org.mtr.screen.ScreenBase implements org.mtr.data.IGui {
+  int i;
+
+  private final java.lang.Runnable task;
+
+  private final java.lang.String resourceReloadingInProgressText;
+
+  public org.mtr.screen.ReloadCustomResourcesScreen(java.lang.Runnable);
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method org/mtr/screen/ScreenBase."<init>":()V
+       4: aload_0
+       5: iconst_0
+       6: putfield      #7                  // Field i:I
+       9: aload_0
+      10: getstatic     #13                 // Field org/mtr/generated/lang/TranslationProvider.GUI_MTR_RESOURCE_RELOADING_IN_PROGRESS:Lorg/mtr/generated/lang/TranslationProvider$TranslationHolder;
+      13: iconst_0
+      14: anewarray     #19                 // class java/lang/Object
+      17: invokevirtual #21                 // Method org/mtr/generated/lang/TranslationProvider$TranslationHolder.getString:([Ljava/lang/Object;)Ljava/lang/String;
+      20: putfield      #27                 // Field resourceReloadingInProgressText:Ljava/lang/String;
+      23: aload_0
+      24: aload_1
+      25: putfield      #31                 // Field task:Ljava/lang/Runnable;
+      28: return
+
+  public void render(net.minecraft.client.gui.GuiGraphics, int, int, float);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: iload_2
+       3: iload_3
+       4: fload         4
+       6: invokevirtual #35                 // Method renderBackground:(Lnet/minecraft/client/gui/GuiGraphics;IIF)V
+       9: aload_1
+      10: invokestatic  #39                 // Method net/minecraft/client/Minecraft.getInstance:()Lnet/minecraft/client/Minecraft;
+      13: getfield      #45                 // Field net/minecraft/client/Minecraft.font:Lnet/minecraft/client/gui/Font;
+      16: aload_0
+      17: getfield      #27                 // Field resourceReloadingInProgressText:Ljava/lang/String;
+      20: aload_0
+      21: getfield      #49                 // Field width:I
+      24: iconst_2
+      25: idiv
+      26: aload_0
+      27: getfield      #52                 // Field height:I
+      30: iconst_2
+      31: idiv
+      32: iconst_4
+      33: isub
+      34: iconst_m1
+      35: invokevirtual #57                 // Method net/minecraft/client/gui/GuiGraphics.drawCenteredString:(Lnet/minecraft/client/gui/Font;Ljava/lang/String;III)V
+      38: aload_0
+      39: aload_1
+      40: iload_2
+      41: iload_3
+      42: fload         4
+      44: invokespecial #63                 // Method org/mtr/screen/ScreenBase.render:(Lnet/minecraft/client/gui/GuiGraphics;IIF)V
+      47: aload_0
+      48: getfield      #7                  // Field i:I
+      51: bipush        10
+      53: if_icmple     73
+      56: aload_0
+      57: iconst_m1
+      58: putfield      #7                  // Field i:I
+      61: aload_0
+      62: getfield      #31                 // Field task:Ljava/lang/Runnable;
+      65: invokeinterface #66,  1           // InterfaceMethod java/lang/Runnable.run:()V
+      70: goto          100
+      73: aload_0
+      74: getfield      #7                  // Field i:I
+      77: ifge          90
+      80: invokestatic  #39                 // Method net/minecraft/client/Minecraft.getInstance:()Lnet/minecraft/client/Minecraft;
+      83: aconst_null
+      84: invokevirtual #71                 // Method net/minecraft/client/Minecraft.setScreen:(Lnet/minecraft/client/gui/screens/Screen;)V
+      87: goto          100
+      90: aload_0
+      91: dup
+      92: getfield      #7                  // Field i:I
+      95: iconst_1
+      96: iadd
+      97: putfield      #7                  // Field i:I
+     100: return
+}

@@ -1,0 +1,808 @@
+Compiled from "MtlReader.java"
+public class org.mtr.libraries.de.javagl.obj.MtlReader {
+  public static java.util.List<org.mtr.libraries.de.javagl.obj.Mtl> read(java.io.InputStream) throws java.io.IOException;
+    Code:
+       0: new           #17                 // class java/io/BufferedReader
+       3: dup
+       4: new           #19                 // class java/io/InputStreamReader
+       7: dup
+       8: aload_0
+       9: invokespecial #23                 // Method java/io/InputStreamReader."<init>":(Ljava/io/InputStream;)V
+      12: invokespecial #26                 // Method java/io/BufferedReader."<init>":(Ljava/io/Reader;)V
+      15: astore_1
+      16: aload_1
+      17: invokestatic  #30                 // Method readImpl:(Ljava/io/BufferedReader;)Ljava/util/List;
+      20: areturn
+
+  public static java.util.List<org.mtr.libraries.de.javagl.obj.Mtl> read(java.io.Reader) throws java.io.IOException;
+    Code:
+       0: aload_0
+       1: instanceof    #17                 // class java/io/BufferedReader
+       4: ifeq          15
+       7: aload_0
+       8: checkcast     #17                 // class java/io/BufferedReader
+      11: invokestatic  #30                 // Method readImpl:(Ljava/io/BufferedReader;)Ljava/util/List;
+      14: areturn
+      15: new           #17                 // class java/io/BufferedReader
+      18: dup
+      19: aload_0
+      20: invokespecial #26                 // Method java/io/BufferedReader."<init>":(Ljava/io/Reader;)V
+      23: invokestatic  #30                 // Method readImpl:(Ljava/io/BufferedReader;)Ljava/util/List;
+      26: areturn
+
+  private static java.util.List<org.mtr.libraries.de.javagl.obj.Mtl> readImpl(java.io.BufferedReader) throws java.io.IOException;
+    Code:
+       0: new           #40                 // class java/util/ArrayList
+       3: dup
+       4: invokespecial #43                 // Method java/util/ArrayList."<init>":()V
+       7: astore_1
+       8: aconst_null
+       9: astore_2
+      10: aload_0
+      11: invokevirtual #51                 // Method java/io/BufferedReader.readLine:()Ljava/lang/String;
+      14: astore_3
+      15: aload_3
+      16: ifnonnull     22
+      19: goto          179
+      22: aload_3
+      23: invokevirtual #56                 // Method java/lang/String.trim:()Ljava/lang/String;
+      26: astore_3
+      27: iconst_0
+      28: istore        4
+      30: aload_3
+      31: ldc           #58                 // String \\
+      33: invokevirtual #62                 // Method java/lang/String.endsWith:(Ljava/lang/String;)Z
+      36: ifeq          80
+      39: aload_3
+      40: iconst_0
+      41: aload_3
+      42: invokevirtual #66                 // Method java/lang/String.length:()I
+      45: iconst_2
+      46: isub
+      47: invokevirtual #70                 // Method java/lang/String.substring:(II)Ljava/lang/String;
+      50: astore_3
+      51: aload_0
+      52: invokevirtual #51                 // Method java/io/BufferedReader.readLine:()Ljava/lang/String;
+      55: astore        5
+      57: aload         5
+      59: ifnonnull     68
+      62: iconst_1
+      63: istore        4
+      65: goto          80
+      68: aload_3
+      69: aload         5
+      71: invokedynamic #82,  0             // InvokeDynamic #0:makeConcatWithConstants:(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+      76: astore_3
+      77: goto          30
+      80: iload         4
+      82: ifeq          88
+      85: goto          179
+      88: aload_3
+      89: invokevirtual #56                 // Method java/lang/String.trim:()Ljava/lang/String;
+      92: astore_3
+      93: aload_3
+      94: ldc           #84                 // String newmtl
+      96: invokevirtual #87                 // Method java/lang/String.startsWith:(Ljava/lang/String;)Z
+      99: ifeq          137
+     102: aload_3
+     103: ldc           #84                 // String newmtl
+     105: invokevirtual #66                 // Method java/lang/String.length:()I
+     108: invokevirtual #90                 // Method java/lang/String.substring:(I)Ljava/lang/String;
+     111: invokevirtual #56                 // Method java/lang/String.trim:()Ljava/lang/String;
+     114: astore        5
+     116: new           #92                 // class org/mtr/libraries/de/javagl/obj/DefaultMtl
+     119: dup
+     120: aload         5
+     122: invokespecial #95                 // Method org/mtr/libraries/de/javagl/obj/DefaultMtl."<init>":(Ljava/lang/String;)V
+     125: astore_2
+     126: aload_1
+     127: aload_2
+     128: invokeinterface #99,  2           // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+     133: pop
+     134: goto          176
+     137: aload_3
+     138: ldc           #101                // String #
+     140: invokevirtual #87                 // Method java/lang/String.startsWith:(Ljava/lang/String;)Z
+     143: ifne          176
+     146: aload_3
+     147: invokevirtual #105                // Method java/lang/String.isEmpty:()Z
+     150: ifne          176
+     153: aload_2
+     154: ifnonnull     171
+     157: new           #15                 // class java/io/IOException
+     160: dup
+     161: aload_3
+     162: invokedynamic #110,  0            // InvokeDynamic #1:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+     167: invokespecial #111                // Method java/io/IOException."<init>":(Ljava/lang/String;)V
+     170: athrow
+     171: aload_2
+     172: aload_3
+     173: invokestatic  #115                // Method processLine:(Lorg/mtr/libraries/de/javagl/obj/Mtl;Ljava/lang/String;)V
+     176: goto          10
+     179: aload_1
+     180: areturn
+
+  private static void processLine(org.mtr.libraries.de.javagl.obj.Mtl, java.lang.String) throws java.io.IOException;
+    Code:
+       0: new           #128                // class java/util/LinkedList
+       3: dup
+       4: aload_1
+       5: ldc           #130                // String [ \t\n\r\f]+
+       7: invokevirtual #134                // Method java/lang/String.split:(Ljava/lang/String;)[Ljava/lang/String;
+      10: invokestatic  #140                // Method java/util/Arrays.asList:([Ljava/lang/Object;)Ljava/util/List;
+      13: invokespecial #143                // Method java/util/LinkedList."<init>":(Ljava/util/Collection;)V
+      16: astore_2
+      17: aload_2
+      18: invokeinterface #149,  1          // InterfaceMethod java/util/Queue.poll:()Ljava/lang/Object;
+      23: checkcast     #53                 // class java/lang/String
+      26: astore_3
+      27: aload_3
+      28: ldc           #151                // String illum
+      30: invokevirtual #154                // Method java/lang/String.equalsIgnoreCase:(Ljava/lang/String;)Z
+      33: ifeq          61
+      36: aload_2
+      37: invokeinterface #149,  1          // InterfaceMethod java/util/Queue.poll:()Ljava/lang/Object;
+      42: checkcast     #53                 // class java/lang/String
+      45: invokestatic  #160                // Method org/mtr/libraries/de/javagl/obj/Utils.parseInt:(Ljava/lang/String;)I
+      48: istore        4
+      50: aload_0
+      51: iload         4
+      53: invokestatic  #166                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+      56: invokeinterface #170,  2          // InterfaceMethod org/mtr/libraries/de/javagl/obj/Mtl.setIllum:(Ljava/lang/Integer;)V
+      61: aload_3
+      62: ldc           #172                // String Ka
+      64: invokevirtual #154                // Method java/lang/String.equalsIgnoreCase:(Ljava/lang/String;)Z
+      67: ifeq          98
+      70: aload_2
+      71: iconst_3
+      72: invokestatic  #176                // Method org/mtr/libraries/de/javagl/obj/Utils.parseFloats:(Ljava/util/Queue;I)[Ljava/lang/Float;
+      75: astore        4
+      77: aload_0
+      78: aload         4
+      80: iconst_0
+      81: aaload
+      82: aload         4
+      84: iconst_1
+      85: aaload
+      86: aload         4
+      88: iconst_2
+      89: aaload
+      90: invokeinterface #180,  4          // InterfaceMethod org/mtr/libraries/de/javagl/obj/Mtl.setKa:(Ljava/lang/Float;Ljava/lang/Float;Ljava/lang/Float;)V
+      95: goto          742
+      98: aload_3
+      99: ldc           #182                // String Kd
+     101: invokevirtual #154                // Method java/lang/String.equalsIgnoreCase:(Ljava/lang/String;)Z
+     104: ifeq          135
+     107: aload_2
+     108: iconst_3
+     109: invokestatic  #176                // Method org/mtr/libraries/de/javagl/obj/Utils.parseFloats:(Ljava/util/Queue;I)[Ljava/lang/Float;
+     112: astore        4
+     114: aload_0
+     115: aload         4
+     117: iconst_0
+     118: aaload
+     119: aload         4
+     121: iconst_1
+     122: aaload
+     123: aload         4
+     125: iconst_2
+     126: aaload
+     127: invokeinterface #185,  4          // InterfaceMethod org/mtr/libraries/de/javagl/obj/Mtl.setKd:(Ljava/lang/Float;Ljava/lang/Float;Ljava/lang/Float;)V
+     132: goto          742
+     135: aload_3
+     136: ldc           #187                // String Ks
+     138: invokevirtual #154                // Method java/lang/String.equalsIgnoreCase:(Ljava/lang/String;)Z
+     141: ifeq          172
+     144: aload_2
+     145: iconst_3
+     146: invokestatic  #176                // Method org/mtr/libraries/de/javagl/obj/Utils.parseFloats:(Ljava/util/Queue;I)[Ljava/lang/Float;
+     149: astore        4
+     151: aload_0
+     152: aload         4
+     154: iconst_0
+     155: aaload
+     156: aload         4
+     158: iconst_1
+     159: aaload
+     160: aload         4
+     162: iconst_2
+     163: aaload
+     164: invokeinterface #190,  4          // InterfaceMethod org/mtr/libraries/de/javagl/obj/Mtl.setKs:(Ljava/lang/Float;Ljava/lang/Float;Ljava/lang/Float;)V
+     169: goto          742
+     172: aload_3
+     173: ldc           #192                // String Tf
+     175: invokevirtual #154                // Method java/lang/String.equalsIgnoreCase:(Ljava/lang/String;)Z
+     178: ifeq          209
+     181: aload_2
+     182: iconst_3
+     183: invokestatic  #176                // Method org/mtr/libraries/de/javagl/obj/Utils.parseFloats:(Ljava/util/Queue;I)[Ljava/lang/Float;
+     186: astore        4
+     188: aload_0
+     189: aload         4
+     191: iconst_0
+     192: aaload
+     193: aload         4
+     195: iconst_1
+     196: aaload
+     197: aload         4
+     199: iconst_2
+     200: aaload
+     201: invokeinterface #195,  4          // InterfaceMethod org/mtr/libraries/de/javagl/obj/Mtl.setTf:(Ljava/lang/Float;Ljava/lang/Float;Ljava/lang/Float;)V
+     206: goto          742
+     209: aload_3
+     210: ldc           #197                // String Ke
+     212: invokevirtual #154                // Method java/lang/String.equalsIgnoreCase:(Ljava/lang/String;)Z
+     215: ifeq          246
+     218: aload_2
+     219: iconst_3
+     220: invokestatic  #176                // Method org/mtr/libraries/de/javagl/obj/Utils.parseFloats:(Ljava/util/Queue;I)[Ljava/lang/Float;
+     223: astore        4
+     225: aload_0
+     226: aload         4
+     228: iconst_0
+     229: aaload
+     230: aload         4
+     232: iconst_1
+     233: aaload
+     234: aload         4
+     236: iconst_2
+     237: aaload
+     238: invokeinterface #200,  4          // InterfaceMethod org/mtr/libraries/de/javagl/obj/Mtl.setKe:(Ljava/lang/Float;Ljava/lang/Float;Ljava/lang/Float;)V
+     243: goto          742
+     246: aload_3
+     247: ldc           #202                // String Tr
+     249: invokevirtual #154                // Method java/lang/String.equalsIgnoreCase:(Ljava/lang/String;)Z
+     252: ifeq          285
+     255: aload_2
+     256: invokeinterface #149,  1          // InterfaceMethod java/util/Queue.poll:()Ljava/lang/Object;
+     261: checkcast     #53                 // class java/lang/String
+     264: invokestatic  #206                // Method org/mtr/libraries/de/javagl/obj/Utils.parseFloat:(Ljava/lang/String;)F
+     267: fstore        4
+     269: aload_0
+     270: fconst_1
+     271: fload         4
+     273: fsub
+     274: invokestatic  #211                // Method java/lang/Float.valueOf:(F)Ljava/lang/Float;
+     277: invokeinterface #215,  2          // InterfaceMethod org/mtr/libraries/de/javagl/obj/Mtl.setD:(Ljava/lang/Float;)V
+     282: goto          742
+     285: aload_3
+     286: ldc           #217                // String sharpness
+     288: invokevirtual #154                // Method java/lang/String.equalsIgnoreCase:(Ljava/lang/String;)Z
+     291: ifeq          322
+     294: aload_2
+     295: invokeinterface #149,  1          // InterfaceMethod java/util/Queue.poll:()Ljava/lang/Object;
+     300: checkcast     #53                 // class java/lang/String
+     303: invokestatic  #206                // Method org/mtr/libraries/de/javagl/obj/Utils.parseFloat:(Ljava/lang/String;)F
+     306: fstore        4
+     308: aload_0
+     309: fload         4
+     311: invokestatic  #211                // Method java/lang/Float.valueOf:(F)Ljava/lang/Float;
+     314: invokeinterface #220,  2          // InterfaceMethod org/mtr/libraries/de/javagl/obj/Mtl.setSharpness:(Ljava/lang/Float;)V
+     319: goto          742
+     322: aload_3
+     323: ldc           #222                // String d
+     325: invokevirtual #154                // Method java/lang/String.equalsIgnoreCase:(Ljava/lang/String;)Z
+     328: ifeq          397
+     331: aload_2
+     332: invokeinterface #225,  1          // InterfaceMethod java/util/Queue.peek:()Ljava/lang/Object;
+     337: checkcast     #53                 // class java/lang/String
+     340: astore        4
+     342: ldc           #227                // String -halo
+     344: aload         4
+     346: invokevirtual #230                // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+     349: ifeq          369
+     352: aload_0
+     353: iconst_1
+     354: invokestatic  #235                // Method java/lang/Boolean.valueOf:(Z)Ljava/lang/Boolean;
+     357: invokeinterface #239,  2          // InterfaceMethod org/mtr/libraries/de/javagl/obj/Mtl.setHalo:(Ljava/lang/Boolean;)V
+     362: aload_2
+     363: invokeinterface #149,  1          // InterfaceMethod java/util/Queue.poll:()Ljava/lang/Object;
+     368: pop
+     369: aload_2
+     370: invokeinterface #149,  1          // InterfaceMethod java/util/Queue.poll:()Ljava/lang/Object;
+     375: checkcast     #53                 // class java/lang/String
+     378: invokestatic  #206                // Method org/mtr/libraries/de/javagl/obj/Utils.parseFloat:(Ljava/lang/String;)F
+     381: fstore        5
+     383: aload_0
+     384: fload         5
+     386: invokestatic  #211                // Method java/lang/Float.valueOf:(F)Ljava/lang/Float;
+     389: invokeinterface #215,  2          // InterfaceMethod org/mtr/libraries/de/javagl/obj/Mtl.setD:(Ljava/lang/Float;)V
+     394: goto          742
+     397: aload_3
+     398: ldc           #241                // String Ni
+     400: invokevirtual #154                // Method java/lang/String.equalsIgnoreCase:(Ljava/lang/String;)Z
+     403: ifeq          434
+     406: aload_2
+     407: invokeinterface #149,  1          // InterfaceMethod java/util/Queue.poll:()Ljava/lang/Object;
+     412: checkcast     #53                 // class java/lang/String
+     415: invokestatic  #206                // Method org/mtr/libraries/de/javagl/obj/Utils.parseFloat:(Ljava/lang/String;)F
+     418: fstore        4
+     420: aload_0
+     421: fload         4
+     423: invokestatic  #211                // Method java/lang/Float.valueOf:(F)Ljava/lang/Float;
+     426: invokeinterface #244,  2          // InterfaceMethod org/mtr/libraries/de/javagl/obj/Mtl.setNi:(Ljava/lang/Float;)V
+     431: goto          742
+     434: aload_3
+     435: ldc           #246                // String Ns
+     437: invokevirtual #154                // Method java/lang/String.equalsIgnoreCase:(Ljava/lang/String;)Z
+     440: ifeq          471
+     443: aload_2
+     444: invokeinterface #149,  1          // InterfaceMethod java/util/Queue.poll:()Ljava/lang/Object;
+     449: checkcast     #53                 // class java/lang/String
+     452: invokestatic  #206                // Method org/mtr/libraries/de/javagl/obj/Utils.parseFloat:(Ljava/lang/String;)F
+     455: fstore        4
+     457: aload_0
+     458: fload         4
+     460: invokestatic  #211                // Method java/lang/Float.valueOf:(F)Ljava/lang/Float;
+     463: invokeinterface #249,  2          // InterfaceMethod org/mtr/libraries/de/javagl/obj/Mtl.setNs:(Ljava/lang/Float;)V
+     468: goto          742
+     471: aload_3
+     472: ldc           #251                // String Pr
+     474: invokevirtual #154                // Method java/lang/String.equalsIgnoreCase:(Ljava/lang/String;)Z
+     477: ifeq          508
+     480: aload_2
+     481: invokeinterface #149,  1          // InterfaceMethod java/util/Queue.poll:()Ljava/lang/Object;
+     486: checkcast     #53                 // class java/lang/String
+     489: invokestatic  #206                // Method org/mtr/libraries/de/javagl/obj/Utils.parseFloat:(Ljava/lang/String;)F
+     492: fstore        4
+     494: aload_0
+     495: fload         4
+     497: invokestatic  #211                // Method java/lang/Float.valueOf:(F)Ljava/lang/Float;
+     500: invokeinterface #254,  2          // InterfaceMethod org/mtr/libraries/de/javagl/obj/Mtl.setPr:(Ljava/lang/Float;)V
+     505: goto          742
+     508: aload_3
+     509: ldc_w         #256                // String Pm
+     512: invokevirtual #154                // Method java/lang/String.equalsIgnoreCase:(Ljava/lang/String;)Z
+     515: ifeq          546
+     518: aload_2
+     519: invokeinterface #149,  1          // InterfaceMethod java/util/Queue.poll:()Ljava/lang/Object;
+     524: checkcast     #53                 // class java/lang/String
+     527: invokestatic  #206                // Method org/mtr/libraries/de/javagl/obj/Utils.parseFloat:(Ljava/lang/String;)F
+     530: fstore        4
+     532: aload_0
+     533: fload         4
+     535: invokestatic  #211                // Method java/lang/Float.valueOf:(F)Ljava/lang/Float;
+     538: invokeinterface #259,  2          // InterfaceMethod org/mtr/libraries/de/javagl/obj/Mtl.setPm:(Ljava/lang/Float;)V
+     543: goto          742
+     546: aload_3
+     547: ldc_w         #261                // String Ps
+     550: invokevirtual #154                // Method java/lang/String.equalsIgnoreCase:(Ljava/lang/String;)Z
+     553: ifeq          584
+     556: aload_2
+     557: invokeinterface #149,  1          // InterfaceMethod java/util/Queue.poll:()Ljava/lang/Object;
+     562: checkcast     #53                 // class java/lang/String
+     565: invokestatic  #206                // Method org/mtr/libraries/de/javagl/obj/Utils.parseFloat:(Ljava/lang/String;)F
+     568: fstore        4
+     570: aload_0
+     571: fload         4
+     573: invokestatic  #211                // Method java/lang/Float.valueOf:(F)Ljava/lang/Float;
+     576: invokeinterface #264,  2          // InterfaceMethod org/mtr/libraries/de/javagl/obj/Mtl.setPs:(Ljava/lang/Float;)V
+     581: goto          742
+     584: aload_3
+     585: ldc_w         #266                // String Pc
+     588: invokevirtual #154                // Method java/lang/String.equalsIgnoreCase:(Ljava/lang/String;)Z
+     591: ifeq          622
+     594: aload_2
+     595: invokeinterface #149,  1          // InterfaceMethod java/util/Queue.poll:()Ljava/lang/Object;
+     600: checkcast     #53                 // class java/lang/String
+     603: invokestatic  #206                // Method org/mtr/libraries/de/javagl/obj/Utils.parseFloat:(Ljava/lang/String;)F
+     606: fstore        4
+     608: aload_0
+     609: fload         4
+     611: invokestatic  #211                // Method java/lang/Float.valueOf:(F)Ljava/lang/Float;
+     614: invokeinterface #269,  2          // InterfaceMethod org/mtr/libraries/de/javagl/obj/Mtl.setPc:(Ljava/lang/Float;)V
+     619: goto          742
+     622: aload_3
+     623: ldc_w         #271                // String Pcr
+     626: invokevirtual #154                // Method java/lang/String.equalsIgnoreCase:(Ljava/lang/String;)Z
+     629: ifeq          660
+     632: aload_2
+     633: invokeinterface #149,  1          // InterfaceMethod java/util/Queue.poll:()Ljava/lang/Object;
+     638: checkcast     #53                 // class java/lang/String
+     641: invokestatic  #206                // Method org/mtr/libraries/de/javagl/obj/Utils.parseFloat:(Ljava/lang/String;)F
+     644: fstore        4
+     646: aload_0
+     647: fload         4
+     649: invokestatic  #211                // Method java/lang/Float.valueOf:(F)Ljava/lang/Float;
+     652: invokeinterface #274,  2          // InterfaceMethod org/mtr/libraries/de/javagl/obj/Mtl.setPcr:(Ljava/lang/Float;)V
+     657: goto          742
+     660: aload_3
+     661: ldc_w         #276                // String aniso
+     664: invokevirtual #154                // Method java/lang/String.equalsIgnoreCase:(Ljava/lang/String;)Z
+     667: ifeq          698
+     670: aload_2
+     671: invokeinterface #149,  1          // InterfaceMethod java/util/Queue.poll:()Ljava/lang/Object;
+     676: checkcast     #53                 // class java/lang/String
+     679: invokestatic  #206                // Method org/mtr/libraries/de/javagl/obj/Utils.parseFloat:(Ljava/lang/String;)F
+     682: fstore        4
+     684: aload_0
+     685: fload         4
+     687: invokestatic  #211                // Method java/lang/Float.valueOf:(F)Ljava/lang/Float;
+     690: invokeinterface #279,  2          // InterfaceMethod org/mtr/libraries/de/javagl/obj/Mtl.setAniso:(Ljava/lang/Float;)V
+     695: goto          742
+     698: aload_3
+     699: ldc_w         #281                // String anisor
+     702: invokevirtual #154                // Method java/lang/String.equalsIgnoreCase:(Ljava/lang/String;)Z
+     705: ifeq          736
+     708: aload_2
+     709: invokeinterface #149,  1          // InterfaceMethod java/util/Queue.poll:()Ljava/lang/Object;
+     714: checkcast     #53                 // class java/lang/String
+     717: invokestatic  #206                // Method org/mtr/libraries/de/javagl/obj/Utils.parseFloat:(Ljava/lang/String;)F
+     720: fstore        4
+     722: aload_0
+     723: fload         4
+     725: invokestatic  #211                // Method java/lang/Float.valueOf:(F)Ljava/lang/Float;
+     728: invokeinterface #284,  2          // InterfaceMethod org/mtr/libraries/de/javagl/obj/Mtl.setAnisor:(Ljava/lang/Float;)V
+     733: goto          742
+     736: aload_0
+     737: aload_3
+     738: aload_2
+     739: invokestatic  #288                // Method readTextureMap:(Lorg/mtr/libraries/de/javagl/obj/Mtl;Ljava/lang/String;Ljava/util/Queue;)V
+     742: return
+
+  private static void readTextureMap(org.mtr.libraries.de.javagl.obj.Mtl, java.lang.String, java.util.Queue<java.lang.String>) throws java.io.IOException;
+    Code:
+       0: aload_1
+       1: ldc_w         #302                // String map_Ka
+       4: invokevirtual #154                // Method java/lang/String.equalsIgnoreCase:(Ljava/lang/String;)Z
+       7: ifeq          23
+      10: aload_0
+      11: aload_2
+      12: invokestatic  #306                // Method readTextureOptions:(Ljava/util/Queue;)Lorg/mtr/libraries/de/javagl/obj/TextureOptions;
+      15: invokeinterface #310,  2          // InterfaceMethod org/mtr/libraries/de/javagl/obj/Mtl.setMapKaOptions:(Lorg/mtr/libraries/de/javagl/obj/TextureOptions;)V
+      20: goto          337
+      23: aload_1
+      24: ldc_w         #312                // String map_Kd
+      27: invokevirtual #154                // Method java/lang/String.equalsIgnoreCase:(Ljava/lang/String;)Z
+      30: ifeq          46
+      33: aload_0
+      34: aload_2
+      35: invokestatic  #306                // Method readTextureOptions:(Ljava/util/Queue;)Lorg/mtr/libraries/de/javagl/obj/TextureOptions;
+      38: invokeinterface #315,  2          // InterfaceMethod org/mtr/libraries/de/javagl/obj/Mtl.setMapKdOptions:(Lorg/mtr/libraries/de/javagl/obj/TextureOptions;)V
+      43: goto          337
+      46: aload_1
+      47: ldc_w         #317                // String map_Ks
+      50: invokevirtual #154                // Method java/lang/String.equalsIgnoreCase:(Ljava/lang/String;)Z
+      53: ifeq          69
+      56: aload_0
+      57: aload_2
+      58: invokestatic  #306                // Method readTextureOptions:(Ljava/util/Queue;)Lorg/mtr/libraries/de/javagl/obj/TextureOptions;
+      61: invokeinterface #320,  2          // InterfaceMethod org/mtr/libraries/de/javagl/obj/Mtl.setMapKsOptions:(Lorg/mtr/libraries/de/javagl/obj/TextureOptions;)V
+      66: goto          337
+      69: aload_1
+      70: ldc_w         #322                // String map_d
+      73: invokevirtual #154                // Method java/lang/String.equalsIgnoreCase:(Ljava/lang/String;)Z
+      76: ifeq          92
+      79: aload_0
+      80: aload_2
+      81: invokestatic  #306                // Method readTextureOptions:(Ljava/util/Queue;)Lorg/mtr/libraries/de/javagl/obj/TextureOptions;
+      84: invokeinterface #325,  2          // InterfaceMethod org/mtr/libraries/de/javagl/obj/Mtl.setMapDOptions:(Lorg/mtr/libraries/de/javagl/obj/TextureOptions;)V
+      89: goto          337
+      92: aload_1
+      93: ldc_w         #327                // String map_Ns
+      96: invokevirtual #154                // Method java/lang/String.equalsIgnoreCase:(Ljava/lang/String;)Z
+      99: ifeq          115
+     102: aload_0
+     103: aload_2
+     104: invokestatic  #306                // Method readTextureOptions:(Ljava/util/Queue;)Lorg/mtr/libraries/de/javagl/obj/TextureOptions;
+     107: invokeinterface #330,  2          // InterfaceMethod org/mtr/libraries/de/javagl/obj/Mtl.setMapNsOptions:(Lorg/mtr/libraries/de/javagl/obj/TextureOptions;)V
+     112: goto          337
+     115: aload_1
+     116: ldc_w         #332                // String bump
+     119: invokevirtual #154                // Method java/lang/String.equalsIgnoreCase:(Ljava/lang/String;)Z
+     122: ifne          135
+     125: aload_1
+     126: ldc_w         #334                // String map_bump
+     129: invokevirtual #154                // Method java/lang/String.equalsIgnoreCase:(Ljava/lang/String;)Z
+     132: ifeq          148
+     135: aload_0
+     136: aload_2
+     137: invokestatic  #306                // Method readTextureOptions:(Ljava/util/Queue;)Lorg/mtr/libraries/de/javagl/obj/TextureOptions;
+     140: invokeinterface #337,  2          // InterfaceMethod org/mtr/libraries/de/javagl/obj/Mtl.setBumpOptions:(Lorg/mtr/libraries/de/javagl/obj/TextureOptions;)V
+     145: goto          337
+     148: aload_1
+     149: ldc_w         #339                // String disp
+     152: invokevirtual #154                // Method java/lang/String.equalsIgnoreCase:(Ljava/lang/String;)Z
+     155: ifeq          171
+     158: aload_0
+     159: aload_2
+     160: invokestatic  #306                // Method readTextureOptions:(Ljava/util/Queue;)Lorg/mtr/libraries/de/javagl/obj/TextureOptions;
+     163: invokeinterface #342,  2          // InterfaceMethod org/mtr/libraries/de/javagl/obj/Mtl.setDispOptions:(Lorg/mtr/libraries/de/javagl/obj/TextureOptions;)V
+     168: goto          337
+     171: aload_1
+     172: ldc_w         #344                // String decal
+     175: invokevirtual #154                // Method java/lang/String.equalsIgnoreCase:(Ljava/lang/String;)Z
+     178: ifeq          194
+     181: aload_0
+     182: aload_2
+     183: invokestatic  #306                // Method readTextureOptions:(Ljava/util/Queue;)Lorg/mtr/libraries/de/javagl/obj/TextureOptions;
+     186: invokeinterface #347,  2          // InterfaceMethod org/mtr/libraries/de/javagl/obj/Mtl.setDecalOptions:(Lorg/mtr/libraries/de/javagl/obj/TextureOptions;)V
+     191: goto          337
+     194: aload_1
+     195: ldc_w         #349                // String refl
+     198: invokevirtual #154                // Method java/lang/String.equalsIgnoreCase:(Ljava/lang/String;)Z
+     201: ifeq          225
+     204: aload_2
+     205: invokestatic  #306                // Method readTextureOptions:(Ljava/util/Queue;)Lorg/mtr/libraries/de/javagl/obj/TextureOptions;
+     208: astore_3
+     209: aload_0
+     210: invokeinterface #353,  1          // InterfaceMethod org/mtr/libraries/de/javagl/obj/Mtl.getReflOptions:()Ljava/util/List;
+     215: aload_3
+     216: invokeinterface #99,  2           // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+     221: pop
+     222: goto          337
+     225: aload_1
+     226: ldc_w         #355                // String map_Pr
+     229: invokevirtual #154                // Method java/lang/String.equalsIgnoreCase:(Ljava/lang/String;)Z
+     232: ifeq          248
+     235: aload_0
+     236: aload_2
+     237: invokestatic  #306                // Method readTextureOptions:(Ljava/util/Queue;)Lorg/mtr/libraries/de/javagl/obj/TextureOptions;
+     240: invokeinterface #358,  2          // InterfaceMethod org/mtr/libraries/de/javagl/obj/Mtl.setMapPrOptions:(Lorg/mtr/libraries/de/javagl/obj/TextureOptions;)V
+     245: goto          337
+     248: aload_1
+     249: ldc_w         #360                // String map_Pm
+     252: invokevirtual #154                // Method java/lang/String.equalsIgnoreCase:(Ljava/lang/String;)Z
+     255: ifeq          271
+     258: aload_0
+     259: aload_2
+     260: invokestatic  #306                // Method readTextureOptions:(Ljava/util/Queue;)Lorg/mtr/libraries/de/javagl/obj/TextureOptions;
+     263: invokeinterface #363,  2          // InterfaceMethod org/mtr/libraries/de/javagl/obj/Mtl.setMapPmOptions:(Lorg/mtr/libraries/de/javagl/obj/TextureOptions;)V
+     268: goto          337
+     271: aload_1
+     272: ldc_w         #365                // String map_Ps
+     275: invokevirtual #154                // Method java/lang/String.equalsIgnoreCase:(Ljava/lang/String;)Z
+     278: ifeq          294
+     281: aload_0
+     282: aload_2
+     283: invokestatic  #306                // Method readTextureOptions:(Ljava/util/Queue;)Lorg/mtr/libraries/de/javagl/obj/TextureOptions;
+     286: invokeinterface #368,  2          // InterfaceMethod org/mtr/libraries/de/javagl/obj/Mtl.setMapPsOptions:(Lorg/mtr/libraries/de/javagl/obj/TextureOptions;)V
+     291: goto          337
+     294: aload_1
+     295: ldc_w         #370                // String map_Ke
+     298: invokevirtual #154                // Method java/lang/String.equalsIgnoreCase:(Ljava/lang/String;)Z
+     301: ifeq          317
+     304: aload_0
+     305: aload_2
+     306: invokestatic  #306                // Method readTextureOptions:(Ljava/util/Queue;)Lorg/mtr/libraries/de/javagl/obj/TextureOptions;
+     309: invokeinterface #373,  2          // InterfaceMethod org/mtr/libraries/de/javagl/obj/Mtl.setMapKeOptions:(Lorg/mtr/libraries/de/javagl/obj/TextureOptions;)V
+     314: goto          337
+     317: aload_1
+     318: ldc_w         #375                // String norm
+     321: invokevirtual #154                // Method java/lang/String.equalsIgnoreCase:(Ljava/lang/String;)Z
+     324: ifeq          337
+     327: aload_0
+     328: aload_2
+     329: invokestatic  #306                // Method readTextureOptions:(Ljava/util/Queue;)Lorg/mtr/libraries/de/javagl/obj/TextureOptions;
+     332: invokeinterface #378,  2          // InterfaceMethod org/mtr/libraries/de/javagl/obj/Mtl.setNormOptions:(Lorg/mtr/libraries/de/javagl/obj/TextureOptions;)V
+     337: return
+
+  static org.mtr.libraries.de.javagl.obj.TextureOptions readTextureOptions(java.util.Queue<java.lang.String>) throws java.io.IOException;
+    Code:
+       0: new           #382                // class org/mtr/libraries/de/javagl/obj/DefaultTextureOptions
+       3: dup
+       4: invokespecial #383                // Method org/mtr/libraries/de/javagl/obj/DefaultTextureOptions."<init>":()V
+       7: astore_1
+       8: aload_0
+       9: invokeinterface #384,  1          // InterfaceMethod java/util/Queue.isEmpty:()Z
+      14: ifne          478
+      17: aload_0
+      18: invokeinterface #149,  1          // InterfaceMethod java/util/Queue.poll:()Ljava/lang/Object;
+      23: checkcast     #53                 // class java/lang/String
+      26: astore_2
+      27: aload_2
+      28: ldc_w         #386                // String -blendu
+      31: invokevirtual #154                // Method java/lang/String.equalsIgnoreCase:(Ljava/lang/String;)Z
+      34: ifeq          61
+      37: aload_0
+      38: invokeinterface #149,  1          // InterfaceMethod java/util/Queue.poll:()Ljava/lang/Object;
+      43: checkcast     #53                 // class java/lang/String
+      46: invokestatic  #389                // Method org/mtr/libraries/de/javagl/obj/Utils.parseBoolean:(Ljava/lang/String;)Z
+      49: istore_3
+      50: aload_1
+      51: iload_3
+      52: invokestatic  #235                // Method java/lang/Boolean.valueOf:(Z)Ljava/lang/Boolean;
+      55: invokevirtual #392                // Method org/mtr/libraries/de/javagl/obj/DefaultTextureOptions.setBlendu:(Ljava/lang/Boolean;)V
+      58: goto          475
+      61: aload_2
+      62: ldc_w         #394                // String -blendv
+      65: invokevirtual #154                // Method java/lang/String.equalsIgnoreCase:(Ljava/lang/String;)Z
+      68: ifeq          95
+      71: aload_0
+      72: invokeinterface #149,  1          // InterfaceMethod java/util/Queue.poll:()Ljava/lang/Object;
+      77: checkcast     #53                 // class java/lang/String
+      80: invokestatic  #389                // Method org/mtr/libraries/de/javagl/obj/Utils.parseBoolean:(Ljava/lang/String;)Z
+      83: istore_3
+      84: aload_1
+      85: iload_3
+      86: invokestatic  #235                // Method java/lang/Boolean.valueOf:(Z)Ljava/lang/Boolean;
+      89: invokevirtual #397                // Method org/mtr/libraries/de/javagl/obj/DefaultTextureOptions.setBlendv:(Ljava/lang/Boolean;)V
+      92: goto          475
+      95: aload_2
+      96: ldc_w         #399                // String -boost
+      99: invokevirtual #154                // Method java/lang/String.equalsIgnoreCase:(Ljava/lang/String;)Z
+     102: ifeq          129
+     105: aload_0
+     106: invokeinterface #149,  1          // InterfaceMethod java/util/Queue.poll:()Ljava/lang/Object;
+     111: checkcast     #53                 // class java/lang/String
+     114: invokestatic  #206                // Method org/mtr/libraries/de/javagl/obj/Utils.parseFloat:(Ljava/lang/String;)F
+     117: fstore_3
+     118: aload_1
+     119: fload_3
+     120: invokestatic  #211                // Method java/lang/Float.valueOf:(F)Ljava/lang/Float;
+     123: invokevirtual #402                // Method org/mtr/libraries/de/javagl/obj/DefaultTextureOptions.setBoost:(Ljava/lang/Float;)V
+     126: goto          475
+     129: aload_2
+     130: ldc_w         #404                // String -cc
+     133: invokevirtual #154                // Method java/lang/String.equalsIgnoreCase:(Ljava/lang/String;)Z
+     136: ifeq          163
+     139: aload_0
+     140: invokeinterface #149,  1          // InterfaceMethod java/util/Queue.poll:()Ljava/lang/Object;
+     145: checkcast     #53                 // class java/lang/String
+     148: invokestatic  #389                // Method org/mtr/libraries/de/javagl/obj/Utils.parseBoolean:(Ljava/lang/String;)Z
+     151: istore_3
+     152: aload_1
+     153: iload_3
+     154: invokestatic  #235                // Method java/lang/Boolean.valueOf:(Z)Ljava/lang/Boolean;
+     157: invokevirtual #407                // Method org/mtr/libraries/de/javagl/obj/DefaultTextureOptions.setCc:(Ljava/lang/Boolean;)V
+     160: goto          475
+     163: aload_2
+     164: ldc_w         #409                // String -mm
+     167: invokevirtual #154                // Method java/lang/String.equalsIgnoreCase:(Ljava/lang/String;)Z
+     170: ifeq          216
+     173: aload_0
+     174: invokeinterface #149,  1          // InterfaceMethod java/util/Queue.poll:()Ljava/lang/Object;
+     179: checkcast     #53                 // class java/lang/String
+     182: invokestatic  #206                // Method org/mtr/libraries/de/javagl/obj/Utils.parseFloat:(Ljava/lang/String;)F
+     185: fstore_3
+     186: aload_0
+     187: invokeinterface #149,  1          // InterfaceMethod java/util/Queue.poll:()Ljava/lang/Object;
+     192: checkcast     #53                 // class java/lang/String
+     195: invokestatic  #206                // Method org/mtr/libraries/de/javagl/obj/Utils.parseFloat:(Ljava/lang/String;)F
+     198: fstore        4
+     200: aload_1
+     201: fload_3
+     202: invokestatic  #211                // Method java/lang/Float.valueOf:(F)Ljava/lang/Float;
+     205: fload         4
+     207: invokestatic  #211                // Method java/lang/Float.valueOf:(F)Ljava/lang/Float;
+     210: invokevirtual #413                // Method org/mtr/libraries/de/javagl/obj/DefaultTextureOptions.setMm:(Ljava/lang/Float;Ljava/lang/Float;)V
+     213: goto          475
+     216: aload_2
+     217: ldc_w         #415                // String -o
+     220: invokevirtual #154                // Method java/lang/String.equalsIgnoreCase:(Ljava/lang/String;)Z
+     223: ifeq          248
+     226: aload_0
+     227: iconst_3
+     228: invokestatic  #176                // Method org/mtr/libraries/de/javagl/obj/Utils.parseFloats:(Ljava/util/Queue;I)[Ljava/lang/Float;
+     231: astore_3
+     232: aload_1
+     233: aload_3
+     234: iconst_0
+     235: aaload
+     236: aload_3
+     237: iconst_1
+     238: aaload
+     239: aload_3
+     240: iconst_2
+     241: aaload
+     242: invokevirtual #418                // Method org/mtr/libraries/de/javagl/obj/DefaultTextureOptions.setO:(Ljava/lang/Float;Ljava/lang/Float;Ljava/lang/Float;)V
+     245: goto          475
+     248: aload_2
+     249: ldc_w         #420                // String -s
+     252: invokevirtual #154                // Method java/lang/String.equalsIgnoreCase:(Ljava/lang/String;)Z
+     255: ifeq          280
+     258: aload_0
+     259: iconst_3
+     260: invokestatic  #176                // Method org/mtr/libraries/de/javagl/obj/Utils.parseFloats:(Ljava/util/Queue;I)[Ljava/lang/Float;
+     263: astore_3
+     264: aload_1
+     265: aload_3
+     266: iconst_0
+     267: aaload
+     268: aload_3
+     269: iconst_1
+     270: aaload
+     271: aload_3
+     272: iconst_2
+     273: aaload
+     274: invokevirtual #423                // Method org/mtr/libraries/de/javagl/obj/DefaultTextureOptions.setS:(Ljava/lang/Float;Ljava/lang/Float;Ljava/lang/Float;)V
+     277: goto          475
+     280: aload_2
+     281: ldc_w         #425                // String -t
+     284: invokevirtual #154                // Method java/lang/String.equalsIgnoreCase:(Ljava/lang/String;)Z
+     287: ifeq          312
+     290: aload_0
+     291: iconst_3
+     292: invokestatic  #176                // Method org/mtr/libraries/de/javagl/obj/Utils.parseFloats:(Ljava/util/Queue;I)[Ljava/lang/Float;
+     295: astore_3
+     296: aload_1
+     297: aload_3
+     298: iconst_0
+     299: aaload
+     300: aload_3
+     301: iconst_1
+     302: aaload
+     303: aload_3
+     304: iconst_2
+     305: aaload
+     306: invokevirtual #428                // Method org/mtr/libraries/de/javagl/obj/DefaultTextureOptions.setT:(Ljava/lang/Float;Ljava/lang/Float;Ljava/lang/Float;)V
+     309: goto          475
+     312: aload_2
+     313: ldc_w         #430                // String -texres
+     316: invokevirtual #154                // Method java/lang/String.equalsIgnoreCase:(Ljava/lang/String;)Z
+     319: ifeq          346
+     322: aload_0
+     323: invokeinterface #149,  1          // InterfaceMethod java/util/Queue.poll:()Ljava/lang/Object;
+     328: checkcast     #53                 // class java/lang/String
+     331: invokestatic  #206                // Method org/mtr/libraries/de/javagl/obj/Utils.parseFloat:(Ljava/lang/String;)F
+     334: fstore_3
+     335: aload_1
+     336: fload_3
+     337: invokestatic  #211                // Method java/lang/Float.valueOf:(F)Ljava/lang/Float;
+     340: invokevirtual #433                // Method org/mtr/libraries/de/javagl/obj/DefaultTextureOptions.setTexres:(Ljava/lang/Float;)V
+     343: goto          475
+     346: aload_2
+     347: ldc_w         #435                // String -clamp
+     350: invokevirtual #154                // Method java/lang/String.equalsIgnoreCase:(Ljava/lang/String;)Z
+     353: ifeq          380
+     356: aload_0
+     357: invokeinterface #149,  1          // InterfaceMethod java/util/Queue.poll:()Ljava/lang/Object;
+     362: checkcast     #53                 // class java/lang/String
+     365: invokestatic  #389                // Method org/mtr/libraries/de/javagl/obj/Utils.parseBoolean:(Ljava/lang/String;)Z
+     368: istore_3
+     369: aload_1
+     370: iload_3
+     371: invokestatic  #235                // Method java/lang/Boolean.valueOf:(Z)Ljava/lang/Boolean;
+     374: invokevirtual #438                // Method org/mtr/libraries/de/javagl/obj/DefaultTextureOptions.setClamp:(Ljava/lang/Boolean;)V
+     377: goto          475
+     380: aload_2
+     381: ldc_w         #440                // String -bm
+     384: invokevirtual #154                // Method java/lang/String.equalsIgnoreCase:(Ljava/lang/String;)Z
+     387: ifeq          414
+     390: aload_0
+     391: invokeinterface #149,  1          // InterfaceMethod java/util/Queue.poll:()Ljava/lang/Object;
+     396: checkcast     #53                 // class java/lang/String
+     399: invokestatic  #206                // Method org/mtr/libraries/de/javagl/obj/Utils.parseFloat:(Ljava/lang/String;)F
+     402: fstore_3
+     403: aload_1
+     404: fload_3
+     405: invokestatic  #211                // Method java/lang/Float.valueOf:(F)Ljava/lang/Float;
+     408: invokevirtual #443                // Method org/mtr/libraries/de/javagl/obj/DefaultTextureOptions.setBm:(Ljava/lang/Float;)V
+     411: goto          475
+     414: aload_2
+     415: ldc_w         #445                // String -imfchan
+     418: invokevirtual #154                // Method java/lang/String.equalsIgnoreCase:(Ljava/lang/String;)Z
+     421: ifeq          442
+     424: aload_0
+     425: invokeinterface #149,  1          // InterfaceMethod java/util/Queue.poll:()Ljava/lang/Object;
+     430: checkcast     #53                 // class java/lang/String
+     433: astore_3
+     434: aload_1
+     435: aload_3
+     436: invokevirtual #448                // Method org/mtr/libraries/de/javagl/obj/DefaultTextureOptions.setImfchan:(Ljava/lang/String;)V
+     439: goto          475
+     442: aload_2
+     443: ldc_w         #450                // String -type
+     446: invokevirtual #154                // Method java/lang/String.equalsIgnoreCase:(Ljava/lang/String;)Z
+     449: ifeq          470
+     452: aload_0
+     453: invokeinterface #149,  1          // InterfaceMethod java/util/Queue.poll:()Ljava/lang/Object;
+     458: checkcast     #53                 // class java/lang/String
+     461: astore_3
+     462: aload_1
+     463: aload_3
+     464: invokevirtual #453                // Method org/mtr/libraries/de/javagl/obj/DefaultTextureOptions.setType:(Ljava/lang/String;)V
+     467: goto          475
+     470: aload_1
+     471: aload_2
+     472: invokevirtual #456                // Method org/mtr/libraries/de/javagl/obj/DefaultTextureOptions.setFileName:(Ljava/lang/String;)V
+     475: goto          8
+     478: aload_1
+     479: areturn
+
+  private org.mtr.libraries.de.javagl.obj.MtlReader();
+    Code:
+       0: aload_0
+       1: invokespecial #462                // Method java/lang/Object."<init>":()V
+       4: return
+}

@@ -1,0 +1,81 @@
+{
+  "timestamp": "2026-11-15T03:54:01.443574+08:00",
+  "scope": "Read-only analysis of actual official-target Mixin library; no v6 runtime validation",
+  "library": {
+    "path": "C:\\Users\\ben_l\\.gradle\\caches\\modules-2\\files-2.1\\net.fabricmc\\sponge-mixin\\0.15.2+mixin.0.8.7\\2af2f021d8e02a0220dc27a7a72b4666d66d44ca\\sponge-mixin-0.15.2+mixin.0.8.7.jar",
+    "artifact": "sponge-mixin-0.15.2+mixin.0.8.7.jar",
+    "sha256": "1d45cfe3ae4a2eab38dc74276803748cf799088986260d6d912e50ddb35d15c5"
+  },
+  "javap": {
+    "path": "C:\\Users\\ben_l\\.gradle\\jdks\\eclipse_adoptium-21-amd64-windows.2\\bin\\javap.exe",
+    "sha256": "94b438f6c8712334d4363252bba751e30a01576da90cc49898d19a87f2b09cf6"
+  },
+  "commands": [
+    [
+      "C:\\Users\\ben_l\\.gradle\\jdks\\eclipse_adoptium-21-amd64-windows.2\\bin\\javap.exe",
+      "-p",
+      "-c",
+      "-classpath",
+      "C:\\Users\\ben_l\\.gradle\\caches\\modules-2\\files-2.1\\net.fabricmc\\sponge-mixin\\0.15.2+mixin.0.8.7\\2af2f021d8e02a0220dc27a7a72b4666d66d44ca\\sponge-mixin-0.15.2+mixin.0.8.7.jar",
+      "org.spongepowered.asm.mixin.transformer.MixinProcessor"
+    ],
+    [
+      "C:\\Users\\ben_l\\.gradle\\jdks\\eclipse_adoptium-21-amd64-windows.2\\bin\\javap.exe",
+      "-p",
+      "-c",
+      "-classpath",
+      "C:\\Users\\ben_l\\.gradle\\caches\\modules-2\\files-2.1\\net.fabricmc\\sponge-mixin\\0.15.2+mixin.0.8.7\\2af2f021d8e02a0220dc27a7a72b4666d66d44ca\\sponge-mixin-0.15.2+mixin.0.8.7.jar",
+      "org.spongepowered.asm.mixin.transformer.MixinConfig"
+    ],
+    [
+      "C:\\Users\\ben_l\\.gradle\\jdks\\eclipse_adoptium-21-amd64-windows.2\\bin\\javap.exe",
+      "-p",
+      "-c",
+      "-classpath",
+      "C:\\Users\\ben_l\\.gradle\\caches\\modules-2\\files-2.1\\net.fabricmc\\sponge-mixin\\0.15.2+mixin.0.8.7\\2af2f021d8e02a0220dc27a7a72b4666d66d44ca\\sponge-mixin-0.15.2+mixin.0.8.7.jar",
+      "org.spongepowered.asm.launch.MixinInitialisationError"
+    ],
+    [
+      "C:\\Users\\ben_l\\.gradle\\jdks\\eclipse_adoptium-21-amd64-windows.2\\bin\\javap.exe",
+      "-p",
+      "-c",
+      "-classpath",
+      "C:\\Users\\ben_l\\.gradle\\caches\\modules-2\\files-2.1\\net.fabricmc\\sponge-mixin\\0.15.2+mixin.0.8.7\\2af2f021d8e02a0220dc27a7a72b4666d66d44ca\\sponge-mixin-0.15.2+mixin.0.8.7.jar",
+      "org.spongepowered.asm.mixin.throwables.MixinError"
+    ]
+  ],
+  "observations": [
+    {
+      "class": "org.spongepowered.asm.mixin.transformer.MixinProcessor",
+      "method": "selectConfigs(MixinEnvironment)",
+      "evidence": "selectConfigs.javap.txt",
+      "finding": "onSelect call is within catch java.lang.Exception; caught exceptions warn and continue, without a required-config fatal check in this catch"
+    },
+    {
+      "class": "org.spongepowered.asm.mixin.transformer.MixinConfig",
+      "method": "checkVersion()",
+      "evidence": "checkVersion.javap.txt",
+      "finding": "Required minimum version failure constructs and throws standard MixinInitialisationError"
+    },
+    {
+      "class": "org.spongepowered.asm.mixin.transformer.MixinConfig",
+      "method": "checkFeatures()",
+      "evidence": "checkFeatures.javap.txt",
+      "finding": "Missing features for a required configuration construct and throw standard MixinInitialisationError"
+    },
+    {
+      "class": "org.spongepowered.asm.launch.MixinInitialisationError",
+      "method": "<init>(String, Throwable)",
+      "evidence": "MixinInitialisationError.javap.txt",
+      "finding": "Standard fatal initialisation type preserves original cause and extends MixinError"
+    },
+    {
+      "class": "org.spongepowered.asm.mixin.throwables.MixinError",
+      "method": "class declaration",
+      "evidence": "MixinError.javap.txt",
+      "finding": "Extends java.lang.Error, outside the selectConfigs catch(Exception) boundary"
+    }
+  ],
+  "recommendation": "Use MixinInitialisationError(message, cause) for mandatory audited-binary compatibility initialisation failure, then verify actual wrong-binary nonzero startup failure and matching-binary acceptance",
+  "runtime_result_claimed": false
+}

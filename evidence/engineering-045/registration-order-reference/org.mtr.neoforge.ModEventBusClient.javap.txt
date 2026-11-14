@@ -1,0 +1,151 @@
+Compiled from "ModEventBusClient.java"
+public final class org.mtr.neoforge.ModEventBusClient {
+  public static java.util.function.BiConsumer<net.minecraft.client.multiplayer.ClientLevel, net.minecraft.world.level.chunk.ChunkAccess> chunkLoadConsumer;
+
+  public static java.util.function.BiConsumer<net.minecraft.client.multiplayer.ClientLevel, net.minecraft.world.level.chunk.ChunkAccess> chunkUnloadConsumer;
+
+  public static java.lang.Runnable resourceReloadRunnable;
+
+  public static final org.mtr.libraries.it.unimi.dsi.fastutil.objects.ObjectArrayList<java.lang.Runnable> CLIENT_OBJECTS_TO_REGISTER;
+
+  public static final org.mtr.libraries.it.unimi.dsi.fastutil.objects.ObjectArrayList<java.util.function.Consumer<net.neoforged.neoforge.client.event.EntityRenderersEvent$RegisterRenderers>> BLOCK_ENTITY_RENDERERS;
+
+  public static final org.mtr.libraries.it.unimi.dsi.fastutil.objects.ObjectArrayList<net.minecraft.client.KeyMapping> KEY_BINDINGS;
+
+  public static final org.mtr.libraries.it.unimi.dsi.fastutil.objects.ObjectArrayList<java.util.function.Consumer<net.neoforged.neoforge.client.event.RegisterColorHandlersEvent$Block>> BLOCK_COLORS;
+
+  public org.mtr.neoforge.ModEventBusClient();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: return
+
+  public static void registerClient(net.neoforged.fml.event.lifecycle.FMLClientSetupEvent);
+    Code:
+       0: getstatic     #7                  // Field CLIENT_OBJECTS_TO_REGISTER:Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList;
+       3: invokedynamic #13,  0             // InvokeDynamic #0:accept:()Ljava/util/function/Consumer;
+       8: invokevirtual #17                 // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList.forEach:(Ljava/util/function/Consumer;)V
+      11: return
+
+  public static void chunkLoad(net.neoforged.neoforge.event.level.ChunkEvent$Load);
+    Code:
+       0: getstatic     #23                 // Field chunkLoadConsumer:Ljava/util/function/BiConsumer;
+       3: ifnull        36
+       6: aload_0
+       7: invokevirtual #27                 // Method net/neoforged/neoforge/event/level/ChunkEvent$Load.getLevel:()Lnet/minecraft/world/level/LevelAccessor;
+      10: astore_2
+      11: aload_2
+      12: instanceof    #33                 // class net/minecraft/client/multiplayer/ClientLevel
+      15: ifeq          36
+      18: aload_2
+      19: checkcast     #33                 // class net/minecraft/client/multiplayer/ClientLevel
+      22: astore_1
+      23: getstatic     #23                 // Field chunkLoadConsumer:Ljava/util/function/BiConsumer;
+      26: aload_1
+      27: aload_0
+      28: invokevirtual #35                 // Method net/neoforged/neoforge/event/level/ChunkEvent$Load.getChunk:()Lnet/minecraft/world/level/chunk/ChunkAccess;
+      31: invokeinterface #39,  3           // InterfaceMethod java/util/function/BiConsumer.accept:(Ljava/lang/Object;Ljava/lang/Object;)V
+      36: return
+
+  public static void chunkUnload(net.neoforged.neoforge.event.level.ChunkEvent$Unload);
+    Code:
+       0: getstatic     #44                 // Field chunkUnloadConsumer:Ljava/util/function/BiConsumer;
+       3: ifnull        36
+       6: aload_0
+       7: invokevirtual #47                 // Method net/neoforged/neoforge/event/level/ChunkEvent$Unload.getLevel:()Lnet/minecraft/world/level/LevelAccessor;
+      10: astore_2
+      11: aload_2
+      12: instanceof    #33                 // class net/minecraft/client/multiplayer/ClientLevel
+      15: ifeq          36
+      18: aload_2
+      19: checkcast     #33                 // class net/minecraft/client/multiplayer/ClientLevel
+      22: astore_1
+      23: getstatic     #44                 // Field chunkUnloadConsumer:Ljava/util/function/BiConsumer;
+      26: aload_1
+      27: aload_0
+      28: invokevirtual #50                 // Method net/neoforged/neoforge/event/level/ChunkEvent$Unload.getChunk:()Lnet/minecraft/world/level/chunk/ChunkAccess;
+      31: invokeinterface #39,  3           // InterfaceMethod java/util/function/BiConsumer.accept:(Ljava/lang/Object;Ljava/lang/Object;)V
+      36: return
+
+  public static void registerBlockEntityRenderers(net.neoforged.neoforge.client.event.EntityRenderersEvent$RegisterRenderers);
+    Code:
+       0: getstatic     #51                 // Field BLOCK_ENTITY_RENDERERS:Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList;
+       3: aload_0
+       4: invokedynamic #54,  0             // InvokeDynamic #1:accept:(Lnet/neoforged/neoforge/client/event/EntityRenderersEvent$RegisterRenderers;)Ljava/util/function/Consumer;
+       9: invokevirtual #17                 // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList.forEach:(Ljava/util/function/Consumer;)V
+      12: return
+
+  public static void registerKeyMappings(net.neoforged.neoforge.client.event.RegisterKeyMappingsEvent);
+    Code:
+       0: getstatic     #57                 // Field KEY_BINDINGS:Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList;
+       3: aload_0
+       4: dup
+       5: invokestatic  #60                 // Method java/util/Objects.requireNonNull:(Ljava/lang/Object;)Ljava/lang/Object;
+       8: pop
+       9: invokedynamic #66,  0             // InvokeDynamic #2:accept:(Lnet/neoforged/neoforge/client/event/RegisterKeyMappingsEvent;)Ljava/util/function/Consumer;
+      14: invokevirtual #17                 // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList.forEach:(Ljava/util/function/Consumer;)V
+      17: return
+
+  public static void registerBlockColors(net.neoforged.neoforge.client.event.RegisterColorHandlersEvent$Block);
+    Code:
+       0: getstatic     #69                 // Field BLOCK_COLORS:Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList;
+       3: aload_0
+       4: invokedynamic #72,  0             // InvokeDynamic #3:accept:(Lnet/neoforged/neoforge/client/event/RegisterColorHandlersEvent$Block;)Ljava/util/function/Consumer;
+       9: invokevirtual #17                 // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList.forEach:(Ljava/util/function/Consumer;)V
+      12: return
+
+  public static void resourceReload(net.neoforged.neoforge.client.event.TextureAtlasStitchedEvent);
+    Code:
+       0: getstatic     #75                 // Field resourceReloadRunnable:Ljava/lang/Runnable;
+       3: ifnull        32
+       6: aload_0
+       7: invokevirtual #79                 // Method net/neoforged/neoforge/client/event/TextureAtlasStitchedEvent.getAtlas:()Lnet/minecraft/client/renderer/texture/TextureAtlas;
+      10: invokevirtual #85                 // Method net/minecraft/client/renderer/texture/TextureAtlas.location:()Lnet/minecraft/resources/ResourceLocation;
+      13: invokevirtual #91                 // Method net/minecraft/resources/ResourceLocation.getPath:()Ljava/lang/String;
+      16: ldc           #97                 // String blocks.png
+      18: invokevirtual #99                 // Method java/lang/String.endsWith:(Ljava/lang/String;)Z
+      21: ifeq          32
+      24: getstatic     #75                 // Field resourceReloadRunnable:Ljava/lang/Runnable;
+      27: invokeinterface #105,  1          // InterfaceMethod java/lang/Runnable.run:()V
+      32: return
+
+  private static void lambda$registerBlockColors$1(net.neoforged.neoforge.client.event.RegisterColorHandlersEvent$Block, java.util.function.Consumer);
+    Code:
+       0: aload_1
+       1: aload_0
+       2: invokeinterface #110,  2          // InterfaceMethod java/util/function/Consumer.accept:(Ljava/lang/Object;)V
+       7: return
+
+  private static void lambda$registerBlockEntityRenderers$0(net.neoforged.neoforge.client.event.EntityRenderersEvent$RegisterRenderers, java.util.function.Consumer);
+    Code:
+       0: aload_1
+       1: aload_0
+       2: invokeinterface #110,  2          // InterfaceMethod java/util/function/Consumer.accept:(Ljava/lang/Object;)V
+       7: return
+
+  static {};
+    Code:
+       0: aconst_null
+       1: putstatic     #23                 // Field chunkLoadConsumer:Ljava/util/function/BiConsumer;
+       4: aconst_null
+       5: putstatic     #44                 // Field chunkUnloadConsumer:Ljava/util/function/BiConsumer;
+       8: aconst_null
+       9: putstatic     #75                 // Field resourceReloadRunnable:Ljava/lang/Runnable;
+      12: new           #18                 // class org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList
+      15: dup
+      16: invokespecial #115                // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList."<init>":()V
+      19: putstatic     #7                  // Field CLIENT_OBJECTS_TO_REGISTER:Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList;
+      22: new           #18                 // class org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList
+      25: dup
+      26: invokespecial #115                // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList."<init>":()V
+      29: putstatic     #51                 // Field BLOCK_ENTITY_RENDERERS:Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList;
+      32: new           #18                 // class org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList
+      35: dup
+      36: invokespecial #115                // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList."<init>":()V
+      39: putstatic     #57                 // Field KEY_BINDINGS:Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList;
+      42: new           #18                 // class org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList
+      45: dup
+      46: invokespecial #115                // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList."<init>":()V
+      49: putstatic     #69                 // Field BLOCK_COLORS:Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList;
+      52: return
+}

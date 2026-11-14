@@ -129,7 +129,7 @@ def prepare(args):
                 "artifact": identity, "java": str(java), "java_version": version.stderr,
                 "world": world, "packs": packs, "options_sha256": digest(instance / "options.txt"),
                 "profile": {"username": profile["name"], "uuid": profile["uuid"]},
-                "heap_mib": args.heap_mib, "jfr": args.jfr, "smoke": args.smoke,
+                "heap_mib": args.heap_mib, "jfr": args.jfr, "native_memory_tracking": args.nmt, "smoke": args.smoke,
                 "expected_binary_rejection": args.expect_binary_rejection,
                 "mods": [{"filename": path.name, "sha256": digest(path)} for path in sorted((instance / "mods").glob("*.jar"))],
                 "source_hash": digest(pathlib.Path(__file__))}
@@ -141,6 +141,30 @@ def prepare(args):
     if args.smoke:
         write(instance / "loader-lifecycle-request.json", {"run": str(uuid.uuid4()), "scope": "Actual packaged companion; base resources; no gameplay certification", "faults": args.faults})
     print(json.dumps({"prepared": str(instance), "plan": str(instance / "packaged-client-plan.json")}), flush=True)
+
+
+def jvm_arguments(plan):
+    arguments = ["-Xms512M", f"-Xmx{plan['heap_mib']}M", "-Dmtr.memory.acceptance=true"]
+    if plan["smoke"]:
+        arguments.append("-Dmtr.memory.acceptance.exit=true")
+    if plan.get("native_memory_tracking") is not None:
+        tracking = plan["native_memory_tracking"]
+        if tracking not in ("summary", "detail"):
+            raise ValueError("Unknown frozen native memory tracking mode.")
+        arguments.append("-XX:NativeMemoryTracking=" + tracking)
+    if plan["jfr"]:
+        arguments += ["-XX:StartFlightRecording=name=acceptance,settings=profile,disk=true,dumponexit=true,filename=acceptance.jfr",
+                      "-Xlog:gc*,safepoint:file=acceptance-gc.log:time,uptime,level,tags:filecount=0"]
+    return arguments
+
+
+def observe_exit(process, wait_seconds):
+    try:
+        exit_code = process.wait(timeout=wait_seconds)
+    except subprocess.TimeoutExpired:
+        exit_code = None
+    return {"timestamp": timestamp(), "pid": process.pid, "exited": exit_code is not None,
+            "exit_code": exit_code, "wait_limit_seconds": wait_seconds}
 
 
 def launch(args):
@@ -162,12 +186,7 @@ def launch(args):
         actual = {str(path.relative_to(world)): digest(path) for path in sorted(world.rglob("*")) if path.is_file()}
         if actual != plan["world"]["files"]:
             raise ValueError("Prepared world snapshot changed before launch.")
-    arguments = ["-Xms512M", f"-Xmx{plan['heap_mib']}M", "-Dmtr.memory.acceptance=true"]
-    if plan["smoke"]:
-        arguments.append("-Dmtr.memory.acceptance.exit=true")
-    if plan["jfr"]:
-        arguments += ["-XX:StartFlightRecording=name=acceptance,settings=profile,disk=true,dumponexit=true,filename=acceptance.jfr",
-                      "-Xlog:gc*,safepoint:file=acceptance-gc.log:time,uptime,level,tags:filecount=0"]
+    arguments = jvm_arguments(plan)
     options = {**plan["profile"], "token": "0", "executablePath": plan["java"], "gameDirectory": str(instance),
                "jvmArguments": arguments, "customResolution": True, "resolutionWidth": "1280", "resolutionHeight": "720",
                "disableMultiplayer": True}
@@ -178,12 +197,17 @@ def launch(args):
         process = subprocess.Popen(command, cwd=instance, stdout=stdout, stderr=stderr,
                                    creationflags=subprocess.CREATE_NO_WINDOW if os.name == "nt" else 0)
     launched = {"timestamp": timestamp(), "pid": process.pid, "plan_sha256": digest(instance / "packaged-client-plan.json"),
-                "jvm_arguments": arguments, "command": command}
+                "jvm_arguments": arguments, "command": command, "launcher_tool_sha256": digest(pathlib.Path(__file__))}
     write(instance / "packaged-client-launch.json", launched)
     marker = read(instance / "vehicle-test-instance.json")
     marker["pid"] = process.pid
     write(instance / "vehicle-test-instance.json", marker)
     print(json.dumps({"pid": process.pid, "instance": str(instance)}), flush=True)
+    if args.wait_seconds is not None:
+        result = {**observe_exit(process, args.wait_seconds),
+                  "launch_sha256": digest(instance / "packaged-client-launch.json")}
+        write(instance / "packaged-client-exit.json", result)
+        print(json.dumps(result), flush=True)
 
 
 def main():
@@ -200,17 +224,21 @@ def main():
     preparation.add_argument("--username", required=True)
     preparation.add_argument("--heap-mib", type=int, default=3072)
     preparation.add_argument("--jfr", action="store_true")
+    preparation.add_argument("--nmt", choices=("summary", "detail"), help="Freeze optional JVM native memory tracking before launch.")
     preparation.add_argument("--smoke", action="store_true")
     preparation.add_argument("--faults", action="store_true")
     preparation.add_argument("--expect-binary-rejection", action="store_true")
     launching = commands.add_parser("launch")
     launching.add_argument("--instance", type=pathlib.Path, required=True)
+    launching.add_argument("--wait-seconds", type=int, help="Observe actual process exit for 1 to 60 seconds; leave a live process running on timeout.")
     args = parser.parse_args()
     if args.action == "prepare":
         if args.heap_mib < 1024 or (args.smoke and not args.probe) or (args.faults and not args.smoke):
             parser.error("Require a valid heap and a probe for smoke acceptance.")
         prepare(args)
     else:
+        if args.wait_seconds is not None and not 1 <= args.wait_seconds <= 60:
+            parser.error("Require an exit observation window from 1 to 60 seconds.")
         launch(args)
 
 

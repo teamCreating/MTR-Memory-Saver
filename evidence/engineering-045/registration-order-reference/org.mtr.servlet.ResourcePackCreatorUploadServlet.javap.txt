@@ -1,0 +1,992 @@
+Compiled from "ResourcePackCreatorUploadServlet.java"
+public final class org.mtr.servlet.ResourcePackCreatorUploadServlet extends org.mtr.servlet.AbstractResourcePackCreatorServlet {
+  public org.mtr.servlet.ResourcePackCreatorUploadServlet();
+    Code:
+       0: aload_0
+       1: invokespecial #22                 // Method org/mtr/servlet/AbstractResourcePackCreatorServlet."<init>":()V
+       4: return
+
+  protected void doGet(org.mtr.libraries.jakarta.servlet.http.HttpServletRequest, org.mtr.libraries.jakarta.servlet.http.HttpServletResponse);
+    Code:
+       0: aload_1
+       1: invokeinterface #32,  1           // InterfaceMethod org/mtr/libraries/jakarta/servlet/http/HttpServletRequest.startAsync:()Lorg/mtr/libraries/jakarta/servlet/AsyncContext;
+       6: astore_3
+       7: aload_3
+       8: lconst_0
+       9: invokeinterface #38,  3           // InterfaceMethod org/mtr/libraries/jakarta/servlet/AsyncContext.setTimeout:(J)V
+      14: aload_1
+      15: aload_2
+      16: invokestatic  #41                 // Method setEncoding:(Lorg/mtr/libraries/jakarta/servlet/http/HttpServletRequest;Lorg/mtr/libraries/jakarta/servlet/http/HttpServletResponse;)V
+      19: aload_1
+      20: invokeinterface #45,  1           // InterfaceMethod org/mtr/libraries/jakarta/servlet/http/HttpServletRequest.getPathInfo:()Ljava/lang/String;
+      25: astore        4
+      27: iconst_m1
+      28: istore        5
+      30: aload         4
+      32: invokevirtual #51                 // Method java/lang/String.hashCode:()I
+      35: lookupswitch  { // 2
+            1453974144: 60
+            1768813731: 76
+               default: 89
+          }
+      60: aload         4
+      62: ldc           #53                 // String /reset
+      64: invokevirtual #57                 // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+      67: ifeq          89
+      70: iconst_0
+      71: istore        5
+      73: goto          89
+      76: aload         4
+      78: ldc           #59                 // String /export
+      80: invokevirtual #57                 // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+      83: ifeq          89
+      86: iconst_1
+      87: istore        5
+      89: iload         5
+      91: lookupswitch  { // 2
+                     0: 116
+                     1: 139
+               default: 148
+          }
+     116: invokestatic  #62                 // Method reset:()V
+     119: invokestatic  #68                 // Method net/minecraft/client/Minecraft.getInstance:()Lnet/minecraft/client/Minecraft;
+     122: astore        6
+     124: aload         6
+     126: aload_2
+     127: aload_3
+     128: invokedynamic #85,  0             // InvokeDynamic #0:run:(Lorg/mtr/libraries/jakarta/servlet/http/HttpServletResponse;Lorg/mtr/libraries/jakarta/servlet/AsyncContext;)Ljava/lang/Runnable;
+     133: invokevirtual #89                 // Method net/minecraft/client/Minecraft.execute:(Ljava/lang/Runnable;)V
+     136: goto          153
+     139: aload_1
+     140: aload_2
+     141: aload_3
+     142: invokestatic  #93                 // Method export:(Lorg/mtr/libraries/jakarta/servlet/http/HttpServletRequest;Lorg/mtr/libraries/jakarta/servlet/http/HttpServletResponse;Lorg/mtr/libraries/jakarta/servlet/AsyncContext;)V
+     145: goto          153
+     148: aload_2
+     149: aload_3
+     150: invokestatic  #96                 // Method returnErrorResponse:(Lorg/mtr/libraries/jakarta/servlet/http/HttpServletResponse;Lorg/mtr/libraries/jakarta/servlet/AsyncContext;)V
+     153: return
+
+  protected void doPost(org.mtr.libraries.jakarta.servlet.http.HttpServletRequest, org.mtr.libraries.jakarta.servlet.http.HttpServletResponse);
+    Code:
+       0: aload_1
+       1: invokeinterface #32,  1           // InterfaceMethod org/mtr/libraries/jakarta/servlet/http/HttpServletRequest.startAsync:()Lorg/mtr/libraries/jakarta/servlet/AsyncContext;
+       6: astore_3
+       7: aload_3
+       8: lconst_0
+       9: invokeinterface #38,  3           // InterfaceMethod org/mtr/libraries/jakarta/servlet/AsyncContext.setTimeout:(J)V
+      14: aload_1
+      15: aload_2
+      16: invokestatic  #41                 // Method setEncoding:(Lorg/mtr/libraries/jakarta/servlet/http/HttpServletRequest;Lorg/mtr/libraries/jakarta/servlet/http/HttpServletResponse;)V
+      19: aload_1
+      20: invokeinterface #45,  1           // InterfaceMethod org/mtr/libraries/jakarta/servlet/http/HttpServletRequest.getPathInfo:()Ljava/lang/String;
+      25: astore        4
+      27: iconst_m1
+      28: istore        5
+      30: aload         4
+      32: invokevirtual #51                 // Method java/lang/String.hashCode:()I
+      35: lookupswitch  { // 2
+               1520786: 60
+            1665696470: 76
+               default: 89
+          }
+      60: aload         4
+      62: ldc           #107                // String /zip
+      64: invokevirtual #57                 // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+      67: ifeq          89
+      70: iconst_0
+      71: istore        5
+      73: goto          89
+      76: aload         4
+      78: ldc           #109                // String /resources
+      80: invokevirtual #57                 // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+      83: ifeq          89
+      86: iconst_1
+      87: istore        5
+      89: iload         5
+      91: lookupswitch  { // 2
+                     0: 116
+                     1: 128
+               default: 137
+          }
+     116: invokestatic  #62                 // Method reset:()V
+     119: aload_1
+     120: aload_2
+     121: aload_3
+     122: invokestatic  #112                // Method uploadZip:(Lorg/mtr/libraries/jakarta/servlet/http/HttpServletRequest;Lorg/mtr/libraries/jakarta/servlet/http/HttpServletResponse;Lorg/mtr/libraries/jakarta/servlet/AsyncContext;)V
+     125: goto          142
+     128: aload_1
+     129: aload_2
+     130: aload_3
+     131: invokestatic  #115                // Method uploadResource:(Lorg/mtr/libraries/jakarta/servlet/http/HttpServletRequest;Lorg/mtr/libraries/jakarta/servlet/http/HttpServletResponse;Lorg/mtr/libraries/jakarta/servlet/AsyncContext;)V
+     134: goto          142
+     137: aload_2
+     138: aload_3
+     139: invokestatic  #96                 // Method returnErrorResponse:(Lorg/mtr/libraries/jakarta/servlet/http/HttpServletResponse;Lorg/mtr/libraries/jakarta/servlet/AsyncContext;)V
+     142: return
+
+  static java.lang.String getModel(java.lang.String);
+    Code:
+       0: getstatic     #122                // Field MODELS:Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/Object2ObjectAVLTreeMap;
+       3: aload_0
+       4: invokevirtual #128                // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/Object2ObjectAVLTreeMap.get:(Ljava/lang/Object;)Ljava/lang/Object;
+       7: checkcast     #47                 // class java/lang/String
+      10: areturn
+
+  private static void reset();
+    Code:
+       0: new           #134                // class org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList
+       3: dup
+       4: getstatic     #137                // Field TEXTURES:Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/Object2ObjectAVLTreeMap;
+       7: invokevirtual #141                // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/Object2ObjectAVLTreeMap.keySet:()Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectSortedSet;
+      10: invokespecial #144                // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList."<init>":(Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectCollection;)V
+      13: astore_0
+      14: aconst_null
+      15: putstatic     #148                // Field resourceWrapper:Lorg/mtr/resource/ResourceWrapper;
+      18: getstatic     #122                // Field MODELS:Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/Object2ObjectAVLTreeMap;
+      21: invokevirtual #151                // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/Object2ObjectAVLTreeMap.clear:()V
+      24: getstatic     #137                // Field TEXTURES:Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/Object2ObjectAVLTreeMap;
+      27: invokevirtual #151                // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/Object2ObjectAVLTreeMap.clear:()V
+      30: invokestatic  #155                // Method getBackupFile:()Ljava/nio/file/Path;
+      33: invokestatic  #161                // Method java/nio/file/Files.deleteIfExists:(Ljava/nio/file/Path;)Z
+      36: pop
+      37: goto          52
+      40: astore_1
+      41: getstatic     #167                // Field org/mtr/MTR.LOGGER:Lorg/apache/logging/log4j/Logger;
+      44: ldc           #169                // String
+      46: aload_1
+      47: invokeinterface #175,  3          // InterfaceMethod org/apache/logging/log4j/Logger.error:(Ljava/lang/String;Ljava/lang/Throwable;)V
+      52: invokestatic  #68                 // Method net/minecraft/client/Minecraft.getInstance:()Lnet/minecraft/client/Minecraft;
+      55: astore_1
+      56: aload_1
+      57: aload_0
+      58: aload_1
+      59: invokedynamic #183,  0            // InvokeDynamic #1:run:(Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList;Lnet/minecraft/client/Minecraft;)Ljava/lang/Runnable;
+      64: invokevirtual #89                 // Method net/minecraft/client/Minecraft.execute:(Ljava/lang/Runnable;)V
+      67: return
+    Exception table:
+       from    to  target type
+          30    37    40   Class java/lang/Exception
+
+  private static void uploadZip(org.mtr.libraries.jakarta.servlet.http.HttpServletRequest, org.mtr.libraries.jakarta.servlet.http.HttpServletResponse, org.mtr.libraries.jakarta.servlet.AsyncContext);
+    Code:
+       0: aload_0
+       1: invokeinterface #194,  1          // InterfaceMethod org/mtr/libraries/jakarta/servlet/http/HttpServletRequest.getParts:()Ljava/util/Collection;
+       6: invokeinterface #200,  1          // InterfaceMethod java/util/Collection.iterator:()Ljava/util/Iterator;
+      11: astore_3
+      12: aload_3
+      13: invokeinterface #206,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+      18: ifeq          384
+      21: aload_3
+      22: invokeinterface #210,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+      27: checkcast     #212                // class org/mtr/libraries/jakarta/servlet/http/Part
+      30: astore        4
+      32: getstatic     #167                // Field org/mtr/MTR.LOGGER:Lorg/apache/logging/log4j/Logger;
+      35: ldc           #214                // String Processing {} uploaded from the Resource Pack Creator
+      37: aload         4
+      39: invokeinterface #217,  1          // InterfaceMethod org/mtr/libraries/jakarta/servlet/http/Part.getSubmittedFileName:()Ljava/lang/String;
+      44: invokeinterface #221,  3          // InterfaceMethod org/apache/logging/log4j/Logger.info:(Ljava/lang/String;Ljava/lang/Object;)V
+      49: aconst_null
+      50: astore        5
+      52: new           #124                // class org/mtr/libraries/it/unimi/dsi/fastutil/objects/Object2ObjectAVLTreeMap
+      55: dup
+      56: invokespecial #222                // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/Object2ObjectAVLTreeMap."<init>":()V
+      59: astore        6
+      61: new           #134                // class org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList
+      64: dup
+      65: invokespecial #223                // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList."<init>":()V
+      68: astore        7
+      70: ldc           #169                // String
+      72: astore        8
+      74: new           #225                // class java/util/zip/ZipInputStream
+      77: dup
+      78: aload         4
+      80: invokeinterface #229,  1          // InterfaceMethod org/mtr/libraries/jakarta/servlet/http/Part.getInputStream:()Ljava/io/InputStream;
+      85: invokespecial #232                // Method java/util/zip/ZipInputStream."<init>":(Ljava/io/InputStream;)V
+      88: astore        9
+      90: aload         9
+      92: invokevirtual #240                // Method java/util/zip/ZipInputStream.getNextEntry:()Ljava/util/zip/ZipEntry;
+      95: dup
+      96: astore        10
+      98: ifnull        281
+     101: aload         10
+     103: invokevirtual #245                // Method java/util/zip/ZipEntry.getName:()Ljava/lang/String;
+     106: invokestatic  #248                // Method pathToIdentifier:(Ljava/lang/String;)Ljava/lang/String;
+     109: astore        11
+     111: aload         11
+     113: astore        8
+     115: getstatic     #167                // Field org/mtr/MTR.LOGGER:Lorg/apache/logging/log4j/Logger;
+     118: ldc           #250                // String Reading {}
+     120: aload         11
+     122: invokeinterface #253,  3          // InterfaceMethod org/apache/logging/log4j/Logger.debug:(Ljava/lang/String;Ljava/lang/Object;)V
+     127: aload         9
+     129: invokestatic  #259                // Method org/apache/commons/io/IOUtils.toByteArray:(Ljava/io/InputStream;)[B
+     132: astore        12
+     134: new           #47                 // class java/lang/String
+     137: dup
+     138: aload         12
+     140: getstatic     #265                // Field java/nio/charset/StandardCharsets.UTF_8:Ljava/nio/charset/Charset;
+     143: invokespecial #268                // Method java/lang/String."<init>":([BLjava/nio/charset/Charset;)V
+     146: astore        13
+     148: aload         11
+     150: ldc_w         #270                // String %s:%s.json
+     153: iconst_2
+     154: anewarray     #272                // class java/lang/Object
+     157: dup
+     158: iconst_0
+     159: ldc_w         #274                // String mtr
+     162: aastore
+     163: dup
+     164: iconst_1
+     165: ldc_w         #276                // String mtr_custom_resources
+     168: aastore
+     169: invokestatic  #280                // Method java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+     172: invokevirtual #57                 // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+     175: ifeq          188
+     178: aload         13
+     180: invokestatic  #286                // InterfaceMethod org/mtr/core/tool/Utilities.parseJson:(Ljava/lang/String;)Lorg/mtr/libraries/com/google/gson/JsonObject;
+     183: astore        5
+     185: goto          273
+     188: aload         11
+     190: ldc_w         #290                // String .png
+     193: invokevirtual #294                // Method java/lang/String.endsWith:(Ljava/lang/String;)Z
+     196: ifne          232
+     199: aload         11
+     201: ldc_w         #296                // String .bbmodel
+     204: invokevirtual #294                // Method java/lang/String.endsWith:(Ljava/lang/String;)Z
+     207: ifne          232
+     210: aload         11
+     212: ldc_w         #298                // String .obj
+     215: invokevirtual #294                // Method java/lang/String.endsWith:(Ljava/lang/String;)Z
+     218: ifne          232
+     221: aload         11
+     223: ldc_w         #300                // String .mtl
+     226: invokevirtual #294                // Method java/lang/String.endsWith:(Ljava/lang/String;)Z
+     229: ifeq          252
+     232: aload         7
+     234: aload         11
+     236: aload         12
+     238: aload         13
+     240: invokedynamic #308,  0            // InvokeDynamic #2:run:(Ljava/lang/String;[BLjava/lang/String;)Ljava/lang/Runnable;
+     245: invokevirtual #311                // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList.add:(Ljava/lang/Object;)Z
+     248: pop
+     249: goto          273
+     252: aload         11
+     254: ldc_w         #313                // String .json
+     257: invokevirtual #294                // Method java/lang/String.endsWith:(Ljava/lang/String;)Z
+     260: ifeq          273
+     263: aload         6
+     265: aload         11
+     267: aload         13
+     269: invokevirtual #317                // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/Object2ObjectAVLTreeMap.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     272: pop
+     273: aload         9
+     275: invokevirtual #320                // Method java/util/zip/ZipInputStream.closeEntry:()V
+     278: goto          90
+     281: aload         9
+     283: invokevirtual #323                // Method java/util/zip/ZipInputStream.close:()V
+     286: goto          311
+     289: astore        10
+     291: aload         9
+     293: invokevirtual #323                // Method java/util/zip/ZipInputStream.close:()V
+     296: goto          308
+     299: astore        11
+     301: aload         10
+     303: aload         11
+     305: invokevirtual #327                // Method java/lang/Throwable.addSuppressed:(Ljava/lang/Throwable;)V
+     308: aload         10
+     310: athrow
+     311: goto          348
+     314: astore        9
+     316: getstatic     #167                // Field org/mtr/MTR.LOGGER:Lorg/apache/logging/log4j/Logger;
+     319: ldc_w         #329                // String Processing {} failed; last successful file read was {}
+     322: aload         4
+     324: invokeinterface #217,  1          // InterfaceMethod org/mtr/libraries/jakarta/servlet/http/Part.getSubmittedFileName:()Ljava/lang/String;
+     329: aload         8
+     331: invokeinterface #332,  4          // InterfaceMethod org/apache/logging/log4j/Logger.error:(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V
+     336: getstatic     #167                // Field org/mtr/MTR.LOGGER:Lorg/apache/logging/log4j/Logger;
+     339: ldc           #169                // String
+     341: aload         9
+     343: invokeinterface #175,  3          // InterfaceMethod org/apache/logging/log4j/Logger.error:(Ljava/lang/String;Ljava/lang/Throwable;)V
+     348: aload         5
+     350: ifnonnull     356
+     353: goto          384
+     356: aload         5
+     358: astore        9
+     360: invokestatic  #68                 // Method net/minecraft/client/Minecraft.getInstance:()Lnet/minecraft/client/Minecraft;
+     363: astore        10
+     365: aload         10
+     367: aload         9
+     369: aload         6
+     371: aload         7
+     373: aload_1
+     374: aload_2
+     375: invokedynamic #340,  0            // InvokeDynamic #3:run:(Lorg/mtr/libraries/com/google/gson/JsonObject;Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/Object2ObjectAVLTreeMap;Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList;Lorg/mtr/libraries/jakarta/servlet/http/HttpServletResponse;Lorg/mtr/libraries/jakarta/servlet/AsyncContext;)Ljava/lang/Runnable;
+     380: invokevirtual #89                 // Method net/minecraft/client/Minecraft.execute:(Ljava/lang/Runnable;)V
+     383: return
+     384: goto          399
+     387: astore_3
+     388: getstatic     #167                // Field org/mtr/MTR.LOGGER:Lorg/apache/logging/log4j/Logger;
+     391: ldc           #169                // String
+     393: aload_3
+     394: invokeinterface #175,  3          // InterfaceMethod org/apache/logging/log4j/Logger.error:(Ljava/lang/String;Ljava/lang/Throwable;)V
+     399: aload_1
+     400: aload_2
+     401: invokestatic  #96                 // Method returnErrorResponse:(Lorg/mtr/libraries/jakarta/servlet/http/HttpServletResponse;Lorg/mtr/libraries/jakarta/servlet/AsyncContext;)V
+     404: return
+    Exception table:
+       from    to  target type
+          90   281   289   Class java/lang/Throwable
+         291   296   299   Class java/lang/Throwable
+          74   311   314   Class java/lang/Exception
+           0   383   387   Class java/lang/Exception
+
+  private static void uploadResource(org.mtr.libraries.jakarta.servlet.http.HttpServletRequest, org.mtr.libraries.jakarta.servlet.http.HttpServletResponse, org.mtr.libraries.jakarta.servlet.AsyncContext);
+    Code:
+       0: getstatic     #148                // Field resourceWrapper:Lorg/mtr/resource/ResourceWrapper;
+       3: ifnull        176
+       6: aload_0
+       7: invokeinterface #194,  1          // InterfaceMethod org/mtr/libraries/jakarta/servlet/http/HttpServletRequest.getParts:()Ljava/util/Collection;
+      12: invokeinterface #200,  1          // InterfaceMethod java/util/Collection.iterator:()Ljava/util/Iterator;
+      17: astore_3
+      18: aload_3
+      19: invokeinterface #206,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+      24: ifeq          157
+      27: aload_3
+      28: invokeinterface #210,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+      33: checkcast     #212                // class org/mtr/libraries/jakarta/servlet/http/Part
+      36: astore        4
+      38: aload         4
+      40: invokeinterface #229,  1          // InterfaceMethod org/mtr/libraries/jakarta/servlet/http/Part.getInputStream:()Ljava/io/InputStream;
+      45: astore        5
+      47: aload         5
+      49: invokestatic  #259                // Method org/apache/commons/io/IOUtils.toByteArray:(Ljava/io/InputStream;)[B
+      52: astore        6
+      54: ldc_w         #358                // String %s:%s
+      57: iconst_2
+      58: anewarray     #272                // class java/lang/Object
+      61: dup
+      62: iconst_0
+      63: ldc_w         #274                // String mtr
+      66: aastore
+      67: dup
+      68: iconst_1
+      69: aload         4
+      71: invokeinterface #217,  1          // InterfaceMethod org/mtr/libraries/jakarta/servlet/http/Part.getSubmittedFileName:()Ljava/lang/String;
+      76: aastore
+      77: invokestatic  #280                // Method java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+      80: aload         6
+      82: new           #47                 // class java/lang/String
+      85: dup
+      86: aload         6
+      88: getstatic     #265                // Field java/nio/charset/StandardCharsets.UTF_8:Ljava/nio/charset/Charset;
+      91: invokespecial #268                // Method java/lang/String."<init>":([BLjava/nio/charset/Charset;)V
+      94: invokestatic  #360                // Method uploadResource:(Ljava/lang/String;[BLjava/lang/String;)V
+      97: aload         5
+      99: ifnull        137
+     102: aload         5
+     104: invokevirtual #363                // Method java/io/InputStream.close:()V
+     107: goto          137
+     110: astore        6
+     112: aload         5
+     114: ifnull        134
+     117: aload         5
+     119: invokevirtual #363                // Method java/io/InputStream.close:()V
+     122: goto          134
+     125: astore        7
+     127: aload         6
+     129: aload         7
+     131: invokevirtual #327                // Method java/lang/Throwable.addSuppressed:(Ljava/lang/Throwable;)V
+     134: aload         6
+     136: athrow
+     137: goto          154
+     140: astore        5
+     142: getstatic     #167                // Field org/mtr/MTR.LOGGER:Lorg/apache/logging/log4j/Logger;
+     145: ldc           #169                // String
+     147: aload         5
+     149: invokeinterface #175,  3          // InterfaceMethod org/apache/logging/log4j/Logger.error:(Ljava/lang/String;Ljava/lang/Throwable;)V
+     154: goto          18
+     157: aload_1
+     158: aload_2
+     159: aconst_null
+     160: invokestatic  #367                // Method returnStandardResponse:(Lorg/mtr/libraries/jakarta/servlet/http/HttpServletResponse;Lorg/mtr/libraries/jakarta/servlet/AsyncContext;Ljava/lang/String;)V
+     163: return
+     164: astore_3
+     165: getstatic     #167                // Field org/mtr/MTR.LOGGER:Lorg/apache/logging/log4j/Logger;
+     168: ldc           #169                // String
+     170: aload_3
+     171: invokeinterface #175,  3          // InterfaceMethod org/apache/logging/log4j/Logger.error:(Ljava/lang/String;Ljava/lang/Throwable;)V
+     176: aload_1
+     177: aload_2
+     178: invokestatic  #96                 // Method returnErrorResponse:(Lorg/mtr/libraries/jakarta/servlet/http/HttpServletResponse;Lorg/mtr/libraries/jakarta/servlet/AsyncContext;)V
+     181: return
+    Exception table:
+       from    to  target type
+          47    97   110   Class java/lang/Throwable
+         117   122   125   Class java/lang/Throwable
+          38   137   140   Class java/lang/Exception
+           6   163   164   Class java/lang/Exception
+
+  private static void export(org.mtr.libraries.jakarta.servlet.http.HttpServletRequest, org.mtr.libraries.jakarta.servlet.http.HttpServletResponse, org.mtr.libraries.jakarta.servlet.AsyncContext);
+    Code:
+       0: aload_0
+       1: ldc_w         #370                // String name
+       4: invokeinterface #373,  2          // InterfaceMethod org/mtr/libraries/jakarta/servlet/http/HttpServletRequest.getParameter:(Ljava/lang/String;)Ljava/lang/String;
+       9: astore_3
+      10: aload_0
+      11: ldc_w         #375                // String description
+      14: invokeinterface #373,  2          // InterfaceMethod org/mtr/libraries/jakarta/servlet/http/HttpServletRequest.getParameter:(Ljava/lang/String;)Ljava/lang/String;
+      19: astore        4
+      21: getstatic     #148                // Field resourceWrapper:Lorg/mtr/resource/ResourceWrapper;
+      24: ifnull        69
+      27: aload_3
+      28: ifnull        69
+      31: aload         4
+      33: ifnull        69
+      36: getstatic     #148                // Field resourceWrapper:Lorg/mtr/resource/ResourceWrapper;
+      39: invokevirtual #381                // Method org/mtr/resource/ResourceWrapper.flatten:()Lorg/mtr/libraries/com/google/gson/JsonObject;
+      42: astore        5
+      44: invokestatic  #68                 // Method net/minecraft/client/Minecraft.getInstance:()Lnet/minecraft/client/Minecraft;
+      47: aload         5
+      49: aload_3
+      50: aload         4
+      52: invokedynamic #389,  0            // InvokeDynamic #4:run:(Lorg/mtr/libraries/com/google/gson/JsonObject;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Runnable;
+      57: invokevirtual #89                 // Method net/minecraft/client/Minecraft.execute:(Ljava/lang/Runnable;)V
+      60: aload_1
+      61: aload_2
+      62: aconst_null
+      63: invokestatic  #367                // Method returnStandardResponse:(Lorg/mtr/libraries/jakarta/servlet/http/HttpServletResponse;Lorg/mtr/libraries/jakarta/servlet/AsyncContext;Ljava/lang/String;)V
+      66: goto          74
+      69: aload_1
+      70: aload_2
+      71: invokestatic  #96                 // Method returnErrorResponse:(Lorg/mtr/libraries/jakarta/servlet/http/HttpServletResponse;Lorg/mtr/libraries/jakarta/servlet/AsyncContext;)V
+      74: return
+
+  private static <T> void writeToZipOutputStream(org.mtr.libraries.it.unimi.dsi.fastutil.objects.Object2ObjectMap<java.lang.String, T>, java.util.zip.ZipOutputStream, org.mtr.servlet.ResourcePackCreatorUploadServlet$DataConsumer<T>);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_2
+       3: invokedynamic #405,  0            // InvokeDynamic #5:accept:(Ljava/util/zip/ZipOutputStream;Lorg/mtr/servlet/ResourcePackCreatorUploadServlet$DataConsumer;)Ljava/util/function/BiConsumer;
+       8: invokeinterface #411,  2          // InterfaceMethod org/mtr/libraries/it/unimi/dsi/fastutil/objects/Object2ObjectMap.forEach:(Ljava/util/function/BiConsumer;)V
+      13: return
+
+  private static java.lang.String pathToIdentifier(java.lang.String);
+    Code:
+       0: aload_0
+       1: ldc_w         #421                // String /
+       4: invokevirtual #425                // Method java/lang/String.split:(Ljava/lang/String;)[Ljava/lang/String;
+       7: astore_1
+       8: aload_1
+       9: arraylength
+      10: iconst_3
+      11: if_icmplt     58
+      14: aload_1
+      15: arraylength
+      16: iconst_2
+      17: isub
+      18: anewarray     #47                 // class java/lang/String
+      21: astore_2
+      22: aload_1
+      23: iconst_2
+      24: aload_2
+      25: iconst_0
+      26: aload_2
+      27: arraylength
+      28: invokestatic  #431                // Method java/lang/System.arraycopy:(Ljava/lang/Object;ILjava/lang/Object;II)V
+      31: ldc_w         #358                // String %s:%s
+      34: iconst_2
+      35: anewarray     #272                // class java/lang/Object
+      38: dup
+      39: iconst_0
+      40: aload_1
+      41: iconst_1
+      42: aaload
+      43: aastore
+      44: dup
+      45: iconst_1
+      46: ldc_w         #421                // String /
+      49: aload_2
+      50: invokestatic  #435                // Method java/lang/String.join:(Ljava/lang/CharSequence;[Ljava/lang/CharSequence;)Ljava/lang/String;
+      53: aastore
+      54: invokestatic  #280                // Method java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+      57: areturn
+      58: ldc           #169                // String
+      60: areturn
+
+  private static java.lang.String identifierToPath(java.lang.String);
+    Code:
+       0: aload_0
+       1: ldc_w         #442                // String :
+       4: invokevirtual #425                // Method java/lang/String.split:(Ljava/lang/String;)[Ljava/lang/String;
+       7: astore_1
+       8: aload_1
+       9: arraylength
+      10: iconst_2
+      11: if_icmpne     37
+      14: ldc_w         #444                // String assets/%s/%s
+      17: iconst_2
+      18: anewarray     #272                // class java/lang/Object
+      21: dup
+      22: iconst_0
+      23: aload_1
+      24: iconst_0
+      25: aaload
+      26: aastore
+      27: dup
+      28: iconst_1
+      29: aload_1
+      30: iconst_1
+      31: aaload
+      32: aastore
+      33: invokestatic  #280                // Method java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+      36: areturn
+      37: getstatic     #167                // Field org/mtr/MTR.LOGGER:Lorg/apache/logging/log4j/Logger;
+      40: ldc_w         #446                // String Invalid identifier {}
+      43: aload_0
+      44: invokeinterface #448,  3          // InterfaceMethod org/apache/logging/log4j/Logger.error:(Ljava/lang/String;Ljava/lang/Object;)V
+      49: invokestatic  #451                // Method org/mtr/MTR.randomString:()Ljava/lang/String;
+      52: areturn
+
+  private static void lambda$writeToZipOutputStream$17(java.util.zip.ZipOutputStream, org.mtr.servlet.ResourcePackCreatorUploadServlet$DataConsumer, java.lang.String, java.lang.Object);
+    Code:
+       0: aload_0
+       1: new           #242                // class java/util/zip/ZipEntry
+       4: dup
+       5: aload_2
+       6: invokestatic  #455                // Method identifierToPath:(Ljava/lang/String;)Ljava/lang/String;
+       9: invokespecial #458                // Method java/util/zip/ZipEntry."<init>":(Ljava/lang/String;)V
+      12: invokevirtual #464                // Method java/util/zip/ZipOutputStream.putNextEntry:(Ljava/util/zip/ZipEntry;)V
+      15: aload_1
+      16: aload_3
+      17: invokeinterface #467,  2          // InterfaceMethod org/mtr/servlet/ResourcePackCreatorUploadServlet$DataConsumer.accept:(Ljava/lang/Object;)V
+      22: goto          39
+      25: astore        4
+      27: getstatic     #167                // Field org/mtr/MTR.LOGGER:Lorg/apache/logging/log4j/Logger;
+      30: ldc           #169                // String
+      32: aload         4
+      34: invokeinterface #175,  3          // InterfaceMethod org/apache/logging/log4j/Logger.error:(Ljava/lang/String;Ljava/lang/Throwable;)V
+      39: return
+    Exception table:
+       from    to  target type
+           0    22    25   Class java/lang/Exception
+
+  private static void lambda$export$16(org.mtr.libraries.com.google.gson.JsonObject, java.lang.String, java.lang.String);
+    Code:
+       0: new           #134                // class org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList
+       3: dup
+       4: invokespecial #223                // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList."<init>":()V
+       7: astore_3
+       8: new           #471                // class org/mtr/libraries/it/unimi/dsi/fastutil/objects/Object2ObjectArrayMap
+      11: dup
+      12: invokespecial #472                // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/Object2ObjectArrayMap."<init>":()V
+      15: astore        4
+      17: new           #471                // class org/mtr/libraries/it/unimi/dsi/fastutil/objects/Object2ObjectArrayMap
+      20: dup
+      21: invokespecial #472                // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/Object2ObjectArrayMap."<init>":()V
+      24: astore        5
+      26: new           #377                // class org/mtr/resource/ResourceWrapper
+      29: dup
+      30: new           #474                // class org/mtr/core/serializer/JsonReader
+      33: dup
+      34: aload_0
+      35: invokespecial #477                // Method org/mtr/core/serializer/JsonReader."<init>":(Lorg/mtr/libraries/com/google/gson/JsonElement;)V
+      38: new           #134                // class org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList
+      41: dup
+      42: invokespecial #223                // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList."<init>":()V
+      45: new           #134                // class org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList
+      48: dup
+      49: invokespecial #223                // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList."<init>":()V
+      52: invokespecial #480                // Method org/mtr/resource/ResourceWrapper."<init>":(Lorg/mtr/core/serializer/JsonReader;Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList;Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList;)V
+      55: aload_3
+      56: aload         4
+      58: aload         5
+      60: invokedynamic #491,  0            // InvokeDynamic #6:accept:(Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList;Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/Object2ObjectArrayMap;Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/Object2ObjectArrayMap;)Ljava/util/function/Consumer;
+      65: invokevirtual #495                // Method org/mtr/resource/ResourceWrapper.iterateVehicles:(Ljava/util/function/Consumer;)V
+      68: new           #497                // class org/mtr/resource/CustomResources
+      71: dup
+      72: aload_3
+      73: new           #134                // class org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList
+      76: dup
+      77: invokespecial #223                // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList."<init>":()V
+      80: invokespecial #500                // Method org/mtr/resource/CustomResources."<init>":(Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList;Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList;)V
+      83: astore        6
+      85: ldc_w         #502                // String %s/resourcepacks
+      88: iconst_1
+      89: anewarray     #272                // class java/lang/Object
+      92: dup
+      93: iconst_0
+      94: invokestatic  #68                 // Method net/minecraft/client/Minecraft.getInstance:()Lnet/minecraft/client/Minecraft;
+      97: getfield      #506                // Field net/minecraft/client/Minecraft.gameDirectory:Ljava/io/File;
+     100: aastore
+     101: invokestatic  #280                // Method java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+     104: astore        7
+     106: ldc_w         #508                // String %s/%s-%s.zip
+     109: iconst_3
+     110: anewarray     #272                // class java/lang/Object
+     113: dup
+     114: iconst_0
+     115: aload         7
+     117: aastore
+     118: dup
+     119: iconst_1
+     120: aload_1
+     121: aastore
+     122: dup
+     123: iconst_2
+     124: ldc_w         #510                // String yyyyMMdd-HHmmss
+     127: invokestatic  #516                // Method java/time/format/DateTimeFormatter.ofPattern:(Ljava/lang/String;)Ljava/time/format/DateTimeFormatter;
+     130: invokestatic  #522                // Method java/time/LocalDateTime.now:()Ljava/time/LocalDateTime;
+     133: invokevirtual #525                // Method java/time/format/DateTimeFormatter.format:(Ljava/time/temporal/TemporalAccessor;)Ljava/lang/String;
+     136: aastore
+     137: invokestatic  #280                // Method java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+     140: astore        8
+     142: getstatic     #167                // Field org/mtr/MTR.LOGGER:Lorg/apache/logging/log4j/Logger;
+     145: ldc_w         #527                // String Exporting Resource Pack at {}
+     148: aload         8
+     150: invokeinterface #221,  3          // InterfaceMethod org/apache/logging/log4j/Logger.info:(Ljava/lang/String;Ljava/lang/Object;)V
+     155: new           #529                // class java/io/FileOutputStream
+     158: dup
+     159: aload         8
+     161: invokespecial #530                // Method java/io/FileOutputStream."<init>":(Ljava/lang/String;)V
+     164: astore        9
+     166: new           #460                // class java/util/zip/ZipOutputStream
+     169: dup
+     170: aload         9
+     172: invokespecial #533                // Method java/util/zip/ZipOutputStream."<init>":(Ljava/io/OutputStream;)V
+     175: astore        10
+     177: aload         4
+     179: aload         10
+     181: aload         10
+     183: invokedynamic #543,  0            // InvokeDynamic #7:accept:(Ljava/util/zip/ZipOutputStream;)Lorg/mtr/servlet/ResourcePackCreatorUploadServlet$DataConsumer;
+     188: invokestatic  #545                // Method writeToZipOutputStream:(Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/Object2ObjectMap;Ljava/util/zip/ZipOutputStream;Lorg/mtr/servlet/ResourcePackCreatorUploadServlet$DataConsumer;)V
+     191: aload         5
+     193: aload         10
+     195: aload         10
+     197: invokedynamic #553,  0            // InvokeDynamic #8:accept:(Ljava/util/zip/ZipOutputStream;)Lorg/mtr/servlet/ResourcePackCreatorUploadServlet$DataConsumer;
+     202: invokestatic  #545                // Method writeToZipOutputStream:(Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/Object2ObjectMap;Ljava/util/zip/ZipOutputStream;Lorg/mtr/servlet/ResourcePackCreatorUploadServlet$DataConsumer;)V
+     205: getstatic     #122                // Field MODELS:Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/Object2ObjectAVLTreeMap;
+     208: aload         10
+     210: aload         10
+     212: invokedynamic #560,  0            // InvokeDynamic #9:accept:(Ljava/util/zip/ZipOutputStream;)Lorg/mtr/servlet/ResourcePackCreatorUploadServlet$DataConsumer;
+     217: invokestatic  #545                // Method writeToZipOutputStream:(Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/Object2ObjectMap;Ljava/util/zip/ZipOutputStream;Lorg/mtr/servlet/ResourcePackCreatorUploadServlet$DataConsumer;)V
+     220: getstatic     #137                // Field TEXTURES:Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/Object2ObjectAVLTreeMap;
+     223: aload         10
+     225: aload         10
+     227: invokedynamic #568,  0            // InvokeDynamic #10:accept:(Ljava/util/zip/ZipOutputStream;)Lorg/mtr/servlet/ResourcePackCreatorUploadServlet$DataConsumer;
+     232: invokestatic  #545                // Method writeToZipOutputStream:(Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/Object2ObjectMap;Ljava/util/zip/ZipOutputStream;Lorg/mtr/servlet/ResourcePackCreatorUploadServlet$DataConsumer;)V
+     235: aload         10
+     237: new           #242                // class java/util/zip/ZipEntry
+     240: dup
+     241: ldc_w         #570                // String assets/%s/%s.json
+     244: iconst_2
+     245: anewarray     #272                // class java/lang/Object
+     248: dup
+     249: iconst_0
+     250: ldc_w         #274                // String mtr
+     253: aastore
+     254: dup
+     255: iconst_1
+     256: ldc_w         #276                // String mtr_custom_resources
+     259: aastore
+     260: invokestatic  #280                // Method java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+     263: invokespecial #458                // Method java/util/zip/ZipEntry."<init>":(Ljava/lang/String;)V
+     266: invokevirtual #464                // Method java/util/zip/ZipOutputStream.putNextEntry:(Ljava/util/zip/ZipEntry;)V
+     269: aload         6
+     271: invokestatic  #574                // InterfaceMethod org/mtr/core/tool/Utilities.getJsonObjectFromData:(Lorg/mtr/core/serializer/SerializedDataBase;)Lorg/mtr/libraries/com/google/gson/JsonObject;
+     274: invokevirtual #577                // Method org/mtr/libraries/com/google/gson/JsonObject.toString:()Ljava/lang/String;
+     277: aload         10
+     279: getstatic     #265                // Field java/nio/charset/StandardCharsets.UTF_8:Ljava/nio/charset/Charset;
+     282: invokestatic  #581                // Method org/apache/commons/io/IOUtils.write:(Ljava/lang/String;Ljava/io/OutputStream;Ljava/nio/charset/Charset;)V
+     285: aload         10
+     287: new           #242                // class java/util/zip/ZipEntry
+     290: dup
+     291: ldc_w         #583                // String pack.mcmeta
+     294: invokespecial #458                // Method java/util/zip/ZipEntry."<init>":(Ljava/lang/String;)V
+     297: invokevirtual #464                // Method java/util/zip/ZipOutputStream.putNextEntry:(Ljava/util/zip/ZipEntry;)V
+     300: new           #236                // class org/mtr/libraries/com/google/gson/JsonObject
+     303: dup
+     304: invokespecial #584                // Method org/mtr/libraries/com/google/gson/JsonObject."<init>":()V
+     307: astore        11
+     309: aload         11
+     311: ldc_w         #586                // String pack_format
+     314: invokestatic  #591                // Method org/mtr/resource/ResourceManagerHelper.getResourcePackVersion:()I
+     317: invokestatic  #597                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     320: invokevirtual #601                // Method org/mtr/libraries/com/google/gson/JsonObject.addProperty:(Ljava/lang/String;Ljava/lang/Number;)V
+     323: aload         11
+     325: ldc_w         #375                // String description
+     328: aload_2
+     329: invokevirtual #604                // Method org/mtr/libraries/com/google/gson/JsonObject.addProperty:(Ljava/lang/String;Ljava/lang/String;)V
+     332: new           #236                // class org/mtr/libraries/com/google/gson/JsonObject
+     335: dup
+     336: invokespecial #584                // Method org/mtr/libraries/com/google/gson/JsonObject."<init>":()V
+     339: astore        12
+     341: aload         12
+     343: ldc_w         #606                // String pack
+     346: aload         11
+     348: invokevirtual #609                // Method org/mtr/libraries/com/google/gson/JsonObject.add:(Ljava/lang/String;Lorg/mtr/libraries/com/google/gson/JsonElement;)V
+     351: aload         12
+     353: invokestatic  #613                // InterfaceMethod org/mtr/core/tool/Utilities.prettyPrint:(Lorg/mtr/libraries/com/google/gson/JsonElement;)Ljava/lang/String;
+     356: aload         10
+     358: getstatic     #265                // Field java/nio/charset/StandardCharsets.UTF_8:Ljava/nio/charset/Charset;
+     361: invokestatic  #581                // Method org/apache/commons/io/IOUtils.write:(Ljava/lang/String;Ljava/io/OutputStream;Ljava/nio/charset/Charset;)V
+     364: ldc_w         #274                // String mtr
+     367: ldc_w         #615                // String textures/block/sign/logo_grayscale.png
+     370: invokestatic  #621                // Method net/minecraft/resources/ResourceLocation.fromNamespaceAndPath:(Ljava/lang/String;Ljava/lang/String;)Lnet/minecraft/resources/ResourceLocation;
+     373: aload         10
+     375: invokedynamic #630,  0            // InvokeDynamic #11:accept:(Ljava/util/zip/ZipOutputStream;)Ljava/util/function/Consumer;
+     380: invokestatic  #634                // Method org/mtr/resource/ResourceManagerHelper.readResource:(Lnet/minecraft/resources/ResourceLocation;Ljava/util/function/Consumer;)V
+     383: aload         10
+     385: invokevirtual #635                // Method java/util/zip/ZipOutputStream.close:()V
+     388: goto          413
+     391: astore        11
+     393: aload         10
+     395: invokevirtual #635                // Method java/util/zip/ZipOutputStream.close:()V
+     398: goto          410
+     401: astore        12
+     403: aload         11
+     405: aload         12
+     407: invokevirtual #327                // Method java/lang/Throwable.addSuppressed:(Ljava/lang/Throwable;)V
+     410: aload         11
+     412: athrow
+     413: aload         9
+     415: invokevirtual #636                // Method java/io/FileOutputStream.close:()V
+     418: goto          443
+     421: astore        10
+     423: aload         9
+     425: invokevirtual #636                // Method java/io/FileOutputStream.close:()V
+     428: goto          440
+     431: astore        11
+     433: aload         10
+     435: aload         11
+     437: invokevirtual #327                // Method java/lang/Throwable.addSuppressed:(Ljava/lang/Throwable;)V
+     440: aload         10
+     442: athrow
+     443: goto          460
+     446: astore        9
+     448: getstatic     #167                // Field org/mtr/MTR.LOGGER:Lorg/apache/logging/log4j/Logger;
+     451: ldc           #169                // String
+     453: aload         9
+     455: invokeinterface #175,  3          // InterfaceMethod org/apache/logging/log4j/Logger.error:(Ljava/lang/String;Ljava/lang/Throwable;)V
+     460: invokestatic  #640                // Method net/minecraft/Util.getPlatform:()Lnet/minecraft/Util$OS;
+     463: new           #642                // class java/io/File
+     466: dup
+     467: aload         7
+     469: invokespecial #643                // Method java/io/File."<init>":(Ljava/lang/String;)V
+     472: invokevirtual #647                // Method net/minecraft/Util$OS.openFile:(Ljava/io/File;)V
+     475: return
+    Exception table:
+       from    to  target type
+         177   383   391   Class java/lang/Throwable
+         393   398   401   Class java/lang/Throwable
+         166   413   421   Class java/lang/Throwable
+         423   428   431   Class java/lang/Throwable
+         155   443   446   Class java/lang/Exception
+
+  private static void lambda$export$15(java.util.zip.ZipOutputStream, java.io.InputStream);
+    Code:
+       0: aload_0
+       1: new           #242                // class java/util/zip/ZipEntry
+       4: dup
+       5: ldc_w         #664                // String pack.png
+       8: invokespecial #458                // Method java/util/zip/ZipEntry."<init>":(Ljava/lang/String;)V
+      11: invokevirtual #464                // Method java/util/zip/ZipOutputStream.putNextEntry:(Ljava/util/zip/ZipEntry;)V
+      14: aload_1
+      15: invokestatic  #259                // Method org/apache/commons/io/IOUtils.toByteArray:(Ljava/io/InputStream;)[B
+      18: aload_0
+      19: invokestatic  #667                // Method org/apache/commons/io/IOUtils.write:([BLjava/io/OutputStream;)V
+      22: goto          37
+      25: astore_2
+      26: getstatic     #167                // Field org/mtr/MTR.LOGGER:Lorg/apache/logging/log4j/Logger;
+      29: ldc           #169                // String
+      31: aload_2
+      32: invokeinterface #175,  3          // InterfaceMethod org/apache/logging/log4j/Logger.error:(Ljava/lang/String;Ljava/lang/Throwable;)V
+      37: return
+    Exception table:
+       from    to  target type
+           0    22    25   Class java/lang/Exception
+
+  private static void lambda$export$14(java.util.zip.ZipOutputStream, byte[]) throws java.lang.Exception;
+    Code:
+       0: aload_1
+       1: aload_0
+       2: invokestatic  #667                // Method org/apache/commons/io/IOUtils.write:([BLjava/io/OutputStream;)V
+       5: return
+
+  private static void lambda$export$13(java.util.zip.ZipOutputStream, java.lang.String) throws java.lang.Exception;
+    Code:
+       0: aload_1
+       1: aload_0
+       2: getstatic     #265                // Field java/nio/charset/StandardCharsets.UTF_8:Ljava/nio/charset/Charset;
+       5: invokestatic  #581                // Method org/apache/commons/io/IOUtils.write:(Ljava/lang/String;Ljava/io/OutputStream;Ljava/nio/charset/Charset;)V
+       8: return
+
+  private static void lambda$export$12(java.util.zip.ZipOutputStream, org.mtr.resource.PositionDefinitions) throws java.lang.Exception;
+    Code:
+       0: aload_1
+       1: invokestatic  #574                // InterfaceMethod org/mtr/core/tool/Utilities.getJsonObjectFromData:(Lorg/mtr/core/serializer/SerializedDataBase;)Lorg/mtr/libraries/com/google/gson/JsonObject;
+       4: invokevirtual #577                // Method org/mtr/libraries/com/google/gson/JsonObject.toString:()Ljava/lang/String;
+       7: aload_0
+       8: getstatic     #265                // Field java/nio/charset/StandardCharsets.UTF_8:Ljava/nio/charset/Charset;
+      11: invokestatic  #581                // Method org/apache/commons/io/IOUtils.write:(Ljava/lang/String;Ljava/io/OutputStream;Ljava/nio/charset/Charset;)V
+      14: return
+
+  private static void lambda$export$11(java.util.zip.ZipOutputStream, org.mtr.resource.ModelProperties) throws java.lang.Exception;
+    Code:
+       0: aload_1
+       1: invokestatic  #574                // InterfaceMethod org/mtr/core/tool/Utilities.getJsonObjectFromData:(Lorg/mtr/core/serializer/SerializedDataBase;)Lorg/mtr/libraries/com/google/gson/JsonObject;
+       4: invokevirtual #577                // Method org/mtr/libraries/com/google/gson/JsonObject.toString:()Ljava/lang/String;
+       7: aload_0
+       8: getstatic     #265                // Field java/nio/charset/StandardCharsets.UTF_8:Ljava/nio/charset/Charset;
+      11: invokestatic  #581                // Method org/apache/commons/io/IOUtils.write:(Ljava/lang/String;Ljava/io/OutputStream;Ljava/nio/charset/Charset;)V
+      14: return
+
+  private static void lambda$export$10(org.mtr.libraries.it.unimi.dsi.fastutil.objects.ObjectArrayList, org.mtr.libraries.it.unimi.dsi.fastutil.objects.Object2ObjectArrayMap, org.mtr.libraries.it.unimi.dsi.fastutil.objects.Object2ObjectArrayMap, org.mtr.resource.VehicleResourceWrapper);
+    Code:
+       0: aload_0
+       1: aload_3
+       2: invokedynamic #682,  0            // InvokeDynamic #12:get:()Lorg/mtr/resource/ResourceProvider;
+       7: aload_1
+       8: aload_2
+       9: invokevirtual #688                // Method org/mtr/resource/VehicleResourceWrapper.toVehicleResource:(Lorg/mtr/resource/ResourceProvider;Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/Object2ObjectArrayMap;Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/Object2ObjectArrayMap;)Lorg/mtr/resource/VehicleResource;
+      12: invokevirtual #311                // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList.add:(Ljava/lang/Object;)Z
+      15: pop
+      16: return
+
+  private static java.lang.String lambda$export$9(net.minecraft.resources.ResourceLocation);
+    Code:
+       0: aload_0
+       1: invokevirtual #691                // Method net/minecraft/resources/ResourceLocation.toString:()Ljava/lang/String;
+       4: invokestatic  #693                // Method getModel:(Ljava/lang/String;)Ljava/lang/String;
+       7: astore_1
+       8: aload_1
+       9: ifnonnull     19
+      12: aload_0
+      13: invokestatic  #695                // Method org/mtr/resource/ResourceManagerHelper.readResource:(Lnet/minecraft/resources/ResourceLocation;)Ljava/lang/String;
+      16: goto          20
+      19: aload_1
+      20: areturn
+
+  private static void lambda$uploadZip$8(org.mtr.libraries.com.google.gson.JsonObject, org.mtr.libraries.it.unimi.dsi.fastutil.objects.Object2ObjectAVLTreeMap, org.mtr.libraries.it.unimi.dsi.fastutil.objects.ObjectArrayList, org.mtr.libraries.jakarta.servlet.http.HttpServletResponse, org.mtr.libraries.jakarta.servlet.AsyncContext);
+    Code:
+       0: new           #699                // class org/mtr/screen/ReloadCustomResourcesScreen
+       3: dup
+       4: aload_0
+       5: aload_1
+       6: aload_2
+       7: aload_3
+       8: aload         4
+      10: invokedynamic #704,  0            // InvokeDynamic #13:run:(Lorg/mtr/libraries/com/google/gson/JsonObject;Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/Object2ObjectAVLTreeMap;Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList;Lorg/mtr/libraries/jakarta/servlet/http/HttpServletResponse;Lorg/mtr/libraries/jakarta/servlet/AsyncContext;)Ljava/lang/Runnable;
+      15: invokespecial #706                // Method org/mtr/screen/ReloadCustomResourcesScreen."<init>":(Ljava/lang/Runnable;)V
+      18: invokestatic  #711                // Method org/mtr/libraries/gg/essential/universal/UMinecraft.setCurrentScreenObj:(Ljava/lang/Object;)V
+      21: return
+
+  private static void lambda$uploadZip$7(org.mtr.libraries.com.google.gson.JsonObject, org.mtr.libraries.it.unimi.dsi.fastutil.objects.Object2ObjectAVLTreeMap, org.mtr.libraries.it.unimi.dsi.fastutil.objects.ObjectArrayList, org.mtr.libraries.jakarta.servlet.http.HttpServletResponse, org.mtr.libraries.jakarta.servlet.AsyncContext);
+    Code:
+       0: new           #134                // class org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList
+       3: dup
+       4: invokespecial #223                // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList."<init>":()V
+       7: astore        5
+       9: aload_0
+      10: aload_1
+      11: invokedynamic #719,  0            // InvokeDynamic #14:get:(Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/Object2ObjectAVLTreeMap;)Lorg/mtr/resource/ResourceProvider;
+      16: invokestatic  #725                // Method org/mtr/legacy/resource/CustomResourcesConverter.convert:(Lorg/mtr/libraries/com/google/gson/JsonObject;Lorg/mtr/resource/ResourceProvider;)Lorg/mtr/resource/CustomResources;
+      19: aload         5
+      21: invokedynamic #735,  0            // InvokeDynamic #15:accept:(Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList;)Ljava/util/function/Consumer;
+      26: invokevirtual #736                // Method org/mtr/resource/CustomResources.iterateVehicles:(Ljava/util/function/Consumer;)V
+      29: new           #377                // class org/mtr/resource/ResourceWrapper
+      32: dup
+      33: aload         5
+      35: new           #134                // class org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList
+      38: dup
+      39: invokespecial #223                // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList."<init>":()V
+      42: new           #134                // class org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList
+      45: dup
+      46: invokespecial #223                // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList."<init>":()V
+      49: invokestatic  #742                // Method org/mtr/client/CustomResourceLoader.getMinecraftModelResources:()Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList;
+      52: invokestatic  #745                // Method org/mtr/client/CustomResourceLoader.getTextureResources:()Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList;
+      55: invokespecial #748                // Method org/mtr/resource/ResourceWrapper."<init>":(Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList;Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList;Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList;Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList;Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList;)V
+      58: putstatic     #148                // Field resourceWrapper:Lorg/mtr/resource/ResourceWrapper;
+      61: aload_2
+      62: invokedynamic #757,  0            // InvokeDynamic #16:accept:()Ljava/util/function/Consumer;
+      67: invokevirtual #759                // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList.forEach:(Ljava/util/function/Consumer;)V
+      70: aload_3
+      71: aload         4
+      73: ldc           #169                // String
+      75: invokestatic  #367                // Method returnStandardResponse:(Lorg/mtr/libraries/jakarta/servlet/http/HttpServletResponse;Lorg/mtr/libraries/jakarta/servlet/AsyncContext;Ljava/lang/String;)V
+      78: return
+
+  private static void lambda$uploadZip$6(org.mtr.libraries.it.unimi.dsi.fastutil.objects.ObjectArrayList, org.mtr.resource.VehicleResource);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokevirtual #766                // Method org/mtr/resource/VehicleResource.toVehicleResourceWrapper:()Lorg/mtr/resource/VehicleResourceWrapper;
+       5: invokevirtual #311                // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList.add:(Ljava/lang/Object;)Z
+       8: pop
+       9: return
+
+  private static java.lang.String lambda$uploadZip$5(org.mtr.libraries.it.unimi.dsi.fastutil.objects.Object2ObjectAVLTreeMap, net.minecraft.resources.ResourceLocation);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokevirtual #691                // Method net/minecraft/resources/ResourceLocation.toString:()Ljava/lang/String;
+       5: aload_1
+       6: invokestatic  #695                // Method org/mtr/resource/ResourceManagerHelper.readResource:(Lnet/minecraft/resources/ResourceLocation;)Ljava/lang/String;
+       9: invokevirtual #771                // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/Object2ObjectAVLTreeMap.getOrDefault:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+      12: checkcast     #47                 // class java/lang/String
+      15: areturn
+
+  private static void lambda$uploadZip$4(java.lang.String, byte[], java.lang.String);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_2
+       3: invokestatic  #360                // Method uploadResource:(Ljava/lang/String;[BLjava/lang/String;)V
+       6: return
+
+  private static void lambda$reset$3(org.mtr.libraries.it.unimi.dsi.fastutil.objects.ObjectArrayList, net.minecraft.client.Minecraft);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokedynamic #779,  0            // InvokeDynamic #17:accept:(Lnet/minecraft/client/Minecraft;)Ljava/util/function/Consumer;
+       7: invokevirtual #759                // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList.forEach:(Ljava/util/function/Consumer;)V
+      10: return
+
+  private static void lambda$reset$2(net.minecraft.client.Minecraft, java.lang.String);
+    Code:
+       0: aload_0
+       1: invokevirtual #783                // Method net/minecraft/client/Minecraft.getTextureManager:()Lnet/minecraft/client/renderer/texture/TextureManager;
+       4: aload_1
+       5: invokestatic  #787                // Method net/minecraft/resources/ResourceLocation.parse:(Ljava/lang/String;)Lnet/minecraft/resources/ResourceLocation;
+       8: invokevirtual #793                // Method net/minecraft/client/renderer/texture/TextureManager.release:(Lnet/minecraft/resources/ResourceLocation;)V
+      11: goto          26
+      14: astore_2
+      15: getstatic     #167                // Field org/mtr/MTR.LOGGER:Lorg/apache/logging/log4j/Logger;
+      18: ldc           #169                // String
+      20: aload_2
+      21: invokeinterface #175,  3          // InterfaceMethod org/apache/logging/log4j/Logger.error:(Ljava/lang/String;Ljava/lang/Throwable;)V
+      26: return
+    Exception table:
+       from    to  target type
+           0    11    14   Class java/lang/Exception
+
+  private static void lambda$doGet$1(org.mtr.libraries.jakarta.servlet.http.HttpServletResponse, org.mtr.libraries.jakarta.servlet.AsyncContext);
+    Code:
+       0: new           #699                // class org/mtr/screen/ReloadCustomResourcesScreen
+       3: dup
+       4: aload_0
+       5: aload_1
+       6: invokedynamic #799,  0            // InvokeDynamic #18:run:(Lorg/mtr/libraries/jakarta/servlet/http/HttpServletResponse;Lorg/mtr/libraries/jakarta/servlet/AsyncContext;)Ljava/lang/Runnable;
+      11: invokespecial #706                // Method org/mtr/screen/ReloadCustomResourcesScreen."<init>":(Ljava/lang/Runnable;)V
+      14: invokestatic  #711                // Method org/mtr/libraries/gg/essential/universal/UMinecraft.setCurrentScreenObj:(Ljava/lang/Object;)V
+      17: return
+
+  private static void lambda$doGet$0(org.mtr.libraries.jakarta.servlet.http.HttpServletResponse, org.mtr.libraries.jakarta.servlet.AsyncContext);
+    Code:
+       0: invokestatic  #802                // Method org/mtr/client/CustomResourceLoader.reload:()V
+       3: aload_0
+       4: aload_1
+       5: aconst_null
+       6: invokestatic  #367                // Method returnStandardResponse:(Lorg/mtr/libraries/jakarta/servlet/http/HttpServletResponse;Lorg/mtr/libraries/jakarta/servlet/AsyncContext;Ljava/lang/String;)V
+       9: return
+}

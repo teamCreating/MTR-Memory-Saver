@@ -1,0 +1,113 @@
+  public org.mtr.model.ObjModelLoader(net.minecraft.resources.ResourceLocation);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: getstatic     #21                 // Field com/mojang/blaze3d/vertex/VertexFormat$Mode.TRIANGLES:Lcom/mojang/blaze3d/vertex/VertexFormat$Mode;
+       5: invokespecial #24                 // Method org/mtr/model/ModelLoaderBase."<init>":(Lnet/minecraft/resources/ResourceLocation;Lcom/mojang/blaze3d/vertex/VertexFormat$Mode;)V
+       8: return
+  public void loadModel(java.lang.String, java.util.function.Function<java.lang.String, java.lang.String>, java.util.function.Function<java.lang.String, net.minecraft.resources.ResourceLocation>, boolean, boolean);
+    Code:
+       0: aload_0
+       1: invokevirtual #35                 // Method canLoadModel:()Z
+       4: ifeq          35
+       7: invokestatic  #39                 // Method parseStarted:()V
+      10: getstatic     #45                 // Field org/mtr/render/MainRenderer.WORKER_THREAD:Lorg/mtr/render/WorkerThread;
+      13: getfield      #51                 // Field org/mtr/render/WorkerThread.worker:Ljava/util/concurrent/ExecutorService;
+      16: aload_0
+      17: aload_1
+      18: aload_2
+      19: iload         4
+      21: aload_3
+      22: iload         5
+      24: invokedynamic #68,  0             // InvokeDynamic #0:run:(Lorg/mtr/model/ObjModelLoader;Ljava/lang/String;Ljava/util/function/Function;ZLjava/util/function/Function;Z)Ljava/lang/Runnable;
+      29: invokeinterface #74,  2           // InterfaceMethod java/util/concurrent/ExecutorService.submit:(Ljava/lang/Runnable;)Ljava/util/concurrent/Future;
+      34: pop
+      35: return
+
+  private void lambda$loadModel$3(java.lang.String, java.util.function.Function, boolean, java.util.function.Function, boolean);
+    Code:
+       0: aload_1
+       1: getstatic     #410                // Field java/nio/charset/StandardCharsets.UTF_8:Ljava/nio/charset/Charset;
+       4: invokestatic  #416                // Method org/apache/commons/io/IOUtils.toInputStream:(Ljava/lang/String;Ljava/nio/charset/Charset;)Ljava/io/InputStream;
+       7: invokestatic  #422                // Method org/mtr/libraries/de/javagl/obj/ObjReader.read:(Ljava/io/InputStream;)Lorg/mtr/libraries/de/javagl/obj/Obj;
+      10: astore        6
+      12: new           #187                // class org/mtr/libraries/it/unimi/dsi/fastutil/objects/Object2ObjectOpenHashMap
+      15: dup
+      16: invokespecial #188                // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/Object2ObjectOpenHashMap."<init>":()V
+      19: astore        7
+      21: aload         6
+      23: invokeinterface #426,  1          // InterfaceMethod org/mtr/libraries/de/javagl/obj/Obj.getMtlFileNames:()Ljava/util/List;
+      28: aload_2
+      29: aload         7
+      31: invokedynamic #436,  0            // InvokeDynamic #3:accept:(Ljava/util/function/Function;Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/Object2ObjectOpenHashMap;)Ljava/util/function/Consumer;
+      36: invokeinterface #441,  2          // InterfaceMethod java/util/List.forEach:(Ljava/util/function/Consumer;)V
+      41: iload_3
+      42: ifeq          70
+      45: aload         6
+      47: invokestatic  #444                // Method org/mtr/libraries/de/javagl/obj/ObjSplitting.splitByGroups:(Lorg/mtr/libraries/de/javagl/obj/ReadableObj;)Ljava/util/Map;
+      50: aload_0
+      51: aload         7
+      53: aload         4
+      55: iload         5
+      57: invokedynamic #452,  0            // InvokeDynamic #4:accept:(Lorg/mtr/model/ObjModelLoader;Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/Object2ObjectOpenHashMap;Ljava/util/function/Function;Z)Ljava/util/function/BiConsumer;
+      62: invokeinterface #115,  2          // InterfaceMethod java/util/Map.forEach:(Ljava/util/function/BiConsumer;)V
+      67: goto          88
+      70: aload_0
+      71: ldc           #198                // String
+      73: aload_0
+      74: aload         6
+      76: aload         7
+      78: aload         4
+      80: iload         5
+      82: invokevirtual #454                // Method loadModel:(Lorg/mtr/libraries/de/javagl/obj/Obj;Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/Object2ObjectOpenHashMap;Ljava/util/function/Function;Z)Lorg/mtr/model/NewOptimizedModelGroup;
+      85: invokevirtual #458                // Method addModel:(Ljava/lang/String;Lorg/mtr/model/NewOptimizedModelGroup;)V
+      88: aload_0
+      89: invokevirtual #461                // Method setModelLoaded:()V
+      92: invokestatic  #464                // Method parseFinished:()V
+      95: goto          131
+      98: astore        6
+     100: getstatic     #470                // Field org/mtr/MTR.LOGGER:Lorg/apache/logging/log4j/Logger;
+     103: ldc_w         #472                // String Failed to parse OBJ model for texture [{}]
+     106: aload_0
+     107: getfield      #369                // Field defaultTexture:Lnet/minecraft/resources/ResourceLocation;
+     110: aload         6
+     112: invokeinterface #478,  4          // InterfaceMethod org/apache/logging/log4j/Logger.error:(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V
+     117: invokestatic  #464                // Method parseFinished:()V
+     120: goto          131
+     123: astore        8
+     125: invokestatic  #464                // Method parseFinished:()V
+     128: aload         8
+     130: athrow
+     131: return
+    Exception table:
+       from    to  target type
+           0    92    98   Class java/lang/Exception
+           0    92   123   any
+          98   117   123   any
+         123   125   123   any
+
+  private static void lambda$loadModel$1(java.util.function.Function, org.mtr.libraries.it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap, java.lang.String);
+    Code:
+       0: aload_0
+       1: aload_2
+       2: invokestatic  #316                // Method formatFilePath:(Ljava/lang/String;)Ljava/lang/String;
+       5: invokeinterface #319,  2          // InterfaceMethod java/util/function/Function.apply:(Ljava/lang/Object;)Ljava/lang/Object;
+      10: checkcast     #192                // class java/lang/String
+      13: getstatic     #410                // Field java/nio/charset/StandardCharsets.UTF_8:Ljava/nio/charset/Charset;
+      16: invokestatic  #416                // Method org/apache/commons/io/IOUtils.toInputStream:(Ljava/lang/String;Ljava/nio/charset/Charset;)Ljava/io/InputStream;
+      19: invokestatic  #487                // Method org/mtr/libraries/de/javagl/obj/MtlReader.read:(Ljava/io/InputStream;)Ljava/util/List;
+      22: aload_1
+      23: invokedynamic #497,  0            // InvokeDynamic #5:accept:(Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/Object2ObjectOpenHashMap;)Ljava/util/function/Consumer;
+      28: invokeinterface #441,  2          // InterfaceMethod java/util/List.forEach:(Ljava/util/function/Consumer;)V
+      33: goto          50
+      36: astore_3
+      37: getstatic     #470                // Field org/mtr/MTR.LOGGER:Lorg/apache/logging/log4j/Logger;
+      40: ldc_w         #499                // String Failed to parse MTL file [{}] referenced by OBJ model
+      43: aload_2
+      44: aload_3
+      45: invokeinterface #478,  4          // InterfaceMethod org/apache/logging/log4j/Logger.error:(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V
+      50: return
+    Exception table:
+       from    to  target type
+           0    33    36   Class java/lang/Exception
+

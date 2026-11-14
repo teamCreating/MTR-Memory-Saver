@@ -1,0 +1,32 @@
+{
+  "timestamp": "2026-11-15T04:24:37.868858+08:00",
+  "objective": "Complete repair and verification for official MTR 4.1.0-beta.2",
+  "version": "0.4.5",
+  "active_targets": [
+    "official-nf248",
+    "official-nf265"
+  ],
+  "v6_validation": "paused by user",
+  "completed": {
+    "python_tests": 64,
+    "headless_tests_per_official_target": 43,
+    "actual_packaged_fault_checks_per_official_target": 24,
+    "actual_nf248_wrong_binary_rejection": "packaged-mismatch-nf248/assessment.json",
+    "static_official_registration_order": "registration-order-reference/assessment.json",
+    "actual_full_catalogue_reference": "full-catalogue-reference/assessment.json"
+  },
+  "observed_failures": {
+    "default_large_valid_text_rejection": "packaged-full-load-before-text-fix-nf248/failed-full-load-assessment.json"
+  },
+  "remaining": [
+    "Repair the default decoded text admission policy so the current authored 102035449-code-unit OBJ is accepted without path exceptions or concealed failures, and revalidate native text semantics and configured limits",
+    "Repeat complete latest sixteen-pack/native-catalogue loading and representative geometry/display/doors/floors/boarding on the changed candidate",
+    "Twenty consecutive actual full ResourceManager F3+T reloads with independent input/epoch/settlement evidence",
+    "Two-hour unpaused route session with fresh native, heap, OS, NMT and GPU observations",
+    "Controlled full-client baseline/candidate comparison with preregistered controls/budgets, A/A and instrumentation controls and complete raw JFR/GC/frame evidence",
+    "Official-nf265 wrong-binary rejection and final changed-candidate packaged/full-pack compatibility",
+    "Complete final exact artifact/evidence/support/release bundle audit"
+  ],
+  "artifact_identity_policy": "Historical passes certify only their exact binaries. Zero module counters do not override native decode/parse errors. Partial recovered JFR is not controlled performance evidence.",
+  "native_obj_scope": "Default large-text rejection is an observed defect. Existing native OBJ raw queue/MTL parsing remains the documented foreign-native ownership boundary; broader managed OBJ scheduling requires separate engineering and verification."
+}

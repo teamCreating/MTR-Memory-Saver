@@ -1,0 +1,78 @@
+  public static org.mtr.model.ModelLoaderBase getModelLoaderBase(java.lang.String, java.lang.String, org.mtr.resource.ResourceProvider, boolean);
+    Code:
+       0: aload_1
+       1: ldc           #167                // String png
+       3: invokestatic  #21                 // InterfaceMethod org/mtr/resource/CustomResourceTools.formatIdentifierWithDefault:(Ljava/lang/String;Ljava/lang/String;)Lnet/minecraft/resources/ResourceLocation;
+       6: astore        4
+       8: aload_0
+       9: ldc           #169                // String .bbmodel
+      11: invokevirtual #171                // Method java/lang/String.endsWith:(Ljava/lang/String;)Z
+      14: ifeq          47
+      17: new           #177                // class org/mtr/model/BlockbenchModelLoader
+      20: dup
+      21: aload         4
+      23: invokespecial #179                // Method org/mtr/model/BlockbenchModelLoader."<init>":(Lnet/minecraft/resources/ResourceLocation;)V
+      26: astore        6
+      28: aload         6
+      30: aload_2
+      31: aload_0
+      32: invokedynamic #182,  0            // InvokeDynamic #2:get:(Lorg/mtr/resource/ResourceProvider;Ljava/lang/String;)Ljava/util/function/Supplier;
+      37: invokevirtual #185                // Method org/mtr/model/BlockbenchModelLoader.loadModel:(Ljava/util/function/Supplier;)V
+      40: aload         6
+      42: astore        5
+      44: goto          148
+      47: aload_0
+      48: ldc           #189                // String .obj
+      50: invokevirtual #171                // Method java/lang/String.endsWith:(Ljava/lang/String;)Z
+      53: ifeq          108
+      56: new           #191                // class org/mtr/model/ObjModelLoader
+      59: dup
+      60: aload         4
+      62: invokespecial #193                // Method org/mtr/model/ObjModelLoader."<init>":(Lnet/minecraft/resources/ResourceLocation;)V
+      65: astore        6
+      67: aload         6
+      69: aload_2
+      70: aload_0
+      71: ldc           #194                // String obj
+      73: invokestatic  #21                 // InterfaceMethod org/mtr/resource/CustomResourceTools.formatIdentifierWithDefault:(Ljava/lang/String;Ljava/lang/String;)Lnet/minecraft/resources/ResourceLocation;
+      76: invokeinterface #27,  2           // InterfaceMethod org/mtr/resource/ResourceProvider.get:(Lnet/minecraft/resources/ResourceLocation;)Ljava/lang/String;
+      81: aload_2
+      82: aload_0
+      83: invokedynamic #196,  0            // InvokeDynamic #3:apply:(Lorg/mtr/resource/ResourceProvider;Ljava/lang/String;)Ljava/util/function/Function;
+      88: aload         4
+      90: aload_0
+      91: invokedynamic #200,  0            // InvokeDynamic #4:apply:(Lnet/minecraft/resources/ResourceLocation;Ljava/lang/String;)Ljava/util/function/Function;
+      96: iconst_1
+      97: iload_3
+      98: invokevirtual #203                // Method org/mtr/model/ObjModelLoader.loadModel:(Ljava/lang/String;Ljava/util/function/Function;Ljava/util/function/Function;ZZ)V
+     101: aload         6
+     103: astore        5
+     105: goto          148
+     108: getstatic     #206                // Field org/mtr/MTR.LOGGER:Lorg/apache/logging/log4j/Logger;
+     111: ldc           #212                // String [{}] Invalid model!
+     113: aload         4
+     115: invokevirtual #100                // Method net/minecraft/resources/ResourceLocation.toString:()Ljava/lang/String;
+     118: invokeinterface #214,  3          // InterfaceMethod org/apache/logging/log4j/Logger.error:(Ljava/lang/String;Ljava/lang/Object;)V
+     123: new           #177                // class org/mtr/model/BlockbenchModelLoader
+     126: dup
+     127: aload         4
+     129: invokespecial #179                // Method org/mtr/model/BlockbenchModelLoader."<init>":(Lnet/minecraft/resources/ResourceLocation;)V
+     132: astore        6
+     134: aload         6
+     136: invokedynamic #220,  0            // InvokeDynamic #5:get:()Ljava/util/function/Supplier;
+     141: invokevirtual #185                // Method org/mtr/model/BlockbenchModelLoader.loadModel:(Ljava/util/function/Supplier;)V
+     144: aload         6
+     146: astore        5
+     148: aload         5
+     150: areturn
+
+  private static java.lang.String lambda$getModelLoaderBase$3(org.mtr.resource.ResourceProvider, java.lang.String, java.lang.String);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_2
+       3: ldc           #252                // String mtl
+       5: invokestatic  #248                // InterfaceMethod org/mtr/resource/CustomResourceTools.getResourceFromSamePath:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lnet/minecraft/resources/ResourceLocation;
+       8: invokeinterface #27,  2           // InterfaceMethod org/mtr/resource/ResourceProvider.get:(Lnet/minecraft/resources/ResourceLocation;)Ljava/lang/String;
+      13: areturn
+

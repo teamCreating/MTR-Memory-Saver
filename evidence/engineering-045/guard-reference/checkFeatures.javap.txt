@@ -1,0 +1,88 @@
+private boolean checkFeatures() throws org.spongepowered.asm.launch.MixinInitialisationError;
+    Code:
+       0: aload_0
+       1: getfield      #166                // Field requiredFeatures:Ljava/util/List;
+       4: ifnull        19
+       7: aload_0
+       8: getfield      #166                // Field requiredFeatures:Ljava/util/List;
+      11: invokeinterface #306,  1          // InterfaceMethod java/util/List.isEmpty:()Z
+      16: ifeq          21
+      19: iconst_1
+      20: ireturn
+      21: new           #77                 // class java/util/LinkedHashSet
+      24: dup
+      25: invokespecial #220                // Method java/util/LinkedHashSet."<init>":()V
+      28: astore_1
+      29: aload_0
+      30: getfield      #166                // Field requiredFeatures:Ljava/util/List;
+      33: invokeinterface #307,  1          // InterfaceMethod java/util/List.iterator:()Ljava/util/Iterator;
+      38: astore_2
+      39: aload_2
+      40: invokeinterface #301,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+      45: ifeq          87
+      48: aload_2
+      49: invokeinterface #302,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+      54: checkcast     #67                 // class java/lang/String
+      57: astore_3
+      58: aload_3
+      59: invokevirtual #209                // Method java/lang/String.trim:()Ljava/lang/String;
+      62: getstatic     #123                // Field java/util/Locale.ROOT:Ljava/util/Locale;
+      65: invokevirtual #208                // Method java/lang/String.toUpperCase:(Ljava/util/Locale;)Ljava/lang/String;
+      68: astore_3
+      69: aload_3
+      70: invokestatic  #240                // Method org/spongepowered/asm/mixin/MixinEnvironment$Feature.isActive:(Ljava/lang/String;)Z
+      73: ifne          84
+      76: aload_1
+      77: aload_3
+      78: invokeinterface #314,  2          // InterfaceMethod java/util/Set.add:(Ljava/lang/Object;)Z
+      83: pop
+      84: goto          39
+      87: aload_1
+      88: invokeinterface #316,  1          // InterfaceMethod java/util/Set.isEmpty:()Z
+      93: ifeq          98
+      96: iconst_1
+      97: ireturn
+      98: ldc           #10                 // String ,
+     100: invokestatic  #291                // Method org/spongepowered/include/com/google/common/base/Joiner.on:(Ljava/lang/String;)Lorg/spongepowered/include/com/google/common/base/Joiner;
+     103: aload_1
+     104: invokevirtual #290                // Method org/spongepowered/include/com/google/common/base/Joiner.join:(Ljava/lang/Iterable;)Ljava/lang/String;
+     107: astore_2
+     108: aload_0
+     109: getfield      #144                // Field logger:Lorg/spongepowered/asm/logging/ILogger;
+     112: ldc           #22                 // String Mixin config {} requires features [{}] which are not available. The mixin config will not be applied.
+     114: iconst_2
+     115: anewarray     #64                 // class java/lang/Object
+     118: dup
+     119: iconst_0
+     120: aload_0
+     121: getfield      #152                // Field name:Ljava/lang/String;
+     124: aastore
+     125: dup
+     126: iconst_1
+     127: aload_2
+     128: aastore
+     129: invokeinterface #323,  3          // InterfaceMethod org/spongepowered/asm/logging/ILogger.warn:(Ljava/lang/String;[Ljava/lang/Object;)V
+     134: aload_0
+     135: getfield      #165                // Field required:Z
+     138: ifeq          185
+     141: new           #86                 // class org/spongepowered/asm/launch/MixinInitialisationError
+     144: dup
+     145: new           #68                 // class java/lang/StringBuilder
+     148: dup
+     149: invokespecial #210                // Method java/lang/StringBuilder."<init>":()V
+     152: ldc           #28                 // String Required mixin config
+     154: invokevirtual #212                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     157: aload_0
+     158: getfield      #152                // Field name:Ljava/lang/String;
+     161: invokevirtual #212                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     164: ldc           #5                  // String  requires features [
+     166: invokevirtual #212                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     169: aload_2
+     170: invokevirtual #212                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     173: ldc           #9                  // String  which are not available
+     175: invokevirtual #212                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     178: invokevirtual #213                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     181: invokespecial #225                // Method org/spongepowered/asm/launch/MixinInitialisationError."<init>":(Ljava/lang/String;)V
+     184: athrow
+     185: iconst_0
+     186: ireturn

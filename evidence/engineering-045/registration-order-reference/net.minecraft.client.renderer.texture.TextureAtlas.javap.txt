@@ -1,0 +1,463 @@
+Compiled from "TextureAtlas.java"
+public class net.minecraft.client.renderer.texture.TextureAtlas extends net.minecraft.client.renderer.texture.AbstractTexture implements net.minecraft.client.renderer.texture.Dumpable,net.minecraft.client.renderer.texture.Tickable {
+  private static final org.slf4j.Logger LOGGER;
+
+  public static final net.minecraft.resources.ResourceLocation LOCATION_BLOCKS;
+
+  public static final net.minecraft.resources.ResourceLocation LOCATION_PARTICLES;
+
+  private java.util.List<net.minecraft.client.renderer.texture.SpriteContents> sprites;
+
+  private java.util.List<net.minecraft.client.renderer.texture.TextureAtlasSprite$Ticker> animatedTextures;
+
+  private java.util.Map<net.minecraft.resources.ResourceLocation, net.minecraft.client.renderer.texture.TextureAtlasSprite> texturesByName;
+
+  private net.minecraft.client.renderer.texture.TextureAtlasSprite missingSprite;
+
+  private final net.minecraft.resources.ResourceLocation location;
+
+  private final int maxSupportedTextureSize;
+
+  private int width;
+
+  private int height;
+
+  private int mipLevel;
+
+  public net.minecraft.client.renderer.texture.TextureAtlas(net.minecraft.resources.ResourceLocation);
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method net/minecraft/client/renderer/texture/AbstractTexture."<init>":()V
+       4: aload_0
+       5: invokestatic  #7                  // InterfaceMethod java/util/List.of:()Ljava/util/List;
+       8: putfield      #13                 // Field sprites:Ljava/util/List;
+      11: aload_0
+      12: invokestatic  #7                  // InterfaceMethod java/util/List.of:()Ljava/util/List;
+      15: putfield      #19                 // Field animatedTextures:Ljava/util/List;
+      18: aload_0
+      19: invokestatic  #22                 // InterfaceMethod java/util/Map.of:()Ljava/util/Map;
+      22: putfield      #27                 // Field texturesByName:Ljava/util/Map;
+      25: aload_0
+      26: aload_1
+      27: putfield      #31                 // Field location:Lnet/minecraft/resources/ResourceLocation;
+      30: aload_0
+      31: invokestatic  #35                 // Method com/mojang/blaze3d/systems/RenderSystem.maxSupportedTextureSize:()I
+      34: putfield      #41                 // Field maxSupportedTextureSize:I
+      37: return
+
+  public void load(net.minecraft.server.packs.resources.ResourceManager);
+    Code:
+       0: return
+
+  public void upload(net.minecraft.client.renderer.texture.SpriteLoader$Preparations);
+    Code:
+       0: getstatic     #44                 // Field LOGGER:Lorg/slf4j/Logger;
+       3: ldc           #48                 // String Created: {}x{}x{} {}-atlas
+       5: iconst_4
+       6: anewarray     #50                 // class java/lang/Object
+       9: dup
+      10: iconst_0
+      11: aload_1
+      12: invokevirtual #52                 // Method net/minecraft/client/renderer/texture/SpriteLoader$Preparations.width:()I
+      15: invokestatic  #57                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+      18: aastore
+      19: dup
+      20: iconst_1
+      21: aload_1
+      22: invokevirtual #63                 // Method net/minecraft/client/renderer/texture/SpriteLoader$Preparations.height:()I
+      25: invokestatic  #57                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+      28: aastore
+      29: dup
+      30: iconst_2
+      31: aload_1
+      32: invokevirtual #66                 // Method net/minecraft/client/renderer/texture/SpriteLoader$Preparations.mipLevel:()I
+      35: invokestatic  #57                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+      38: aastore
+      39: dup
+      40: iconst_3
+      41: aload_0
+      42: getfield      #31                 // Field location:Lnet/minecraft/resources/ResourceLocation;
+      45: aastore
+      46: invokeinterface #69,  3           // InterfaceMethod org/slf4j/Logger.info:(Ljava/lang/String;[Ljava/lang/Object;)V
+      51: aload_0
+      52: invokevirtual #75                 // Method getId:()I
+      55: aload_1
+      56: invokevirtual #66                 // Method net/minecraft/client/renderer/texture/SpriteLoader$Preparations.mipLevel:()I
+      59: aload_1
+      60: invokevirtual #52                 // Method net/minecraft/client/renderer/texture/SpriteLoader$Preparations.width:()I
+      63: aload_1
+      64: invokevirtual #63                 // Method net/minecraft/client/renderer/texture/SpriteLoader$Preparations.height:()I
+      67: invokestatic  #78                 // Method com/mojang/blaze3d/platform/TextureUtil.prepareImage:(IIII)V
+      70: aload_0
+      71: aload_1
+      72: invokevirtual #52                 // Method net/minecraft/client/renderer/texture/SpriteLoader$Preparations.width:()I
+      75: putfield      #84                 // Field width:I
+      78: aload_0
+      79: aload_1
+      80: invokevirtual #63                 // Method net/minecraft/client/renderer/texture/SpriteLoader$Preparations.height:()I
+      83: putfield      #86                 // Field height:I
+      86: aload_0
+      87: aload_1
+      88: invokevirtual #66                 // Method net/minecraft/client/renderer/texture/SpriteLoader$Preparations.mipLevel:()I
+      91: putfield      #88                 // Field mipLevel:I
+      94: aload_0
+      95: invokevirtual #90                 // Method clearTextureData:()V
+      98: aload_0
+      99: aload_1
+     100: invokevirtual #93                 // Method net/minecraft/client/renderer/texture/SpriteLoader$Preparations.regions:()Ljava/util/Map;
+     103: invokestatic  #96                 // InterfaceMethod java/util/Map.copyOf:(Ljava/util/Map;)Ljava/util/Map;
+     106: putfield      #27                 // Field texturesByName:Ljava/util/Map;
+     109: aload_0
+     110: aload_0
+     111: getfield      #27                 // Field texturesByName:Ljava/util/Map;
+     114: invokestatic  #100                // Method net/minecraft/client/renderer/texture/MissingTextureAtlasSprite.getLocation:()Lnet/minecraft/resources/ResourceLocation;
+     117: invokeinterface #106,  2          // InterfaceMethod java/util/Map.get:(Ljava/lang/Object;)Ljava/lang/Object;
+     122: checkcast     #110                // class net/minecraft/client/renderer/texture/TextureAtlasSprite
+     125: putfield      #112                // Field missingSprite:Lnet/minecraft/client/renderer/texture/TextureAtlasSprite;
+     128: aload_0
+     129: getfield      #112                // Field missingSprite:Lnet/minecraft/client/renderer/texture/TextureAtlasSprite;
+     132: ifnonnull     164
+     135: new           #116                // class java/lang/IllegalStateException
+     138: dup
+     139: aload_0
+     140: getfield      #31                 // Field location:Lnet/minecraft/resources/ResourceLocation;
+     143: invokestatic  #118                // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+     146: aload_0
+     147: getfield      #27                 // Field texturesByName:Ljava/util/Map;
+     150: invokeinterface #123,  1          // InterfaceMethod java/util/Map.size:()I
+     155: invokedynamic #126,  0            // InvokeDynamic #0:makeConcatWithConstants:(Ljava/lang/String;I)Ljava/lang/String;
+     160: invokespecial #130                // Method java/lang/IllegalStateException."<init>":(Ljava/lang/String;)V
+     163: athrow
+     164: new           #133                // class java/util/ArrayList
+     167: dup
+     168: invokespecial #135                // Method java/util/ArrayList."<init>":()V
+     171: astore_2
+     172: new           #133                // class java/util/ArrayList
+     175: dup
+     176: invokespecial #135                // Method java/util/ArrayList."<init>":()V
+     179: astore_3
+     180: aload_1
+     181: invokevirtual #93                 // Method net/minecraft/client/renderer/texture/SpriteLoader$Preparations.regions:()Ljava/util/Map;
+     184: invokeinterface #136,  1          // InterfaceMethod java/util/Map.values:()Ljava/util/Collection;
+     189: invokeinterface #140,  1          // InterfaceMethod java/util/Collection.iterator:()Ljava/util/Iterator;
+     194: astore        4
+     196: aload         4
+     198: invokeinterface #146,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+     203: ifeq          314
+     206: aload         4
+     208: invokeinterface #152,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+     213: checkcast     #110                // class net/minecraft/client/renderer/texture/TextureAtlasSprite
+     216: astore        5
+     218: aload_2
+     219: aload         5
+     221: invokevirtual #156                // Method net/minecraft/client/renderer/texture/TextureAtlasSprite.contents:()Lnet/minecraft/client/renderer/texture/SpriteContents;
+     224: invokeinterface #160,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+     229: pop
+     230: aload         5
+     232: invokevirtual #164                // Method net/minecraft/client/renderer/texture/TextureAtlasSprite.uploadFirstFrame:()V
+     235: goto          290
+     238: astore        6
+     240: aload         6
+     242: ldc           #169                // String Stitching texture atlas
+     244: invokestatic  #171                // Method net/minecraft/CrashReport.forThrowable:(Ljava/lang/Throwable;Ljava/lang/String;)Lnet/minecraft/CrashReport;
+     247: astore        7
+     249: aload         7
+     251: ldc           #177                // String Texture being stitched together
+     253: invokevirtual #179                // Method net/minecraft/CrashReport.addCategory:(Ljava/lang/String;)Lnet/minecraft/CrashReportCategory;
+     256: astore        8
+     258: aload         8
+     260: ldc           #183                // String Atlas path
+     262: aload_0
+     263: getfield      #31                 // Field location:Lnet/minecraft/resources/ResourceLocation;
+     266: invokevirtual #185                // Method net/minecraft/CrashReportCategory.setDetail:(Ljava/lang/String;Ljava/lang/Object;)Lnet/minecraft/CrashReportCategory;
+     269: pop
+     270: aload         8
+     272: ldc           #191                // String Sprite
+     274: aload         5
+     276: invokevirtual #185                // Method net/minecraft/CrashReportCategory.setDetail:(Ljava/lang/String;Ljava/lang/Object;)Lnet/minecraft/CrashReportCategory;
+     279: pop
+     280: new           #193                // class net/minecraft/ReportedException
+     283: dup
+     284: aload         7
+     286: invokespecial #195                // Method net/minecraft/ReportedException."<init>":(Lnet/minecraft/CrashReport;)V
+     289: athrow
+     290: aload         5
+     292: invokevirtual #198                // Method net/minecraft/client/renderer/texture/TextureAtlasSprite.createTicker:()Lnet/minecraft/client/renderer/texture/TextureAtlasSprite$Ticker;
+     295: astore        6
+     297: aload         6
+     299: ifnull        311
+     302: aload_3
+     303: aload         6
+     305: invokeinterface #160,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+     310: pop
+     311: goto          196
+     314: aload_0
+     315: aload_2
+     316: invokestatic  #202                // InterfaceMethod java/util/List.copyOf:(Ljava/util/Collection;)Ljava/util/List;
+     319: putfield      #13                 // Field sprites:Ljava/util/List;
+     322: aload_0
+     323: aload_3
+     324: invokestatic  #202                // InterfaceMethod java/util/List.copyOf:(Ljava/util/Collection;)Ljava/util/List;
+     327: putfield      #19                 // Field animatedTextures:Ljava/util/List;
+     330: aload_0
+     331: invokestatic  #205                // Method net/neoforged/neoforge/client/ClientHooks.onTextureAtlasStitched:(Lnet/minecraft/client/renderer/texture/TextureAtlas;)V
+     334: return
+    Exception table:
+       from    to  target type
+         230   235   238   Class java/lang/Throwable
+
+  public void dumpContents(net.minecraft.resources.ResourceLocation, java.nio.file.Path) throws java.io.IOException;
+    Code:
+       0: aload_1
+       1: invokevirtual #211                // Method net/minecraft/resources/ResourceLocation.toDebugFileName:()Ljava/lang/String;
+       4: astore_3
+       5: aload_2
+       6: aload_3
+       7: aload_0
+       8: invokevirtual #75                 // Method getId:()I
+      11: aload_0
+      12: getfield      #88                 // Field mipLevel:I
+      15: aload_0
+      16: getfield      #84                 // Field width:I
+      19: aload_0
+      20: getfield      #86                 // Field height:I
+      23: invokestatic  #217                // Method com/mojang/blaze3d/platform/TextureUtil.writeAsPNG:(Ljava/nio/file/Path;Ljava/lang/String;IIII)V
+      26: aload_2
+      27: aload_3
+      28: aload_0
+      29: getfield      #27                 // Field texturesByName:Ljava/util/Map;
+      32: invokestatic  #221                // Method dumpSpriteNames:(Ljava/nio/file/Path;Ljava/lang/String;Ljava/util/Map;)V
+      35: return
+
+  private static void dumpSpriteNames(java.nio.file.Path, java.lang.String, java.util.Map<net.minecraft.resources.ResourceLocation, net.minecraft.client.renderer.texture.TextureAtlasSprite>);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokedynamic #225,  0            // InvokeDynamic #1:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+       7: invokeinterface #228,  2          // InterfaceMethod java/nio/file/Path.resolve:(Ljava/lang/String;)Ljava/nio/file/Path;
+      12: astore_3
+      13: aload_3
+      14: iconst_0
+      15: anewarray     #234                // class java/nio/file/OpenOption
+      18: invokestatic  #236                // Method java/nio/file/Files.newBufferedWriter:(Ljava/nio/file/Path;[Ljava/nio/file/OpenOption;)Ljava/io/BufferedWriter;
+      21: astore        4
+      23: aload_2
+      24: invokeinterface #242,  1          // InterfaceMethod java/util/Map.entrySet:()Ljava/util/Set;
+      29: invokeinterface #246,  1          // InterfaceMethod java/util/Set.stream:()Ljava/util/stream/Stream;
+      34: invokestatic  #252                // InterfaceMethod java/util/Map$Entry.comparingByKey:()Ljava/util/Comparator;
+      37: invokeinterface #258,  2          // InterfaceMethod java/util/stream/Stream.sorted:(Ljava/util/Comparator;)Ljava/util/stream/Stream;
+      42: invokeinterface #264,  1          // InterfaceMethod java/util/stream/Stream.toList:()Ljava/util/List;
+      47: invokeinterface #267,  1          // InterfaceMethod java/util/List.iterator:()Ljava/util/Iterator;
+      52: astore        5
+      54: aload         5
+      56: invokeinterface #146,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+      61: ifeq          169
+      64: aload         5
+      66: invokeinterface #152,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+      71: checkcast     #253                // class java/util/Map$Entry
+      74: astore        6
+      76: aload         6
+      78: invokeinterface #268,  1          // InterfaceMethod java/util/Map$Entry.getValue:()Ljava/lang/Object;
+      83: checkcast     #110                // class net/minecraft/client/renderer/texture/TextureAtlasSprite
+      86: astore        7
+      88: aload         4
+      90: getstatic     #271                // Field java/util/Locale.ROOT:Ljava/util/Locale;
+      93: ldc_w         #277                // String %s\tx=%d\ty=%d\tw=%d\th=%d%n
+      96: iconst_5
+      97: anewarray     #50                 // class java/lang/Object
+     100: dup
+     101: iconst_0
+     102: aload         6
+     104: invokeinterface #279,  1          // InterfaceMethod java/util/Map$Entry.getKey:()Ljava/lang/Object;
+     109: aastore
+     110: dup
+     111: iconst_1
+     112: aload         7
+     114: invokevirtual #282                // Method net/minecraft/client/renderer/texture/TextureAtlasSprite.getX:()I
+     117: invokestatic  #57                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     120: aastore
+     121: dup
+     122: iconst_2
+     123: aload         7
+     125: invokevirtual #285                // Method net/minecraft/client/renderer/texture/TextureAtlasSprite.getY:()I
+     128: invokestatic  #57                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     131: aastore
+     132: dup
+     133: iconst_3
+     134: aload         7
+     136: invokevirtual #156                // Method net/minecraft/client/renderer/texture/TextureAtlasSprite.contents:()Lnet/minecraft/client/renderer/texture/SpriteContents;
+     139: invokevirtual #288                // Method net/minecraft/client/renderer/texture/SpriteContents.width:()I
+     142: invokestatic  #57                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     145: aastore
+     146: dup
+     147: iconst_4
+     148: aload         7
+     150: invokevirtual #156                // Method net/minecraft/client/renderer/texture/TextureAtlasSprite.contents:()Lnet/minecraft/client/renderer/texture/SpriteContents;
+     153: invokevirtual #291                // Method net/minecraft/client/renderer/texture/SpriteContents.height:()I
+     156: invokestatic  #57                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     159: aastore
+     160: invokestatic  #292                // Method java/lang/String.format:(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+     163: invokevirtual #296                // Method java/io/Writer.write:(Ljava/lang/String;)V
+     166: goto          54
+     169: aload         4
+     171: ifnull        209
+     174: aload         4
+     176: invokevirtual #301                // Method java/io/Writer.close:()V
+     179: goto          209
+     182: astore        5
+     184: aload         4
+     186: ifnull        206
+     189: aload         4
+     191: invokevirtual #301                // Method java/io/Writer.close:()V
+     194: goto          206
+     197: astore        6
+     199: aload         5
+     201: aload         6
+     203: invokevirtual #304                // Method java/lang/Throwable.addSuppressed:(Ljava/lang/Throwable;)V
+     206: aload         5
+     208: athrow
+     209: goto          228
+     212: astore        4
+     214: getstatic     #44                 // Field LOGGER:Lorg/slf4j/Logger;
+     217: ldc_w         #310                // String Failed to write file {}
+     220: aload_3
+     221: aload         4
+     223: invokeinterface #312,  4          // InterfaceMethod org/slf4j/Logger.warn:(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V
+     228: return
+    Exception table:
+       from    to  target type
+          23   169   182   Class java/lang/Throwable
+         189   194   197   Class java/lang/Throwable
+          13   209   212   Class java/io/IOException
+
+  public void cycleAnimationFrames();
+    Code:
+       0: aload_0
+       1: invokevirtual #316                // Method bind:()V
+       4: aload_0
+       5: getfield      #19                 // Field animatedTextures:Ljava/util/List;
+       8: invokeinterface #267,  1          // InterfaceMethod java/util/List.iterator:()Ljava/util/Iterator;
+      13: astore_1
+      14: aload_1
+      15: invokeinterface #146,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+      20: ifeq          42
+      23: aload_1
+      24: invokeinterface #152,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+      29: checkcast     #319                // class net/minecraft/client/renderer/texture/TextureAtlasSprite$Ticker
+      32: astore_2
+      33: aload_2
+      34: invokeinterface #321,  1          // InterfaceMethod net/minecraft/client/renderer/texture/TextureAtlasSprite$Ticker.tickAndUpload:()V
+      39: goto          14
+      42: return
+
+  public void tick();
+    Code:
+       0: invokestatic  #324                // Method com/mojang/blaze3d/systems/RenderSystem.isOnRenderThread:()Z
+       3: ifne          18
+       6: aload_0
+       7: invokedynamic #327,  0            // InvokeDynamic #2:execute:(Lnet/minecraft/client/renderer/texture/TextureAtlas;)Lcom/mojang/blaze3d/pipeline/RenderCall;
+      12: invokestatic  #331                // Method com/mojang/blaze3d/systems/RenderSystem.recordRenderCall:(Lcom/mojang/blaze3d/pipeline/RenderCall;)V
+      15: goto          22
+      18: aload_0
+      19: invokevirtual #335                // Method cycleAnimationFrames:()V
+      22: return
+
+  public net.minecraft.client.renderer.texture.TextureAtlasSprite getSprite(net.minecraft.resources.ResourceLocation);
+    Code:
+       0: aload_0
+       1: getfield      #27                 // Field texturesByName:Ljava/util/Map;
+       4: aload_1
+       5: aload_0
+       6: getfield      #112                // Field missingSprite:Lnet/minecraft/client/renderer/texture/TextureAtlasSprite;
+       9: invokeinterface #338,  3          // InterfaceMethod java/util/Map.getOrDefault:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+      14: checkcast     #110                // class net/minecraft/client/renderer/texture/TextureAtlasSprite
+      17: astore_2
+      18: aload_2
+      19: ifnonnull     33
+      22: new           #116                // class java/lang/IllegalStateException
+      25: dup
+      26: ldc_w         #342                // String Tried to lookup sprite, but atlas is not initialized
+      29: invokespecial #130                // Method java/lang/IllegalStateException."<init>":(Ljava/lang/String;)V
+      32: athrow
+      33: aload_2
+      34: areturn
+
+  public void clearTextureData();
+    Code:
+       0: aload_0
+       1: getfield      #13                 // Field sprites:Ljava/util/List;
+       4: invokedynamic #344,  0            // InvokeDynamic #3:accept:()Ljava/util/function/Consumer;
+       9: invokeinterface #348,  2          // InterfaceMethod java/util/List.forEach:(Ljava/util/function/Consumer;)V
+      14: aload_0
+      15: getfield      #19                 // Field animatedTextures:Ljava/util/List;
+      18: invokedynamic #352,  0            // InvokeDynamic #4:accept:()Ljava/util/function/Consumer;
+      23: invokeinterface #348,  2          // InterfaceMethod java/util/List.forEach:(Ljava/util/function/Consumer;)V
+      28: aload_0
+      29: invokestatic  #7                  // InterfaceMethod java/util/List.of:()Ljava/util/List;
+      32: putfield      #13                 // Field sprites:Ljava/util/List;
+      35: aload_0
+      36: invokestatic  #7                  // InterfaceMethod java/util/List.of:()Ljava/util/List;
+      39: putfield      #19                 // Field animatedTextures:Ljava/util/List;
+      42: aload_0
+      43: invokestatic  #22                 // InterfaceMethod java/util/Map.of:()Ljava/util/Map;
+      46: putfield      #27                 // Field texturesByName:Ljava/util/Map;
+      49: aload_0
+      50: aconst_null
+      51: putfield      #112                // Field missingSprite:Lnet/minecraft/client/renderer/texture/TextureAtlasSprite;
+      54: return
+
+  public net.minecraft.resources.ResourceLocation location();
+    Code:
+       0: aload_0
+       1: getfield      #31                 // Field location:Lnet/minecraft/resources/ResourceLocation;
+       4: areturn
+
+  public int maxSupportedTextureSize();
+    Code:
+       0: aload_0
+       1: getfield      #41                 // Field maxSupportedTextureSize:I
+       4: ireturn
+
+  int getWidth();
+    Code:
+       0: aload_0
+       1: getfield      #84                 // Field width:I
+       4: ireturn
+
+  int getHeight();
+    Code:
+       0: aload_0
+       1: getfield      #86                 // Field height:I
+       4: ireturn
+
+  public void updateFilter(net.minecraft.client.renderer.texture.SpriteLoader$Preparations);
+    Code:
+       0: aload_0
+       1: iconst_0
+       2: aload_1
+       3: invokevirtual #66                 // Method net/minecraft/client/renderer/texture/SpriteLoader$Preparations.mipLevel:()I
+       6: ifle          13
+       9: iconst_1
+      10: goto          14
+      13: iconst_0
+      14: invokevirtual #353                // Method setFilter:(ZZ)V
+      17: return
+
+  public java.util.Map<net.minecraft.resources.ResourceLocation, net.minecraft.client.renderer.texture.TextureAtlasSprite> getTextures();
+    Code:
+       0: aload_0
+       1: getfield      #27                 // Field texturesByName:Ljava/util/Map;
+       4: invokestatic  #357                // Method java/util/Collections.unmodifiableMap:(Ljava/util/Map;)Ljava/util/Map;
+       7: areturn
+
+  static {};
+    Code:
+       0: invokestatic  #362                // Method com/mojang/logging/LogUtils.getLogger:()Lorg/slf4j/Logger;
+       3: putstatic     #44                 // Field LOGGER:Lorg/slf4j/Logger;
+       6: getstatic     #368                // Field net/minecraft/world/inventory/InventoryMenu.BLOCK_ATLAS:Lnet/minecraft/resources/ResourceLocation;
+       9: putstatic     #373                // Field LOCATION_BLOCKS:Lnet/minecraft/resources/ResourceLocation;
+      12: ldc_w         #376                // String textures/atlas/particles.png
+      15: invokestatic  #378                // Method net/minecraft/resources/ResourceLocation.withDefaultNamespace:(Ljava/lang/String;)Lnet/minecraft/resources/ResourceLocation;
+      18: putstatic     #382                // Field LOCATION_PARTICLES:Lnet/minecraft/resources/ResourceLocation;
+      21: return
+}

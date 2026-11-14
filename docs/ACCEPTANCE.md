@@ -19,10 +19,10 @@ until actual exit. This fault hook is excluded from product releases. It does no
 replace the full-pack/world/reload/long-session procedure below. New v6 validation
 is paused; current runs target official MTR 4.1.0-beta.2.
 
-The current [official coverage audit](COVERAGE_OFFICIAL.md) records a failed
-wrong-binary startup gate: the actual fingerprint mismatch skips the companion
-Mixin configuration with a warning, but the game continues loading. This is not
-the explicit startup failure required below.
+The current [official coverage audit](COVERAGE_OFFICIAL.md) records 0.4.5's actual
+wrong-binary startup rejection and both official loaders' packaged fault passes.
+Its full-pack run found a default text limit that rejects a current authored OBJ.
+Registration and zero module counters do not make that failed load a pass.
 
 ## Reproducible headless checks
 
@@ -61,6 +61,12 @@ Do not reuse a mutable world or modify ordinary user instances for testing.
    Separate reload/warm-up/steady-state windows. Require all parse/permit counters
    to settle and no monotonically growing completed source cache. Compare heap at
    the same quiescent points; forced GC is a diagnostic, not normal play timing.
+   For packaged clients use `tools/observe_packaged_client.py`: distinct native
+   epochs alone are insufficient. Each reload must match a confirmed external
+   F3+T receipt, the full ResourceManager log, a native HEAD/RETURN pair and a
+   fresh settled snapshot before the next reload. Keep declaration-list and
+   distinct-ID counts separate. Native decode/parse errors prevent acceptance
+   even when module counters report zero failures.
 4. Trigger a missing input, truncated/invalid model, oversized text, a reader
    failure, cancellation and reload during a blocked/slow parse. Require a visible
    failure/diagnostic, terminal future, retry after correction and balanced counts.

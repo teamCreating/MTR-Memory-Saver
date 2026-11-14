@@ -1,0 +1,122 @@
+  public static java.util.List<org.mtr.libraries.de.javagl.obj.Mtl> read(java.io.InputStream) throws java.io.IOException;
+    Code:
+       0: new           #17                 // class java/io/BufferedReader
+       3: dup
+       4: new           #19                 // class java/io/InputStreamReader
+       7: dup
+       8: aload_0
+       9: invokespecial #23                 // Method java/io/InputStreamReader."<init>":(Ljava/io/InputStream;)V
+      12: invokespecial #26                 // Method java/io/BufferedReader."<init>":(Ljava/io/Reader;)V
+      15: astore_1
+      16: aload_1
+      17: invokestatic  #30                 // Method readImpl:(Ljava/io/BufferedReader;)Ljava/util/List;
+      20: areturn
+
+  public static java.util.List<org.mtr.libraries.de.javagl.obj.Mtl> read(java.io.Reader) throws java.io.IOException;
+    Code:
+       0: aload_0
+       1: instanceof    #17                 // class java/io/BufferedReader
+       4: ifeq          15
+       7: aload_0
+       8: checkcast     #17                 // class java/io/BufferedReader
+      11: invokestatic  #30                 // Method readImpl:(Ljava/io/BufferedReader;)Ljava/util/List;
+      14: areturn
+      15: new           #17                 // class java/io/BufferedReader
+      18: dup
+      19: aload_0
+      20: invokespecial #26                 // Method java/io/BufferedReader."<init>":(Ljava/io/Reader;)V
+      23: invokestatic  #30                 // Method readImpl:(Ljava/io/BufferedReader;)Ljava/util/List;
+      26: areturn
+
+  private static java.util.List<org.mtr.libraries.de.javagl.obj.Mtl> readImpl(java.io.BufferedReader) throws java.io.IOException;
+    Code:
+       0: new           #40                 // class java/util/ArrayList
+       3: dup
+       4: invokespecial #43                 // Method java/util/ArrayList."<init>":()V
+       7: astore_1
+       8: aconst_null
+       9: astore_2
+      10: aload_0
+      11: invokevirtual #51                 // Method java/io/BufferedReader.readLine:()Ljava/lang/String;
+      14: astore_3
+      15: aload_3
+      16: ifnonnull     22
+      19: goto          179
+      22: aload_3
+      23: invokevirtual #56                 // Method java/lang/String.trim:()Ljava/lang/String;
+      26: astore_3
+      27: iconst_0
+      28: istore        4
+      30: aload_3
+      31: ldc           #58                 // String \\
+      33: invokevirtual #62                 // Method java/lang/String.endsWith:(Ljava/lang/String;)Z
+      36: ifeq          80
+      39: aload_3
+      40: iconst_0
+      41: aload_3
+      42: invokevirtual #66                 // Method java/lang/String.length:()I
+      45: iconst_2
+      46: isub
+      47: invokevirtual #70                 // Method java/lang/String.substring:(II)Ljava/lang/String;
+      50: astore_3
+      51: aload_0
+      52: invokevirtual #51                 // Method java/io/BufferedReader.readLine:()Ljava/lang/String;
+      55: astore        5
+      57: aload         5
+      59: ifnonnull     68
+      62: iconst_1
+      63: istore        4
+      65: goto          80
+      68: aload_3
+      69: aload         5
+      71: invokedynamic #82,  0             // InvokeDynamic #0:makeConcatWithConstants:(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+      76: astore_3
+      77: goto          30
+      80: iload         4
+      82: ifeq          88
+      85: goto          179
+      88: aload_3
+      89: invokevirtual #56                 // Method java/lang/String.trim:()Ljava/lang/String;
+      92: astore_3
+      93: aload_3
+      94: ldc           #84                 // String newmtl
+      96: invokevirtual #87                 // Method java/lang/String.startsWith:(Ljava/lang/String;)Z
+      99: ifeq          137
+     102: aload_3
+     103: ldc           #84                 // String newmtl
+     105: invokevirtual #66                 // Method java/lang/String.length:()I
+     108: invokevirtual #90                 // Method java/lang/String.substring:(I)Ljava/lang/String;
+     111: invokevirtual #56                 // Method java/lang/String.trim:()Ljava/lang/String;
+     114: astore        5
+     116: new           #92                 // class org/mtr/libraries/de/javagl/obj/DefaultMtl
+     119: dup
+     120: aload         5
+     122: invokespecial #95                 // Method org/mtr/libraries/de/javagl/obj/DefaultMtl."<init>":(Ljava/lang/String;)V
+     125: astore_2
+     126: aload_1
+     127: aload_2
+     128: invokeinterface #99,  2           // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+     133: pop
+     134: goto          176
+     137: aload_3
+     138: ldc           #101                // String #
+     140: invokevirtual #87                 // Method java/lang/String.startsWith:(Ljava/lang/String;)Z
+     143: ifne          176
+     146: aload_3
+     147: invokevirtual #105                // Method java/lang/String.isEmpty:()Z
+     150: ifne          176
+     153: aload_2
+     154: ifnonnull     171
+     157: new           #15                 // class java/io/IOException
+     160: dup
+     161: aload_3
+     162: invokedynamic #110,  0            // InvokeDynamic #1:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+     167: invokespecial #111                // Method java/io/IOException."<init>":(Ljava/lang/String;)V
+     170: athrow
+     171: aload_2
+     172: aload_3
+     173: invokestatic  #115                // Method processLine:(Lorg/mtr/libraries/de/javagl/obj/Mtl;Ljava/lang/String;)V
+     176: goto          10
+     179: aload_1
+     180: areturn
+
