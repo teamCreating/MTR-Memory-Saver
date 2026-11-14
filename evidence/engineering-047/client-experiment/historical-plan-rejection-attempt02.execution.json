@@ -1,0 +1,24 @@
+{
+  "executable": ".venv/Scripts/python.exe",
+  "started_at": "2026-11-15T07:05:05.4047651+08:00",
+  "finished_at": "2026-11-15T07:05:13.3724342+08:00",
+  "exit_code": 2,
+  "scope": "Planning rejection only; no client launch",
+  "expected_exit_code": 2,
+  "command": [
+    "tools/client_experiment.py",
+    "plan",
+    "--baseline-plain",
+    "evidence/engineering-046/full-load-initial-nf248/packaged-client-plan.json",
+    "--baseline-profile",
+    "evidence/engineering-046/full-load-initial-nf248/packaged-client-plan.json",
+    "--candidate-plain",
+    "evidence/engineering-046/full-load-initial-nf248/packaged-client-plan.json",
+    "--candidate-profile",
+    "evidence/engineering-046/full-load-initial-nf248/packaged-client-plan.json",
+    "--environment-notes",
+    "Read-only rejection of historical ordinary client plans; current four-group qualification does not exist",
+    "--output",
+    "evidence/engineering-047/client-experiment/historical-plan-rejection-attempt02"
+  ]
+}

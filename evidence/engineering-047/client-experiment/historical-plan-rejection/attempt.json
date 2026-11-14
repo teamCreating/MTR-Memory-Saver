@@ -1,0 +1,19 @@
+{
+  "schema": 1,
+  "action": "plan",
+  "started_at": "2026-11-14T23:01:00.801777+00:00",
+  "status": "failed",
+  "arguments": {
+    "action": "plan",
+    "baseline_plain": "evidence\\engineering-046\\full-load-initial-nf248\\packaged-client-plan.json",
+    "baseline_profile": "evidence\\engineering-046\\full-load-initial-nf248\\packaged-client-plan.json",
+    "candidate_plain": "evidence\\engineering-046\\full-load-initial-nf248\\packaged-client-plan.json",
+    "candidate_profile": "evidence\\engineering-046\\full-load-initial-nf248\\packaged-client-plan.json",
+    "qualification": [],
+    "policy": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\config\\client-experiment.json",
+    "output": "evidence\\engineering-047\\client-experiment\\historical-plan-rejection",
+    "environment_notes": "Read-only rejection of historical ordinary client plans; current four-group qualification does not exist"
+  },
+  "error": "TypeError: expected string or bytes-like object, got 'NoneType'",
+  "finished_at": "2026-11-14T23:01:01.641598+00:00"
+}

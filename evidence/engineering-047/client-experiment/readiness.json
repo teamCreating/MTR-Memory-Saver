@@ -1,0 +1,50 @@
+{
+  "baseline_candidate": {
+    "historical_artifact_identity_is_not_qualification": true,
+    "manifest_output_sha256": "b9c95bbe79c6c76fe6a0c9af6bdb4f9ed7ce6b007fecdb1c9f543544ce562f02",
+    "sha256": "b9c95bbe79c6c76fe6a0c9af6bdb4f9ed7ce6b007fecdb1c9f543544ce562f02",
+    "current_pack_world_jvm_qualification": "missing",
+    "path": "dist/compatibility/neoforge-21.1.248/mtr-memory-sharing-neoforge-v030-nf248.jar"
+  },
+  "scheduled_trial_count_if_qualified": 48,
+  "schema": 1,
+  "tool_tests": {
+    "previous_41_test_stage": "tests-final/execution.json",
+    "exit_code": 0,
+    "count": 42,
+    "sources_stable": true,
+    "evidence": "tests-final-window/execution.json"
+  },
+  "scope": "official MTR 4.1.0-beta.2 only; no JVM/game launched by this task",
+  "uninstrumented_performance_accepted": false,
+  "observed_at": "2026-11-15T07:17:40.0381839+08:00",
+  "actual_performance_trials": 0,
+  "pending_gates": [
+    "four current exact artifact+controls+same-neutral-observer qualification groups",
+    "actual 48 independent JVM trials and predeclared AA/AB/instrumentation gates",
+    "neutral observer probe-off overhead calibration",
+    "native transparent.png Invalid model attribution"
+  ],
+  "neutral_observers": {
+    "official-nf248": {
+      "current_client_qualification": "missing",
+      "sha256": "9c63841b48853eda714b31db6ac8367f5f204708a2006d69c0768ced351deaea",
+      "path": "build/libs/mtr-native-observer-official-nf248-1.0.0.jar"
+    },
+    "official-nf265": {
+      "current_client_qualification": "missing",
+      "sha256": "28eb3e453cfa463cb5b8c8addf990bdb2bfc4551f492771fc759192efe05421a",
+      "path": "build/libs/mtr-native-observer-official-nf265-1.0.0.jar"
+    }
+  },
+  "historical_plan_rejection": {
+    "attempt02": "actual exit 2; historical ordinary schema1 plans cannot substitute for schema2 preparation/current qualification",
+    "attempt01": "preserved encoding failure; powercfg raw GUID and explicit UTF8 JSON transport repaired"
+  },
+  "current_qualification_groups": {
+    "baseline_plain": "missing",
+    "candidate_plain": "missing",
+    "baseline_profile": "missing",
+    "candidate_profile": "missing"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "schema": 1,
+  "scope": "Read-only classification of archived official 0.4.6 client log; not current neutral-client qualification",
+  "source": {
+    "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-046\\full-load-initial-nf248\\latest.log",
+    "sha256": "543ee29aff09fb813aba3c3f532b1f8b4d6a3b8987faec49dcbe7ea504bf3115",
+    "bytes": 28480
+  },
+  "diagnostics": {
+    "scanned": true,
+    "unreviewed_native": [
+      {
+        "line": 122,
+        "text": "[1511月2026 04:59:49.338] [Render thread/ERROR] [MinecraftTransitRailway/]: [mtr:textures/block/transparent.png] Invalid model!"
+      }
+    ],
+    "other_errors_requiring_contextual_review": [
+      {
+        "line": 40,
+        "text": "[1511月2026 04:59:31.408] [Download-2/ERROR] [net.minecraft.client.Minecraft/]: Failed to fetch user properties"
+      }
+    ]
+  },
+  "performance_accepted": false
+}

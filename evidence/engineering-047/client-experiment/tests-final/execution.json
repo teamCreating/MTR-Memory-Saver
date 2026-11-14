@@ -1,0 +1,35 @@
+{
+  "executable": ".venv/Scripts/python.exe",
+  "finished_at": "2026-11-15T07:10:03.6967370+08:00",
+  "sources_after": {
+    "config/targets.json": "e3d1d3a81d4fe8d7e60ba376654c943cc9766ce1d213b119fe7f6b175ac1d4ff",
+    "tools/observe_packaged_client.py": "0c4a742543769a0eb40d582a0f29646ef8b1f24c0286360b077eee0d9e4089f8",
+    "tools/client_experiment.py": "648ddae248ea7ba33252b74eb6eb3cc4d121a96f8135b5c7a87a2fc64c6e0b86",
+    "tools/client_experiment_analysis.py": "83427647d21d4fdf3dc34b2a5472ce4d62b070dd98d3449fe26f6988cfe5aa8e",
+    "tools/test_client_experiment.py": "4396005b2eaa10df8b9b007390f8ea5d8c452add9679d483a188da8a8c70f73b",
+    "tools/packaged_client.py": "fdc1ccfd2f4189bf11eae7a81244ec96cb86f6811ee291d849407fe62cf1dbf4",
+    "config/client-experiment.json": "c1b4c936716d277db1169395486db2b0ac40327b7971e2568c4316ae74fac4eb"
+  },
+  "command": [
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tools",
+    "-p",
+    "test_client_experiment.py",
+    "-v"
+  ],
+  "sources_before": {
+    "config/targets.json": "e3d1d3a81d4fe8d7e60ba376654c943cc9766ce1d213b119fe7f6b175ac1d4ff",
+    "tools/observe_packaged_client.py": "0c4a742543769a0eb40d582a0f29646ef8b1f24c0286360b077eee0d9e4089f8",
+    "tools/client_experiment.py": "648ddae248ea7ba33252b74eb6eb3cc4d121a96f8135b5c7a87a2fc64c6e0b86",
+    "tools/client_experiment_analysis.py": "83427647d21d4fdf3dc34b2a5472ce4d62b070dd98d3449fe26f6988cfe5aa8e",
+    "tools/test_client_experiment.py": "4396005b2eaa10df8b9b007390f8ea5d8c452add9679d483a188da8a8c70f73b",
+    "tools/packaged_client.py": "fdc1ccfd2f4189bf11eae7a81244ec96cb86f6811ee291d849407fe62cf1dbf4",
+    "config/client-experiment.json": "c1b4c936716d277db1169395486db2b0ac40327b7971e2568c4316ae74fac4eb"
+  },
+  "scope": "Synthetic tool/owned fake lifecycle/export helper tests; no JVM or game launched",
+  "started_at": "2026-11-15T07:09:56.0052783+08:00",
+  "exit_code": 0
+}
