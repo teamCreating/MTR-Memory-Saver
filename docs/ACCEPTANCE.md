@@ -19,10 +19,15 @@ until actual exit. This fault hook is excluded from product releases. It does no
 replace the full-pack/world/reload/long-session procedure below. New v6 validation
 is paused; current runs target official MTR 4.1.0-beta.2.
 
+The current [official coverage audit](COVERAGE_OFFICIAL.md) records a failed
+wrong-binary startup gate: the actual fingerprint mismatch skips the companion
+Mixin configuration with a warning, but the game continues loading. This is not
+the explicit startup failure required below.
+
 ## Reproducible headless checks
 
-Run `gradlew test` and the standalone Python tests for each preset. Exercise both
-official and v6 ABIs. Lifecycle tests include 1,000 generations, read/parse failure,
+Run `gradlew test` and the standalone Python tests for each active official preset.
+New v6 ABI validation is paused. Lifecycle tests include 1,000 generations, read/parse failure,
 failure retry, canceled queue entries, interrupted admission, timeout and native
 work that ignores interruption. At quiescence, require zero pending futures,
 outstanding tasks, queued descriptors, native task tickets and active read permits.

@@ -11,16 +11,21 @@
     "python_tests": 33,
     "admission_negative_control": "evidence/engineering-043/admission-regression/result.json",
     "headless_tests_per_official_target": 43,
-    "packaged_nf248_fault_checks": "evidence/engineering-044/packaged-faults-nf248/loader-lifecycle-result.json"
+    "packaged_nf248_fault_checks": "evidence/engineering-044/packaged-faults-nf248/loader-lifecycle-result.json",
+    "packaged_nf248_base_startup_and_loader_faults": "evidence/engineering-044/packaged-faults-nf248/loader-lifecycle-result.json"
   },
   "remaining": [
-    "Packaged client startup and actual required Mixins",
-    "Same-version incorrect MTR binary rejection before hooks install",
-    "Latest sixteen-pack native catalogue, model and interaction observations",
-    "Actual client missing/invalid/truncated/oversized/slow input and cancellation/retry cases",
-    "Twenty consecutive full-pack reloads and a two-hour route session on default official-nf248",
-    "Controlled full-client baseline/candidate performance with raw JFR/GC/frame and OS memory observations",
-    "Official-nf265 packaged compatibility and complete artifact/evidence delivery"
+    "Repair and retest explicit same-version wrong-binary startup rejection; current Mixin plugin exception only skips configuration and continues startup",
+    "Launch latest sixteen-pack native catalogue instance and observe full registration/model/interaction behavior",
+    "Twenty consecutive full-pack reloads and a two-hour unpaused route session on default official-nf248",
+    "Controlled full-client baseline/candidate performance with raw JFR/GC/frame and OS memory observations plus A/A and instrumentation controls",
+    "Official-nf265 packaged compatibility and native fault/recovery checks",
+    "Establish actual official registration completion ordering across reload epochs",
+    "Complete exact-artifact/evidence/support/release-bundle audit after remaining repairs"
   ],
-  "artifact_identity_policy": "Every runtime run must record exact JAR, pack order, world snapshot, JVM and observation hashes. Historical results are not new-candidate acceptance."
+  "artifact_identity_policy": "Every runtime run must record exact JAR, pack order, world snapshot, JVM and observation hashes. Historical results are not new-candidate acceptance.",
+  "audit_timestamp": "2026-11-15T03:48:30.138492+08:00",
+  "observed_failures": {
+    "same_version_wrong_binary_startup": "evidence/engineering-044/packaged-mismatch-nf248/assessment.json"
+  }
 }

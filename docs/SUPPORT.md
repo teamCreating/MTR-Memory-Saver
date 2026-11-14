@@ -21,6 +21,11 @@ across retirement, including failure retry and balanced cleanup. Evidence is und
 `evidence/engineering-044/`; full resource-pack/world and performance validation
 are still separate gates. Current verification focuses on official beta.2.
 
+The 0.4.4 same-version wrong-binary test detects the mismatch, but Mixin logs the
+plugin exception and continues startup with the companion configuration skipped.
+The required explicit startup-failure gate remains failed; see the
+[official coverage audit](COVERAGE_OFFICIAL.md).
+
 The custom v6 binary declares `4.1.0-beta.2-mc1.21.1-performance-v6`, distinct from
 the official binary's metadata version. The 0.4.0/0.4.1 v6 presets incorrectly used
 the official version in their strict dependency range and must not be installed.
