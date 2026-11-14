@@ -1,0 +1,558 @@
+{
+  "schema": 1,
+  "created_at": "2026-11-14T14:06:43.836797+00:00",
+  "scope": "source_lookup_microbenchmark",
+  "policy": {
+    "schema": 1,
+    "hypothesis": "Provider/path lookup before text restoration and digesting reduces source-work allocation without unacceptable elapsed-time regression.",
+    "pairs": 6,
+    "minimum_pairs": 6,
+    "seed": 20261114,
+    "confidence": 0.95,
+    "heap": "3g",
+    "initial_heap": "512m",
+    "warmup_epochs": 1,
+    "epochs": 1,
+    "queries": 2,
+    "timeout_seconds": 600,
+    "primary": {
+      "metric": "allocated_bytes_live_threads",
+      "minimum_reduction_percent": 10
+    },
+    "guardrails": {
+      "elapsed_ms": 5
+    },
+    "aa_tolerance_percent": {
+      "elapsed_ms": 15,
+      "allocated_bytes_live_threads": 5
+    }
+  },
+  "environment": {
+    "system": "Windows-10-10.0.19045-SP0",
+    "machine": "AMD64",
+    "processor": "Intel64 Family 6 Model 94 Stepping 3, GenuineIntel",
+    "node": "DESKTOP-885HHP9",
+    "cpu_count": 8
+  },
+  "environment_notes": "Windows desktop, Balanced power scheme observed with powercfg. Codex and idle Gradle daemon present; no concurrent game, build or audit intended. Light document editing during run. CPU frequency, thermal state and other background services are uncontrolled. Warm OS file-cache workload; no cold-disk claim.",
+  "java": {
+    "path": "C:\\Users\\ben_l\\Saved Games\\Yuuniverse 1.20.1 Shenyang\\porting-output\\work\\tools\\jdk21\\jdk-21.0.11+10\\bin\\java.exe",
+    "sha256": "5e0fab9f07952ceb6e71eb9fd33e1ed69959904ca00cf70869b7baf516a98016",
+    "bytes": 50344
+  },
+  "javac": {
+    "path": "C:\\Users\\ben_l\\Saved Games\\Yuuniverse 1.20.1 Shenyang\\porting-output\\work\\tools\\jdk21\\jdk-21.0.11+10\\bin\\javac.exe",
+    "sha256": "2df52e1bcb1256e09734c12939eec114997082ea4c3e7898d19c7a35fea34281",
+    "bytes": 24744
+  },
+  "java_runtime": [
+    {
+      "path": "C:\\Users\\ben_l\\Saved Games\\Yuuniverse 1.20.1 Shenyang\\porting-output\\work\\tools\\jdk21\\jdk-21.0.11+10\\release",
+      "sha256": "2516514aee90db38115b36c5e50668aeb953a4a301bc78711055834d701f6a06",
+      "bytes": 1657
+    },
+    {
+      "path": "C:\\Users\\ben_l\\Saved Games\\Yuuniverse 1.20.1 Shenyang\\porting-output\\work\\tools\\jdk21\\jdk-21.0.11+10\\lib\\modules",
+      "sha256": "61bd175675dd1218e823914ede0dc8351997a279f151b4bb2f203c6c8ddc5138",
+      "bytes": 140877153
+    },
+    {
+      "path": "C:\\Users\\ben_l\\Saved Games\\Yuuniverse 1.20.1 Shenyang\\porting-output\\work\\tools\\jdk21\\jdk-21.0.11+10\\bin\\server\\jvm.dll",
+      "sha256": "9dac8ae1dfe88cb107e27ee952071682f48ab67266920cbecf03b15bb02ce181",
+      "bytes": 13917864
+    }
+  ],
+  "java_version": "openjdk version \"21.0.11\" 2026-04-21 LTS\nOpenJDK Runtime Environment Temurin-21.0.11+10 (build 21.0.11+10-LTS)\nOpenJDK 64-Bit Server VM Temurin-21.0.11+10 (build 21.0.11+10-LTS, mixed mode, sharing)\n",
+  "artifacts": {
+    "baseline": {
+      "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\build\\libs\\mtr-memory-saver-official-nf248-0.4.0.jar",
+      "sha256": "2da554aaa25daf4438cd994d916f858cd8becb1f8432bd73b63867bc1050eb2f",
+      "bytes": 81295
+    },
+    "candidate": {
+      "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\build\\libs\\mtr-memory-saver-official-nf248-0.4.2.jar",
+      "sha256": "70ed09564bd41a09cf08f468d73474bad3bdc2cd287ed4dca389c8f74c73a885",
+      "bytes": 310245
+    }
+  },
+  "artifact_metadata": {
+    "baseline": {
+      "target": "official-nf248",
+      "version": "0.4.0",
+      "minecraft": "1.21.1",
+      "neoForge": "21.1.248",
+      "mtrSha256": "ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa",
+      "variant": "official"
+    },
+    "candidate": {
+      "target": "official-nf248",
+      "version": "0.4.2",
+      "minecraft": "1.21.1",
+      "neoForge": "21.1.248",
+      "mtrSha256": "ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa",
+      "variant": "official"
+    }
+  },
+  "target": {
+    "target": "official-nf248",
+    "minecraft": "1.21.1",
+    "neoForge": "21.1.248",
+    "mtrSha256": "ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa",
+    "variant": "official"
+  },
+  "sources": [
+    {
+      "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\tools\\acceptance\\java\\SourceLookupBenchmark.java",
+      "sha256": "ace324997955c49fec4df9b0cd2e8359e3dd3e8dffc17316fd050f8f4bab6af4",
+      "bytes": 9947
+    },
+    {
+      "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\tools\\benchmark_sources.py",
+      "sha256": "412dad73e4c826be13282a60dbd2e9b51a989cdc65660deac0d920b4d9dd28e9",
+      "bytes": 19036
+    },
+    {
+      "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\tools\\source_experiment_analysis.py",
+      "sha256": "eae11f23905983a7f8150c00a9525d5c2836b0568176bcb218d4c5c583b2047e",
+      "bytes": 8847
+    }
+  ],
+  "inputs": [
+    {
+      "archive": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\.cache\\game-test\\neoforge-21.1.248-base\\resourcepacks\\[AI\u8f66\u95e8\u4fee\u590d]rpsync-shanghaimetroaddon_v3.4.0_creating_trimmed_v2.zip",
+      "model": "assets/mtr/02a05/02a05_arknight.bbmodel",
+      "sha256": "93c3fc324864b6270aaef3ecaafb571780180f44c9f4d977bf9123778334d56c",
+      "bytes": 65255687
+    },
+    {
+      "archive": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\.cache\\game-test\\neoforge-21.1.248-base\\resourcepacks\\[AI\u8f66\u95e8\u4fee\u590d]rpsync-shanghaimetroaddon_v3.4.0_creating_trimmed_v2.zip",
+      "model": "assets/mtr/line11/11a01.bbmodel",
+      "sha256": "61e689e51354f14f2b029cb29afc5d012a4bc061564dadffa0756dc0c57d0984",
+      "bytes": 20693961
+    },
+    {
+      "archive": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\.cache\\game-test\\neoforge-21.1.248-base\\resourcepacks\\[AI\u8f66\u95e8\u4fee\u590d]rpsync-shanghaimetroaddon_v3.4.0_creating_trimmed_v2.zip",
+      "model": "assets/mtr/02a05/02a05_arknight__doors_1c009b7925fc.bbmodel",
+      "sha256": "e44786fc9c45e9b58cfd2cc477815fbc1219af7b37bf9de74d03b63dc9d30e2c",
+      "bytes": 1827339
+    },
+    {
+      "archive": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\.cache\\game-test\\neoforge-21.1.248-base\\resourcepacks\\[AI\u8f66\u95e8\u4fee\u590d]Zhongtong Base Pack - 1.1.0.zip",
+      "model": "assets/movies22_bp/e/zt_n9_extras.bbmodel",
+      "sha256": "cd4fffcfe1f590c79447e86482ae8d20ba31279ccaba0efc7701b6d69a8532ba",
+      "bytes": 11684
+    }
+  ],
+  "archives": [
+    {
+      "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\.cache\\game-test\\neoforge-21.1.248-base\\resourcepacks\\[AI\u8f66\u95e8\u4fee\u590d]rpsync-shanghaimetroaddon_v3.4.0_creating_trimmed_v2.zip",
+      "sha256": "f4f9730c4dfbb8c6998b472eb90e8a1d559704f6d0df16b53ceb96556b48325e",
+      "bytes": 401318016
+    },
+    {
+      "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\.cache\\game-test\\neoforge-21.1.248-base\\resourcepacks\\[AI\u8f66\u95e8\u4fee\u590d]Zhongtong Base Pack - 1.1.0.zip",
+      "sha256": "7044e84cd07a2b6f9adf99a2dcd57d3ace22e9c627361e25b8bcf184cd8a66f6",
+      "bytes": 22213194
+    }
+  ],
+  "jobs": {
+    "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\source-protocol-20261114-inputs\\jobs.json",
+    "sha256": "0ad71169adf148ae77cb307a68b9dd21a597fd7b28a0c343c1f04473ef09e018",
+    "bytes": 2246
+  },
+  "heap_bytes": 3221225472,
+  "schedule": [
+    {
+      "id": "001-ab-plain-b",
+      "pair": 1,
+      "comparison": "ab",
+      "instrumentation": "plain",
+      "arm": "b",
+      "mode": "candidate"
+    },
+    {
+      "id": "001-ab-plain-a",
+      "pair": 1,
+      "comparison": "ab",
+      "instrumentation": "plain",
+      "arm": "a",
+      "mode": "baseline"
+    },
+    {
+      "id": "001-ab-profile-b",
+      "pair": 1,
+      "comparison": "ab",
+      "instrumentation": "profile",
+      "arm": "b",
+      "mode": "candidate"
+    },
+    {
+      "id": "001-ab-profile-a",
+      "pair": 1,
+      "comparison": "ab",
+      "instrumentation": "profile",
+      "arm": "a",
+      "mode": "baseline"
+    },
+    {
+      "id": "001-aa-profile-b",
+      "pair": 1,
+      "comparison": "aa",
+      "instrumentation": "profile",
+      "arm": "b",
+      "mode": "baseline"
+    },
+    {
+      "id": "001-aa-profile-a",
+      "pair": 1,
+      "comparison": "aa",
+      "instrumentation": "profile",
+      "arm": "a",
+      "mode": "baseline"
+    },
+    {
+      "id": "001-aa-plain-a",
+      "pair": 1,
+      "comparison": "aa",
+      "instrumentation": "plain",
+      "arm": "a",
+      "mode": "baseline"
+    },
+    {
+      "id": "001-aa-plain-b",
+      "pair": 1,
+      "comparison": "aa",
+      "instrumentation": "plain",
+      "arm": "b",
+      "mode": "baseline"
+    },
+    {
+      "id": "002-aa-plain-b",
+      "pair": 2,
+      "comparison": "aa",
+      "instrumentation": "plain",
+      "arm": "b",
+      "mode": "baseline"
+    },
+    {
+      "id": "002-aa-plain-a",
+      "pair": 2,
+      "comparison": "aa",
+      "instrumentation": "plain",
+      "arm": "a",
+      "mode": "baseline"
+    },
+    {
+      "id": "002-aa-profile-a",
+      "pair": 2,
+      "comparison": "aa",
+      "instrumentation": "profile",
+      "arm": "a",
+      "mode": "baseline"
+    },
+    {
+      "id": "002-aa-profile-b",
+      "pair": 2,
+      "comparison": "aa",
+      "instrumentation": "profile",
+      "arm": "b",
+      "mode": "baseline"
+    },
+    {
+      "id": "002-ab-profile-a",
+      "pair": 2,
+      "comparison": "ab",
+      "instrumentation": "profile",
+      "arm": "a",
+      "mode": "baseline"
+    },
+    {
+      "id": "002-ab-profile-b",
+      "pair": 2,
+      "comparison": "ab",
+      "instrumentation": "profile",
+      "arm": "b",
+      "mode": "candidate"
+    },
+    {
+      "id": "002-ab-plain-a",
+      "pair": 2,
+      "comparison": "ab",
+      "instrumentation": "plain",
+      "arm": "a",
+      "mode": "baseline"
+    },
+    {
+      "id": "002-ab-plain-b",
+      "pair": 2,
+      "comparison": "ab",
+      "instrumentation": "plain",
+      "arm": "b",
+      "mode": "candidate"
+    },
+    {
+      "id": "003-ab-plain-b",
+      "pair": 3,
+      "comparison": "ab",
+      "instrumentation": "plain",
+      "arm": "b",
+      "mode": "candidate"
+    },
+    {
+      "id": "003-ab-plain-a",
+      "pair": 3,
+      "comparison": "ab",
+      "instrumentation": "plain",
+      "arm": "a",
+      "mode": "baseline"
+    },
+    {
+      "id": "003-ab-profile-b",
+      "pair": 3,
+      "comparison": "ab",
+      "instrumentation": "profile",
+      "arm": "b",
+      "mode": "candidate"
+    },
+    {
+      "id": "003-ab-profile-a",
+      "pair": 3,
+      "comparison": "ab",
+      "instrumentation": "profile",
+      "arm": "a",
+      "mode": "baseline"
+    },
+    {
+      "id": "003-aa-profile-b",
+      "pair": 3,
+      "comparison": "aa",
+      "instrumentation": "profile",
+      "arm": "b",
+      "mode": "baseline"
+    },
+    {
+      "id": "003-aa-profile-a",
+      "pair": 3,
+      "comparison": "aa",
+      "instrumentation": "profile",
+      "arm": "a",
+      "mode": "baseline"
+    },
+    {
+      "id": "003-aa-plain-a",
+      "pair": 3,
+      "comparison": "aa",
+      "instrumentation": "plain",
+      "arm": "a",
+      "mode": "baseline"
+    },
+    {
+      "id": "003-aa-plain-b",
+      "pair": 3,
+      "comparison": "aa",
+      "instrumentation": "plain",
+      "arm": "b",
+      "mode": "baseline"
+    },
+    {
+      "id": "004-aa-plain-b",
+      "pair": 4,
+      "comparison": "aa",
+      "instrumentation": "plain",
+      "arm": "b",
+      "mode": "baseline"
+    },
+    {
+      "id": "004-aa-plain-a",
+      "pair": 4,
+      "comparison": "aa",
+      "instrumentation": "plain",
+      "arm": "a",
+      "mode": "baseline"
+    },
+    {
+      "id": "004-aa-profile-a",
+      "pair": 4,
+      "comparison": "aa",
+      "instrumentation": "profile",
+      "arm": "a",
+      "mode": "baseline"
+    },
+    {
+      "id": "004-aa-profile-b",
+      "pair": 4,
+      "comparison": "aa",
+      "instrumentation": "profile",
+      "arm": "b",
+      "mode": "baseline"
+    },
+    {
+      "id": "004-ab-profile-a",
+      "pair": 4,
+      "comparison": "ab",
+      "instrumentation": "profile",
+      "arm": "a",
+      "mode": "baseline"
+    },
+    {
+      "id": "004-ab-profile-b",
+      "pair": 4,
+      "comparison": "ab",
+      "instrumentation": "profile",
+      "arm": "b",
+      "mode": "candidate"
+    },
+    {
+      "id": "004-ab-plain-a",
+      "pair": 4,
+      "comparison": "ab",
+      "instrumentation": "plain",
+      "arm": "a",
+      "mode": "baseline"
+    },
+    {
+      "id": "004-ab-plain-b",
+      "pair": 4,
+      "comparison": "ab",
+      "instrumentation": "plain",
+      "arm": "b",
+      "mode": "candidate"
+    },
+    {
+      "id": "005-aa-profile-b",
+      "pair": 5,
+      "comparison": "aa",
+      "instrumentation": "profile",
+      "arm": "b",
+      "mode": "baseline"
+    },
+    {
+      "id": "005-aa-profile-a",
+      "pair": 5,
+      "comparison": "aa",
+      "instrumentation": "profile",
+      "arm": "a",
+      "mode": "baseline"
+    },
+    {
+      "id": "005-aa-plain-a",
+      "pair": 5,
+      "comparison": "aa",
+      "instrumentation": "plain",
+      "arm": "a",
+      "mode": "baseline"
+    },
+    {
+      "id": "005-aa-plain-b",
+      "pair": 5,
+      "comparison": "aa",
+      "instrumentation": "plain",
+      "arm": "b",
+      "mode": "baseline"
+    },
+    {
+      "id": "005-ab-plain-b",
+      "pair": 5,
+      "comparison": "ab",
+      "instrumentation": "plain",
+      "arm": "b",
+      "mode": "candidate"
+    },
+    {
+      "id": "005-ab-plain-a",
+      "pair": 5,
+      "comparison": "ab",
+      "instrumentation": "plain",
+      "arm": "a",
+      "mode": "baseline"
+    },
+    {
+      "id": "005-ab-profile-b",
+      "pair": 5,
+      "comparison": "ab",
+      "instrumentation": "profile",
+      "arm": "b",
+      "mode": "candidate"
+    },
+    {
+      "id": "005-ab-profile-a",
+      "pair": 5,
+      "comparison": "ab",
+      "instrumentation": "profile",
+      "arm": "a",
+      "mode": "baseline"
+    },
+    {
+      "id": "006-ab-profile-a",
+      "pair": 6,
+      "comparison": "ab",
+      "instrumentation": "profile",
+      "arm": "a",
+      "mode": "baseline"
+    },
+    {
+      "id": "006-ab-profile-b",
+      "pair": 6,
+      "comparison": "ab",
+      "instrumentation": "profile",
+      "arm": "b",
+      "mode": "candidate"
+    },
+    {
+      "id": "006-ab-plain-a",
+      "pair": 6,
+      "comparison": "ab",
+      "instrumentation": "plain",
+      "arm": "a",
+      "mode": "baseline"
+    },
+    {
+      "id": "006-ab-plain-b",
+      "pair": 6,
+      "comparison": "ab",
+      "instrumentation": "plain",
+      "arm": "b",
+      "mode": "candidate"
+    },
+    {
+      "id": "006-aa-plain-b",
+      "pair": 6,
+      "comparison": "aa",
+      "instrumentation": "plain",
+      "arm": "b",
+      "mode": "baseline"
+    },
+    {
+      "id": "006-aa-plain-a",
+      "pair": 6,
+      "comparison": "aa",
+      "instrumentation": "plain",
+      "arm": "a",
+      "mode": "baseline"
+    },
+    {
+      "id": "006-aa-profile-a",
+      "pair": 6,
+      "comparison": "aa",
+      "instrumentation": "profile",
+      "arm": "a",
+      "mode": "baseline"
+    },
+    {
+      "id": "006-aa-profile-b",
+      "pair": 6,
+      "comparison": "aa",
+      "instrumentation": "profile",
+      "arm": "b",
+      "mode": "baseline"
+    }
+  ],
+  "expected_result_sha256": "58871d4e2f218a3f9056c8709b9c41b827756505d651e219b3544889404a689a",
+  "expected_warmup_sha256": "58871d4e2f218a3f9056c8709b9c41b827756505d651e219b3544889404a689a",
+  "jvm_arguments": [
+    "-Xms512m",
+    "-Xmx3g",
+    "-XX:+UseG1GC"
+  ],
+  "cache_state": "Real-input warm-up in each fresh JVM, then application caches cleared. OS file cache uncontrolled/warm; not cold disk."
+}

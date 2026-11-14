@@ -59,4 +59,9 @@ a successful compile or class-file comparison is not such acceptance.
 The independent [acceptance tools](tools/acceptance/README.md) cover native reference
 audits, paired real-input source lookup, JFR analysis and optional client probes.
 
+The [optimization and comparison workflow](docs/OPTIMIZATION.md) supplies a frozen
+experiment plan, balanced A/B and A/A runs, JFR overhead controls, preserved failures
+and independent paired analysis. Policies live outside the mod in
+`config/source-experiment.json`; source results do not certify full-client performance.
+
 ![Pack icon](src/main/resources/pack.png)

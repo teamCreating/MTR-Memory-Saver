@@ -26,21 +26,29 @@ audit, not runtime Mixin or GL validation.
 For paired source lookup measurements:
 
 ```powershell
-python tools/benchmark_sources.py --java-home '<Java 21 JDK>' `
+python tools/benchmark_sources.py plan --java-home '<Java 21 JDK>' `
   --baseline '<0.4.0 JAR>' --candidate '<current JAR>' `
-  --jobs '<jobs.json>' --output '<new report directory>' --heap 3g --pairs 3
+  --jobs '<jobs.json>' --output '<new report directory>' `
+  --policy config/source-experiment.json `
+  --environment-notes '<power mode, background workload and limitations>'
+python tools/benchmark_sources.py run --plan '<report directory>/plan.json'
+python tools/benchmark_sources.py analyze --plan '<report directory>/plan.json' `
+  --output '<fresh analysis.json>'
 ```
 
 This workload uses real resource bytes and the actual delivered text/digest
 implementations, replacing a parsed model with its digest to isolate source lookup.
 Baseline queries retrieve text/digest before looking up that result; candidate
 queries use provider/path scheduling first. Identical result hashes are required.
-Reports record exact archive/entry/JAR/driver/runner hashes, equal heap and query
-controls, alternating run order, live-thread allocation counters, JVM collection
-counters and sampled heap. Each process produces raw JFR and GC logs. The sample
-interval can miss peaks, and live-thread counters exclude already terminated
-threads. Explicit GC is outside the timed windows. A tiny synthetic warm-up does
-not fully warm every large-file path, so preserve all trials and report dispersion.
+Plans freeze archive/entry/JAR/JDK/tool hashes, equal heap, real-input warm-up and
+query counts, all trial orders and decision budgets before timing. The default
+six blocks contain 48 JVM trials covering A/B and same-baseline A/A, each in plain
+and profile modes. Profile mode adds JFR and GC logs; both retain allocation and
+heap observations. Raw failures/timeouts are preserved and block acceptance.
+Independent expected answer hashes detect shared incorrect results. Exact paired
+median intervals prevent small samples or noisy A/A results from qualifying.
+See [the complete workflow](../../docs/OPTIMIZATION.md) for policy fields, limits,
+CLI migration and client-level comparison. Historical reports remain unchanged.
 
 `tools/analyze_performance_jfr.py` compiles the streaming JFR exporter using an
 explicit JDK and shaded-Gson MTR JAR. Its windows are explicit ISO timestamps. It

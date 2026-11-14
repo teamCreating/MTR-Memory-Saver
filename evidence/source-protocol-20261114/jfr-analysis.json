@@ -1,0 +1,1536 @@
+{
+  "recording_sha256": "422c3a562d4dcb39dc33c063e0dbd4ec65e14482850a3534874521aece1b3fad",
+  "windows_sha256": "dd37d29332b2b595ec616177ef57eb92971f5ce58f635f609b1cdc4ab3c96baf",
+  "analyzer_sha256": "a34ba02b3090939f185053b01ccf29a6352826166343ac88b6b447a625635f9c",
+  "export_sha256": "90367573bc084f82bb123b15dd0cfd8926f62197b7cd20d19f7ff0b8e068f102",
+  "exporter_sha256": "c77a9e6e94081226566efad530349538e1c803723010645646e14a322e64a86f",
+  "json_library_sha256": "ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa",
+  "event_count": 955,
+  "windows": {
+    "warmup": {
+      "start": "2026-11-14T14:07:14.922430+00:00",
+      "end": "2026-11-14T14:07:20.540009+00:00",
+      "seconds": 5.617579,
+      "event_counts": {
+        "jdk.ObjectAllocationSample": 306,
+        "jdk.CPULoad": 4,
+        "jdk.ExecutionSample": 28,
+        "jdk.NativeMethodSample": 148,
+        "jdk.GCHeapSummary": 12,
+        "jdk.GCPhasePause": 6,
+        "jdk.GarbageCollection": 6,
+        "mtrtest.ClientFrame": 0,
+        "mtrtest.ServerTick": 0
+      },
+      "excluded_boundary_spans": {},
+      "game_frame_interval_ms": {
+        "count": 0
+      },
+      "effective_fps_from_intervals": null,
+      "frames_over_50ms": 0,
+      "frames_over_100ms": 0,
+      "server_tick_event_span_ms": {
+        "count": 0
+      },
+      "gc_pause_ms": {
+        "count": 6,
+        "mean": 5.3937615,
+        "p50": 1.6204020000000001,
+        "p95": 14.67202825,
+        "p99": 15.430324850000002,
+        "max": 15.619899,
+        "sum": 32.362569
+      },
+      "gc_causes": {
+        "G1New: G1 Evacuation Pause": 2,
+        "G1Old: G1 Humongous Allocation": 2,
+        "G1New: G1 Humongous Allocation": 2
+      },
+      "gc_events": [
+        {
+          "start": "2026-11-14T14:07:15.226408303Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.011828416,
+          "pause_seconds": 0.011828416
+        },
+        {
+          "start": "2026-11-14T14:07:17.073651574Z",
+          "name": "G1Old",
+          "cause": "G1 Humongous Allocation",
+          "duration_seconds": 0.000321615,
+          "pause_seconds": 0.0
+        },
+        {
+          "start": "2026-11-14T14:07:17.072176857Z",
+          "name": "G1New",
+          "cause": "G1 Humongous Allocation",
+          "duration_seconds": 0.001369148,
+          "pause_seconds": 0.001369148
+        },
+        {
+          "start": "2026-11-14T14:07:18.087368169Z",
+          "name": "G1Old",
+          "cause": "G1 Humongous Allocation",
+          "duration_seconds": 0.065388897,
+          "pause_seconds": 0.00172917
+        },
+        {
+          "start": "2026-11-14T14:07:18.085375312Z",
+          "name": "G1New",
+          "cause": "G1 Humongous Allocation",
+          "duration_seconds": 0.001815937,
+          "pause_seconds": 0.001815936
+        },
+        {
+          "start": "2026-11-14T14:07:19.819932244Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.015619899,
+          "pause_seconds": 0.015619898
+        }
+      ],
+      "jvm_cpu_fraction_of_machine": {
+        "count": 4,
+        "mean": 0.169347066,
+        "p50": 0.1582014485,
+        "p95": 0.22089103819999997,
+        "p99": 0.22811029723999998,
+        "max": 0.229915112,
+        "sum": 0.677388264
+      },
+      "sampled_threads": [
+        [
+          "main",
+          151
+        ],
+        [
+          "JFR Periodic Tasks",
+          25
+        ]
+      ],
+      "sampled_leaf_methods": [
+        [
+          "java.util.zip.Deflater.deflateBytesBytes",
+          81
+        ],
+        [
+          "java.util.zip.Inflater.inflateBytesBytes",
+          37
+        ],
+        [
+          "jdk.jfr.internal.JVM.emitEvent",
+          25
+        ],
+        [
+          "site.benli06.CompressedResourceTextCache$Text.pack",
+          6
+        ],
+        [
+          "java.lang.StringLatin1.charAt",
+          6
+        ],
+        [
+          "site.benli06.CompressedResourceTextCache$Text.unpack",
+          6
+        ],
+        [
+          "java.io.RandomAccessFile.readBytes0",
+          5
+        ],
+        [
+          "sun.security.provider.SHA2.implCompress0",
+          2
+        ],
+        [
+          "site.benli06.ResourceTextDigest.sha256",
+          2
+        ],
+        [
+          "java.lang.StringLatin1.inflate",
+          1
+        ],
+        [
+          "sun.security.provider.DigestBase.implCompressMultiBlockCheck",
+          1
+        ],
+        [
+          "java.lang.String.getChars",
+          1
+        ],
+        [
+          "java.lang.StringLatin1.getChars",
+          1
+        ],
+        [
+          "java.util.zip.InflaterInputStream.fill",
+          1
+        ],
+        [
+          "java.lang.String.join",
+          1
+        ]
+      ],
+      "sampled_inclusive_methods": [
+        [
+          "jdk.internal.reflect.DirectMethodHandleAccessor.invokeImpl",
+          151
+        ],
+        [
+          "site.benli06.audit.SourceLookupBenchmark.main",
+          151
+        ],
+        [
+          "java.lang.invoke.DirectMethodHandle$Holder.invokeStatic",
+          151
+        ],
+        [
+          "java.lang.reflect.Method.invoke",
+          151
+        ],
+        [
+          "site.benli06.audit.SourceLookupBenchmark$$Lambda.0x0000017dc900a458.get",
+          151
+        ],
+        [
+          "site.benli06.audit.SourceLookupBenchmark.lambda$workload$2",
+          151
+        ],
+        [
+          "site.benli06.audit.SourceLookupBenchmark.workload",
+          151
+        ],
+        [
+          "jdk.internal.reflect.DirectMethodHandleAccessor.invoke",
+          151
+        ],
+        [
+          "java.lang.invoke.LambdaForm$MH.0x0000017dc900c800.invokeExact_MT",
+          144
+        ],
+        [
+          "site.benli06.audit.SourceLookupBenchmark$$Lambda.0x0000017dc900a230.get",
+          144
+        ],
+        [
+          "java.lang.invoke.LambdaForm$MH.0x0000017dc900c400.invoke",
+          144
+        ],
+        [
+          "site.benli06.CompressedResourceTextCache.get",
+          144
+        ],
+        [
+          "site.benli06.audit.SourceLookupBenchmark.lambda$workload$1",
+          144
+        ],
+        [
+          "java.util.concurrent.ConcurrentHashMap.computeIfAbsent",
+          115
+        ],
+        [
+          "site.benli06.CompressedResourceTextCache.lambda$get$0",
+          115
+        ],
+        [
+          "site.benli06.CompressedResourceTextCache$$Lambda.0x0000017dc9008a40.apply",
+          115
+        ],
+        [
+          "site.benli06.CompressedResourceTextCache$Text.pack",
+          93
+        ],
+        [
+          "java.util.zip.Deflater.deflate",
+          81
+        ],
+        [
+          "java.util.zip.DeflaterOutputStream.write",
+          81
+        ],
+        [
+          "java.util.zip.DeflaterOutputStream.deflate",
+          81
+        ],
+        [
+          "java.util.zip.Deflater.deflateBytesBytes",
+          81
+        ],
+        [
+          "java.util.zip.InflaterInputStream.read",
+          43
+        ],
+        [
+          "java.util.zip.Inflater.inflateBytesBytes",
+          37
+        ],
+        [
+          "java.util.zip.Inflater.inflate",
+          37
+        ],
+        [
+          "site.benli06.CompressedResourceTextCache$Text.unpack",
+          29
+        ]
+      ],
+      "sampled_leaf_by_thread": {
+        "main": [
+          [
+            "java.util.zip.Deflater.deflateBytesBytes",
+            81
+          ],
+          [
+            "java.util.zip.Inflater.inflateBytesBytes",
+            37
+          ],
+          [
+            "site.benli06.CompressedResourceTextCache$Text.pack",
+            6
+          ],
+          [
+            "java.lang.StringLatin1.charAt",
+            6
+          ],
+          [
+            "site.benli06.CompressedResourceTextCache$Text.unpack",
+            6
+          ],
+          [
+            "java.io.RandomAccessFile.readBytes0",
+            5
+          ],
+          [
+            "sun.security.provider.SHA2.implCompress0",
+            2
+          ],
+          [
+            "site.benli06.ResourceTextDigest.sha256",
+            2
+          ],
+          [
+            "java.lang.StringLatin1.inflate",
+            1
+          ],
+          [
+            "sun.security.provider.DigestBase.implCompressMultiBlockCheck",
+            1
+          ],
+          [
+            "java.lang.String.getChars",
+            1
+          ],
+          [
+            "java.lang.StringLatin1.getChars",
+            1
+          ]
+        ],
+        "JFR Periodic Tasks": [
+          [
+            "jdk.jfr.internal.JVM.emitEvent",
+            25
+          ]
+        ]
+      },
+      "samples_by_event_type": {
+        "jdk.ExecutionSample": {
+          "sample_count_with_stack": 28,
+          "leaf": [
+            [
+              "site.benli06.CompressedResourceTextCache$Text.pack",
+              6
+            ],
+            [
+              "java.lang.StringLatin1.charAt",
+              6
+            ],
+            [
+              "site.benli06.CompressedResourceTextCache$Text.unpack",
+              6
+            ],
+            [
+              "sun.security.provider.SHA2.implCompress0",
+              2
+            ],
+            [
+              "site.benli06.ResourceTextDigest.sha256",
+              2
+            ],
+            [
+              "java.lang.StringLatin1.inflate",
+              1
+            ],
+            [
+              "sun.security.provider.DigestBase.implCompressMultiBlockCheck",
+              1
+            ],
+            [
+              "java.lang.String.getChars",
+              1
+            ],
+            [
+              "java.lang.StringLatin1.getChars",
+              1
+            ],
+            [
+              "java.util.zip.InflaterInputStream.fill",
+              1
+            ],
+            [
+              "java.lang.String.join",
+              1
+            ]
+          ],
+          "inclusive": [
+            [
+              "jdk.internal.reflect.DirectMethodHandleAccessor.invokeImpl",
+              28
+            ],
+            [
+              "site.benli06.audit.SourceLookupBenchmark.main",
+              28
+            ],
+            [
+              "java.lang.invoke.DirectMethodHandle$Holder.invokeStatic",
+              28
+            ],
+            [
+              "java.lang.reflect.Method.invoke",
+              28
+            ],
+            [
+              "site.benli06.audit.SourceLookupBenchmark$$Lambda.0x0000017dc900a458.get",
+              28
+            ],
+            [
+              "site.benli06.audit.SourceLookupBenchmark.lambda$workload$2",
+              28
+            ],
+            [
+              "site.benli06.audit.SourceLookupBenchmark.workload",
+              28
+            ],
+            [
+              "jdk.internal.reflect.DirectMethodHandleAccessor.invoke",
+              28
+            ],
+            [
+              "java.lang.invoke.LambdaForm$MH.0x0000017dc900c800.invokeExact_MT",
+              21
+            ],
+            [
+              "site.benli06.audit.SourceLookupBenchmark$$Lambda.0x0000017dc900a230.get",
+              21
+            ],
+            [
+              "java.lang.invoke.LambdaForm$MH.0x0000017dc900c400.invoke",
+              21
+            ],
+            [
+              "site.benli06.CompressedResourceTextCache.get",
+              21
+            ],
+            [
+              "site.benli06.audit.SourceLookupBenchmark.lambda$workload$1",
+              21
+            ],
+            [
+              "java.util.concurrent.ConcurrentHashMap.computeIfAbsent",
+              13
+            ],
+            [
+              "site.benli06.CompressedResourceTextCache.lambda$get$0",
+              13
+            ],
+            [
+              "site.benli06.CompressedResourceTextCache$$Lambda.0x0000017dc9008a40.apply",
+              13
+            ],
+            [
+              "site.benli06.CompressedResourceTextCache$Text.pack",
+              12
+            ],
+            [
+              "site.benli06.CompressedResourceTextCache$Text.unpack",
+              8
+            ],
+            [
+              "java.lang.invoke.Invokers$Holder.invokeExact_MT",
+              7
+            ],
+            [
+              "site.benli06.ResourceTextDigest.sha256",
+              7
+            ],
+            [
+              "java.lang.invoke.LambdaForm$MH.0x0000017dc900d000.invoke",
+              7
+            ],
+            [
+              "java.lang.String.charAt",
+              6
+            ],
+            [
+              "java.lang.StringLatin1.charAt",
+              6
+            ],
+            [
+              "sun.security.provider.DigestBase.implCompressMultiBlock",
+              3
+            ],
+            [
+              "java.security.MessageDigest$Delegate.engineUpdate",
+              3
+            ],
+            [
+              "java.security.MessageDigest.update",
+              3
+            ],
+            [
+              "site.benli06.ResourceTextDigest.update",
+              3
+            ],
+            [
+              "sun.security.provider.DigestBase.engineUpdate",
+              3
+            ],
+            [
+              "sun.security.provider.DigestBase.implCompressMultiBlock0",
+              2
+            ],
+            [
+              "sun.security.provider.SHA2.implCompress",
+              2
+            ]
+          ]
+        },
+        "jdk.NativeMethodSample": {
+          "sample_count_with_stack": 148,
+          "leaf": [
+            [
+              "java.util.zip.Deflater.deflateBytesBytes",
+              81
+            ],
+            [
+              "java.util.zip.Inflater.inflateBytesBytes",
+              37
+            ],
+            [
+              "jdk.jfr.internal.JVM.emitEvent",
+              25
+            ],
+            [
+              "java.io.RandomAccessFile.readBytes0",
+              5
+            ]
+          ],
+          "inclusive": [
+            [
+              "jdk.internal.reflect.DirectMethodHandleAccessor.invokeImpl",
+              123
+            ],
+            [
+              "java.lang.invoke.LambdaForm$MH.0x0000017dc900c800.invokeExact_MT",
+              123
+            ],
+            [
+              "site.benli06.audit.SourceLookupBenchmark$$Lambda.0x0000017dc900a230.get",
+              123
+            ],
+            [
+              "site.benli06.audit.SourceLookupBenchmark.main",
+              123
+            ],
+            [
+              "java.lang.invoke.DirectMethodHandle$Holder.invokeStatic",
+              123
+            ],
+            [
+              "java.lang.reflect.Method.invoke",
+              123
+            ],
+            [
+              "site.benli06.audit.SourceLookupBenchmark$$Lambda.0x0000017dc900a458.get",
+              123
+            ],
+            [
+              "site.benli06.audit.SourceLookupBenchmark.lambda$workload$2",
+              123
+            ],
+            [
+              "java.lang.invoke.LambdaForm$MH.0x0000017dc900c400.invoke",
+              123
+            ],
+            [
+              "site.benli06.CompressedResourceTextCache.get",
+              123
+            ],
+            [
+              "site.benli06.audit.SourceLookupBenchmark.lambda$workload$1",
+              123
+            ],
+            [
+              "site.benli06.audit.SourceLookupBenchmark.workload",
+              123
+            ],
+            [
+              "jdk.internal.reflect.DirectMethodHandleAccessor.invoke",
+              123
+            ],
+            [
+              "java.util.concurrent.ConcurrentHashMap.computeIfAbsent",
+              102
+            ],
+            [
+              "site.benli06.CompressedResourceTextCache.lambda$get$0",
+              102
+            ],
+            [
+              "site.benli06.CompressedResourceTextCache$$Lambda.0x0000017dc9008a40.apply",
+              102
+            ],
+            [
+              "java.util.zip.Deflater.deflate",
+              81
+            ],
+            [
+              "site.benli06.CompressedResourceTextCache$Text.pack",
+              81
+            ],
+            [
+              "java.util.zip.DeflaterOutputStream.write",
+              81
+            ],
+            [
+              "java.util.zip.DeflaterOutputStream.deflate",
+              81
+            ],
+            [
+              "java.util.zip.Deflater.deflateBytesBytes",
+              81
+            ],
+            [
+              "java.util.zip.InflaterInputStream.read",
+              42
+            ],
+            [
+              "java.util.zip.Inflater.inflateBytesBytes",
+              37
+            ],
+            [
+              "java.util.zip.Inflater.inflate",
+              37
+            ],
+            [
+              "jdk.jfr.internal.periodic.PeriodicEvents.doPeriodic",
+              25
+            ],
+            [
+              "java.lang.Thread.runWith",
+              25
+            ],
+            [
+              "jdk.jfr.internal.PlatformRecorder$$Lambda.0x0000017dc9043da8.run",
+              25
+            ],
+            [
+              "jdk.jfr.internal.PlatformRecorder.periodicTask",
+              25
+            ],
+            [
+              "jdk.jfr.internal.periodic.JVMEventTask.execute",
+              25
+            ],
+            [
+              "java.lang.Thread.run",
+              25
+            ]
+          ]
+        }
+      },
+      "allocation_sample_weight_by_class": [
+        [
+          "[B",
+          601230960
+        ],
+        [
+          "java.lang.String",
+          6093760
+        ],
+        [
+          "[Ljava.lang.String;",
+          1036240
+        ],
+        [
+          "java.nio.HeapCharBuffer",
+          182256
+        ],
+        [
+          "java.util.ArrayList$Itr",
+          34504
+        ]
+      ],
+      "virtual_thread_pinned_events": 0,
+      "sampled_heap_used_bytes": {
+        "count": 12,
+        "mean": 221724372.0,
+        "p50": 238685440.0,
+        "p95": 378020492.8,
+        "p99": 388187266.56,
+        "max": 390728960,
+        "sum": 2660692464
+      }
+    },
+    "measured": {
+      "start": "2026-11-14T14:07:20.571994+00:00",
+      "end": "2026-11-14T14:07:25.469357+00:00",
+      "seconds": 4.897363,
+      "event_counts": {
+        "jdk.CPULoad": 5,
+        "jdk.NativeMethodSample": 124,
+        "jdk.ExecutionSample": 72,
+        "jdk.ObjectAllocationSample": 201,
+        "jdk.GCHeapSummary": 10,
+        "jdk.GarbageCollection": 5,
+        "jdk.GCPhasePause": 5,
+        "mtrtest.ClientFrame": 0,
+        "mtrtest.ServerTick": 0
+      },
+      "excluded_boundary_spans": {},
+      "game_frame_interval_ms": {
+        "count": 0
+      },
+      "effective_fps_from_intervals": null,
+      "frames_over_50ms": 0,
+      "frames_over_100ms": 0,
+      "server_tick_event_span_ms": {
+        "count": 0
+      },
+      "gc_pause_ms": {
+        "count": 5,
+        "mean": 1.9880492,
+        "p50": 1.339111,
+        "p95": 3.690977,
+        "p99": 3.7086082,
+        "max": 3.713016,
+        "sum": 9.940246
+      },
+      "gc_causes": {
+        "G1Old: G1 Humongous Allocation": 2,
+        "G1New: G1 Humongous Allocation": 2,
+        "G1New: G1 Evacuation Pause": 1
+      },
+      "gc_events": [
+        {
+          "start": "2026-11-14T14:07:23.205389495Z",
+          "name": "G1Old",
+          "cause": "G1 Humongous Allocation",
+          "duration_seconds": 0.000168956,
+          "pause_seconds": 0.0
+        },
+        {
+          "start": "2026-11-14T14:07:23.203981981Z",
+          "name": "G1New",
+          "cause": "G1 Humongous Allocation",
+          "duration_seconds": 0.001339111,
+          "pause_seconds": 0.001339111
+        },
+        {
+          "start": "2026-11-14T14:07:23.518945755Z",
+          "name": "G1Old",
+          "cause": "G1 Humongous Allocation",
+          "duration_seconds": 0.008792538,
+          "pause_seconds": 0.001285298
+        },
+        {
+          "start": "2026-11-14T14:07:23.515267466Z",
+          "name": "G1New",
+          "cause": "G1 Humongous Allocation",
+          "duration_seconds": 0.003602821,
+          "pause_seconds": 0.003602821
+        },
+        {
+          "start": "2026-11-14T14:07:25.348853600Z",
+          "name": "G1New",
+          "cause": "G1 Evacuation Pause",
+          "duration_seconds": 0.003713016,
+          "pause_seconds": 0.003713015
+        }
+      ],
+      "jvm_cpu_fraction_of_machine": {
+        "count": 5,
+        "mean": 0.1363560178,
+        "p50": 0.129802546,
+        "p95": 0.1577465364,
+        "p99": 0.16262813288,
+        "max": 0.163848532,
+        "sum": 0.681780089
+      },
+      "sampled_threads": [
+        [
+          "main",
+          132
+        ],
+        [
+          "benchmark-heap-observer",
+          60
+        ],
+        [
+          "JFR Periodic Tasks",
+          4
+        ]
+      ],
+      "sampled_leaf_methods": [
+        [
+          "java.util.zip.Deflater.deflateBytesBytes",
+          86
+        ],
+        [
+          "java.util.zip.Inflater.inflateBytesBytes",
+          28
+        ],
+        [
+          "java.util.HashMap$ValueSpliterator.forEachRemaining",
+          11
+        ],
+        [
+          "java.lang.StringLatin1.charAt",
+          5
+        ],
+        [
+          "java.util.stream.ReduceOps.makeRef",
+          4
+        ],
+        [
+          "site.benli06.CompressedResourceTextCache$Text.unpack",
+          4
+        ],
+        [
+          "jdk.jfr.internal.JVM.emitEvent",
+          4
+        ],
+        [
+          "java.util.stream.AbstractPipeline.evaluate",
+          3
+        ],
+        [
+          "java.util.stream.AbstractPipeline.copyInto",
+          3
+        ],
+        [
+          "jdk.jfr.internal.JVM.getEventWriter",
+          3
+        ],
+        [
+          "java.lang.invoke.Invokers$Holder.linkToTargetMethod",
+          2
+        ],
+        [
+          "java.util.stream.Collectors.toList",
+          2
+        ],
+        [
+          "sun.management.spi.PlatformMBeanProvider$PlatformComponent.getMBeans",
+          2
+        ],
+        [
+          "java.util.stream.ReduceOps$2ReducingSink.get",
+          2
+        ],
+        [
+          "java.util.stream.ReduceOps$3.getOpFlags",
+          2
+        ],
+        [
+          "java.lang.StringLatin1.getChars",
+          2
+        ],
+        [
+          "java.io.RandomAccessFile.readBytes0",
+          2
+        ],
+        [
+          "site.benli06.SegmentedResourceText.read",
+          1
+        ],
+        [
+          "java.lang.invoke.DirectMethodHandle$Holder.newInvokeSpecial",
+          1
+        ],
+        [
+          "java.util.stream.ReferencePipeline$2.<init>",
+          1
+        ],
+        [
+          "java.lang.management.ManagementFactory$PlatformMBeanFinder.findSingleton",
+          1
+        ],
+        [
+          "jdk.management.jfr.internal.FlightRecorderMXBeanProvider$SingleMBeanComponent.mbeanInterfaceNames",
+          1
+        ],
+        [
+          "java.util.stream.AbstractPipeline.wrapSink",
+          1
+        ],
+        [
+          "java.util.stream.AbstractPipeline.<init>",
+          1
+        ],
+        [
+          "java.util.Collections$SingletonSet.spliterator",
+          1
+        ]
+      ],
+      "sampled_inclusive_methods": [
+        [
+          "jdk.internal.reflect.DirectMethodHandleAccessor.invokeImpl",
+          132
+        ],
+        [
+          "site.benli06.audit.SourceLookupBenchmark.main",
+          132
+        ],
+        [
+          "java.lang.invoke.DirectMethodHandle$Holder.invokeStatic",
+          132
+        ],
+        [
+          "java.lang.reflect.Method.invoke",
+          132
+        ],
+        [
+          "site.benli06.audit.SourceLookupBenchmark$$Lambda.0x0000017dc900a458.get",
+          132
+        ],
+        [
+          "site.benli06.audit.SourceLookupBenchmark.lambda$workload$2",
+          132
+        ],
+        [
+          "site.benli06.audit.SourceLookupBenchmark.workload",
+          132
+        ],
+        [
+          "jdk.internal.reflect.DirectMethodHandleAccessor.invoke",
+          132
+        ],
+        [
+          "java.lang.invoke.LambdaForm$MH.0x0000017dc900c800.invokeExact_MT",
+          128
+        ],
+        [
+          "site.benli06.audit.SourceLookupBenchmark$$Lambda.0x0000017dc900a230.get",
+          128
+        ],
+        [
+          "java.lang.invoke.LambdaForm$MH.0x0000017dc900c400.invoke",
+          128
+        ],
+        [
+          "site.benli06.CompressedResourceTextCache.get",
+          128
+        ],
+        [
+          "site.benli06.audit.SourceLookupBenchmark.lambda$workload$1",
+          128
+        ],
+        [
+          "java.util.concurrent.ConcurrentHashMap.computeIfAbsent",
+          103
+        ],
+        [
+          "site.benli06.CompressedResourceTextCache.lambda$get$0",
+          103
+        ],
+        [
+          "site.benli06.CompressedResourceTextCache$$Lambda.0x0000017dc9008a40.apply",
+          103
+        ],
+        [
+          "site.benli06.CompressedResourceTextCache$Text.pack",
+          92
+        ],
+        [
+          "java.util.zip.DeflaterOutputStream.write",
+          87
+        ],
+        [
+          "java.util.zip.DeflaterOutputStream.deflate",
+          87
+        ],
+        [
+          "java.util.zip.Deflater.deflate",
+          86
+        ],
+        [
+          "java.util.zip.Deflater.deflateBytesBytes",
+          86
+        ],
+        [
+          "java.lang.Thread.runWith",
+          64
+        ],
+        [
+          "java.lang.Thread.run",
+          64
+        ],
+        [
+          "site.benli06.audit.SourceLookupBenchmark$$Lambda.0x0000017dc900ad18.run",
+          60
+        ],
+        [
+          "site.benli06.audit.SourceLookupBenchmark.lambda$main$8",
+          60
+        ]
+      ],
+      "sampled_leaf_by_thread": {
+        "benchmark-heap-observer": [
+          [
+            "java.util.HashMap$ValueSpliterator.forEachRemaining",
+            11
+          ],
+          [
+            "java.util.stream.ReduceOps.makeRef",
+            4
+          ],
+          [
+            "java.util.stream.AbstractPipeline.evaluate",
+            3
+          ],
+          [
+            "java.util.stream.AbstractPipeline.copyInto",
+            3
+          ],
+          [
+            "jdk.jfr.internal.JVM.getEventWriter",
+            3
+          ],
+          [
+            "java.lang.invoke.Invokers$Holder.linkToTargetMethod",
+            2
+          ],
+          [
+            "java.util.stream.Collectors.toList",
+            2
+          ],
+          [
+            "sun.management.spi.PlatformMBeanProvider$PlatformComponent.getMBeans",
+            2
+          ],
+          [
+            "java.util.stream.ReduceOps$2ReducingSink.get",
+            2
+          ],
+          [
+            "java.util.stream.ReduceOps$3.getOpFlags",
+            2
+          ],
+          [
+            "java.lang.invoke.DirectMethodHandle$Holder.newInvokeSpecial",
+            1
+          ],
+          [
+            "java.util.stream.ReferencePipeline$2.<init>",
+            1
+          ]
+        ],
+        "main": [
+          [
+            "java.util.zip.Deflater.deflateBytesBytes",
+            86
+          ],
+          [
+            "java.util.zip.Inflater.inflateBytesBytes",
+            28
+          ],
+          [
+            "java.lang.StringLatin1.charAt",
+            5
+          ],
+          [
+            "site.benli06.CompressedResourceTextCache$Text.unpack",
+            4
+          ],
+          [
+            "java.lang.StringLatin1.getChars",
+            2
+          ],
+          [
+            "java.io.RandomAccessFile.readBytes0",
+            2
+          ],
+          [
+            "site.benli06.SegmentedResourceText.read",
+            1
+          ],
+          [
+            "java.io.ByteArrayOutputStream.ensureCapacity",
+            1
+          ],
+          [
+            "java.lang.String.length",
+            1
+          ],
+          [
+            "site.benli06.ResourceTextDigest.sha256",
+            1
+          ],
+          [
+            "java.io.FilterInputStream.read",
+            1
+          ]
+        ],
+        "JFR Periodic Tasks": [
+          [
+            "jdk.jfr.internal.JVM.emitEvent",
+            4
+          ]
+        ]
+      },
+      "samples_by_event_type": {
+        "jdk.ExecutionSample": {
+          "sample_count_with_stack": 72,
+          "leaf": [
+            [
+              "java.util.HashMap$ValueSpliterator.forEachRemaining",
+              11
+            ],
+            [
+              "java.lang.StringLatin1.charAt",
+              5
+            ],
+            [
+              "java.util.stream.ReduceOps.makeRef",
+              4
+            ],
+            [
+              "site.benli06.CompressedResourceTextCache$Text.unpack",
+              4
+            ],
+            [
+              "java.util.stream.AbstractPipeline.evaluate",
+              3
+            ],
+            [
+              "java.util.stream.AbstractPipeline.copyInto",
+              3
+            ],
+            [
+              "java.lang.invoke.Invokers$Holder.linkToTargetMethod",
+              2
+            ],
+            [
+              "java.util.stream.Collectors.toList",
+              2
+            ],
+            [
+              "sun.management.spi.PlatformMBeanProvider$PlatformComponent.getMBeans",
+              2
+            ],
+            [
+              "java.util.stream.ReduceOps$2ReducingSink.get",
+              2
+            ],
+            [
+              "java.util.stream.ReduceOps$3.getOpFlags",
+              2
+            ],
+            [
+              "java.lang.StringLatin1.getChars",
+              2
+            ],
+            [
+              "site.benli06.SegmentedResourceText.read",
+              1
+            ],
+            [
+              "java.lang.invoke.DirectMethodHandle$Holder.newInvokeSpecial",
+              1
+            ],
+            [
+              "java.util.stream.ReferencePipeline$2.<init>",
+              1
+            ],
+            [
+              "java.lang.management.ManagementFactory$PlatformMBeanFinder.findSingleton",
+              1
+            ],
+            [
+              "jdk.management.jfr.internal.FlightRecorderMXBeanProvider$SingleMBeanComponent.mbeanInterfaceNames",
+              1
+            ],
+            [
+              "java.util.stream.AbstractPipeline.wrapSink",
+              1
+            ],
+            [
+              "java.util.stream.AbstractPipeline.<init>",
+              1
+            ],
+            [
+              "java.util.Collections$SingletonSet.spliterator",
+              1
+            ],
+            [
+              "java.util.stream.ReduceOps$2ReducingSink.accept",
+              1
+            ],
+            [
+              "java.util.stream.ReferencePipeline$2$1.accept",
+              1
+            ],
+            [
+              "java.util.stream.ReferencePipeline$StatelessOp.<init>",
+              1
+            ],
+            [
+              "java.util.stream.ReferencePipeline.<init>",
+              1
+            ],
+            [
+              "com.sun.management.internal.PlatformMBeanProviderImpl$4.mbeanInterfaceNames",
+              1
+            ],
+            [
+              "java.util.stream.AbstractPipeline.wrapAndCopyInto",
+              1
+            ],
+            [
+              "java.io.ByteArrayOutputStream.ensureCapacity",
+              1
+            ],
+            [
+              "java.util.stream.ReduceOps$2ReducingSink.begin",
+              1
+            ],
+            [
+              "java.lang.String.length",
+              1
+            ],
+            [
+              "java.util.Collections$2.tryAdvance",
+              1
+            ]
+          ],
+          "inclusive": [
+            [
+              "site.benli06.audit.SourceLookupBenchmark$$Lambda.0x0000017dc900ad18.run",
+              56
+            ],
+            [
+              "site.benli06.audit.SourceLookupBenchmark.lambda$main$8",
+              56
+            ],
+            [
+              "java.lang.Thread.runWith",
+              56
+            ],
+            [
+              "java.lang.Thread.run",
+              56
+            ],
+            [
+              "java.lang.management.ManagementFactory.getMemoryMXBean",
+              56
+            ],
+            [
+              "java.lang.management.ManagementFactory.getPlatformMXBean",
+              56
+            ],
+            [
+              "java.lang.management.ManagementFactory$PlatformMBeanFinder.findSingleton",
+              37
+            ],
+            [
+              "java.util.stream.AbstractPipeline.evaluate",
+              37
+            ],
+            [
+              "java.util.stream.ReferencePipeline.reduce",
+              33
+            ],
+            [
+              "java.util.stream.ReduceOps$ReduceOp.evaluateSequential",
+              31
+            ],
+            [
+              "java.util.stream.AbstractPipeline.wrapAndCopyInto",
+              29
+            ],
+            [
+              "java.util.stream.AbstractPipeline.copyInto",
+              26
+            ],
+            [
+              "sun.management.spi.PlatformMBeanProvider$PlatformComponent.getMBeans",
+              19
+            ],
+            [
+              "java.util.HashMap$ValueSpliterator.forEachRemaining",
+              17
+            ],
+            [
+              "jdk.internal.reflect.DirectMethodHandleAccessor.invokeImpl",
+              16
+            ],
+            [
+              "site.benli06.audit.SourceLookupBenchmark.main",
+              16
+            ],
+            [
+              "java.lang.invoke.DirectMethodHandle$Holder.invokeStatic",
+              16
+            ],
+            [
+              "java.lang.reflect.Method.invoke",
+              16
+            ],
+            [
+              "site.benli06.audit.SourceLookupBenchmark$$Lambda.0x0000017dc900a458.get",
+              16
+            ],
+            [
+              "site.benli06.audit.SourceLookupBenchmark.lambda$workload$2",
+              16
+            ],
+            [
+              "site.benli06.audit.SourceLookupBenchmark.workload",
+              16
+            ],
+            [
+              "jdk.internal.reflect.DirectMethodHandleAccessor.invoke",
+              16
+            ],
+            [
+              "java.lang.invoke.LambdaForm$MH.0x0000017dc900c800.invokeExact_MT",
+              12
+            ],
+            [
+              "site.benli06.audit.SourceLookupBenchmark$$Lambda.0x0000017dc900a230.get",
+              12
+            ],
+            [
+              "java.lang.invoke.LambdaForm$MH.0x0000017dc900c400.invoke",
+              12
+            ],
+            [
+              "site.benli06.CompressedResourceTextCache.get",
+              12
+            ],
+            [
+              "site.benli06.audit.SourceLookupBenchmark.lambda$workload$1",
+              12
+            ],
+            [
+              "java.util.stream.ReferencePipeline.collect",
+              8
+            ],
+            [
+              "java.util.concurrent.ConcurrentHashMap.computeIfAbsent",
+              7
+            ],
+            [
+              "site.benli06.CompressedResourceTextCache.lambda$get$0",
+              7
+            ]
+          ]
+        },
+        "jdk.NativeMethodSample": {
+          "sample_count_with_stack": 124,
+          "leaf": [
+            [
+              "java.util.zip.Deflater.deflateBytesBytes",
+              86
+            ],
+            [
+              "java.util.zip.Inflater.inflateBytesBytes",
+              28
+            ],
+            [
+              "jdk.jfr.internal.JVM.emitEvent",
+              4
+            ],
+            [
+              "jdk.jfr.internal.JVM.getEventWriter",
+              3
+            ],
+            [
+              "java.io.RandomAccessFile.readBytes0",
+              2
+            ],
+            [
+              "java.lang.Thread.sleep0",
+              1
+            ]
+          ],
+          "inclusive": [
+            [
+              "jdk.internal.reflect.DirectMethodHandleAccessor.invokeImpl",
+              116
+            ],
+            [
+              "java.lang.invoke.LambdaForm$MH.0x0000017dc900c800.invokeExact_MT",
+              116
+            ],
+            [
+              "site.benli06.audit.SourceLookupBenchmark$$Lambda.0x0000017dc900a230.get",
+              116
+            ],
+            [
+              "site.benli06.audit.SourceLookupBenchmark.main",
+              116
+            ],
+            [
+              "java.lang.invoke.DirectMethodHandle$Holder.invokeStatic",
+              116
+            ],
+            [
+              "java.lang.reflect.Method.invoke",
+              116
+            ],
+            [
+              "site.benli06.audit.SourceLookupBenchmark$$Lambda.0x0000017dc900a458.get",
+              116
+            ],
+            [
+              "site.benli06.audit.SourceLookupBenchmark.lambda$workload$2",
+              116
+            ],
+            [
+              "java.lang.invoke.LambdaForm$MH.0x0000017dc900c400.invoke",
+              116
+            ],
+            [
+              "site.benli06.CompressedResourceTextCache.get",
+              116
+            ],
+            [
+              "site.benli06.audit.SourceLookupBenchmark.lambda$workload$1",
+              116
+            ],
+            [
+              "site.benli06.audit.SourceLookupBenchmark.workload",
+              116
+            ],
+            [
+              "jdk.internal.reflect.DirectMethodHandleAccessor.invoke",
+              116
+            ],
+            [
+              "java.util.concurrent.ConcurrentHashMap.computeIfAbsent",
+              96
+            ],
+            [
+              "site.benli06.CompressedResourceTextCache.lambda$get$0",
+              96
+            ],
+            [
+              "site.benli06.CompressedResourceTextCache$$Lambda.0x0000017dc9008a40.apply",
+              96
+            ],
+            [
+              "java.util.zip.Deflater.deflate",
+              86
+            ],
+            [
+              "site.benli06.CompressedResourceTextCache$Text.pack",
+              86
+            ],
+            [
+              "java.util.zip.DeflaterOutputStream.write",
+              86
+            ],
+            [
+              "java.util.zip.DeflaterOutputStream.deflate",
+              86
+            ],
+            [
+              "java.util.zip.Deflater.deflateBytesBytes",
+              86
+            ],
+            [
+              "java.util.zip.InflaterInputStream.read",
+              30
+            ],
+            [
+              "java.util.zip.Inflater.inflateBytesBytes",
+              28
+            ],
+            [
+              "java.util.zip.Inflater.inflate",
+              28
+            ],
+            [
+              "java.io.FilterInputStream.read",
+              20
+            ],
+            [
+              "site.benli06.CompressedResourceTextCache$Text.unpack",
+              20
+            ],
+            [
+              "site.benli06.audit.SourceLookupBenchmark.lambda$workload$0",
+              10
+            ],
+            [
+              "sun.nio.cs.StreamDecoder.implRead",
+              10
+            ],
+            [
+              "sun.nio.cs.StreamDecoder.readBytes",
+              10
+            ],
+            [
+              "site.benli06.audit.SourceLookupBenchmark$$Lambda.0x0000017dc900a680.apply",
+              10
+            ]
+          ]
+        }
+      },
+      "allocation_sample_weight_by_class": [
+        [
+          "[B",
+          594392480
+        ],
+        [
+          "java.lang.String",
+          11120336
+        ],
+        [
+          "[Ljava.lang.String;",
+          1042144
+        ],
+        [
+          "[Ljava.lang.Object;",
+          1041936
+        ],
+        [
+          "java.util.HashMap$ValueSpliterator",
+          276184
+        ],
+        [
+          "java.util.ArrayList$Itr",
+          952
+        ]
+      ],
+      "virtual_thread_pinned_events": 0,
+      "sampled_heap_used_bytes": {
+        "count": 10,
+        "mean": 257796675.2,
+        "p50": 282363188.0,
+        "p95": 318583545.2,
+        "p99": 330318200.24,
+        "max": 333251864,
+        "sum": 2577966752
+      }
+    }
+  },
+  "limits": [
+    "Frame intervals are CPU render-loop intervals including pacing, not GPU presentation times.",
+    "Tick spans cover NeoForge event hooks, not full authoritative MSPT; no TPS derived from them.",
+    "Execution/NativeMethod sample counts are statistical observations, not exact CPU milliseconds.",
+    "Allocation weights estimate allocation traffic, not retained heap.",
+    "JFR profile and observation instrumentation add overhead; compare a separately matched control.",
+    "GC and tick spans crossing a window boundary are counted separately and excluded from whole-event distributions."
+  ]
+}

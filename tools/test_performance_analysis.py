@@ -9,6 +9,8 @@ class PerformanceAnalysisTests(unittest.TestCase):
         self.assertEqual(duration('PT0.00005S'), .00005)
         with self.assertRaises(ValueError):
             duration('50ms')
+        with self.assertRaises(ValueError):
+            duration('PT')
 
     def test_quantiles_and_empty_window(self):
         self.assertEqual(stats([]), {'count': 0})
@@ -33,6 +35,27 @@ class PerformanceAnalysisTests(unittest.TestCase):
                   for kind, length in [('jdk.GCPhasePause', 'PT0.1S'), ('jdk.GCPhasePauseLevel1', 'PT0.08S')]]
         result = summarize(events, base, base + dt.timedelta(seconds=1))
         self.assertEqual(result['gc_pause_ms']['sum'], 100)
+
+    def test_spans_crossing_both_window_edges_are_explicitly_excluded(self):
+        base = dt.datetime(2026, 11, 14, tzinfo=dt.timezone.utc)
+        events = [{'type': 'jdk.GCPhasePause', 'values': {
+            'startTime': (base + dt.timedelta(seconds=offset)).isoformat(), 'duration': 'PT0.2S'}}
+            for offset in (-.1, .5, .9)]
+        result = summarize(events, base, base + dt.timedelta(seconds=1))
+        self.assertEqual(result['gc_pause_ms']['sum'], 200)
+        self.assertEqual(result['gc_pause_ms']['count'], 1)
+        self.assertEqual(result['excluded_boundary_spans'], {'jdk.GCPhasePause': 2})
+
+    def test_invalid_windows_and_frame_intervals_cannot_create_fps(self):
+        base = dt.datetime(2026, 11, 14, tzinfo=dt.timezone.utc)
+        for start, end in [(base, base), (base, base - dt.timedelta(seconds=1)),
+                           (base.replace(tzinfo=None), base)]:
+            with self.assertRaises(ValueError):
+                summarize([], start, end)
+        events = [{'type': 'mtrtest.ClientFrame', 'values': {
+            'startTime': (base + dt.timedelta(seconds=.5)).isoformat(), 'intervalMs': interval,
+            'inWorld': True, 'paused': False, 'screen': 'game'}} for interval in (0, -1, float('nan'))]
+        self.assertIsNone(summarize(events, base, base + dt.timedelta(seconds=1))['effective_fps_from_intervals'])
 
 
 if __name__ == '__main__':

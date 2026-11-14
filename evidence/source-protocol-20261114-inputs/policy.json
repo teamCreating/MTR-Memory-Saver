@@ -1,0 +1,25 @@
+{
+  "schema": 1,
+  "hypothesis": "Provider/path lookup before text restoration and digesting reduces source-work allocation without unacceptable elapsed-time regression.",
+  "pairs": 6,
+  "minimum_pairs": 6,
+  "seed": 20261114,
+  "confidence": 0.95,
+  "heap": "3g",
+  "initial_heap": "512m",
+  "warmup_epochs": 1,
+  "epochs": 1,
+  "queries": 2,
+  "timeout_seconds": 600,
+  "primary": {
+    "metric": "allocated_bytes_live_threads",
+    "minimum_reduction_percent": 10
+  },
+  "guardrails": {
+    "elapsed_ms": 5
+  },
+  "aa_tolerance_percent": {
+    "elapsed_ms": 15,
+    "allocated_bytes_live_threads": 5
+  }
+}

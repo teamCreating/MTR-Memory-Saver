@@ -25,7 +25,7 @@ def digest(path):
 
 def duration(value):
     match = re.fullmatch(r'PT(?:(\d+(?:\.\d+)?)H)?(?:(\d+(?:\.\d+)?)M)?(?:(\d+(?:\.\d+)?)S)?', value)
-    if not match:
+    if not match or not any(value is not None for value in match.groups()):
         raise ValueError('Unsupported ISO duration: ' + value)
     return sum(float(v or 0) * factor for v, factor in zip(match.groups(), (3600, 60, 1)))
 
@@ -48,12 +48,28 @@ def method(frame):
 
 
 def summarize(events, start, end):
-    chosen = [e for e in events if start <= dt.datetime.fromisoformat(e['values']['startTime']) < end]
+    if start.tzinfo is None or end.tzinfo is None or end <= start:
+        raise ValueError('Observation windows require timezone-aware increasing timestamps.')
+    spans = {'mtrtest.ServerTick', 'jdk.GCPhasePause', 'jdk.GarbageCollection'}
+    boundary = collections.Counter()
+    chosen = []
+    for event in events:
+        event_start = dt.datetime.fromisoformat(event['values']['startTime'])
+        if event['type'] in spans:
+            event_end = event_start + dt.timedelta(seconds=duration(event['values']['duration']))
+            # Preserve whole-event distributions: clipping a pause changes its latency,
+            # while charging it wholly to either phase misattributes the pause cost.
+            if event_start < end and event_end > start and (event_start < start or event_end > end):
+                boundary[event['type']] += 1
+                continue
+        if start <= event_start < end:
+            chosen.append(event)
     groups = collections.defaultdict(list)
     for e in chosen:
         groups[e['type']].append(e['values'])
     frames = [v['intervalMs'] for v in groups['mtrtest.ClientFrame']
               if v['inWorld'] and not v['paused'] and v['screen'] == 'game'
+              and math.isfinite(v['intervalMs']) and v['intervalMs'] > 0
               and dt.datetime.fromisoformat(v['startTime']) - dt.timedelta(milliseconds=v['intervalMs']) >= start]
     ticks = [duration(v['duration']) * 1000 for v in groups['mtrtest.ServerTick']]
     pauses = [duration(v['duration']) * 1000 for v in groups['jdk.GCPhasePause']]
@@ -83,6 +99,7 @@ def summarize(events, start, end):
         allocations[v['objectClass']['name'].replace('/', '.')] += v['weight']
     return {'start': start.isoformat(), 'end': end.isoformat(), 'seconds': (end-start).total_seconds(),
             'event_counts': {k: len(v) for k,v in groups.items()},
+            'excluded_boundary_spans': dict(boundary),
             'game_frame_interval_ms': stats(frames),
             'effective_fps_from_intervals': len(frames) * 1000 / sum(frames) if frames else None,
             'frames_over_50ms': sum(v > 50 for v in frames), 'frames_over_100ms': sum(v > 100 for v in frames),
@@ -129,7 +146,8 @@ def main():
                           'Tick spans cover NeoForge event hooks, not full authoritative MSPT; no TPS derived from them.',
                           'Execution/NativeMethod sample counts are statistical observations, not exact CPU milliseconds.',
                           'Allocation weights estimate allocation traffic, not retained heap.',
-                          'JFR profile and observation instrumentation add overhead; no uninstrumented control.']}
+                          'JFR profile and observation instrumentation add overhead; compare a separately matched control.',
+                          'GC and tick spans crossing a window boundary are counted separately and excluded from whole-event distributions.']}
     for name, window in windows.items():
         summary['windows'][name] = summarize(data, dt.datetime.fromisoformat(window['start']),
                                             dt.datetime.fromisoformat(window['end']))

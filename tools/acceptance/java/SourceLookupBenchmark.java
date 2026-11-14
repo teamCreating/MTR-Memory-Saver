@@ -20,6 +20,51 @@ import site.benli06.ReadAdmission;
 
 /** Text/source-key microbenchmark. A digest stands in for a parsed model; no native parse/GPU. */
 public final class SourceLookupBenchmark {
+    private static void awaitIdle(GenerationWorkCache<?, ?, ?> sources) throws Exception {
+        long deadline = System.nanoTime() + Duration.ofSeconds(30).toNanos();
+        while (sources.statistics().outstanding() != 0) {
+            if (System.nanoTime() >= deadline) throw new IllegalStateException("Work did not become quiescent");
+            Thread.sleep(1);
+        }
+    }
+
+    private static String workload(boolean candidate, GenerationWorkCache<String, String, String> sources,
+            Method textGet, Method clear, Method reader, Method digest, Map<String, ZipFile> archives,
+            List<String> jobs, int epochs, int queries, AtomicLong reads, AtomicLong hashes) throws Exception {
+        Map<String, String> oldSources = new HashMap<>();
+        var resultDigest = java.security.MessageDigest.getInstance("SHA-256");
+        for (int epoch = 0; epoch < epochs; epoch++) {
+            clear.invoke(null); sources.beginReload(); oldSources.clear();
+            for (int query = 0; query < queries; query++) for (int index = 0; index < jobs.size(); index++) {
+                String[] job = jobs.get(index).split("\t", -1);
+                String key = Integer.toString(index);
+                java.util.function.Supplier<String> text = () -> {
+                    try {
+                        return (String) textGet.invoke(null, key, (java.util.function.Function<String, String>) ignored -> {
+                            reads.incrementAndGet();
+                            try (var stream = archives.get(job[0]).getInputStream(archives.get(job[0]).getEntry(job[1]))) {
+                                return (String) reader.invoke(null, stream, StandardCharsets.UTF_8);
+                            } catch (Exception error) { throw new java.util.concurrent.CompletionException(error); }
+                        });
+                    } catch (Exception error) { throw new java.util.concurrent.CompletionException(error); }
+                };
+                java.util.function.Supplier<String> hash = () -> {
+                    try { String raw = text.get(); hashes.incrementAndGet(); return (String) digest.invoke(null, raw); }
+                    catch (Exception error) { throw new java.util.concurrent.CompletionException(error); }
+                };
+                String result;
+                if (candidate) result = sources.get(key, () -> {
+                    String value = hash.get();
+                    return new GenerationWorkCache.Prepared<>(value, () -> value);
+                }).get();
+                else { String value = hash.get(); result = oldSources.computeIfAbsent(value, ignored -> value); }
+                resultDigest.update(result.getBytes(StandardCharsets.US_ASCII));
+            }
+            awaitIdle(sources);
+        }
+        return java.util.HexFormat.of().formatHex(resultDigest.digest());
+    }
+
     private static long allocations(ThreadMXBean bean, Map<Long, Long> before) {
         long total = 0;
         for (long id : bean.getAllThreadIds()) {
@@ -34,7 +79,10 @@ public final class SourceLookupBenchmark {
         List<String> jobs = Files.readAllLines(Path.of(args[2]), StandardCharsets.UTF_8);
         int epochs = Integer.parseInt(args[3]), queries = Integer.parseInt(args[4]);
         Path output = Path.of(args[5]);
-        if (Files.exists(output) || epochs < 1 || queries < 1 || jobs.isEmpty()) throw new IllegalArgumentException("Use fresh output and positive nonempty workload");
+        int warmupEpochs = Integer.parseInt(args[6]);
+        String instrumentation = args[7];
+        if (!instrumentation.equals("plain") && !instrumentation.equals("profile")) throw new IllegalArgumentException("Unknown instrumentation");
+        if (Files.exists(output) || epochs < 1 || queries < 1 || warmupEpochs < 1 || jobs.isEmpty()) throw new IllegalArgumentException("Use fresh output and positive nonempty workload");
         boolean candidate = mode.equals("candidate");
         if (!candidate && !mode.equals("baseline")) throw new IllegalArgumentException("Unknown benchmark mode");
         var bean = (ThreadMXBean) ManagementFactory.getThreadMXBean();
@@ -53,9 +101,10 @@ public final class SourceLookupBenchmark {
                 if (!archives.containsKey(archive)) archives.put(archive, new ZipFile(archive));
             }
             try {
-                String warm = "warmup-data".repeat(1000);
-                for (int i = 0; i < 20; i++) { textGet.invoke(null, "warm", (java.util.function.Function<String, String>) ignored -> warm); digest.invoke(null, warm); }
-                if (candidate) sources.get("warm", () -> new GenerationWorkCache.Prepared<>("warm", () -> "warm")).get();
+                Instant warmupStart = Instant.now();
+                String warmupResult = workload(candidate, sources, textGet, clear, reader, digest, archives,
+                        jobs, warmupEpochs, queries, new AtomicLong(), new AtomicLong());
+                Instant warmupEnd = Instant.now();
                 clear.invoke(null); sources.beginReload(); System.gc();
                 AtomicLong reads = new AtomicLong(), hashes = new AtomicLong(), peak = new AtomicLong(), samples = new AtomicLong();
                 AtomicBoolean observing = new AtomicBoolean(true);
@@ -71,50 +120,25 @@ public final class SourceLookupBenchmark {
                 for (long id : bean.getAllThreadIds()) before.put(id, Math.max(0, bean.getThreadAllocatedBytes(id)));
                 long gcBefore = 0, gcTimeBefore = 0;
                 for (var gc : ManagementFactory.getGarbageCollectorMXBeans()) { gcBefore += gc.getCollectionCount(); gcTimeBefore += gc.getCollectionTime(); }
-                Map<String, String> oldSources = new HashMap<>();
-                var resultDigest = java.security.MessageDigest.getInstance("SHA-256");
                 Instant start = Instant.now(); long startNanos = System.nanoTime();
-                for (int epoch = 0; epoch < epochs; epoch++) {
-                    clear.invoke(null); sources.beginReload(); oldSources.clear();
-                    for (int query = 0; query < queries; query++) for (int index = 0; index < jobs.size(); index++) {
-                        String[] job = jobs.get(index).split("\t", -1);
-                        String key = Integer.toString(index);
-                        java.util.function.Supplier<String> text = () -> {
-                            try {
-                                return (String) textGet.invoke(null, key, (java.util.function.Function<String, String>) ignored -> {
-                                    reads.incrementAndGet();
-                                    try (var stream = archives.get(job[0]).getInputStream(archives.get(job[0]).getEntry(job[1]))) {
-                                        return (String) reader.invoke(null, stream, StandardCharsets.UTF_8);
-                                    } catch (Exception error) { throw new java.util.concurrent.CompletionException(error); }
-                                });
-                            } catch (Exception error) { throw new java.util.concurrent.CompletionException(error); }
-                        };
-                        java.util.function.Supplier<String> hash = () -> {
-                            try { String raw = text.get(); hashes.incrementAndGet(); return (String) digest.invoke(null, raw); }
-                            catch (Exception error) { throw new java.util.concurrent.CompletionException(error); }
-                        };
-                        String result;
-                        if (candidate) result = sources.get(key, () -> {
-                            String value = hash.get();
-                            return new GenerationWorkCache.Prepared<>(value, () -> value);
-                        }).get();
-                        else { String value = hash.get(); result = oldSources.computeIfAbsent(value, ignored -> value); }
-                        resultDigest.update(result.getBytes(StandardCharsets.US_ASCII));
-                    }
-                }
+                String resultDigest = workload(candidate, sources, textGet, clear, reader, digest, archives,
+                        jobs, epochs, queries, reads, hashes);
                 long elapsed = System.nanoTime() - startNanos; Instant end = Instant.now();
                 long allocated = allocations(bean, before), gcAfter = 0, gcTimeAfter = 0;
                 for (var gc : ManagementFactory.getGarbageCollectorMXBeans()) { gcAfter += gc.getCollectionCount(); gcTimeAfter += gc.getCollectionTime(); }
                 observing.set(false); observer.interrupt(); observer.join();
-                sources.finishRegistration(); clear.invoke(null); oldSources.clear(); System.gc();
+                sources.finishRegistration(); clear.invoke(null); System.gc();
                 long retained = ManagementFactory.getMemoryMXBean().getHeapMemoryUsage().getUsed();
-                String report = "{\"mode\":\"" + mode + "\",\"start\":\"" + start + "\",\"end\":\"" + end
+                String report = "{\"mode\":\"" + mode + "\",\"instrumentation\":\"" + instrumentation
+                        + "\",\"warmup_epochs\":" + warmupEpochs + ",\"epochs\":" + epochs + ",\"queries\":" + queries
+                        + ",\"warmup_start\":\"" + warmupStart + "\",\"warmup_end\":\"" + warmupEnd
+                        + "\",\"warmup_result_sha256\":\"" + warmupResult + "\",\"start\":\"" + start + "\",\"end\":\"" + end
                         + "\",\"elapsed_ms\":" + elapsed / 1e6 + ",\"allocated_bytes_live_threads\":" + allocated
                         + ",\"resource_reads\":" + reads + ",\"digest_calls\":" + hashes + ",\"gc_count\":" + (gcAfter - gcBefore)
                         + ",\"gc_collection_ms\":" + (gcTimeAfter - gcTimeBefore) + ",\"sampled_peak_heap_bytes\":" + peak
                         + ",\"heap_samples\":" + samples + ",\"post_release_full_gc_heap_bytes\":" + retained
                         + ",\"max_heap_bytes\":" + Runtime.getRuntime().maxMemory() + ",\"result_sha256\":\""
-                        + java.util.HexFormat.of().formatHex(resultDigest.digest()) + "\"}";
+                        + resultDigest + "\"}";
                 Files.writeString(output, report + "\n", StandardCharsets.UTF_8); System.out.println(report);
             } finally { for (ZipFile archive : archives.values()) archive.close(); }
         }

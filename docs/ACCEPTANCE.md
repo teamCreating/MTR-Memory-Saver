@@ -1,5 +1,10 @@
 # Acceptance and performance procedure
 
+Use the [optimization and comparison workflow](OPTIMIZATION.md) to preregister
+hypotheses, controls and budgets and interpret paired evidence. Its source runner
+automates plan/run/analysis with A/A and instrumentation controls; client phases
+below still require their actual isolated workload and packaged binaries.
+
 0.4.2 records NF248 official/v6 development-client Mixin smoke checks and 100 v6
 synthetic GPU ownership cycles. Full-pack performance, packaged-release/world
 acceptance and long-session validation remain unrecorded. A build or headless
