@@ -1,0 +1,53 @@
+{
+  "timestamp": "2026-11-15T06:11:03.9777638+08:00",
+  "status": "completed",
+  "project": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory",
+  "java_home": "C:\\Users\\ben_l\\.gradle\\jdks\\eclipse_adoptium-21-amd64-windows.2",
+  "target_execution": "sequential; both targets share build directory",
+  "commands": [
+    {
+      "target": "official-nf248",
+      "started_at": "2026-11-15T06:11:04.9321557+08:00",
+      "command": [
+        "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\gradlew.bat",
+        "releaseBundle",
+        "-Ptarget=official-nf248",
+        "-x",
+        "test",
+        "--console=plain"
+      ],
+      "exit_code": 0,
+      "finished_at": "2026-11-15T06:11:26.3846852+08:00",
+      "audit": "official-nf248.audit.json",
+      "release_zip_sha256": "b29672bb333da77b5d5fe9d6af0ab238ff832a8093d813a37f72243ebfeab61f"
+    },
+    {
+      "target": "official-nf265",
+      "started_at": "2026-11-15T06:11:27.2043905+08:00",
+      "command": [
+        "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\gradlew.bat",
+        "releaseBundle",
+        "-Ptarget=official-nf265",
+        "-x",
+        "test",
+        "--console=plain"
+      ],
+      "exit_code": 0,
+      "finished_at": "2026-11-15T06:11:49.9716057+08:00",
+      "audit": "official-nf265.audit.json",
+      "release_zip_sha256": "626c73f374b91ba38196569f938601f718031d426cabafc6def75b1d091d330c"
+    }
+  ],
+  "java_version": "openjdk version \"21.0.12\" 2026-07-21 LTS\r\nOpenJDK Runtime Environment Temurin-21.0.12+8 (build 21.0.12+8-LTS)\r\nOpenJDK 64-Bit Server VM Temurin-21.0.12+8 (build 21.0.12+8-LTS, mixed mode, sharing)\r\n",
+  "java_executable_sha256": "a38d821efb69ef99c55d315b00d9e8b88f126743b8773e44154e1a3d193efd41",
+  "frozen_delivery_inputs": {
+    "build.gradle": "e6a1e89d1b6631fec3524eff72b034edcbe5e12774872c25cd55100501f26874",
+    "gradle.properties": "e0636ac693f5c3c5ab9031e6bb0a4a205cb3426493c31c523dd204d8beb7bb96",
+    "config/targets.json": "e3d1d3a81d4fe8d7e60ba376654c943cc9766ce1d213b119fe7f6b175ac1d4ff",
+    "LICENSE": "6492b753609d47712db23912e68093e602c3992ff1c8c3f6d777341dab3d4826",
+    "docs/SUPPORT.md": "57559c8ad9af40d6ea4266571afb3f2f7975d797b31b8772bd91d5e79ef5c392",
+    "docs/INSTALL.md": "93a9e41b7b1224da6325a5c7d28e97c10fe02b7f75b2b89125d3e3b6c90c8949"
+  },
+  "passed": true,
+  "finished_at": "2026-11-15T06:11:50.1899263+08:00"
+}

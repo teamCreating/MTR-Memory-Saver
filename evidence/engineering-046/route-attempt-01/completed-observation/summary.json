@@ -1,0 +1,195 @@
+{
+  "started": "2026-11-14T21:19:01.140668+00:00",
+  "ended": "2026-11-14T21:42:53.949583+00:00",
+  "elapsed_seconds": 1432.8089112000016,
+  "status": "interrupted",
+  "passed": false,
+  "error": "Observer interrupted; recorded samples are preserved.",
+  "mode": "route",
+  "instance": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile",
+  "plan_sha256": "ddc0b32e67d96490d0043d65ff6d2606c36c0ef56e6d95baf0b9ae3682628803",
+  "launch_sha256": "5459b13facd731c270970b5815706b4170762ffa89ace29bd4b3ad173a0dc1d5",
+  "process_identity": {
+    "executable": "C:\\Users\\ben_l\\Saved Games\\Yuuniverse 1.20.1 Shenyang\\porting-output\\work\\tools\\jdk21\\jdk-21.0.11+10\\bin\\java.exe",
+    "command": "\"C:\\Users\\ben_l\\Saved Games\\Yuuniverse 1.20.1 Shenyang\\porting-output\\work\\tools\\jdk21\\jdk-21.0.11+10\\bin\\java.exe\" -Xms512M -Xmx3072M -Dmtr.memory.acceptance=true -XX:NativeMemoryTracking=summary -XX:StartFlightRecording=name=acceptance,settings=profile,disk=true,maxsize=0,dumponexit=true,filename=acceptance.jfr -Xlog:gc*,safepoint:file=acceptance-gc.log:time,uptime,level,tags:filecount=0 -XX:HeapDumpPath=MojangTricksIntelDriversForPerformance_javaw.exe_minecraft.exe.heapdump \"-Djava.library.path=C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\versions\\neoforge-21.1.248\\natives\" \"-Djna.tmpdir=C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\versions\\neoforge-21.1.248\\natives\" \"-Dorg.lwjgl.system.SharedLibraryExtractPath=C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\versions\\neoforge-21.1.248\\natives\" \"-Dio.netty.native.workdir=C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\versions\\neoforge-21.1.248\\natives\" -Dminecraft.launcher.brand=minecraft-launcher-lib -Dminecraft.launcher.version=8.0 -cp \"C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\net\\neoforged\\fancymodloader\\earlydisplay\\4.0.43\\earlydisplay-4.0.43.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\net\\neoforged\\fancymodloader\\loader\\4.0.43\\loader-4.0.43.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\net\\neoforged\\accesstransformers\\at-modlauncher\\10.0.1\\at-modlauncher-10.0.1.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\net\\neoforged\\accesstransformers\\10.0.1\\accesstransformers-10.0.1.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\net\\neoforged\\bus\\8.0.5\\bus-8.0.5.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\net\\neoforged\\coremods\\7.0.3\\coremods-7.0.3.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\cpw\\mods\\modlauncher\\11.0.5\\modlauncher-11.0.5.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\net\\neoforged\\mergetool\\2.0.0\\mergetool-2.0.0-api.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\com\\electronwill\\night-config\\toml\\3.8.3\\toml-3.8.3.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\com\\electronwill\\night-config\\core\\3.8.3\\core-3.8.3.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\net\\neoforged\\JarJarSelector\\0.4.1\\JarJarSelector-0.4.1.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\net\\neoforged\\JarJarMetadata\\0.4.1\\JarJarMetadata-0.4.1.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\org\\apache\\maven\\maven-artifact\\3.8.5\\maven-artifact-3.8.5.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\net\\jodah\\typetools\\0.6.3\\typetools-0.6.3.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\net\\minecrell\\terminalconsoleappender\\1.3.0\\terminalconsoleappender-1.3.0.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\net\\fabricmc\\sponge-mixin\\0.15.2+mixin.0.8.7\\sponge-mixin-0.15.2+mixin.0.8.7.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\org\\openjdk\\nashorn\\nashorn-core\\15.4\\nashorn-core-15.4.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\org\\apache\\commons\\commons-lang3\\3.14.0\\commons-lang3-3.14.0.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\cpw\\mods\\bootstraplauncher\\2.0.2\\bootstraplauncher-2.0.2.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\cpw\\mods\\securejarhandler\\3.0.8\\securejarhandler-3.0.8.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\org\\ow2\\asm\\asm-commons\\9.10.1\\asm-commons-9.10.1.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\org\\ow2\\asm\\asm-util\\9.10.1\\asm-util-9.10.1.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\org\\ow2\\asm\\asm-analysis\\9.10.1\\asm-analysis-9.10.1.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\org\\ow2\\asm\\asm-tree\\9.10.1\\asm-tree-9.10.1.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\org\\ow2\\asm\\asm\\9.10.1\\asm-9.10.1.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\net\\neoforged\\JarJarFileSystems\\0.4.1\\JarJarFileSystems-0.4.1.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\net\\sf\\jopt-simple\\jopt-simple\\5.0.4\\jopt-simple-5.0.4.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\org\\slf4j\\slf4j-api\\2.0.9\\slf4j-api-2.0.9.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\org\\antlr\\antlr4-runtime\\4.13.1\\antlr4-runtime-4.13.1.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\com\\mojang\\logging\\1.2.7\\logging-1.2.7.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\org\\apache\\logging\\log4j\\log4j-slf4j2-impl\\2.22.1\\log4j-slf4j2-impl-2.22.1.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\org\\apache\\logging\\log4j\\log4j-core\\2.22.1\\log4j-core-2.22.1.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\org\\apache\\logging\\log4j\\log4j-api\\2.22.1\\log4j-api-2.22.1.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\org\\jline\\jline-reader\\3.20.0\\jline-reader-3.20.0.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\org\\jline\\jline-terminal\\3.20.0\\jline-terminal-3.20.0.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\commons-io\\commons-io\\2.15.1\\commons-io-2.15.1.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\net\\minecraftforge\\srgutils\\0.4.15\\srgutils-0.4.15.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\com\\google\\guava\\guava\\32.1.2-jre\\guava-32.1.2-jre.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\com\\google\\guava\\failureaccess\\1.0.1\\failureaccess-1.0.1.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\com\\google\\guava\\listenablefuture\\9999.0-empty-to-avoid-conflict-with-guava\\listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\com\\google\\code\\findbugs\\jsr305\\3.0.2\\jsr305-3.0.2.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\org\\checkerframework\\checker-qual\\3.33.0\\checker-qual-3.33.0.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\com\\google\\errorprone\\error_prone_annotations\\2.18.0\\error_prone_annotations-2.18.0.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\com\\google\\j2objc\\j2objc-annotations\\2.8\\j2objc-annotations-2.8.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\com\\google\\code\\gson\\gson\\2.10.1\\gson-2.10.1.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\org\\codehaus\\plexus\\plexus-utils\\3.3.0\\plexus-utils-3.3.0.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\com\\machinezoo\\noexception\\noexception\\1.7.1\\noexception-1.7.1.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\com\\github\\oshi\\oshi-core\\6.4.10\\oshi-core-6.4.10.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\com\\ibm\\icu\\icu4j\\73.2\\icu4j-73.2.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\com\\mojang\\authlib\\6.0.54\\authlib-6.0.54.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\com\\mojang\\blocklist\\1.0.10\\blocklist-1.0.10.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\com\\mojang\\brigadier\\1.3.10\\brigadier-1.3.10.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\com\\mojang\\datafixerupper\\8.0.16\\datafixerupper-8.0.16.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\com\\mojang\\patchy\\2.2.10\\patchy-2.2.10.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\com\\mojang\\text2speech\\1.17.9\\text2speech-1.17.9.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\commons-codec\\commons-codec\\1.16.0\\commons-codec-1.16.0.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\commons-logging\\commons-logging\\1.2\\commons-logging-1.2.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\io\\netty\\netty-buffer\\4.1.97.Final\\netty-buffer-4.1.97.Final.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\io\\netty\\netty-codec\\4.1.97.Final\\netty-codec-4.1.97.Final.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\io\\netty\\netty-common\\4.1.97.Final\\netty-common-4.1.97.Final.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\io\\netty\\netty-handler\\4.1.97.Final\\netty-handler-4.1.97.Final.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\io\\netty\\netty-resolver\\4.1.97.Final\\netty-resolver-4.1.97.Final.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\io\\netty\\netty-transport-classes-epoll\\4.1.97.Final\\netty-transport-classes-epoll-4.1.97.Final.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\io\\netty\\netty-transport-native-unix-common\\4.1.97.Final\\netty-transport-native-unix-common-4.1.97.Final.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\io\\netty\\netty-transport\\4.1.97.Final\\netty-transport-4.1.97.Final.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\it\\unimi\\dsi\\fastutil\\8.5.12\\fastutil-8.5.12.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\net\\java\\dev\\jna\\jna-platform\\5.14.0\\jna-platform-5.14.0.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\net\\java\\dev\\jna\\jna\\5.14.0\\jna-5.14.0.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\org\\apache\\commons\\commons-compress\\1.26.0\\commons-compress-1.26.0.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\org\\apache\\httpcomponents\\httpclient\\4.5.13\\httpclient-4.5.13.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\org\\apache\\httpcomponents\\httpcore\\4.4.16\\httpcore-4.4.16.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\org\\jcraft\\jorbis\\0.0.17\\jorbis-0.0.17.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\org\\joml\\joml\\1.10.5\\joml-1.10.5.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\org\\lwjgl\\lwjgl-freetype\\3.3.3\\lwjgl-freetype-3.3.3.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\org\\lwjgl\\lwjgl-freetype\\3.3.3\\lwjgl-freetype-3.3.3-natives-windows.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\org\\lwjgl\\lwjgl-freetype\\3.3.3\\lwjgl-freetype-3.3.3-natives-windows-arm64.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\org\\lwjgl\\lwjgl-freetype\\3.3.3\\lwjgl-freetype-3.3.3-natives-windows-x86.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\org\\lwjgl\\lwjgl-glfw\\3.3.3\\lwjgl-glfw-3.3.3.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\org\\lwjgl\\lwjgl-glfw\\3.3.3\\lwjgl-glfw-3.3.3-natives-windows.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\org\\lwjgl\\lwjgl-glfw\\3.3.3\\lwjgl-glfw-3.3.3-natives-windows-arm64.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\org\\lwjgl\\lwjgl-glfw\\3.3.3\\lwjgl-glfw-3.3.3-natives-windows-x86.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\org\\lwjgl\\lwjgl-jemalloc\\3.3.3\\lwjgl-jemalloc-3.3.3.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\org\\lwjgl\\lwjgl-jemalloc\\3.3.3\\lwjgl-jemalloc-3.3.3-natives-windows.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\org\\lwjgl\\lwjgl-jemalloc\\3.3.3\\lwjgl-jemalloc-3.3.3-natives-windows-arm64.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\org\\lwjgl\\lwjgl-jemalloc\\3.3.3\\lwjgl-jemalloc-3.3.3-natives-windows-x86.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\org\\lwjgl\\lwjgl-openal\\3.3.3\\lwjgl-openal-3.3.3.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\org\\lwjgl\\lwjgl-openal\\3.3.3\\lwjgl-openal-3.3.3-natives-windows.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\org\\lwjgl\\lwjgl-openal\\3.3.3\\lwjgl-openal-3.3.3-natives-windows-arm64.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\org\\lwjgl\\lwjgl-openal\\3.3.3\\lwjgl-openal-3.3.3-natives-windows-x86.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\org\\lwjgl\\lwjgl-opengl\\3.3.3\\lwjgl-opengl-3.3.3.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\org\\lwjgl\\lwjgl-opengl\\3.3.3\\lwjgl-opengl-3.3.3-natives-windows.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\org\\lwjgl\\lwjgl-opengl\\3.3.3\\lwjgl-opengl-3.3.3-natives-windows-arm64.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\org\\lwjgl\\lwjgl-opengl\\3.3.3\\lwjgl-opengl-3.3.3-natives-windows-x86.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\org\\lwjgl\\lwjgl-stb\\3.3.3\\lwjgl-stb-3.3.3.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\org\\lwjgl\\lwjgl-stb\\3.3.3\\lwjgl-stb-3.3.3-natives-windows.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\org\\lwjgl\\lwjgl-stb\\3.3.3\\lwjgl-stb-3.3.3-natives-windows-arm64.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\org\\lwjgl\\lwjgl-stb\\3.3.3\\lwjgl-stb-3.3.3-natives-windows-x86.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\org\\lwjgl\\lwjgl-tinyfd\\3.3.3\\lwjgl-tinyfd-3.3.3.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\org\\lwjgl\\lwjgl-tinyfd\\3.3.3\\lwjgl-tinyfd-3.3.3-natives-windows.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\org\\lwjgl\\lwjgl-tinyfd\\3.3.3\\lwjgl-tinyfd-3.3.3-natives-windows-arm64.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\org\\lwjgl\\lwjgl-tinyfd\\3.3.3\\lwjgl-tinyfd-3.3.3-natives-windows-x86.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\org\\lwjgl\\lwjgl\\3.3.3\\lwjgl-3.3.3.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\org\\lwjgl\\lwjgl\\3.3.3\\lwjgl-3.3.3-natives-windows.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\org\\lwjgl\\lwjgl\\3.3.3\\lwjgl-3.3.3-natives-windows-arm64.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\org\\lwjgl\\lwjgl\\3.3.3\\lwjgl-3.3.3-natives-windows-x86.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\\org\\lz4\\lz4-java\\1.8.0\\lz4-java-1.8.0.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\versions\\neoforge-21.1.248\\neoforge-21.1.248.jar\" -Djava.net.preferIPv6Addresses=system -DignoreList=client-extra,neoforge-21.1.248.jar \"-DlibraryDirectory=C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries\" -p \"C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries/cpw/mods/bootstraplauncher/2.0.2/bootstraplauncher-2.0.2.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries/cpw/mods/securejarhandler/3.0.8/securejarhandler-3.0.8.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries/org/ow2/asm/asm-commons/9.10.1/asm-commons-9.10.1.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries/org/ow2/asm/asm-util/9.10.1/asm-util-9.10.1.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries/org/ow2/asm/asm-analysis/9.10.1/asm-analysis-9.10.1.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries/org/ow2/asm/asm-tree/9.10.1/asm-tree-9.10.1.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries/org/ow2/asm/asm/9.10.1/asm-9.10.1.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\libraries/net/neoforged/JarJarFileSystems/0.4.1/JarJarFileSystems-0.4.1.jar\" --add-modules ALL-MODULE-PATH --add-opens java.base/java.util.jar=cpw.mods.securejarhandler --add-opens java.base/java.lang.invoke=cpw.mods.securejarhandler --add-exports java.base/sun.security.util=cpw.mods.securejarhandler --add-exports jdk.naming.dns/com.sun.jndi.dns=java.naming cpw.mods.bootstraplauncher.BootstrapLauncher --username VehicleTest --version neoforge-21.1.248 --gameDir \"C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\" --assetsDir \"C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile\\assets\" --assetIndex 17 --uuid 312a59e5-2af3-48ce-a9d8-db46ffc2ef43 --accessToken 0 --clientId ${clientid} --xuid ${auth_xuid} --userType msa --versionType release --width 1280 --height 720 --quickPlaySingleplayer \"Vehicle Acceptance 1_21_1\" --fml.neoForgeVersion 21.1.248 --fml.fmlVersion 4.0.43 --fml.mcVersion 1.21.1 --fml.neoFormVersion 20240808.144430 --launchTarget forgeclient --disableMultiplayer",
+    "pid": 34668,
+    "created": "2026-11-14T20:59:06.6101810Z"
+  },
+  "process_created": "2026-11-14T20:59:06.610181+00:00",
+  "policy": {
+    "duration": 7200.0,
+    "interval": 5.0,
+    "freshness_seconds": 15,
+    "stable_seconds": 60,
+    "expected_count": 1091,
+    "expected_declarations": 1092,
+    "require_world": true,
+    "unpaused": true,
+    "required_zero_counters": [
+      "native_pending",
+      "module_pending",
+      "module_outstanding",
+      "module_queued",
+      "active_reads",
+      "resource_in_flight",
+      "module_failures"
+    ],
+    "require_reloads": 0,
+    "gpu_counter_paths": [
+      "\\GPU Process Memory(*)\\Shared Usage",
+      "\\GPU Process Memory(*)\\Dedicated Usage"
+    ],
+    "nmt": true,
+    "auxiliary_interval": 60,
+    "route_windows": {
+      "duration_seconds": 7200.0,
+      "window_count": 3,
+      "minimum_window_progress_displacement": 0.01,
+      "maximum_sampling_gap_seconds": 20.0,
+      "windows": [
+        {
+          "index": 0,
+          "start_seconds": 0.0,
+          "end_seconds": 2400.0,
+          "coverage_tolerance_seconds": 20.0
+        },
+        {
+          "index": 1,
+          "start_seconds": 2400.0,
+          "end_seconds": 4800.0,
+          "coverage_tolerance_seconds": 20.0
+        },
+        {
+          "index": 2,
+          "start_seconds": 4800.0,
+          "end_seconds": 7200.0,
+          "coverage_tolerance_seconds": 20.0
+        }
+      ],
+      "motion_evidence": "Positive absolute railProgress displacement between eligible observations of the same vehicle ID inside each window.",
+      "limits": "Sampled route motion does not establish doors, arrivals, visual rendering or unsampled continuity."
+    },
+    "route_window_policy_sha256": "e4caba40db8efeaf106ac7699564388958636904a6aaae30d7f251e7364894b5"
+  },
+  "route_window_evidence": {
+    "passed": false,
+    "windows": [
+      {
+        "index": 0,
+        "start_seconds": 0.0,
+        "end_seconds": 2400.0,
+        "coverage_tolerance_seconds": 20.0,
+        "sample_count": 287,
+        "eligible_sample_count": 268,
+        "first_elapsed_seconds": 0.003604900004575029,
+        "last_elapsed_seconds": 1430.0006663000095,
+        "first_timestamp": "2026-11-15T05:19:00.578051500+08:00",
+        "last_timestamp": "2026-11-15T05:42:50.663177800+08:00",
+        "maximum_observed_gap_seconds": 15.561455999995815,
+        "same_id_pair_count": 250,
+        "observed_progress_displacement": {
+          "int:-6776748962888878428": 4904.839842843109
+        },
+        "coverage_verified": false,
+        "motion_verified": true,
+        "passed": false
+      },
+      {
+        "index": 1,
+        "start_seconds": 2400.0,
+        "end_seconds": 4800.0,
+        "coverage_tolerance_seconds": 20.0,
+        "sample_count": 0,
+        "eligible_sample_count": 0,
+        "first_elapsed_seconds": null,
+        "last_elapsed_seconds": null,
+        "first_timestamp": null,
+        "last_timestamp": null,
+        "maximum_observed_gap_seconds": 0,
+        "same_id_pair_count": 0,
+        "observed_progress_displacement": {},
+        "coverage_verified": false,
+        "motion_verified": false,
+        "passed": false
+      },
+      {
+        "index": 2,
+        "start_seconds": 4800.0,
+        "end_seconds": 7200.0,
+        "coverage_tolerance_seconds": 20.0,
+        "sample_count": 0,
+        "eligible_sample_count": 0,
+        "first_elapsed_seconds": null,
+        "last_elapsed_seconds": null,
+        "first_timestamp": null,
+        "last_timestamp": null,
+        "maximum_observed_gap_seconds": 0,
+        "same_id_pair_count": 0,
+        "observed_progress_displacement": {},
+        "coverage_verified": false,
+        "motion_verified": false,
+        "passed": false
+      }
+    ]
+  },
+  "sample_count": 287,
+  "verified_sample_count": 268,
+  "missing_observation_fields": [],
+  "observed_failures": [
+    "distributed_route_windows_unverified",
+    "requested_gpu_observation_unavailable",
+    "state_did_not_advance"
+  ],
+  "sampled_peaks_bytes": {
+    "working_set": 4666970112,
+    "private_usage": 4877492224,
+    "heap_used": 3050498152
+  },
+  "observed_vehicle_motion": true,
+  "observed_game_time_advanced": true,
+  "auxiliary_available_samples": {
+    "gpu": 22,
+    "nmt": 23
+  },
+  "auxiliary_attempted_samples": {
+    "gpu": 23,
+    "nmt": 23
+  },
+  "auxiliary_sampled_peaks": {
+    "gpu.shared usage": 670834688.0,
+    "gpu.dedicated usage": 0,
+    "nmt.reserved_bytes": 5013872640,
+    "nmt.committed_bytes": 3707256832
+  },
+  "verified_reload_count": 0,
+  "longest_verified_reload_run": 0,
+  "reload_evidence": [],
+  "samples_sha256": "52a4f0bd7fe9681042f1da5966dc56d4c3cbf504860e9390487f7293700a5df4",
+  "source_sha256": "0eccced84d4991686fc3f8eda259a3680a42c4cc991bc3f13087cab4d02dc6df",
+  "current_source_sha256": "0eccced84d4991686fc3f8eda259a3680a42c4cc991bc3f13087cab4d02dc6df",
+  "source_changed_during_observation": false,
+  "log_sha256_at_completion": "543ee29aff09fb813aba3c3f532b1f8b4d6a3b8987faec49dcbe7ea504bf3115",
+  "native_diagnostics": {
+    "blocking": [],
+    "other_mtr_error_lines_requiring_review": [
+      {
+        "line": 122,
+        "text": "[1511月2026 04:59:49.338] [Render thread/ERROR] [MinecraftTransitRailway/]: [mtr:textures/block/transparent.png] Invalid model!"
+      }
+    ]
+  },
+  "native_registration_declaration_counts": [
+    1092
+  ],
+  "reload_events_sha256": null,
+  "native_epoch_events_sha256": "0085b0eaa11105826eded252b5a4e759c8f1a2fb04c94229c39cc09fb1c2c27f",
+  "baseline_completed_epoch_sequence": 1,
+  "limits": [
+    "Sampled peaks may miss brief peaks. Missing or stale state cannot pass settlement or route observation.",
+    "Route evidence requires every sampled state to be fresh, in-game, explicitly unpaused and settled, plus same-ID railProgress displacement in every frozen time window. It does not establish doors, arrivals, visual rendering or unsampled continuity.",
+    "Reload counts require distinct real log starts/registration/work completion and externally recorded native input, not repeated polling.",
+    "NMT includes Java heap and does not account for all driver/third-party native allocations. OS private usage minus heap is not reported as native memory.",
+    "GPU counters are driver/OS observations. Frame and GC distributions require the separate raw JFR/GC analysis.",
+    "CIM identity verification, sampling and optional jcmd/PowerShell GPU queries add instrumentation overhead; pair matching controls."
+  ]
+}

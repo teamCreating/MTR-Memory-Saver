@@ -1,19 +1,35 @@
 # Official beta.2 coverage audit
 
-Scope: Memory Saver 0.4.5 with official MTR 4.1.0-beta.2, Minecraft 1.21.1,
+Scope: Memory Saver 0.4.6 with official MTR 4.1.0-beta.2, Minecraft 1.21.1,
 Java 21 and the two explicit NeoForge targets. New v6 validation is paused.
-Updated: 2026-11-15T04:17:00+08:00 (UTC+08:00).
+Updated: 2026-11-15T06:21:31.898993+08:00 (UTC+08:00).
 
 ## Established evidence
 
-- Both official targets build and pass 43 Java tests each; the standalone Python
-  suite includes the process-exit and packaged-observer regression checks.
+- Both official targets build and pass 61 Java tests each. The current standalone
+  Python suite passes 100 tests, including background auxiliary-query ownership,
+  interrupted thread startup and process-scoped GPU counters. Actual execution,
+  source snapshots and logs are archived; the previous 91-test stage is retained.
 - Both packaged official clients pass 24 base-resource loader/fault checks,
   including malformed/missing/oversized inputs, same-path correction and retry,
-  native-parser retirement, replacement publication and ownership cleanup.
-- The actual same-version wrong-binary NF248 client exits with code 1 before
-  resource registration through MixinInitialisationError. The 0.4.4 warning-only
-  failure remains immutable negative evidence.
+  native-parser retirement, replacement publication and ownership cleanup. Each
+  also passes 18 real-resource checks covering actual open/read/close/size failure,
+  correction/retry, successful empty text, replacement decoding and missing-cache
+  retirement. Both actual JVMs exit normally and their complete JFRs are readable.
+- Both exact 0.4.6 same-version wrong-binary clients exit with code 1 before
+  registration through MixinInitialisationError, preserving the fingerprint
+  cause, with no probe installed. The 0.4.4 warning-only failure and the 0.4.5
+  NF248 rejection pass retain their historical artifact identities.
+- Default text admission is repaired using shared weighted workspace and owned
+  UTF-16 snapshots. The actual 102,035,449-unit OBJ passes the exact packaged
+  NF248 reader at 3 GiB with CompactStrings enabled and disabled, preserving raw
+  and reencoded hashes and clearing all workspace/files. This is text evidence,
+  and does not establish native OBJ geometry or full-pack acceptance.
+- The actual 0.4.6 NF248 sixteen-pack load reaches 1092 native vehicle declarations
+  and 1091 distinct ID strings. Native and module work and text workspace settle,
+  with no renewed large-OBJ decode rejection. Visual geometry, displays, doors,
+  floors and boarding remain unverified. The 0.4.5 large-text rejection remains
+  historical failed-load evidence under its original artifact identity.
 - Static official call-chain analysis finds synchronous reload RETURN injection,
   not an asynchronous registration completion callback. Actual first full-pack
   HEAD/RETURN records are paired on the render thread with nesting one.
@@ -21,26 +37,55 @@ Updated: 2026-11-15T04:17:00+08:00 (UTC+08:00).
   The 48-run source protocol remains inconclusive because A/A timing equivalence
   did not pass its preregistered band.
 
+## Preserved incomplete and failed observations
+
+- The first large-text audit compilation failed during annotation-processor
+  discovery. Its command and error log remain alongside the successful second
+  attempt; the first attempt produced no source-equivalence pass.
+- The initial 0.4.6 startup observer failed its observation gate. Only two of four
+  requested GPU samples were available, and two window screenshot captures timed
+  out. Registration and settlement evidence remains usable within that boundary.
+- Route attempt 01 is interrupted with `passed=false`: 287 samples cover
+  1432.8089 seconds of the requested 7200 seconds, with 19 repeated-state failures
+  and one unavailable GPU query out of 23. Auxiliary-query delays exposed a
+  catch-up sampling defect. The repaired observer skips missed sampling slots.
+  Attempt 02 is also interrupted with `passed=false`: 56 samples over 349.2593
+  seconds include one 20.8426-second gap beyond the frozen 20-second limit.
+  All its GPU/NMT requests were available; serial auxiliary calls still blocked
+  sampling. Both partial JFRs end before their final observer samples.
+- Three native F3+T API receipts report successful input delivery, but none is
+  followed by a new native epoch or full ResourceManager reload log. Successful
+  real reloads and the longest verified reload sequence are both zero. A native F2
+  screenshot exports successfully but shows no train, so visual interaction and
+  F3+T remain separate gaps. A manual qualification is requested from the user.
+
 ## Remaining gates
 
 | Priority | Coverage | Current boundary and required observation |
 | --- | --- | --- |
-| P1 | Large valid text and full catalogue | The actual isolated 16-pack run registers 1092 declarations/1091 distinct IDs and settles module work, but the default 100,663,296-code-unit limit rejects a valid 102,035,449-code-unit OBJ. Repair and repeat full loading, native diagnostics, geometry/display/door/floor/boarding checks. Current largest referenced Blockbench input is 13,141,932 bytes; the old 65 MB Blockbench asset is not referenced by current vehicles. |
-| P1 | Repeated reload and long gameplay | The exact current candidate has no 20 consecutive full-pack reload or two-hour unpaused route result. Observe cache retention, stale publication, native ownership and comparable heap/OS/native/GPU measurements through defined windows. |
+| P1 | Full catalogue interaction | The 0.4.6 NF248 16-pack/669-entry catalogue has registered 1092 declarations/1091 distinct IDs and settled. Observe geometry, displays, doors, floors, boarding and native diagnostics in the actual scene. Current largest referenced Blockbench input is 13,141,932 bytes; the old 65 MB Blockbench asset is unreferenced. |
+| P1 | Twenty consecutive full-pack reloads | Successful actual F3+T reloads are 0/20. Three input receipts lack a corresponding new epoch and full ResourceManager reload log. Require an external input receipt, native HEAD/RETURN pair, complete reload log and settled fresh snapshot for every accepted reload. |
+| P1 | Two-hour unpaused route | Attempts 01 and 02 are interrupted and failed. The bounded background observer passes regressions, but a fresh full run has not started while manual reload qualification is pending. Retain strict sampling and availability gates and observe all three windows, route travel, cache retention, stale publication and heap/OS/native/GPU measurements. |
 | P1 | Controlled full-client performance | Freeze baseline, current candidate, controls and budgets; collect counterbalanced pairs, A/A and instrumentation controls with raw JFR/GC/frame/OS evidence. Source allocation results alone do not settle loading latency, Full-GC pauses or frame regressions. |
-| P2 | NeoForge 21.1.265 full-pack runtime | Build, 43 tests, actual packaged startup and all 24 fault checks pass. Full-pack/world checks and wrong-binary rejection on this loader remain to be observed. |
-| P2 | Repeated official registration ordering | Static analysis establishes synchronous official reload entry points; the first actual full reload is paired on the render thread. Collect the same evidence through 20 actual full ResourceManager reloads. No generation-token repair is justified by the old callback hypothesis. |
-| P2 | Final exact-artifact delivery audit | After repairs, revalidate changed binaries, evidence hashes, support statements and release ZIP contents. Older 0.3.x/0.4.x passes cannot certify a changed candidate. |
+| P2 | NeoForge 21.1.265 full-pack runtime | Build, 61 tests, actual packaged startup, all 42 fault/resource checks and wrong-binary rejection pass. Full-pack/world and representative interaction checks on this loader remain to be observed. |
+| P2 | Repeated official registration ordering | Static analysis establishes synchronous official reload entry points; the initial 0.4.6 full registration is paired on the render thread with nesting one. Collect the same evidence through 20 actual full ResourceManager reloads. |
+
+Both current release ZIPs have been refreshed and audited against their unchanged
+tested JARs, manifests and support bytes. Later acceptance results require a fresh
+support/evidence audit before expanding runtime claims.
 
 The malformed-model fallback and admission-generation races have already been
-repaired and tested; they are not outstanding defects. Full-pack behavior and
-registration-callback ordering above remain unverified, rather than proven failures.
-The current default large-text rejection is an observed acceptance failure. The
-failed full-pack run's surviving JFR chunks are preserved; its final open chunk
-is incomplete, and it is not controlled performance evidence. Window screenshot
-capture timed out twice, so visual interaction results are not claimed.
+repaired and tested. Full-pack interaction and repeated reload ordering remain
+unverified. The 0.4.5 default large-text rejection was an observed acceptance
+failure. Its surviving JFR chunks are preserved; its final open chunk is incomplete,
+and it is not controlled performance evidence. The incomplete 0.4.6 startup and
+route observations likewise cannot establish visual or long-session acceptance.
 
-Evidence: [verification plan](../evidence/engineering-045/verification-plan.json),
-[packaged fault result](../evidence/engineering-045/packaged-faults-nf248/loader-lifecycle-result.json),
-[wrong-binary assessment](../evidence/engineering-045/packaged-mismatch-nf248/assessment.json),
-and [failed full load](../evidence/engineering-045/packaged-full-load-before-text-fix-nf248/failed-full-load-assessment.json).
+Evidence: [verification plan](../evidence/engineering-046/verification-plan.json),
+[packaged fault result](../evidence/engineering-046/packaged-faults-nf248/loader-lifecycle-result.json),
+[NF265 wrong-binary assessment](../evidence/engineering-046/packaged-mismatch-nf265/assessment.json),
+[large-text assessment](../evidence/engineering-046/text-workspace/attempt-02/assessment.json),
+[initial 0.4.6 full-load assessment](../evidence/engineering-046/full-load-initial-nf248/assessment.json),
+[interrupted route assessment](../evidence/engineering-046/route-attempt-01/assessment.json),
+[reload input assessment](../evidence/engineering-046/reload-input-attempts/assessment.json),
+and [historical failed 0.4.5 full load](../evidence/engineering-045/packaged-full-load-before-text-fix-nf248/failed-full-load-assessment.json).

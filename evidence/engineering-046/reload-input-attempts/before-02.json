@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "event_id": "a276cb9a-e249-4816-9469-264ff2aa29be",
+  "timestamp": "2026-11-14T21:15:32.378173+00:00",
+  "pid": 34668,
+  "process_created": "2026-11-14T20:59:06.610181+00:00",
+  "method": "native_f3_t",
+  "log_offset": 28480,
+  "before": {
+    "schema_version": 2,
+    "timestamp": "2026-11-15T05:15:31.522778700+08:00",
+    "monotonic_nanos": 209463980859600,
+    "pid": 34668,
+    "paused": false,
+    "in_world": true,
+    "screen": null,
+    "game_time": 1785175,
+    "heap": {
+      "used_bytes": 2877162816,
+      "committed_bytes": 3221225472,
+      "max_bytes": 3221225472
+    },
+    "shared_blockbench": {
+      "requests": 3375,
+      "path_hits": 2724,
+      "unique_parses": 651,
+      "failures": 0,
+      "pending": 0,
+      "outstanding": 0,
+      "queued": 0,
+      "paths": 0,
+      "content_keys": 0
+    },
+    "active_read_permits": 0,
+    "text_workspace": {
+      "budget_bytes": 805306368,
+      "used_bytes": 0,
+      "peak_bytes": 805306368,
+      "waiting": 0
+    },
+    "native_settled": true,
+    "native_settled_probe_nanos": 900,
+    "native_pending": 0,
+    "registered_count": 1091,
+    "resource_epochs": {
+      "started": 1,
+      "completed": 1,
+      "in_flight": 0,
+      "max_nesting": 1,
+      "last_completed_sequence": 1
+    }
+  },
+  "before_state_sha256": "e435bf54a784106fbef065e7b97ffb325b815826f9e78fa2418474207e801bc0",
+  "plan_sha256": "ddc0b32e67d96490d0043d65ff6d2606c36c0ef56e6d95baf0b9ae3682628803"
+}

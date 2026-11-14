@@ -1,0 +1,36 @@
+{
+  "timestamp": "2026-11-14T21:41:24.276795+00:00",
+  "pid": 34668,
+  "commands": [
+    {
+      "name": "jfr-check",
+      "command": [
+        "C:\\Users\\ben_l\\Saved Games\\Yuuniverse 1.20.1 Shenyang\\porting-output\\work\\tools\\jdk21\\jdk-21.0.11+10\\bin\\jcmd.exe",
+        "34668",
+        "JFR.check",
+        "verbose=true"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "jfr-dump",
+      "command": [
+        "C:\\Users\\ben_l\\Saved Games\\Yuuniverse 1.20.1 Shenyang\\porting-output\\work\\tools\\jdk21\\jdk-21.0.11+10\\bin\\jcmd.exe",
+        "34668",
+        "JFR.dump",
+        "name=acceptance",
+        "filename=C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-046\\route-attempt-01\\partial-route.jfr"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "jfr-summary",
+      "command": [
+        "C:\\Users\\ben_l\\Saved Games\\Yuuniverse 1.20.1 Shenyang\\porting-output\\work\\tools\\jdk21\\jdk-21.0.11+10\\bin\\jfr.exe",
+        "summary",
+        "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-046\\route-attempt-01\\partial-route.jfr"
+      ],
+      "exit_code": 1
+    }
+  ]
+}

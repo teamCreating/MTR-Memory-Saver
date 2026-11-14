@@ -31,7 +31,7 @@
     "VehicleJsonEpochMixin", "CompressedResourceTextMixin", "SegmentedResourceTextMixin"
   ],
   "variantMixins": {
-    "official": ["VertexColorMixin"],
+    "official": ["VertexColorMixin", "ResourceTextReadMixin"],
     "v6": ["V6LoaderLifecycleMixin"]
   }
 }

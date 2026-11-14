@@ -16,8 +16,10 @@ import json
 import math
 import os
 import pathlib
+import queue
 import re
 import subprocess
+import threading
 import time
 import uuid
 
@@ -193,6 +195,22 @@ def state_observation(path, now, last_stamp, freshness, expected_count, require_
                 "runtime_counters": {"native_pending": original_state.get("native_pending"), "module_pending": blockbench.get("pending"),
                     "module_outstanding": blockbench.get("outstanding"), "module_queued": blockbench.get("queued"), "active_reads": original_state.get("active_read_permits"), "resource_in_flight": original_state.get("resource_epochs", {}).get("in_flight"), "module_failures": blockbench.get("failures")},
                 "resource_epochs": original_state.get("resource_epochs", {}), "game_time": original_state.get("game_time")}
+            if original_state.get("schema_version") == 2:
+                workspace = original_state.get("text_workspace")
+                state["text_workspace"] = workspace
+                if not isinstance(workspace, dict):
+                    observation["missing"].append("text_workspace")
+                else:
+                    for name in ("budget_bytes", "used_bytes", "peak_bytes", "waiting"):
+                        if name not in workspace or workspace[name] is None:
+                            observation["missing"].append("text_workspace." + name)
+                        elif type(workspace[name]) is not int:
+                            observation["failures"].append("invalid_text_workspace_counter." + name)
+                    if all(type(workspace.get(name)) is int for name in ("budget_bytes", "used_bytes", "peak_bytes", "waiting")):
+                        if not (workspace["budget_bytes"] > 0 and 0 <= workspace["used_bytes"] <= workspace["peak_bytes"] <= workspace["budget_bytes"] and workspace["waiting"] >= 0):
+                            observation["failures"].append("invalid_text_workspace_bounds")
+                        if workspace["used_bytes"] != 0 or workspace["waiting"] != 0:
+                            observation["failures"].append("text_workspace_not_settled")
             if require_world and vehicle_path:
                 try:
                     vehicle_state, vehicle_hash = read_snapshot(vehicle_path)
@@ -247,6 +265,104 @@ def state_observation(path, now, last_stamp, freshness, expected_count, require_
             observation["failures"].append("unsettled_counter." + name)
     observation["verified"] = not observation["failures"] and not observation["missing"]
     return observation, state["timestamp"]
+
+
+class RouteWindows:
+    """Distribute actual same-ID progress observations across the whole route run."""
+    def __init__(self, duration, count, minimum_displacement, interval, freshness):
+        if not math.isfinite(duration) or duration <= 0 or type(count) is not int or count < 2:
+            raise ValueError("Distributed route observation requires positive duration and at least two windows.")
+        if not math.isfinite(minimum_displacement) or minimum_displacement <= 0:
+            raise ValueError("Use a positive minimum per-window progress displacement.")
+        if not math.isfinite(interval) or interval <= 0 or not math.isfinite(freshness) or freshness <= 0:
+            raise ValueError("Use positive finite sampling and freshness intervals.")
+        self.duration, self.minimum_displacement = duration, minimum_displacement
+        self.maximum_gap = interval + freshness
+        self.windows = []
+        self.previous = {}
+        for index in range(count):
+            start, end = duration * index / count, duration * (index + 1) / count
+            self.windows.append({"index": index, "start_seconds": start, "end_seconds": end,
+                "coverage_tolerance_seconds": min((end-start)/4, self.maximum_gap),
+                "sample_count": 0, "eligible_sample_count": 0, "first_elapsed_seconds": None,
+                "last_elapsed_seconds": None, "first_timestamp": None, "last_timestamp": None,
+                "maximum_observed_gap_seconds": 0, "same_id_pair_count": 0,
+                "observed_progress_displacement": {}})
+
+    def policy(self):
+        return {"duration_seconds": self.duration, "window_count": len(self.windows),
+            "minimum_window_progress_displacement": self.minimum_displacement,
+            "maximum_sampling_gap_seconds": self.maximum_gap,
+            "windows": [{key: value[key] for key in ("index", "start_seconds", "end_seconds", "coverage_tolerance_seconds")} for value in self.windows],
+            "motion_evidence": "Positive absolute railProgress displacement between eligible observations of the same vehicle ID inside each window.",
+            "limits": "Sampled route motion does not establish doors, arrivals, visual rendering or unsampled continuity."}
+
+    def add(self, elapsed, observation):
+        index = min(len(self.windows)-1, max(0, int(elapsed*len(self.windows)/self.duration)))
+        window = self.windows[index]
+        current, invalid, duplicates = {}, [], set()
+        state = observation.get("state", {})
+        vehicles = state.get("vehicles", [])
+        if not isinstance(vehicles, list):
+            invalid.append({"reason": "invalid_vehicle_list"})
+            vehicles = []
+        for vehicle in vehicles:
+            if not isinstance(vehicle, dict):
+                invalid.append({"reason": "invalid_vehicle_record"})
+                continue
+            identifier, progress = vehicle.get("id"), vehicle.get("railProgress")
+            if type(identifier) not in (int, str) or type(progress) not in (int, float) or not math.isfinite(progress):
+                invalid.append({"vehicle_id": identifier, "reason": "missing_or_invalid_id_or_progress"})
+            elif identifier in current or identifier in duplicates:
+                duplicates.add(identifier)
+                current.pop(identifier, None)
+                invalid.append({"vehicle_id": identifier, "reason": "duplicate_vehicle_id"})
+            else:
+                current[identifier] = progress
+        eligible = observation.get("verified") is True and bool(current) and not invalid and elapsed <= self.duration+self.maximum_gap
+        record = {"index": index, "eligible": eligible, "eligible_vehicle_count": len(current),
+            "invalid_trajectory_records": invalid, "same_id_progress_displacements": []}
+        window["sample_count"] += 1
+        if window["last_elapsed_seconds"] is not None:
+            gap = elapsed-window["last_elapsed_seconds"]
+            window["maximum_observed_gap_seconds"] = max(window["maximum_observed_gap_seconds"], gap)
+        if window["first_elapsed_seconds"] is None:
+            window["first_elapsed_seconds"] = elapsed
+            window["first_timestamp"] = state.get("timestamp")
+        window["last_elapsed_seconds"], window["last_timestamp"] = elapsed, state.get("timestamp")
+        if eligible:
+            window["eligible_sample_count"] += 1
+            previous = self.previous.get(index)
+            if previous is not None and 0 < elapsed-previous["elapsed"] <= self.maximum_gap:
+                for identifier in current.keys() & previous["vehicles"].keys():
+                    displacement = abs(current[identifier]-previous["vehicles"][identifier])
+                    if not math.isfinite(displacement):
+                        continue
+                    window["same_id_pair_count"] += 1
+                    key = type(identifier).__name__ + ":" + str(identifier)
+                    window["observed_progress_displacement"][key] = window["observed_progress_displacement"].get(key, 0)+displacement
+                    record["same_id_progress_displacements"].append({"vehicle_id": identifier,
+                        "previous_elapsed_seconds": previous["elapsed"], "elapsed_seconds": elapsed,
+                        "previous_progress": previous["vehicles"][identifier], "progress": current[identifier],
+                        "absolute_progress_displacement": displacement})
+            self.previous[index] = {"elapsed": elapsed, "vehicles": current}
+        else:
+            self.previous.pop(index, None)
+        return record
+
+    def summary(self):
+        results = []
+        for window in self.windows:
+            result = dict(window)
+            tolerance = window["coverage_tolerance_seconds"]
+            result["coverage_verified"] = window["sample_count"] >= 2 and window["eligible_sample_count"] == window["sample_count"] and \
+                window["first_elapsed_seconds"] <= window["start_seconds"]+tolerance and \
+                window["last_elapsed_seconds"] >= window["end_seconds"]-tolerance and \
+                window["maximum_observed_gap_seconds"] <= self.maximum_gap
+            result["motion_verified"] = any(value >= self.minimum_displacement for value in window["observed_progress_displacement"].values())
+            result["passed"] = result["coverage_verified"] and result["motion_verified"]
+            results.append(result)
+        return {"passed": all(window["passed"] for window in results), "windows": results}
 
 
 BLOCKING_DIAGNOSTICS = ("Failed to decode resource", "Failed to parse Blockbench model", "Failed to parse OBJ model",
@@ -443,23 +559,39 @@ def confirm_reload_input(before_path, events_path, receipt):
     return record
 
 
+def gpu_process_paths(paths, pid):
+    # The Windows GPU instance identity includes the PID. Query that process
+    # directly so a retired, unrelated wildcard instance cannot invalidate it.
+    return [path.replace("(*)", "(pid_" + str(pid) + "_*)") for path in paths]
+
+
 def auxiliary(plan, launch, gpu_paths, nmt):
     result = {}
     if gpu_paths:
-        payload = {"paths": gpu_paths, "pid": launch["pid"]}
+        queried_paths = gpu_process_paths(gpu_paths, launch["pid"])
+        payload = {"paths": queried_paths, "pid": launch["pid"]}
         script = "$gpuRequest = [Console]::In.ReadToEnd() | ConvertFrom-Json; "                  "$gpuSample = Get-Counter -Counter @($gpuRequest.paths) -ErrorAction Stop; "                  "@($gpuSample.CounterSamples | Where-Object { $_.InstanceName.StartsWith('pid_' + $gpuRequest.pid + '_') } | "                  "Select-Object Path,InstanceName,CookedValue,Status,Timestamp) | ConvertTo-Json -Depth 3 -Compress"
         try:
-            sampled = subprocess.run(["pwsh", "-NoProfile", "-Command", script], input=json.dumps(payload), capture_output=True, text=True, check=True, timeout=20)
-            values = json.loads(sampled.stdout) if sampled.stdout.strip() else []
-            values = [values] if isinstance(values, dict) else values
-            names = {path.rsplit(chr(92), 1)[-1].casefold() for path in gpu_paths}
-            found = {item.get("Path", "").rsplit(chr(92), 1)[-1].casefold() for item in values}
-            available = bool(values) and names.issubset(found) and all(item.get("Status") in (0, 1) and math.isfinite(item.get("CookedValue", math.nan)) for item in values)
-            totals = {}
-            for item in values:
-                counter = item.get("Path", "").rsplit(chr(92), 1)[-1]
-                totals[counter] = totals.get(counter, 0) + item.get("CookedValue", 0)
-            result["gpu"] = {"paths": gpu_paths, "samples": values, "totals_by_counter": totals, "available": available, "raw_stderr": sampled.stderr}
+            sampled = subprocess.run(["pwsh", "-NoProfile", "-Command", script], input=json.dumps(payload), capture_output=True, text=True, encoding="utf-8", timeout=20)
+            if sampled.returncode:
+                result["gpu"] = {"paths": gpu_paths, "queried_paths": queried_paths, "available": False,
+                    "exit_code": sampled.returncode, "raw_stdout": sampled.stdout, "raw_stderr": sampled.stderr,
+                    "error": "GPU counter query exited with code " + str(sampled.returncode)}
+                values = None
+            else:
+                values = json.loads(sampled.stdout) if sampled.stdout.strip() else []
+            if values is not None:
+                values = [values] if isinstance(values, dict) else values
+                names = {path.rsplit(chr(92), 1)[-1].casefold() for path in gpu_paths}
+                found = {item.get("Path", "").rsplit(chr(92), 1)[-1].casefold() for item in values}
+                available = bool(values) and names.issubset(found) and all(item.get("Status") in (0, 1) and math.isfinite(item.get("CookedValue", math.nan)) for item in values)
+                totals = {}
+                for item in values:
+                    counter = item.get("Path", "").rsplit(chr(92), 1)[-1]
+                    totals[counter] = totals.get(counter, 0) + item.get("CookedValue", 0)
+                result["gpu"] = {"paths": gpu_paths, "queried_paths": queried_paths, "samples": values,
+                    "totals_by_counter": totals, "available": available, "exit_code": sampled.returncode,
+                    "raw_stdout": sampled.stdout, "raw_stderr": sampled.stderr}
         except (OSError, subprocess.SubprocessError, ValueError) as error:
             result["gpu"] = {"available": False, "error": str(error)}
     if nmt:
@@ -477,6 +609,130 @@ def auxiliary(plan, launch, gpu_paths, nmt):
     return result
 
 
+class AuxiliarySampler:
+    """One worker owns auxiliary queries; only the observing thread accounts events."""
+    def __init__(self, plan, launch, gpu_paths, nmt, start_clock, provider=None):
+        self.plan, self.launch = plan, launch
+        self.gpu_paths, self.nmt, self.start_clock = list(gpu_paths), nmt, start_clock
+        self.expected = [name for name, enabled in (("gpu", bool(gpu_paths)), ("nmt", nmt)) if enabled]
+        self.provider = provider or auxiliary
+        self.jobs, self.events = queue.Queue(maxsize=1), queue.Queue(maxsize=2)
+        self.shutdown = threading.Event()
+        self.worker_entered, self.worker_exited = threading.Event(), threading.Event()
+        self.lifecycle_lock, self.job_states = threading.Lock(), {}
+        self.startup_state, self.startup_error = "not_requested", None
+        self.thread, self.in_flight, self.closed = None, None, False
+        self.records, self.by_id = [], {}
+
+    def event(self, request, phase, **values):
+        return {"request_id": request["request_id"], "phase": phase, "timestamp": timestamp(),
+            "elapsed_seconds": time.monotonic()-self.start_clock, **values}
+
+    def request(self):
+        if self.closed or self.in_flight is not None or not self.expected:
+            return None
+        record = {"request_id": str(uuid.uuid4()), "expected_observers": list(self.expected), "status": "requested"}
+        event = self.event(record, "requested", expected_observers=list(self.expected))
+        record["requested"] = event
+        self.records.append(record); self.by_id[record["request_id"]] = record
+        self.in_flight = record["request_id"]
+        with self.lifecycle_lock:
+            self.job_states[record["request_id"]] = "queued"
+        self.jobs.put_nowait(record)
+        if self.thread is None:
+            self.thread = threading.Thread(target=self.run, name="packaged-client-auxiliary", daemon=True)
+            self.startup_state = "starting"
+            try:
+                self.thread.start()
+                self.startup_state = "start_returned"
+            except (KeyboardInterrupt, SystemExit) as error:
+                # start() may have launched the actual worker before raising.
+                # Preserve its reference and let close confirm entry and exit.
+                self.startup_state = "start_interrupted"
+                self.startup_error = self.event(record, "worker_start_error",
+                    error=type(error).__name__ + ": " + str(error))
+                record["worker_start_error"] = self.startup_error
+                raise
+            except Exception as error:
+                self.startup_state = "start_failed"
+                self.startup_error = self.event(record, "worker_start_error",
+                    error=type(error).__name__ + ": " + str(error))
+                record["worker_start_error"] = self.startup_error
+                self.closed = True; self.shutdown.set()
+                with self.lifecycle_lock:
+                    cancelled = self.job_states[record["request_id"]] == "queued"
+                    if cancelled:
+                        self.job_states[record["request_id"]] = "cancelled"
+                if cancelled:
+                    self.events.put(self.event(record, "completed", result=None,
+                        cancelled_before_query=True,
+                        error="Worker start failed: " + type(error).__name__ + ": " + str(error)))
+        return event
+
+    def run(self):
+        self.worker_entered.set()
+        try:
+            while True:
+                request = self.jobs.get()
+                if request is None:
+                    return
+                with self.lifecycle_lock:
+                    cancelled = self.job_states[request["request_id"]] == "cancelled"
+                    if not cancelled:
+                        self.job_states[request["request_id"]] = "running"
+                if not cancelled:
+                    self.events.put(self.event(request, "started"))
+                    try:
+                        result = self.provider(self.plan, self.launch, self.gpu_paths, self.nmt)
+                        completed = self.event(request, "completed", result=result)
+                    except BaseException as error:
+                        completed = self.event(request, "completed", result=None,
+                            error=type(error).__name__ + ": " + str(error))
+                    self.events.put(completed)
+                    with self.lifecycle_lock:
+                        self.job_states[request["request_id"]] = "completed"
+                if self.shutdown.is_set():
+                    return
+        finally:
+            self.worker_exited.set()
+
+    def poll(self):
+        events = []
+        while True:
+            try:
+                event = self.events.get_nowait()
+            except queue.Empty:
+                break
+            record = self.by_id[event["request_id"]]
+            record[event["phase"]] = event
+            record["status"] = event["phase"]
+            if event["phase"] == "completed":
+                self.in_flight = None
+            events.append(event)
+        return events
+
+    def close(self, timeout):
+        deadline = time.monotonic()+timeout
+        self.closed = True
+        self.shutdown.set()
+        try:
+            self.jobs.put_nowait(None)
+        except queue.Full:
+            pass
+        if self.thread is not None:
+            if self.worker_entered.wait(max(0, deadline-time.monotonic())):
+                self.thread.join(max(0, deadline-time.monotonic()))
+        events = self.poll()
+        stopped = self.thread is None or (self.worker_exited.is_set() and not self.thread.is_alive())
+        pending = [record["request_id"] for record in self.records if record["status"] != "completed"]
+        return events, {"worker_stopped": stopped, "uncompleted_request_ids": pending,
+            "worker_entry_confirmed": self.worker_entered.is_set(), "worker_exit_confirmed": self.worker_exited.is_set(),
+            "worker_exit_pending_request_ids": [self.in_flight or self.records[-1]["request_id"]] if not stopped and self.records else [],
+            "worker_startup_state": self.startup_state, "worker_startup_error": self.startup_error,
+            "requests": [dict(record) for record in self.records], "closed_at": timestamp(),
+            "closed_elapsed_seconds": time.monotonic()-self.start_clock}
+
+
 def observe(args):
     instance, output = args.instance.resolve(), args.output.resolve()
     if output.exists():
@@ -485,10 +741,30 @@ def observe(args):
     source_bytes = pathlib.Path(__file__).read_bytes()
     source_hash = hashlib.sha256(source_bytes).hexdigest()
     (output / "observer-source.py").write_bytes(source_bytes)
+    process = None
     try:
         plan, launch = frozen_context(instance)
         process = WindowsProcess(plan, launch)
+        duration, interval, freshness = args.duration, args.interval, args.freshness_seconds
+        route_windows = RouteWindows(duration, args.route_windows, args.minimum_window_progress_displacement, interval, freshness) if args.mode == "route" else None
+        route_policy = route_windows.policy() if route_windows else None
+        route_policy_hash = None
+        if route_policy:
+            route_policy_bytes = (json.dumps(route_policy, indent=2, ensure_ascii=False) + "\n").encode("utf-8")
+            (output / "route-window-policy.json").write_bytes(route_policy_bytes)
+            route_policy_hash = hashlib.sha256(route_policy_bytes).hexdigest()
+        observation_policy = {"duration": duration, "interval": interval, "freshness_seconds": freshness,
+            "stable_seconds": args.stable_seconds, "expected_count": args.expected_count, "expected_declarations": args.expected_declarations,
+            "require_world": args.require_world or args.mode == "route", "unpaused": args.unpaused or args.mode == "route",
+            "required_zero_counters": ZERO_COUNTERS, "require_reloads": args.require_reloads, "gpu_counter_paths": list(args.gpu_counter),
+            "nmt": args.nmt, "auxiliary_interval": args.auxiliary_interval,
+            "auxiliary_maximum_in_flight": 1, "auxiliary_shutdown_seconds": getattr(args, "auxiliary_shutdown_seconds", 45), "route_windows": route_policy,
+            "sampling_cadence": "future phase-aligned deadlines; missed slots are skipped without catch-up",
+            "gpu_query_paths": gpu_process_paths(args.gpu_counter, launch["pid"]),
+            "route_window_policy_sha256": route_policy_hash}
     except Exception as preflight_error:
+        if process is not None:
+            process.close()
         (output / "samples.jsonl").write_text("", encoding="utf-8")
         summary = {"timestamp": timestamp(), "status": "preflight_failed", "passed": False, "error": str(preflight_error),
             "instance": str(instance), "mode": args.mode, "source_sha256": source_hash, "current_source_sha256": digest(pathlib.Path(__file__)),
@@ -504,12 +780,62 @@ def observe(args):
     epoch_path = args.epoch_events.resolve() if args.epoch_events else instance / "game-probe/resource-epochs.jsonl"
     epoch_observations, baseline_sequence = [], None
     started, start_clock = timestamp(), time.monotonic()
-    stable_since, last_stamp, previous_state, prior_valid = None, None, None, False
+    stable_since, last_stamp, prior_valid = None, None, False
     count, valid, missing, failures, peaks, vehicle_motion = 0, 0, set(), set(), {}, False
     previous_game_time, game_time_advanced, previous_clock = None, False, None
     auxiliary_available = {"gpu": 0, "nmt": 0}
     auxiliary_attempted = {"gpu": 0, "nmt": 0}
     auxiliary_peaks = {}
+    auxiliary_path = output / "auxiliary-events.jsonl"
+    auxiliary_path.write_text("", encoding="utf-8")
+    sampler = AuxiliarySampler(plan, launch, args.gpu_counter, args.nmt, start_clock)
+    terminal_auxiliary_events = []
+    auxiliary_shutdown = None
+    sampling_ended, sampling_end_clock = None, None
+    persisted_auxiliary_events = set()
+    accounted_auxiliary_requests, accounted_auxiliary_completions = set(), set()
+    def account_auxiliary(events, sample=None):
+        if not events:
+            return
+        with auxiliary_path.open("a", encoding="utf-8") as auxiliary_stream:
+            for event in events:
+                key = event["request_id"], event["phase"]
+                if key in persisted_auxiliary_events:
+                    continue
+                auxiliary_stream.write(json.dumps(event, ensure_ascii=False) + "\n")
+                auxiliary_stream.flush()
+                persisted_auxiliary_events.add(key)
+        if sample is not None:
+            sample["auxiliary_events"] = events
+        for event in events:
+            if event["phase"] == "requested":
+                if event["request_id"] not in accounted_auxiliary_requests:
+                    for name in event["expected_observers"]:
+                        auxiliary_attempted[name] += 1
+                    accounted_auxiliary_requests.add(event["request_id"])
+            if event["phase"] != "completed":
+                continue
+            if event["request_id"] in accounted_auxiliary_completions:
+                continue
+            results = event.get("result")
+            if sample is not None:
+                sample["auxiliary"] = results
+            if not isinstance(results, dict):
+                failures.add("auxiliary_request_failed")
+                accounted_auxiliary_completions.add(event["request_id"])
+                continue
+            for name in sampler.expected:
+                value = results.get(name)
+                if not isinstance(value, dict):
+                    failures.add("requested_" + name + "_result_missing")
+                    continue
+                auxiliary_available[name] += int(value.get("available") is True)
+                if value.get("available") is True:
+                    metrics = value.get("totals_by_counter", {}) if name == "gpu" else {key: value[key] for key in ("reserved_bytes", "committed_bytes") if key in value}
+                    for key, amount in metrics.items():
+                        metric = name + "." + key
+                        auxiliary_peaks[metric] = max(auxiliary_peaks.get(metric, 0), amount)
+            accounted_auxiliary_completions.add(event["request_id"])
     status, error = "duration_complete", None
     interval_end, last_auxiliary = start_clock, -math.inf
     try:
@@ -520,26 +846,32 @@ def observe(args):
                 sample = {"timestamp": now.isoformat(), "elapsed_seconds": now_clock-start_clock, "process": memory}
                 if not memory["running"]:
                     status = "process_exited"
+                    if route_windows:
+                        sample["route_window"] = route_windows.add(sample["elapsed_seconds"], {"verified": False})
+                        sample["route_window"]["policy_sha256"] = route_policy_hash
                     stream.write(json.dumps(sample) + "\n"); stream.flush()
                     break
-                state, last_stamp = state_observation(state_path, now, last_stamp, args.freshness_seconds,
+                state, last_stamp = state_observation(state_path, now, last_stamp, freshness,
                     args.expected_count, args.require_world or args.mode == "route", args.unpaused or args.mode == "route", vehicle_path, launch["pid"], args.expected_declarations)
-                if previous_clock is not None and now_clock-previous_clock > args.interval+args.freshness_seconds:
+                if previous_clock is not None and now_clock-previous_clock > interval+freshness:
                     state["verified"] = False
                     state["failures"].append("observation_gap_exceeded")
                 previous_clock = now_clock
                 sample["observation"] = state
-                if now_clock-last_auxiliary >= args.auxiliary_interval:
-                    sample["auxiliary"] = auxiliary(plan, launch, args.gpu_counter, args.nmt)
-                    last_auxiliary = now_clock
-                    for name, value in sample["auxiliary"].items():
-                        auxiliary_available[name] += int(value.get("available", False))
-                        auxiliary_attempted[name] += 1
-                        if value.get("available"):
-                            metrics = value.get("totals_by_counter", {}) if name == "gpu" else {key: value[key] for key in ("reserved_bytes", "committed_bytes") if key in value}
-                            for key, amount in metrics.items():
-                                metric = name + "." + key
-                                auxiliary_peaks[metric] = max(auxiliary_peaks.get(metric, 0), amount)
+                if route_windows:
+                    sample["route_window"] = route_windows.add(sample["elapsed_seconds"], state)
+                    sample["route_window"]["policy_sha256"] = route_policy_hash
+                    if any(pair["absolute_progress_displacement"] > 0 for pair in sample["route_window"]["same_id_progress_displacements"]):
+                        vehicle_motion = True
+                auxiliary_events = sampler.poll()
+                if now_clock-start_clock < duration and now_clock-last_auxiliary >= args.auxiliary_interval:
+                    requested = sampler.request()
+                    if requested is not None:
+                        auxiliary_events.append(requested)
+                        last_auxiliary = now_clock
+                account_auxiliary(auxiliary_events, sample)
+                if sampler.expected:
+                    sample["auxiliary_in_flight_request_id"] = sampler.in_flight
                 stream.write(json.dumps(sample, ensure_ascii=False) + "\n"); stream.flush()
                 count += 1; valid += int(state["verified"])
                 missing.update(state["missing"]); failures.update(state["failures"])
@@ -563,10 +895,6 @@ def observe(args):
                         pass
                 if isinstance(current.get("heap_used"), (int, float)):
                     peaks["heap_used"] = max(peaks.get("heap_used", 0), current["heap_used"])
-                vehicles = current.get("vehicles", [])
-                motion = [(vehicle.get("id"), vehicle.get("railProgress")) for vehicle in vehicles]
-                if state["verified"] and prior_valid and previous_state is not None and motion != previous_state:
-                    vehicle_motion = True
                 game_time = current.get("game_time")
                 if state["verified"] and type(game_time) is int:
                     if prior_valid and previous_game_time is not None and game_time > previous_game_time:
@@ -576,23 +904,58 @@ def observe(args):
                     stable_since = stable_since if stable_since is not None else now_clock
                 else:
                     stable_since = None
-                previous_state, prior_valid = motion, state["verified"]
+                prior_valid = state["verified"]
                 elapsed = now_clock-start_clock
                 if args.mode == "startup" and stable_since is not None and now_clock-stable_since >= args.stable_seconds:
                     status = "settled"
                     break
-                if elapsed >= args.duration:
+                if elapsed >= duration:
                     break
-                interval_end += args.interval
-                delay = min(max(0, interval_end-time.monotonic()), max(0, start_clock+args.duration-time.monotonic()))
+                current_clock = time.monotonic()
+                # Missed sampling slots remain gaps in the raw evidence; do not
+                # manufacture catch-up observations against one probe snapshot.
+                interval_end = start_clock + (math.floor((current_clock-start_clock)/interval)+1)*interval
+                delay = min(max(0, interval_end-current_clock), max(0, start_clock+duration-current_clock))
                 time.sleep(delay)
     except KeyboardInterrupt:
         status, error = "interrupted", "Observer interrupted; recorded samples are preserved."
     except Exception as observed_error:
         status, error = "observation_failed", str(observed_error)
     finally:
-        process.close()
-    ended, elapsed = timestamp(), time.monotonic()-start_clock
+        sampling_ended, sampling_end_clock = timestamp(), time.monotonic()
+        pending_at_sampling_end = sampler.in_flight
+        try:
+            _, auxiliary_shutdown = sampler.close(observation_policy["auxiliary_shutdown_seconds"])
+            # Reconcile the accepted request registry after interruption at any
+            # submission/poll/accounting boundary, preserving original events.
+            for line in auxiliary_path.read_text(encoding="utf-8").splitlines():
+                try:
+                    recorded = json.loads(line)
+                    persisted_auxiliary_events.add((recorded["request_id"], recorded["phase"]))
+                except (ValueError, KeyError, TypeError):
+                    failures.add("auxiliary_event_journal_incomplete")
+            if auxiliary_path.stat().st_size and not auxiliary_path.read_bytes().endswith(b"\n"):
+                with auxiliary_path.open("a", encoding="utf-8") as journal:
+                    journal.write("\n")
+                failures.add("auxiliary_event_journal_incomplete")
+            recorded_events = [event for record in sampler.records for event in sorted(
+                (record[phase] for phase in ("requested", "started", "completed", "worker_start_error") if phase in record),
+                key=lambda value: value["elapsed_seconds"])]
+            terminal_auxiliary_events = [event for event in recorded_events
+                if (event["request_id"], event["phase"]) not in persisted_auxiliary_events]
+            for event in terminal_auxiliary_events:
+                event["post_sampling_window"] = event["elapsed_seconds"] > sampling_end_clock-start_clock
+            # Canonical accounting cannot retain a half-updated counter if the
+            # main thread was interrupted while recording a completed result.
+            auxiliary_attempted = {"gpu": 0, "nmt": 0}
+            auxiliary_available = {"gpu": 0, "nmt": 0}
+            auxiliary_peaks = {}
+            accounted_auxiliary_requests.clear(); accounted_auxiliary_completions.clear()
+            account_auxiliary(recorded_events)
+            auxiliary_shutdown["in_flight_request_id_at_sampling_end"] = pending_at_sampling_end
+        finally:
+            process.close()
+    ended, elapsed = sampling_ended, sampling_end_clock-start_clock
     log_path = instance / "logs/latest.log"
     log_bytes = log_path.read_bytes() if log_path.exists() else b""
     (output / "native-log-at-completion.log").write_bytes(log_bytes)
@@ -614,12 +977,15 @@ def observe(args):
         except (OSError, ValueError) as observed_error:
             failures.add("full_reload_evidence_unavailable: " + str(observed_error))
     verified_reloads = sum(item["verified"] for item in reloads)
+    route_results = route_windows.summary() if route_windows else None
     if args.mode == "startup":
         passed = status == "settled"
     elif args.mode == "reloads":
         passed = status == "reloads_verified"
     else:
-        passed = status == "duration_complete" and count > 1 and valid == count and elapsed >= args.duration and vehicle_motion and game_time_advanced
+        passed = status == "duration_complete" and count > 1 and valid == count and elapsed >= duration and vehicle_motion and game_time_advanced and route_results["passed"]
+        if not route_results["passed"]:
+            failures.add("distributed_route_windows_unverified")
     passed = passed and consecutive_reloads(reloads) >= args.require_reloads
     if not log_path.exists():
         passed = False
@@ -630,31 +996,40 @@ def observe(args):
     if diagnostics["blocking"]:
         passed = False
         failures.add("native_resource_decode_or_parse_diagnostics")
-    for name in ("gpu", "nmt"):
-        if auxiliary_attempted[name] and auxiliary_available[name] != auxiliary_attempted[name]:
+    for name in sampler.expected:
+        if not auxiliary_attempted[name] or auxiliary_available[name] != auxiliary_attempted[name]:
             passed = False
             failures.add("requested_" + name + "_observation_unavailable")
+    if auxiliary_shutdown["uncompleted_request_ids"] or not auxiliary_shutdown["worker_stopped"]:
+        passed = False
+        failures.add("auxiliary_shutdown_incomplete")
+    if auxiliary_shutdown["worker_startup_error"] is not None:
+        passed = False
+        failures.add("auxiliary_worker_start_failed")
+    if "auxiliary_event_journal_incomplete" in failures:
+        passed = False
     current_source_hash = digest(pathlib.Path(__file__)) if pathlib.Path(__file__).exists() else None
     summary = {"started": started, "ended": ended, "elapsed_seconds": elapsed, "status": status, "passed": passed,
         "error": error, "mode": args.mode, "instance": str(instance), "plan_sha256": digest(instance / "packaged-client-plan.json"),
         "launch_sha256": digest(instance / "packaged-client-launch.json"), "process_identity": process.identity,
-        "process_created": process.created, "policy": {"duration": args.duration, "interval": args.interval, "freshness_seconds": args.freshness_seconds,
-            "stable_seconds": args.stable_seconds, "expected_count": args.expected_count, "expected_declarations": args.expected_declarations, "require_world": args.require_world or args.mode == "route",
-            "unpaused": args.unpaused or args.mode == "route", "required_zero_counters": ZERO_COUNTERS, "require_reloads": args.require_reloads,
-            "gpu_counter_paths": args.gpu_counter, "nmt": args.nmt, "auxiliary_interval": args.auxiliary_interval},
+        "process_created": process.created, "policy": observation_policy, "route_window_evidence": route_results,
         "sample_count": count, "verified_sample_count": valid, "missing_observation_fields": sorted(missing),
         "observed_failures": sorted(failures), "sampled_peaks_bytes": peaks, "observed_vehicle_motion": vehicle_motion, "observed_game_time_advanced": game_time_advanced,
         "auxiliary_available_samples": auxiliary_available, "auxiliary_attempted_samples": auxiliary_attempted, "auxiliary_sampled_peaks": auxiliary_peaks, "verified_reload_count": verified_reloads, "longest_verified_reload_run": consecutive_reloads(reloads), "reload_evidence": reloads,
+        "auxiliary_shutdown": auxiliary_shutdown, "terminal_auxiliary_events": terminal_auxiliary_events,
+        "auxiliary_events_sha256": digest(auxiliary_path), "auxiliary_count_unit": "accepted auxiliary requests",
+        "auxiliary_peaks_scope": "Available results from accepted auxiliary requests, including explicitly marked post-window completions.",
         "samples_sha256": digest(output / "samples.jsonl"), "source_sha256": source_hash, "current_source_sha256": current_source_hash,
         "source_changed_during_observation": current_source_hash != source_hash,
         "log_sha256_at_completion": hashlib.sha256(log_bytes).hexdigest(), "native_diagnostics": diagnostics, "native_registration_declaration_counts": declaration_counts,
         "reload_events_sha256": hashlib.sha256(input_bytes).hexdigest() if args.reload_events else None,
         "native_epoch_events_sha256": hashlib.sha256(epoch_bytes).hexdigest() if epoch_path.exists() else None, "baseline_completed_epoch_sequence": baseline_sequence,
         "limits": ["Sampled peaks may miss brief peaks. Missing or stale state cannot pass settlement or route observation.",
-            "Route evidence requires every sampled state to be fresh, in-game, explicitly unpaused and settled, plus vehicle-state change; it does not establish unsampled continuity.",
+            "Route evidence requires every sampled state to be fresh, in-game, explicitly unpaused and settled, plus same-ID railProgress displacement in every frozen time window. It does not establish doors, arrivals, visual rendering or unsampled continuity.",
             "Reload counts require distinct real log starts/registration/work completion and externally recorded native input, not repeated polling.",
             "NMT includes Java heap and does not account for all driver/third-party native allocations. OS private usage minus heap is not reported as native memory.",
             "GPU counters are driver/OS observations. Frame and GC distributions require the separate raw JFR/GC analysis.",
+            "Auxiliary results belong to their request start/completion interval. Terminal results do not extend the actual game observation window.",
             "CIM identity verification, sampling and optional jcmd/PowerShell GPU queries add instrumentation overhead; pair matching controls."]}
     (output / "summary.json").write_text(json.dumps(summary, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print(json.dumps({"status": status, "passed": passed, "samples": count, "summary": str(output / "summary.json")}), flush=True)
@@ -675,6 +1050,9 @@ def main():
     parser.add_argument("--interval", type=finite_positive, default=5)
     parser.add_argument("--stable-seconds", type=finite_positive, default=60)
     parser.add_argument("--freshness-seconds", type=finite_positive, default=15)
+    parser.add_argument("--route-windows", type=int, default=3, help="Equal-duration windows; every window must contain eligible same-ID motion and sampling coverage.")
+    parser.add_argument("--minimum-window-progress-displacement", type=finite_positive, default=0.01,
+        help="Minimum observed absolute railProgress displacement for one vehicle ID inside every route window.")
     parser.add_argument("--require-world", action="store_true")
     parser.add_argument("--unpaused", action="store_true")
     parser.add_argument("--reload-events", type=pathlib.Path)
@@ -682,9 +1060,13 @@ def main():
     parser.add_argument("--gpu-counter", action="append", default=[], help="Explicit local GPU Process Memory counter paths; repeat per counter.")
     parser.add_argument("--nmt", action="store_true", help="Observe enabled JVM NativeMemoryTracking through read-only jcmd summaries.")
     parser.add_argument("--auxiliary-interval", type=finite_positive, default=60)
+    parser.add_argument("--auxiliary-shutdown-seconds", type=finite_positive, default=45,
+        help="Bounded auxiliary worker shutdown after freezing the actual sampling end; unfinished work fails acceptance.")
     args = parser.parse_args()
     if args.expected_count <= 0 or args.require_reloads < 0 or (args.expected_declarations is not None and args.expected_declarations <= 0):
         parser.error("Require positive native ID/declaration counts and a nonnegative reload count.")
+    if args.route_windows < 2:
+        parser.error("Distributed route validation requires at least two windows.")
     if args.mode == "reloads" and not args.require_reloads:
         parser.error("Reload observation requires a positive consecutive reload count.")
     if args.require_reloads and (not args.reload_events or args.expected_declarations is None):

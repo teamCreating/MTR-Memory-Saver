@@ -1,4 +1,8 @@
-"""Prepare and launch a fresh ordinary NeoForge client using fingerprinted packaged JARs."""
+"""Prepare and launch a fresh ordinary NeoForge client using fingerprinted packaged JARs.
+
+Profile recordings retain their complete history until stopped or dumped, with
+explicit unlimited size retention instead of JDK 21's implicit 250 MiB cap.
+"""
 import argparse
 import datetime as dt
 import hashlib
@@ -129,7 +133,8 @@ def prepare(args):
                 "artifact": identity, "java": str(java), "java_version": version.stderr,
                 "world": world, "packs": packs, "options_sha256": digest(instance / "options.txt"),
                 "profile": {"username": profile["name"], "uuid": profile["uuid"]},
-                "heap_mib": args.heap_mib, "jfr": args.jfr, "native_memory_tracking": args.nmt, "smoke": args.smoke,
+                "heap_mib": args.heap_mib, "jfr": args.jfr, "jfr_max_size_bytes": 0 if args.jfr else None,
+                "native_memory_tracking": args.nmt, "smoke": args.smoke,
                 "expected_binary_rejection": args.expect_binary_rejection,
                 "mods": [{"filename": path.name, "sha256": digest(path)} for path in sorted((instance / "mods").glob("*.jar"))],
                 "source_hash": digest(pathlib.Path(__file__))}
@@ -153,7 +158,11 @@ def jvm_arguments(plan):
             raise ValueError("Unknown frozen native memory tracking mode.")
         arguments.append("-XX:NativeMemoryTracking=" + tracking)
     if plan["jfr"]:
-        arguments += ["-XX:StartFlightRecording=name=acceptance,settings=profile,disk=true,dumponexit=true,filename=acceptance.jfr",
+        if type(plan.get("jfr_max_size_bytes")) is not int or plan["jfr_max_size_bytes"] != 0:
+            raise ValueError("Freeze explicit full-history JFR retention in a fresh prepared plan.")
+        # maxsize=0 disables JDK 21's otherwise implicit 250 MiB history trim.
+        # Omit maxage so no age filter is applied to the recording.
+        arguments += ["-XX:StartFlightRecording=name=acceptance,settings=profile,disk=true,maxsize=0,dumponexit=true,filename=acceptance.jfr",
                       "-Xlog:gc*,safepoint:file=acceptance-gc.log:time,uptime,level,tags:filecount=0"]
     return arguments
 
@@ -223,7 +232,7 @@ def main():
     preparation.add_argument("--world")
     preparation.add_argument("--username", required=True)
     preparation.add_argument("--heap-mib", type=int, default=3072)
-    preparation.add_argument("--jfr", action="store_true")
+    preparation.add_argument("--jfr", action="store_true", help="Freeze full-history profiling; recording disk usage grows until stopped.")
     preparation.add_argument("--nmt", choices=("summary", "detail"), help="Freeze optional JVM native memory tracking before launch.")
     preparation.add_argument("--smoke", action="store_true")
     preparation.add_argument("--faults", action="store_true")

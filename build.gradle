@@ -312,7 +312,7 @@ tasks.register('generateProbeMetadata') {
         file("build/generated/probe/${targetName}/mtr-memory-acceptance.mixins.json").setText(
                 JsonOutput.prettyPrint(JsonOutput.toJson([required: true, minVersion: '0.8',
                 package: matrix.javaPackage + '.probe.mixin', compatibilityLevel: 'JAVA_21',
-                client: ['NativeParserPauseMixin', 'ResourceEpochObservationMixin'], injectors: [defaultRequire: 1]])) + '\n', 'UTF-8')
+                client: ['NativeParserPauseMixin', 'ResourceEpochObservationMixin', 'NativeResourceReadFixtureMixin'], injectors: [defaultRequire: 1]])) + '\n', 'UTF-8')
     }
 }
 tasks.named('processProbeResources') { dependsOn tasks.named('generateProbeMetadata') }

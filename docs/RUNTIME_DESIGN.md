@@ -1,4 +1,4 @@
-# Runtime contract — 0.4.5
+# Runtime contract — 0.4.6
 
 `GenerationWorkCache` is a Java-only scheduling core. Resource/provider identity,
 normalized model path, texture and flip flag form the fast key. A hit returns its
@@ -50,7 +50,9 @@ tested explicitly. Daemon threads do not provide a process-isolation boundary.
 `BoundedTextCache` has one synchronized LRU with eviction before insertion. It
 checks conservative uncompressed entry weight before attempting compression;
 oversized entries bypass compression and caching. Compression stops once output
-cannot beat compact String storage. Exact UTF-16 is preserved, including null
+cannot beat compact String storage. It claims a conservative five payload bytes
+per code unit without waiting, or retains the raw entry when workspace is busy.
+Exact UTF-16 is preserved, including null
 characters and unpaired surrogates. The first reader keeps its String identity;
 followers restore from a temporary/compressed entry under the same read admission.
 Failed readers resolve their single-flight futures and remove pending entries.
@@ -59,6 +61,21 @@ Generation retirement prevents older readers from filling the replacement cache.
 `SegmentedResourceText` checks decoded size before storing another segment. It
 preserves the native charset/replacement policy and native stream ownership.
 The size guard fails explicitly; it never truncates an oversized resource.
+The official provider's existing-resource reader propagates open, read, close,
+size and cancellation failures to the cache rather than inheriting the native
+helper's logged empty-String fallback. Valid empty resources and the native
+missing-resource Optional fallback remain distinct successful empty values.
+Repairing a missing resource still requires a resource reload to retire that cache.
+
+Temporary decoded payloads share a weighted workspace. A reader first claims a
+fair share; input that grows beyond it is saved as exact UTF-16 code units in an
+owned temporary file. The reader drops its segments and releases its entire share
+before waiting to claim the known complete size. Two large unknown readers cannot
+hold partial reservations while waiting for each other. Smaller inputs keep the
+segmented in-memory path. Restoration and cache unpacking claim four conservative
+payload bytes per code unit before allocation. Claims inherit generation
+cancellation and release on actual materialization exit. Snapshot files are closed
+and removed on success, failure and cancellation; disk failures propagate.
 
 ## Limits and configuration
 
@@ -72,17 +89,23 @@ silently disabling checks or substituting defaults.
 | `mtr.memory.parsers` | 2 | Module worker count |
 | `mtr.memory.parseQueue` | 64 | Extra outstanding descriptor capacity beyond workers |
 | `mtr.memory.parseTimeoutSeconds` | 300 | Queue-admission and submitted-work timeout |
-| `mtr.memory.maxTextCodeUnits` | max heap / 32, capped below Java array limit | Per-text decoded UTF-16 limit |
+| `mtr.memory.maxTextCodeUnits` | max heap / 16, capped below Java array limit | Strict per-text decoded UTF-16 limit |
+| `mtr.memory.textWorkspaceBytes` | max(heap / 4, four times configured text limit) | Shared transient text payload budget; must fit the configured limit |
 | `mtr.memory.textCacheBytes` | 100,663,296 | Conservative admitted cache-weight limit |
 
-At a 3 GiB heap the text limit is 100,663,296 code units. The historical largest
-65,255,687-byte Blockbench model is below that decoded limit, but is not referenced
-by current vehicle declarations. The 0.4.5 actual full-pack test rejects a valid
-102,035,449-code-unit OBJ; this default-limit defect remains to be repaired.
-Four payload bytes per code unit
-is a sizing allowance for segmented decoding plus final text, not an accounting
-proof of all live Java objects. Compression capacity rounding, unreachable objects
-awaiting GC, caller-held Strings, native JSON/model structures, native foreign
+At a 3 GiB heap the default text limit is 201,326,592 code units and the shared
+workspace is 805,306,368 payload bytes. The actual 102,035,449-code-unit authored
+OBJ fits this shared budget; it exceeds the initial two-reader fair share and
+therefore uses an immutable snapshot. This policy is independent of file paths,
+character repertoire and CompactStrings. Explicitly raising the text limit also
+raises the inferred workspace unless its separate property is set; inconsistent
+limits fail initialization.
+Four payload bytes per code unit cover segmented decoding plus final text; this
+is a payload sizing allowance rather than an accounting proof of all live objects.
+Workspace is released when the materialization returns, whereas read/parse scopes
+remain held until their owner exits. Caller-held results, fixed I/O buffers, object
+headers, unreachable objects
+awaiting GC, native JSON/model structures, native foreign
 parsers, GPU allocations and resource-pack internals are outside the LRU budget.
 The module does not advertise a whole-load/process RAM ceiling or guaranteed frame
 latency. More workers can improve throughput while increasing peak live memory.

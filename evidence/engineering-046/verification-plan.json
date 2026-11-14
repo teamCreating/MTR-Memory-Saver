@@ -1,0 +1,298 @@
+{
+  "timestamp": "2026-11-15T06:21:31.898993+08:00",
+  "utc_offset": "+08:00",
+  "objective": "Verify Memory Saver 0.4.6 against official MTR 4.1.0-beta.2 and preserve exact-artifact boundaries and incomplete observations",
+  "version": "0.4.6",
+  "status": "verification_in_progress",
+  "active_targets": [
+    "official-nf248",
+    "official-nf265"
+  ],
+  "v6_validation": "paused by user; no new v6 validation",
+  "path_conventions": {
+    "evidence": "Relative to evidence/engineering-046 unless prefixed with ../",
+    "artifact": "Relative to the project root"
+  },
+  "artifacts": [
+    {
+      "target": "official-nf248",
+      "neoForge": "21.1.248",
+      "artifact": "build/libs/mtr-memory-saver-official-nf248-0.4.6.jar",
+      "sha256": "dd47f6ae4daa4139b9ada9196d757db634a79ebdd7fa5f06083719d764285997",
+      "manifest": "official-nf248/mtr-memory-saver-official-nf248-0.4.6.build.json",
+      "recorded_build_inputs": 44,
+      "recorded_inputs_match_reviewed_tree": true,
+      "junit_directory": "official-nf248/junit",
+      "headless_tests": 61,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "target": "official-nf265",
+      "neoForge": "21.1.265",
+      "artifact": "build/libs/mtr-memory-saver-official-nf265-0.4.6.jar",
+      "sha256": "fbcb608fd5b2452f650c656bc930934ac4e4880addae4d24846faa5df5d9f63e",
+      "manifest": "official-nf265/mtr-memory-saver-official-nf265-0.4.6.build.json",
+      "recorded_build_inputs": 44,
+      "recorded_inputs_match_reviewed_tree": true,
+      "junit_directory": "official-nf265/junit",
+      "headless_tests": 61,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  ],
+  "completed": {
+    "python_tests": 100,
+    "python_suite_scope": "Current bounded background observer, interruption/ownership and process-scoped GPU regressions; sources unchanged during execution",
+    "headless_tests_per_official_target": 61,
+    "packaged_fault_resource_checks_per_official_target": 42,
+    "packaged_faults": [
+      {
+        "target": "official-nf248",
+        "base_checks": 24,
+        "strict_resource_checks": 18,
+        "passed": true,
+        "exit_code": 0,
+        "jfr_summary_exit_code": 0,
+        "assessment": "packaged-faults-nf248/assessment.json",
+        "result": "packaged-faults-nf248/loader-lifecycle-result.json",
+        "plan": "packaged-faults-nf248/packaged-client-plan.json"
+      },
+      {
+        "target": "official-nf265",
+        "base_checks": 24,
+        "strict_resource_checks": 18,
+        "passed": true,
+        "exit_code": 0,
+        "jfr_summary_exit_code": 0,
+        "assessment": "packaged-faults-nf265/assessment.json",
+        "result": "packaged-faults-nf265/loader-lifecycle-result.json",
+        "plan": "packaged-faults-nf265/packaged-client-plan.json"
+      }
+    ],
+    "large_text_source_equivalence": {
+      "target": "official-nf248",
+      "passed": true,
+      "heap_bytes": 3221225472,
+      "decoded_utf16_units": 102035449,
+      "source_and_reencoded_sha256": "e43f1b6b3d1819044094218e5d38c317be4d4a6800582cae0cfdff9f662041bc",
+      "jvm_modes": [
+        "default CompactStrings",
+        "-XX:-CompactStrings"
+      ],
+      "workspace_budget_bytes": 805306368,
+      "workspace_peak_bytes_each_mode": 408141796,
+      "workspace_used_at_exit": 0,
+      "workspace_waiters_at_exit": 0,
+      "remaining_snapshot_files": [],
+      "native_io_utils_controls_each_mode": 8,
+      "assessment": "text-workspace/attempt-02/assessment.json",
+      "plan": "text-workspace/attempt-02/plan.json",
+      "results": [
+        "text-workspace/attempt-02/default.json",
+        "text-workspace/attempt-02/no-compact.json"
+      ],
+      "limits": "Exact packaged-candidate text semantics and ownership; native OBJ geometry, GPU and full-client performance remain separate"
+    },
+    "nf265_same_version_wrong_binary_rejection": {
+      "version": "0.4.6",
+      "passed": true,
+      "exit_code": 1,
+      "guard_type": "MixinInitialisationError",
+      "fingerprint_cause_preserved": true,
+      "probe_installed": false,
+      "vehicle_registration_observed": false,
+      "assessment": "packaged-mismatch-nf265/assessment.json",
+      "fatal_log": "packaged-mismatch-nf265/launch.stderr.log",
+      "fatal_log_lines": [
+        1,
+        11,
+        40
+      ]
+    },
+    "nf248_initial_full_catalogue_registration": {
+      "version": "0.4.6",
+      "declarations": 1092,
+      "distinct_id_strings": 1091,
+      "native_and_module_settled": true,
+      "workspace_settled": true,
+      "new_large_obj_decode_rejection": false,
+      "initial_native_head_return_paired": true,
+      "render_thread": true,
+      "max_nesting": 1,
+      "visual_and_boarding_acceptance": false,
+      "assessment": "full-load-initial-nf248/assessment.json",
+      "native_epochs": "full-load-initial-nf248/resource-epochs.jsonl",
+      "limits": "Initial native registration and settlement; other native diagnostics still require interpretation, and scene geometry, displays, doors, floors and boarding are unverified"
+    },
+    "python_execution": "python-tests/attempt-02/execution.json",
+    "nf248_same_version_wrong_binary_rejection": {
+      "version": "0.4.6",
+      "passed": true,
+      "exit_code": 1,
+      "guard_type": "MixinInitialisationError",
+      "fingerprint_cause_preserved": true,
+      "probe_installed": false,
+      "vehicle_registration_observed": false,
+      "mtr_entries_with_identical_bytes": 12462,
+      "assessment": "packaged-mismatch-nf248/assessment.json",
+      "actual_exit_observation": "packaged-mismatch-nf248/retry01-java-exit-observation.json"
+    },
+    "native_f2_export": {
+      "passed": true,
+      "assessment": "native-screenshot-input/assessment.json",
+      "limits": "Platform/player/world screenshot, with no train visible; not vehicle geometry or interaction acceptance."
+    },
+    "bounded_background_auxiliary_observer": {
+      "observer_tests": 61,
+      "all_python_tests": 100,
+      "actual_two_hour_validation": "pending",
+      "accepted_request_accounting": "Full registry and requested/started/completed sidecar, including terminal reconciliation",
+      "bounded_shutdown_seconds": 45,
+      "strict_maximum_sampling_gap_seconds": 20,
+      "post_window_results": "Explicitly tagged; never extend frozen route sampling elapsed time"
+    },
+    "current_release_delivery_audit": {
+      "passed": true,
+      "execution": "delivery-audit/execution.json",
+      "target_results": [
+        "delivery-audit/official-nf248.audit.json",
+        "delivery-audit/official-nf265.audit.json"
+      ],
+      "scope": "Current development candidate bytes/navigation; remaining runtime gates are not certified"
+    }
+  },
+  "preserved_negative_or_incomplete_evidence": {
+    "first_large_text_audit_compile": {
+      "exit_code": 1,
+      "source_equivalence_pass": false,
+      "reason": "Annotation processor discovery failed; second attempt disabled implicit annotation processing",
+      "execution": "text-workspace/execution.json",
+      "stderr": "text-workspace/compile.stderr.log",
+      "original_runner": "text-workspace/run-first-attempt.py"
+    },
+    "initial_startup_observer": {
+      "passed": false,
+      "gpu_available_samples": 2,
+      "gpu_attempted_samples": 4,
+      "screenshot_capture_timeouts": 2,
+      "assessment": "full-load-initial-nf248/assessment.json",
+      "summary": "full-load-initial-nf248/official-nf248-full-native-046-startup-observation/summary.json"
+    },
+    "route_attempt_01": {
+      "status": "interrupted",
+      "passed": false,
+      "samples": 287,
+      "verified_samples": 268,
+      "observed_duration_seconds": 1432.8089112000016,
+      "requested_duration_seconds": 7200,
+      "repeated_state_failures": 19,
+      "gpu_available_samples": 22,
+      "gpu_attempted_samples": 23,
+      "gpu_unavailable_samples": 1,
+      "observer_exit_code": 1,
+      "sampling_catch_up_repair": "Passed current 91-test suite; source frozen in route-attempt-02-start",
+      "replacement_route_run_started": true,
+      "assessment": "route-attempt-01/assessment.json",
+      "summary": "route-attempt-01/completed-observation/summary.json",
+      "samples_file": "route-attempt-01/completed-observation/samples.jsonl",
+      "policy": "route-attempt-01/completed-observation/route-window-policy.json",
+      "jfr": "route-attempt-01/partial-route.jfr",
+      "limits": "Interrupted incomplete route; auxiliary-delay catch-up reread unchanged snapshots; one GPU query failed; JFR endpoint precedes the final observer samples; no policy was relaxed"
+    },
+    "reload_input_attempts": {
+      "input_api_attempts": 3,
+      "successful_real_reloads": 0,
+      "longest_verified_reload_sequence": 0,
+      "required_reload_count": 20,
+      "new_native_epochs_observed": 0,
+      "full_resource_manager_reload_logs_observed": 0,
+      "api_receipts_are_reload_passes": false,
+      "assessment": "reload-input-attempts/assessment.json",
+      "receipts": [
+        "reload-input-attempts/receipt-01.json",
+        "reload-input-attempts/receipt-02.json",
+        "reload-input-attempts/receipt-03.json"
+      ],
+      "interrupted_watcher": "reload-input-attempts/interrupted-observer",
+      "manual_qualification": "Requested from user; awaiting response"
+    },
+    "route_attempt_02": {
+      "status": "interrupted",
+      "passed": false,
+      "samples": 56,
+      "verified_samples": 55,
+      "observed_duration_seconds": 349.2593444000231,
+      "requested_duration_seconds": 7200,
+      "maximum_observed_gap_seconds": 20.842592500004685,
+      "maximum_allowed_gap_seconds": 20,
+      "gpu_unavailable_samples": 0,
+      "nmt_unavailable_samples": 0,
+      "assessment": "route-attempt-02/assessment.json",
+      "summary": "route-attempt-02/completed-observation/summary.json",
+      "limits": "No catch-up duplicates, but serial auxiliary calls still blocked main sampling; strict policy was retained."
+    },
+    "nf248_launch_observation_failures": {
+      "assessment": "packaged-mismatch-nf248/assessment.json",
+      "missing_launcher_dependency": "packaged-mismatch-nf248/launch-execution.json",
+      "exit_timeouts": "Both launcher wait30 windows timed out; final retry has an independently retained Windows process handle and actual exit1. No timeout was relabeled as an exit."
+    }
+  },
+  "historical_evidence": {
+    "nf248_wrong_binary_rejection": {
+      "version": "0.4.5",
+      "passed": true,
+      "assessment": "../engineering-045/packaged-mismatch-nf248/assessment.json",
+      "exact_0_4_6_nf248_check": "Passed fresh independent retry with real exit observation"
+    },
+    "default_large_valid_obj_rejection": {
+      "version": "0.4.5",
+      "full_pack_gate_passed": false,
+      "assessment": "../engineering-045/packaged-full-load-before-text-fix-nf248/failed-full-load-assessment.json",
+      "limits": "Preserved failed historical load; recovered JFR has an incomplete final chunk and is not controlled performance evidence"
+    },
+    "warning_only_wrong_binary_guard": {
+      "version": "0.4.4",
+      "rejection_passed": false,
+      "assessment": "../engineering-044/packaged-mismatch-nf248/assessment.json"
+    }
+  },
+  "remaining": [
+    "Observe representative visual geometry, displays, doors, floors and boarding for the current NF248 full catalogue",
+    "Establish twenty consecutive real full ResourceManager F3+T reloads with input receipts, complete reload logs, native HEAD/RETURN pairs and fresh settled snapshots; current accepted count is zero",
+    "Complete a fresh two-hour unpaused route across every frozen observation window with route travel, station dwell/departures, doors, game-time advancement and heap/OS/native/GPU coverage",
+    "Freeze baseline, current candidate, controls and budgets for counterbalanced full-client A/B, A/A and instrumentation controls with complete raw JFR/GC/frame/OS evidence",
+    "Observe full-pack/world and representative interaction on official-nf265"
+  ],
+  "artifact_identity_policy": "Historical passes certify only their exact binaries. Settled module counters do not override native decode/parse diagnostics. Initial registration, text-source equivalence and partial route/JFR evidence do not certify scene interaction, two-hour gameplay or controlled full-client performance.",
+  "native_obj_scope": "The default large-text rejection is repaired and independently source-tested; existing native OBJ parsing and retained native/GPU structures remain outside transient text workspace accounting.",
+  "in_progress": {
+    "manual_reload_qualification": {
+      "status": "awaiting user",
+      "reason": "F2 native export succeeds; three automated F3+T attempts produce no native epoch. No route window is running."
+    },
+    "fresh_two_hour_route": {
+      "status": "not_started",
+      "reason": "Background observer verified; begin after manual reload qualification to avoid reload during the window."
+    }
+  },
+  "full_client_comparison_readiness": {
+    "nf248_legacy_baseline_candidate": {
+      "artifact": "dist/compatibility/neoforge-21.1.248/mtr-memory-sharing-neoforge-v030-nf248.jar",
+      "version": "0.3.0",
+      "sha256": "b9c95bbe79c6c76fe6a0c9af6bdb4f9ed7ce6b007fecdb1c9f543544ce562f02",
+      "current_pack_qualification": "pending",
+      "historical_pack_hash_intersection": 0,
+      "limits": "Historical successful full load is a different pack/world/JVM trial; it does not qualify current inputs."
+    },
+    "engineering_gaps": [
+      "Strict legacy identity adapter preserving original JAR bytes",
+      "Native-only observer/frame/epoch JAR with identical bytes in both arms; absent legacy module metrics are unsupported, not zero",
+      "Frozen full-client A/B, A/A and instrumentation-control plan, execution and analysis",
+      "Freeze JDK runtime files, loader libraries/metadata, config/defaultconfigs, world and camera/route, equal heap/scheduler settings",
+      "Loading timing anchored to actual process creation/native completion; observer elapsed is not launch elapsed"
+    ]
+  }
+}

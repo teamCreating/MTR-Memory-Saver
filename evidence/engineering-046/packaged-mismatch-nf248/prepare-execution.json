@@ -1,0 +1,24 @@
+{
+  "started": "2026-11-15T05:49:33.9849340+08:00",
+  "source_pid_confirmed_absent": 22832,
+  "command": [
+    "C:\\Python314\\python.exe",
+    "-X",
+    "utf8",
+    "tools/packaged_client.py",
+    "prepare",
+    "--source",
+    "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\.cache\\game-test\\nf248-official-3g",
+    "--instance",
+    "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-mismatch-046",
+    "--companion",
+    "build/libs/mtr-memory-saver-official-nf248-0.4.6.jar",
+    "--username",
+    "VehicleTest",
+    "--expect-binary-rejection"
+  ],
+  "cwd": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory",
+  "tool_sha256": "481c40f90f8586352e182d421314f070990b9ff92773031325b2e342d9445f22",
+  "ended": "2026-11-15T05:50:37.7568266+08:00",
+  "exit_code": 0
+}

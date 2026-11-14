@@ -62,7 +62,7 @@ public final class PackagedClientObservation {
         try {
             var mc = Minecraft.getInstance();
             JsonObject value = new JsonObject();
-            value.addProperty("schema_version", 1);
+            value.addProperty("schema_version", 2);
             value.addProperty("timestamp", OffsetDateTime.now().toString());
             value.addProperty("monotonic_nanos", now);
             value.addProperty("pid", ProcessHandle.current().pid());
@@ -93,6 +93,13 @@ public final class PackagedClientObservation {
             shared.addProperty("content_keys", stats.contents());
             value.add("shared_blockbench", shared);
             value.addProperty("active_read_permits", ReadAdmission.GLOBAL.active());
+            long[] workspaceStats = ReadAdmission.GLOBAL.workspaceStatistics();
+            JsonObject workspace = new JsonObject();
+            workspace.addProperty("budget_bytes", workspaceStats[0]);
+            workspace.addProperty("used_bytes", workspaceStats[1]);
+            workspace.addProperty("peak_bytes", workspaceStats[2]);
+            workspace.addProperty("waiting", workspaceStats[3]);
+            value.add("text_workspace", workspace);
 
             long awaitStarted = System.nanoTime();
             value.addProperty("native_settled", ModelLoaderBase.awaitParsing(1));

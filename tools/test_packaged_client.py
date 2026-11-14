@@ -35,6 +35,33 @@ class ProcessExitObservationTest(unittest.TestCase):
 
 
 class InstrumentationConfigurationTest(unittest.TestCase):
+    def test_jfr_retains_full_history_without_size_or_age_trimming(self):
+        plan = {"heap_mib": 3072, "smoke": False, "jfr": True, "jfr_max_size_bytes": 0}
+        arguments = client.jvm_arguments(plan)
+        recording = next(item.removeprefix("-XX:StartFlightRecording=") for item in arguments
+                         if item.startswith("-XX:StartFlightRecording="))
+        options = dict(item.split("=", 1) for item in recording.split(","))
+        self.assertEqual(options["maxsize"], "0")
+        self.assertNotIn("maxage", options)
+        self.assertEqual(options["settings"], "profile")
+        self.assertEqual(options["disk"], "true")
+        self.assertEqual(options["dumponexit"], "true")
+        self.assertEqual(options["filename"], "acceptance.jfr")
+
+    def test_old_or_bounded_jfr_plans_cannot_inherit_full_history_retention(self):
+        plan = {"heap_mib": 3072, "smoke": False, "jfr": True}
+        with self.assertRaisesRegex(ValueError, "retention"):
+            client.jvm_arguments(plan)
+        for maximum in (None, False, 250 * 1024 * 1024):
+            with self.subTest(maximum=maximum):
+                plan["jfr_max_size_bytes"] = maximum
+                with self.assertRaisesRegex(ValueError, "retention"):
+                    client.jvm_arguments(plan)
+
+    def test_uninstrumented_control_has_no_flight_recording_argument(self):
+        plan = {"heap_mib": 3072, "smoke": False, "jfr": False, "jfr_max_size_bytes": None}
+        self.assertFalse(any(item.startswith("-XX:StartFlightRecording=") for item in client.jvm_arguments(plan)))
+
     def test_native_tracking_requires_a_frozen_explicit_mode(self):
         plan = {"heap_mib": 3072, "smoke": False, "jfr": False}
         self.assertFalse(any("NativeMemoryTracking" in item for item in client.jvm_arguments(plan)))

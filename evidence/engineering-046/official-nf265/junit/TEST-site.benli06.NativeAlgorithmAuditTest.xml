@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="site.benli06.NativeAlgorithmAuditTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-11-14T20:52:56.538Z" hostname="DESKTOP-885HHP9" time="6.627">
+  <properties/>
+  <testcase name="malformedBlockbenchInputsCannotBecomeSuccessfulEmptyModels()" classname="site.benli06.NativeAlgorithmAuditTest" time="0.354"/>
+  <testcase name="packedCoordinatesEmissionBoundsAndMergeMatchNative()" classname="site.benli06.NativeAlgorithmAuditTest" time="5.49"/>
+  <testcase name="displaySelectionMatchesNativePartCache()" classname="site.benli06.NativeAlgorithmAuditTest" time="0.052"/>
+  <testcase name="vehicleJsonKeepsNativeReadersAndReaderLocalMerge()" classname="site.benli06.NativeAlgorithmAuditTest" time="0.715"/>
+  <testcase name="validBlockbenchInputsKeepNativeSchemaSerialization()" classname="site.benli06.NativeAlgorithmAuditTest" time="0.011"/>
+  <system-out><![CDATA[{"comparisons":27,"mismatches":0,"random_vertices":100000,"checked_vertices":1400028,"arithmetic_nan_payload_variations":768,"random_payload_bytes":3601101,"regular_vertices":100000,"regular_payload_bytes":812132}
+{"release_part_cases":10,"display_instances_compared":16,"source_unchanged":true,"mismatches":0}
+{"real_configuration_inputs":0,"native_readers_compared":24,"independent_reader_maps_and_merge_checked":true,"registration_release_and_reload_checked":true,"mismatches":0}
+]]></system-out>
+  <system-err><![CDATA[2026-11-14T20:52:56.812768800Z Test worker ERROR Log4j API could not find a logging provider.
+ERROR StatusLogger Unrecognized format specifier [d]
+ERROR StatusLogger Unrecognized conversion specifier [d] starting at position 16 in conversion pattern.
+ERROR StatusLogger Unrecognized format specifier [thread]
+ERROR StatusLogger Unrecognized conversion specifier [thread] starting at position 25 in conversion pattern.
+ERROR StatusLogger Unrecognized format specifier [level]
+ERROR StatusLogger Unrecognized conversion specifier [level] starting at position 35 in conversion pattern.
+ERROR StatusLogger Unrecognized format specifier [logger]
+ERROR StatusLogger Unrecognized conversion specifier [logger] starting at position 47 in conversion pattern.
+ERROR StatusLogger Unrecognized format specifier [msg]
+ERROR StatusLogger Unrecognized conversion specifier [msg] starting at position 54 in conversion pattern.
+ERROR StatusLogger Unrecognized format specifier [n]
+ERROR StatusLogger Unrecognized conversion specifier [n] starting at position 56 in conversion pattern.
+ERROR StatusLogger Unrecognized format specifier [d]
+ERROR StatusLogger Unrecognized conversion specifier [d] starting at position 16 in conversion pattern.
+ERROR StatusLogger Unrecognized format specifier [thread]
+ERROR StatusLogger Unrecognized conversion specifier [thread] starting at position 25 in conversion pattern.
+ERROR StatusLogger Unrecognized format specifier [level]
+ERROR StatusLogger Unrecognized conversion specifier [level] starting at position 35 in conversion pattern.
+ERROR StatusLogger Unrecognized format specifier [logger]
+ERROR StatusLogger Unrecognized conversion specifier [logger] starting at position 47 in conversion pattern.
+ERROR StatusLogger Unrecognized format specifier [msg]
+ERROR StatusLogger Unrecognized conversion specifier [msg] starting at position 54 in conversion pattern.
+ERROR StatusLogger Unrecognized format specifier [n]
+ERROR StatusLogger Unrecognized conversion specifier [n] starting at position 56 in conversion pattern.
+]]></system-err>
+</testsuite>

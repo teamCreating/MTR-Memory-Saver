@@ -21,8 +21,17 @@ public final class BoundedTextCache {
     private record Text(String raw, byte[] packed, int length) {
         long weight(String key) { return 192L + 2L * key.length() + (packed == null ? 2L * length : packed.length); }
         static Text raw(String raw) { return raw == null ? null : new Text(raw, null, raw.length()); }
-        static Text pack(String value) {
+        static Text pack(String value, ReadAdmission admission) {
             if (value.isEmpty()) return raw(value);
+            // Raw UTF-16 plus a growing output array and its final copy need at most
+            // five payload bytes per unit. Retain raw text if this cannot fit.
+            long workspaceBytes = 5L * value.length();
+            if (workspaceBytes > admission.workspace().budget()) return raw(value);
+            try (var workspace = admission.workspace().tryClaim(workspaceBytes)) {
+                return workspace == null ? raw(value) : compress(value, admission);
+            }
+        }
+        private static Text compress(String value, ReadAdmission admission) {
             Deflater deflater = new Deflater(Deflater.BEST_SPEED);
             ByteArrayOutputStream output = new ByteArrayOutputStream(Math.min(value.length(), 8192));
             // Stop before allocating output that cannot beat compact String storage.
@@ -36,7 +45,7 @@ public final class BoundedTextCache {
             try (DeflaterOutputStream stream = new DeflaterOutputStream(bounded, deflater)) {
                 byte[] buffer = new byte[8192];
                 for (int offset = 0; offset < value.length();) {
-                    if (Thread.currentThread().isInterrupted()) throw new CancellationException("Compression interrupted");
+                    admission.checkLength(0);
                     int count = Math.min(buffer.length / 2, value.length() - offset);
                     for (int i = 0; i < count; i++) {
                         char c = value.charAt(offset + i);
@@ -55,6 +64,11 @@ public final class BoundedTextCache {
         String unpack(ReadAdmission admission) {
             if (raw != null) return raw;
             admission.checkLength(length);
+            try (var workspace = admission.workspace().claim(4L * length)) {
+                return inflate(admission);
+            }
+        }
+        private String inflate(ReadAdmission admission) {
             char[] chars = new char[4096];
             var segments = new ArrayList<String>();
             int used = 0, total = 0;
@@ -121,7 +135,7 @@ public final class BoundedTextCache {
                 Text text = Text.raw(raw);
                 boolean cacheable = text != null && text.weight(key) <= budget;
                 synchronized (epoch) { if (cacheable) epoch.compressionAttempts++; else epoch.bypasses++; }
-                if (cacheable) text = Text.pack(raw);
+                if (cacheable) text = Text.pack(raw, admission);
                 synchronized (epoch) {
                     if (epoch.retired) throw new CancellationException("Resource generation retired");
                     if (cacheable) {

@@ -1,0 +1,19 @@
+{
+  "reason": "Java remained live through the configured 30-second launcher wait, then exited before a process handle was retained. Fatal log evidence does not substitute for an observed exit code.",
+  "fingerprint_cause": true,
+  "passed": false,
+  "actual_exit_code_confirmed": false,
+  "timestamp": "2026-11-15T05:55:30.7548997+08:00",
+  "scope": "First actual Java invocation, followed by a fresh retry solely for exact exit observation.",
+  "vehicle_registration_matches": 0,
+  "pid": 12292,
+  "launcher_exit_observation": {
+    "timestamp": "2026-11-15T05:52:56.03248+08:00",
+    "pid": 12292,
+    "exited": false,
+    "exit_code": null,
+    "wait_limit_seconds": 30,
+    "launch_sha256": "9330fc2704179382e7c5c695c6844025495283723953329369ce18740e051e6f"
+  },
+  "fatal_mixin_initialisation_error": true
+}

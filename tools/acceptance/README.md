@@ -120,6 +120,29 @@ sets a 3 GiB heap and exits the isolated client after recording its result.
 NeoForge's JUnit launch target is hard-wired to the dedicated-server side and is
 unsuitable for certifying these client Mixins.
 
+The 0.4.6 fault probe also records `strict_resource_checks` and
+`strict_resource_observations`. Require both the original lifecycle checks and
+these real-resource checks to pass. Its scoped native Resource fixtures exercise
+open/read/close/decoded-size failure, same-key correction/retry, legal empty text,
+UTF-8 replacement and native missing-resource cache retirement. They are absent
+from the product JAR. Workspace use and waiting claims must both settle to zero.
+
+`LargeTextWorkspaceAudit` is an independent Java main under `tools/acceptance/java/`.
+Compile it with `-proc:none` against the exact packaged candidate, Commons IO and
+audited MTR JAR, then pass archive, entry and a fresh JSON output. Run at 3 GiB with
+default JVM settings and `-XX:-CompactStrings`. It compares source bytes/UTF-16
+length and UTF-8 reencoding hashes plus forced-snapshot native-decoder controls;
+its result does not certify OBJ geometry or full-client memory.
+
+The packaged observer uses one bounded background worker for GPU/NMT queries,
+preserving requested/started/completed events and raw results in
+`auxiliary-events.jsonl`. Main sampling does not wait for those queries and skips
+missed deadlines instead of rereading one snapshot. Shutdown is bounded, and
+incomplete/missing results or unconfirmed worker exit prevent acceptance. Actual
+long gaps and unchanged snapshots still fail. GPU wildcard instance queries are scoped
+to the launched PID, preserving the caller's counter names. Missing/invalid values
+or nonzero query exits remain unavailable, with raw query output retained.
+
 On a v6 preset the probe also includes the migrated GPU ownership audit. After
 entering an unpaused world, create `v6-compatibility-request.json` in that isolated
 game directory with a run ID/control reference. It writes a fresh

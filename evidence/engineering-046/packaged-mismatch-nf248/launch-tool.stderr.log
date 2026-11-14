@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "C:\Users\ben_l\Documents\Coding\resoucepack update\vehicle-memory\tools\packaged_client.py", line 255, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\ben_l\Documents\Coding\resoucepack update\vehicle-memory\tools\packaged_client.py", line 251, in main
+    launch(args)
+    ~~~~~~^^^^^^
+  File "C:\Users\ben_l\Documents\Coding\resoucepack update\vehicle-memory\tools\packaged_client.py", line 180, in launch
+    import minecraft_launcher_lib as launcher
+ModuleNotFoundError: No module named 'minecraft_launcher_lib'

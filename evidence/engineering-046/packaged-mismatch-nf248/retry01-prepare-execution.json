@@ -1,0 +1,25 @@
+{
+  "exit_code": 0,
+  "command": [
+    "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.venv\\Scripts\\python.exe",
+    "-X",
+    "utf8",
+    "tools/packaged_client.py",
+    "prepare",
+    "--source",
+    "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\.cache\\game-test\\nf248-official-3g",
+    "--instance",
+    "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-mismatch-046-retry01",
+    "--companion",
+    "build/libs/mtr-memory-saver-official-nf248-0.4.6.jar",
+    "--username",
+    "VehicleTest",
+    "--expect-binary-rejection"
+  ],
+  "source_pid_confirmed_absent": 22832,
+  "ended": "2026-11-15T05:56:03.4499923+08:00",
+  "started": "2026-11-15T05:55:05.0895789+08:00",
+  "purpose": "Retain a Windows process handle before the configured launcher exit observation timeout.",
+  "tool_sha256": "481c40f90f8586352e182d421314f070990b9ff92773031325b2e342d9445f22",
+  "cwd": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory"
+}

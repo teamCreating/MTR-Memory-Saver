@@ -1,0 +1,23 @@
+{
+  "timestamp": "2026-11-15T05:44:44.397615+08:00",
+  "passed": false,
+  "status": "interrupted",
+  "samples": 287,
+  "observed_duration_seconds": 1432.8089112000016,
+  "requested_duration_seconds": 7200,
+  "invalid_samples": 19,
+  "failures": {
+    "state_did_not_advance": 19
+  },
+  "auxiliary_unavailable": {
+    "gpu": 1,
+    "nmt": 0
+  },
+  "reason": "Interrupted after repeated auxiliary-delay catch-up samples reread unchanged snapshots; the frozen route policy already failed. GPU wildcard query also failed once. No budget or policy was relaxed.",
+  "game_pid": 34668,
+  "game_stopped": false,
+  "observer_exit_code": 1,
+  "jfr": "partial-route.jfr",
+  "jfr_limit": "Recording was exported and verified before interruption; its endpoint precedes the final observer samples. This is preserved partial evidence, not complete two-hour acceptance.",
+  "first_export_failure": "jcmd diagnostic parser split an absolute filename at the workspace space although jcmd returned 0; jfr summary exited 1. No observer/game stop followed that failed export. Relative native filename fixed export attempt 02."
+}

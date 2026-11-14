@@ -1,0 +1,34 @@
+{
+  "started": "2026-11-14T21:50:37.815943+00:00",
+  "command": [
+    "C:\\Python314\\python.exe",
+    "-X",
+    "utf8",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tools",
+    "-p",
+    "test_*.py"
+  ],
+  "python_version": "3.14.5 (tags/v3.14.5:5607950, May 10 2026, 10:43:50) [MSC v.1944 64 bit (AMD64)]",
+  "source_hashes": {
+    "tools\\analyze_performance_jfr.py": "a34ba02b3090939f185053b01ccf29a6352826166343ac88b6b447a625635f9c",
+    "tools\\benchmark_sources.py": "412dad73e4c826be13282a60dbd2e9b51a989cdc65660deac0d920b4d9dd28e9",
+    "tools\\build_vehicle_memory_mod.py": "68161a30f9d730a63c3214eb48e144f2404bc0fc724a17ea95ecaf85af4ab244",
+    "tools\\observe_packaged_client.py": "7f85595ea7c995f7d8927a4bb0095d0fa72bebe1e762c68f767ba32036b42e83",
+    "tools\\packaged_client.py": "481c40f90f8586352e182d421314f070990b9ff92773031325b2e342d9445f22",
+    "tools\\render_pack_icon.py": "708154cd2980cec06bc106280d1998733ef8548ef6dc55c58fc625b32c6f5690",
+    "tools\\source_experiment_analysis.py": "eae11f23905983a7f8150c00a9525d5c2836b0568176bcb218d4c5c583b2047e",
+    "tools\\test_memory_build_classpath.py": "30c7862f3882299197a2afc0f00bb4365f5447404e226dc4c6df1fefae36e4ef",
+    "tools\\test_observe_packaged_client.py": "eb49a83e155036d407c933045fcadd6d94633c7fb6339760c40a6ab710e83b69",
+    "tools\\test_packaged_client.py": "8e75c1ae1a0250ba45926376898de57b2ff1fbec7c5207ec2b995fa1c8c2b758",
+    "tools\\test_performance_analysis.py": "375bf8401a718cda26ba6bb599cb5a3fc433a4143c17be4093e1b4956be22fc4",
+    "tools\\test_source_experiment.py": "202f00c8f1fb85c6340a142090097d7d4b1b93e0329ee1857fc95fb3b0a05d97",
+    "tools\\verify_admission_regression.py": "d004a2c7209ef00589ea1d733017429733c5606e48fe9f0edd45205667965f80",
+    "tools\\verify_namespace_relocation.py": "f049adaf406aa287d2a81a8a4030c9b2197571a7c7a4ffd94001de0f7e489a18"
+  },
+  "ended": "2026-11-14T21:50:45.186942+00:00",
+  "exit_code": 0
+}

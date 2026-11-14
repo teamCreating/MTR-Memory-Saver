@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="site.benli06.TextWorkspaceTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2026-11-14T20:49:36.546Z" hostname="DESKTOP-885HHP9" time="0.391">
+  <properties/>
+  <testcase name="failureAfterSpillingRemovesSnapshotAndReservations()" classname="site.benli06.TextWorkspaceTest" time="0.013"/>
+  <testcase name="snapshotsPreserveCharsetReplacementAndSupplementaryBoundaries()" classname="site.benli06.TextWorkspaceTest" time="0.072"/>
+  <testcase name="explicitLimitAndWorkspaceRemainStrict()" classname="site.benli06.TextWorkspaceTest" time="0.006"/>
+  <testcase name="twoLargeUnknownReadersReleaseSharesBeforeWaitingForFullWorkspace()" classname="site.benli06.TextWorkspaceTest" time="0.013"/>
+  <testcase name="interruptedAtomicWaitAndForbiddenNestedClaimCannotLeak()" classname="site.benli06.TextWorkspaceTest" time="0.012"/>
+  <testcase name="defaultAllowsLargeInputsUsingAHeapQuarterWorkspace()" classname="site.benli06.TextWorkspaceTest" time="0.01"/>
+  <testcase name="cacheRetirementCancelsUnpackWorkspaceWaitWithoutWaitingForItsOwner()" classname="site.benli06.TextWorkspaceTest" time="0.113"/>
+  <testcase name="retirementWhileWaitingForWorkspaceCleansSnapshotAndReadPermit()" classname="site.benli06.TextWorkspaceTest" time="0.113"/>
+  <testcase name="compressionBypassesBusyWorkspaceAndRetainsExactRawCacheEntry()" classname="site.benli06.TextWorkspaceTest" time="0.01"/>
+  <testcase name="snapshotsGuardExactDecodedUnitsAndDoNotCloseCallerStream()" classname="site.benli06.TextWorkspaceTest" time="0.022"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

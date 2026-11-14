@@ -1,0 +1,261 @@
+{
+  "timestamp": "2026-11-15T06:13:39.1631456+08:00",
+  "passed": true,
+  "source_sha256": {
+    "docs/COVERAGE_OFFICIAL.md": "444bb99f7f80ee7b1d6bed0ca98a636ef07bab15b005eacb20bf9ac7d90e2a8d",
+    "docs/ACCEPTANCE.md": "47cb242b87897c26ed627850c0d89ed1a0d62d2e22aa94cb5ff6d1ae49014937",
+    "docs/SUPPORT.md": "57559c8ad9af40d6ea4266571afb3f2f7975d797b31b8772bd91d5e79ef5c392",
+    "evidence/engineering-046/verification-plan.json": "edb97b7211e1ac56c3b05406f26ab57c244484e22bb61a54905f1230248e8311"
+  },
+  "verification_plan_timestamp": "2026-11-15T06:07:47.75954+08:00",
+  "local_markdown_link_count": 12,
+  "local_markdown_links": [
+    {
+      "document": "docs/COVERAGE_OFFICIAL.md",
+      "target": "../evidence/engineering-046/verification-plan.json",
+      "exists": true
+    },
+    {
+      "document": "docs/COVERAGE_OFFICIAL.md",
+      "target": "../evidence/engineering-046/packaged-faults-nf248/loader-lifecycle-result.json",
+      "exists": true
+    },
+    {
+      "document": "docs/COVERAGE_OFFICIAL.md",
+      "target": "../evidence/engineering-046/packaged-mismatch-nf265/assessment.json",
+      "exists": true
+    },
+    {
+      "document": "docs/COVERAGE_OFFICIAL.md",
+      "target": "../evidence/engineering-046/text-workspace/attempt-02/assessment.json",
+      "exists": true
+    },
+    {
+      "document": "docs/COVERAGE_OFFICIAL.md",
+      "target": "../evidence/engineering-046/full-load-initial-nf248/assessment.json",
+      "exists": true
+    },
+    {
+      "document": "docs/COVERAGE_OFFICIAL.md",
+      "target": "../evidence/engineering-046/route-attempt-01/assessment.json",
+      "exists": true
+    },
+    {
+      "document": "docs/COVERAGE_OFFICIAL.md",
+      "target": "../evidence/engineering-046/reload-input-attempts/assessment.json",
+      "exists": true
+    },
+    {
+      "document": "docs/COVERAGE_OFFICIAL.md",
+      "target": "../evidence/engineering-045/packaged-full-load-before-text-fix-nf248/failed-full-load-assessment.json",
+      "exists": true
+    },
+    {
+      "document": "docs/ACCEPTANCE.md",
+      "target": "OPTIMIZATION.md",
+      "exists": true
+    },
+    {
+      "document": "docs/ACCEPTANCE.md",
+      "target": "COVERAGE_OFFICIAL.md",
+      "exists": true
+    },
+    {
+      "document": "docs/ACCEPTANCE.md",
+      "target": "../evidence/engineering-046/verification-plan.json",
+      "exists": true
+    },
+    {
+      "document": "docs/SUPPORT.md",
+      "target": "../config/targets.json",
+      "exists": true
+    }
+  ],
+  "evidence_reference_count": 45,
+  "evidence_references": [
+    {
+      "reference": "../engineering-044/packaged-mismatch-nf248/assessment.json",
+      "exists": true
+    },
+    {
+      "reference": "../engineering-045/packaged-full-load-before-text-fix-nf248/failed-full-load-assessment.json",
+      "exists": true
+    },
+    {
+      "reference": "../engineering-045/packaged-mismatch-nf248/assessment.json",
+      "exists": true
+    },
+    {
+      "reference": "build/libs/mtr-memory-saver-official-nf248-0.4.6.jar",
+      "exists": true
+    },
+    {
+      "reference": "build/libs/mtr-memory-saver-official-nf265-0.4.6.jar",
+      "exists": true
+    },
+    {
+      "reference": "dist/compatibility/neoforge-21.1.248/mtr-memory-sharing-neoforge-v030-nf248.jar",
+      "exists": true
+    },
+    {
+      "reference": "full-load-initial-nf248/assessment.json",
+      "exists": true
+    },
+    {
+      "reference": "full-load-initial-nf248/official-nf248-full-native-046-startup-observation/summary.json",
+      "exists": true
+    },
+    {
+      "reference": "full-load-initial-nf248/resource-epochs.jsonl",
+      "exists": true
+    },
+    {
+      "reference": "native-screenshot-input/assessment.json",
+      "exists": true
+    },
+    {
+      "reference": "official-nf248/junit",
+      "exists": true
+    },
+    {
+      "reference": "official-nf248/mtr-memory-saver-official-nf248-0.4.6.build.json",
+      "exists": true
+    },
+    {
+      "reference": "official-nf265/junit",
+      "exists": true
+    },
+    {
+      "reference": "official-nf265/mtr-memory-saver-official-nf265-0.4.6.build.json",
+      "exists": true
+    },
+    {
+      "reference": "packaged-faults-nf248/assessment.json",
+      "exists": true
+    },
+    {
+      "reference": "packaged-faults-nf248/loader-lifecycle-result.json",
+      "exists": true
+    },
+    {
+      "reference": "packaged-faults-nf248/packaged-client-plan.json",
+      "exists": true
+    },
+    {
+      "reference": "packaged-faults-nf265/assessment.json",
+      "exists": true
+    },
+    {
+      "reference": "packaged-faults-nf265/loader-lifecycle-result.json",
+      "exists": true
+    },
+    {
+      "reference": "packaged-faults-nf265/packaged-client-plan.json",
+      "exists": true
+    },
+    {
+      "reference": "packaged-mismatch-nf248/assessment.json",
+      "exists": true
+    },
+    {
+      "reference": "packaged-mismatch-nf248/launch-execution.json",
+      "exists": true
+    },
+    {
+      "reference": "packaged-mismatch-nf248/retry01-java-exit-observation.json",
+      "exists": true
+    },
+    {
+      "reference": "packaged-mismatch-nf265/assessment.json",
+      "exists": true
+    },
+    {
+      "reference": "packaged-mismatch-nf265/launch.stderr.log",
+      "exists": true
+    },
+    {
+      "reference": "python-tests/execution.json",
+      "exists": true
+    },
+    {
+      "reference": "reload-input-attempts/assessment.json",
+      "exists": true
+    },
+    {
+      "reference": "reload-input-attempts/interrupted-observer",
+      "exists": true
+    },
+    {
+      "reference": "reload-input-attempts/receipt-01.json",
+      "exists": true
+    },
+    {
+      "reference": "reload-input-attempts/receipt-02.json",
+      "exists": true
+    },
+    {
+      "reference": "reload-input-attempts/receipt-03.json",
+      "exists": true
+    },
+    {
+      "reference": "route-attempt-01/assessment.json",
+      "exists": true
+    },
+    {
+      "reference": "route-attempt-01/completed-observation/route-window-policy.json",
+      "exists": true
+    },
+    {
+      "reference": "route-attempt-01/completed-observation/samples.jsonl",
+      "exists": true
+    },
+    {
+      "reference": "route-attempt-01/completed-observation/summary.json",
+      "exists": true
+    },
+    {
+      "reference": "route-attempt-01/partial-route.jfr",
+      "exists": true
+    },
+    {
+      "reference": "route-attempt-02/assessment.json",
+      "exists": true
+    },
+    {
+      "reference": "route-attempt-02/completed-observation/summary.json",
+      "exists": true
+    },
+    {
+      "reference": "text-workspace/attempt-02/assessment.json",
+      "exists": true
+    },
+    {
+      "reference": "text-workspace/attempt-02/default.json",
+      "exists": true
+    },
+    {
+      "reference": "text-workspace/attempt-02/no-compact.json",
+      "exists": true
+    },
+    {
+      "reference": "text-workspace/attempt-02/plan.json",
+      "exists": true
+    },
+    {
+      "reference": "text-workspace/compile.stderr.log",
+      "exists": true
+    },
+    {
+      "reference": "text-workspace/execution.json",
+      "exists": true
+    },
+    {
+      "reference": "text-workspace/run-first-attempt.py",
+      "exists": true
+    }
+  ],
+  "missing_markdown_links": [],
+  "missing_evidence_references": [],
+  "metadata_note": "SUPPORT/ACCEPTANCE Updated headers retain 2026-11-15T05:46:47.7460681+08:00. The sequential build was already complete when header-refresh authorization arrived; frozen delivery bytes were retained as requested.",
+  "limits": "Read-only link existence snapshot bound to the recorded document/plan hashes. Root is updating the verification plan; this check does not certify later edits or test/runtime claim validity."
+}

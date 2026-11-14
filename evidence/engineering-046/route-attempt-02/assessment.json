@@ -1,0 +1,24 @@
+{
+  "timestamp": "2026-11-15T05:57:29.890822+08:00",
+  "passed": false,
+  "status": "interrupted",
+  "requested_duration_seconds": 7200,
+  "observed_duration_seconds": 349.2593444000231,
+  "samples": 56,
+  "invalid_samples": 1,
+  "failures": {
+    "observation_gap_exceeded": 1
+  },
+  "maximum_observed_gap_seconds": 20.842592500004685,
+  "maximum_allowed_gap_seconds": 20,
+  "auxiliary_unavailable": {
+    "gpu": 0,
+    "nmt": 0
+  },
+  "reason": "Serial auxiliary GPU/NMT queries blocked the main sampling cadence beyond the frozen maximum gap. Missed-deadline scheduling removed catch-up duplicates but does not resolve blocking auxiliary observation. Independent bounded background sampling is required.",
+  "game_pid": 34668,
+  "game_stopped": false,
+  "observer_exit_code": 1,
+  "jfr": "partial-route.jfr",
+  "jfr_limit": "Dumped and verified before observer interruption; endpoint precedes final observer samples. Preserved partial evidence only."
+}

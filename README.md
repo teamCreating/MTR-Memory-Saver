@@ -61,6 +61,11 @@ Version 0.4.4 propagates malformed Blockbench input failures through the native
 parser and shared-future cleanup instead of caching successful empty fallbacks.
 Valid inputs retain the original schema and model algorithm.
 
+Version 0.4.6 admits large decoded text through a shared heap-derived workspace.
+Inputs that exceed a reader's initial share use an owned UTF-16 snapshot before
+claiming their complete size. Official resource reads propagate real I/O and size
+failures while preserving legal empty text and native charset replacement.
+
 Historical guides and measurements are indexed in [HISTORY.md](docs/HISTORY.md)
 and [TECHNICAL.md](TECHNICAL.md). New candidate tests and performance reports have
 separate artifact identities. GPU lifetime and gameplay require runtime acceptance;
