@@ -16,10 +16,16 @@ public final class VehicleJsonCache {
     private static volatile Epoch current = new Epoch();
     private VehicleJsonCache() {}
     public static JsonObject parse(String raw) {
+        return parse(raw, ReadAdmission.GLOBAL);
+    }
+    static JsonObject parse(String raw, ReadAdmission admission) {
         if (raw == null) return Utilities.parseJson(null);
-        try (var scope = ReadAdmission.GLOBAL.open()) {
-            ReadAdmission.GLOBAL.checkLength(raw.length());
-            Epoch epoch = current;
+        Epoch epoch = current;
+        try (var scope = admission.open(() -> epoch != current)) {
+            synchronized (epoch) {
+                if (epoch.retired) throw new CancellationException("Vehicle JSON generation retired");
+            }
+            admission.checkLength(raw.length());
             String key = digest(raw);
             synchronized (epoch) {
                 if (epoch.retired) throw new CancellationException("Vehicle JSON generation retired");

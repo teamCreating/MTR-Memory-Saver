@@ -1,0 +1,39 @@
+{
+  "timestamp": "2026-11-15T03:15:13.853201+08:00",
+  "baseline_commit": "5282a7f1113441e0fcf2e88b83fed55741553293",
+  "scope": "Java core only; no client or Mixin acceptance",
+  "audit_sha256": "a20aec6ac3928b20be3dce71ae803e9804685957ddcf177be95f44540219d3fa",
+  "trials": {
+    "baseline": {
+      "source_sha256": {
+        "src/main/java/site/benli06/ReadAdmission.java": "85fdd06f63d20dcf32dfdfe7135c26f0a16ed0bb46e194ff28178c988ce84ca7",
+        "src/main/java/site/benli06/GenerationWorkCache.java": "88abb50c0d1b927188a43697cb96e65ffdbfc7ac142133f4b3874f8bdf6c86c3",
+        "src/main/java/site/benli06/BoundedTextCache.java": "644cd5e523870439ccc42ec25715b537b5d494963240909431dd8738014fc912"
+      },
+      "result": {
+        "model_waiter_rejected": false,
+        "model_stale_reads": 1,
+        "text_waiter_rejected_before_owner_exit": false,
+        "text_stale_reads": 1,
+        "cleanup_verified": true
+      },
+      "process_log_sha256": "509338f223e23609f1398d0e610cff9b9e1e647bb033207c30277d8a8c73a68f"
+    },
+    "candidate": {
+      "source_sha256": {
+        "src/main/java/site/benli06/ReadAdmission.java": "2a6a01bfe384c52d0b9caa6a5ba7f8387b4f74775b49e9f0a45b778a8d07e175",
+        "src/main/java/site/benli06/GenerationWorkCache.java": "9df8981274dbf68c1d4f688b5245f0020058bcd11fe4259becd33bd445d7fe62",
+        "src/main/java/site/benli06/BoundedTextCache.java": "51c1183040367fdb3839c8f2b6be018ead570dc818abe5b3a56b355eb7024bb9"
+      },
+      "result": {
+        "model_waiter_rejected": true,
+        "model_stale_reads": 0,
+        "text_waiter_rejected_before_owner_exit": true,
+        "text_stale_reads": 0,
+        "cleanup_verified": true
+      },
+      "process_log_sha256": "2712101ce3967c7ebb1e1f42095c3b6132992622a7f3bfc1492664c712cb6e09"
+    }
+  },
+  "passed": true
+}

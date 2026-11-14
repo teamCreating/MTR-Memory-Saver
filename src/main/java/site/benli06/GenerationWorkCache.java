@@ -91,23 +91,25 @@ public final class GenerationWorkCache<K, C, V> implements AutoCloseable {
 
     /** Preparation runs only on an admitted worker. Queued suppliers must capture descriptors, not text. */
     public CompletableFuture<V> get(K key, Supplier<Prepared<C, V>> prepare) {
+        Epoch epoch;
         synchronized (lock) {
-            requireOpen(); current.requests++;
-            Entry existing = current.paths.get(key);
-            if (existing != null) { current.hits++; return existing.ready; }
+            requireOpen(); epoch = current; epoch.requests++;
+            Entry existing = epoch.paths.get(key);
+            if (existing != null) { epoch.hits++; return existing.ready; }
         }
-        acquireSlot();
+        acquireSlot(epoch);
         Entry entry;
         synchronized (lock) {
-            if (closed) { slots.release(); throw new IllegalStateException("Parse scheduler closed"); }
-            Entry existing = current.paths.get(key);
-            if (existing != null) { slots.release(); current.hits++; return existing.ready; }
+            try { requireActive(epoch); }
+            catch (RuntimeException error) { slots.release(); throw error; }
+            Entry existing = epoch.paths.get(key);
+            if (existing != null) { slots.release(); epoch.hits++; return existing.ready; }
             try { entered.run(); }
             catch (Throwable error) { slots.release(); throw error; }
             outstanding.incrementAndGet();
-            entry = new Entry(key, current);
+            entry = new Entry(key, epoch);
             entry.work = new Work(() -> execute(entry, prepare));
-            current.paths.put(key, entry); current.pending.add(entry);
+            epoch.paths.put(key, entry); epoch.pending.add(entry);
             entry.ready.whenComplete((value, error) -> terminal(entry, error));
         }
         try {
@@ -120,18 +122,18 @@ public final class GenerationWorkCache<K, C, V> implements AutoCloseable {
         } catch (RuntimeException error) { entry.ready.completeExceptionally(error); }
         return entry.ready;
     }
-    private void acquireSlot() {
-        requireOpen();
+    private void acquireSlot(Epoch epoch) {
+        synchronized (lock) { requireActive(epoch); }
         if (inWorker.get()) {
             if (!slots.tryAcquire()) throw new RejectedExecutionException("Recursive parse admission would block a worker");
             return;
         }
-        long deadline = System.nanoTime() + TimeUnit.MILLISECONDS.toNanos(timeoutMillis);
+        long started = System.nanoTime();
         try {
             do {
-                requireOpen();
+                synchronized (lock) { requireActive(epoch); }
                 if (slots.tryAcquire(Math.min(100, timeoutMillis), TimeUnit.MILLISECONDS)) return;
-            } while (System.nanoTime() < deadline);
+            } while (System.nanoTime() - started < TimeUnit.MILLISECONDS.toNanos(timeoutMillis));
             throw new RejectedExecutionException("Shared model queue admission timed out");
         } catch (InterruptedException error) { Thread.currentThread().interrupt(); throw new CancellationException("Parse queue wait interrupted"); }
     }
@@ -209,6 +211,10 @@ public final class GenerationWorkCache<K, C, V> implements AutoCloseable {
         }
     }
     private void requireOpen() { if (closed) throw new IllegalStateException("Parse scheduler closed"); }
+    private void requireActive(Epoch epoch) {
+        requireOpen();
+        if (epoch.retired || epoch != current) throw new CancellationException("Parse admission generation retired");
+    }
     @Override public void close() {
         closed = true; beginReload(); workers.shutdownNow(); timer.shutdownNow();
     }

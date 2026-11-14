@@ -111,6 +111,103 @@ class GenerationWorkCacheTest {
             assertEquals("good", cache.get("good", () -> text("good")).get()); clean(cache);
         }
     }
+    @Test void reloadRejectsCallerStillWaitingForDescriptorAdmission() throws Exception {
+        var entered = new CountDownLatch(1); var release = new CountDownLatch(1); var staleReads = new AtomicInteger();
+        try (var cache = cache(1, 1, Duration.ofSeconds(5))) {
+            cache.get("running", () -> { entered.countDown(); awaitIgnoringInterrupt(release); return text("old"); });
+            assertTrue(entered.await(5, TimeUnit.SECONDS));
+            cache.get("queued", () -> text("queued"));
+            var result = new CompletableFuture<CompletableFuture<String>>();
+            Thread caller = new Thread(() -> {
+                try { result.complete(cache.get("crossing", () -> { staleReads.incrementAndGet(); return text("stale"); })); }
+                catch (Throwable error) { result.completeExceptionally(error); }
+            });
+            caller.start(); ThreadTestSupport.awaiting(caller, "acquireSlot");
+            cache.beginReload();
+            assertThrows(CancellationException.class, () -> result.get(5, TimeUnit.SECONDS));
+            caller.join(); release.countDown(); clean(cache);
+            assertEquals(0, staleReads.get()); assertEquals(0, cache.statistics().paths());
+            assertEquals("fresh", cache.get("crossing", () -> text("fresh")).get()); clean(cache);
+        } finally { release.countDown(); }
+    }
+    @Test void failedContentOwnerTerminatesPendingAliasesAndBothPathsCanRetry() throws Exception {
+        var entered = new CountDownLatch(1); var release = new CountDownLatch(1);
+        var failure = new IllegalStateException("source failure");
+        try (var cache = cache(2, 4, Duration.ofSeconds(5))) {
+            var owner = cache.get("owner", () -> new GenerationWorkCache.Prepared<>("shared", () -> {
+                entered.countDown(); await(release); throw failure;
+            }));
+            assertTrue(entered.await(5, TimeUnit.SECONDS));
+            var alias = cache.get("alias", () -> new GenerationWorkCache.Prepared<>("shared", () -> fail("Alias parsed")));
+            eventually(() -> cache.statistics().pending() == 2 && cache.statistics().outstanding() == 1);
+            release.countDown();
+            assertSame(failure, assertThrows(ExecutionException.class, owner::get).getCause());
+            assertSame(failure, assertThrows(ExecutionException.class, alias::get).getCause()); clean(cache);
+            assertEquals(0, cache.statistics().paths()); assertEquals(0, cache.statistics().contents());
+            assertEquals("recovered", cache.get("owner", () -> new GenerationWorkCache.Prepared<>("shared", () -> "recovered")).get());
+            assertEquals("recovered", cache.get("alias", () -> new GenerationWorkCache.Prepared<>("shared", () -> fail("Retry alias parsed"))).get()); clean(cache);
+        } finally { release.countDown(); }
+    }
+    @Test void cancelingAliasPreservesOwnerAndSiblingAndLateRegistrationReleasesKeys() throws Exception {
+        var entered = new CountDownLatch(1); var release = new CountDownLatch(1);
+        try (var cache = cache(2, 4, Duration.ofSeconds(5))) {
+            var owner = cache.get("owner", () -> new GenerationWorkCache.Prepared<>("shared", () -> {
+                entered.countDown(); await(release); return "mesh";
+            }));
+            assertTrue(entered.await(5, TimeUnit.SECONDS));
+            var alias = cache.get("alias", () -> new GenerationWorkCache.Prepared<>("shared", () -> fail("Alias parsed")));
+            var sibling = cache.get("sibling", () -> new GenerationWorkCache.Prepared<>("shared", () -> fail("Sibling parsed")));
+            eventually(() -> cache.statistics().pending() == 3 && cache.statistics().outstanding() == 1);
+            assertTrue(alias.cancel(true)); assertFalse(owner.isDone()); assertFalse(sibling.isDone());
+            cache.finishRegistration(); release.countDown();
+            assertEquals("mesh", owner.get()); assertEquals("mesh", sibling.get()); clean(cache);
+            assertEquals(0, cache.statistics().paths()); assertEquals(0, cache.statistics().contents());
+        } finally { release.countDown(); }
+    }
+    @Test void cancelingOwnerCancelsAliasesButRetainsRunningTicketUntilExit() throws Exception {
+        var entered = new CountDownLatch(1); var release = new CountDownLatch(1);
+        try (var cache = cache(2, 4, Duration.ofSeconds(5))) {
+            var owner = cache.get("owner", () -> new GenerationWorkCache.Prepared<>("shared", () -> {
+                entered.countDown(); awaitIgnoringInterrupt(release); return "late";
+            }));
+            assertTrue(entered.await(5, TimeUnit.SECONDS));
+            var alias = cache.get("alias", () -> new GenerationWorkCache.Prepared<>("shared", () -> fail("Alias parsed")));
+            eventually(() -> cache.statistics().pending() == 2 && cache.statistics().outstanding() == 1);
+            assertTrue(owner.cancel(true)); assertTrue(alias.isCancelled());
+            assertEquals(0, cache.statistics().pending()); assertEquals(1, tickets.get()); assertEquals(1, admission.active());
+            release.countDown(); clean(cache);
+            assertEquals("retry", cache.get("alias", () -> text("retry")).get()); clean(cache);
+        } finally { release.countDown(); }
+    }
+    @Test void recursiveSaturatedAdmissionFailsInsteadOfBlockingWorker() throws Exception {
+        var entered = new CountDownLatch(1); var release = new CountDownLatch(1);
+        try (var cache = cache(1, 1, Duration.ofSeconds(5))) {
+            var owner = cache.get("owner", () -> {
+                entered.countDown(); await(release);
+                assertThrows(RejectedExecutionException.class, () -> cache.get("recursive", () -> text("unused")));
+                return text("owner");
+            });
+            assertTrue(entered.await(5, TimeUnit.SECONDS));
+            var queued = cache.get("queued", () -> text("queued"));
+            release.countDown(); assertEquals("owner", owner.get()); assertEquals("queued", queued.get()); clean(cache);
+        } finally { release.countDown(); }
+    }
+    @Test void interruptedDescriptorWaitPreservesInterruptAndCannotRead() throws Exception {
+        var entered = new CountDownLatch(1); var release = new CountDownLatch(1);
+        try (var cache = cache(1, 1, Duration.ofSeconds(5))) {
+            cache.get("owner", () -> { entered.countDown(); await(release); return text("owner"); });
+            assertTrue(entered.await(5, TimeUnit.SECONDS)); cache.get("queued", () -> text("queued"));
+            var result = new CompletableFuture<Boolean>();
+            Thread caller = new Thread(() -> {
+                try {
+                    assertThrows(CancellationException.class, () -> cache.get("interrupted", () -> fail("Interrupted caller read")));
+                    result.complete(Thread.currentThread().isInterrupted());
+                } catch (Throwable error) { result.completeExceptionally(error); }
+            });
+            caller.start(); ThreadTestSupport.awaiting(caller, "acquireSlot"); caller.interrupt();
+            assertTrue(result.get(5, TimeUnit.SECONDS)); caller.join(); release.countDown(); clean(cache);
+        } finally { release.countDown(); }
+    }
     private void clean(GenerationWorkCache<?, ?, ?> cache) throws Exception {
         eventually(() -> cache.statistics().outstanding() == 0 && tickets.get() == 0 && admission.active() == 0);
         assertEquals(0, cache.statistics().pending()); assertEquals(0, cache.statistics().queued());

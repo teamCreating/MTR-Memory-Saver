@@ -1,4 +1,4 @@
-# Runtime contract — 0.4.1
+# Runtime contract — 0.4.3
 
 `GenerationWorkCache` is a Java-only scheduling core. Resource/provider identity,
 normalized model path, texture and flip flag form the fast key. A hit returns its
@@ -13,6 +13,14 @@ submitted work both have a 300-second timeout. Failures remove the path/content
 entry so later requests can retry. Reload retires the whole generation under one
 lock, replaces it, cancels pending futures and removes queued tasks. Registration
 completion releases successful source keys, including results that finish later.
+
+Each model, text and vehicle-JSON call captures its resource generation before
+waiting for admission. Retirement cancels waiting callers before they read or
+enter the replacement generation, including callers waiting behind native work
+that ignores interruption. Text hits and single-flight followers recheck their
+generation after restoring data. Cancellation does not release a still-running
+owner's permit or ticket. Configuration rejects malformed and out-of-range
+integer properties rather than silently substituting defaults.
 
 Every module task contributes one native `parseStarted`/`parseFinished` ticket so
 MTR's `awaitParsing` observes module-queued work. `BlockbenchParseExecutorMixin`
@@ -47,7 +55,8 @@ The size guard fails explicitly; it never truncates an oversized resource.
 ## Limits and configuration
 
 All values are JVM system properties, read once when their subsystem initializes.
-Invalid nonpositive limits fail initialization instead of silently disabling checks.
+Malformed, nonpositive and out-of-range limits fail initialization instead of
+silently disabling checks or substituting defaults.
 
 | Property | Default | Meaning |
 | --- | --- | --- |

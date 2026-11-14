@@ -51,6 +51,12 @@ Version 0.4.1 adds bounded descriptor scheduling, provider/path fast hits,
 generation retirement, terminal parse failure and guarded text admission. See the
 [runtime contract](docs/RUNTIME_DESIGN.md) and [acceptance procedure](docs/ACCEPTANCE.md).
 
+Version 0.4.3 binds admission waiters to their original generation across model,
+text and vehicle-JSON caches, cancels retired read waiters promptly and validates
+configured limits explicitly. Current validation focuses on official MTR
+4.1.0-beta.2; new v6 validation is paused. Candidate-specific runtime evidence is
+required before extending the historical support claims.
+
 Historical guides and measurements are indexed in [HISTORY.md](docs/HISTORY.md)
 and [TECHNICAL.md](TECHNICAL.md). New candidate tests and performance reports have
 separate artifact identities. GPU lifetime and gameplay require runtime acceptance;

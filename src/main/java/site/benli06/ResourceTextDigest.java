@@ -17,6 +17,7 @@ public final class ResourceTextDigest {
     private ResourceTextDigest() {}
 
     public static String sha256(String raw) {
+        if (Thread.currentThread().isInterrupted()) throw new java.util.concurrent.CancellationException("Resource digest interrupted");
         try {
             MessageDigest digest = MessageDigest.getInstance("SHA-256");
             if (raw.length() <= SMALL_TEXT_UNITS) {

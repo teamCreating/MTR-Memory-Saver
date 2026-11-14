@@ -95,8 +95,8 @@ public final class BoundedTextCache {
         this.budget = budget; this.admission = admission;
     }
     public String get(String key, Function<String, String> reader) {
-        try (var scope = admission.open()) {
-            Epoch epoch = current;
+        Epoch epoch = current;
+        try (var scope = admission.open(() -> epoch != current)) {
             Pending pending;
             boolean owner;
             Text hit;
@@ -113,8 +113,8 @@ public final class BoundedTextCache {
                     throw new IllegalStateException("Recursive resource read: " + key);
                 }
             }
-            if (hit != null) return hit.unpack(admission);
-            if (!owner) { Text text = await(pending.ready); return text == null ? null : text.unpack(admission); }
+            if (hit != null) return restore(hit, epoch);
+            if (!owner) return restore(await(pending.ready), epoch);
             try {
                 String raw = reader.apply(key);
                 if (raw != null) admission.checkLength(raw.length());
@@ -143,6 +143,13 @@ public final class BoundedTextCache {
                 pending.ready.completeExceptionally(error);
                 throw error;
             } finally { synchronized (epoch) { epoch.pending.remove(key, pending); } }
+        }
+    }
+    private String restore(Text text, Epoch epoch) {
+        String value = text == null ? null : text.unpack(admission);
+        synchronized (epoch) {
+            if (epoch.retired) throw new CancellationException("Resource generation retired");
+            return value;
         }
     }
     private static Text await(CompletableFuture<Text> ready) {

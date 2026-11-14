@@ -1,0 +1,25 @@
+{
+  "timestamp": "2026-11-15T03:17:24.3015764+08:00",
+  "objective": "Complete repair and verification for official MTR 4.1.0-beta.2",
+  "version": "0.4.3",
+  "active_targets": [
+    "official-nf248",
+    "official-nf265"
+  ],
+  "v6_validation": "paused by user",
+  "completed": {
+    "python_tests": 27,
+    "admission_negative_control": "evidence/engineering-043/admission-regression/result.json",
+    "headless_tests_per_official_target": 41
+  },
+  "remaining": [
+    "Packaged client startup and actual required Mixins",
+    "Same-version incorrect MTR binary rejection before hooks install",
+    "Latest sixteen-pack native catalogue, model and interaction observations",
+    "Actual client missing/invalid/truncated/oversized/slow input and cancellation/retry cases",
+    "Twenty consecutive full-pack reloads and a two-hour route session on default official-nf248",
+    "Controlled full-client baseline/candidate performance with raw JFR/GC/frame and OS memory observations",
+    "Official-nf265 packaged compatibility and complete artifact/evidence delivery"
+  ],
+  "artifact_identity_policy": "Every runtime run must record exact JAR, pack order, world snapshot, JVM and observation hashes. Historical results are not new-candidate acceptance."
+}
