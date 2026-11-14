@@ -2,12 +2,18 @@
 
 Scope: Memory Saver 0.4.6 with official MTR 4.1.0-beta.2, Minecraft 1.21.1,
 Java 21 and the two explicit NeoForge targets. New v6 validation is paused.
-Updated: 2026-11-15T06:21:31.898993+08:00 (UTC+08:00).
+Updated: 2026-11-15T06:54:13+08:00 (UTC+08:00).
 
 ## Established evidence
 
-- Both official targets build and pass 61 Java tests each. The current standalone
-  Python suite passes 100 tests, including background auxiliary-query ownership,
+- Both official targets now pass 66 core Java tests each. Five new snapshot-I/O
+  cases cover output write/close, restoration read, deletion and suppressed
+  cleanup failure, including failed-cache retry and real memory settlement.
+  Both unchanged packaged readers also pass an actual Windows deletion-lock
+  audit: failed deletion remains an error with a retained file; memory settles,
+  and the independent fixture deletes the file after confirmed handle release.
+  This does not establish automatic recovery after abrupt JVM termination.
+  The archived standalone Python suite passes 100 tests, including background auxiliary-query ownership,
   interrupted thread startup and process-scoped GPU counters. Actual execution,
   source snapshots and logs are archived; the previous 91-test stage is retained.
 - Both packaged official clients pass 24 base-resource loader/fault checks,
@@ -58,6 +64,13 @@ Updated: 2026-11-15T06:21:31.898993+08:00 (UTC+08:00).
   real reloads and the longest verified reload sequence are both zero. A native F2
   screenshot exports successfully but shows no train, so visual interaction and
   F3+T remain separate gaps. A manual qualification is requested from the user.
+- A new UI recovery confirms the live target window but both fresh screenshot
+  requests time out. No keyboard/mouse input or visual/reload pass follows.
+- Route attempt 03 is now running against the verified live, unpaused existing
+  client with a separate unlimited-history JFR and the bounded background
+  observer. The frozen duration, three windows and 20-second sampling limit are
+  unchanged. No reload input is sent during this window. Its start checkpoint is
+  evidence of a live observation, not a completed two-hour acceptance result.
 
 ## Remaining gates
 
@@ -65,10 +78,11 @@ Updated: 2026-11-15T06:21:31.898993+08:00 (UTC+08:00).
 | --- | --- | --- |
 | P1 | Full catalogue interaction | The 0.4.6 NF248 16-pack/669-entry catalogue has registered 1092 declarations/1091 distinct IDs and settled. Observe geometry, displays, doors, floors, boarding and native diagnostics in the actual scene. Current largest referenced Blockbench input is 13,141,932 bytes; the old 65 MB Blockbench asset is unreferenced. |
 | P1 | Twenty consecutive full-pack reloads | Successful actual F3+T reloads are 0/20. Three input receipts lack a corresponding new epoch and full ResourceManager reload log. Require an external input receipt, native HEAD/RETURN pair, complete reload log and settled fresh snapshot for every accepted reload. |
-| P1 | Two-hour unpaused route | Attempts 01 and 02 are interrupted and failed. The bounded background observer passes regressions, but a fresh full run has not started while manual reload qualification is pending. Retain strict sampling and availability gates and observe all three windows, route travel, cache retention, stale publication and heap/OS/native/GPU measurements. |
+| P1 | Two-hour unpaused route | Attempts 01 and 02 are interrupted and failed. Attempt 03 is running with a fresh JFR and bounded background observer; completion remains unproven. Retain strict sampling and availability gates and observe all three windows, route travel, cache retention, stale publication and heap/OS/native/GPU measurements. |
 | P1 | Controlled full-client performance | Freeze baseline, current candidate, controls and budgets; collect counterbalanced pairs, A/A and instrumentation controls with raw JFR/GC/frame/OS evidence. Source allocation results alone do not settle loading latency, Full-GC pauses or frame regressions. |
 | P2 | NeoForge 21.1.265 full-pack runtime | Build, 61 tests, actual packaged startup, all 42 fault/resource checks and wrong-binary rejection pass. Full-pack/world and representative interaction checks on this loader remain to be observed. |
 | P2 | Repeated official registration ordering | Static analysis establishes synchronous official reload entry points; the initial 0.4.6 full registration is paired on the render thread with nesting one. Collect the same evidence through 20 actual full ResourceManager reloads. |
+| P2 | Snapshot failure boundaries | Injected snapshot write/close/read/delete and actual Windows deletion-lock tests pass. Real disk-full, abrupt JVM exit and stale-file recovery remain separate coverage; explicit fixture cleanup is not automatic product cleanup. |
 
 Both current release ZIPs have been refreshed and audited against their unchanged
 tested JARs, manifests and support bytes. Later acceptance results require a fresh
@@ -82,6 +96,8 @@ and it is not controlled performance evidence. The incomplete 0.4.6 startup and
 route observations likewise cannot establish visual or long-session acceptance.
 
 Evidence: [verification plan](../evidence/engineering-046/verification-plan.json),
+[snapshot-I/O assessment](../evidence/engineering-047/snapshot-io/assessment.json),
+[route attempt 03 start](../evidence/engineering-047/route-attempt-03-start/execution-start.json),
 [packaged fault result](../evidence/engineering-046/packaged-faults-nf248/loader-lifecycle-result.json),
 [NF265 wrong-binary assessment](../evidence/engineering-046/packaged-mismatch-nf265/assessment.json),
 [large-text assessment](../evidence/engineering-046/text-workspace/attempt-02/assessment.json),

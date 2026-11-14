@@ -1,0 +1,54 @@
+{
+  "timestamp": "2026-11-15T06:54:13.238528+08:00",
+  "version": "0.4.6",
+  "scope": "Official beta.2 snapshot I/O verification; product sources and JAR bytes unchanged",
+  "java_tests": {
+    "official-nf248": {
+      "tests": 66,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "official-nf265": {
+      "tests": 66,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "windows_packaged_reader_audits": {
+    "official-nf248": {
+      "passed": true,
+      "artifact_sha256": "dd47f6ae4daa4139b9ada9196d757db634a79ebdd7fa5f06083719d764285997",
+      "deletion_error": "java.nio.file.FileSystemException",
+      "snapshot_retained_on_error": true,
+      "active_read_scopes": 0,
+      "lock_exit_code": 0,
+      "fixture_cleanup_after_unlock": true,
+      "result": "windows-lock-nf248/result.json"
+    },
+    "official-nf265": {
+      "passed": true,
+      "artifact_sha256": "fbcb608fd5b2452f650c656bc930934ac4e4880addae4d24846faa5df5d9f63e",
+      "deletion_error": "java.nio.file.FileSystemException",
+      "snapshot_retained_on_error": true,
+      "active_read_scopes": 0,
+      "lock_exit_code": 0,
+      "fixture_cleanup_after_unlock": true,
+      "result": "windows-lock-nf265/result.json"
+    }
+  },
+  "new_headless_cases": [
+    "snapshot output write and same-path cache retry",
+    "snapshot output close",
+    "snapshot restoration read",
+    "snapshot deletion retaining real file",
+    "original write with suppressed deletion failure"
+  ],
+  "limits": [
+    "Forwarding java.nio fixtures inject exact snapshot operation failures without filling the user's disk.",
+    "Actual Windows audit runs the unchanged packaged reader, not a Minecraft/NeoForge client.",
+    "Failed deletion retains a file and reports failure; successful test-owned cleanup after unlocking is not automatic product recovery.",
+    "Real disk-full, abrupt JVM exit and automatic stale-snapshot recovery remain separate coverage."
+  ]
+}

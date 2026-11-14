@@ -1,0 +1,38 @@
+{
+  "timestamp": "2026-11-15T06:54:13+08:00",
+  "utc_offset": "+08:00",
+  "objective": "Complete repair and verification of Memory Saver against official MTR 4.1.0-beta.2",
+  "version": "0.4.6",
+  "active_targets": ["official-nf248", "official-nf265"],
+  "v6_validation": "paused by user",
+  "historical_plan": "../engineering-046/verification-plan.json",
+  "completed_this_stage": {
+    "snapshot_io": "snapshot-io/assessment.json",
+    "core_java_tests_per_target": 66,
+    "new_snapshot_failure_cases": 5,
+    "actual_windows_deletion_lock_audits": 2
+  },
+  "route_attempt_03": {
+    "status": "running_at_verified_checkpoint",
+    "live_client_pid": 34668,
+    "live_observer_pid": 50196,
+    "requested_duration_seconds": 7200,
+    "window_count": 3,
+    "maximum_sampling_gap_seconds": 20,
+    "start_checkpoint": "route-attempt-03-start/execution-start.json",
+    "live_process_checkpoint": "route-attempt-03-start/live-processes.json",
+    "completion_proven": false,
+    "mutable_execution": "../engineering-046/route-attempt-03/execution.json",
+    "mutable_observation": "../engineering-046/route-attempt-03/observation/summary.json"
+  },
+  "remaining": [
+    "Full current-artifact scene geometry, displays, doors, floors and boarding",
+    "Twenty complete genuine ResourceManager reloads and repeated native ordering; accepted reload count remains zero",
+    "Complete route-attempt-03 and independently verify all windows, raw JFR coverage, native diagnostics and interactions",
+    "Current-input baseline/candidate qualification and controlled full-client comparisons including observer-off calibration",
+    "NF265 full-pack/world and representative interaction",
+    "Native Invalid model diagnostic attribution",
+    "Real disk-full and abrupt-process snapshot residue recovery coverage"
+  ],
+  "limits": "Snapshot failure tests and live route startup are concrete progress, not completion of the full goal. Product JAR hashes remain the exact engineering-046 artifacts. Independent comparison/neutral-observer tooling is recorded by subsequent stage evidence."
+}

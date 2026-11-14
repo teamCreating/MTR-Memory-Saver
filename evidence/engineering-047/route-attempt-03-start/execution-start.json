@@ -1,0 +1,76 @@
+{
+  "started": "2026-11-14T22:47:24.111530+00:00",
+  "status": "observing",
+  "pid": 34668,
+  "commands": [
+    {
+      "name": "jfr-check-before",
+      "command": [
+        "C:\\Users\\ben_l\\Saved Games\\Yuuniverse 1.20.1 Shenyang\\porting-output\\work\\tools\\jdk21\\jdk-21.0.11+10\\bin\\jcmd.exe",
+        "34668",
+        "JFR.check",
+        "verbose=true"
+      ],
+      "started": "2026-11-14T22:47:24.117816+00:00",
+      "exit_code": 0,
+      "ended": "2026-11-14T22:47:24.632395+00:00"
+    },
+    {
+      "name": "jfr-start",
+      "command": [
+        "C:\\Users\\ben_l\\Saved Games\\Yuuniverse 1.20.1 Shenyang\\porting-output\\work\\tools\\jdk21\\jdk-21.0.11+10\\bin\\jcmd.exe",
+        "34668",
+        "JFR.start",
+        "name=route03",
+        "settings=profile",
+        "disk=true",
+        "maxsize=0"
+      ],
+      "started": "2026-11-14T22:47:24.635368+00:00",
+      "exit_code": 0,
+      "ended": "2026-11-14T22:47:25.381322+00:00"
+    }
+  ],
+  "jvm_stopped": false,
+  "source_sha256": "0c4a742543769a0eb40d582a0f29646ef8b1f24c0286360b077eee0d9e4089f8",
+  "limits": "Live-existing-client durability observation, not an independent performance trial. No reload inputs during the frozen window. Background build activity remains part of this desktop environment. Visual/boarding and pending native diagnostics are separate gates.",
+  "observer_command": [
+    "C:\\Python314\\python.exe",
+    "-X",
+    "utf8",
+    "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\tools\\observe_packaged_client.py",
+    "route",
+    "--instance",
+    "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-full-native-046-profile",
+    "--output",
+    "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-046\\route-attempt-03\\observation",
+    "--expected-count",
+    "1091",
+    "--expected-declarations",
+    "1092",
+    "--duration",
+    "7200",
+    "--interval",
+    "5",
+    "--stable-seconds",
+    "60",
+    "--freshness-seconds",
+    "15",
+    "--route-windows",
+    "3",
+    "--minimum-window-progress-displacement",
+    "0.01",
+    "--require-world",
+    "--unpaused",
+    "--gpu-counter",
+    "\\GPU Process Memory(*)\\Shared Usage",
+    "--gpu-counter",
+    "\\GPU Process Memory(*)\\Dedicated Usage",
+    "--nmt",
+    "--auxiliary-interval",
+    "60",
+    "--auxiliary-shutdown-seconds",
+    "45"
+  ],
+  "observer_pid": 50196
+}

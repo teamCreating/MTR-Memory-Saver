@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="site.benli06.SnapshotFilesystemFailureTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-11-14T22:48:50.425Z" hostname="DESKTOP-885HHP9" time="0.158">
+  <properties/>
+  <testcase name="deletionFailureIsSuppressedBehindTheOriginalWriteFailure()" classname="site.benli06.SnapshotFilesystemFailureTest" time="0.036"/>
+  <testcase name="outputCloseFailureRemainsTerminalAndDeletesSnapshot()" classname="site.benli06.SnapshotFilesystemFailureTest" time="0.017"/>
+  <testcase name="restorationReadFailureRemainsTerminalAndDeletesSnapshot()" classname="site.benli06.SnapshotFilesystemFailureTest" time="0.028"/>
+  <testcase name="deletionFailureRejectsResultButDoesNotInventSuccessfulFileCleanup()" classname="site.benli06.SnapshotFilesystemFailureTest" time="0.031"/>
+  <testcase name="outputWriteFailureCannotPublishSuccessfulTextAndSamePathRetries()" classname="site.benli06.SnapshotFilesystemFailureTest" time="0.037"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

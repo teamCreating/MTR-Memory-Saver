@@ -1,0 +1,23 @@
+{
+  "timestamp": "2026-11-15T06:51:46.990385100+08:00",
+  "reader_code_source": "file:/C:/Users/ben_l/Documents/Coding/resoucepack%20update/vehicle-memory/build/libs/mtr-memory-saver-official-nf265-0.4.6.jar",
+  "java_version": "21.0.11",
+  "os_name": "Windows 10",
+  "lock_pid": 50644,
+  "deletion_error_type": "java.nio.file.FileSystemException",
+  "deletion_error": "java.nio.file.FileSystemException: C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-047\\snapshot-io\\windows-lock-nf265\\data\\snapshots\\mtr-memory-text-14276607048231579162.utf16: 另一个程序正在使用此文件，进程无法访问。",
+  "snapshot_retained_on_error": true,
+  "snapshot_bytes_on_error": 30008,
+  "workspace_statistics": [
+    80000,
+    0,
+    60016,
+    0
+  ],
+  "lock_exit_code": 0,
+  "fixture_cleanup_after_unlock": true,
+  "passed": true,
+  "active_read_scopes": 0,
+  "remaining_snapshot_files": [],
+  "limits": "An actual Windows file handle rejects snapshot deletion. The reader reports failure and settles memory ownership. Explicit fixture cleanup after handle release is not automatic product recovery. Disk-full, output flush and abrupt process-exit recovery are separate observations."
+}
