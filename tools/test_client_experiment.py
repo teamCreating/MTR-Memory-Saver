@@ -644,6 +644,12 @@ class RawReplayTests(unittest.TestCase):
 
 class OwnedProcessLifecycleTests(unittest.TestCase):
     """Mock handles and clock only; no child process is actually launched."""
+    def setUp(self):
+        from log_stream_test_support import fixture_stream
+        factory = mock.patch.object(client.native_log_stream.NativeLogStream, "from_launch", side_effect=fixture_stream)
+        factory.start()
+        self.addCleanup(factory.stop)
+
     def collect(self, root, *, exporter_error=False, interrupt=False):
         config, scene = policy(), scenario()
         clock = {"seconds": 0}
@@ -678,7 +684,7 @@ class OwnedProcessLifecycleTests(unittest.TestCase):
         def clone(descriptor, destination):
             (destination / "game-probe").mkdir(parents=True)
             (destination / "logs").mkdir()
-            (destination / "logs/latest.log").write_text("[main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--gameDir, " + str(destination) + "]\n" + diagnostic["log"], encoding="utf-8")
+            (destination / "logs/latest.log").write_text("[synthetic timestamp] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--gameDir, " + str(destination) + "]\n" + diagnostic["log"], encoding="utf-8")
             (destination / "game-probe/native-resource-epochs.jsonl").write_text(
                 "".join(json.dumps(event) + "\n" for event in evidence(pid=111)["epochs"]), encoding="utf-8")
             (destination / "game-probe/native-invalid-model.jsonl").write_text(

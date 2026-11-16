@@ -7,6 +7,7 @@ import unittest
 from unittest import mock
 
 import reload_before_recorder as tool
+from log_stream_test_support import fixture_stream
 
 
 FIXTURE = Path(__file__).resolve().parent.parent / "evidence/engineering-048/neutral-runtime-02-review/capture-02"
@@ -54,6 +55,9 @@ class RecorderTest(unittest.TestCase):
         patch = mock.patch.object(tool, "now", self.clock)
         patch.start()
         self.addCleanup(patch.stop)
+        log_clock = mock.patch.object(tool.native_log_stream, "now", self.clock)
+        log_clock.start()
+        self.addCleanup(log_clock.stop)
         self.recorder = tool.Recorder.__new__(tool.Recorder)
         value = self.recorder
         value.instance, value.output = self.instance, self.output
@@ -73,6 +77,10 @@ class RecorderTest(unittest.TestCase):
         value.launch_hash = tool.observer.digest(self.output / "packaged-client-launch.json")
         value.context = {"session_id": value.session_id, "process": value.identity, "source_sha256": {}, "freshness_seconds": 15,
                          "plan_sha256": value.plan_hash, "launch_sha256": value.launch_hash}
+        value.context_hash = tool.sha(tool.canonical(value.context))
+        value.log_stream = fixture_stream(self.instance, value.plan, value.launch, self.output / "native-log", value.identity,
+                                          declared_instance=value.plan["instance"])
+        value.context["native_log_context"] = {"path": "native-log/context.json", "sha256": value.log_stream.context_sha256}
         value.context_hash = tool.sha(tool.canonical(value.context))
         (self.output / "session-start.json").write_bytes(tool.canonical(value.context))
         value.journal.add("ready", session_start_sha256=value.context_hash)
@@ -180,7 +188,7 @@ class RecorderTest(unittest.TestCase):
         self.recorder.capture()
         path = self.instance / "logs/latest.log"
         path.write_bytes(path.read_bytes()[10:])
-        with self.assertRaisesRegex(ValueError, "truncated"):
+        with self.assertRaisesRegex(tool.native_log_stream.LogIntegrityError, "prefix"):
             self.recorder.capture()
 
     def test_actual_process_exit_during_capture_is_terminal(self):

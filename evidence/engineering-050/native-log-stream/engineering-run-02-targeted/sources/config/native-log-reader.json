@@ -1,0 +1,23 @@
+{
+  "schema": 1,
+  "profiles": {
+    "21.1.248": {
+      "launch_target": "forgeclient",
+      "fml_version": "4.0.43",
+      "loader_sha256": "ba406038d0ce8242391bb23b9974648748d217b67332c0db620fcabf50edbc37",
+      "core_sha256": "46dccecac556623d8e2ce8648496824a82951d139062a4e61148aff1a25ed18d",
+      "xml_member": "log4j2.xml",
+      "xml_sha256": "10734e07889a0027b29d80a701f987d05e044ccd0d65f339b78194b01035efd2"
+    }
+  },
+  "header": {
+    "logger": "cpw.mods.modlauncher.Launcher/MODLAUNCHER",
+    "message": "ModLauncher running: args "
+  },
+  "limits": {
+    "max_segment_bytes": 268435456,
+    "max_stream_bytes": 536870912,
+    "publication_attempts": 8,
+    "publication_wait_seconds": 0.25
+  }
+}

@@ -19,6 +19,7 @@ import sys
 import time
 from types import SimpleNamespace
 import zipfile
+import native_log_stream
 
 import packaged_client as packaged
 from observe_packaged_client import WindowsProcess, verify_process_identity, windows_arguments
@@ -35,6 +36,7 @@ INJECTED_ENV = ("JAVA_TOOL_OPTIONS", "JDK_JAVA_OPTIONS", "_JAVA_OPTIONS", "CLASS
 SOURCES = (Path(__file__), Path(__file__).with_name("client_experiment_analysis.py"),
            Path(packaged.__file__), Path(__file__).with_name("observe_packaged_client.py"),
            Path(__file__).with_name("windows_process_identity.py"),
+           Path(native_log_stream.__file__), native_log_stream.REVIEW_FILE,
            Path(__file__).with_name("windows_snapshot_io.py"), Path(__file__).with_name("native_diagnostic_review.py"),
            DIAGNOSTIC_REVIEW, ROOT / "config/targets.json")
 RETAINED_PROCESSES = {}  # Keep actual handles while a failed export awaits recovery.
@@ -297,6 +299,21 @@ def audit_observation(root, policy, scenario, mode, *, expected_trial=None, expe
         raise ValueError("Process/launch evidence differs from its independent raw capture.")
     if evidence.get("client_log_completeness") != client_log_completeness((root / "latest.log").read_bytes(), evidence["samples"], prepared["instance"]):
         raise ValueError("Client log completeness differs from independent raw prefix analysis.")
+    if evidence["run_start"].get("native_log_stream_contract") == 1:
+        reference = evidence.get("native_log_stream")
+        if not reference or reference.get("completion_read_failed") or evidence.get("native_log_stream_error"):
+            raise ValueError("Complete native rolling-log publication was not preserved.")
+        stream_root = root / "native-log"
+        receipt = (stream_root / reference["receipt"]).resolve(strict=True)
+        if not receipt.is_relative_to(stream_root) or digest(receipt) != reference["receipt_sha256"]:
+            raise ValueError("Native rolling-log receipt differs from its original producer reference.")
+        if native_log_stream.verify_capture(stream_root, receipt) != (root / "latest.log").read_bytes():
+            raise ValueError("Original native segments do not reconstruct the complete client log.")
+        context = read(stream_root / "context.json")
+        if (digest(stream_root / "context.json") != reference["context_sha256"]
+                or context["process"]["pid"] != evidence["process"]["pid"]
+                or instant(context["process"]["created"]) != instant(evidence["process"]["created"])):
+            raise ValueError("Native rolling-log identity differs from the actual trial JVM.")
     if evidence["launch"]["plan_sha256"] != digest(root / "prepared-plan.json"):
         raise ValueError("Launch-time prepared plan bytes differ from raw preparation evidence.")
     if evidence["launch"]["jvm_arguments"] != packaged.jvm_arguments(prepared):
@@ -583,9 +600,10 @@ def collect_trial(descriptor, policy, root, *, trial_spec=None):
     evidence["run_start"] = {"schema": 1, "scope": "official_client_performance_trial" if trial_spec is not None else "official_current_client_qualification",
                              "root": str(root), "started_at": evidence["started_at"], "trial_spec": trial_spec,
                              "qualification_key": descriptor["qualification_key"]}
+    evidence["run_start"]["native_log_stream_contract"] = 1
     save(root / "run-start.json", evidence["run_start"], exclusive=True)
     evidence["run_start_sha256"] = digest(root / "run-start.json")
-    process, observer, plan, interrupt_error = None, None, None, None
+    process, observer, plan, interrupt_error, log_stream = None, None, None, None, None
     jfr_verified = descriptor["instrumentation"] == "plain"
     epochs_path = instance / descriptor["probe_metadata"]["epochs_path"]
     snapshot_path = instance / descriptor["probe_metadata"]["snapshot_path"]
@@ -606,6 +624,8 @@ def collect_trial(descriptor, policy, root, *, trial_spec=None):
         save(root / "actual-process.json", evidence["process"], exclusive=True)
         save(root / "launch.json", launch, exclusive=True)
         save(root / "prepared-plan.json", plan, exclusive=True)
+        log_stream = native_log_stream.NativeLogStream.from_launch(instance, plan, launch,
+            root / "native-log", evidence["process"])
         created = instant(observer.created)
         anchor = None
         scene_ready = None
@@ -634,7 +654,7 @@ def collect_trial(descriptor, policy, root, *, trial_spec=None):
                 except (OSError, ValueError) as error:
                     sample["errors"].append("Native epoch evidence unavailable: " + str(error))
                 try:
-                    log_prefix = (instance / "logs/latest.log").read_bytes()
+                    log_prefix = log_stream.read().data
                     sample["client_log_witness"] = {"bytes": len(log_prefix), "sha256": hashlib.sha256(log_prefix).hexdigest()}
                 except OSError as error:
                     sample["errors"].append("Client log prefix unavailable: " + str(error))
@@ -725,10 +745,18 @@ def collect_trial(descriptor, policy, root, *, trial_spec=None):
                                  (snapshot_path, "native-observer-final.json"),
                                  (instance / "launch.stdout.log", "launch.stdout.log"),
                                  (instance / "launch.stderr.log", "launch.stderr.log"),
-                                 (instance / "logs/latest.log", "latest.log"),
                                  (instance / "acceptance-gc.log", "gc.log")):
             if source.is_file():
                 shutil.copyfile(source, root / filename)
+        if log_stream is not None:
+            try:
+                (root / "latest.log").write_bytes(log_stream.read().data)
+                evidence["native_log_stream"] = log_stream.reference()
+            except Exception as log_error:
+                evidence.update(status="failed", native_log_stream_error=repr(log_error))
+                if log_stream.last is not None:
+                    (root / "latest.log").write_bytes(log_stream.last.data)
+                    evidence["native_log_stream"] = {**log_stream.reference(), "completion_read_failed": True}
         if (root / "native-resource-epochs.jsonl").is_file():
             try:
                 evidence["epochs"] = read_jsonl(root / "native-resource-epochs.jsonl")

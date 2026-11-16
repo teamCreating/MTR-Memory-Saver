@@ -1,0 +1,250 @@
+{
+  "profiles": [
+    "official-nf248",
+    "official-nf265"
+  ],
+  "unique_released_binaries": 3,
+  "bytecode_proofs": {
+    "ba406038d0ce8242391bb23b9974648748d217b67332c0db620fcabf50edbc37": [
+      {
+        "started_at": "2026-11-16T17:08:07.017619+00:00",
+        "ended_at": "2026-11-16T17:08:14.122600+00:00",
+        "argv": [
+          "C:\\Users\\ben_l\\Saved Games\\Yuuniverse 1.20.1 Shenyang\\porting-output\\work\\tools\\jdk21\\jdk-21.0.11+10\\bin\\javap.exe",
+          "-classpath",
+          "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\native-log-stream\\release-proof\\binaries\\ba406038d0ce8242391bb23b9974648748d217b67332c0db620fcabf50edbc37.jar",
+          "-c",
+          "-p",
+          "net.neoforged.fml.loading.targets.CommonLaunchHandler"
+        ],
+        "exit_code": 0,
+        "jar_sha256": "ba406038d0ce8242391bb23b9974648748d217b67332c0db620fcabf50edbc37",
+        "member": "net/neoforged/fml/loading/targets/CommonLaunchHandler.class",
+        "class_sha256": "2601cea0e8e9b3137faf1f408a72bd93ea9efb028e9fd15bfeaa971e5c1cdab4",
+        "stdout_sha256": "e33a0146ea336345c1001f20df0e3d8733b2f2a00e353a8ed75f833d565e389e",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "started_at": "2026-11-16T17:08:14.178589+00:00",
+        "ended_at": "2026-11-16T17:08:22.301227+00:00",
+        "argv": [
+          "C:\\Users\\ben_l\\Saved Games\\Yuuniverse 1.20.1 Shenyang\\porting-output\\work\\tools\\jdk21\\jdk-21.0.11+10\\bin\\javap.exe",
+          "-classpath",
+          "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\native-log-stream\\release-proof\\binaries\\ba406038d0ce8242391bb23b9974648748d217b67332c0db620fcabf50edbc37.jar",
+          "-c",
+          "-p",
+          "net.neoforged.fml.loading.targets.NeoForgeClientLaunchHandler"
+        ],
+        "exit_code": 0,
+        "jar_sha256": "ba406038d0ce8242391bb23b9974648748d217b67332c0db620fcabf50edbc37",
+        "member": "net/neoforged/fml/loading/targets/NeoForgeClientLaunchHandler.class",
+        "class_sha256": "95a43a8e537ed5d24936ebc0962b54b355e843a34851d3867a35843fe22ed5a4",
+        "stdout_sha256": "d1e52428f389cffa454c2cacc1b17ad69d9d8bc8f6a2349c429f6c1692325800",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "started_at": "2026-11-16T17:08:22.542836+00:00",
+        "ended_at": "2026-11-16T17:08:30.000097+00:00",
+        "argv": [
+          "C:\\Users\\ben_l\\Saved Games\\Yuuniverse 1.20.1 Shenyang\\porting-output\\work\\tools\\jdk21\\jdk-21.0.11+10\\bin\\javap.exe",
+          "-classpath",
+          "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\native-log-stream\\release-proof\\binaries\\ba406038d0ce8242391bb23b9974648748d217b67332c0db620fcabf50edbc37.jar",
+          "-c",
+          "-p",
+          "net.neoforged.fml.loading.targets.CommonClientLaunchHandler"
+        ],
+        "exit_code": 0,
+        "jar_sha256": "ba406038d0ce8242391bb23b9974648748d217b67332c0db620fcabf50edbc37",
+        "member": "net/neoforged/fml/loading/targets/CommonClientLaunchHandler.class",
+        "class_sha256": "769b72fb45156776680cf6f5525dfbef2ec7be779036466e42e6ce788a6592ad",
+        "stdout_sha256": "7f079bc25a0c1d73588a8f18b0a1a77426e19e10876e672ef925c50088259454",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    ],
+    "46dccecac556623d8e2ce8648496824a82951d139062a4e61148aff1a25ed18d": [
+      {
+        "started_at": "2026-11-16T17:08:30.398757+00:00",
+        "ended_at": "2026-11-16T17:08:43.531847+00:00",
+        "argv": [
+          "C:\\Users\\ben_l\\Saved Games\\Yuuniverse 1.20.1 Shenyang\\porting-output\\work\\tools\\jdk21\\jdk-21.0.11+10\\bin\\javap.exe",
+          "-classpath",
+          "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\native-log-stream\\release-proof\\binaries\\46dccecac556623d8e2ce8648496824a82951d139062a4e61148aff1a25ed18d.jar",
+          "-c",
+          "-p",
+          "org.apache.logging.log4j.core.appender.rolling.AbstractRolloverStrategy"
+        ],
+        "exit_code": 0,
+        "jar_sha256": "46dccecac556623d8e2ce8648496824a82951d139062a4e61148aff1a25ed18d",
+        "member": "org/apache/logging/log4j/core/appender/rolling/AbstractRolloverStrategy.class",
+        "class_sha256": "395048d84dde17f59c17eb93dedd5a395d6964a700cc6add6b87d91e19a6e3a7",
+        "stdout_sha256": "7bd4527f95b37e1f218e9ab195cb6cc298c898e5b37eda542f126c0d94456b26",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "started_at": "2026-11-16T17:08:43.707021+00:00",
+        "ended_at": "2026-11-16T17:08:57.091959+00:00",
+        "argv": [
+          "C:\\Users\\ben_l\\Saved Games\\Yuuniverse 1.20.1 Shenyang\\porting-output\\work\\tools\\jdk21\\jdk-21.0.11+10\\bin\\javap.exe",
+          "-classpath",
+          "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\native-log-stream\\release-proof\\binaries\\46dccecac556623d8e2ce8648496824a82951d139062a4e61148aff1a25ed18d.jar",
+          "-c",
+          "-p",
+          "org.apache.logging.log4j.core.appender.rolling.DefaultRolloverStrategy$Builder"
+        ],
+        "exit_code": 0,
+        "jar_sha256": "46dccecac556623d8e2ce8648496824a82951d139062a4e61148aff1a25ed18d",
+        "member": "org/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy$Builder.class",
+        "class_sha256": "ccfff902946afe2c228b6494defbfa90646d12fc33f011839d344810f86e9286",
+        "stdout_sha256": "8296fed4728f442f2d0300217d78ca133e1f5c4401c2e18936094128ff822204",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "started_at": "2026-11-16T17:08:57.143211+00:00",
+        "ended_at": "2026-11-16T17:09:06.600563+00:00",
+        "argv": [
+          "C:\\Users\\ben_l\\Saved Games\\Yuuniverse 1.20.1 Shenyang\\porting-output\\work\\tools\\jdk21\\jdk-21.0.11+10\\bin\\javap.exe",
+          "-classpath",
+          "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\native-log-stream\\release-proof\\binaries\\46dccecac556623d8e2ce8648496824a82951d139062a4e61148aff1a25ed18d.jar",
+          "-c",
+          "-p",
+          "org.apache.logging.log4j.core.appender.rolling.DefaultRolloverStrategy"
+        ],
+        "exit_code": 0,
+        "jar_sha256": "46dccecac556623d8e2ce8648496824a82951d139062a4e61148aff1a25ed18d",
+        "member": "org/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy.class",
+        "class_sha256": "b9b8cc2e648b9fe67d71d15a05fcb00764c8b4572500d72e5dc6abf0194614d1",
+        "stdout_sha256": "df2acee2cedf546b414c319d0230f72c23f165f4588e80ce74e49830283e10f5",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "started_at": "2026-11-16T17:09:06.620045+00:00",
+        "ended_at": "2026-11-16T17:09:14.032789+00:00",
+        "argv": [
+          "C:\\Users\\ben_l\\Saved Games\\Yuuniverse 1.20.1 Shenyang\\porting-output\\work\\tools\\jdk21\\jdk-21.0.11+10\\bin\\javap.exe",
+          "-classpath",
+          "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\native-log-stream\\release-proof\\binaries\\46dccecac556623d8e2ce8648496824a82951d139062a4e61148aff1a25ed18d.jar",
+          "-c",
+          "-p",
+          "org.apache.logging.log4j.core.appender.rolling.RollingFileManager"
+        ],
+        "exit_code": 0,
+        "jar_sha256": "46dccecac556623d8e2ce8648496824a82951d139062a4e61148aff1a25ed18d",
+        "member": "org/apache/logging/log4j/core/appender/rolling/RollingFileManager.class",
+        "class_sha256": "ef13b6306ec8751a66cce055605bf290924b5f87d0655ea4afedb6b7359e227b",
+        "stdout_sha256": "998254ead349ee156661447fc69ebee2605ae95b3066f12021635325c7ae1ec3",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "started_at": "2026-11-16T17:09:14.109507+00:00",
+        "ended_at": "2026-11-16T17:09:19.121756+00:00",
+        "argv": [
+          "C:\\Users\\ben_l\\Saved Games\\Yuuniverse 1.20.1 Shenyang\\porting-output\\work\\tools\\jdk21\\jdk-21.0.11+10\\bin\\javap.exe",
+          "-classpath",
+          "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\native-log-stream\\release-proof\\binaries\\46dccecac556623d8e2ce8648496824a82951d139062a4e61148aff1a25ed18d.jar",
+          "-c",
+          "-p",
+          "org.apache.logging.log4j.core.appender.rolling.TimeBasedTriggeringPolicy"
+        ],
+        "exit_code": 0,
+        "jar_sha256": "46dccecac556623d8e2ce8648496824a82951d139062a4e61148aff1a25ed18d",
+        "member": "org/apache/logging/log4j/core/appender/rolling/TimeBasedTriggeringPolicy.class",
+        "class_sha256": "cac617ede1eeb99f94ba4fd20518acc9377604f50f3cd4db87873549def23193",
+        "stdout_sha256": "643ccd5a6c4b85cb9c31570a5f6e0f8874c13e9b367876025adc9797ee0d6a61",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "started_at": "2026-11-16T17:09:19.142526+00:00",
+        "ended_at": "2026-11-16T17:09:24.864869+00:00",
+        "argv": [
+          "C:\\Users\\ben_l\\Saved Games\\Yuuniverse 1.20.1 Shenyang\\porting-output\\work\\tools\\jdk21\\jdk-21.0.11+10\\bin\\javap.exe",
+          "-classpath",
+          "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\native-log-stream\\release-proof\\binaries\\46dccecac556623d8e2ce8648496824a82951d139062a4e61148aff1a25ed18d.jar",
+          "-c",
+          "-p",
+          "org.apache.logging.log4j.core.appender.rolling.action.FileRenameAction"
+        ],
+        "exit_code": 0,
+        "jar_sha256": "46dccecac556623d8e2ce8648496824a82951d139062a4e61148aff1a25ed18d",
+        "member": "org/apache/logging/log4j/core/appender/rolling/action/FileRenameAction.class",
+        "class_sha256": "cb560a982a8c5c1c609e3592184d27d2a93cb389cf9f16223c63d1730c62ec32",
+        "stdout_sha256": "b0e1c40935175227b2f3a86388d8e5eb61783523e667e437220df11451bbde06",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "started_at": "2026-11-16T17:09:24.887643+00:00",
+        "ended_at": "2026-11-16T17:09:32.948182+00:00",
+        "argv": [
+          "C:\\Users\\ben_l\\Saved Games\\Yuuniverse 1.20.1 Shenyang\\porting-output\\work\\tools\\jdk21\\jdk-21.0.11+10\\bin\\javap.exe",
+          "-classpath",
+          "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\native-log-stream\\release-proof\\binaries\\46dccecac556623d8e2ce8648496824a82951d139062a4e61148aff1a25ed18d.jar",
+          "-c",
+          "-p",
+          "org.apache.logging.log4j.core.appender.rolling.action.GzCompressAction"
+        ],
+        "exit_code": 0,
+        "jar_sha256": "46dccecac556623d8e2ce8648496824a82951d139062a4e61148aff1a25ed18d",
+        "member": "org/apache/logging/log4j/core/appender/rolling/action/GzCompressAction.class",
+        "class_sha256": "a467361a4f2c43668b69eb651b1657de37569666bf65200d0a44188cec545e77",
+        "stdout_sha256": "77e2795a88ab392a6694b1f75af0fe9eb89b48a06c7755a1715bfacd364a5a79",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    ],
+    "8390398e67df23e72d85ed809685be2752c8ec545b7cbb6ad4b70fdc81e4dcd4": [
+      {
+        "started_at": "2026-11-16T17:09:33.373056+00:00",
+        "ended_at": "2026-11-16T17:09:41.293218+00:00",
+        "argv": [
+          "C:\\Users\\ben_l\\Saved Games\\Yuuniverse 1.20.1 Shenyang\\porting-output\\work\\tools\\jdk21\\jdk-21.0.11+10\\bin\\javap.exe",
+          "-classpath",
+          "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\native-log-stream\\release-proof\\binaries\\8390398e67df23e72d85ed809685be2752c8ec545b7cbb6ad4b70fdc81e4dcd4.jar",
+          "-c",
+          "-p",
+          "net.neoforged.fml.loading.targets.CommonLaunchHandler"
+        ],
+        "exit_code": 0,
+        "jar_sha256": "8390398e67df23e72d85ed809685be2752c8ec545b7cbb6ad4b70fdc81e4dcd4",
+        "member": "net/neoforged/fml/loading/targets/CommonLaunchHandler.class",
+        "class_sha256": "2601cea0e8e9b3137faf1f408a72bd93ea9efb028e9fd15bfeaa971e5c1cdab4",
+        "stdout_sha256": "e33a0146ea336345c1001f20df0e3d8733b2f2a00e353a8ed75f833d565e389e",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "started_at": "2026-11-16T17:09:41.327843+00:00",
+        "ended_at": "2026-11-16T17:09:49.604529+00:00",
+        "argv": [
+          "C:\\Users\\ben_l\\Saved Games\\Yuuniverse 1.20.1 Shenyang\\porting-output\\work\\tools\\jdk21\\jdk-21.0.11+10\\bin\\javap.exe",
+          "-classpath",
+          "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\native-log-stream\\release-proof\\binaries\\8390398e67df23e72d85ed809685be2752c8ec545b7cbb6ad4b70fdc81e4dcd4.jar",
+          "-c",
+          "-p",
+          "net.neoforged.fml.loading.targets.CommonClientLaunchHandler"
+        ],
+        "exit_code": 0,
+        "jar_sha256": "8390398e67df23e72d85ed809685be2752c8ec545b7cbb6ad4b70fdc81e4dcd4",
+        "member": "net/neoforged/fml/loading/targets/CommonClientLaunchHandler.class",
+        "class_sha256": "769b72fb45156776680cf6f5525dfbef2ec7be779036466e42e6ce788a6592ad",
+        "stdout_sha256": "7f079bc25a0c1d73588a8f18b0a1a77426e19e10876e672ef925c50088259454",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "started_at": "2026-11-16T17:09:50.092499+00:00",
+        "ended_at": "2026-11-16T17:10:00.715972+00:00",
+        "argv": [
+          "C:\\Users\\ben_l\\Saved Games\\Yuuniverse 1.20.1 Shenyang\\porting-output\\work\\tools\\jdk21\\jdk-21.0.11+10\\bin\\javap.exe",
+          "-classpath",
+          "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\native-log-stream\\release-proof\\binaries\\8390398e67df23e72d85ed809685be2752c8ec545b7cbb6ad4b70fdc81e4dcd4.jar",
+          "-c",
+          "-p",
+          "net.neoforged.fml.loading.targets.NeoForgeClientLaunchHandler"
+        ],
+        "exit_code": 0,
+        "jar_sha256": "8390398e67df23e72d85ed809685be2752c8ec545b7cbb6ad4b70fdc81e4dcd4",
+        "member": "net/neoforged/fml/loading/targets/NeoForgeClientLaunchHandler.class",
+        "class_sha256": "95a43a8e537ed5d24936ebc0962b54b355e843a34851d3867a35843fe22ed5a4",
+        "stdout_sha256": "d1e52428f389cffa454c2cacc1b17ad69d9d8bc8f6a2349c429f6c1692325800",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    ]
+  },
+  "scope": "Read-only exact release/configuration evidence; no game input, launch, restart or runtime mutation."
+}

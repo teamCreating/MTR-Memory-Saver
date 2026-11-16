@@ -12,12 +12,16 @@ from unittest import mock
 from types import SimpleNamespace
 
 import observe_packaged_client as observer
+from log_stream_test_support import fixture_stream, header
 
 
 class ObservationTest(unittest.TestCase):
     def setUp(self):
         self.temporary = tempfile.TemporaryDirectory()
         self.addCleanup(self.temporary.cleanup)
+        stream_factory = mock.patch.object(observer.native_log_stream.NativeLogStream, "from_launch", side_effect=fixture_stream)
+        stream_factory.start()
+        self.addCleanup(stream_factory.stop)
         self.root = pathlib.Path(self.temporary.name)
         self.now = dt.datetime(2026, 11, 15, 1, 0, tzinfo=dt.timezone.utc)
         self.launch = {"pid": 999, "timestamp": self.now.isoformat(), "command": [str(self.root / "java.exe"), "-Xmx3g"]}
@@ -168,7 +172,7 @@ class ObservationTest(unittest.TestCase):
 
     def run_observation(self, mode, interrupt=False, change_source=False, native_failure=False, motion_pattern="distributed",
             process_sample_cost=1, snapshot_period=None, auxiliary_delays=(), stop_request_at=None, stop_on_sample=None,
-            interval=5, stop_when_reloads_evaluated=False, change_identity_source=False):
+            interval=5, stop_when_reloads_evaluated=False, change_identity_source=False, change_log_source=False):
         initial_time = dt.datetime.now(dt.timezone.utc)
         now = initial_time.isoformat()
         self.launch["timestamp"] = now
@@ -193,8 +197,10 @@ class ObservationTest(unittest.TestCase):
         source.write_bytes(b"captured observer source")
         identity_source = self.root / "identity-source.py"
         identity_source.write_bytes(b"captured native identity source")
+        log_source = self.root / "native-log-source.py"
+        log_source.write_bytes(b"captured native log source")
         (self.root / "logs").mkdir()
-        log = "Loaded 670 vehicles and completed door movement validation\n"
+        log = header(self.root)+"Loaded 670 vehicles and completed door movement validation\n"
         if native_failure:
             log += "Failed to decode resource [test:valid-large.obj] as UTF-8 text\nResource text exceeds the configured limit\n"
         (self.root / "logs/latest.log").write_text(log)
@@ -216,6 +222,8 @@ class ObservationTest(unittest.TestCase):
                     source.write_bytes(b"changed source after observer began")
                 if change_identity_source:
                     identity_source.write_bytes(b"changed native identity source after observer began")
+                if change_log_source:
+                    log_source.write_bytes(b"changed native log source after observer began")
                 snapshot_clock = math.floor(clock[0]/snapshot_period)*snapshot_period if snapshot_period else clock[0]
                 stamp = (initial_time + dt.timedelta(seconds=snapshot_clock)).isoformat()
                 advanced = stamp != state["timestamp"]
@@ -258,6 +266,8 @@ class ObservationTest(unittest.TestCase):
         with mock.patch.object(observer, "WindowsProcess", FakeProcess), mock.patch.object(observer, "__file__", str(source)), \
                 mock.patch.object(observer.windows_process_identity, "__file__",
                     str(identity_source) if change_identity_source else observer.windows_process_identity.__file__), \
+                mock.patch.object(observer.native_log_stream, "__file__",
+                    str(log_source) if change_log_source else observer.native_log_stream.__file__), \
                 mock.patch.object(observer.time, "monotonic", side_effect=lambda: clock[0]), \
                 mock.patch.object(observer.time, "sleep", side_effect=advance_clock), \
                 mock.patch.object(observer.dt, "datetime", SimulatedDatetime), \
@@ -306,7 +316,7 @@ class ObservationTest(unittest.TestCase):
         self.write(self.root / "packaged-client-launch.json", self.launch)
         output = self.root / ("realtime-" + str(time.monotonic_ns()))
         (self.root / "logs").mkdir(exist_ok=True)
-        (self.root / "logs/latest.log").write_text("Loaded 670 vehicles and completed door movement validation\n", encoding="utf-8")
+        (self.root / "logs/latest.log").write_text(header(self.root)+"Loaded 670 vehicles and completed door movement validation\n", encoding="utf-8")
         owner = self
         sample_times, samplers = [], []
         class FakeProcess:
@@ -816,6 +826,14 @@ class ObservationTest(unittest.TestCase):
         self.assertEqual((output / "windows_process_identity.py").read_bytes(), b"captured native identity source")
         self.assertNotEqual(summary["process_identity_source_sha256"], summary["current_process_identity_source_sha256"])
         self.assertIn("process_identity_source_changed_during_observation", summary["observed_failures"])
+
+    def test_native_log_source_change_rejects_settlement(self):
+        code, summary, output = self.run_observation("startup", change_log_source=True)
+        self.assertEqual(code, 1)
+        self.assertFalse(summary["passed"])
+        self.assertEqual((output / "native-log-source.py").read_bytes(), b"captured native log source")
+        self.assertTrue(summary["native_log_sources_changed"])
+        self.assertIn("native_log_reader_source_changed_during_observation", summary["observed_failures"])
 
     def test_external_input_receipt_preserves_original_and_rejects_duplicate_confirmation(self):
         _, inputs, _, _ = self.full_reload_fixture(2)

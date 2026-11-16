@@ -1,0 +1,33 @@
+{
+  "verified_at": "2026-11-16T17:28:24.646936+00:00",
+  "passed": true,
+  "index_sha256": "954349e17778503465b63cb6c88ac65665e80b1c631edcb24c8d81a2495949db",
+  "payloads": 217,
+  "logical_bytes": 30411,
+  "earlier_prefix_bytes": 27952,
+  "segment_names": [
+    "2026-11-16-1.log.gz",
+    "latest.log"
+  ],
+  "native_diagnostic_replay_exact": true,
+  "release_profiles": [
+    "official-nf248",
+    "official-nf265"
+  ],
+  "bytecode_checks_including_shared_core_per_profile": 20,
+  "engineering_runs": {
+    "engineering-run-01": {
+      "tests": 176,
+      "exit_code": 1
+    },
+    "engineering-run-02-targeted": {
+      "tests": 58,
+      "exit_code": 0
+    },
+    "engineering-run-03-final": {
+      "tests": 60,
+      "exit_code": 0
+    }
+  },
+  "scope": "Sealed-only byte/hash/CRC/identity/configuration/diagnostic replay. No live process, input, reload, route, performance or whole-game exit acceptance."
+}

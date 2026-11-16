@@ -1,0 +1,792 @@
+Compiled from "DefaultRolloverStrategy.java"
+public class org.apache.logging.log4j.core.appender.rolling.DefaultRolloverStrategy extends org.apache.logging.log4j.core.appender.rolling.AbstractRolloverStrategy {
+  private static final int MIN_WINDOW_SIZE;
+
+  private static final int DEFAULT_WINDOW_SIZE;
+
+  private final int maxIndex;
+
+  private final int minIndex;
+
+  private final boolean useMax;
+
+  private final int compressionLevel;
+
+  private final java.util.List<org.apache.logging.log4j.core.appender.rolling.action.Action> customActions;
+
+  private final boolean stopCustomActionsOnError;
+
+  private final org.apache.logging.log4j.core.appender.rolling.PatternProcessor tempCompressedFilePattern;
+
+  public static org.apache.logging.log4j.core.appender.rolling.DefaultRolloverStrategy$Builder newBuilder();
+    Code:
+       0: new           #1                  // class org/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy$Builder
+       3: dup
+       4: invokespecial #3                  // Method org/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy$Builder."<init>":()V
+       7: areturn
+
+  public static org.apache.logging.log4j.core.appender.rolling.DefaultRolloverStrategy createStrategy(java.lang.String, java.lang.String, java.lang.String, java.lang.String, org.apache.logging.log4j.core.appender.rolling.action.Action[], boolean, org.apache.logging.log4j.core.config.Configuration);
+    Code:
+       0: invokestatic  #7                  // Method newBuilder:()Lorg/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy$Builder;
+       3: aload_1
+       4: invokevirtual #13                 // Method org/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy$Builder.withMin:(Ljava/lang/String;)Lorg/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy$Builder;
+       7: aload_0
+       8: invokevirtual #17                 // Method org/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy$Builder.withMax:(Ljava/lang/String;)Lorg/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy$Builder;
+      11: aload_2
+      12: invokevirtual #20                 // Method org/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy$Builder.withFileIndex:(Ljava/lang/String;)Lorg/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy$Builder;
+      15: aload_3
+      16: invokevirtual #23                 // Method org/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy$Builder.withCompressionLevelStr:(Ljava/lang/String;)Lorg/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy$Builder;
+      19: aload         4
+      21: invokevirtual #26                 // Method org/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy$Builder.withCustomActions:([Lorg/apache/logging/log4j/core/appender/rolling/action/Action;)Lorg/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy$Builder;
+      24: iload         5
+      26: invokevirtual #30                 // Method org/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy$Builder.withStopCustomActionsOnError:(Z)Lorg/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy$Builder;
+      29: aload         6
+      31: invokevirtual #34                 // Method org/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy$Builder.withConfig:(Lorg/apache/logging/log4j/core/config/Configuration;)Lorg/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy$Builder;
+      34: invokevirtual #38                 // Method org/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy$Builder.build:()Lorg/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy;
+      37: areturn
+
+  protected org.apache.logging.log4j.core.appender.rolling.DefaultRolloverStrategy(int, int, boolean, int, org.apache.logging.log4j.core.lookup.StrSubstitutor, org.apache.logging.log4j.core.appender.rolling.action.Action[], boolean);
+    Code:
+       0: aload_0
+       1: iload_1
+       2: iload_2
+       3: iload_3
+       4: iload         4
+       6: aload         5
+       8: aload         6
+      10: iload         7
+      12: aconst_null
+      13: invokespecial #42                 // Method "<init>":(IIZILorg/apache/logging/log4j/core/lookup/StrSubstitutor;[Lorg/apache/logging/log4j/core/appender/rolling/action/Action;ZLjava/lang/String;)V
+      16: return
+
+  protected org.apache.logging.log4j.core.appender.rolling.DefaultRolloverStrategy(int, int, boolean, int, org.apache.logging.log4j.core.lookup.StrSubstitutor, org.apache.logging.log4j.core.appender.rolling.action.Action[], boolean, java.lang.String);
+    Code:
+       0: aload_0
+       1: aload         5
+       3: invokespecial #45                 // Method org/apache/logging/log4j/core/appender/rolling/AbstractRolloverStrategy."<init>":(Lorg/apache/logging/log4j/core/lookup/StrSubstitutor;)V
+       6: aload_0
+       7: iload_1
+       8: putfield      #50                 // Field minIndex:I
+      11: aload_0
+      12: iload_2
+      13: putfield      #54                 // Field maxIndex:I
+      16: aload_0
+      17: iload_3
+      18: putfield      #57                 // Field useMax:Z
+      21: aload_0
+      22: iload         4
+      24: putfield      #61                 // Field compressionLevel:I
+      27: aload_0
+      28: iload         7
+      30: putfield      #64                 // Field stopCustomActionsOnError:Z
+      33: aload_0
+      34: aload         6
+      36: ifnonnull     45
+      39: invokestatic  #67                 // Method java/util/Collections.emptyList:()Ljava/util/List;
+      42: goto          50
+      45: aload         6
+      47: invokestatic  #73                 // Method java/util/Arrays.asList:([Ljava/lang/Object;)Ljava/util/List;
+      50: putfield      #79                 // Field customActions:Ljava/util/List;
+      53: aload_0
+      54: aload         8
+      56: ifnull        71
+      59: new           #83                 // class org/apache/logging/log4j/core/appender/rolling/PatternProcessor
+      62: dup
+      63: aload         8
+      65: invokespecial #85                 // Method org/apache/logging/log4j/core/appender/rolling/PatternProcessor."<init>":(Ljava/lang/String;)V
+      68: goto          72
+      71: aconst_null
+      72: putfield      #88                 // Field tempCompressedFilePattern:Lorg/apache/logging/log4j/core/appender/rolling/PatternProcessor;
+      75: return
+
+  public int getCompressionLevel();
+    Code:
+       0: aload_0
+       1: getfield      #61                 // Field compressionLevel:I
+       4: ireturn
+
+  public java.util.List<org.apache.logging.log4j.core.appender.rolling.action.Action> getCustomActions();
+    Code:
+       0: aload_0
+       1: getfield      #79                 // Field customActions:Ljava/util/List;
+       4: areturn
+
+  public int getMaxIndex();
+    Code:
+       0: aload_0
+       1: getfield      #54                 // Field maxIndex:I
+       4: ireturn
+
+  public int getMinIndex();
+    Code:
+       0: aload_0
+       1: getfield      #50                 // Field minIndex:I
+       4: ireturn
+
+  public boolean isStopCustomActionsOnError();
+    Code:
+       0: aload_0
+       1: getfield      #64                 // Field stopCustomActionsOnError:Z
+       4: ireturn
+
+  public boolean isUseMax();
+    Code:
+       0: aload_0
+       1: getfield      #57                 // Field useMax:Z
+       4: ireturn
+
+  public org.apache.logging.log4j.core.appender.rolling.PatternProcessor getTempCompressedFilePattern();
+    Code:
+       0: aload_0
+       1: getfield      #88                 // Field tempCompressedFilePattern:Lorg/apache/logging/log4j/core/appender/rolling/PatternProcessor;
+       4: areturn
+
+  private int purge(int, int, org.apache.logging.log4j.core.appender.rolling.RollingFileManager);
+    Code:
+       0: aload_0
+       1: getfield      #57                 // Field useMax:Z
+       4: ifeq          17
+       7: aload_0
+       8: iload_1
+       9: iload_2
+      10: aload_3
+      11: invokespecial #92                 // Method purgeAscending:(IILorg/apache/logging/log4j/core/appender/rolling/RollingFileManager;)I
+      14: goto          24
+      17: aload_0
+      18: iload_1
+      19: iload_2
+      20: aload_3
+      21: invokespecial #96                 // Method purgeDescending:(IILorg/apache/logging/log4j/core/appender/rolling/RollingFileManager;)I
+      24: ireturn
+
+  private int purgeAscending(int, int, org.apache.logging.log4j.core.appender.rolling.RollingFileManager);
+    Code:
+       0: aload_0
+       1: aload_3
+       2: invokevirtual #99                 // Method getEligibleFiles:(Lorg/apache/logging/log4j/core/appender/rolling/RollingFileManager;)Ljava/util/SortedMap;
+       5: astore        4
+       7: iload_2
+       8: iload_1
+       9: isub
+      10: iconst_1
+      11: iadd
+      12: istore        5
+      14: getstatic     #103                // Field LOGGER:Lorg/apache/logging/log4j/Logger;
+      17: ldc           #107                // String Eligible files: {}
+      19: aload         4
+      21: invokeinterface #109,  3          // InterfaceMethod org/apache/logging/log4j/Logger.debug:(Ljava/lang/String;Ljava/lang/Object;)V
+      26: aload         4
+      28: invokeinterface #115,  1          // InterfaceMethod java/util/SortedMap.isEmpty:()Z
+      33: ifne          60
+      36: aload         4
+      38: invokeinterface #121,  1          // InterfaceMethod java/util/SortedMap.lastKey:()Ljava/lang/Object;
+      43: checkcast     #125                // class java/lang/Integer
+      46: invokevirtual #127                // Method java/lang/Integer.intValue:()I
+      49: aload_0
+      50: getfield      #54                 // Field maxIndex:I
+      53: if_icmplt     60
+      56: iconst_1
+      57: goto          61
+      60: iconst_0
+      61: istore        6
+      63: aload         4
+      65: invokeinterface #131,  1          // InterfaceMethod java/util/SortedMap.size:()I
+      70: iload         5
+      72: if_icmplt     189
+      75: getstatic     #103                // Field LOGGER:Lorg/apache/logging/log4j/Logger;
+      78: ldc           #107                // String Eligible files: {}
+      80: aload         4
+      82: invokeinterface #109,  3          // InterfaceMethod org/apache/logging/log4j/Logger.debug:(Ljava/lang/String;Ljava/lang/Object;)V
+      87: aload         4
+      89: invokeinterface #134,  1          // InterfaceMethod java/util/SortedMap.firstKey:()Ljava/lang/Object;
+      94: checkcast     #125                // class java/lang/Integer
+      97: astore        7
+      99: getstatic     #103                // Field LOGGER:Lorg/apache/logging/log4j/Logger;
+     102: ldc           #137                // String Deleting {}
+     104: aload         4
+     106: aload         7
+     108: invokeinterface #139,  2          // InterfaceMethod java/util/SortedMap.get:(Ljava/lang/Object;)Ljava/lang/Object;
+     113: checkcast     #143                // class java/nio/file/Path
+     116: invokeinterface #145,  1          // InterfaceMethod java/nio/file/Path.toFile:()Ljava/io/File;
+     121: invokevirtual #149                // Method java/io/File.getAbsolutePath:()Ljava/lang/String;
+     124: invokeinterface #109,  3          // InterfaceMethod org/apache/logging/log4j/Logger.debug:(Ljava/lang/String;Ljava/lang/Object;)V
+     129: aload         4
+     131: aload         7
+     133: invokeinterface #139,  2          // InterfaceMethod java/util/SortedMap.get:(Ljava/lang/Object;)Ljava/lang/Object;
+     138: checkcast     #143                // class java/nio/file/Path
+     141: invokestatic  #155                // Method java/nio/file/Files.delete:(Ljava/nio/file/Path;)V
+     144: aload         4
+     146: aload         7
+     148: invokeinterface #161,  2          // InterfaceMethod java/util/SortedMap.remove:(Ljava/lang/Object;)Ljava/lang/Object;
+     153: pop
+     154: iconst_1
+     155: istore        6
+     157: goto          63
+     160: astore        7
+     162: getstatic     #103                // Field LOGGER:Lorg/apache/logging/log4j/Logger;
+     165: ldc           #166                // String Unable to delete {}, {}
+     167: aload         4
+     169: invokeinterface #134,  1          // InterfaceMethod java/util/SortedMap.firstKey:()Ljava/lang/Object;
+     174: aload         7
+     176: invokevirtual #168                // Method java/io/IOException.getMessage:()Ljava/lang/String;
+     179: aload         7
+     181: invokeinterface #171,  5          // InterfaceMethod org/apache/logging/log4j/Logger.error:(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
+     186: goto          189
+     189: new           #175                // class java/lang/StringBuilder
+     192: dup
+     193: invokespecial #177                // Method java/lang/StringBuilder."<init>":()V
+     196: astore        7
+     198: iload         6
+     200: ifeq          422
+     203: aload         4
+     205: invokeinterface #178,  1          // InterfaceMethod java/util/SortedMap.entrySet:()Ljava/util/Set;
+     210: invokeinterface #182,  1          // InterfaceMethod java/util/Set.iterator:()Ljava/util/Iterator;
+     215: astore        8
+     217: aload         8
+     219: invokeinterface #188,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+     224: ifeq          422
+     227: aload         8
+     229: invokeinterface #193,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+     234: checkcast     #196                // class java/util/Map$Entry
+     237: astore        9
+     239: aload         7
+     241: iconst_0
+     242: invokevirtual #198                // Method java/lang/StringBuilder.setLength:(I)V
+     245: aload_3
+     246: invokevirtual #202                // Method org/apache/logging/log4j/core/appender/rolling/RollingFileManager.getPatternProcessor:()Lorg/apache/logging/log4j/core/appender/rolling/PatternProcessor;
+     249: aload_0
+     250: getfield      #208                // Field strSubstitutor:Lorg/apache/logging/log4j/core/lookup/StrSubstitutor;
+     253: aload         7
+     255: aload         9
+     257: invokeinterface #212,  1          // InterfaceMethod java/util/Map$Entry.getKey:()Ljava/lang/Object;
+     262: checkcast     #125                // class java/lang/Integer
+     265: invokevirtual #127                // Method java/lang/Integer.intValue:()I
+     268: iconst_1
+     269: isub
+     270: invokestatic  #215                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     273: invokevirtual #219                // Method org/apache/logging/log4j/core/appender/rolling/PatternProcessor.formatFileName:(Lorg/apache/logging/log4j/core/lookup/StrSubstitutor;Ljava/lang/StringBuilder;Ljava/lang/Object;)V
+     276: aload         9
+     278: invokeinterface #223,  1          // InterfaceMethod java/util/Map$Entry.getValue:()Ljava/lang/Object;
+     283: checkcast     #143                // class java/nio/file/Path
+     286: invokeinterface #145,  1          // InterfaceMethod java/nio/file/Path.toFile:()Ljava/io/File;
+     291: invokevirtual #226                // Method java/io/File.getName:()Ljava/lang/String;
+     294: astore        10
+     296: aload         7
+     298: invokevirtual #229                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     301: astore        11
+     303: aload_0
+     304: aload         11
+     306: invokevirtual #232                // Method suffixLength:(Ljava/lang/String;)I
+     309: istore        12
+     311: iload         12
+     313: ifle          341
+     316: aload_0
+     317: aload         10
+     319: invokevirtual #232                // Method suffixLength:(Ljava/lang/String;)I
+     322: ifne          341
+     325: aload         11
+     327: iconst_0
+     328: aload         11
+     330: invokevirtual #236                // Method java/lang/String.length:()I
+     333: iload         12
+     335: isub
+     336: invokevirtual #241                // Method java/lang/String.substring:(II)Ljava/lang/String;
+     339: astore        11
+     341: new           #245                // class org/apache/logging/log4j/core/appender/rolling/action/FileRenameAction
+     344: dup
+     345: aload         9
+     347: invokeinterface #223,  1          // InterfaceMethod java/util/Map$Entry.getValue:()Ljava/lang/Object;
+     352: checkcast     #143                // class java/nio/file/Path
+     355: invokeinterface #145,  1          // InterfaceMethod java/nio/file/Path.toFile:()Ljava/io/File;
+     360: new           #150                // class java/io/File
+     363: dup
+     364: aload         11
+     366: invokespecial #247                // Method java/io/File."<init>":(Ljava/lang/String;)V
+     369: iconst_1
+     370: invokespecial #248                // Method org/apache/logging/log4j/core/appender/rolling/action/FileRenameAction."<init>":(Ljava/io/File;Ljava/io/File;Z)V
+     373: astore        13
+     375: getstatic     #103                // Field LOGGER:Lorg/apache/logging/log4j/Logger;
+     378: ldc           #251                // String DefaultRolloverStrategy.purgeAscending executing {}
+     380: aload         13
+     382: invokeinterface #109,  3          // InterfaceMethod org/apache/logging/log4j/Logger.debug:(Ljava/lang/String;Ljava/lang/Object;)V
+     387: aload         13
+     389: invokeinterface #253,  1          // InterfaceMethod org/apache/logging/log4j/core/appender/rolling/action/Action.execute:()Z
+     394: ifne          399
+     397: iconst_m1
+     398: ireturn
+     399: goto          419
+     402: astore        14
+     404: getstatic     #103                // Field LOGGER:Lorg/apache/logging/log4j/Logger;
+     407: ldc_w         #260                // String Exception during purge in RollingFileAppender
+     410: aload         14
+     412: invokeinterface #262,  3          // InterfaceMethod org/apache/logging/log4j/Logger.warn:(Ljava/lang/String;Ljava/lang/Throwable;)V
+     417: iconst_m1
+     418: ireturn
+     419: goto          217
+     422: aload         4
+     424: invokeinterface #131,  1          // InterfaceMethod java/util/SortedMap.size:()I
+     429: ifle          471
+     432: aload         4
+     434: invokeinterface #121,  1          // InterfaceMethod java/util/SortedMap.lastKey:()Ljava/lang/Object;
+     439: checkcast     #125                // class java/lang/Integer
+     442: invokevirtual #127                // Method java/lang/Integer.intValue:()I
+     445: iload_2
+     446: if_icmpge     467
+     449: aload         4
+     451: invokeinterface #121,  1          // InterfaceMethod java/util/SortedMap.lastKey:()Ljava/lang/Object;
+     456: checkcast     #125                // class java/lang/Integer
+     459: invokevirtual #127                // Method java/lang/Integer.intValue:()I
+     462: iconst_1
+     463: iadd
+     464: goto          472
+     467: iload_2
+     468: goto          472
+     471: iload_1
+     472: ireturn
+    Exception table:
+       from    to  target type
+          75   157   160   Class java/io/IOException
+         375   398   402   Class java/lang/Exception
+
+  private int purgeDescending(int, int, org.apache.logging.log4j.core.appender.rolling.RollingFileManager);
+    Code:
+       0: aload_0
+       1: aload_3
+       2: iconst_0
+       3: invokevirtual #266                // Method getEligibleFiles:(Lorg/apache/logging/log4j/core/appender/rolling/RollingFileManager;Z)Ljava/util/SortedMap;
+       6: astore        4
+       8: iload_2
+       9: iload_1
+      10: isub
+      11: iconst_1
+      12: iadd
+      13: istore        5
+      15: getstatic     #103                // Field LOGGER:Lorg/apache/logging/log4j/Logger;
+      18: ldc           #107                // String Eligible files: {}
+      20: aload         4
+      22: invokeinterface #109,  3          // InterfaceMethod org/apache/logging/log4j/Logger.debug:(Ljava/lang/String;Ljava/lang/Object;)V
+      27: aload         4
+      29: invokeinterface #131,  1          // InterfaceMethod java/util/SortedMap.size:()I
+      34: iload         5
+      36: if_icmplt     138
+      39: aload         4
+      41: invokeinterface #134,  1          // InterfaceMethod java/util/SortedMap.firstKey:()Ljava/lang/Object;
+      46: checkcast     #125                // class java/lang/Integer
+      49: astore        6
+      51: getstatic     #103                // Field LOGGER:Lorg/apache/logging/log4j/Logger;
+      54: ldc           #137                // String Deleting {}
+      56: aload         4
+      58: aload         6
+      60: invokeinterface #139,  2          // InterfaceMethod java/util/SortedMap.get:(Ljava/lang/Object;)Ljava/lang/Object;
+      65: checkcast     #143                // class java/nio/file/Path
+      68: invokeinterface #145,  1          // InterfaceMethod java/nio/file/Path.toFile:()Ljava/io/File;
+      73: invokevirtual #149                // Method java/io/File.getAbsolutePath:()Ljava/lang/String;
+      76: invokeinterface #109,  3          // InterfaceMethod org/apache/logging/log4j/Logger.debug:(Ljava/lang/String;Ljava/lang/Object;)V
+      81: aload         4
+      83: aload         6
+      85: invokeinterface #139,  2          // InterfaceMethod java/util/SortedMap.get:(Ljava/lang/Object;)Ljava/lang/Object;
+      90: checkcast     #143                // class java/nio/file/Path
+      93: invokestatic  #155                // Method java/nio/file/Files.delete:(Ljava/nio/file/Path;)V
+      96: aload         4
+      98: aload         6
+     100: invokeinterface #161,  2          // InterfaceMethod java/util/SortedMap.remove:(Ljava/lang/Object;)Ljava/lang/Object;
+     105: pop
+     106: goto          27
+     109: astore        6
+     111: getstatic     #103                // Field LOGGER:Lorg/apache/logging/log4j/Logger;
+     114: ldc           #166                // String Unable to delete {}, {}
+     116: aload         4
+     118: invokeinterface #134,  1          // InterfaceMethod java/util/SortedMap.firstKey:()Ljava/lang/Object;
+     123: aload         6
+     125: invokevirtual #168                // Method java/io/IOException.getMessage:()Ljava/lang/String;
+     128: aload         6
+     130: invokeinterface #171,  5          // InterfaceMethod org/apache/logging/log4j/Logger.error:(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
+     135: goto          138
+     138: new           #175                // class java/lang/StringBuilder
+     141: dup
+     142: invokespecial #177                // Method java/lang/StringBuilder."<init>":()V
+     145: astore        6
+     147: aload         4
+     149: invokeinterface #178,  1          // InterfaceMethod java/util/SortedMap.entrySet:()Ljava/util/Set;
+     154: invokeinterface #182,  1          // InterfaceMethod java/util/Set.iterator:()Ljava/util/Iterator;
+     159: astore        7
+     161: aload         7
+     163: invokeinterface #188,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+     168: ifeq          367
+     171: aload         7
+     173: invokeinterface #193,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+     178: checkcast     #196                // class java/util/Map$Entry
+     181: astore        8
+     183: aload         6
+     185: iconst_0
+     186: invokevirtual #198                // Method java/lang/StringBuilder.setLength:(I)V
+     189: aload_3
+     190: invokevirtual #202                // Method org/apache/logging/log4j/core/appender/rolling/RollingFileManager.getPatternProcessor:()Lorg/apache/logging/log4j/core/appender/rolling/PatternProcessor;
+     193: aload_0
+     194: getfield      #208                // Field strSubstitutor:Lorg/apache/logging/log4j/core/lookup/StrSubstitutor;
+     197: aload         6
+     199: aload         8
+     201: invokeinterface #212,  1          // InterfaceMethod java/util/Map$Entry.getKey:()Ljava/lang/Object;
+     206: checkcast     #125                // class java/lang/Integer
+     209: invokevirtual #127                // Method java/lang/Integer.intValue:()I
+     212: iconst_1
+     213: iadd
+     214: invokestatic  #215                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     217: invokevirtual #219                // Method org/apache/logging/log4j/core/appender/rolling/PatternProcessor.formatFileName:(Lorg/apache/logging/log4j/core/lookup/StrSubstitutor;Ljava/lang/StringBuilder;Ljava/lang/Object;)V
+     220: aload         8
+     222: invokeinterface #223,  1          // InterfaceMethod java/util/Map$Entry.getValue:()Ljava/lang/Object;
+     227: checkcast     #143                // class java/nio/file/Path
+     230: invokeinterface #145,  1          // InterfaceMethod java/nio/file/Path.toFile:()Ljava/io/File;
+     235: invokevirtual #226                // Method java/io/File.getName:()Ljava/lang/String;
+     238: astore        9
+     240: aload         6
+     242: invokevirtual #229                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     245: astore        10
+     247: aload_0
+     248: aload         10
+     250: invokevirtual #232                // Method suffixLength:(Ljava/lang/String;)I
+     253: istore        11
+     255: iload         11
+     257: ifle          285
+     260: aload_0
+     261: aload         9
+     263: invokevirtual #232                // Method suffixLength:(Ljava/lang/String;)I
+     266: ifne          285
+     269: aload         10
+     271: iconst_0
+     272: aload         10
+     274: invokevirtual #236                // Method java/lang/String.length:()I
+     277: iload         11
+     279: isub
+     280: invokevirtual #241                // Method java/lang/String.substring:(II)Ljava/lang/String;
+     283: astore        10
+     285: new           #245                // class org/apache/logging/log4j/core/appender/rolling/action/FileRenameAction
+     288: dup
+     289: aload         8
+     291: invokeinterface #223,  1          // InterfaceMethod java/util/Map$Entry.getValue:()Ljava/lang/Object;
+     296: checkcast     #143                // class java/nio/file/Path
+     299: invokeinterface #145,  1          // InterfaceMethod java/nio/file/Path.toFile:()Ljava/io/File;
+     304: new           #150                // class java/io/File
+     307: dup
+     308: aload         10
+     310: invokespecial #247                // Method java/io/File."<init>":(Ljava/lang/String;)V
+     313: iconst_1
+     314: invokespecial #248                // Method org/apache/logging/log4j/core/appender/rolling/action/FileRenameAction."<init>":(Ljava/io/File;Ljava/io/File;Z)V
+     317: astore        12
+     319: getstatic     #103                // Field LOGGER:Lorg/apache/logging/log4j/Logger;
+     322: ldc_w         #269                // String DefaultRolloverStrategy.purgeDescending executing {}
+     325: aload         12
+     327: invokeinterface #109,  3          // InterfaceMethod org/apache/logging/log4j/Logger.debug:(Ljava/lang/String;Ljava/lang/Object;)V
+     332: aload         12
+     334: invokeinterface #253,  1          // InterfaceMethod org/apache/logging/log4j/core/appender/rolling/action/Action.execute:()Z
+     339: ifne          344
+     342: iconst_m1
+     343: ireturn
+     344: goto          364
+     347: astore        13
+     349: getstatic     #103                // Field LOGGER:Lorg/apache/logging/log4j/Logger;
+     352: ldc_w         #260                // String Exception during purge in RollingFileAppender
+     355: aload         13
+     357: invokeinterface #262,  3          // InterfaceMethod org/apache/logging/log4j/Logger.warn:(Ljava/lang/String;Ljava/lang/Throwable;)V
+     362: iconst_m1
+     363: ireturn
+     364: goto          161
+     367: iload_1
+     368: ireturn
+    Exception table:
+       from    to  target type
+          39   106   109   Class java/io/IOException
+         319   343   347   Class java/lang/Exception
+
+  public org.apache.logging.log4j.core.appender.rolling.RolloverDescription rollover(org.apache.logging.log4j.core.appender.rolling.RollingFileManager) throws java.lang.SecurityException;
+    Code:
+       0: new           #175                // class java/lang/StringBuilder
+       3: dup
+       4: sipush        255
+       7: invokespecial #271                // Method java/lang/StringBuilder."<init>":(I)V
+      10: astore_3
+      11: aload_0
+      12: getfield      #50                 // Field minIndex:I
+      15: ldc_w         #273                // int -2147483648
+      18: if_icmpne     77
+      21: aload_0
+      22: aload_1
+      23: invokevirtual #99                 // Method getEligibleFiles:(Lorg/apache/logging/log4j/core/appender/rolling/RollingFileManager;)Ljava/util/SortedMap;
+      26: astore        4
+      28: aload         4
+      30: invokeinterface #131,  1          // InterfaceMethod java/util/SortedMap.size:()I
+      35: ifle          56
+      38: aload         4
+      40: invokeinterface #121,  1          // InterfaceMethod java/util/SortedMap.lastKey:()Ljava/lang/Object;
+      45: checkcast     #125                // class java/lang/Integer
+      48: invokevirtual #127                // Method java/lang/Integer.intValue:()I
+      51: iconst_1
+      52: iadd
+      53: goto          57
+      56: iconst_1
+      57: istore_2
+      58: aload_1
+      59: invokevirtual #202                // Method org/apache/logging/log4j/core/appender/rolling/RollingFileManager.getPatternProcessor:()Lorg/apache/logging/log4j/core/appender/rolling/PatternProcessor;
+      62: aload_0
+      63: getfield      #208                // Field strSubstitutor:Lorg/apache/logging/log4j/core/lookup/StrSubstitutor;
+      66: aload_3
+      67: iload_2
+      68: invokestatic  #215                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+      71: invokevirtual #219                // Method org/apache/logging/log4j/core/appender/rolling/PatternProcessor.formatFileName:(Lorg/apache/logging/log4j/core/lookup/StrSubstitutor;Ljava/lang/StringBuilder;Ljava/lang/Object;)V
+      74: goto          169
+      77: aload_0
+      78: getfield      #54                 // Field maxIndex:I
+      81: ifge          86
+      84: aconst_null
+      85: areturn
+      86: invokestatic  #274                // Method java/lang/System.nanoTime:()J
+      89: lstore        4
+      91: aload_0
+      92: aload_0
+      93: getfield      #50                 // Field minIndex:I
+      96: aload_0
+      97: getfield      #54                 // Field maxIndex:I
+     100: aload_1
+     101: invokespecial #280                // Method purge:(IILorg/apache/logging/log4j/core/appender/rolling/RollingFileManager;)I
+     104: istore_2
+     105: iload_2
+     106: ifge          111
+     109: aconst_null
+     110: areturn
+     111: aload_1
+     112: invokevirtual #202                // Method org/apache/logging/log4j/core/appender/rolling/RollingFileManager.getPatternProcessor:()Lorg/apache/logging/log4j/core/appender/rolling/PatternProcessor;
+     115: aload_0
+     116: getfield      #208                // Field strSubstitutor:Lorg/apache/logging/log4j/core/lookup/StrSubstitutor;
+     119: aload_3
+     120: iload_2
+     121: invokestatic  #215                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     124: invokevirtual #219                // Method org/apache/logging/log4j/core/appender/rolling/PatternProcessor.formatFileName:(Lorg/apache/logging/log4j/core/lookup/StrSubstitutor;Ljava/lang/StringBuilder;Ljava/lang/Object;)V
+     127: getstatic     #103                // Field LOGGER:Lorg/apache/logging/log4j/Logger;
+     130: invokeinterface #283,  1          // InterfaceMethod org/apache/logging/log4j/Logger.isTraceEnabled:()Z
+     135: ifeq          169
+     138: getstatic     #286                // Field java/util/concurrent/TimeUnit.NANOSECONDS:Ljava/util/concurrent/TimeUnit;
+     141: invokestatic  #274                // Method java/lang/System.nanoTime:()J
+     144: lload         4
+     146: lsub
+     147: invokevirtual #292                // Method java/util/concurrent/TimeUnit.toMillis:(J)J
+     150: l2d
+     151: dstore        6
+     153: getstatic     #103                // Field LOGGER:Lorg/apache/logging/log4j/Logger;
+     156: ldc_w         #296                // String DefaultRolloverStrategy.purge() took {} milliseconds
+     159: dload         6
+     161: invokestatic  #298                // Method java/lang/Double.valueOf:(D)Ljava/lang/Double;
+     164: invokeinterface #303,  3          // InterfaceMethod org/apache/logging/log4j/Logger.trace:(Ljava/lang/String;Ljava/lang/Object;)V
+     169: aload_1
+     170: invokevirtual #306                // Method org/apache/logging/log4j/core/appender/rolling/RollingFileManager.getFileName:()Ljava/lang/String;
+     173: astore        4
+     175: aload_3
+     176: invokevirtual #229                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     179: astore        5
+     181: aload         5
+     183: astore        6
+     185: aconst_null
+     186: astore        7
+     188: aload_1
+     189: invokevirtual #309                // Method org/apache/logging/log4j/core/appender/rolling/RollingFileManager.getFileExtension:()Lorg/apache/logging/log4j/core/appender/rolling/FileExtension;
+     192: astore        8
+     194: aload         8
+     196: ifnull        365
+     199: new           #150                // class java/io/File
+     202: dup
+     203: aload         5
+     205: invokespecial #247                // Method java/io/File."<init>":(Ljava/lang/String;)V
+     208: astore        9
+     210: aload         5
+     212: iconst_0
+     213: aload         5
+     215: invokevirtual #236                // Method java/lang/String.length:()I
+     218: aload         8
+     220: invokevirtual #313                // Method org/apache/logging/log4j/core/appender/rolling/FileExtension.length:()I
+     223: isub
+     224: invokevirtual #241                // Method java/lang/String.substring:(II)Ljava/lang/String;
+     227: astore        5
+     229: aload_0
+     230: getfield      #88                 // Field tempCompressedFilePattern:Lorg/apache/logging/log4j/core/appender/rolling/PatternProcessor;
+     233: ifnull        349
+     236: aload_3
+     237: iconst_0
+     238: aload_3
+     239: invokevirtual #316                // Method java/lang/StringBuilder.length:()I
+     242: invokevirtual #317                // Method java/lang/StringBuilder.delete:(II)Ljava/lang/StringBuilder;
+     245: pop
+     246: aload_0
+     247: getfield      #88                 // Field tempCompressedFilePattern:Lorg/apache/logging/log4j/core/appender/rolling/PatternProcessor;
+     250: aload_0
+     251: getfield      #208                // Field strSubstitutor:Lorg/apache/logging/log4j/core/lookup/StrSubstitutor;
+     254: aload_3
+     255: iload_2
+     256: invokestatic  #215                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     259: invokevirtual #219                // Method org/apache/logging/log4j/core/appender/rolling/PatternProcessor.formatFileName:(Lorg/apache/logging/log4j/core/lookup/StrSubstitutor;Ljava/lang/StringBuilder;Ljava/lang/Object;)V
+     262: aload_3
+     263: invokevirtual #229                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     266: astore        10
+     268: new           #150                // class java/io/File
+     271: dup
+     272: aload         10
+     274: invokespecial #247                // Method java/io/File."<init>":(Ljava/lang/String;)V
+     277: astore        11
+     279: aload         11
+     281: invokevirtual #320                // Method java/io/File.getParentFile:()Ljava/io/File;
+     284: astore        12
+     286: aload         12
+     288: ifnull        297
+     291: aload         12
+     293: invokevirtual #323                // Method java/io/File.mkdirs:()Z
+     296: pop
+     297: new           #326                // class org/apache/logging/log4j/core/appender/rolling/action/CompositeAction
+     300: dup
+     301: iconst_2
+     302: anewarray     #254                // class org/apache/logging/log4j/core/appender/rolling/action/Action
+     305: dup
+     306: iconst_0
+     307: aload         8
+     309: aload         5
+     311: aload         10
+     313: iconst_1
+     314: aload_0
+     315: getfield      #61                 // Field compressionLevel:I
+     318: invokevirtual #328                // Method org/apache/logging/log4j/core/appender/rolling/FileExtension.createCompressAction:(Ljava/lang/String;Ljava/lang/String;ZI)Lorg/apache/logging/log4j/core/appender/rolling/action/Action;
+     321: aastore
+     322: dup
+     323: iconst_1
+     324: new           #245                // class org/apache/logging/log4j/core/appender/rolling/action/FileRenameAction
+     327: dup
+     328: aload         11
+     330: aload         9
+     332: iconst_1
+     333: invokespecial #248                // Method org/apache/logging/log4j/core/appender/rolling/action/FileRenameAction."<init>":(Ljava/io/File;Ljava/io/File;Z)V
+     336: aastore
+     337: invokestatic  #73                 // Method java/util/Arrays.asList:([Ljava/lang/Object;)Ljava/util/List;
+     340: iconst_1
+     341: invokespecial #332                // Method org/apache/logging/log4j/core/appender/rolling/action/CompositeAction."<init>":(Ljava/util/List;Z)V
+     344: astore        7
+     346: goto          365
+     349: aload         8
+     351: aload         5
+     353: aload         6
+     355: iconst_1
+     356: aload_0
+     357: getfield      #61                 // Field compressionLevel:I
+     360: invokevirtual #328                // Method org/apache/logging/log4j/core/appender/rolling/FileExtension.createCompressAction:(Ljava/lang/String;Ljava/lang/String;ZI)Lorg/apache/logging/log4j/core/appender/rolling/action/Action;
+     363: astore        7
+     365: aload         4
+     367: aload         5
+     369: invokevirtual #335                // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+     372: ifeq          401
+     375: getstatic     #103                // Field LOGGER:Lorg/apache/logging/log4j/Logger;
+     378: ldc_w         #339                // String Attempt to rename file {} to itself will be ignored
+     381: aload         4
+     383: invokeinterface #341,  3          // InterfaceMethod org/apache/logging/log4j/Logger.warn:(Ljava/lang/String;Ljava/lang/Object;)V
+     388: new           #343                // class org/apache/logging/log4j/core/appender/rolling/RolloverDescriptionImpl
+     391: dup
+     392: aload         4
+     394: iconst_0
+     395: aconst_null
+     396: aconst_null
+     397: invokespecial #345                // Method org/apache/logging/log4j/core/appender/rolling/RolloverDescriptionImpl."<init>":(Ljava/lang/String;ZLorg/apache/logging/log4j/core/appender/rolling/action/Action;Lorg/apache/logging/log4j/core/appender/rolling/action/Action;)V
+     400: areturn
+     401: aload         7
+     403: ifnull        495
+     406: aload_1
+     407: invokevirtual #348                // Method org/apache/logging/log4j/core/appender/rolling/RollingFileManager.isAttributeViewEnabled:()Z
+     410: ifeq          495
+     413: invokestatic  #351                // Method org/apache/logging/log4j/core/appender/rolling/action/PosixViewAttributeAction.newBuilder:()Lorg/apache/logging/log4j/core/appender/rolling/action/PosixViewAttributeAction$Builder;
+     416: aload         6
+     418: invokevirtual #356                // Method org/apache/logging/log4j/core/appender/rolling/action/PosixViewAttributeAction$Builder.withBasePath:(Ljava/lang/String;)Lorg/apache/logging/log4j/core/appender/rolling/action/PosixViewAttributeAction$Builder;
+     421: iconst_0
+     422: invokevirtual #362                // Method org/apache/logging/log4j/core/appender/rolling/action/PosixViewAttributeAction$Builder.withFollowLinks:(Z)Lorg/apache/logging/log4j/core/appender/rolling/action/PosixViewAttributeAction$Builder;
+     425: iconst_1
+     426: invokevirtual #366                // Method org/apache/logging/log4j/core/appender/rolling/action/PosixViewAttributeAction$Builder.withMaxDepth:(I)Lorg/apache/logging/log4j/core/appender/rolling/action/PosixViewAttributeAction$Builder;
+     429: getstatic     #370                // Field org/apache/logging/log4j/core/appender/rolling/action/PathCondition.EMPTY_ARRAY:[Lorg/apache/logging/log4j/core/appender/rolling/action/PathCondition;
+     432: invokevirtual #376                // Method org/apache/logging/log4j/core/appender/rolling/action/PosixViewAttributeAction$Builder.withPathConditions:([Lorg/apache/logging/log4j/core/appender/rolling/action/PathCondition;)Lorg/apache/logging/log4j/core/appender/rolling/action/PosixViewAttributeAction$Builder;
+     435: aload_0
+     436: invokevirtual #380                // Method getStrSubstitutor:()Lorg/apache/logging/log4j/core/lookup/StrSubstitutor;
+     439: invokevirtual #384                // Method org/apache/logging/log4j/core/appender/rolling/action/PosixViewAttributeAction$Builder.withSubst:(Lorg/apache/logging/log4j/core/lookup/StrSubstitutor;)Lorg/apache/logging/log4j/core/appender/rolling/action/PosixViewAttributeAction$Builder;
+     442: aload_1
+     443: invokevirtual #388                // Method org/apache/logging/log4j/core/appender/rolling/RollingFileManager.getFilePermissions:()Ljava/util/Set;
+     446: invokevirtual #391                // Method org/apache/logging/log4j/core/appender/rolling/action/PosixViewAttributeAction$Builder.withFilePermissions:(Ljava/util/Set;)Lorg/apache/logging/log4j/core/appender/rolling/action/PosixViewAttributeAction$Builder;
+     449: aload_1
+     450: invokevirtual #395                // Method org/apache/logging/log4j/core/appender/rolling/RollingFileManager.getFileOwner:()Ljava/lang/String;
+     453: invokevirtual #398                // Method org/apache/logging/log4j/core/appender/rolling/action/PosixViewAttributeAction$Builder.withFileOwner:(Ljava/lang/String;)Lorg/apache/logging/log4j/core/appender/rolling/action/PosixViewAttributeAction$Builder;
+     456: aload_1
+     457: invokevirtual #401                // Method org/apache/logging/log4j/core/appender/rolling/RollingFileManager.getFileGroup:()Ljava/lang/String;
+     460: invokevirtual #404                // Method org/apache/logging/log4j/core/appender/rolling/action/PosixViewAttributeAction$Builder.withFileGroup:(Ljava/lang/String;)Lorg/apache/logging/log4j/core/appender/rolling/action/PosixViewAttributeAction$Builder;
+     463: invokevirtual #407                // Method org/apache/logging/log4j/core/appender/rolling/action/PosixViewAttributeAction$Builder.build:()Lorg/apache/logging/log4j/core/appender/rolling/action/PosixViewAttributeAction;
+     466: astore        9
+     468: new           #326                // class org/apache/logging/log4j/core/appender/rolling/action/CompositeAction
+     471: dup
+     472: iconst_2
+     473: anewarray     #254                // class org/apache/logging/log4j/core/appender/rolling/action/Action
+     476: dup
+     477: iconst_0
+     478: aload         7
+     480: aastore
+     481: dup
+     482: iconst_1
+     483: aload         9
+     485: aastore
+     486: invokestatic  #73                 // Method java/util/Arrays.asList:([Ljava/lang/Object;)Ljava/util/List;
+     489: iconst_0
+     490: invokespecial #332                // Method org/apache/logging/log4j/core/appender/rolling/action/CompositeAction."<init>":(Ljava/util/List;Z)V
+     493: astore        7
+     495: new           #245                // class org/apache/logging/log4j/core/appender/rolling/action/FileRenameAction
+     498: dup
+     499: new           #150                // class java/io/File
+     502: dup
+     503: aload         4
+     505: invokespecial #247                // Method java/io/File."<init>":(Ljava/lang/String;)V
+     508: new           #150                // class java/io/File
+     511: dup
+     512: aload         5
+     514: invokespecial #247                // Method java/io/File."<init>":(Ljava/lang/String;)V
+     517: aload_1
+     518: invokevirtual #410                // Method org/apache/logging/log4j/core/appender/rolling/RollingFileManager.isRenameEmptyFiles:()Z
+     521: invokespecial #248                // Method org/apache/logging/log4j/core/appender/rolling/action/FileRenameAction."<init>":(Ljava/io/File;Ljava/io/File;Z)V
+     524: astore        9
+     526: aload_0
+     527: aload         7
+     529: aload_0
+     530: getfield      #79                 // Field customActions:Ljava/util/List;
+     533: aload_0
+     534: getfield      #64                 // Field stopCustomActionsOnError:Z
+     537: invokevirtual #413                // Method merge:(Lorg/apache/logging/log4j/core/appender/rolling/action/Action;Ljava/util/List;Z)Lorg/apache/logging/log4j/core/appender/rolling/action/Action;
+     540: astore        10
+     542: new           #343                // class org/apache/logging/log4j/core/appender/rolling/RolloverDescriptionImpl
+     545: dup
+     546: aload         4
+     548: iconst_0
+     549: aload         9
+     551: aload         10
+     553: invokespecial #345                // Method org/apache/logging/log4j/core/appender/rolling/RolloverDescriptionImpl."<init>":(Ljava/lang/String;ZLorg/apache/logging/log4j/core/appender/rolling/action/Action;Lorg/apache/logging/log4j/core/appender/rolling/action/Action;)V
+     556: areturn
+
+  public java.lang.String toString();
+    Code:
+       0: new           #175                // class java/lang/StringBuilder
+       3: dup
+       4: invokespecial #177                // Method java/lang/StringBuilder."<init>":()V
+       7: ldc_w         #417                // String DefaultRolloverStrategy(min=
+      10: invokevirtual #419                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      13: aload_0
+      14: getfield      #50                 // Field minIndex:I
+      17: invokevirtual #423                // Method java/lang/StringBuilder.append:(I)Ljava/lang/StringBuilder;
+      20: ldc_w         #426                // String , max=
+      23: invokevirtual #419                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      26: aload_0
+      27: getfield      #54                 // Field maxIndex:I
+      30: invokevirtual #423                // Method java/lang/StringBuilder.append:(I)Ljava/lang/StringBuilder;
+      33: ldc_w         #428                // String , useMax=
+      36: invokevirtual #419                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      39: aload_0
+      40: getfield      #57                 // Field useMax:Z
+      43: invokevirtual #430                // Method java/lang/StringBuilder.append:(Z)Ljava/lang/StringBuilder;
+      46: ldc_w         #433                // String )
+      49: invokevirtual #419                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      52: invokevirtual #229                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+      55: areturn
+}

@@ -11,6 +11,7 @@ from unittest import mock
 
 import observe_packaged_client as observer
 import reload_before_recorder as recorder
+from log_stream_test_support import fixture_stream
 
 
 FIXTURE = recorder.ROOT / "evidence/engineering-048/neutral-runtime-02-review/capture-02"
@@ -18,6 +19,9 @@ FIXTURE = recorder.ROOT / "evidence/engineering-048/neutral-runtime-02-review/ca
 
 class NeutralReloadTest(unittest.TestCase):
     def setUp(self):
+        factory = mock.patch.object(observer.native_log_stream.NativeLogStream, "from_launch", side_effect=fixture_stream)
+        factory.start()
+        self.addCleanup(factory.stop)
         self.state = json.loads((FIXTURE / "final-snapshot.json").read_bytes())
         self.process = json.loads((FIXTURE / "process.json").read_bytes())
         self.metadata = json.loads((FIXTURE / "observer-target.json").read_bytes())
@@ -151,6 +155,8 @@ class NeutralReloadTest(unittest.TestCase):
             for name in ("logs/latest.log", "game-probe/native-resource-epochs.jsonl", "game-probe/native-invalid-model.jsonl"):
                 path = root / name; path.parent.mkdir(parents=True, exist_ok=True)
                 path.write_bytes((FIXTURE / name).read_bytes())
+                if name == "logs/latest.log":
+                    path.write_bytes(path.read_bytes().replace(self.plan["instance"].encode("utf-8"), str(root).encode("utf-8")))
             clock, state = [0.0], copy.deepcopy(self.state)
             base = observer.instant(state["timestamp"])+dt.timedelta(seconds=1)
             datetime_class = dt.datetime

@@ -1,0 +1,344 @@
+Compiled from "CommonLaunchHandler.java"
+public abstract class net.neoforged.fml.loading.targets.CommonLaunchHandler implements cpw.mods.modlauncher.api.ILaunchHandlerService {
+  protected static final org.slf4j.Logger LOGGER;
+
+  public net.neoforged.fml.loading.targets.CommonLaunchHandler();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: return
+
+  public abstract net.neoforged.api.distmarker.Dist getDist();
+
+  public abstract boolean isProduction();
+
+  public boolean isData();
+    Code:
+       0: iconst_0
+       1: ireturn
+
+  public void collectAdditionalModFileLocators(net.neoforged.fml.loading.VersionInfo, java.util.function.Consumer<net.neoforged.neoforgespi.locating.IModFileCandidateLocator>);
+    Code:
+       0: return
+
+  protected java.lang.String[] preLaunch(java.lang.String[], java.lang.ModuleLayer);
+    Code:
+       0: aload_0
+       1: invokevirtual #7                  // Method isProduction:()Z
+       4: ifne          15
+       7: ldc           #13                 // String log4j2.configurationFile
+       9: invokestatic  #15                 // Method java/lang/System.getProperty:(Ljava/lang/String;)Ljava/lang/String;
+      12: ifnonnull     20
+      15: aload_0
+      16: aload_2
+      17: invokevirtual #21                 // Method overwriteLoggingConfiguration:(Ljava/lang/ModuleLayer;)V
+      20: aload_1
+      21: areturn
+
+  private void overwriteLoggingConfiguration(java.lang.ModuleLayer);
+    Code:
+       0: aload_1
+       1: invokevirtual #25                 // Method java/lang/ModuleLayer.configuration:()Ljava/lang/module/Configuration;
+       4: ldc           #31                 // String fml_loader
+       6: invokevirtual #33                 // Method java/lang/module/Configuration.findModule:(Ljava/lang/String;)Ljava/util/Optional;
+       9: invokevirtual #39                 // Method java/util/Optional.orElseThrow:()Ljava/lang/Object;
+      12: checkcast     #45                 // class java/lang/module/ResolvedModule
+      15: invokevirtual #47                 // Method java/lang/module/ResolvedModule.reference:()Ljava/lang/module/ModuleReference;
+      18: invokevirtual #51                 // Method java/lang/module/ModuleReference.open:()Ljava/lang/module/ModuleReader;
+      21: astore_3
+      22: aload_3
+      23: ldc           #57                 // String log4j2.xml
+      25: invokeinterface #59,  2           // InterfaceMethod java/lang/module/ModuleReader.find:(Ljava/lang/String;)Ljava/util/Optional;
+      30: invokevirtual #39                 // Method java/util/Optional.orElseThrow:()Ljava/lang/Object;
+      33: checkcast     #64                 // class java/net/URI
+      36: astore_2
+      37: aload_3
+      38: ifnull        77
+      41: aload_3
+      42: invokeinterface #66,  1           // InterfaceMethod java/lang/module/ModuleReader.close:()V
+      47: goto          77
+      50: astore        4
+      52: aload_3
+      53: ifnull        74
+      56: aload_3
+      57: invokeinterface #66,  1           // InterfaceMethod java/lang/module/ModuleReader.close:()V
+      62: goto          74
+      65: astore        5
+      67: aload         4
+      69: aload         5
+      71: invokevirtual #71                 // Method java/lang/Throwable.addSuppressed:(Ljava/lang/Throwable;)V
+      74: aload         4
+      76: athrow
+      77: goto          90
+      80: astore_3
+      81: new           #77                 // class java/lang/RuntimeException
+      84: dup
+      85: aload_3
+      86: invokespecial #79                 // Method java/lang/RuntimeException."<init>":(Ljava/lang/Throwable;)V
+      89: athrow
+      90: invokestatic  #81                 // Method org/apache/logging/log4j/core/config/ConfigurationFactory.getInstance:()Lorg/apache/logging/log4j/core/config/ConfigurationFactory;
+      93: invokestatic  #87                 // Method org/apache/logging/log4j/core/LoggerContext.getContext:()Lorg/apache/logging/log4j/core/LoggerContext;
+      96: aload_2
+      97: invokestatic  #93                 // Method org/apache/logging/log4j/core/config/ConfigurationSource.fromUri:(Ljava/net/URI;)Lorg/apache/logging/log4j/core/config/ConfigurationSource;
+     100: invokevirtual #99                 // Method org/apache/logging/log4j/core/config/ConfigurationFactory.getConfiguration:(Lorg/apache/logging/log4j/core/LoggerContext;Lorg/apache/logging/log4j/core/config/ConfigurationSource;)Lorg/apache/logging/log4j/core/config/Configuration;
+     103: invokestatic  #103                // Method org/apache/logging/log4j/core/config/Configurator.reconfigure:(Lorg/apache/logging/log4j/core/config/Configuration;)V
+     106: return
+    Exception table:
+       from    to  target type
+          22    37    50   Class java/lang/Throwable
+          56    62    65   Class java/lang/Throwable
+           0    77    80   Class java/io/IOException
+
+  public static java.util.Map<java.lang.String, java.util.List<java.nio.file.Path>> getGroupedModFolders();
+    Code:
+       0: ldc           #109                // String MOD_CLASSES
+       2: invokestatic  #111                // Method java/lang/System.getenv:(Ljava/lang/String;)Ljava/lang/String;
+       5: invokestatic  #114                // Method java/util/Optional.ofNullable:(Ljava/lang/Object;)Ljava/util/Optional;
+       8: ldc           #118                // String fml.modFolders
+      10: ldc           #120                // String
+      12: invokestatic  #122                // Method java/lang/System.getProperty:(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+      15: invokevirtual #125                // Method java/util/Optional.orElse:(Ljava/lang/Object;)Ljava/lang/Object;
+      18: checkcast     #129                // class java/lang/String
+      21: astore_1
+      22: ldc           #131                // String fml.modFoldersFile
+      24: ldc           #120                // String
+      26: invokestatic  #122                // Method java/lang/System.getProperty:(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+      29: astore_2
+      30: aload_2
+      31: invokevirtual #133                // Method java/lang/String.isEmpty:()Z
+      34: ifne          172
+      37: getstatic     #136                // Field LOGGER:Lorg/slf4j/Logger;
+      40: getstatic     #140                // Field net/neoforged/fml/loading/LogMarkers.CORE:Lorg/slf4j/Marker;
+      43: ldc           #146                // String Reading additional mod folders from file {}
+      45: aload_2
+      46: invokeinterface #148,  4          // InterfaceMethod org/slf4j/Logger.debug:(Lorg/slf4j/Marker;Ljava/lang/String;Ljava/lang/Object;)V
+      51: new           #154                // class java/util/Properties
+      54: dup
+      55: invokespecial #156                // Method java/util/Properties."<init>":()V
+      58: astore_3
+      59: aload_2
+      60: iconst_0
+      61: anewarray     #129                // class java/lang/String
+      64: invokestatic  #157                // Method java/nio/file/Paths.get:(Ljava/lang/String;[Ljava/lang/String;)Ljava/nio/file/Path;
+      67: invokestatic  #163                // Method java/nio/file/Files.newBufferedReader:(Ljava/nio/file/Path;)Ljava/io/BufferedReader;
+      70: astore        4
+      72: aload_3
+      73: aload         4
+      75: invokevirtual #169                // Method java/util/Properties.load:(Ljava/io/Reader;)V
+      78: aload         4
+      80: ifnull        118
+      83: aload         4
+      85: invokevirtual #173                // Method java/io/BufferedReader.close:()V
+      88: goto          118
+      91: astore        5
+      93: aload         4
+      95: ifnull        115
+      98: aload         4
+     100: invokevirtual #173                // Method java/io/BufferedReader.close:()V
+     103: goto          115
+     106: astore        6
+     108: aload         5
+     110: aload         6
+     112: invokevirtual #71                 // Method java/lang/Throwable.addSuppressed:(Ljava/lang/Throwable;)V
+     115: aload         5
+     117: athrow
+     118: goto          139
+     121: astore        4
+     123: new           #176                // class java/io/UncheckedIOException
+     126: dup
+     127: aload_2
+     128: invokedynamic #178,  0            // InvokeDynamic #0:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+     133: aload         4
+     135: invokespecial #181                // Method java/io/UncheckedIOException."<init>":(Ljava/lang/String;Ljava/io/IOException;)V
+     138: athrow
+     139: aload_3
+     140: invokevirtual #184                // Method java/util/Properties.stringPropertyNames:()Ljava/util/Set;
+     143: invokeinterface #188,  1          // InterfaceMethod java/util/Set.stream:()Ljava/util/stream/Stream;
+     148: invokestatic  #194                // InterfaceMethod java/util/function/Function.identity:()Ljava/util/function/Function;
+     151: aload_3
+     152: invokedynamic #200,  0            // InvokeDynamic #1:apply:(Ljava/util/Properties;)Ljava/util/function/Function;
+     157: invokestatic  #204                // Method java/util/stream/Collectors.toMap:(Ljava/util/function/Function;Ljava/util/function/Function;)Ljava/util/stream/Collector;
+     160: invokeinterface #210,  2          // InterfaceMethod java/util/stream/Stream.collect:(Ljava/util/stream/Collector;)Ljava/lang/Object;
+     165: checkcast     #216                // class java/util/Map
+     168: astore_0
+     169: goto          258
+     172: aload_1
+     173: invokevirtual #133                // Method java/lang/String.isEmpty:()Z
+     176: ifne          254
+     179: getstatic     #136                // Field LOGGER:Lorg/slf4j/Logger;
+     182: getstatic     #140                // Field net/neoforged/fml/loading/LogMarkers.CORE:Lorg/slf4j/Marker;
+     185: ldc           #218                // String Got mod coordinates {} from env
+     187: aload_1
+     188: invokeinterface #148,  4          // InterfaceMethod org/slf4j/Logger.debug:(Lorg/slf4j/Marker;Ljava/lang/String;Ljava/lang/Object;)V
+     193: aload_1
+     194: getstatic     #220                // Field java/io/File.pathSeparator:Ljava/lang/String;
+     197: invokevirtual #226                // Method java/lang/String.split:(Ljava/lang/String;)[Ljava/lang/String;
+     200: invokestatic  #230                // Method java/util/Arrays.stream:([Ljava/lang/Object;)Ljava/util/stream/Stream;
+     203: invokedynamic #235,  0            // InvokeDynamic #2:apply:()Ljava/util/function/Function;
+     208: invokeinterface #237,  2          // InterfaceMethod java/util/stream/Stream.map:(Ljava/util/function/Function;)Ljava/util/stream/Stream;
+     213: invokedynamic #241,  0            // InvokeDynamic #3:apply:()Ljava/util/function/Function;
+     218: invokeinterface #237,  2          // InterfaceMethod java/util/stream/Stream.map:(Ljava/util/function/Function;)Ljava/util/stream/Stream;
+     223: invokedynamic #242,  0            // InvokeDynamic #4:apply:()Ljava/util/function/Function;
+     228: invokedynamic #243,  0            // InvokeDynamic #5:apply:()Ljava/util/function/Function;
+     233: invokestatic  #244                // Method java/util/stream/Collectors.toList:()Ljava/util/stream/Collector;
+     236: invokestatic  #248                // Method java/util/stream/Collectors.mapping:(Ljava/util/function/Function;Ljava/util/stream/Collector;)Ljava/util/stream/Collector;
+     239: invokestatic  #252                // Method java/util/stream/Collectors.groupingBy:(Ljava/util/function/Function;Ljava/util/stream/Collector;)Ljava/util/stream/Collector;
+     242: invokeinterface #210,  2          // InterfaceMethod java/util/stream/Stream.collect:(Ljava/util/stream/Collector;)Ljava/lang/Object;
+     247: checkcast     #216                // class java/util/Map
+     250: astore_0
+     251: goto          258
+     254: invokestatic  #255                // InterfaceMethod java/util/Map.of:()Ljava/util/Map;
+     257: astore_0
+     258: getstatic     #136                // Field LOGGER:Lorg/slf4j/Logger;
+     261: getstatic     #140                // Field net/neoforged/fml/loading/LogMarkers.CORE:Lorg/slf4j/Marker;
+     264: ldc_w         #259                // String Found supplied mod coordinates [{}]
+     267: aload_0
+     268: invokeinterface #148,  4          // InterfaceMethod org/slf4j/Logger.debug:(Lorg/slf4j/Marker;Ljava/lang/String;Ljava/lang/Object;)V
+     273: aload_0
+     274: areturn
+    Exception table:
+       from    to  target type
+          72    78    91   Class java/lang/Throwable
+          98   103   106   Class java/lang/Throwable
+          59   118   121   Class java/io/IOException
+
+  public cpw.mods.modlauncher.api.ServiceRunner launchService(java.lang.String[], java.lang.ModuleLayer);
+    Code:
+       0: aload_2
+       1: invokestatic  #261                // Method net/neoforged/fml/loading/FMLLoader.beforeStart:(Ljava/lang/ModuleLayer;)V
+       4: aload_0
+       5: aload_1
+       6: aload_2
+       7: invokevirtual #266                // Method preLaunch:([Ljava/lang/String;Ljava/lang/ModuleLayer;)[Ljava/lang/String;
+      10: astore_3
+      11: aload_0
+      12: aload_3
+      13: aload_2
+      14: invokedynamic #270,  0            // InvokeDynamic #6:run:(Lnet/neoforged/fml/loading/targets/CommonLaunchHandler;[Ljava/lang/String;Ljava/lang/ModuleLayer;)Lcpw/mods/modlauncher/api/ServiceRunner;
+      19: areturn
+
+  protected abstract void runService(java.lang.String[], java.lang.ModuleLayer) throws java.lang.Throwable;
+
+  protected void clientService(java.lang.String[], java.lang.ModuleLayer) throws java.lang.Throwable;
+    Code:
+       0: aload_0
+       1: ldc_w         #274                // String net.minecraft.client.main.Main
+       4: aload_1
+       5: aload_2
+       6: invokevirtual #276                // Method runTarget:(Ljava/lang/String;[Ljava/lang/String;Ljava/lang/ModuleLayer;)V
+       9: return
+
+  protected void serverService(java.lang.String[], java.lang.ModuleLayer) throws java.lang.Throwable;
+    Code:
+       0: aload_0
+       1: ldc_w         #280                // String net.minecraft.server.Main
+       4: aload_1
+       5: aload_2
+       6: invokevirtual #276                // Method runTarget:(Ljava/lang/String;[Ljava/lang/String;Ljava/lang/ModuleLayer;)V
+       9: return
+
+  protected void dataService(java.lang.String[], java.lang.ModuleLayer) throws java.lang.Throwable;
+    Code:
+       0: aload_0
+       1: ldc_w         #282                // String net.minecraft.data.Main
+       4: aload_1
+       5: aload_2
+       6: invokevirtual #276                // Method runTarget:(Ljava/lang/String;[Ljava/lang/String;Ljava/lang/ModuleLayer;)V
+       9: return
+
+  protected void runTarget(java.lang.String, java.lang.String[], java.lang.ModuleLayer) throws java.lang.Throwable;
+    Code:
+       0: aload_3
+       1: ldc_w         #284                // String minecraft
+       4: invokevirtual #286                // Method java/lang/ModuleLayer.findModule:(Ljava/lang/String;)Ljava/util/Optional;
+       7: invokevirtual #39                 // Method java/util/Optional.orElseThrow:()Ljava/lang/Object;
+      10: checkcast     #287                // class java/lang/Module
+      13: aload_1
+      14: invokestatic  #289                // Method java/lang/Class.forName:(Ljava/lang/Module;Ljava/lang/String;)Ljava/lang/Class;
+      17: ldc_w         #295                // String main
+      20: iconst_1
+      21: anewarray     #290                // class java/lang/Class
+      24: dup
+      25: iconst_0
+      26: ldc_w         #297                // class "[Ljava/lang/String;"
+      29: aastore
+      30: invokevirtual #299                // Method java/lang/Class.getMethod:(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+      33: aconst_null
+      34: iconst_1
+      35: anewarray     #2                  // class java/lang/Object
+      38: dup
+      39: iconst_0
+      40: aload_2
+      41: aastore
+      42: invokevirtual #303                // Method java/lang/reflect/Method.invoke:(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+      45: pop
+      46: return
+
+  private void lambda$launchService$4(java.lang.String[], java.lang.ModuleLayer) throws java.lang.Throwable;
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_2
+       3: invokevirtual #309                // Method runService:([Ljava/lang/String;Ljava/lang/ModuleLayer;)V
+       6: return
+
+  private static net.neoforged.fml.loading.targets.CommonLaunchHandler$1ExplodedModPath lambda$getGroupedModFolders$3(java.lang.String[]);
+    Code:
+       0: new           #313                // class net/neoforged/fml/loading/targets/CommonLaunchHandler$1ExplodedModPath
+       3: dup
+       4: aload_0
+       5: arraylength
+       6: iconst_1
+       7: if_icmpne     16
+      10: ldc_w         #315                // String defaultmodid
+      13: goto          19
+      16: aload_0
+      17: iconst_0
+      18: aaload
+      19: aload_0
+      20: aload_0
+      21: arraylength
+      22: iconst_1
+      23: isub
+      24: aaload
+      25: iconst_0
+      26: anewarray     #129                // class java/lang/String
+      29: invokestatic  #157                // Method java/nio/file/Paths.get:(Ljava/lang/String;[Ljava/lang/String;)Ljava/nio/file/Path;
+      32: invokespecial #317                // Method net/neoforged/fml/loading/targets/CommonLaunchHandler$1ExplodedModPath."<init>":(Ljava/lang/String;Ljava/nio/file/Path;)V
+      35: areturn
+
+  private static java.lang.String[] lambda$getGroupedModFolders$2(java.lang.String);
+    Code:
+       0: aload_0
+       1: ldc_w         #320                // String %%
+       4: iconst_2
+       5: invokevirtual #322                // Method java/lang/String.split:(Ljava/lang/String;I)[Ljava/lang/String;
+       8: areturn
+
+  private static java.util.List lambda$getGroupedModFolders$1(java.util.Properties, java.lang.String);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokevirtual #325                // Method java/util/Properties.getProperty:(Ljava/lang/String;)Ljava/lang/String;
+       5: getstatic     #220                // Field java/io/File.pathSeparator:Ljava/lang/String;
+       8: invokevirtual #226                // Method java/lang/String.split:(Ljava/lang/String;)[Ljava/lang/String;
+      11: invokestatic  #230                // Method java/util/Arrays.stream:([Ljava/lang/Object;)Ljava/util/stream/Stream;
+      14: invokedynamic #326,  0            // InvokeDynamic #7:apply:()Ljava/util/function/Function;
+      19: invokeinterface #237,  2          // InterfaceMethod java/util/stream/Stream.map:(Ljava/util/function/Function;)Ljava/util/stream/Stream;
+      24: invokeinterface #327,  1          // InterfaceMethod java/util/stream/Stream.toList:()Ljava/util/List;
+      29: areturn
+
+  private static java.nio.file.Path lambda$getGroupedModFolders$0(java.lang.String);
+    Code:
+       0: aload_0
+       1: iconst_0
+       2: anewarray     #129                // class java/lang/String
+       5: invokestatic  #157                // Method java/nio/file/Paths.get:(Ljava/lang/String;[Ljava/lang/String;)Ljava/nio/file/Path;
+       8: areturn
+
+  static {};
+    Code:
+       0: invokestatic  #330                // Method com/mojang/logging/LogUtils.getLogger:()Lorg/slf4j/Logger;
+       3: putstatic     #136                // Field LOGGER:Lorg/slf4j/Logger;
+       6: return
+}

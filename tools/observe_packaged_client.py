@@ -29,6 +29,7 @@ import uuid
 import zipfile
 import windows_snapshot_io
 import windows_process_identity
+import native_log_stream
 
 UTC = dt.timezone.utc
 ZERO_COUNTERS = ("native_pending", "module_pending", "module_outstanding", "module_queued", "active_reads", "resource_in_flight", "module_failures")
@@ -685,7 +686,7 @@ def neutral_reload_evidence(log, inputs, epochs, diagnostic_events, observations
     return records, diagnostics
 
 
-def capture_reload_before(instance, output, expected_count):
+def capture_reload_before(instance, output, expected_count, *, log_prefix_witness=None):
     """Save an immutable before record; this performs no game input."""
     instance, output = pathlib.Path(instance).resolve(), pathlib.Path(output).resolve()
     if output.exists():
@@ -702,8 +703,12 @@ def capture_reload_before(instance, output, expected_count):
         before = observed["raw_state"]
         if before.get("in_world") is not True or before.get("screen") is not None:
             raise ValueError("Actual game screen is required before external reload input.")
+        log_stream = native_log_stream.NativeLogStream.from_launch(instance, plan, launch,
+            output.with_name(output.name+".native-log"), process.identity, prefix_witness=log_prefix_witness)
+        log_snapshot = log_stream.read()
         record = {"schema_version": 1, "event_id": str(uuid.uuid4()), "timestamp": timestamp(), "pid": launch["pid"],
-            "process_created": process.created, "method": "native_f3_t", "log_offset": (instance / "logs/latest.log").stat().st_size,
+            "process_created": process.created, "method": "native_f3_t", "log_offset": len(log_snapshot.data),
+            "log_prefix_sha256": hashlib.sha256(log_snapshot.data).hexdigest(), "native_log_stream": log_stream.reference(),
             "before": before, "before_state_sha256": observed["state_sha256"], "plan_sha256": launch["plan_sha256"]}
         output.parent.mkdir(parents=True, exist_ok=True)
         output.write_text(json.dumps(record, indent=2) + "\n", encoding="utf-8")
@@ -921,11 +926,18 @@ def observe(args):
     identity_bytes = identity_source.read_bytes()
     identity_hash = hashlib.sha256(identity_bytes).hexdigest()
     (output / "windows_process_identity.py").write_bytes(identity_bytes)
+    log_source_hashes = {}
+    for dependency in (pathlib.Path(native_log_stream.__file__), native_log_stream.REVIEW_FILE):
+        raw = dependency.read_bytes()
+        (output / dependency.name).write_bytes(raw)
+        log_source_hashes[str(dependency)] = hashlib.sha256(raw).hexdigest()
     process = None
     try:
         plan, launch = frozen_context(instance)
         process = WindowsProcess(plan, launch)
         metadata = neutral_context(instance, plan)
+        log_stream = native_log_stream.NativeLogStream.from_launch(instance, plan, launch, output / "native-log",
+            {**process.identity, "created": process.created}, prefix_witness=getattr(args, "log_prefix_witness", None))
         recorder_path = getattr(args, "reload_recorder", None)
         if metadata and args.require_reloads and recorder_path is None:
             raise ValueError("Neutral full reload validation requires the complete --reload-recorder attempt ledger.")
@@ -975,6 +987,7 @@ def observe(args):
             "current_snapshot_io_source_sha256": digest(snapshot_io_source) if snapshot_io_source.exists() else None,
             "process_identity_source_sha256": identity_hash,
             "current_process_identity_source_sha256": digest(identity_source) if identity_source.exists() else None,
+            "native_log_source_sha256": log_source_hashes,
             "samples_sha256": digest(output / "samples.jsonl"),
             "plan_sha256": digest(instance / "packaged-client-plan.json") if (instance / "packaged-client-plan.json").exists() else None,
             "launch_sha256": digest(instance / "packaged-client-launch.json") if (instance / "packaged-client-launch.json").exists() else None}
@@ -1120,7 +1133,7 @@ def observe(args):
                 if args.mode == "reloads" and baseline_sequence is not None and epoch_path.exists():
                     reload_complete = False
                     try:
-                        current_reloads, _ = evaluate_reloads((instance / "logs/latest.log").read_bytes(), epoch_path.read_bytes(), now.isoformat())
+                        current_reloads, _ = evaluate_reloads(log_stream.read().data, epoch_path.read_bytes(), now.isoformat())
                         reload_complete = consecutive_reloads(current_reloads) >= args.require_reloads and (not metadata or all(item["verified"] for item in current_reloads))
                     except (OSError, ValueError):
                         pass
@@ -1192,8 +1205,16 @@ def observe(args):
         finally:
             process.close()
     ended, elapsed = sampling_ended, sampling_end_clock-start_clock
-    log_path = instance / "logs/latest.log"
-    log_bytes = log_path.read_bytes() if log_path.exists() else b""
+    completion_log_error, log_reference, log_bytes = None, None, b""
+    try:
+        log_bytes = log_stream.read().data
+        log_reference = log_stream.reference()
+    except Exception as log_error:
+        completion_log_error = repr(log_error)
+        failures.add("native_log_stream_completion_failed")
+        if log_stream.last is not None:
+            log_bytes = log_stream.last.data
+            log_reference = {**log_stream.reference(), "completion_read_failed": True}
     (output / "native-log-at-completion.log").write_bytes(log_bytes)
     diagnostics = native_diagnostics(log_bytes)
     declaration_counts = [int(match.group(1)) for match in REGISTERED.finditer(log_bytes)]
@@ -1240,7 +1261,7 @@ def observe(args):
     if metadata and args.require_reloads and (not reloads or not all(item["verified"] for item in reloads)):
         passed = False
         failures.add("retained_neutral_reload_attempt_unverified")
-    if not log_path.exists():
+    if completion_log_error is not None or not log_bytes:
         passed = False
         failures.add("native_log_unavailable")
     if args.mode == "startup" and (not declaration_counts or (args.expected_declarations is not None and declaration_counts[-1] != args.expected_declarations)):
@@ -1266,6 +1287,11 @@ def observe(args):
     if current_identity_hash != identity_hash:
         passed = False
         failures.add("process_identity_source_changed_during_observation")
+    changed_log_sources = [path for path, expected in log_source_hashes.items()
+                           if not pathlib.Path(path).is_file() or digest(pathlib.Path(path)) != expected]
+    if changed_log_sources:
+        passed = False
+        failures.add("native_log_reader_source_changed_during_observation")
     neutral_sources_changed = [path for path, expected in neutral_sources.items()
                                if not pathlib.Path(path).is_file() or digest(pathlib.Path(path)) != expected]
     if metadata and (neutral_sources_changed or current_source_hash != source_hash):
@@ -1288,6 +1314,8 @@ def observe(args):
         "snapshot_io_source_sha256": snapshot_io_hash,
         "current_snapshot_io_source_sha256": digest(snapshot_io_source) if snapshot_io_source.exists() else None,
         "process_identity_source_sha256": identity_hash, "current_process_identity_source_sha256": current_identity_hash,
+        "native_log_stream": log_reference, "native_log_completion_error": completion_log_error,
+        "native_log_source_sha256": log_source_hashes, "native_log_sources_changed": changed_log_sources,
         "log_sha256_at_completion": hashlib.sha256(log_bytes).hexdigest(), "native_diagnostics": diagnostics, "native_registration_declaration_counts": declaration_counts,
         "reload_events_sha256": hashlib.sha256(input_bytes).hexdigest() if args.reload_events else None,
         "native_epoch_events_sha256": hashlib.sha256(epoch_bytes).hexdigest() if epoch_path.exists() else None, "baseline_completed_epoch_sequence": baseline_sequence,
@@ -1311,6 +1339,7 @@ def main():
     parser.add_argument("--state-file", type=pathlib.Path)
     parser.add_argument("--vehicle-state-file", type=pathlib.Path)
     parser.add_argument("--epoch-events", type=pathlib.Path)
+    parser.add_argument("--log-prefix-witness", type=pathlib.Path, help="Existing independent log prefix for this launched JVM; required when attaching after rollover.")
     parser.add_argument("--expected-count", type=int, required=True, help="Distinct registered ID count in the native observer.")
     parser.add_argument("--expected-declarations", type=int, help="Separate declared-vehicle list count in the native registration log.")
     parser.add_argument("--duration", type=finite_positive, default=300)

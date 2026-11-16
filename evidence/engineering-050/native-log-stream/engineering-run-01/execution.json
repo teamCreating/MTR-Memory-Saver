@@ -1,0 +1,50 @@
+{
+  "started_at": "2026-11-16T16:57:03.887419+00:00",
+  "ended_at": "2026-11-16T16:58:01.464989+00:00",
+  "elapsed_seconds": 57.577396099979524,
+  "argv": [
+    "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.venv\\Scripts\\python.exe",
+    "-X",
+    "utf8",
+    "-m",
+    "unittest",
+    "-v",
+    "test_native_log_stream",
+    "test_reload_before_recorder",
+    "test_neutral_reload_adapter",
+    "test_observe_packaged_client",
+    "test_client_experiment"
+  ],
+  "cwd": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\tools",
+  "exit_code": 1,
+  "source_sha256_before": {
+    "tools/native_log_stream.py": "6214d988dbeb3ce176dd55270b8127b58e5d2053b6980464892f00e4fe1cdcba",
+    "config/native-log-reader.json": "ffefcbd2f87055743081ca41ca2f783f64b02b9911556ee8f036d22852a1750f",
+    "tools/observe_packaged_client.py": "dcb3645b951f53280dcf394e97a48c3481d6a9cfc4099a388afaa395242f6624",
+    "tools/reload_before_recorder.py": "71e956f107559c3884afe04a7707b3f5d78edf6e724ac0730a0425509bc8ff81",
+    "tools/client_experiment.py": "4b46ac6cd42be1a615a3b8882c8b665051dc8d2c25653532d137d98c1c848f6c",
+    "tools/log_stream_test_support.py": "90686323e491ffe210d215a1fab604c97c6b5c5889225ce31b57cc288cc42e85",
+    "tools/test_native_log_stream.py": "589a24de60ebf9af8da3260cca2a92b0515065dde7c42ef26f3e14f0ca37a0fc",
+    "tools/test_observe_packaged_client.py": "a2347f00612ec5ef7c5c91f8ed25d6de1b8a7170042a1ee435cd27795c6ebdc1",
+    "tools/test_reload_before_recorder.py": "6f2944baa620ce730f0a5938f6e5bc4b49b9802d30e02cad62939f98e37e8db6",
+    "tools/test_neutral_reload_adapter.py": "dd225ea4ca29995a307639ed46924421048c502e6aec48e1ef56e580ea24ca04",
+    "tools/test_client_experiment.py": "29090f1f38d63bac69526d072e01230f5d780420ac9e4eeae66208b2503c70d6"
+  },
+  "source_sha256_after": {
+    "tools/native_log_stream.py": "6214d988dbeb3ce176dd55270b8127b58e5d2053b6980464892f00e4fe1cdcba",
+    "config/native-log-reader.json": "ffefcbd2f87055743081ca41ca2f783f64b02b9911556ee8f036d22852a1750f",
+    "tools/observe_packaged_client.py": "dcb3645b951f53280dcf394e97a48c3481d6a9cfc4099a388afaa395242f6624",
+    "tools/reload_before_recorder.py": "71e956f107559c3884afe04a7707b3f5d78edf6e724ac0730a0425509bc8ff81",
+    "tools/client_experiment.py": "4b46ac6cd42be1a615a3b8882c8b665051dc8d2c25653532d137d98c1c848f6c",
+    "tools/log_stream_test_support.py": "90686323e491ffe210d215a1fab604c97c6b5c5889225ce31b57cc288cc42e85",
+    "tools/test_native_log_stream.py": "589a24de60ebf9af8da3260cca2a92b0515065dde7c42ef26f3e14f0ca37a0fc",
+    "tools/test_observe_packaged_client.py": "a2347f00612ec5ef7c5c91f8ed25d6de1b8a7170042a1ee435cd27795c6ebdc1",
+    "tools/test_reload_before_recorder.py": "6f2944baa620ce730f0a5938f6e5bc4b49b9802d30e02cad62939f98e37e8db6",
+    "tools/test_neutral_reload_adapter.py": "dd225ea4ca29995a307639ed46924421048c502e6aec48e1ef56e580ea24ca04",
+    "tools/test_client_experiment.py": "29090f1f38d63bac69526d072e01230f5d780420ac9e4eeae66208b2503c70d6"
+  },
+  "sources_unchanged": true,
+  "stdout_sha256": "3f1b7b7d180960be5234caac0696e255326ac8cc2e64e54c5cc4e161432929c5",
+  "stderr_sha256": "7d045ae7790713f600938fc7096e65142497ba635a99cf46310228d5aa606aef",
+  "scope": "Engineering only. No game input, resource reload, route or performance acceptance."
+}

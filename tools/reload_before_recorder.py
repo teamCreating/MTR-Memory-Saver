@@ -14,6 +14,7 @@ import sys
 import time
 import uuid
 import zipfile
+import native_log_stream
 
 import client_experiment_analysis as analysis
 import native_diagnostic_review as diagnostics
@@ -102,7 +103,8 @@ def verify_journal(raw):
 def source_files():
     return [Path(__file__), Path(observer.__file__), Path(analysis.__file__),
             Path(diagnostics.__file__), Path(windows_snapshot_io.__file__),
-            Path(observer.windows_process_identity.__file__), observer.NEUTRAL_CONTRACT_FILE]
+            Path(observer.windows_process_identity.__file__), Path(native_log_stream.__file__),
+            native_log_stream.REVIEW_FILE, observer.NEUTRAL_CONTRACT_FILE]
 
 
 def before_errors(state, process, stamp, expected, metadata, log, epochs, events, review, plan):
@@ -134,7 +136,7 @@ def before_errors(state, process, stamp, expected, metadata, log, epochs, events
 
 
 class Recorder:
-    def __init__(self, instance, output, expected, *, process_factory=observer.WindowsProcess):
+    def __init__(self, instance, output, expected, *, process_factory=observer.WindowsProcess, log_prefix_witness=None):
         self.instance, self.output = Path(instance).resolve(), Path(output).resolve()
         self.output.mkdir(parents=True, exist_ok=False)
         self.journal = Journal(self.output / "journal.jsonl")
@@ -166,10 +168,14 @@ class Recorder:
             diagnostics.validate_review(self.review, self.metadata, root=ROOT)
             write_once(self.output / "native-diagnostic-review.json", review_raw)
             self.expected = expected
+            self.log_stream = native_log_stream.NativeLogStream.from_launch(self.instance, self.plan, self.launch,
+                self.output / "native-log", self.identity, prefix_witness=log_prefix_witness)
             self.context = {"schema": 1, "session_id": self.session_id, "created_at": now(), "instance": str(self.instance),
                             "process": self.identity, "expected_registration": expected, "metadata": self.metadata,
                             "plan_sha256": self.plan_hash, "launch_sha256": self.launch_hash,
                             "freshness_seconds": FRESHNESS_SECONDS, "source_sha256": self.source_hashes,
+                            "native_log_context": {"path": "native-log/context.json", "sha256": self.log_stream.context_sha256},
+                            "native_log_prefix_witness": self.log_stream.context["prefix_witness"],
                             "scope": "Read-only native input-before evidence; no input or gameplay/performance acceptance"}
             self.context_hash = sha(canonical(self.context))
             write_once(self.output / "session-start.json", canonical(self.context))
@@ -219,7 +225,8 @@ class Recorder:
                 raw_files[name] = self.store_raw(directory, name, raw)
             state_raw = windows_snapshot_io.read_snapshot_bytes(self.instance / self.metadata["snapshot_path"])
             raw_files["native-snapshot.json"] = self.store_raw(directory, "native-snapshot.json", state_raw)
-            log = read_prefix(self.instance / "logs/latest.log")
+            log_snapshot = self.log_stream.read()
+            log = log_snapshot.data
             raw_files["client-log-prefix.log"] = self.store_raw(directory, "client-log-prefix.log", log)
             second = {key: read_prefix(self.instance / relative) for key, relative in names.items()}
             for key, raw in second.items():
@@ -247,6 +254,7 @@ class Recorder:
                       "before": state, "before_state_sha256": sha(state_raw), "log_offset": len(log), "log_prefix_sha256": sha(log),
                       "plan_sha256": self.plan_hash, "launch_sha256": self.launch_hash, "session_start_sha256": self.context_hash,
                       "epochs_sha256": sha(second["epochs"]), "diagnostics_sha256": sha(second["diagnostics"]), "raw_files": raw_files}
+            record["native_log_stream"] = self.log_stream.reference()
             payload = canonical(record)
             payload_closed = write_once(directory / "before.json", payload)
             receipt = {"schema": 1, "record_id": record_id, "session_id": self.session_id,
@@ -335,6 +343,23 @@ def select_before(output, receipt, journal_raw):
         raise ValueError("Canonical before state differs from its preserved native snapshot.")
     if owned_path(output, record["raw_files"]["client-log-prefix.log"]).stat().st_size != record["log_offset"]:
         raise ValueError("Before log offset differs from the actual preserved prefix.")
+    reference = record["native_log_stream"]
+    log_root = owned_path(output, "native-log")
+    receipt_path = owned_path(log_root, reference["receipt"])
+    if (sha(receipt_path.read_bytes()) != reference["receipt_sha256"]
+            or reference["context_sha256"] != context["native_log_context"]["sha256"]
+            or sha((log_root / "context.json").read_bytes()) != context["native_log_context"]["sha256"]):
+        raise ValueError("Native rolling log receipt/context differs from this recorder session.")
+    log_context = json.loads((log_root / "context.json").read_bytes())
+    if (log_context["plan_sha256"] != context["plan_sha256"] or log_context["launch_sha256"] != context["launch_sha256"]
+            or log_context["process"]["pid"] != context["process"]["pid"]
+            or observer.instant(log_context["process"]["created"]) != observer.instant(context["process"]["created"])):
+        raise ValueError("Native rolling log belongs to another plan/launch/process.")
+    if native_log_stream.verify_capture(log_root, receipt_path) != owned_path(output, record["raw_files"]["client-log-prefix.log"]).read_bytes():
+        raise ValueError("Native rolling log segments do not reconstruct this input prefix.")
+    stream_receipt = json.loads(receipt_path.read_bytes())
+    if not observer.instant(record["capture_started_at"]) <= observer.instant(stream_receipt["started_at"]) <= observer.instant(stream_receipt["completed_at"]) <= observer.instant(record["capture_completed_at"]):
+        raise ValueError("Native log publication was captured outside its before-record interval.")
     return before_path, {"journal_sequence": selected["sequence"], "journal_sha256": selected["sha256"],
                          "receipt_sha256": event["receipt_sha256"], "receipt_closed_at": event["receipt_closed_at"]}
 
@@ -422,7 +447,8 @@ def confirm(output, receipt_path):
 
 def record(args):
     recorder = Recorder(args.instance, args.output,
-                        {"distinct_ids": args.expected_count, "declarations": args.expected_declarations})
+                        {"distinct_ids": args.expected_count, "declarations": args.expected_declarations},
+                        log_prefix_witness=getattr(args, "log_prefix_witness", None))
     deadline = time.monotonic() + args.duration_seconds if args.duration_seconds else None
     status = "stopped"
     try:
@@ -450,6 +476,7 @@ def main():
     collect.add_argument("--expected-declarations", type=int, required=True)
     collect.add_argument("--interval-seconds", type=observer.finite_positive, default=1)
     collect.add_argument("--duration-seconds", type=observer.finite_positive)
+    collect.add_argument("--log-prefix-witness", type=Path, help="Existing independent prefix from this exact launched JVM, required after rollover.")
     confirm_parser = modes.add_parser("confirm")
     confirm_parser.add_argument("--output", type=Path, required=True)
     confirm_parser.add_argument("--receipt", type=Path, required=True)

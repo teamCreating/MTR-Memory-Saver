@@ -1,0 +1,1204 @@
+Compiled from "RollingFileManager.java"
+public class org.apache.logging.log4j.core.appender.rolling.RollingFileManager extends org.apache.logging.log4j.core.appender.FileManager {
+  private static org.apache.logging.log4j.core.appender.rolling.RollingFileManager$RollingFileManagerFactory factory;
+
+  private static final int MAX_TRIES;
+
+  private static final int MIN_DURATION;
+
+  private static final java.nio.file.attribute.FileTime EPOCH;
+
+  protected long size;
+
+  private long initialTime;
+
+  private volatile org.apache.logging.log4j.core.appender.rolling.PatternProcessor patternProcessor;
+
+  private final java.util.concurrent.Semaphore semaphore;
+
+  private final org.apache.logging.log4j.core.util.Log4jThreadFactory threadFactory;
+
+  private volatile org.apache.logging.log4j.core.appender.rolling.TriggeringPolicy triggeringPolicy;
+
+  private volatile org.apache.logging.log4j.core.appender.rolling.RolloverStrategy rolloverStrategy;
+
+  private volatile boolean renameEmptyFiles;
+
+  private volatile boolean initialized;
+
+  private volatile java.lang.String fileName;
+
+  private final boolean directWrite;
+
+  private final java.util.concurrent.CopyOnWriteArrayList<org.apache.logging.log4j.core.appender.rolling.RolloverListener> rolloverListeners;
+
+  private final java.util.concurrent.ExecutorService asyncExecutor;
+
+  private static final java.util.concurrent.atomic.AtomicReferenceFieldUpdater<org.apache.logging.log4j.core.appender.rolling.RollingFileManager, org.apache.logging.log4j.core.appender.rolling.TriggeringPolicy> triggeringPolicyUpdater;
+
+  private static final java.util.concurrent.atomic.AtomicReferenceFieldUpdater<org.apache.logging.log4j.core.appender.rolling.RollingFileManager, org.apache.logging.log4j.core.appender.rolling.RolloverStrategy> rolloverStrategyUpdater;
+
+  private static final java.util.concurrent.atomic.AtomicReferenceFieldUpdater<org.apache.logging.log4j.core.appender.rolling.RollingFileManager, org.apache.logging.log4j.core.appender.rolling.PatternProcessor> patternProcessorUpdater;
+
+  protected org.apache.logging.log4j.core.appender.rolling.RollingFileManager(java.lang.String, java.lang.String, java.io.OutputStream, boolean, long, long, org.apache.logging.log4j.core.appender.rolling.TriggeringPolicy, org.apache.logging.log4j.core.appender.rolling.RolloverStrategy, java.lang.String, org.apache.logging.log4j.core.Layout<? extends java.io.Serializable>, int, boolean);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_2
+       3: aload_3
+       4: iload         4
+       6: lload         5
+       8: lload         7
+      10: aload         9
+      12: aload         10
+      14: aload         11
+      16: aload         12
+      18: iload         14
+      20: getstatic     #19                 // Field org/apache/logging/log4j/core/util/Constants.ENCODER_BYTE_BUFFER_SIZE:I
+      23: newarray       byte
+      25: invokestatic  #25                 // Method java/nio/ByteBuffer.wrap:([B)Ljava/nio/ByteBuffer;
+      28: invokespecial #31                 // Method "<init>":(Ljava/lang/String;Ljava/lang/String;Ljava/io/OutputStream;ZJJLorg/apache/logging/log4j/core/appender/rolling/TriggeringPolicy;Lorg/apache/logging/log4j/core/appender/rolling/RolloverStrategy;Ljava/lang/String;Lorg/apache/logging/log4j/core/Layout;ZLjava/nio/ByteBuffer;)V
+      31: return
+
+  protected org.apache.logging.log4j.core.appender.rolling.RollingFileManager(java.lang.String, java.lang.String, java.io.OutputStream, boolean, long, long, org.apache.logging.log4j.core.appender.rolling.TriggeringPolicy, org.apache.logging.log4j.core.appender.rolling.RolloverStrategy, java.lang.String, org.apache.logging.log4j.core.Layout<? extends java.io.Serializable>, boolean, java.nio.ByteBuffer);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: ifnull        9
+       5: aload_1
+       6: goto          10
+       9: aload_2
+      10: aload_3
+      11: iload         4
+      13: iconst_0
+      14: aload         11
+      16: aload         12
+      18: iload         13
+      20: aload         14
+      22: invokespecial #35                 // Method org/apache/logging/log4j/core/appender/FileManager."<init>":(Ljava/lang/String;Ljava/io/OutputStream;ZZLjava/lang/String;Lorg/apache/logging/log4j/core/Layout;ZLjava/nio/ByteBuffer;)V
+      25: aload_0
+      26: new           #40                 // class java/util/concurrent/Semaphore
+      29: dup
+      30: iconst_1
+      31: invokespecial #42                 // Method java/util/concurrent/Semaphore."<init>":(I)V
+      34: putfield      #15                 // Field semaphore:Ljava/util/concurrent/Semaphore;
+      37: aload_0
+      38: ldc           #45                 // String RollingFileManager
+      40: invokestatic  #47                 // Method org/apache/logging/log4j/core/util/Log4jThreadFactory.createThreadFactory:(Ljava/lang/String;)Lorg/apache/logging/log4j/core/util/Log4jThreadFactory;
+      43: putfield      #53                 // Field threadFactory:Lorg/apache/logging/log4j/core/util/Log4jThreadFactory;
+      46: aload_0
+      47: new           #57                 // class java/util/concurrent/CopyOnWriteArrayList
+      50: dup
+      51: invokespecial #59                 // Method java/util/concurrent/CopyOnWriteArrayList."<init>":()V
+      54: putfield      #62                 // Field rolloverListeners:Ljava/util/concurrent/CopyOnWriteArrayList;
+      57: aload_0
+      58: new           #66                 // class java/util/concurrent/ThreadPoolExecutor
+      61: dup
+      62: iconst_0
+      63: ldc           #70                 // int 2147483647
+      65: lconst_0
+      66: getstatic     #71                 // Field java/util/concurrent/TimeUnit.MILLISECONDS:Ljava/util/concurrent/TimeUnit;
+      69: new           #77                 // class org/apache/logging/log4j/core/appender/rolling/RollingFileManager$EmptyQueue
+      72: dup
+      73: invokespecial #79                 // Method org/apache/logging/log4j/core/appender/rolling/RollingFileManager$EmptyQueue."<init>":()V
+      76: aload_0
+      77: getfield      #53                 // Field threadFactory:Lorg/apache/logging/log4j/core/util/Log4jThreadFactory;
+      80: invokespecial #80                 // Method java/util/concurrent/ThreadPoolExecutor."<init>":(IIJLjava/util/concurrent/TimeUnit;Ljava/util/concurrent/BlockingQueue;Ljava/util/concurrent/ThreadFactory;)V
+      83: putfield      #83                 // Field asyncExecutor:Ljava/util/concurrent/ExecutorService;
+      86: aload_0
+      87: lload         5
+      89: putfield      #87                 // Field size:J
+      92: aload_0
+      93: lload         7
+      95: putfield      #91                 // Field initialTime:J
+      98: aload_0
+      99: aload         9
+     101: putfield      #94                 // Field triggeringPolicy:Lorg/apache/logging/log4j/core/appender/rolling/TriggeringPolicy;
+     104: aload_0
+     105: aload         10
+     107: putfield      #98                 // Field rolloverStrategy:Lorg/apache/logging/log4j/core/appender/rolling/RolloverStrategy;
+     110: aload_0
+     111: new           #102                // class org/apache/logging/log4j/core/appender/rolling/PatternProcessor
+     114: dup
+     115: aload_2
+     116: invokespecial #104                // Method org/apache/logging/log4j/core/appender/rolling/PatternProcessor."<init>":(Ljava/lang/String;)V
+     119: putfield      #107                // Field patternProcessor:Lorg/apache/logging/log4j/core/appender/rolling/PatternProcessor;
+     122: aload_0
+     123: getfield      #107                // Field patternProcessor:Lorg/apache/logging/log4j/core/appender/rolling/PatternProcessor;
+     126: lload         7
+     128: invokevirtual #111                // Method org/apache/logging/log4j/core/appender/rolling/PatternProcessor.setPrevFileTime:(J)V
+     131: aload_0
+     132: aload_1
+     133: putfield      #115                // Field fileName:Ljava/lang/String;
+     136: aload_0
+     137: aload         10
+     139: instanceof    #119                // class org/apache/logging/log4j/core/appender/rolling/DirectWriteRolloverStrategy
+     142: putfield      #121                // Field directWrite:Z
+     145: return
+
+  protected org.apache.logging.log4j.core.appender.rolling.RollingFileManager(org.apache.logging.log4j.core.LoggerContext, java.lang.String, java.lang.String, java.io.OutputStream, boolean, boolean, long, long, org.apache.logging.log4j.core.appender.rolling.TriggeringPolicy, org.apache.logging.log4j.core.appender.rolling.RolloverStrategy, java.lang.String, org.apache.logging.log4j.core.Layout<? extends java.io.Serializable>, boolean, java.nio.ByteBuffer);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_2
+       3: ifnull        10
+       6: aload_2
+       7: goto          11
+      10: aload_3
+      11: aload         4
+      13: iload         5
+      15: iconst_0
+      16: iload         6
+      18: aload         13
+      20: aload         14
+      22: iload         15
+      24: aload         16
+      26: invokespecial #125                // Method org/apache/logging/log4j/core/appender/FileManager."<init>":(Lorg/apache/logging/log4j/core/LoggerContext;Ljava/lang/String;Ljava/io/OutputStream;ZZZLjava/lang/String;Lorg/apache/logging/log4j/core/Layout;ZLjava/nio/ByteBuffer;)V
+      29: aload_0
+      30: new           #40                 // class java/util/concurrent/Semaphore
+      33: dup
+      34: iconst_1
+      35: invokespecial #42                 // Method java/util/concurrent/Semaphore."<init>":(I)V
+      38: putfield      #15                 // Field semaphore:Ljava/util/concurrent/Semaphore;
+      41: aload_0
+      42: ldc           #45                 // String RollingFileManager
+      44: invokestatic  #47                 // Method org/apache/logging/log4j/core/util/Log4jThreadFactory.createThreadFactory:(Ljava/lang/String;)Lorg/apache/logging/log4j/core/util/Log4jThreadFactory;
+      47: putfield      #53                 // Field threadFactory:Lorg/apache/logging/log4j/core/util/Log4jThreadFactory;
+      50: aload_0
+      51: new           #57                 // class java/util/concurrent/CopyOnWriteArrayList
+      54: dup
+      55: invokespecial #59                 // Method java/util/concurrent/CopyOnWriteArrayList."<init>":()V
+      58: putfield      #62                 // Field rolloverListeners:Ljava/util/concurrent/CopyOnWriteArrayList;
+      61: aload_0
+      62: new           #66                 // class java/util/concurrent/ThreadPoolExecutor
+      65: dup
+      66: iconst_0
+      67: ldc           #70                 // int 2147483647
+      69: lconst_0
+      70: getstatic     #71                 // Field java/util/concurrent/TimeUnit.MILLISECONDS:Ljava/util/concurrent/TimeUnit;
+      73: new           #77                 // class org/apache/logging/log4j/core/appender/rolling/RollingFileManager$EmptyQueue
+      76: dup
+      77: invokespecial #79                 // Method org/apache/logging/log4j/core/appender/rolling/RollingFileManager$EmptyQueue."<init>":()V
+      80: aload_0
+      81: getfield      #53                 // Field threadFactory:Lorg/apache/logging/log4j/core/util/Log4jThreadFactory;
+      84: invokespecial #80                 // Method java/util/concurrent/ThreadPoolExecutor."<init>":(IIJLjava/util/concurrent/TimeUnit;Ljava/util/concurrent/BlockingQueue;Ljava/util/concurrent/ThreadFactory;)V
+      87: putfield      #83                 // Field asyncExecutor:Ljava/util/concurrent/ExecutorService;
+      90: aload_0
+      91: lload         7
+      93: putfield      #87                 // Field size:J
+      96: aload_0
+      97: lload         9
+      99: putfield      #91                 // Field initialTime:J
+     102: aload_0
+     103: aload         11
+     105: putfield      #94                 // Field triggeringPolicy:Lorg/apache/logging/log4j/core/appender/rolling/TriggeringPolicy;
+     108: aload_0
+     109: aload         12
+     111: putfield      #98                 // Field rolloverStrategy:Lorg/apache/logging/log4j/core/appender/rolling/RolloverStrategy;
+     114: aload_0
+     115: new           #102                // class org/apache/logging/log4j/core/appender/rolling/PatternProcessor
+     118: dup
+     119: aload_3
+     120: invokespecial #104                // Method org/apache/logging/log4j/core/appender/rolling/PatternProcessor."<init>":(Ljava/lang/String;)V
+     123: putfield      #107                // Field patternProcessor:Lorg/apache/logging/log4j/core/appender/rolling/PatternProcessor;
+     126: aload_0
+     127: getfield      #107                // Field patternProcessor:Lorg/apache/logging/log4j/core/appender/rolling/PatternProcessor;
+     130: lload         9
+     132: invokevirtual #111                // Method org/apache/logging/log4j/core/appender/rolling/PatternProcessor.setPrevFileTime:(J)V
+     135: aload_0
+     136: aload_2
+     137: putfield      #115                // Field fileName:Ljava/lang/String;
+     140: aload_0
+     141: aload         12
+     143: instanceof    #119                // class org/apache/logging/log4j/core/appender/rolling/DirectWriteRolloverStrategy
+     146: putfield      #121                // Field directWrite:Z
+     149: return
+
+  protected org.apache.logging.log4j.core.appender.rolling.RollingFileManager(org.apache.logging.log4j.core.LoggerContext, java.lang.String, java.lang.String, java.io.OutputStream, boolean, boolean, long, long, org.apache.logging.log4j.core.appender.rolling.TriggeringPolicy, org.apache.logging.log4j.core.appender.rolling.RolloverStrategy, java.lang.String, org.apache.logging.log4j.core.Layout<? extends java.io.Serializable>, java.lang.String, java.lang.String, java.lang.String, boolean, java.nio.ByteBuffer);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_2
+       3: ifnull        10
+       6: aload_2
+       7: goto          11
+      10: aload_3
+      11: aload         4
+      13: iload         5
+      15: iconst_0
+      16: iload         6
+      18: aload         13
+      20: aload         14
+      22: aload         15
+      24: aload         16
+      26: aload         17
+      28: iload         18
+      30: aload         19
+      32: invokespecial #128                // Method org/apache/logging/log4j/core/appender/FileManager."<init>":(Lorg/apache/logging/log4j/core/LoggerContext;Ljava/lang/String;Ljava/io/OutputStream;ZZZLjava/lang/String;Lorg/apache/logging/log4j/core/Layout;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZLjava/nio/ByteBuffer;)V
+      35: aload_0
+      36: new           #40                 // class java/util/concurrent/Semaphore
+      39: dup
+      40: iconst_1
+      41: invokespecial #42                 // Method java/util/concurrent/Semaphore."<init>":(I)V
+      44: putfield      #15                 // Field semaphore:Ljava/util/concurrent/Semaphore;
+      47: aload_0
+      48: ldc           #45                 // String RollingFileManager
+      50: invokestatic  #47                 // Method org/apache/logging/log4j/core/util/Log4jThreadFactory.createThreadFactory:(Ljava/lang/String;)Lorg/apache/logging/log4j/core/util/Log4jThreadFactory;
+      53: putfield      #53                 // Field threadFactory:Lorg/apache/logging/log4j/core/util/Log4jThreadFactory;
+      56: aload_0
+      57: new           #57                 // class java/util/concurrent/CopyOnWriteArrayList
+      60: dup
+      61: invokespecial #59                 // Method java/util/concurrent/CopyOnWriteArrayList."<init>":()V
+      64: putfield      #62                 // Field rolloverListeners:Ljava/util/concurrent/CopyOnWriteArrayList;
+      67: aload_0
+      68: new           #66                 // class java/util/concurrent/ThreadPoolExecutor
+      71: dup
+      72: iconst_0
+      73: ldc           #70                 // int 2147483647
+      75: lconst_0
+      76: getstatic     #71                 // Field java/util/concurrent/TimeUnit.MILLISECONDS:Ljava/util/concurrent/TimeUnit;
+      79: new           #77                 // class org/apache/logging/log4j/core/appender/rolling/RollingFileManager$EmptyQueue
+      82: dup
+      83: invokespecial #79                 // Method org/apache/logging/log4j/core/appender/rolling/RollingFileManager$EmptyQueue."<init>":()V
+      86: aload_0
+      87: getfield      #53                 // Field threadFactory:Lorg/apache/logging/log4j/core/util/Log4jThreadFactory;
+      90: invokespecial #80                 // Method java/util/concurrent/ThreadPoolExecutor."<init>":(IIJLjava/util/concurrent/TimeUnit;Ljava/util/concurrent/BlockingQueue;Ljava/util/concurrent/ThreadFactory;)V
+      93: putfield      #83                 // Field asyncExecutor:Ljava/util/concurrent/ExecutorService;
+      96: aload_0
+      97: lload         7
+      99: putfield      #87                 // Field size:J
+     102: aload_0
+     103: lload         9
+     105: putfield      #91                 // Field initialTime:J
+     108: aload_0
+     109: new           #102                // class org/apache/logging/log4j/core/appender/rolling/PatternProcessor
+     112: dup
+     113: aload_3
+     114: invokespecial #104                // Method org/apache/logging/log4j/core/appender/rolling/PatternProcessor."<init>":(Ljava/lang/String;)V
+     117: putfield      #107                // Field patternProcessor:Lorg/apache/logging/log4j/core/appender/rolling/PatternProcessor;
+     120: aload_0
+     121: getfield      #107                // Field patternProcessor:Lorg/apache/logging/log4j/core/appender/rolling/PatternProcessor;
+     124: lload         9
+     126: invokevirtual #111                // Method org/apache/logging/log4j/core/appender/rolling/PatternProcessor.setPrevFileTime:(J)V
+     129: aload_0
+     130: aload         11
+     132: putfield      #94                 // Field triggeringPolicy:Lorg/apache/logging/log4j/core/appender/rolling/TriggeringPolicy;
+     135: aload_0
+     136: aload         12
+     138: putfield      #98                 // Field rolloverStrategy:Lorg/apache/logging/log4j/core/appender/rolling/RolloverStrategy;
+     141: aload_0
+     142: aload_2
+     143: putfield      #115                // Field fileName:Ljava/lang/String;
+     146: aload_0
+     147: aload         12
+     149: instanceof    #131                // class org/apache/logging/log4j/core/appender/rolling/DirectFileRolloverStrategy
+     152: putfield      #121                // Field directWrite:Z
+     155: return
+
+  public void initialize();
+    Code:
+       0: aload_0
+       1: getfield      #133                // Field initialized:Z
+       4: ifne          156
+       7: getstatic     #1                  // Field LOGGER:Lorg/apache/logging/log4j/Logger;
+      10: ldc           #136                // String Initializing triggering policy {}
+      12: aload_0
+      13: getfield      #94                 // Field triggeringPolicy:Lorg/apache/logging/log4j/core/appender/rolling/TriggeringPolicy;
+      16: invokeinterface #138,  3          // InterfaceMethod org/apache/logging/log4j/Logger.debug:(Ljava/lang/String;Ljava/lang/Object;)V
+      21: aload_0
+      22: iconst_1
+      23: putfield      #133                // Field initialized:Z
+      26: aload_0
+      27: getfield      #121                // Field directWrite:Z
+      30: ifeq          75
+      33: new           #144                // class java/io/File
+      36: dup
+      37: aload_0
+      38: invokevirtual #146                // Method getFileName:()Ljava/lang/String;
+      41: invokespecial #150                // Method java/io/File."<init>":(Ljava/lang/String;)V
+      44: astore_1
+      45: aload_1
+      46: invokevirtual #151                // Method java/io/File.exists:()Z
+      49: ifeq          63
+      52: aload_0
+      53: aload_1
+      54: invokevirtual #155                // Method java/io/File.length:()J
+      57: putfield      #87                 // Field size:J
+      60: goto          75
+      63: aload_0
+      64: getfield      #98                 // Field rolloverStrategy:Lorg/apache/logging/log4j/core/appender/rolling/RolloverStrategy;
+      67: checkcast     #131                // class org/apache/logging/log4j/core/appender/rolling/DirectFileRolloverStrategy
+      70: invokeinterface #159,  1          // InterfaceMethod org/apache/logging/log4j/core/appender/rolling/DirectFileRolloverStrategy.clearCurrentFileName:()V
+      75: aload_0
+      76: getfield      #94                 // Field triggeringPolicy:Lorg/apache/logging/log4j/core/appender/rolling/TriggeringPolicy;
+      79: aload_0
+      80: invokeinterface #162,  2          // InterfaceMethod org/apache/logging/log4j/core/appender/rolling/TriggeringPolicy.initialize:(Lorg/apache/logging/log4j/core/appender/rolling/RollingFileManager;)V
+      85: aload_0
+      86: getfield      #94                 // Field triggeringPolicy:Lorg/apache/logging/log4j/core/appender/rolling/TriggeringPolicy;
+      89: instanceof    #168                // class org/apache/logging/log4j/core/LifeCycle
+      92: ifeq          107
+      95: aload_0
+      96: getfield      #94                 // Field triggeringPolicy:Lorg/apache/logging/log4j/core/appender/rolling/TriggeringPolicy;
+      99: checkcast     #168                // class org/apache/logging/log4j/core/LifeCycle
+     102: invokeinterface #170,  1          // InterfaceMethod org/apache/logging/log4j/core/LifeCycle.start:()V
+     107: aload_0
+     108: getfield      #121                // Field directWrite:Z
+     111: ifeq          156
+     114: new           #144                // class java/io/File
+     117: dup
+     118: aload_0
+     119: invokevirtual #146                // Method getFileName:()Ljava/lang/String;
+     122: invokespecial #150                // Method java/io/File."<init>":(Ljava/lang/String;)V
+     125: astore_1
+     126: aload_1
+     127: invokevirtual #151                // Method java/io/File.exists:()Z
+     130: ifeq          144
+     133: aload_0
+     134: aload_1
+     135: invokevirtual #155                // Method java/io/File.length:()J
+     138: putfield      #87                 // Field size:J
+     141: goto          156
+     144: aload_0
+     145: getfield      #98                 // Field rolloverStrategy:Lorg/apache/logging/log4j/core/appender/rolling/RolloverStrategy;
+     148: checkcast     #131                // class org/apache/logging/log4j/core/appender/rolling/DirectFileRolloverStrategy
+     151: invokeinterface #159,  1          // InterfaceMethod org/apache/logging/log4j/core/appender/rolling/DirectFileRolloverStrategy.clearCurrentFileName:()V
+     156: return
+
+  public static org.apache.logging.log4j.core.appender.rolling.RollingFileManager getFileManager(java.lang.String, java.lang.String, boolean, boolean, org.apache.logging.log4j.core.appender.rolling.TriggeringPolicy, org.apache.logging.log4j.core.appender.rolling.RolloverStrategy, java.lang.String, org.apache.logging.log4j.core.Layout<? extends java.io.Serializable>, int, boolean, boolean, java.lang.String, java.lang.String, java.lang.String, org.apache.logging.log4j.core.config.Configuration);
+    Code:
+       0: aload         5
+       2: instanceof    #119                // class org/apache/logging/log4j/core/appender/rolling/DirectWriteRolloverStrategy
+       5: ifeq          24
+       8: aload_0
+       9: ifnull        24
+      12: getstatic     #1                  // Field LOGGER:Lorg/apache/logging/log4j/Logger;
+      15: ldc           #173                // String The fileName attribute must not be specified with the DirectWriteRolloverStrategy
+      17: invokeinterface #175,  2          // InterfaceMethod org/apache/logging/log4j/Logger.error:(Ljava/lang/String;)V
+      22: aconst_null
+      23: areturn
+      24: aload_0
+      25: ifnonnull     32
+      28: aload_1
+      29: goto          33
+      32: aload_0
+      33: astore        15
+      35: ldc           #2                  // class org/apache/logging/log4j/core/appender/rolling/RollingFileManager
+      37: aload         15
+      39: new           #178                // class org/apache/logging/log4j/core/appender/rolling/RollingFileManager$FactoryData
+      42: dup
+      43: aload_0
+      44: aload_1
+      45: iload_2
+      46: iload_3
+      47: aload         4
+      49: aload         5
+      51: aload         6
+      53: aload         7
+      55: iload         8
+      57: iload         9
+      59: iload         10
+      61: aload         11
+      63: aload         12
+      65: aload         13
+      67: aload         14
+      69: invokespecial #180                // Method org/apache/logging/log4j/core/appender/rolling/RollingFileManager$FactoryData."<init>":(Ljava/lang/String;Ljava/lang/String;ZZLorg/apache/logging/log4j/core/appender/rolling/TriggeringPolicy;Lorg/apache/logging/log4j/core/appender/rolling/RolloverStrategy;Ljava/lang/String;Lorg/apache/logging/log4j/core/Layout;IZZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Lorg/apache/logging/log4j/core/config/Configuration;)V
+      72: getstatic     #183                // Field factory:Lorg/apache/logging/log4j/core/appender/rolling/RollingFileManager$RollingFileManagerFactory;
+      75: invokestatic  #187                // Method getManager:(Ljava/lang/String;Ljava/lang/Object;Lorg/apache/logging/log4j/core/appender/ManagerFactory;)Lorg/apache/logging/log4j/core/appender/OutputStreamManager;
+      78: invokestatic  #191                // Method narrow:(Ljava/lang/Class;Lorg/apache/logging/log4j/core/appender/AbstractManager;)Lorg/apache/logging/log4j/core/appender/AbstractManager;
+      81: checkcast     #2                  // class org/apache/logging/log4j/core/appender/rolling/RollingFileManager
+      84: areturn
+
+  public void addRolloverListener(org.apache.logging.log4j.core.appender.rolling.RolloverListener);
+    Code:
+       0: aload_0
+       1: getfield      #62                 // Field rolloverListeners:Ljava/util/concurrent/CopyOnWriteArrayList;
+       4: aload_1
+       5: invokevirtual #195                // Method java/util/concurrent/CopyOnWriteArrayList.add:(Ljava/lang/Object;)Z
+       8: pop
+       9: return
+
+  public void removeRolloverListener(org.apache.logging.log4j.core.appender.rolling.RolloverListener);
+    Code:
+       0: aload_0
+       1: getfield      #62                 // Field rolloverListeners:Ljava/util/concurrent/CopyOnWriteArrayList;
+       4: aload_1
+       5: invokevirtual #199                // Method java/util/concurrent/CopyOnWriteArrayList.remove:(Ljava/lang/Object;)Z
+       8: pop
+       9: return
+
+  public java.lang.String getFileName();
+    Code:
+       0: aload_0
+       1: getfield      #121                // Field directWrite:Z
+       4: ifeq          24
+       7: aload_0
+       8: aload_0
+       9: getfield      #98                 // Field rolloverStrategy:Lorg/apache/logging/log4j/core/appender/rolling/RolloverStrategy;
+      12: checkcast     #131                // class org/apache/logging/log4j/core/appender/rolling/DirectFileRolloverStrategy
+      15: aload_0
+      16: invokeinterface #202,  2          // InterfaceMethod org/apache/logging/log4j/core/appender/rolling/DirectFileRolloverStrategy.getCurrentFileName:(Lorg/apache/logging/log4j/core/appender/rolling/RollingFileManager;)Ljava/lang/String;
+      21: putfield      #115                // Field fileName:Ljava/lang/String;
+      24: aload_0
+      25: getfield      #115                // Field fileName:Ljava/lang/String;
+      28: areturn
+
+  protected void createParentDir(java.io.File);
+    Code:
+       0: aload_0
+       1: getfield      #121                // Field directWrite:Z
+       4: ifeq          21
+       7: aload_1
+       8: invokevirtual #206                // Method java/io/File.getParentFile:()Ljava/io/File;
+      11: astore_2
+      12: aload_2
+      13: ifnull        21
+      16: aload_2
+      17: invokevirtual #210                // Method java/io/File.mkdirs:()Z
+      20: pop
+      21: return
+
+  public boolean isDirectWrite();
+    Code:
+       0: aload_0
+       1: getfield      #121                // Field directWrite:Z
+       4: ireturn
+
+  public org.apache.logging.log4j.core.appender.rolling.FileExtension getFileExtension();
+    Code:
+       0: aload_0
+       1: getfield      #107                // Field patternProcessor:Lorg/apache/logging/log4j/core/appender/rolling/PatternProcessor;
+       4: invokevirtual #213                // Method org/apache/logging/log4j/core/appender/rolling/PatternProcessor.getFileExtension:()Lorg/apache/logging/log4j/core/appender/rolling/FileExtension;
+       7: areturn
+
+  protected synchronized void write(byte[], int, int, boolean);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: iload_2
+       3: iload_3
+       4: iload         4
+       6: invokespecial #217                // Method org/apache/logging/log4j/core/appender/FileManager.write:([BIIZ)V
+       9: return
+
+  protected synchronized void writeToDestination(byte[], int, int);
+    Code:
+       0: aload_0
+       1: dup
+       2: getfield      #87                 // Field size:J
+       5: iload_3
+       6: i2l
+       7: ladd
+       8: putfield      #87                 // Field size:J
+      11: aload_0
+      12: aload_1
+      13: iload_2
+      14: iload_3
+      15: invokespecial #221                // Method org/apache/logging/log4j/core/appender/FileManager.writeToDestination:([BII)V
+      18: return
+
+  public boolean isRenameEmptyFiles();
+    Code:
+       0: aload_0
+       1: getfield      #225                // Field renameEmptyFiles:Z
+       4: ireturn
+
+  public void setRenameEmptyFiles(boolean);
+    Code:
+       0: aload_0
+       1: iload_1
+       2: putfield      #225                // Field renameEmptyFiles:Z
+       5: return
+
+  public long getFileSize();
+    Code:
+       0: aload_0
+       1: getfield      #87                 // Field size:J
+       4: aload_0
+       5: getfield      #228                // Field byteBuffer:Ljava/nio/ByteBuffer;
+       8: invokevirtual #232                // Method java/nio/ByteBuffer.position:()I
+      11: i2l
+      12: ladd
+      13: lreturn
+
+  public long getFileTime();
+    Code:
+       0: aload_0
+       1: getfield      #91                 // Field initialTime:J
+       4: lreturn
+
+  public synchronized void checkRollover(org.apache.logging.log4j.core.LogEvent);
+    Code:
+       0: aload_0
+       1: getfield      #94                 // Field triggeringPolicy:Lorg/apache/logging/log4j/core/appender/rolling/TriggeringPolicy;
+       4: aload_1
+       5: invokeinterface #236,  2          // InterfaceMethod org/apache/logging/log4j/core/appender/rolling/TriggeringPolicy.isTriggeringEvent:(Lorg/apache/logging/log4j/core/LogEvent;)Z
+      10: ifeq          17
+      13: aload_0
+      14: invokevirtual #240                // Method rollover:()V
+      17: return
+
+  public boolean releaseSub(long, java.util.concurrent.TimeUnit);
+    Code:
+       0: getstatic     #1                  // Field LOGGER:Lorg/apache/logging/log4j/Logger;
+       3: ldc           #243                // String Shutting down RollingFileManager {}
+       5: aload_0
+       6: invokevirtual #245                // Method getName:()Ljava/lang/String;
+       9: invokeinterface #138,  3          // InterfaceMethod org/apache/logging/log4j/Logger.debug:(Ljava/lang/String;Ljava/lang/Object;)V
+      14: iconst_1
+      15: istore        4
+      17: aload_0
+      18: getfield      #94                 // Field triggeringPolicy:Lorg/apache/logging/log4j/core/appender/rolling/TriggeringPolicy;
+      21: instanceof    #248                // class org/apache/logging/log4j/core/LifeCycle2
+      24: ifeq          49
+      27: iload         4
+      29: aload_0
+      30: getfield      #94                 // Field triggeringPolicy:Lorg/apache/logging/log4j/core/appender/rolling/TriggeringPolicy;
+      33: checkcast     #248                // class org/apache/logging/log4j/core/LifeCycle2
+      36: lload_1
+      37: aload_3
+      38: invokeinterface #250,  4          // InterfaceMethod org/apache/logging/log4j/core/LifeCycle2.stop:(JLjava/util/concurrent/TimeUnit;)Z
+      43: iand
+      44: istore        4
+      46: goto          77
+      49: aload_0
+      50: getfield      #94                 // Field triggeringPolicy:Lorg/apache/logging/log4j/core/appender/rolling/TriggeringPolicy;
+      53: instanceof    #168                // class org/apache/logging/log4j/core/LifeCycle
+      56: ifeq          77
+      59: aload_0
+      60: getfield      #94                 // Field triggeringPolicy:Lorg/apache/logging/log4j/core/appender/rolling/TriggeringPolicy;
+      63: checkcast     #168                // class org/apache/logging/log4j/core/LifeCycle
+      66: invokeinterface #254,  1          // InterfaceMethod org/apache/logging/log4j/core/LifeCycle.stop:()V
+      71: iload         4
+      73: iconst_1
+      74: iand
+      75: istore        4
+      77: aload_0
+      78: lload_1
+      79: aload_3
+      80: invokespecial #256                // Method org/apache/logging/log4j/core/appender/FileManager.releaseSub:(JLjava/util/concurrent/TimeUnit;)Z
+      83: ifeq          95
+      86: iload         4
+      88: ifeq          95
+      91: iconst_1
+      92: goto          96
+      95: iconst_0
+      96: istore        5
+      98: aload_0
+      99: getfield      #83                 // Field asyncExecutor:Ljava/util/concurrent/ExecutorService;
+     102: invokeinterface #259,  1          // InterfaceMethod java/util/concurrent/ExecutorService.shutdown:()V
+     107: aload_3
+     108: lload_1
+     109: invokevirtual #264                // Method java/util/concurrent/TimeUnit.toMillis:(J)J
+     112: lstore        6
+     114: ldc2_w        #268                // long 100l
+     117: lload         6
+     119: lcmp
+     120: ifge          128
+     123: lload         6
+     125: goto          131
+     128: ldc2_w        #268                // long 100l
+     131: lstore        8
+     133: iconst_1
+     134: istore        10
+     136: iload         10
+     138: iconst_3
+     139: if_icmpgt     179
+     142: aload_0
+     143: getfield      #83                 // Field asyncExecutor:Ljava/util/concurrent/ExecutorService;
+     146: invokeinterface #270,  1          // InterfaceMethod java/util/concurrent/ExecutorService.isTerminated:()Z
+     151: ifne          179
+     154: aload_0
+     155: getfield      #83                 // Field asyncExecutor:Ljava/util/concurrent/ExecutorService;
+     158: lload         8
+     160: iload         10
+     162: i2l
+     163: lmul
+     164: getstatic     #71                 // Field java/util/concurrent/TimeUnit.MILLISECONDS:Ljava/util/concurrent/TimeUnit;
+     167: invokeinterface #273,  4          // InterfaceMethod java/util/concurrent/ExecutorService.awaitTermination:(JLjava/util/concurrent/TimeUnit;)Z
+     172: pop
+     173: iinc          10, 1
+     176: goto          136
+     179: aload_0
+     180: getfield      #83                 // Field asyncExecutor:Ljava/util/concurrent/ExecutorService;
+     183: invokeinterface #270,  1          // InterfaceMethod java/util/concurrent/ExecutorService.isTerminated:()Z
+     188: ifeq          205
+     191: getstatic     #1                  // Field LOGGER:Lorg/apache/logging/log4j/Logger;
+     194: ldc_w         #276                // String All asynchronous threads have terminated
+     197: invokeinterface #278,  2          // InterfaceMethod org/apache/logging/log4j/Logger.debug:(Ljava/lang/String;)V
+     202: goto          280
+     205: aload_0
+     206: getfield      #83                 // Field asyncExecutor:Ljava/util/concurrent/ExecutorService;
+     209: invokeinterface #280,  1          // InterfaceMethod java/util/concurrent/ExecutorService.shutdownNow:()Ljava/util/List;
+     214: pop
+     215: aload_0
+     216: getfield      #83                 // Field asyncExecutor:Ljava/util/concurrent/ExecutorService;
+     219: lload_1
+     220: aload_3
+     221: invokeinterface #273,  4          // InterfaceMethod java/util/concurrent/ExecutorService.awaitTermination:(JLjava/util/concurrent/TimeUnit;)Z
+     226: pop
+     227: aload_0
+     228: getfield      #83                 // Field asyncExecutor:Ljava/util/concurrent/ExecutorService;
+     231: invokeinterface #270,  1          // InterfaceMethod java/util/concurrent/ExecutorService.isTerminated:()Z
+     236: ifeq          253
+     239: getstatic     #1                  // Field LOGGER:Lorg/apache/logging/log4j/Logger;
+     242: ldc_w         #276                // String All asynchronous threads have terminated
+     245: invokeinterface #278,  2          // InterfaceMethod org/apache/logging/log4j/Logger.debug:(Ljava/lang/String;)V
+     250: goto          264
+     253: getstatic     #1                  // Field LOGGER:Lorg/apache/logging/log4j/Logger;
+     256: ldc_w         #284                // String RollingFileManager shutting down but some asynchronous services may not have completed
+     259: invokeinterface #278,  2          // InterfaceMethod org/apache/logging/log4j/Logger.debug:(Ljava/lang/String;)V
+     264: goto          280
+     267: astore        10
+     269: getstatic     #1                  // Field LOGGER:Lorg/apache/logging/log4j/Logger;
+     272: ldc_w         #288                // String RollingFileManager stopped but some asynchronous services may not have completed.
+     275: invokeinterface #290,  2          // InterfaceMethod org/apache/logging/log4j/Logger.warn:(Ljava/lang/String;)V
+     280: goto          352
+     283: astore        6
+     285: aload_0
+     286: getfield      #83                 // Field asyncExecutor:Ljava/util/concurrent/ExecutorService;
+     289: invokeinterface #280,  1          // InterfaceMethod java/util/concurrent/ExecutorService.shutdownNow:()Ljava/util/List;
+     294: pop
+     295: aload_0
+     296: getfield      #83                 // Field asyncExecutor:Ljava/util/concurrent/ExecutorService;
+     299: lload_1
+     300: aload_3
+     301: invokeinterface #273,  4          // InterfaceMethod java/util/concurrent/ExecutorService.awaitTermination:(JLjava/util/concurrent/TimeUnit;)Z
+     306: pop
+     307: aload_0
+     308: getfield      #83                 // Field asyncExecutor:Ljava/util/concurrent/ExecutorService;
+     311: invokeinterface #270,  1          // InterfaceMethod java/util/concurrent/ExecutorService.isTerminated:()Z
+     316: ifeq          330
+     319: getstatic     #1                  // Field LOGGER:Lorg/apache/logging/log4j/Logger;
+     322: ldc_w         #276                // String All asynchronous threads have terminated
+     325: invokeinterface #278,  2          // InterfaceMethod org/apache/logging/log4j/Logger.debug:(Ljava/lang/String;)V
+     330: goto          346
+     333: astore        7
+     335: getstatic     #1                  // Field LOGGER:Lorg/apache/logging/log4j/Logger;
+     338: ldc_w         #288                // String RollingFileManager stopped but some asynchronous services may not have completed.
+     341: invokeinterface #290,  2          // InterfaceMethod org/apache/logging/log4j/Logger.warn:(Ljava/lang/String;)V
+     346: invokestatic  #293                // Method java/lang/Thread.currentThread:()Ljava/lang/Thread;
+     349: invokevirtual #299                // Method java/lang/Thread.interrupt:()V
+     352: getstatic     #1                  // Field LOGGER:Lorg/apache/logging/log4j/Logger;
+     355: ldc_w         #302                // String RollingFileManager shutdown completed with status {}
+     358: iload         5
+     360: invokestatic  #304                // Method java/lang/Boolean.valueOf:(Z)Ljava/lang/Boolean;
+     363: invokeinterface #138,  3          // InterfaceMethod org/apache/logging/log4j/Logger.debug:(Ljava/lang/String;Ljava/lang/Object;)V
+     368: iload         5
+     370: ireturn
+    Exception table:
+       from    to  target type
+         215   264   267   Class java/lang/InterruptedException
+         107   280   283   Class java/lang/InterruptedException
+         295   330   333   Class java/lang/InterruptedException
+
+  public synchronized void rollover(java.util.Date, java.util.Date);
+    Code:
+       0: getstatic     #1                  // Field LOGGER:Lorg/apache/logging/log4j/Logger;
+       3: ldc_w         #310                // String Rollover PrevFileTime: {}, PrevRollTime: {}
+       6: aload_1
+       7: invokevirtual #312                // Method java/util/Date.getTime:()J
+      10: invokestatic  #317                // Method java/lang/Long.valueOf:(J)Ljava/lang/Long;
+      13: aload_2
+      14: invokevirtual #312                // Method java/util/Date.getTime:()J
+      17: invokestatic  #317                // Method java/lang/Long.valueOf:(J)Ljava/lang/Long;
+      20: invokeinterface #322,  4          // InterfaceMethod org/apache/logging/log4j/Logger.debug:(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V
+      25: aload_0
+      26: invokevirtual #325                // Method getPatternProcessor:()Lorg/apache/logging/log4j/core/appender/rolling/PatternProcessor;
+      29: aload_1
+      30: invokevirtual #312                // Method java/util/Date.getTime:()J
+      33: invokevirtual #111                // Method org/apache/logging/log4j/core/appender/rolling/PatternProcessor.setPrevFileTime:(J)V
+      36: aload_0
+      37: invokevirtual #325                // Method getPatternProcessor:()Lorg/apache/logging/log4j/core/appender/rolling/PatternProcessor;
+      40: aload_2
+      41: invokevirtual #312                // Method java/util/Date.getTime:()J
+      44: invokevirtual #329                // Method org/apache/logging/log4j/core/appender/rolling/PatternProcessor.setCurrentFileTime:(J)V
+      47: aload_0
+      48: invokevirtual #240                // Method rollover:()V
+      51: return
+
+  public synchronized void rollover();
+    Code:
+       0: aload_0
+       1: invokevirtual #332                // Method hasOutputStream:()Z
+       4: ifne          22
+       7: aload_0
+       8: invokevirtual #335                // Method isCreateOnDemand:()Z
+      11: ifne          22
+      14: aload_0
+      15: invokevirtual #338                // Method isDirectWrite:()Z
+      18: ifne          22
+      21: return
+      22: aload_0
+      23: getfield      #115                // Field fileName:Ljava/lang/String;
+      26: astore_1
+      27: aload_0
+      28: getfield      #62                 // Field rolloverListeners:Ljava/util/concurrent/CopyOnWriteArrayList;
+      31: invokevirtual #341                // Method java/util/concurrent/CopyOnWriteArrayList.size:()I
+      34: ifle          110
+      37: aload_0
+      38: getfield      #62                 // Field rolloverListeners:Ljava/util/concurrent/CopyOnWriteArrayList;
+      41: invokevirtual #343                // Method java/util/concurrent/CopyOnWriteArrayList.iterator:()Ljava/util/Iterator;
+      44: astore_2
+      45: aload_2
+      46: invokeinterface #347,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+      51: ifeq          110
+      54: aload_2
+      55: invokeinterface #352,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+      60: checkcast     #356                // class org/apache/logging/log4j/core/appender/rolling/RolloverListener
+      63: astore_3
+      64: aload_3
+      65: aload_1
+      66: invokeinterface #358,  2          // InterfaceMethod org/apache/logging/log4j/core/appender/rolling/RolloverListener.rolloverTriggered:(Ljava/lang/String;)V
+      71: goto          107
+      74: astore        4
+      76: getstatic     #1                  // Field LOGGER:Lorg/apache/logging/log4j/Logger;
+      79: ldc_w         #363                // String Rollover Listener {} failed with {}: {}
+      82: aload_3
+      83: invokevirtual #365                // Method java/lang/Object.getClass:()Ljava/lang/Class;
+      86: invokevirtual #371                // Method java/lang/Class.getSimpleName:()Ljava/lang/String;
+      89: aload         4
+      91: invokevirtual #365                // Method java/lang/Object.getClass:()Ljava/lang/Class;
+      94: invokevirtual #376                // Method java/lang/Class.getName:()Ljava/lang/String;
+      97: aload         4
+      99: invokevirtual #377                // Method java/lang/Exception.getMessage:()Ljava/lang/String;
+     102: invokeinterface #380,  5          // InterfaceMethod org/apache/logging/log4j/Logger.warn:(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
+     107: goto          45
+     110: invokestatic  #383                // Method java/lang/Thread.interrupted:()Z
+     113: istore_2
+     114: iload_2
+     115: ifeq          129
+     118: getstatic     #1                  // Field LOGGER:Lorg/apache/logging/log4j/Logger;
+     121: ldc_w         #386                // String RollingFileManager cleared thread interrupted state, continue to rollover
+     124: invokeinterface #290,  2          // InterfaceMethod org/apache/logging/log4j/Logger.warn:(Ljava/lang/String;)V
+     129: aload_0
+     130: aload_0
+     131: getfield      #98                 // Field rolloverStrategy:Lorg/apache/logging/log4j/core/appender/rolling/RolloverStrategy;
+     134: invokespecial #388                // Method rollover:(Lorg/apache/logging/log4j/core/appender/rolling/RolloverStrategy;)Z
+     137: ifeq          168
+     140: aload_0
+     141: lconst_0
+     142: putfield      #87                 // Field size:J
+     145: aload_0
+     146: invokestatic  #391                // Method java/lang/System.currentTimeMillis:()J
+     149: putfield      #91                 // Field initialTime:J
+     152: aload_0
+     153: invokevirtual #396                // Method createFileAfterRollover:()V
+     156: goto          168
+     159: astore_3
+     160: aload_0
+     161: ldc_w         #401                // String Failed to create file after rollover
+     164: aload_3
+     165: invokevirtual #403                // Method logError:(Ljava/lang/String;Ljava/lang/Throwable;)V
+     168: iload_2
+     169: ifeq          196
+     172: invokestatic  #293                // Method java/lang/Thread.currentThread:()Ljava/lang/Thread;
+     175: invokevirtual #299                // Method java/lang/Thread.interrupt:()V
+     178: goto          196
+     181: astore        5
+     183: iload_2
+     184: ifeq          193
+     187: invokestatic  #293                // Method java/lang/Thread.currentThread:()Ljava/lang/Thread;
+     190: invokevirtual #299                // Method java/lang/Thread.interrupt:()V
+     193: aload         5
+     195: athrow
+     196: aload_0
+     197: getfield      #62                 // Field rolloverListeners:Ljava/util/concurrent/CopyOnWriteArrayList;
+     200: invokevirtual #341                // Method java/util/concurrent/CopyOnWriteArrayList.size:()I
+     203: ifle          282
+     206: aload_0
+     207: getfield      #62                 // Field rolloverListeners:Ljava/util/concurrent/CopyOnWriteArrayList;
+     210: invokevirtual #343                // Method java/util/concurrent/CopyOnWriteArrayList.iterator:()Ljava/util/Iterator;
+     213: astore_3
+     214: aload_3
+     215: invokeinterface #347,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+     220: ifeq          282
+     223: aload_3
+     224: invokeinterface #352,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+     229: checkcast     #356                // class org/apache/logging/log4j/core/appender/rolling/RolloverListener
+     232: astore        4
+     234: aload         4
+     236: aload_1
+     237: invokeinterface #407,  2          // InterfaceMethod org/apache/logging/log4j/core/appender/rolling/RolloverListener.rolloverComplete:(Ljava/lang/String;)V
+     242: goto          279
+     245: astore        5
+     247: getstatic     #1                  // Field LOGGER:Lorg/apache/logging/log4j/Logger;
+     250: ldc_w         #363                // String Rollover Listener {} failed with {}: {}
+     253: aload         4
+     255: invokevirtual #365                // Method java/lang/Object.getClass:()Ljava/lang/Class;
+     258: invokevirtual #371                // Method java/lang/Class.getSimpleName:()Ljava/lang/String;
+     261: aload         5
+     263: invokevirtual #365                // Method java/lang/Object.getClass:()Ljava/lang/Class;
+     266: invokevirtual #376                // Method java/lang/Class.getName:()Ljava/lang/String;
+     269: aload         5
+     271: invokevirtual #377                // Method java/lang/Exception.getMessage:()Ljava/lang/String;
+     274: invokeinterface #380,  5          // InterfaceMethod org/apache/logging/log4j/Logger.warn:(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
+     279: goto          214
+     282: return
+    Exception table:
+       from    to  target type
+          64    71    74   Class java/lang/Exception
+         140   156   159   Class java/io/IOException
+         114   168   181   any
+         181   183   181   any
+         234   242   245   Class java/lang/Exception
+
+  protected void createFileAfterRollover() throws java.io.IOException;
+    Code:
+       0: aload_0
+       1: aload_0
+       2: invokevirtual #410                // Method createOutputStream:()Ljava/io/OutputStream;
+       5: invokevirtual #414                // Method setOutputStream:(Ljava/io/OutputStream;)V
+       8: return
+
+  public org.apache.logging.log4j.core.appender.rolling.PatternProcessor getPatternProcessor();
+    Code:
+       0: aload_0
+       1: getfield      #107                // Field patternProcessor:Lorg/apache/logging/log4j/core/appender/rolling/PatternProcessor;
+       4: areturn
+
+  public void setTriggeringPolicy(org.apache.logging.log4j.core.appender.rolling.TriggeringPolicy);
+    Code:
+       0: aload_1
+       1: aload_0
+       2: invokeinterface #162,  2          // InterfaceMethod org/apache/logging/log4j/core/appender/rolling/TriggeringPolicy.initialize:(Lorg/apache/logging/log4j/core/appender/rolling/RollingFileManager;)V
+       7: aload_0
+       8: getfield      #94                 // Field triggeringPolicy:Lorg/apache/logging/log4j/core/appender/rolling/TriggeringPolicy;
+      11: astore_2
+      12: iconst_0
+      13: istore_3
+      14: iconst_0
+      15: istore        4
+      17: iinc          3, 1
+      20: getstatic     #418                // Field triggeringPolicyUpdater:Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;
+      23: aload_0
+      24: aload_0
+      25: getfield      #94                 // Field triggeringPolicy:Lorg/apache/logging/log4j/core/appender/rolling/TriggeringPolicy;
+      28: aload_1
+      29: invokevirtual #422                // Method java/util/concurrent/atomic/AtomicReferenceFieldUpdater.compareAndSet:(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Z
+      32: dup
+      33: istore        4
+      35: ifne          43
+      38: iload_3
+      39: iconst_3
+      40: if_icmplt     17
+      43: iload         4
+      45: ifeq          83
+      48: aload_1
+      49: instanceof    #168                // class org/apache/logging/log4j/core/LifeCycle
+      52: ifeq          64
+      55: aload_1
+      56: checkcast     #168                // class org/apache/logging/log4j/core/LifeCycle
+      59: invokeinterface #170,  1          // InterfaceMethod org/apache/logging/log4j/core/LifeCycle.start:()V
+      64: aload_2
+      65: instanceof    #168                // class org/apache/logging/log4j/core/LifeCycle
+      68: ifeq          99
+      71: aload_2
+      72: checkcast     #168                // class org/apache/logging/log4j/core/LifeCycle
+      75: invokeinterface #254,  1          // InterfaceMethod org/apache/logging/log4j/core/LifeCycle.stop:()V
+      80: goto          99
+      83: aload_1
+      84: instanceof    #168                // class org/apache/logging/log4j/core/LifeCycle
+      87: ifeq          99
+      90: aload_1
+      91: checkcast     #168                // class org/apache/logging/log4j/core/LifeCycle
+      94: invokeinterface #254,  1          // InterfaceMethod org/apache/logging/log4j/core/LifeCycle.stop:()V
+      99: return
+
+  public void setRolloverStrategy(org.apache.logging.log4j.core.appender.rolling.RolloverStrategy);
+    Code:
+       0: getstatic     #428                // Field rolloverStrategyUpdater:Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;
+       3: aload_0
+       4: aload_0
+       5: getfield      #98                 // Field rolloverStrategy:Lorg/apache/logging/log4j/core/appender/rolling/RolloverStrategy;
+       8: aload_1
+       9: invokevirtual #422                // Method java/util/concurrent/atomic/AtomicReferenceFieldUpdater.compareAndSet:(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Z
+      12: pop
+      13: return
+
+  public void setPatternProcessor(org.apache.logging.log4j.core.appender.rolling.PatternProcessor);
+    Code:
+       0: getstatic     #431                // Field patternProcessorUpdater:Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;
+       3: aload_0
+       4: aload_0
+       5: getfield      #107                // Field patternProcessor:Lorg/apache/logging/log4j/core/appender/rolling/PatternProcessor;
+       8: aload_1
+       9: invokevirtual #422                // Method java/util/concurrent/atomic/AtomicReferenceFieldUpdater.compareAndSet:(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Z
+      12: pop
+      13: return
+
+  public <T extends org.apache.logging.log4j.core.appender.rolling.TriggeringPolicy> T getTriggeringPolicy();
+    Code:
+       0: aload_0
+       1: getfield      #94                 // Field triggeringPolicy:Lorg/apache/logging/log4j/core/appender/rolling/TriggeringPolicy;
+       4: areturn
+
+  java.util.concurrent.Semaphore getSemaphore();
+    Code:
+       0: aload_0
+       1: getfield      #15                 // Field semaphore:Ljava/util/concurrent/Semaphore;
+       4: areturn
+
+  public org.apache.logging.log4j.core.appender.rolling.RolloverStrategy getRolloverStrategy();
+    Code:
+       0: aload_0
+       1: getfield      #98                 // Field rolloverStrategy:Lorg/apache/logging/log4j/core/appender/rolling/RolloverStrategy;
+       4: areturn
+
+  private boolean rollover(org.apache.logging.log4j.core.appender.rolling.RolloverStrategy);
+    Code:
+       0: iconst_0
+       1: istore_2
+       2: aload_0
+       3: getfield      #15                 // Field semaphore:Ljava/util/concurrent/Semaphore;
+       6: invokevirtual #434                // Method java/util/concurrent/Semaphore.acquire:()V
+       9: iconst_1
+      10: istore_2
+      11: goto          25
+      14: astore_3
+      15: aload_0
+      16: ldc_w         #437                // String Thread interrupted while attempting to check rollover
+      19: aload_3
+      20: invokevirtual #403                // Method logError:(Ljava/lang/String;Ljava/lang/Throwable;)V
+      23: iconst_0
+      24: ireturn
+      25: iconst_1
+      26: istore_3
+      27: aload_1
+      28: aload_0
+      29: invokeinterface #439,  2          // InterfaceMethod org/apache/logging/log4j/core/appender/rolling/RolloverStrategy.rollover:(Lorg/apache/logging/log4j/core/appender/rolling/RollingFileManager;)Lorg/apache/logging/log4j/core/appender/rolling/RolloverDescription;
+      34: astore        4
+      36: aload         4
+      38: ifnull        182
+      41: aload_0
+      42: invokevirtual #444                // Method writeFooter:()V
+      45: aload_0
+      46: invokevirtual #447                // Method closeOutputStream:()Z
+      49: pop
+      50: aload         4
+      52: invokeinterface #450,  1          // InterfaceMethod org/apache/logging/log4j/core/appender/rolling/RolloverDescription.getSynchronous:()Lorg/apache/logging/log4j/core/appender/rolling/action/Action;
+      57: ifnull        107
+      60: getstatic     #1                  // Field LOGGER:Lorg/apache/logging/log4j/Logger;
+      63: ldc_w         #456                // String RollingFileManager executing synchronous {}
+      66: aload         4
+      68: invokeinterface #450,  1          // InterfaceMethod org/apache/logging/log4j/core/appender/rolling/RolloverDescription.getSynchronous:()Lorg/apache/logging/log4j/core/appender/rolling/action/Action;
+      73: invokeinterface #138,  3          // InterfaceMethod org/apache/logging/log4j/Logger.debug:(Ljava/lang/String;Ljava/lang/Object;)V
+      78: aload         4
+      80: invokeinterface #450,  1          // InterfaceMethod org/apache/logging/log4j/core/appender/rolling/RolloverDescription.getSynchronous:()Lorg/apache/logging/log4j/core/appender/rolling/action/Action;
+      85: invokeinterface #458,  1          // InterfaceMethod org/apache/logging/log4j/core/appender/rolling/action/Action.execute:()Z
+      90: istore_3
+      91: goto          107
+      94: astore        5
+      96: iconst_0
+      97: istore_3
+      98: aload_0
+      99: ldc_w         #463                // String Caught error in synchronous task
+     102: aload         5
+     104: invokevirtual #403                // Method logError:(Ljava/lang/String;Ljava/lang/Throwable;)V
+     107: iload_3
+     108: ifeq          165
+     111: aload         4
+     113: invokeinterface #465,  1          // InterfaceMethod org/apache/logging/log4j/core/appender/rolling/RolloverDescription.getAsynchronous:()Lorg/apache/logging/log4j/core/appender/rolling/action/Action;
+     118: ifnull        165
+     121: getstatic     #1                  // Field LOGGER:Lorg/apache/logging/log4j/Logger;
+     124: ldc_w         #468                // String RollingFileManager executing async {}
+     127: aload         4
+     129: invokeinterface #465,  1          // InterfaceMethod org/apache/logging/log4j/core/appender/rolling/RolloverDescription.getAsynchronous:()Lorg/apache/logging/log4j/core/appender/rolling/action/Action;
+     134: invokeinterface #138,  3          // InterfaceMethod org/apache/logging/log4j/Logger.debug:(Ljava/lang/String;Ljava/lang/Object;)V
+     139: aload_0
+     140: getfield      #83                 // Field asyncExecutor:Ljava/util/concurrent/ExecutorService;
+     143: new           #470                // class org/apache/logging/log4j/core/appender/rolling/RollingFileManager$AsyncAction
+     146: dup
+     147: aload         4
+     149: invokeinterface #465,  1          // InterfaceMethod org/apache/logging/log4j/core/appender/rolling/RolloverDescription.getAsynchronous:()Lorg/apache/logging/log4j/core/appender/rolling/action/Action;
+     154: aload_0
+     155: invokespecial #472                // Method org/apache/logging/log4j/core/appender/rolling/RollingFileManager$AsyncAction."<init>":(Lorg/apache/logging/log4j/core/appender/rolling/action/Action;Lorg/apache/logging/log4j/core/appender/rolling/RollingFileManager;)V
+     158: invokeinterface #475,  2          // InterfaceMethod java/util/concurrent/ExecutorService.execute:(Ljava/lang/Runnable;)V
+     163: iconst_0
+     164: istore_2
+     165: iload_3
+     166: istore        5
+     168: iload_2
+     169: ifeq          179
+     172: aload_0
+     173: getfield      #15                 // Field semaphore:Ljava/util/concurrent/Semaphore;
+     176: invokevirtual #478                // Method java/util/concurrent/Semaphore.release:()V
+     179: iload         5
+     181: ireturn
+     182: iconst_0
+     183: istore        5
+     185: iload_2
+     186: ifeq          196
+     189: aload_0
+     190: getfield      #15                 // Field semaphore:Ljava/util/concurrent/Semaphore;
+     193: invokevirtual #478                // Method java/util/concurrent/Semaphore.release:()V
+     196: iload         5
+     198: ireturn
+     199: astore        6
+     201: iload_2
+     202: ifeq          212
+     205: aload_0
+     206: getfield      #15                 // Field semaphore:Ljava/util/concurrent/Semaphore;
+     209: invokevirtual #478                // Method java/util/concurrent/Semaphore.release:()V
+     212: aload         6
+     214: athrow
+    Exception table:
+       from    to  target type
+           2    11    14   Class java/lang/InterruptedException
+          78    91    94   Class java/lang/Exception
+          27   168   199   any
+         182   185   199   any
+         199   201   199   any
+
+  public void updateData(java.lang.Object);
+    Code:
+       0: aload_1
+       1: checkcast     #178                // class org/apache/logging/log4j/core/appender/rolling/RollingFileManager$FactoryData
+       4: astore_2
+       5: aload_0
+       6: aload_2
+       7: invokevirtual #481                // Method org/apache/logging/log4j/core/appender/rolling/RollingFileManager$FactoryData.getRolloverStrategy:()Lorg/apache/logging/log4j/core/appender/rolling/RolloverStrategy;
+      10: invokevirtual #485                // Method setRolloverStrategy:(Lorg/apache/logging/log4j/core/appender/rolling/RolloverStrategy;)V
+      13: aload_0
+      14: new           #102                // class org/apache/logging/log4j/core/appender/rolling/PatternProcessor
+      17: dup
+      18: aload_2
+      19: invokevirtual #489                // Method org/apache/logging/log4j/core/appender/rolling/RollingFileManager$FactoryData.getPattern:()Ljava/lang/String;
+      22: aload_0
+      23: invokevirtual #325                // Method getPatternProcessor:()Lorg/apache/logging/log4j/core/appender/rolling/PatternProcessor;
+      26: invokespecial #492                // Method org/apache/logging/log4j/core/appender/rolling/PatternProcessor."<init>":(Ljava/lang/String;Lorg/apache/logging/log4j/core/appender/rolling/PatternProcessor;)V
+      29: invokevirtual #495                // Method setPatternProcessor:(Lorg/apache/logging/log4j/core/appender/rolling/PatternProcessor;)V
+      32: aload_0
+      33: aload_2
+      34: invokevirtual #499                // Method org/apache/logging/log4j/core/appender/rolling/RollingFileManager$FactoryData.getTriggeringPolicy:()Lorg/apache/logging/log4j/core/appender/rolling/TriggeringPolicy;
+      37: invokevirtual #503                // Method setTriggeringPolicy:(Lorg/apache/logging/log4j/core/appender/rolling/TriggeringPolicy;)V
+      40: return
+
+  private static long initialFileTime(java.io.File);
+    Code:
+       0: aload_0
+       1: invokevirtual #507                // Method java/io/File.toPath:()Ljava/nio/file/Path;
+       4: astore_1
+       5: aload_1
+       6: iconst_0
+       7: anewarray     #511                // class java/nio/file/LinkOption
+      10: invokestatic  #513                // Method java/nio/file/Files.exists:(Ljava/nio/file/Path;[Ljava/nio/file/LinkOption;)Z
+      13: ifeq          144
+      16: aload_1
+      17: ldc_w         #518                // class java/nio/file/attribute/BasicFileAttributes
+      20: iconst_0
+      21: anewarray     #511                // class java/nio/file/LinkOption
+      24: invokestatic  #520                // Method java/nio/file/Files.readAttributes:(Ljava/nio/file/Path;Ljava/lang/Class;[Ljava/nio/file/LinkOption;)Ljava/nio/file/attribute/BasicFileAttributes;
+      27: astore_2
+      28: aload_2
+      29: invokeinterface #524,  1          // InterfaceMethod java/nio/file/attribute/BasicFileAttributes.creationTime:()Ljava/nio/file/attribute/FileTime;
+      34: astore_3
+      35: aload_3
+      36: getstatic     #528                // Field EPOCH:Ljava/nio/file/attribute/FileTime;
+      39: invokevirtual #532                // Method java/nio/file/attribute/FileTime.compareTo:(Ljava/nio/file/attribute/FileTime;)I
+      42: ifle          65
+      45: getstatic     #1                  // Field LOGGER:Lorg/apache/logging/log4j/Logger;
+      48: ldc_w         #538                // String Returning file creation time for {}
+      51: aload_0
+      52: invokevirtual #540                // Method java/io/File.getAbsolutePath:()Ljava/lang/String;
+      55: invokeinterface #138,  3          // InterfaceMethod org/apache/logging/log4j/Logger.debug:(Ljava/lang/String;Ljava/lang/Object;)V
+      60: aload_3
+      61: invokevirtual #543                // Method java/nio/file/attribute/FileTime.toMillis:()J
+      64: lreturn
+      65: getstatic     #1                  // Field LOGGER:Lorg/apache/logging/log4j/Logger;
+      68: new           #545                // class java/lang/StringBuilder
+      71: dup
+      72: invokespecial #547                // Method java/lang/StringBuilder."<init>":()V
+      75: ldc_w         #548                // String Unable to obtain file creation time for
+      78: invokevirtual #550                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      81: aload_0
+      82: invokevirtual #540                // Method java/io/File.getAbsolutePath:()Ljava/lang/String;
+      85: invokevirtual #550                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      88: invokevirtual #554                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+      91: invokeinterface #557,  2          // InterfaceMethod org/apache/logging/log4j/Logger.info:(Ljava/lang/String;)V
+      96: goto          144
+      99: astore_2
+     100: getstatic     #1                  // Field LOGGER:Lorg/apache/logging/log4j/Logger;
+     103: new           #545                // class java/lang/StringBuilder
+     106: dup
+     107: invokespecial #547                // Method java/lang/StringBuilder."<init>":()V
+     110: ldc_w         #560                // String Unable to calculate file creation time for
+     113: invokevirtual #550                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     116: aload_0
+     117: invokevirtual #540                // Method java/io/File.getAbsolutePath:()Ljava/lang/String;
+     120: invokevirtual #550                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     123: ldc_w         #562                // String :
+     126: invokevirtual #550                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     129: aload_2
+     130: invokevirtual #377                // Method java/lang/Exception.getMessage:()Ljava/lang/String;
+     133: invokevirtual #550                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     136: invokevirtual #554                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     139: invokeinterface #557,  2          // InterfaceMethod org/apache/logging/log4j/Logger.info:(Ljava/lang/String;)V
+     144: aload_0
+     145: invokevirtual #564                // Method java/io/File.lastModified:()J
+     148: lreturn
+    Exception table:
+       from    to  target type
+          16    64    99   Class java/lang/Exception
+          65    96    99   Class java/lang/Exception
+
+  static java.util.concurrent.Semaphore access$100(org.apache.logging.log4j.core.appender.rolling.RollingFileManager);
+    Code:
+       0: aload_0
+       1: getfield      #15                 // Field semaphore:Ljava/util/concurrent/Semaphore;
+       4: areturn
+
+  static org.apache.logging.log4j.Logger access$400();
+    Code:
+       0: getstatic     #1                  // Field LOGGER:Lorg/apache/logging/log4j/Logger;
+       3: areturn
+
+  static org.apache.logging.log4j.Logger access$500();
+    Code:
+       0: getstatic     #1                  // Field LOGGER:Lorg/apache/logging/log4j/Logger;
+       3: areturn
+
+  static long access$900(java.io.File);
+    Code:
+       0: aload_0
+       1: invokestatic  #11                 // Method initialFileTime:(Ljava/io/File;)J
+       4: lreturn
+
+  static void access$1800(org.apache.logging.log4j.core.appender.rolling.RollingFileManager, java.nio.file.Path);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokevirtual #7                  // Method defineAttributeView:(Ljava/nio/file/Path;)V
+       5: return
+
+  static org.apache.logging.log4j.Logger access$1900();
+    Code:
+       0: getstatic     #1                  // Field LOGGER:Lorg/apache/logging/log4j/Logger;
+       3: areturn
+
+  static {};
+    Code:
+       0: new           #567                // class org/apache/logging/log4j/core/appender/rolling/RollingFileManager$RollingFileManagerFactory
+       3: dup
+       4: aconst_null
+       5: invokespecial #569                // Method org/apache/logging/log4j/core/appender/rolling/RollingFileManager$RollingFileManagerFactory."<init>":(Lorg/apache/logging/log4j/core/appender/rolling/RollingFileManager$1;)V
+       8: putstatic     #183                // Field factory:Lorg/apache/logging/log4j/core/appender/rolling/RollingFileManager$RollingFileManagerFactory;
+      11: lconst_0
+      12: invokestatic  #572                // Method java/nio/file/attribute/FileTime.fromMillis:(J)Ljava/nio/file/attribute/FileTime;
+      15: putstatic     #528                // Field EPOCH:Ljava/nio/file/attribute/FileTime;
+      18: ldc           #2                  // class org/apache/logging/log4j/core/appender/rolling/RollingFileManager
+      20: ldc           #163                // class org/apache/logging/log4j/core/appender/rolling/TriggeringPolicy
+      22: ldc_w         #576                // String triggeringPolicy
+      25: invokestatic  #577                // Method java/util/concurrent/atomic/AtomicReferenceFieldUpdater.newUpdater:(Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/String;)Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;
+      28: putstatic     #418                // Field triggeringPolicyUpdater:Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;
+      31: ldc           #2                  // class org/apache/logging/log4j/core/appender/rolling/RollingFileManager
+      33: ldc_w         #440                // class org/apache/logging/log4j/core/appender/rolling/RolloverStrategy
+      36: ldc_w         #581                // String rolloverStrategy
+      39: invokestatic  #577                // Method java/util/concurrent/atomic/AtomicReferenceFieldUpdater.newUpdater:(Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/String;)Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;
+      42: putstatic     #428                // Field rolloverStrategyUpdater:Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;
+      45: ldc           #2                  // class org/apache/logging/log4j/core/appender/rolling/RollingFileManager
+      47: ldc           #102                // class org/apache/logging/log4j/core/appender/rolling/PatternProcessor
+      49: ldc_w         #582                // String patternProcessor
+      52: invokestatic  #577                // Method java/util/concurrent/atomic/AtomicReferenceFieldUpdater.newUpdater:(Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/String;)Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;
+      55: putstatic     #431                // Field patternProcessorUpdater:Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;
+      58: return
+}

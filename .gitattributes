@@ -7,3 +7,5 @@
 evidence/engineering-042/*-crash.txt -whitespace
 # Preserve exact captured javap transcripts, including native terminal line endings.
 evidence/engineering-045/**/*.javap.txt -whitespace
+# Original rolling-log witness/segment blobs are fingerprinted raw bytes.
+evidence/engineering-050/native-log-stream/**/*.bin binary
