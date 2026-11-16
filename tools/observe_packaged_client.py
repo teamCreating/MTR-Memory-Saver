@@ -6,6 +6,10 @@ with each epoch's settled state and excludes the initial startup. Optional exter
 input JSONL records contain timestamp, pid, process_created, log_offset,
 method="native_f3_t", and a fresh before snapshot; real resource/registration/work
 log completions must follow. This observer never performs game input.
+
+Create output/stop-request to stop a running observation without controlling the
+game. Its exact bytes and an independently timed receipt are preserved. Stopped
+observations complete normal cleanup and save an unaccepted summary.
 """
 import argparse
 import ctypes
@@ -28,6 +32,7 @@ import windows_snapshot_io
 UTC = dt.timezone.utc
 ZERO_COUNTERS = ("native_pending", "module_pending", "module_outstanding", "module_queued", "active_reads", "resource_in_flight", "module_failures")
 NEUTRAL_CONTRACT_FILE = pathlib.Path(__file__).resolve().parent.parent / "config/native-observer-consumer.json"
+CONTROL_POLL_SECONDS = 0.25
 
 
 def timestamp():
@@ -46,6 +51,46 @@ def read_snapshot(path):
 def digest(path):
     with path.open("rb") as stream:
         return hashlib.file_digest(stream, "sha256").hexdigest()
+
+
+def capture_stop_request(output, start_clock):
+    request_path = output / "stop-request"
+    capture_started_at = timestamp()
+    try:
+        raw = request_path.read_bytes()
+    except FileNotFoundError:
+        if not output.is_dir():
+            raise
+        return None
+    observed_at, observed_clock = timestamp(), time.monotonic()
+    captured_path = output / "stop-request-captured.bin"
+    with captured_path.open("xb") as stream:
+        stream.write(raw)
+    receipt = {"request_path": str(request_path), "captured_path": str(captured_path),
+               "bytes": len(raw), "sha256": hashlib.sha256(raw).hexdigest(),
+               "capture_started_at": capture_started_at, "observed_at": observed_at,
+               "observed_elapsed_seconds": observed_clock-start_clock,
+               "captured_file_closed_at": timestamp()}
+    receipt_path = output / "stop-request-receipt.json"
+    with receipt_path.open("x", encoding="utf-8") as stream:
+        stream.write(json.dumps(receipt, indent=2) + "\n")
+    return {**receipt, "receipt_path": str(receipt_path), "receipt_sha256": digest(receipt_path)}
+
+
+def wait_for_sample(deadline, request_path):
+    # Poll only for control; never create replacement game observations or move
+    # sampling deadlines when a request interrupts the wait.
+    while True:
+        try:
+            request_path.stat()
+        except FileNotFoundError:
+            pass
+        else:
+            return
+        remaining = deadline-time.monotonic()
+        if remaining <= 0:
+            return
+        time.sleep(min(remaining, CONTROL_POLL_SECONDS))
 
 
 def instant(value):
@@ -912,6 +957,8 @@ def observe(args):
             "nmt": args.nmt, "auxiliary_interval": args.auxiliary_interval,
             "auxiliary_maximum_in_flight": 1, "auxiliary_shutdown_seconds": getattr(args, "auxiliary_shutdown_seconds", 45), "route_windows": route_policy,
             "sampling_cadence": "future phase-aligned deadlines; missed slots are skipped without catch-up",
+            "stop_request": {"path": str(output / "stop-request"), "kind": "file_presence",
+                             "poll_interval_seconds": CONTROL_POLL_SECONDS},
             "gpu_query_paths": gpu_process_paths(args.gpu_counter, launch["pid"]),
             "route_window_policy_sha256": route_policy_hash}
     except Exception as preflight_error:
@@ -1007,11 +1054,15 @@ def observe(args):
                         metric = name + "." + key
                         auxiliary_peaks[metric] = max(auxiliary_peaks.get(metric, 0), amount)
             accounted_auxiliary_completions.add(event["request_id"])
-    status, error = "duration_complete", None
+    status, error, stop_request = "duration_complete", None, None
     interval_end, last_auxiliary = start_clock, -math.inf
     try:
         with (output / "samples.jsonl").open("x", encoding="utf-8") as stream:
             while True:
+                stop_request = capture_stop_request(output, start_clock)
+                if stop_request is not None:
+                    status = "stopped"
+                    break
                 now_clock, now = time.monotonic(), dt.datetime.now(UTC)
                 memory = process.sample()
                 sample = {"timestamp": now.isoformat(), "elapsed_seconds": now_clock-start_clock, "process": memory}
@@ -1057,14 +1108,21 @@ def observe(args):
                     baseline_sequence = current["resource_epochs"].get("last_completed_sequence", 0)
                 if (args.require_reloads or metadata) and state["verified"]:
                     epoch_observations.append(state)
+                stop_request = capture_stop_request(output, start_clock)
+                if stop_request is not None:
+                    status = "stopped"
+                    break
                 if args.mode == "reloads" and baseline_sequence is not None and epoch_path.exists():
+                    reload_complete = False
                     try:
                         current_reloads, _ = evaluate_reloads((instance / "logs/latest.log").read_bytes(), epoch_path.read_bytes(), now.isoformat())
-                        if consecutive_reloads(current_reloads) >= args.require_reloads and (not metadata or all(item["verified"] for item in current_reloads)):
-                            status = "reloads_verified"
-                            break
+                        reload_complete = consecutive_reloads(current_reloads) >= args.require_reloads and (not metadata or all(item["verified"] for item in current_reloads))
                     except (OSError, ValueError):
                         pass
+                    if reload_complete:
+                        stop_request = capture_stop_request(output, start_clock)
+                        status = "stopped" if stop_request is not None else "reloads_verified"
+                        break
                 if isinstance(current.get("heap_used"), (int, float)):
                     peaks["heap_used"] = max(peaks.get("heap_used", 0), current["heap_used"])
                 game_time = current.get("game_time")
@@ -1079,7 +1137,8 @@ def observe(args):
                 prior_valid = state["verified"]
                 elapsed = now_clock-start_clock
                 if args.mode == "startup" and stable_since is not None and now_clock-stable_since >= args.stable_seconds:
-                    status = "settled"
+                    stop_request = capture_stop_request(output, start_clock)
+                    status = "stopped" if stop_request is not None else "settled"
                     break
                 if elapsed >= duration:
                     break
@@ -1088,7 +1147,7 @@ def observe(args):
                 # manufacture catch-up observations against one probe snapshot.
                 interval_end = start_clock + (math.floor((current_clock-start_clock)/interval)+1)*interval
                 delay = min(max(0, interval_end-current_clock), max(0, start_clock+duration-current_clock))
-                time.sleep(delay)
+                wait_for_sample(current_clock+delay, output / "stop-request")
     except KeyboardInterrupt:
         status, error = "interrupted", "Observer interrupted; recorded samples are preserved."
     except Exception as observed_error:
@@ -1204,6 +1263,7 @@ def observe(args):
         passed = False
         failures.add("neutral_consumer_source_changed_during_observation")
     summary = {"started": started, "ended": ended, "elapsed_seconds": elapsed, "status": status, "passed": passed,
+        "stop_request": stop_request,
         "error": error, "mode": args.mode, "instance": str(instance), "plan_sha256": digest(instance / "packaged-client-plan.json"),
         "launch_sha256": digest(instance / "packaged-client-launch.json"), "process_identity": process.identity,
         "process_created": process.created, "policy": observation_policy, "route_window_evidence": route_results,

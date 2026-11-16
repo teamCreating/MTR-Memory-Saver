@@ -1,0 +1,25 @@
+{
+  "argv": [
+    "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.venv\\Scripts\\python.exe",
+    "-X",
+    "utf8",
+    "-c",
+    "import hashlib,json,unittest,observe_packaged_client as observer,test_observe_packaged_client as tests;from pathlib import Path;print(json.dumps({'observer':observer.__file__,'observer_sha256':hashlib.sha256(Path(observer.__file__).read_bytes()).hexdigest(),'tests':tests.__file__}),flush=True);unittest.main(module=None,verbosity=2)",
+    "test_observe_packaged_client.ObservationTest.test_background_auxiliary_keeps_sampling_while_provider_is_blocked",
+    "test_observe_packaged_client.ObservationTest.test_background_auxiliary_missing_failed_or_exception_result_still_rejects",
+    "test_observe_packaged_client.ObservationTest.test_interrupted_main_sampling_preserves_accepted_auxiliary_result",
+    "test_observe_packaged_client.ObservationTest.test_interruption_after_completion_poll_preserves_unaccounted_result",
+    "test_observe_packaged_client.ObservationTest.test_interruption_after_submission_preserves_request_and_attempt_count",
+    "test_observe_packaged_client.ObservationTest.test_shutdown_completion_is_explicit_and_does_not_extend_route_window"
+  ],
+  "cwd": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory",
+  "pid": 68544,
+  "started_at": "2026-11-16T15:57:58.852411+00:00",
+  "pythonpath": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-049\\observer-stop-control\\source-before\\tools;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\tools",
+  "source_sha256": {
+    "observe_packaged_client.py": "f96d1fc4843a00286592b78732a6dfb15bfd7d46799432c0f2c911dc57f3c1aa",
+    "test_observe_packaged_client.py": "918c14f2fd7b8ca14d352111e5f08046347d3c441fc30afdad5aa0b1b27bbe69"
+  },
+  "exit_code": 0,
+  "finished_at": "2026-11-16T15:58:03.783039+00:00"
+}

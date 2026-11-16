@@ -1,0 +1,12 @@
+test_stop_before_first_startup_sample_preserves_request_and_empty_window (test_observe_packaged_client.ObservationTest.test_stop_before_first_startup_sample_preserves_request_and_empty_window) ... ok
+test_stop_during_long_sampling_wait_does_not_wait_or_invent_another_sample (test_observe_packaged_client.ObservationTest.test_stop_during_long_sampling_wait_does_not_wait_or_invent_another_sample) ... ok
+test_stop_received_during_sample_precedes_startup_success (test_observe_packaged_client.ObservationTest.test_stop_received_during_sample_precedes_startup_success) ... ok
+test_explicit_stop_cannot_award_reload_acceptance (test_observe_packaged_client.ObservationTest.test_explicit_stop_cannot_award_reload_acceptance) ... ok
+test_stop_preserves_native_failure_and_changed_source_evidence (test_observe_packaged_client.ObservationTest.test_stop_preserves_native_failure_and_changed_source_evidence) ... ok
+test_stop_request_read_failure_is_an_observation_failure (test_observe_packaged_client.ObservationTest.test_stop_request_read_failure_is_an_observation_failure) ... ok
+test_stop_capture_never_overwrites_an_existing_receipt_payload (test_observe_packaged_client.ObservationTest.test_stop_capture_never_overwrites_an_existing_receipt_payload) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 4.131s
+
+OK

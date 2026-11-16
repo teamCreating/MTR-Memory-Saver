@@ -1,0 +1,11 @@
+test_background_auxiliary_keeps_sampling_while_provider_is_blocked (test_observe_packaged_client.ObservationTest.test_background_auxiliary_keeps_sampling_while_provider_is_blocked) ... ok
+test_background_auxiliary_missing_failed_or_exception_result_still_rejects (test_observe_packaged_client.ObservationTest.test_background_auxiliary_missing_failed_or_exception_result_still_rejects) ... ok
+test_interrupted_main_sampling_preserves_accepted_auxiliary_result (test_observe_packaged_client.ObservationTest.test_interrupted_main_sampling_preserves_accepted_auxiliary_result) ... ok
+test_interruption_after_completion_poll_preserves_unaccounted_result (test_observe_packaged_client.ObservationTest.test_interruption_after_completion_poll_preserves_unaccounted_result) ... ok
+test_interruption_after_submission_preserves_request_and_attempt_count (test_observe_packaged_client.ObservationTest.test_interruption_after_submission_preserves_request_and_attempt_count) ... ok
+test_shutdown_completion_is_explicit_and_does_not_extend_route_window (test_observe_packaged_client.ObservationTest.test_shutdown_completion_is_explicit_and_does_not_extend_route_window) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 2.384s
+
+OK

@@ -167,7 +167,8 @@ class ObservationTest(unittest.TestCase):
         self.assertIn("unsettled_counter.resource_in_flight", self.observe()["failures"])
 
     def run_observation(self, mode, interrupt=False, change_source=False, native_failure=False, motion_pattern="distributed",
-            process_sample_cost=1, snapshot_period=None, auxiliary_delays=()):
+            process_sample_cost=1, snapshot_period=None, auxiliary_delays=(), stop_request_at=None, stop_on_sample=None,
+            interval=5, stop_when_reloads_evaluated=False):
         initial_time = dt.datetime.now(dt.timezone.utc)
         now = initial_time.isoformat()
         self.launch["timestamp"] = now
@@ -179,6 +180,10 @@ class ObservationTest(unittest.TestCase):
         state_path, vehicle_path = self.state_path, self.vehicle_path
         owner = self
         clock = [0.0]
+        request_bytes = "Stop this observation. 保留原始证据。\n".encode("utf-8")
+        def request_stop_if_due():
+            if stop_request_at is not None and clock[0] >= stop_request_at and not (output / "stop-request").exists():
+                (output / "stop-request").write_bytes(request_bytes)
         class SimulatedDatetime(dt.datetime):
             @classmethod
             def now(cls, timezone=None):
@@ -196,7 +201,11 @@ class ObservationTest(unittest.TestCase):
                 self.identity = {"pid": 999, "created": now}
                 self.created = now
                 self.closed = False
+                self.samples = 0
+                owner.last_process = self
+                request_stop_if_due()
             def sample(self):
+                self.samples += 1
                 sampled_elapsed = clock[0]
                 clock[0] += process_sample_cost
                 if interrupt:
@@ -216,16 +225,26 @@ class ObservationTest(unittest.TestCase):
                     vehicle["vehicles"][0]["railProgress"] += 1
                 owner.write(state_path, state)
                 owner.write(vehicle_path, vehicle)
+                if self.samples == stop_on_sample:
+                    (output / "stop-request").write_bytes(request_bytes)
+                request_stop_if_due()
                 return {"running": True, "working_set": 100, "private_usage": 200}
             def close(self):
                 self.closed = True
         args = SimpleNamespace(instance=self.root, output=output, state_file=state_path, vehicle_state_file=vehicle_path,
-            epoch_events=None, mode=mode, require_world=mode == "route", unpaused=True, duration=60, interval=5,
+            epoch_events=None, mode=mode, require_world=mode == "route", unpaused=True, duration=60, interval=interval,
             freshness_seconds=15, expected_count=669, stable_seconds=5, auxiliary_interval=60,
             route_windows=3, minimum_window_progress_displacement=0.01,
             gpu_counter=[], nmt=False, reload_events=None, require_reloads=0, expected_declarations=None)
+        if stop_when_reloads_evaluated:
+            (self.root / "game-probe").mkdir()
+            (self.root / "game-probe/resource-epochs.jsonl").write_text("", encoding="utf-8")
+            args.reload_events = self.root / "inputs.jsonl"
+            args.reload_events.write_text("{}\n", encoding="utf-8")
+            args.require_reloads = 1
         def advance_clock(seconds):
             clock[0] += seconds
+            request_stop_if_due()
         auxiliary_call = [0]
         def delayed_auxiliary(*unused):
             if auxiliary_call[0] < len(auxiliary_delays):
@@ -537,6 +556,119 @@ class ObservationTest(unittest.TestCase):
         self.assertFalse(summary["passed"])
         self.assertTrue((output / "samples.jsonl").exists())
         self.assertEqual(summary["samples_sha256"], hashlib.sha256(b"").hexdigest())
+
+    def assert_stopped_receipt(self, summary, output):
+        self.assertEqual(summary["status"], "stopped")
+        self.assertFalse(summary["passed"])
+        self.assertLess(summary["elapsed_seconds"], summary["policy"]["duration"])
+        self.assertTrue(self.last_process.closed)
+        self.assertTrue(summary["auxiliary_shutdown"]["worker_stopped"])
+        receipt = summary["stop_request"]
+        original = (output / "stop-request").read_bytes()
+        self.assertEqual((output / "stop-request-captured.bin").read_bytes(), original)
+        self.assertEqual(receipt["sha256"], hashlib.sha256(original).hexdigest())
+        self.assertEqual(receipt["bytes"], len(original))
+        self.assertEqual(receipt["receipt_sha256"], observer.digest(output / "stop-request-receipt.json"))
+        captured = observer.read(output / "stop-request-receipt.json")
+        self.assertEqual(captured, {key: value for key, value in receipt.items() if key not in ("receipt_path", "receipt_sha256")})
+        self.assertLessEqual(observer.instant(captured["capture_started_at"]), observer.instant(captured["observed_at"]))
+        self.assertLessEqual(observer.instant(captured["observed_at"]), observer.instant(summary["ended"]))
+        self.assertLessEqual(captured["observed_elapsed_seconds"], summary["elapsed_seconds"])
+        self.assertEqual(summary["samples_sha256"], observer.digest(output / "samples.jsonl"))
+
+    def test_stop_before_first_startup_sample_preserves_request_and_empty_window(self):
+        code, summary, output = self.run_observation("startup", stop_request_at=0)
+        self.assertEqual(code, 1)
+        self.assert_stopped_receipt(summary, output)
+        self.assertEqual(summary["sample_count"], 0)
+        self.assertEqual(summary["elapsed_seconds"], 0)
+        self.assertEqual((output / "samples.jsonl").read_bytes(), b"")
+
+    def test_stop_during_long_sampling_wait_does_not_wait_or_invent_another_sample(self):
+        code, summary, output = self.run_observation("route", stop_request_at=2, interval=30)
+        self.assertEqual(code, 1)
+        self.assert_stopped_receipt(summary, output)
+        self.assertEqual(summary["sample_count"], 1)
+        self.assertEqual(summary["elapsed_seconds"], 2)
+        self.assertFalse(summary["route_window_evidence"]["passed"])
+
+    def test_stop_received_during_sample_precedes_startup_success(self):
+        code, summary, output = self.run_observation("startup", stop_on_sample=2)
+        self.assertEqual(code, 1)
+        self.assert_stopped_receipt(summary, output)
+        self.assertEqual(summary["sample_count"], 2)
+        self.assertEqual(summary["verified_sample_count"], 2)
+
+    def test_explicit_stop_cannot_award_reload_acceptance(self):
+        code, summary, output = self.run_observation("reloads", stop_request_at=0)
+        self.assertEqual(code, 1)
+        self.assert_stopped_receipt(summary, output)
+        self.assertEqual(summary["verified_reload_count"], 0)
+
+    def test_stop_preserves_native_failure_and_changed_source_evidence(self):
+        code, summary, output = self.run_observation("route", stop_request_at=2, native_failure=True, change_source=True)
+        self.assertEqual(code, 1)
+        self.assert_stopped_receipt(summary, output)
+        self.assertTrue(summary["source_changed_during_observation"])
+        self.assertIn("native_resource_decode_or_parse_diagnostics", summary["observed_failures"])
+        self.assertNotEqual(summary["source_sha256"], summary["current_source_sha256"])
+
+    def test_stop_request_read_failure_is_an_observation_failure(self):
+        with mock.patch.object(observer, "capture_stop_request", side_effect=PermissionError("Denied control read")):
+            code, summary, output = self.run_observation("route")
+        self.assertEqual(code, 1)
+        self.assertEqual(summary["status"], "observation_failed")
+        self.assertFalse(summary["passed"])
+        self.assertIn("Denied control read", summary["error"])
+        self.assertIsNone(summary["stop_request"])
+        self.assertTrue(self.last_process.closed)
+        self.assertTrue(summary["auxiliary_shutdown"]["worker_stopped"])
+
+    def test_stop_capture_never_overwrites_an_existing_receipt_payload(self):
+        output = self.root / "stop-collision"
+        output.mkdir()
+        (output / "stop-request").write_bytes(b"requested")
+        (output / "stop-request-captured.bin").write_bytes(b"existing evidence")
+        with self.assertRaises(FileExistsError):
+            observer.capture_stop_request(output, 0)
+        self.assertEqual((output / "stop-request-captured.bin").read_bytes(), b"existing evidence")
+        self.assertEqual((output / "stop-request").read_bytes(), b"requested")
+
+    def test_wait_control_permission_error_is_not_treated_as_absence(self):
+        with mock.patch.object(pathlib.Path, "stat", side_effect=PermissionError("Denied control stat")):
+            with self.assertRaisesRegex(PermissionError, "Denied control stat"):
+                observer.wait_for_sample(time.monotonic()+30, self.root / "stop-request")
+
+    def test_receipt_write_failure_preserves_request_payload_and_cleanup(self):
+        actual_open = pathlib.Path.open
+        def reject_receipt(path, *args, **kwargs):
+            if path.name == "stop-request-receipt.json":
+                raise PermissionError("Receipt write denied")
+            return actual_open(path, *args, **kwargs)
+        with mock.patch.object(pathlib.Path, "open", new=reject_receipt):
+            code, summary, output = self.run_observation("route", stop_request_at=0)
+        self.assertEqual(code, 1)
+        self.assertEqual(summary["status"], "observation_failed")
+        self.assertFalse(summary["passed"])
+        self.assertIn("Receipt write denied", summary["error"])
+        self.assertIsNone(summary["stop_request"])
+        self.assertTrue(self.last_process.closed)
+        self.assertTrue(summary["auxiliary_shutdown"]["worker_stopped"])
+        self.assertEqual((output / "stop-request").read_bytes(), (output / "stop-request-captured.bin").read_bytes())
+        self.assertFalse((output / "stop-request-receipt.json").exists())
+
+    def test_stop_arriving_during_reload_evaluation_precedes_success(self):
+        def completed_reload(*unused):
+            request = self.root / "reloads-observation/stop-request"
+            if not request.exists():
+                request.write_bytes(b"Stop requested during reload evaluation.\n")
+            return [{"sequence": 2, "verified": True}]
+        with mock.patch.object(observer, "full_reload_evidence", side_effect=completed_reload):
+            code, summary, output = self.run_observation("reloads", stop_when_reloads_evaluated=True)
+        self.assertEqual(code, 1)
+        self.assert_stopped_receipt(summary, output)
+        self.assertEqual(summary["verified_reload_count"], 1)
+        self.assertEqual(summary["sample_count"], 1)
 
     def epochs(self, count):
         events, observations = [], []

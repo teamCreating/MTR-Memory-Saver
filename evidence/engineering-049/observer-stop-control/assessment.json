@@ -1,0 +1,59 @@
+{
+  "timestamp": "2026-11-16T15:59:32.656229+00:00",
+  "final_source_sha256": {
+    "tools/observe_packaged_client.py": "2da073a006bbfcf7f15ccb3d9d2686d8db3430bf495b962c7667125de456810e",
+    "tools/test_observe_packaged_client.py": "1abceb4848bd97922fa199d396af7641a8b5724c3d64fde757fa51cf394b8f79"
+  },
+  "runs": {
+    "targeted-01": {
+      "pid": 64432,
+      "exit_code": 0,
+      "started_at": "2026-11-16T15:52:39.138144+00:00",
+      "finished_at": "2026-11-16T15:52:52.568545+00:00"
+    },
+    "regression-01": {
+      "pid": 47284,
+      "exit_code": 1,
+      "started_at": "2026-11-16T15:53:24.972529+00:00",
+      "finished_at": "2026-11-16T15:55:47.424270+00:00"
+    },
+    "targeted-final-02": {
+      "pid": 19556,
+      "exit_code": 0,
+      "started_at": "2026-11-16T15:57:28.223919+00:00",
+      "finished_at": "2026-11-16T15:57:30.349151+00:00"
+    },
+    "head-realtime-control-01": {
+      "pid": 68544,
+      "exit_code": 0,
+      "started_at": "2026-11-16T15:57:58.852411+00:00",
+      "finished_at": "2026-11-16T15:58:03.783039+00:00"
+    },
+    "final-realtime-pair-01": {
+      "pid": 71408,
+      "exit_code": 0,
+      "started_at": "2026-11-16T15:58:23.513585+00:00",
+      "finished_at": "2026-11-16T15:58:27.860997+00:00"
+    }
+  },
+  "final_deterministic_control_count": 10,
+  "initial_regression": {
+    "tests": 103,
+    "passed": 97,
+    "failed": 6,
+    "source": "intermediate source frozen in regression-01"
+  },
+  "original_head_realtime_control": {
+    "tests": 6,
+    "passed": 6
+  },
+  "final_source_realtime_pair": {
+    "tests": 6,
+    "passed": 6
+  },
+  "independent_read_only_review": "consumer_review confirmed final source, actual receipt failure cleanup, stat propagation and success-boundary ordering; no blocker.",
+  "limits": [
+    "Initial six failures remain; later passes do not determine the original exact cause.",
+    "No game launch, game control, fresh reload, gameplay, endurance or performance acceptance is awarded."
+  ]
+}

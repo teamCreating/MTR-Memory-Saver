@@ -1,0 +1,37 @@
+{
+  "argv": [
+    "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.venv\\Scripts\\python.exe",
+    "-X",
+    "utf8",
+    "-m",
+    "unittest",
+    "-v",
+    "test_observe_packaged_client.ObservationTest.test_stop_before_first_startup_sample_preserves_request_and_empty_window",
+    "test_observe_packaged_client.ObservationTest.test_stop_during_long_sampling_wait_does_not_wait_or_invent_another_sample",
+    "test_observe_packaged_client.ObservationTest.test_stop_received_during_sample_precedes_startup_success",
+    "test_observe_packaged_client.ObservationTest.test_explicit_stop_cannot_award_reload_acceptance",
+    "test_observe_packaged_client.ObservationTest.test_stop_preserves_native_failure_and_changed_source_evidence",
+    "test_observe_packaged_client.ObservationTest.test_stop_request_read_failure_is_an_observation_failure",
+    "test_observe_packaged_client.ObservationTest.test_stop_capture_never_overwrites_an_existing_receipt_payload"
+  ],
+  "cwd": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory",
+  "pid": 64432,
+  "started_at": "2026-11-16T15:52:39.138144+00:00",
+  "python": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.venv\\Scripts\\python.exe",
+  "pythonpath": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\tools",
+  "input_sha256": {
+    "tools/observe_packaged_client.py": "d89ba5adf1d5db9eb0e84a12c4f2dc275baf56ea28bbb438aa7f084230875e7c",
+    "tools/test_observe_packaged_client.py": "ea4c6046d4620ca370d4fe6243271512f32ad3adfcb91d248dbac8b996d43012",
+    "tools/windows_snapshot_io.py": "6967cd6efee7a673e5df72700ea8de26e2e92c02d4614306bcb106fa527b02e1",
+    "tools/reload_before_recorder.py": "f4ae20d99f9660f698146abc7fb6b49e657bac9b954577bdef7c7c70fa5b7cdc",
+    "tools/client_experiment_analysis.py": "0669d421d09a47664cf9207f559f247983f76a666a1cfe8487c7d02d4c5a7d6e",
+    "tools/native_diagnostic_review.py": "39807f2f3b8173097d30d7fef7499e8bac419f72ff6abd1faf91b014c097e45d",
+    "tools/test_neutral_reload_adapter.py": "4134ee3c4daf78a54fdfaabaf942ceec0bf1d0cadec99e76a6a3bd137dee533b",
+    "tools/test_reload_before_recorder.py": "d6bfd3dc939e05498a15ee97cd26c0996cd4563a1eed7c45a797e87434f8d9a9",
+    "config/native-observer-consumer.json": "fae895c646ff796473bdc2c83a1b1c4abfc518bb75c0ec3bcf10a476a5750e62",
+    "config/native-diagnostic-review.json": "4d91b89a3600d44a9ec132b7dd58fb61d46d34ae63f9148716f24c9c144f745c"
+  },
+  "finished_at": "2026-11-16T15:52:52.568545+00:00",
+  "exit_code": 0,
+  "source_bytes_unchanged": true
+}
