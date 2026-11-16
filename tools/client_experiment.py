@@ -34,6 +34,7 @@ SCOPE = "official_whole_client_experiment"
 INJECTED_ENV = ("JAVA_TOOL_OPTIONS", "JDK_JAVA_OPTIONS", "_JAVA_OPTIONS", "CLASSPATH")
 SOURCES = (Path(__file__), Path(__file__).with_name("client_experiment_analysis.py"),
            Path(packaged.__file__), Path(__file__).with_name("observe_packaged_client.py"),
+           Path(__file__).with_name("windows_process_identity.py"),
            Path(__file__).with_name("windows_snapshot_io.py"), Path(__file__).with_name("native_diagnostic_review.py"),
            DIAGNOSTIC_REVIEW, ROOT / "config/targets.json")
 RETAINED_PROCESSES = {}  # Keep actual handles while a failed export awaits recovery.

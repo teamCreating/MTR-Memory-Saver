@@ -28,6 +28,7 @@ import time
 import uuid
 import zipfile
 import windows_snapshot_io
+import windows_process_identity
 
 UTC = dt.timezone.utc
 ZERO_COUNTERS = ("native_pending", "module_pending", "module_outstanding", "module_queued", "active_reads", "resource_in_flight", "module_failures")
@@ -182,13 +183,8 @@ class WindowsProcess:
         if not self.handle:
             raise ctypes.WinError(ctypes.get_last_error())
         try:
-            result = subprocess.run(["pwsh", "-NoProfile", "-Command",
-                f"$observedProcess = Get-CimInstance Win32_Process -Filter 'ProcessId = {launch['pid']}'; "
-                "if ($null -eq $observedProcess) { throw 'Launched process is absent' }; "
-                "@{pid=[int]$observedProcess.ProcessId; executable=$observedProcess.ExecutablePath; "
-                "created=$observedProcess.CreationDate.ToUniversalTime().ToString('o'); command=$observedProcess.CommandLine} | ConvertTo-Json -Compress"],
-                capture_output=True, text=True, check=True, timeout=20)
-            self.identity = json.loads(result.stdout)
+            self.identity = windows_process_identity.query_identity(self.handle,
+                windows_process_identity.NativeApi(kernel=self.kernel))
             verify_process_identity(plan, launch, self.identity, windows_arguments(self.identity["command"]))
             self.created = self.creation_time()
             if abs((instant(self.created) - instant(self.identity["created"])).total_seconds()) > 1:
@@ -201,6 +197,8 @@ class WindowsProcess:
         created, exited, kernel, user = [wintypes.FILETIME() for _ in range(4)]
         if not self.kernel.GetProcessTimes(self.handle, ctypes.byref(created), ctypes.byref(exited), ctypes.byref(kernel), ctypes.byref(user)):
             raise ctypes.WinError(ctypes.get_last_error())
+        if exited.dwHighDateTime or exited.dwLowDateTime:
+            raise windows_process_identity.NativeIdentityError("The observed process has a recorded exit time.")
         value = (created.dwHighDateTime << 32) | created.dwLowDateTime
         return (dt.datetime(1601, 1, 1, tzinfo=UTC) + dt.timedelta(microseconds=value // 10)).isoformat()
 
@@ -919,6 +917,10 @@ def observe(args):
     snapshot_io_bytes = snapshot_io_source.read_bytes()
     snapshot_io_hash = hashlib.sha256(snapshot_io_bytes).hexdigest()
     (output / "windows_snapshot_io.py").write_bytes(snapshot_io_bytes)
+    identity_source = pathlib.Path(windows_process_identity.__file__)
+    identity_bytes = identity_source.read_bytes()
+    identity_hash = hashlib.sha256(identity_bytes).hexdigest()
+    (output / "windows_process_identity.py").write_bytes(identity_bytes)
     process = None
     try:
         plan, launch = frozen_context(instance)
@@ -931,6 +933,7 @@ def observe(args):
             raise ValueError("A reload recorder requires the frozen neutral observer and a positive reload count.")
         neutral_review, neutral_sources = None, {}
         if metadata:
+            neutral_sources[str(identity_source)] = identity_hash
             import client_experiment_analysis as analysis
             import native_diagnostic_review as diagnostic_review
             import reload_before_recorder as recorder
@@ -970,6 +973,8 @@ def observe(args):
             "source_changed_during_observation": digest(pathlib.Path(__file__)) != source_hash,
             "snapshot_io_source_sha256": snapshot_io_hash,
             "current_snapshot_io_source_sha256": digest(snapshot_io_source) if snapshot_io_source.exists() else None,
+            "process_identity_source_sha256": identity_hash,
+            "current_process_identity_source_sha256": digest(identity_source) if identity_source.exists() else None,
             "samples_sha256": digest(output / "samples.jsonl"),
             "plan_sha256": digest(instance / "packaged-client-plan.json") if (instance / "packaged-client-plan.json").exists() else None,
             "launch_sha256": digest(instance / "packaged-client-launch.json") if (instance / "packaged-client-launch.json").exists() else None}
@@ -1257,6 +1262,10 @@ def observe(args):
     if "auxiliary_event_journal_incomplete" in failures:
         passed = False
     current_source_hash = digest(pathlib.Path(__file__)) if pathlib.Path(__file__).exists() else None
+    current_identity_hash = digest(identity_source) if identity_source.exists() else None
+    if current_identity_hash != identity_hash:
+        passed = False
+        failures.add("process_identity_source_changed_during_observation")
     neutral_sources_changed = [path for path, expected in neutral_sources.items()
                                if not pathlib.Path(path).is_file() or digest(pathlib.Path(path)) != expected]
     if metadata and (neutral_sources_changed or current_source_hash != source_hash):
@@ -1278,6 +1287,7 @@ def observe(args):
         "neutral_source_sha256": neutral_sources, "neutral_sources_changed": neutral_sources_changed, "neutral_observer_target": metadata,
         "snapshot_io_source_sha256": snapshot_io_hash,
         "current_snapshot_io_source_sha256": digest(snapshot_io_source) if snapshot_io_source.exists() else None,
+        "process_identity_source_sha256": identity_hash, "current_process_identity_source_sha256": current_identity_hash,
         "log_sha256_at_completion": hashlib.sha256(log_bytes).hexdigest(), "native_diagnostics": diagnostics, "native_registration_declaration_counts": declaration_counts,
         "reload_events_sha256": hashlib.sha256(input_bytes).hexdigest() if args.reload_events else None,
         "native_epoch_events_sha256": hashlib.sha256(epoch_bytes).hexdigest() if epoch_path.exists() else None, "baseline_completed_epoch_sequence": baseline_sequence,
@@ -1287,7 +1297,7 @@ def observe(args):
             "NMT includes Java heap and does not account for all driver/third-party native allocations. OS private usage minus heap is not reported as native memory.",
             "GPU counters are driver/OS observations. Frame and GC distributions require the separate raw JFR/GC analysis.",
             "Auxiliary results belong to their request start/completion interval. Terminal results do not extend the actual game observation window.",
-            "CIM identity verification, sampling and optional jcmd/PowerShell GPU queries add instrumentation overhead; pair matching controls."]}
+            "Native Windows identity verification, sampling and optional jcmd/PowerShell GPU queries add instrumentation overhead; pair matching controls."]}
     (output / "summary.json").write_text(json.dumps(summary, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print(json.dumps({"status": status, "passed": passed, "samples": count, "summary": str(output / "summary.json")}), flush=True)
     return 0 if passed else 1

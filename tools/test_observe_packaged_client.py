@@ -168,7 +168,7 @@ class ObservationTest(unittest.TestCase):
 
     def run_observation(self, mode, interrupt=False, change_source=False, native_failure=False, motion_pattern="distributed",
             process_sample_cost=1, snapshot_period=None, auxiliary_delays=(), stop_request_at=None, stop_on_sample=None,
-            interval=5, stop_when_reloads_evaluated=False):
+            interval=5, stop_when_reloads_evaluated=False, change_identity_source=False):
         initial_time = dt.datetime.now(dt.timezone.utc)
         now = initial_time.isoformat()
         self.launch["timestamp"] = now
@@ -191,6 +191,8 @@ class ObservationTest(unittest.TestCase):
                 return result.astimezone(timezone) if timezone else result.replace(tzinfo=None)
         source = self.root / "source.py"
         source.write_bytes(b"captured observer source")
+        identity_source = self.root / "identity-source.py"
+        identity_source.write_bytes(b"captured native identity source")
         (self.root / "logs").mkdir()
         log = "Loaded 670 vehicles and completed door movement validation\n"
         if native_failure:
@@ -212,6 +214,8 @@ class ObservationTest(unittest.TestCase):
                     raise KeyboardInterrupt()
                 if change_source:
                     source.write_bytes(b"changed source after observer began")
+                if change_identity_source:
+                    identity_source.write_bytes(b"changed native identity source after observer began")
                 snapshot_clock = math.floor(clock[0]/snapshot_period)*snapshot_period if snapshot_period else clock[0]
                 stamp = (initial_time + dt.timedelta(seconds=snapshot_clock)).isoformat()
                 advanced = stamp != state["timestamp"]
@@ -252,6 +256,8 @@ class ObservationTest(unittest.TestCase):
             auxiliary_call[0] += 1
             return {}
         with mock.patch.object(observer, "WindowsProcess", FakeProcess), mock.patch.object(observer, "__file__", str(source)), \
+                mock.patch.object(observer.windows_process_identity, "__file__",
+                    str(identity_source) if change_identity_source else observer.windows_process_identity.__file__), \
                 mock.patch.object(observer.time, "monotonic", side_effect=lambda: clock[0]), \
                 mock.patch.object(observer.time, "sleep", side_effect=advance_clock), \
                 mock.patch.object(observer.dt, "datetime", SimulatedDatetime), \
@@ -798,6 +804,18 @@ class ObservationTest(unittest.TestCase):
         self.assertEqual((output / "windows_snapshot_io.py").read_bytes(), dependency.read_bytes())
         self.assertEqual(summary["snapshot_io_source_sha256"], observer.digest(dependency))
         self.assertEqual(summary["current_snapshot_io_source_sha256"], observer.digest(dependency))
+        native_identity = pathlib.Path(observer.windows_process_identity.__file__)
+        self.assertEqual((output / "windows_process_identity.py").read_bytes(), native_identity.read_bytes())
+        self.assertEqual(summary["process_identity_source_sha256"], observer.digest(native_identity))
+        self.assertEqual(summary["current_process_identity_source_sha256"], observer.digest(native_identity))
+
+    def test_native_identity_source_change_rejects_settlement(self):
+        code, summary, output = self.run_observation("startup", change_identity_source=True)
+        self.assertEqual(code, 1)
+        self.assertFalse(summary["passed"])
+        self.assertEqual((output / "windows_process_identity.py").read_bytes(), b"captured native identity source")
+        self.assertNotEqual(summary["process_identity_source_sha256"], summary["current_process_identity_source_sha256"])
+        self.assertIn("process_identity_source_changed_during_observation", summary["observed_failures"])
 
     def test_external_input_receipt_preserves_original_and_rejects_duplicate_confirmation(self):
         _, inputs, _, _ = self.full_reload_fixture(2)

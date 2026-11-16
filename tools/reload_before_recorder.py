@@ -101,7 +101,8 @@ def verify_journal(raw):
 
 def source_files():
     return [Path(__file__), Path(observer.__file__), Path(analysis.__file__),
-            Path(diagnostics.__file__), Path(windows_snapshot_io.__file__), observer.NEUTRAL_CONTRACT_FILE]
+            Path(diagnostics.__file__), Path(windows_snapshot_io.__file__),
+            Path(observer.windows_process_identity.__file__), observer.NEUTRAL_CONTRACT_FILE]
 
 
 def before_errors(state, process, stamp, expected, metadata, log, epochs, events, review, plan):

@@ -1,0 +1,33 @@
+{
+  "timestamp": "2026-11-16T16:25:48.758149+00:00",
+  "qualified_platform": {
+    "windows": [
+      10,
+      0,
+      19045
+    ],
+    "caller": "native AMD64 64-bit",
+    "target": "native AMD64 64-bit"
+  },
+  "feasibility_first_rejected": true,
+  "feasibility_second_passed": true,
+  "final_tests": 16,
+  "final_skipped": 0,
+  "final_exit_code": 0,
+  "source_sha256": {
+    "tools/windows_process_identity.py": "f29dbd8f21f7eea1b0c8bad0a5d0f9cc9657739d53758192c98af0d80fa6cac3",
+    "tools/observe_packaged_client.py": "6235a887a54585fdaec49c4a52bc8b452ee3158acff3eaa0ca99a3f97aa931c7",
+    "tools/reload_before_recorder.py": "9c0756d62285aeae80a6a51b7c7f8634ff2dce3a6f28df68b8dce9535f10129b",
+    "tools/client_experiment.py": "44c16a790a2ad6857e934353e7357664ed3d22eee9a8f1802a9f27b11571caa7",
+    "tools/test_windows_process_identity.py": "4a51a7364d630ca51447470720db57dc46e57e27c5e7dea7b7044d779525a726",
+    "tools/test_observe_packaged_client.py": "b1cf493d4b900dfb1f75a9006774107a07e8dc342217c61a2a37fa6f3d004fd8",
+    "tools/test_neutral_reload_adapter.py": "4134ee3c4daf78a54fdfaabaf942ceec0bf1d0cadec99e76a6a3bd137dee533b",
+    "tools/test_reload_before_recorder.py": "d6bfd3dc939e05498a15ee97cd26c0996cd4563a1eed7c45a797e87434f8d9a9",
+    "tools/test_client_experiment.py": "d25687643bdcbfb87e776d73a09ec8e39033828b9b85fe2ed7f94bb839cf54c2",
+    "tools/windows_snapshot_io.py": "6967cd6efee7a673e5df72700ea8de26e2e92c02d4614306bcb106fa527b02e1"
+  },
+  "source_bytes_unchanged": true,
+  "snapshot_reader_unchanged": true,
+  "independent_review": "consumer_review confirmed final same-handle capture, inline Unicode validation, exit259/ExitTime guard and all three source-fingerprint consumers; no blocker.",
+  "limits": "Owned Python children and headless controls only; no game query, input, reload, gameplay, endurance or performance pass."
+}

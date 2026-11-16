@@ -1,0 +1,36 @@
+{
+  "argv": [
+    "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.venv\\Scripts\\python.exe",
+    "-X",
+    "utf8",
+    "-m",
+    "unittest",
+    "-v",
+    "test_windows_process_identity",
+    "test_observe_packaged_client.ObservationTest.test_source_identity_is_captured_before_sampling_and_later_change_is_explicit",
+    "test_observe_packaged_client.ObservationTest.test_native_identity_source_change_rejects_all_observer_modes",
+    "test_neutral_reload_adapter.NeutralReloadAdapterTest.test_neutral_startup_consumes_real_contract_without_module_observer",
+    "test_reload_before_recorder.RecorderTest.test_review_contract_is_frozen_and_change_stops_before_reading_snapshot",
+    "test_client_experiment.QualificationTests.test_source_change_during_capture_cannot_receive_a_new_current_qualification"
+  ],
+  "cwd": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory",
+  "launcher_pid": 21156,
+  "started_at": "2026-11-16T16:22:18.615593+00:00",
+  "input_sha256": {
+    "tools/windows_process_identity.py": "f29dbd8f21f7eea1b0c8bad0a5d0f9cc9657739d53758192c98af0d80fa6cac3",
+    "tools/observe_packaged_client.py": "6235a887a54585fdaec49c4a52bc8b452ee3158acff3eaa0ca99a3f97aa931c7",
+    "tools/reload_before_recorder.py": "9c0756d62285aeae80a6a51b7c7f8634ff2dce3a6f28df68b8dce9535f10129b",
+    "tools/client_experiment.py": "44c16a790a2ad6857e934353e7357664ed3d22eee9a8f1802a9f27b11571caa7",
+    "tools/test_windows_process_identity.py": "4a51a7364d630ca51447470720db57dc46e57e27c5e7dea7b7044d779525a726",
+    "tools/test_observe_packaged_client.py": "c0940e5c182faa705e30ed449350dab853bd566c887b9f7936aa8c963e55370d",
+    "tools/test_neutral_reload_adapter.py": "4134ee3c4daf78a54fdfaabaf942ceec0bf1d0cadec99e76a6a3bd137dee533b",
+    "tools/test_reload_before_recorder.py": "d6bfd3dc939e05498a15ee97cd26c0996cd4563a1eed7c45a797e87434f8d9a9",
+    "tools/test_client_experiment.py": "d25687643bdcbfb87e776d73a09ec8e39033828b9b85fe2ed7f94bb839cf54c2",
+    "tools/windows_snapshot_io.py": "6967cd6efee7a673e5df72700ea8de26e2e92c02d4614306bcb106fa527b02e1"
+  },
+  "pythonpath": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\tools",
+  "child_evidence": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\native-process-identity\\native-tests-01\\owned-child",
+  "exit_code": 1,
+  "finished_at": "2026-11-16T16:22:22.239055+00:00",
+  "all_inputs_unchanged": true
+}
