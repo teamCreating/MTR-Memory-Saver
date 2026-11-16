@@ -1,0 +1,30 @@
+{
+  "argv": [
+    "python",
+    "-X",
+    "utf8",
+    "tools/reload_before_recorder.py",
+    "record",
+    "--instance",
+    ".cache/acceptance/official-nf248-neutral-048b",
+    "--output",
+    "evidence\\engineering-048\\reload-before-recorder\\live-readonly-01",
+    "--expected-count",
+    "1091",
+    "--expected-declarations",
+    "1092",
+    "--duration-seconds",
+    "8"
+  ],
+  "started": "2026-11-16T06:38:58.827012+00:00",
+  "completed": "2026-11-16T06:39:04.889271+00:00",
+  "exit_code": 1,
+  "sources": {
+    "client_experiment_analysis.py": "0669d421d09a47664cf9207f559f247983f76a666a1cfe8487c7d02d4c5a7d6e",
+    "native_diagnostic_review.py": "39807f2f3b8173097d30d7fef7499e8bac419f72ff6abd1faf91b014c097e45d",
+    "observe_packaged_client.py": "a9ee0137b594f89fd9dcc220a9a1a77b27bc1c72deda87bd4c183efc0d713207",
+    "reload_before_recorder.py": "530af5888ad35112ca81f93ac9add36fc72621334e98faa2622e12b6f98919fc",
+    "test_reload_before_recorder.py": "567764b060518a78c85c01d92e06abd9b9480f308feffbf4b74f2552e640cd05",
+    "windows_snapshot_io.py": "56ff1d6abcb7be7780bb057f239831d813a5e5c867320f1797f8710370765ac5"
+  }
+}

@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "C:\Users\ben_l\Documents\Coding\resoucepack update\vehicle-memory\tools\reload_before_recorder.py", line 451, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "C:\Users\ben_l\Documents\Coding\resoucepack update\vehicle-memory\tools\reload_before_recorder.py", line 441, in main
+    record(args)
+    ~~~~~~^^^^^^
+  File "C:\Users\ben_l\Documents\Coding\resoucepack update\vehicle-memory\tools\reload_before_recorder.py", line 405, in record
+    recorder = Recorder(args.instance, args.output,
+                        {"distinct_ids": args.expected_count, "declarations": args.expected_declarations})
+  File "C:\Users\ben_l\Documents\Coding\resoucepack update\vehicle-memory\tools\reload_before_recorder.py", line 150, in __init__
+    self.process = process_factory(self.plan, self.launch)
+                   ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ben_l\Documents\Coding\resoucepack update\vehicle-memory\tools\observe_packaged_client.py", line 136, in __init__
+    raise ctypes.WinError(ctypes.get_last_error())
+OSError: [WinError 87] 参数错误。

@@ -298,3 +298,12 @@ Bound the newly recorded build-replay commands with explicit -PmodVersion=0.4.7,
 将 gradle.properties 默认版本提升到已完成源码修复和独立产物核对的 0.4.7；更新 README、运行契约、支持与覆盖说明，明确单一 CREATE_NEW/READ/WRITE/DELETE_ON_CLOSE 通道覆盖写入、预算等待及回卷恢复。记录两目标各 73 tests、四次实际 abrupt 清理与四组 3 GiB 源输入校验，保留 0.4.6 packaged 和历史性能证据的原版本身份。0.4.7 新 packaged fault、全包、玩法、20重载、两小时线路和性能对照继续执行，v6 暂停。
 
 旧诊断客户端 PID41800 的 neutral1.0.2 在实际 F3+t 后完成 epoch2，JFR导出与summary成功，06:37:59Z正常保存退出0。输入前快照早于调用约17秒，不能计入15秒门槛下的20连次。输入法切英解决按键问题，关闭前恢复单次Shift切换；复制世界内检查站台/停车线后恢复角色原始位置。三张画面均未见列车，不扩展渲染/交互结论。此前人工F3+T请求已不需要。最终原始运行记录由独立归档任务封存。旧0.4.6产物不覆盖。文档与版本修改用 git diff --check 核对；产品源码和73项测试结果已在8bb8582封存，本批未改变实现。
+
+
+## 2026-11-16T14:43:35+08:00（UTC+08:00）— 工程048：连续原生重载前置证据记录器
+
+- 新增 tools/reload_before_recorder.py，只读取已启动真实 Windows JVM；绑定实际 PID/创建时间/命令行/进程句柄、frozen plan/launch 与 neutral1.0.2 metadata，冻结消费者源码。持续保留原始快照、回调事件、完整日志前缀/偏移/SHA，使用不可变内容哈希 blob 避免重复副本。
+- 保持15秒原门槛。满足实际在世界、screen=null、未暂停、原生工作settled、事件流稳定和严格原生诊断归因时才发布 canonical before。独立 capture_started/completed 与 payload-close/receipt-close 时间均在真实读取或写入flush/fsync/close完成后采样，SHA链记录发布过程。工具不发按键、不启动或停止游戏。
+- confirm先保留实际外部输入receipt，再唯一选择输入前最近完整发布，复用既有 confirm_reload_input API。stale/failed尝试不会删去；完整消费者必须用 input_events 交叉核对每个attempt，缺失/中断/锁冲突显式失败。真实读/写/身份错误记录后停止，正常重载中或菜单状态留为ineligible。
+- 26个新增合成/失败路径测试通过；4个既有 Windows ReplaceFileW/共享句柄实测通过。真实 PID41800 在06:37:59Z已正常退出，本记录器06:39Z启动读前返回OpenProcess WinError87，原始失败与journal完整保留，没有发布before，也未声称实跑成功。
+- 证据：evidence/engineering-048/reload-before-recorder/。此提交是录制器；neutral连续20次最终原生适配器与fresh0.4.7客户端完整验证继续进行，不将module-only旧校验器当作已支持neutral全链。
