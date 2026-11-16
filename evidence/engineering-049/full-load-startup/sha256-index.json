@@ -1,0 +1,1014 @@
+{
+  "schema": 1,
+  "created_at": "2026-11-16T15:32:56.472050+00:00",
+  "files": {
+    "assess_prefix.py": {
+      "sha256": "57693256e91e178bb4c93070cf08d87604d5d5b303fba5fe27cf3754acc88e24",
+      "bytes": 15511
+    },
+    "assessment-01/collector-execution-prefix.json": {
+      "sha256": "42f9e485f4699fdb321b72358eb52b38925b3e76927ccab16e09035c1f4bbc02",
+      "bytes": 2026
+    },
+    "assessment-01/execution.json": {
+      "sha256": "392ee4b2247b8860c618d4a5d5da85246cf80d7ade09779f711826d02924c479",
+      "bytes": 261
+    },
+    "assessment-01/failed-script.py": {
+      "sha256": "929e7f796c76011c21ed1256b9cf0e3bc00578e0467e26eebfa851428fd0f3dc",
+      "bytes": 13413
+    },
+    "assessment-01/installed-bindings.json": {
+      "sha256": "ddd9896d9c4bdc4a3de2ffc427e8bd7b4c49b96e9c0dc580bc43a84ae722ec82",
+      "bytes": 9252
+    },
+    "assessment-01/installed-tools/mtr-memory-saver-official-nf248-0.4.7.jar": {
+      "sha256": "e8b5b40230d0f44c541c12b32c8a30d4c2ea056b8a972335ae10166496837a99",
+      "bytes": 321705
+    },
+    "assessment-01/installed-tools/mtr-native-observer-official-nf248-1.0.2.jar": {
+      "sha256": "1f5a3f9721bd7199cd952f4926afa8cf40996cf76fdc9484a9372f45d1664167",
+      "bytes": 43136
+    },
+    "assessment-01/log-prefix-completeness.json": {
+      "sha256": "2dc550e3687f79ec0c33a6e6596c5f19af1fe1d0d9f345669c9f7453e76974d4",
+      "bytes": 90
+    },
+    "assessment-01/native-diagnostic-review.json": {
+      "sha256": "a3648fa584589572aa44019a3515af153b91c1ffae580a88e3c588bf547b657e",
+      "bytes": 2411
+    },
+    "assessment-01/observer-class-hashes.json": {
+      "sha256": "1005a0a3c2c06a2961ff9325c6b166a8a501f3bee498cfb4a8ef18ace7d931fa",
+      "bytes": 3487
+    },
+    "assessment-01/observer-target.json": {
+      "sha256": "0f46a20f856db717a4bad85ba5f407529311266bf2ac9b11b85497654974ca80",
+      "bytes": 679
+    },
+    "assessment-01/process-execution.json": {
+      "sha256": "bcd76e90d3f3edcc46b0b6ccffb09c388641b15cf30856bb80d06e1d87596e05",
+      "bytes": 414
+    },
+    "assessment-01/process.json": {
+      "sha256": "7a0d9c778d569bd1d24e86b8764282b6e668ee35d7827a4e82ed8335176bbbaf",
+      "bytes": 25229
+    },
+    "assessment-01/process.stderr.log": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "assessment-01/process.stdout.json": {
+      "sha256": "88522e7bba737e29a8203ff6d1ac61368a277bc080d76c9e823cd6da65776953",
+      "bytes": 25241
+    },
+    "assessment-01/proofs/evidence/engineering-047/native-invalid-model/assessment.json": {
+      "sha256": "7f5ab39b528900363e75f7fabca99fe42cd835a63d3338c50ce7d2d0f08e7c08",
+      "bytes": 25152
+    },
+    "assessment-01/proofs/evidence/engineering-047/native-invalid-model/legacy-directory-assessment.json": {
+      "sha256": "e29884a6d6344c0280aee7463fa85e8b14a11a3def5d5dd92b5c66ba93b3ef01",
+      "bytes": 1853
+    },
+    "assessment-01/proofs/evidence/engineering-047/native-invalid-model/rail-consumption-assessment.json": {
+      "sha256": "20d32572f83c3581db4b9b9812038252cb9693bb394da9e9ae42ee6620174cba",
+      "bytes": 8410
+    },
+    "assessment-01/proofs/evidence/engineering-048/native-invalid-model/saved-rail-styles/assessment.json": {
+      "sha256": "98936eb3318ea47cd496b429145aa1237857a0d8b89349f101a258dba56e498a",
+      "bytes": 18654
+    },
+    "assessment-01/proofs/evidence/engineering-048/native-invalid-model/startup-prefix/attribution.json": {
+      "sha256": "71c89b01d4621bf379c162f54e53bcfcdd9979426faa47720cbf5e495adcd8f5",
+      "bytes": 3946
+    },
+    "assessment-01/sources/config/native-diagnostic-review.json": {
+      "sha256": "4d91b89a3600d44a9ec132b7dd58fb61d46d34ae63f9148716f24c9c144f745c",
+      "bytes": 2328
+    },
+    "assessment-01/sources/tools/client_experiment_analysis.py": {
+      "sha256": "0669d421d09a47664cf9207f559f247983f76a666a1cfe8487c7d02d4c5a7d6e",
+      "bytes": 41656
+    },
+    "assessment-01/sources/tools/native_diagnostic_review.py": {
+      "sha256": "39807f2f3b8173097d30d7fef7499e8bac419f72ff6abd1faf91b014c097e45d",
+      "bytes": 14788
+    },
+    "assessment-01/sources/tools/packaged_client.py": {
+      "sha256": "ad2e0dbf209ded20942891378e0a5855d6c3f65f8d89baa9afa2a7d24b2af13c",
+      "bytes": 42086
+    },
+    "assessment-01/sources/tools/windows_snapshot_io.py": {
+      "sha256": "56ff1d6abcb7be7780bb057f239831d813a5e5c867320f1797f8710370765ac5",
+      "bytes": 1895
+    },
+    "assessment-02/collector-errors-and-scope.json": {
+      "sha256": "7bfd3e222b84cc9c8e2eee22e7ef9a33cbf3c5c4f8975f3be362136d091b5728",
+      "bytes": 425
+    },
+    "assessment-02/collector-execution-prefix.json": {
+      "sha256": "1e5c049e2c1933ad6dbfc537d824dc2c0057da4287b44ecbd9ba34db236d1015",
+      "bytes": 3638
+    },
+    "assessment-02/collector-read-receipt.json": {
+      "sha256": "40c23c7dfb1f77f3b0473d379547e5405a05025611a003bd1186a176bf519217",
+      "bytes": 420
+    },
+    "assessment-02/collector-read.jsonl.raw": {
+      "sha256": "9536c6d33bf99cc750a03bd37f8ccba3f94e7b81edd50497b0b0fc1c8c54e6aa",
+      "bytes": 4339465
+    },
+    "assessment-02/collector-sources/capture_diagnostic_client.py": {
+      "sha256": "a9ee4e8f2a068ba9c0b72a6f7b348cecdd9c5e4bbe534aeabf851b704e1fb69a",
+      "bytes": 5287
+    },
+    "assessment-02/collector-sources/packaged_client.py": {
+      "sha256": "ad2e0dbf209ded20942891378e0a5855d6c3f65f8d89baa9afa2a7d24b2af13c",
+      "bytes": 42086
+    },
+    "assessment-02/collector-sources/windows_snapshot_io.py": {
+      "sha256": "56ff1d6abcb7be7780bb057f239831d813a5e5c867320f1797f8710370765ac5",
+      "bytes": 1895
+    },
+    "assessment-02/execution.json": {
+      "sha256": "9aab6306c878c6315bb3e140706448228c246c387d3e8ae15527134b4db01f71",
+      "bytes": 439
+    },
+    "assessment-02/failed-script.py": {
+      "sha256": "a11f79321894daeb2abb7b840e63651759ed96d3488d0ebc26d8fd3b3b27331b",
+      "bytes": 14999
+    },
+    "assessment-02/installed-bindings.json": {
+      "sha256": "ddd9896d9c4bdc4a3de2ffc427e8bd7b4c49b96e9c0dc580bc43a84ae722ec82",
+      "bytes": 9252
+    },
+    "assessment-02/installed-tools/mtr-memory-saver-official-nf248-0.4.7.jar": {
+      "sha256": "e8b5b40230d0f44c541c12b32c8a30d4c2ea056b8a972335ae10166496837a99",
+      "bytes": 321705
+    },
+    "assessment-02/installed-tools/mtr-native-observer-official-nf248-1.0.2.jar": {
+      "sha256": "1f5a3f9721bd7199cd952f4926afa8cf40996cf76fdc9484a9372f45d1664167",
+      "bytes": 43136
+    },
+    "assessment-02/log-prefix-completeness.json": {
+      "sha256": "2dc550e3687f79ec0c33a6e6596c5f19af1fe1d0d9f345669c9f7453e76974d4",
+      "bytes": 90
+    },
+    "assessment-02/native-diagnostic-review.json": {
+      "sha256": "a3648fa584589572aa44019a3515af153b91c1ffae580a88e3c588bf547b657e",
+      "bytes": 2411
+    },
+    "assessment-02/observer-class-hashes.json": {
+      "sha256": "1005a0a3c2c06a2961ff9325c6b166a8a501f3bee498cfb4a8ef18ace7d931fa",
+      "bytes": 3487
+    },
+    "assessment-02/observer-target.json": {
+      "sha256": "0f46a20f856db717a4bad85ba5f407529311266bf2ac9b11b85497654974ca80",
+      "bytes": 679
+    },
+    "assessment-02/process-execution.json": {
+      "sha256": "bcd76e90d3f3edcc46b0b6ccffb09c388641b15cf30856bb80d06e1d87596e05",
+      "bytes": 414
+    },
+    "assessment-02/process.json": {
+      "sha256": "7a0d9c778d569bd1d24e86b8764282b6e668ee35d7827a4e82ed8335176bbbaf",
+      "bytes": 25229
+    },
+    "assessment-02/process.stderr.log": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "assessment-02/process.stdout.json": {
+      "sha256": "88522e7bba737e29a8203ff6d1ac61368a277bc080d76c9e823cd6da65776953",
+      "bytes": 25241
+    },
+    "assessment-02/proofs/evidence/engineering-047/native-invalid-model/assessment.json": {
+      "sha256": "7f5ab39b528900363e75f7fabca99fe42cd835a63d3338c50ce7d2d0f08e7c08",
+      "bytes": 25152
+    },
+    "assessment-02/proofs/evidence/engineering-047/native-invalid-model/legacy-directory-assessment.json": {
+      "sha256": "e29884a6d6344c0280aee7463fa85e8b14a11a3def5d5dd92b5c66ba93b3ef01",
+      "bytes": 1853
+    },
+    "assessment-02/proofs/evidence/engineering-047/native-invalid-model/rail-consumption-assessment.json": {
+      "sha256": "20d32572f83c3581db4b9b9812038252cb9693bb394da9e9ae42ee6620174cba",
+      "bytes": 8410
+    },
+    "assessment-02/proofs/evidence/engineering-048/native-invalid-model/saved-rail-styles/assessment.json": {
+      "sha256": "98936eb3318ea47cd496b429145aa1237857a0d8b89349f101a258dba56e498a",
+      "bytes": 18654
+    },
+    "assessment-02/proofs/evidence/engineering-048/native-invalid-model/startup-prefix/attribution.json": {
+      "sha256": "71c89b01d4621bf379c162f54e53bcfcdd9979426faa47720cbf5e495adcd8f5",
+      "bytes": 3946
+    },
+    "assessment-02/sources/config/native-diagnostic-review.json": {
+      "sha256": "4d91b89a3600d44a9ec132b7dd58fb61d46d34ae63f9148716f24c9c144f745c",
+      "bytes": 2328
+    },
+    "assessment-02/sources/tools/client_experiment_analysis.py": {
+      "sha256": "0669d421d09a47664cf9207f559f247983f76a666a1cfe8487c7d02d4c5a7d6e",
+      "bytes": 41656
+    },
+    "assessment-02/sources/tools/native_diagnostic_review.py": {
+      "sha256": "39807f2f3b8173097d30d7fef7499e8bac419f72ff6abd1faf91b014c097e45d",
+      "bytes": 14788
+    },
+    "assessment-02/sources/tools/packaged_client.py": {
+      "sha256": "ad2e0dbf209ded20942891378e0a5855d6c3f65f8d89baa9afa2a7d24b2af13c",
+      "bytes": 42086
+    },
+    "assessment-02/sources/tools/windows_snapshot_io.py": {
+      "sha256": "56ff1d6abcb7be7780bb057f239831d813a5e5c867320f1797f8710370765ac5",
+      "bytes": 1895
+    },
+    "assessment-02/startup-stability.json": {
+      "sha256": "ca35bcc32c4e791e4253be8feb192b3ef03179e11ac1710b62e18fec561e8ed5",
+      "bytes": 216
+    },
+    "assessment-03/assess-prefix-script.py": {
+      "sha256": "57693256e91e178bb4c93070cf08d87604d5d5b303fba5fe27cf3754acc88e24",
+      "bytes": 15511
+    },
+    "assessment-03/assessment.json": {
+      "sha256": "6d5e82f1b4668da1d841ca54ef7c66bf19b67359e1c5b37daaace9416d44e8a8",
+      "bytes": 2620
+    },
+    "assessment-03/collector-errors-and-scope.json": {
+      "sha256": "7bfd3e222b84cc9c8e2eee22e7ef9a33cbf3c5c4f8975f3be362136d091b5728",
+      "bytes": 425
+    },
+    "assessment-03/collector-execution-prefix.json": {
+      "sha256": "1e5c049e2c1933ad6dbfc537d824dc2c0057da4287b44ecbd9ba34db236d1015",
+      "bytes": 3638
+    },
+    "assessment-03/collector-read-receipt.json": {
+      "sha256": "c886c66cbbb8c92d0a026f7502db2bb58740bd247e3cba366e1a56b494a4bc8e",
+      "bytes": 420
+    },
+    "assessment-03/collector-read.jsonl.raw": {
+      "sha256": "9536c6d33bf99cc750a03bd37f8ccba3f94e7b81edd50497b0b0fc1c8c54e6aa",
+      "bytes": 4339465
+    },
+    "assessment-03/collector-sources/capture_diagnostic_client.py": {
+      "sha256": "a9ee4e8f2a068ba9c0b72a6f7b348cecdd9c5e4bbe534aeabf851b704e1fb69a",
+      "bytes": 5287
+    },
+    "assessment-03/collector-sources/packaged_client.py": {
+      "sha256": "ad2e0dbf209ded20942891378e0a5855d6c3f65f8d89baa9afa2a7d24b2af13c",
+      "bytes": 42086
+    },
+    "assessment-03/collector-sources/windows_snapshot_io.py": {
+      "sha256": "56ff1d6abcb7be7780bb057f239831d813a5e5c867320f1797f8710370765ac5",
+      "bytes": 1895
+    },
+    "assessment-03/execution.json": {
+      "sha256": "78879ff0dba4db1ab01f739f679d934d46811c6d01dacca72515a49599d5df68",
+      "bytes": 11923
+    },
+    "assessment-03/image-nearby-snapshots.json": {
+      "sha256": "fe13a75132f5f2bcaa91fc1c1a1a44ff7477d631bbb9f9f0f2f0d15b389cc745",
+      "bytes": 28218
+    },
+    "assessment-03/installed-bindings.json": {
+      "sha256": "ddd9896d9c4bdc4a3de2ffc427e8bd7b4c49b96e9c0dc580bc43a84ae722ec82",
+      "bytes": 9252
+    },
+    "assessment-03/installed-tools/mtr-memory-saver-official-nf248-0.4.7.jar": {
+      "sha256": "e8b5b40230d0f44c541c12b32c8a30d4c2ea056b8a972335ae10166496837a99",
+      "bytes": 321705
+    },
+    "assessment-03/installed-tools/mtr-native-observer-official-nf248-1.0.2.jar": {
+      "sha256": "1f5a3f9721bd7199cd952f4926afa8cf40996cf76fdc9484a9372f45d1664167",
+      "bytes": 43136
+    },
+    "assessment-03/log-prefix-completeness.json": {
+      "sha256": "2dc550e3687f79ec0c33a6e6596c5f19af1fe1d0d9f345669c9f7453e76974d4",
+      "bytes": 90
+    },
+    "assessment-03/native-diagnostic-review.json": {
+      "sha256": "a3648fa584589572aa44019a3515af153b91c1ffae580a88e3c588bf547b657e",
+      "bytes": 2411
+    },
+    "assessment-03/observer-class-hashes.json": {
+      "sha256": "1005a0a3c2c06a2961ff9325c6b166a8a501f3bee498cfb4a8ef18ace7d931fa",
+      "bytes": 3487
+    },
+    "assessment-03/observer-target.json": {
+      "sha256": "0f46a20f856db717a4bad85ba5f407529311266bf2ac9b11b85497654974ca80",
+      "bytes": 679
+    },
+    "assessment-03/process-execution.json": {
+      "sha256": "bcd76e90d3f3edcc46b0b6ccffb09c388641b15cf30856bb80d06e1d87596e05",
+      "bytes": 414
+    },
+    "assessment-03/process.json": {
+      "sha256": "7a0d9c778d569bd1d24e86b8764282b6e668ee35d7827a4e82ed8335176bbbaf",
+      "bytes": 25229
+    },
+    "assessment-03/process.stderr.log": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "assessment-03/process.stdout.json": {
+      "sha256": "88522e7bba737e29a8203ff6d1ac61368a277bc080d76c9e823cd6da65776953",
+      "bytes": 25241
+    },
+    "assessment-03/proofs/evidence/engineering-047/native-invalid-model/assessment.json": {
+      "sha256": "7f5ab39b528900363e75f7fabca99fe42cd835a63d3338c50ce7d2d0f08e7c08",
+      "bytes": 25152
+    },
+    "assessment-03/proofs/evidence/engineering-047/native-invalid-model/legacy-directory-assessment.json": {
+      "sha256": "e29884a6d6344c0280aee7463fa85e8b14a11a3def5d5dd92b5c66ba93b3ef01",
+      "bytes": 1853
+    },
+    "assessment-03/proofs/evidence/engineering-047/native-invalid-model/rail-consumption-assessment.json": {
+      "sha256": "20d32572f83c3581db4b9b9812038252cb9693bb394da9e9ae42ee6620174cba",
+      "bytes": 8410
+    },
+    "assessment-03/proofs/evidence/engineering-048/native-invalid-model/saved-rail-styles/assessment.json": {
+      "sha256": "98936eb3318ea47cd496b429145aa1237857a0d8b89349f101a258dba56e498a",
+      "bytes": 18654
+    },
+    "assessment-03/proofs/evidence/engineering-048/native-invalid-model/startup-prefix/attribution.json": {
+      "sha256": "71c89b01d4621bf379c162f54e53bcfcdd9979426faa47720cbf5e495adcd8f5",
+      "bytes": 3946
+    },
+    "assessment-03/sources/config/native-diagnostic-review.json": {
+      "sha256": "4d91b89a3600d44a9ec132b7dd58fb61d46d34ae63f9148716f24c9c144f745c",
+      "bytes": 2328
+    },
+    "assessment-03/sources/tools/client_experiment_analysis.py": {
+      "sha256": "0669d421d09a47664cf9207f559f247983f76a666a1cfe8487c7d02d4c5a7d6e",
+      "bytes": 41656
+    },
+    "assessment-03/sources/tools/native_diagnostic_review.py": {
+      "sha256": "39807f2f3b8173097d30d7fef7499e8bac419f72ff6abd1faf91b014c097e45d",
+      "bytes": 14788
+    },
+    "assessment-03/sources/tools/packaged_client.py": {
+      "sha256": "ad2e0dbf209ded20942891378e0a5855d6c3f65f8d89baa9afa2a7d24b2af13c",
+      "bytes": 42086
+    },
+    "assessment-03/sources/tools/windows_snapshot_io.py": {
+      "sha256": "56ff1d6abcb7be7780bb057f239831d813a5e5c867320f1797f8710370765ac5",
+      "bytes": 1895
+    },
+    "assessment-03/startup-stability.json": {
+      "sha256": "ca35bcc32c4e791e4253be8feb192b3ef03179e11ac1710b62e18fec561e8ed5",
+      "bytes": 216
+    },
+    "bind_build_sources.py": {
+      "sha256": "abe29d1708c7dc1918247ab44496b18eccee7d57c41a0065ff879480249deae6",
+      "bytes": 2709
+    },
+    "build-bindings/assessment.json": {
+      "sha256": "2bc995da86698acc220285e0c0c4fc73034bbd8aa42a814c4fda30478c488162",
+      "bytes": 23018
+    },
+    "build-bindings/companion/inputs/build/generated/resources/official-nf248/META-INF/neoforge.mods.toml": {
+      "sha256": "10178f48c2f6f23a8b19adf221e6c4bda321a47246628b1f076b4418a85a3177",
+      "bytes": 690
+    },
+    "build-bindings/companion/inputs/build/generated/resources/official-nf248/mtr-memory-sharing.mixins.json": {
+      "sha256": "9a8a6282dbe871c05fefbcac56a3cf3ba33f153fe46ece935cc4c8d09d238851",
+      "bytes": 754
+    },
+    "build-bindings/companion/inputs/build/generated/resources/official-nf248/mtr-memory-target.json": {
+      "sha256": "6611ac176d8750290d264bba62e468d44912976e5f3d5ca9439a69ddfa1a2630",
+      "bytes": 226
+    },
+    "build-bindings/companion/inputs/build.gradle": {
+      "sha256": "5054012da1dc10622fbee281b53d169acc3ba6f0a759dc23db6d6e1822642413",
+      "bytes": 29818
+    },
+    "build-bindings/companion/inputs/config/targets.json": {
+      "sha256": "e3d1d3a81d4fe8d7e60ba376654c943cc9766ce1d213b119fe7f6b175ac1d4ff",
+      "bytes": 1416
+    },
+    "build-bindings/companion/inputs/src/main/java/site/benli06/BinaryFingerprint.java": {
+      "sha256": "d14118714c8837eb0d478b83383399675c6810e500c2a90e4512793c6e81f34a",
+      "bytes": 896
+    },
+    "build-bindings/companion/inputs/src/main/java/site/benli06/BoundedTextCache.java": {
+      "sha256": "0dd7a9e226a3f6f9ae2d114bd540ea3b400289a613034c89bad2831b7e5c142d",
+      "bytes": 10784
+    },
+    "build-bindings/companion/inputs/src/main/java/site/benli06/CompatibilityPlugin.java": {
+      "sha256": "0d140cd909676510711f346fec38dc4d749bba0319d6c51acdd245d5b1aad82d",
+      "bytes": 2197
+    },
+    "build-bindings/companion/inputs/src/main/java/site/benli06/CompressedResourceTextCache.java": {
+      "sha256": "8b5c0678586cf8dfe1978d29ba657ce05fea64ffa64ea3c2cb83b40faeabc485",
+      "bytes": 795
+    },
+    "build-bindings/companion/inputs/src/main/java/site/benli06/DisplayRetention.java": {
+      "sha256": "9586b3f89567e395bf7c3a7ab6fd912402d6c30c5b02884f0ac22fb9dcf43b6a",
+      "bytes": 1093
+    },
+    "build-bindings/companion/inputs/src/main/java/site/benli06/GenerationWorkCache.java": {
+      "sha256": "9df8981274dbf68c1d4f688b5245f0020058bcd11fe4259becd33bd445d7fe62",
+      "bytes": 10684
+    },
+    "build-bindings/companion/inputs/src/main/java/site/benli06/mixin/BlockbenchParseExecutorMixin.java": {
+      "sha256": "6d3e9567457cf46a9593980dc0bb7144147dd9f92cbf0a680209522d999c34a2",
+      "bytes": 821
+    },
+    "build-bindings/companion/inputs/src/main/java/site/benli06/mixin/CompressedResourceTextMixin.java": {
+      "sha256": "36ebaa22206f15b9a8cbbea337cd1dac0ba775d016834d06ec5fda28137e5698",
+      "bytes": 2364
+    },
+    "build-bindings/companion/inputs/src/main/java/site/benli06/mixin/DisplayPartAccess.java": {
+      "sha256": "61066972b183bc5e03cbf758ffef39e626538a4c0c9747784d495ac0802fb378",
+      "bytes": 493
+    },
+    "build-bindings/companion/inputs/src/main/java/site/benli06/mixin/DisplaySelectionMixin.java": {
+      "sha256": "6f85bcfd58d679d72389dac22e773d2e1a65654b68ad8d9cb6aec37ba4c8de7c",
+      "bytes": 955
+    },
+    "build-bindings/companion/inputs/src/main/java/site/benli06/mixin/ModelLoaderAccess.java": {
+      "sha256": "028a8fd2d6116e1839966d6103a23401f7c77aa0a9378192253279a14c4f336a",
+      "bytes": 912
+    },
+    "build-bindings/companion/inputs/src/main/java/site/benli06/mixin/ModelLoaderCompletionMixin.java": {
+      "sha256": "1146d5c540f2afee7071f0c89e31d13dda21ffd927fe33a89d96e7128f45e164",
+      "bytes": 612
+    },
+    "build-bindings/companion/inputs/src/main/java/site/benli06/mixin/ResourceReloadMixin.java": {
+      "sha256": "ed0c05fc5443712e4776c5a47ccc336da1d7cef59440051992549517cd1b9ff6",
+      "bytes": 1257
+    },
+    "build-bindings/companion/inputs/src/main/java/site/benli06/mixin/SegmentedResourceTextMixin.java": {
+      "sha256": "fb480ed48b2294942d1a2bad558a4ff641268a4dbac6b11a49fecc047c62e291",
+      "bytes": 905
+    },
+    "build-bindings/companion/inputs/src/main/java/site/benli06/mixin/SourceLifetimeMixin.java": {
+      "sha256": "685f795565885e1569657435c01824cc8191ccae9f8652b84be6780729ec870b",
+      "bytes": 599
+    },
+    "build-bindings/companion/inputs/src/main/java/site/benli06/mixin/VehicleJsonCacheMixin.java": {
+      "sha256": "28f0b99f94c8f4b693e447347aebae99a60fdf1ecd211d1cda23e1ce7fef024e",
+      "bytes": 680
+    },
+    "build-bindings/companion/inputs/src/main/java/site/benli06/mixin/VehicleJsonEpochMixin.java": {
+      "sha256": "f1c67e2e354190de1355a6b79039270f2be2cfc4ee113bf0c71897c2be158a17",
+      "bytes": 758
+    },
+    "build-bindings/companion/inputs/src/main/java/site/benli06/mixin/VehicleModelFactoryMixin.java": {
+      "sha256": "1fb9b2984cd917cf5010158bbb4a0312a80a8931535036ec1394ca04633e98bc",
+      "bytes": 928
+    },
+    "build-bindings/companion/inputs/src/main/java/site/benli06/PackedModelGroupAccess.java": {
+      "sha256": "c76a1cf74d9eab70d60e93183c0452e336a006a5d5e880c45bd0fd3cbf0448d1",
+      "bytes": 118
+    },
+    "build-bindings/companion/inputs/src/main/java/site/benli06/PackedModelGroupOperations.java": {
+      "sha256": "409c6e93c899217659aa220c9e031c93bbb589d996ad1fdc9eda0bfc4d3b1676",
+      "bytes": 1526
+    },
+    "build-bindings/companion/inputs/src/main/java/site/benli06/PackedModelGroupStore.java": {
+      "sha256": "696e67c3308a9673363b023f48880dfa9d6c94f1fdab8138049ad4f9028c08b1",
+      "bytes": 1555
+    },
+    "build-bindings/companion/inputs/src/main/java/site/benli06/PackedVertexEmitter.java": {
+      "sha256": "7c996e3bd75ae339d6d74d603833111ba84fab2662b69196f374db8c4cf02dd5",
+      "bytes": 506
+    },
+    "build-bindings/companion/inputs/src/main/java/site/benli06/ReadAdmission.java": {
+      "sha256": "dd785b1ed9e4805b6688a911ded27c051ea558a0aac0ae479101fc62631d9535",
+      "bytes": 6146
+    },
+    "build-bindings/companion/inputs/src/main/java/site/benli06/ResourceSourceKey.java": {
+      "sha256": "129bfbc44538f80860a196034ebcb62df18304dc9ecc60276b12dad3ae74b6a6",
+      "bytes": 870
+    },
+    "build-bindings/companion/inputs/src/main/java/site/benli06/ResourceTextDigest.java": {
+      "sha256": "0ef90480b26891683d560774894da6e7d826d0cb42f189db20589c49c5badd67",
+      "bytes": 3177
+    },
+    "build-bindings/companion/inputs/src/main/java/site/benli06/SegmentedResourceText.java": {
+      "sha256": "6ec9b5faca7a889491a5209c0cab120a600e12aa63739201c12822dfea8b8fda",
+      "bytes": 7456
+    },
+    "build-bindings/companion/inputs/src/main/java/site/benli06/SharedBlockbenchCache.java": {
+      "sha256": "7fdd6c66602557370f476bef65781f8a28a4e6ca7785d1c6c4cf6c33497f7d07",
+      "bytes": 4878
+    },
+    "build-bindings/companion/inputs/src/main/java/site/benli06/StrictResourceText.java": {
+      "sha256": "ef6c139fa60267f23c6b062874e4ed055a22c879cb2875250203ef851708a649",
+      "bytes": 1043
+    },
+    "build-bindings/companion/inputs/src/main/java/site/benli06/TextWorkspace.java": {
+      "sha256": "574cb84e23f5c97536320a7c9874acbaa06901bbf50c3b7e6458e8941cd51dc2",
+      "bytes": 3279
+    },
+    "build-bindings/companion/inputs/src/main/java/site/benli06/VehicleJsonCache.java": {
+      "sha256": "cf9e1690166c0f5c79d442b847baeae731b4f9b82abb618562e9de4debe6c5e4",
+      "bytes": 2550
+    },
+    "build-bindings/companion/inputs/src/main/resources/assets/mtr_memory_sharing/lang/en_us.json": {
+      "sha256": "4522126f7d8979b5013ecae2d45aeed8a211f31eee493a14f30b327cdbf24986",
+      "bytes": 113
+    },
+    "build-bindings/companion/inputs/src/main/resources/assets/mtr_memory_sharing/lang/zh_cn.json": {
+      "sha256": "2f3e9bf2726f455abea8a6081711954417493949798c9278c2f3e07537c21131",
+      "bytes": 113
+    },
+    "build-bindings/companion/inputs/src/main/resources/pack.mcmeta": {
+      "sha256": "cb0c633e325e5487a39079e4186c7b46bf6410f83e07cc5adabbdef0f54a770a",
+      "bytes": 127
+    },
+    "build-bindings/companion/inputs/src/main/resources/pack.png": {
+      "sha256": "9b9f413f5e6d0350be08e2460b1b9cbe84e317143976b4b1b13208d09ffac8a7",
+      "bytes": 243217
+    },
+    "build-bindings/companion/inputs/src/targets/official/java/site/benli06/mixin/PackedModelGroupMixin.java": {
+      "sha256": "9c5c4bfaedee250e2b1b139bef5a410d7f2d1a43f331e36ab6d98c7b8d6a19bf",
+      "bytes": 2779
+    },
+    "build-bindings/companion/inputs/src/targets/official/java/site/benli06/mixin/ResourceTextReadMixin.java": {
+      "sha256": "54cc5f0a8846a748955e09b9028a7b020f98a9a24f16356f46b31e20839cd779",
+      "bytes": 1132
+    },
+    "build-bindings/companion/inputs/src/targets/official/java/site/benli06/mixin/VertexColorMixin.java": {
+      "sha256": "e22c48c2e22bc15a47199671e8db8a2ed490f9c985f6e66c0d5c5201fdcff27b",
+      "bytes": 638
+    },
+    "build-bindings/companion/inputs/src/targets/official/java/site/benli06/PackedVertices.java": {
+      "sha256": "83c1121d86d3a02f35d9585976399ade88fc744523d3dd20453de0af8ddb7404",
+      "bytes": 5863
+    },
+    "build-bindings/companion/inputs/src/targets/official/java/site/benli06/SharedBlockbenchLoader.java": {
+      "sha256": "62d081e56e318bddf4a6a26116cb12d9aa36f8cbe1934e4607b621e7fdc626a9",
+      "bytes": 1816
+    },
+    "build-bindings/companion/mtr-memory-saver-official-nf248-0.4.7.build.json": {
+      "sha256": "d06e4a332742bdb1c04740b9eef456a8c31528d9a31b8e2c9e1f3c6dd54d6afc",
+      "bytes": 6252
+    },
+    "build-bindings/failed-script.py": {
+      "sha256": "502416295d6921d63345e24df7db5a44c646f78fd1d5e7ff769399a13b8fd0ee",
+      "bytes": 1761
+    },
+    "build-bindings/observer/inputs/build/generated/neutral-probe/official-nf248/capabilities.json": {
+      "sha256": "ae964b07f1de72328a44cd3c5be37655624a790e8562fc954705fe339febdea4",
+      "bytes": 512
+    },
+    "build-bindings/observer/inputs/build/generated/neutral-probe/official-nf248/META-INF/neoforge.mods.toml": {
+      "sha256": "ddfe702db9e814669e0143c204d36c1365ade044384eeb0f5a1fefb0a982dae0",
+      "bytes": 649
+    },
+    "build-bindings/observer/inputs/build/generated/neutral-probe/official-nf248/mtr-native-observer-target.json": {
+      "sha256": "2f5d4e4c02641b9f7cfae1951dc7a8b377a8b32d8470a9b6e19ccd5356c6b9a5",
+      "bytes": 694
+    },
+    "build-bindings/observer/inputs/build/generated/neutral-probe/official-nf248/mtr-native-observer.mixins.json": {
+      "sha256": "5263b013d308c3b9a68253eee1a7e1cb177f4926470c03020e8c6791131d3776",
+      "bytes": 477
+    },
+    "build-bindings/observer/inputs/build.gradle": {
+      "sha256": "5054012da1dc10622fbee281b53d169acc3ba6f0a759dc23db6d6e1822642413",
+      "bytes": 29818
+    },
+    "build-bindings/observer/inputs/config/targets.json": {
+      "sha256": "e3d1d3a81d4fe8d7e60ba376654c943cc9766ce1d213b119fe7f6b175ac1d4ff",
+      "bytes": 1416
+    },
+    "build-bindings/observer/inputs/tools/probes/io/java/dev/abenli/probeio/AtomicSnapshot.java": {
+      "sha256": "2b257083840cdfb0184d0d51f97436dcd5363fb3027d6a31e3c9740a8189de57",
+      "bytes": 4191
+    },
+    "build-bindings/observer/inputs/tools/probes/neutral/java/dev/abenli/neutralprobe/DiagnosticTracker.java": {
+      "sha256": "d7fe099e6d99491171774ebbb923fc2faba4f5d6d027d2562333460dfe9a6355",
+      "bytes": 1970
+    },
+    "build-bindings/observer/inputs/tools/probes/neutral/java/dev/abenli/neutralprobe/EpochTracker.java": {
+      "sha256": "e528056801e40314d46cfbb1d240923bb9f78f250ab63a04b0f4c2efb6dbd036",
+      "bytes": 2412
+    },
+    "build-bindings/observer/inputs/tools/probes/neutral/java/dev/abenli/neutralprobe/ExistingCaches.java": {
+      "sha256": "cdf26f83a4fb246b3d04286f89c3b35fe2d351468b5cbd418f75e1c43daceba1",
+      "bytes": 752
+    },
+    "build-bindings/observer/inputs/tools/probes/neutral/java/dev/abenli/neutralprobe/mixin/NativeClientDataAccess.java": {
+      "sha256": "40a5948959b7e5efa96dfff507891d689908a50872d3d14623357fe81da5d3f4",
+      "bytes": 423
+    },
+    "build-bindings/observer/inputs/tools/probes/neutral/java/dev/abenli/neutralprobe/mixin/NativeInvalidModelMixin.java": {
+      "sha256": "09ca0ebb19d9dfb1b26b9936ade7b6abc6cb638130d11fff9ef79d65b5c10696",
+      "bytes": 1682
+    },
+    "build-bindings/observer/inputs/tools/probes/neutral/java/dev/abenli/neutralprobe/mixin/NativePendingAccess.java": {
+      "sha256": "c8085826c1cea254d4e5b1baad87065d0e4facea8f3bff3a00f7b03ed71779dd",
+      "bytes": 466
+    },
+    "build-bindings/observer/inputs/tools/probes/neutral/java/dev/abenli/neutralprobe/mixin/NativeResourceEpochMixin.java": {
+      "sha256": "193391afbf1bd96f4a7f52e8f97472d1ee75a5e198c74a084b44ec168be7fe32",
+      "bytes": 750
+    },
+    "build-bindings/observer/inputs/tools/probes/neutral/java/dev/abenli/neutralprobe/mixin/VehicleCacheAccess.java": {
+      "sha256": "51cb9311a195c7ad331eedbca9dfcf19ba3cf73f5337ded8cf7896d2eb961340",
+      "bytes": 541
+    },
+    "build-bindings/observer/inputs/tools/probes/neutral/java/dev/abenli/neutralprobe/mixin/VehicleProgressAccess.java": {
+      "sha256": "6b797416f707714e3f3a351ea19d4216659fded1a35f4bfbe977ece03da832d1",
+      "bytes": 336
+    },
+    "build-bindings/observer/inputs/tools/probes/neutral/java/dev/abenli/neutralprobe/NativeCompatibilityPlugin.java": {
+      "sha256": "e55d46f296ca48b6c1f76fddfe9dd2d5b19c0746050f51111d6cc63398041625",
+      "bytes": 2205
+    },
+    "build-bindings/observer/inputs/tools/probes/neutral/java/dev/abenli/neutralprobe/NativeModelDiagnostics.java": {
+      "sha256": "d3726a66e0eee7469631c6a4c2b9c13bd42025c44525ed722b22d392317cb729",
+      "bytes": 5481
+    },
+    "build-bindings/observer/inputs/tools/probes/neutral/java/dev/abenli/neutralprobe/NativeObserver.java": {
+      "sha256": "de17a424fa0aa10c4829e60fec7f5ba8c1f1f36265b424935aa57bbe676589a8",
+      "bytes": 9782
+    },
+    "build-bindings/observer/inputs/tools/probes/neutral/java/dev/abenli/neutralprobe/NativeRegistry.java": {
+      "sha256": "dc5bfa9ed7db4240df6659c30980005a5f46d5a95c5b26a18459e50fef854755",
+      "bytes": 878
+    },
+    "build-bindings/observer/inputs/tools/probes/neutral/java/dev/abenli/neutralprobe/NativeScene.java": {
+      "sha256": "f9db55850823262e2cda33be445b4280720f002512bdccfad1377ee306651ba9",
+      "bytes": 5496
+    },
+    "build-bindings/observer/inputs/tools/probes/neutral/java/dev/abenli/neutralprobe/NativeTarget.java": {
+      "sha256": "41fd47c5c206459c2aadcc7bc19b661d039d7e63e55330e043e9c12da794f212",
+      "bytes": 2031
+    },
+    "build-bindings/observer/inputs/tools/probes/neutral/java/dev/abenli/neutralprobe/ObservationSchema.java": {
+      "sha256": "5e46aa608040073c958a43bdd702e0c6adf9621c55dcd8387507d0e9265d814c",
+      "bytes": 3810
+    },
+    "build-bindings/observer/inputs/tools/probes/neutral/java/dev/abenli/neutralprobe/RegistrationCounts.java": {
+      "sha256": "47cecc739d67218c160bbc76b12d611c5ba24f49b529066fd1d099d4ae72f1c2",
+      "bytes": 464
+    },
+    "build-bindings/observer/inputs/tools/probes/neutral/observer.json": {
+      "sha256": "7737c6162f67bd261c1cc2fc6eed54637741ee80c70a28dfddcde85d3c23a19a",
+      "bytes": 807
+    },
+    "build-bindings/observer/mtr-native-observer-official-nf248-1.0.2.build.json": {
+      "sha256": "0313078937b878206cc6d1bf4975b1bd89146ac6d6abf9ed0ba3cd67e38ecc48",
+      "bytes": 4673
+    },
+    "build-bindings-02/assessment.json": {
+      "sha256": "2af624950986776018c554e018f0b9893d467f0a52b493e3528d92a891c18bce",
+      "bytes": 47411
+    },
+    "build-bindings-02/bind-script.py": {
+      "sha256": "abe29d1708c7dc1918247ab44496b18eccee7d57c41a0065ff879480249deae6",
+      "bytes": 2709
+    },
+    "build-bindings-02/companion/inputs/build/generated/resources/official-nf248/META-INF/neoforge.mods.toml": {
+      "sha256": "10178f48c2f6f23a8b19adf221e6c4bda321a47246628b1f076b4418a85a3177",
+      "bytes": 690
+    },
+    "build-bindings-02/companion/inputs/build/generated/resources/official-nf248/mtr-memory-sharing.mixins.json": {
+      "sha256": "9a8a6282dbe871c05fefbcac56a3cf3ba33f153fe46ece935cc4c8d09d238851",
+      "bytes": 754
+    },
+    "build-bindings-02/companion/inputs/build/generated/resources/official-nf248/mtr-memory-target.json": {
+      "sha256": "6611ac176d8750290d264bba62e468d44912976e5f3d5ca9439a69ddfa1a2630",
+      "bytes": 226
+    },
+    "build-bindings-02/companion/inputs/build.gradle": {
+      "sha256": "5054012da1dc10622fbee281b53d169acc3ba6f0a759dc23db6d6e1822642413",
+      "bytes": 29818
+    },
+    "build-bindings-02/companion/inputs/config/targets.json": {
+      "sha256": "e3d1d3a81d4fe8d7e60ba376654c943cc9766ce1d213b119fe7f6b175ac1d4ff",
+      "bytes": 1416
+    },
+    "build-bindings-02/companion/inputs/src/main/java/site/benli06/BinaryFingerprint.java": {
+      "sha256": "d14118714c8837eb0d478b83383399675c6810e500c2a90e4512793c6e81f34a",
+      "bytes": 896
+    },
+    "build-bindings-02/companion/inputs/src/main/java/site/benli06/BoundedTextCache.java": {
+      "sha256": "0dd7a9e226a3f6f9ae2d114bd540ea3b400289a613034c89bad2831b7e5c142d",
+      "bytes": 10784
+    },
+    "build-bindings-02/companion/inputs/src/main/java/site/benli06/CompatibilityPlugin.java": {
+      "sha256": "0d140cd909676510711f346fec38dc4d749bba0319d6c51acdd245d5b1aad82d",
+      "bytes": 2197
+    },
+    "build-bindings-02/companion/inputs/src/main/java/site/benli06/CompressedResourceTextCache.java": {
+      "sha256": "8b5c0678586cf8dfe1978d29ba657ce05fea64ffa64ea3c2cb83b40faeabc485",
+      "bytes": 795
+    },
+    "build-bindings-02/companion/inputs/src/main/java/site/benli06/DisplayRetention.java": {
+      "sha256": "9586b3f89567e395bf7c3a7ab6fd912402d6c30c5b02884f0ac22fb9dcf43b6a",
+      "bytes": 1093
+    },
+    "build-bindings-02/companion/inputs/src/main/java/site/benli06/GenerationWorkCache.java": {
+      "sha256": "9df8981274dbf68c1d4f688b5245f0020058bcd11fe4259becd33bd445d7fe62",
+      "bytes": 10684
+    },
+    "build-bindings-02/companion/inputs/src/main/java/site/benli06/mixin/BlockbenchParseExecutorMixin.java": {
+      "sha256": "6d3e9567457cf46a9593980dc0bb7144147dd9f92cbf0a680209522d999c34a2",
+      "bytes": 821
+    },
+    "build-bindings-02/companion/inputs/src/main/java/site/benli06/mixin/CompressedResourceTextMixin.java": {
+      "sha256": "36ebaa22206f15b9a8cbbea337cd1dac0ba775d016834d06ec5fda28137e5698",
+      "bytes": 2364
+    },
+    "build-bindings-02/companion/inputs/src/main/java/site/benli06/mixin/DisplayPartAccess.java": {
+      "sha256": "61066972b183bc5e03cbf758ffef39e626538a4c0c9747784d495ac0802fb378",
+      "bytes": 493
+    },
+    "build-bindings-02/companion/inputs/src/main/java/site/benli06/mixin/DisplaySelectionMixin.java": {
+      "sha256": "6f85bcfd58d679d72389dac22e773d2e1a65654b68ad8d9cb6aec37ba4c8de7c",
+      "bytes": 955
+    },
+    "build-bindings-02/companion/inputs/src/main/java/site/benli06/mixin/ModelLoaderAccess.java": {
+      "sha256": "028a8fd2d6116e1839966d6103a23401f7c77aa0a9378192253279a14c4f336a",
+      "bytes": 912
+    },
+    "build-bindings-02/companion/inputs/src/main/java/site/benli06/mixin/ModelLoaderCompletionMixin.java": {
+      "sha256": "1146d5c540f2afee7071f0c89e31d13dda21ffd927fe33a89d96e7128f45e164",
+      "bytes": 612
+    },
+    "build-bindings-02/companion/inputs/src/main/java/site/benli06/mixin/ResourceReloadMixin.java": {
+      "sha256": "ed0c05fc5443712e4776c5a47ccc336da1d7cef59440051992549517cd1b9ff6",
+      "bytes": 1257
+    },
+    "build-bindings-02/companion/inputs/src/main/java/site/benli06/mixin/SegmentedResourceTextMixin.java": {
+      "sha256": "fb480ed48b2294942d1a2bad558a4ff641268a4dbac6b11a49fecc047c62e291",
+      "bytes": 905
+    },
+    "build-bindings-02/companion/inputs/src/main/java/site/benli06/mixin/SourceLifetimeMixin.java": {
+      "sha256": "685f795565885e1569657435c01824cc8191ccae9f8652b84be6780729ec870b",
+      "bytes": 599
+    },
+    "build-bindings-02/companion/inputs/src/main/java/site/benli06/mixin/VehicleJsonCacheMixin.java": {
+      "sha256": "28f0b99f94c8f4b693e447347aebae99a60fdf1ecd211d1cda23e1ce7fef024e",
+      "bytes": 680
+    },
+    "build-bindings-02/companion/inputs/src/main/java/site/benli06/mixin/VehicleJsonEpochMixin.java": {
+      "sha256": "f1c67e2e354190de1355a6b79039270f2be2cfc4ee113bf0c71897c2be158a17",
+      "bytes": 758
+    },
+    "build-bindings-02/companion/inputs/src/main/java/site/benli06/mixin/VehicleModelFactoryMixin.java": {
+      "sha256": "1fb9b2984cd917cf5010158bbb4a0312a80a8931535036ec1394ca04633e98bc",
+      "bytes": 928
+    },
+    "build-bindings-02/companion/inputs/src/main/java/site/benli06/PackedModelGroupAccess.java": {
+      "sha256": "c76a1cf74d9eab70d60e93183c0452e336a006a5d5e880c45bd0fd3cbf0448d1",
+      "bytes": 118
+    },
+    "build-bindings-02/companion/inputs/src/main/java/site/benli06/PackedModelGroupOperations.java": {
+      "sha256": "409c6e93c899217659aa220c9e031c93bbb589d996ad1fdc9eda0bfc4d3b1676",
+      "bytes": 1526
+    },
+    "build-bindings-02/companion/inputs/src/main/java/site/benli06/PackedModelGroupStore.java": {
+      "sha256": "696e67c3308a9673363b023f48880dfa9d6c94f1fdab8138049ad4f9028c08b1",
+      "bytes": 1555
+    },
+    "build-bindings-02/companion/inputs/src/main/java/site/benli06/PackedVertexEmitter.java": {
+      "sha256": "7c996e3bd75ae339d6d74d603833111ba84fab2662b69196f374db8c4cf02dd5",
+      "bytes": 506
+    },
+    "build-bindings-02/companion/inputs/src/main/java/site/benli06/ReadAdmission.java": {
+      "sha256": "dd785b1ed9e4805b6688a911ded27c051ea558a0aac0ae479101fc62631d9535",
+      "bytes": 6146
+    },
+    "build-bindings-02/companion/inputs/src/main/java/site/benli06/ResourceSourceKey.java": {
+      "sha256": "129bfbc44538f80860a196034ebcb62df18304dc9ecc60276b12dad3ae74b6a6",
+      "bytes": 870
+    },
+    "build-bindings-02/companion/inputs/src/main/java/site/benli06/ResourceTextDigest.java": {
+      "sha256": "0ef90480b26891683d560774894da6e7d826d0cb42f189db20589c49c5badd67",
+      "bytes": 3177
+    },
+    "build-bindings-02/companion/inputs/src/main/java/site/benli06/SegmentedResourceText.java": {
+      "sha256": "6ec9b5faca7a889491a5209c0cab120a600e12aa63739201c12822dfea8b8fda",
+      "bytes": 7456
+    },
+    "build-bindings-02/companion/inputs/src/main/java/site/benli06/SharedBlockbenchCache.java": {
+      "sha256": "7fdd6c66602557370f476bef65781f8a28a4e6ca7785d1c6c4cf6c33497f7d07",
+      "bytes": 4878
+    },
+    "build-bindings-02/companion/inputs/src/main/java/site/benli06/StrictResourceText.java": {
+      "sha256": "ef6c139fa60267f23c6b062874e4ed055a22c879cb2875250203ef851708a649",
+      "bytes": 1043
+    },
+    "build-bindings-02/companion/inputs/src/main/java/site/benli06/TextWorkspace.java": {
+      "sha256": "574cb84e23f5c97536320a7c9874acbaa06901bbf50c3b7e6458e8941cd51dc2",
+      "bytes": 3279
+    },
+    "build-bindings-02/companion/inputs/src/main/java/site/benli06/VehicleJsonCache.java": {
+      "sha256": "cf9e1690166c0f5c79d442b847baeae731b4f9b82abb618562e9de4debe6c5e4",
+      "bytes": 2550
+    },
+    "build-bindings-02/companion/inputs/src/main/resources/assets/mtr_memory_sharing/lang/en_us.json": {
+      "sha256": "4522126f7d8979b5013ecae2d45aeed8a211f31eee493a14f30b327cdbf24986",
+      "bytes": 113
+    },
+    "build-bindings-02/companion/inputs/src/main/resources/assets/mtr_memory_sharing/lang/zh_cn.json": {
+      "sha256": "2f3e9bf2726f455abea8a6081711954417493949798c9278c2f3e07537c21131",
+      "bytes": 113
+    },
+    "build-bindings-02/companion/inputs/src/main/resources/pack.mcmeta": {
+      "sha256": "cb0c633e325e5487a39079e4186c7b46bf6410f83e07cc5adabbdef0f54a770a",
+      "bytes": 127
+    },
+    "build-bindings-02/companion/inputs/src/main/resources/pack.png": {
+      "sha256": "9b9f413f5e6d0350be08e2460b1b9cbe84e317143976b4b1b13208d09ffac8a7",
+      "bytes": 243217
+    },
+    "build-bindings-02/companion/inputs/src/targets/official/java/site/benli06/mixin/PackedModelGroupMixin.java": {
+      "sha256": "9c5c4bfaedee250e2b1b139bef5a410d7f2d1a43f331e36ab6d98c7b8d6a19bf",
+      "bytes": 2779
+    },
+    "build-bindings-02/companion/inputs/src/targets/official/java/site/benli06/mixin/ResourceTextReadMixin.java": {
+      "sha256": "54cc5f0a8846a748955e09b9028a7b020f98a9a24f16356f46b31e20839cd779",
+      "bytes": 1132
+    },
+    "build-bindings-02/companion/inputs/src/targets/official/java/site/benli06/mixin/VertexColorMixin.java": {
+      "sha256": "e22c48c2e22bc15a47199671e8db8a2ed490f9c985f6e66c0d5c5201fdcff27b",
+      "bytes": 638
+    },
+    "build-bindings-02/companion/inputs/src/targets/official/java/site/benli06/PackedVertices.java": {
+      "sha256": "83c1121d86d3a02f35d9585976399ade88fc744523d3dd20453de0af8ddb7404",
+      "bytes": 5863
+    },
+    "build-bindings-02/companion/inputs/src/targets/official/java/site/benli06/SharedBlockbenchLoader.java": {
+      "sha256": "62d081e56e318bddf4a6a26116cb12d9aa36f8cbe1934e4607b621e7fdc626a9",
+      "bytes": 1816
+    },
+    "build-bindings-02/companion/mtr-memory-saver-official-nf248-0.4.7.build.json": {
+      "sha256": "d06e4a332742bdb1c04740b9eef456a8c31528d9a31b8e2c9e1f3c6dd54d6afc",
+      "bytes": 6252
+    },
+    "build-bindings-02/observer/inputs/build/generated/neutral-probe/official-nf248/capabilities.json": {
+      "sha256": "ae964b07f1de72328a44cd3c5be37655624a790e8562fc954705fe339febdea4",
+      "bytes": 512
+    },
+    "build-bindings-02/observer/inputs/build/generated/neutral-probe/official-nf248/META-INF/neoforge.mods.toml": {
+      "sha256": "ddfe702db9e814669e0143c204d36c1365ade044384eeb0f5a1fefb0a982dae0",
+      "bytes": 649
+    },
+    "build-bindings-02/observer/inputs/build/generated/neutral-probe/official-nf248/mtr-native-observer-target.json": {
+      "sha256": "2f5d4e4c02641b9f7cfae1951dc7a8b377a8b32d8470a9b6e19ccd5356c6b9a5",
+      "bytes": 694
+    },
+    "build-bindings-02/observer/inputs/build/generated/neutral-probe/official-nf248/mtr-native-observer.mixins.json": {
+      "sha256": "5263b013d308c3b9a68253eee1a7e1cb177f4926470c03020e8c6791131d3776",
+      "bytes": 477
+    },
+    "build-bindings-02/observer/inputs/build.gradle": {
+      "sha256": "082a5ef7d82edff88912090a7991d711b36cb47d95258fe14e234e8d6b92920f",
+      "bytes": 25256
+    },
+    "build-bindings-02/observer/inputs/config/targets.json": {
+      "sha256": "e3d1d3a81d4fe8d7e60ba376654c943cc9766ce1d213b119fe7f6b175ac1d4ff",
+      "bytes": 1416
+    },
+    "build-bindings-02/observer/inputs/tools/probes/io/java/dev/abenli/probeio/AtomicSnapshot.java": {
+      "sha256": "5a2db91d8ab7dfb88851f480cd0021f2954a8ca394a46cf11cc3305910f7ab4a",
+      "bytes": 2163
+    },
+    "build-bindings-02/observer/inputs/tools/probes/neutral/java/dev/abenli/neutralprobe/DiagnosticTracker.java": {
+      "sha256": "d7fe099e6d99491171774ebbb923fc2faba4f5d6d027d2562333460dfe9a6355",
+      "bytes": 1970
+    },
+    "build-bindings-02/observer/inputs/tools/probes/neutral/java/dev/abenli/neutralprobe/EpochTracker.java": {
+      "sha256": "e528056801e40314d46cfbb1d240923bb9f78f250ab63a04b0f4c2efb6dbd036",
+      "bytes": 2412
+    },
+    "build-bindings-02/observer/inputs/tools/probes/neutral/java/dev/abenli/neutralprobe/ExistingCaches.java": {
+      "sha256": "cdf26f83a4fb246b3d04286f89c3b35fe2d351468b5cbd418f75e1c43daceba1",
+      "bytes": 752
+    },
+    "build-bindings-02/observer/inputs/tools/probes/neutral/java/dev/abenli/neutralprobe/mixin/NativeClientDataAccess.java": {
+      "sha256": "40a5948959b7e5efa96dfff507891d689908a50872d3d14623357fe81da5d3f4",
+      "bytes": 423
+    },
+    "build-bindings-02/observer/inputs/tools/probes/neutral/java/dev/abenli/neutralprobe/mixin/NativeInvalidModelMixin.java": {
+      "sha256": "09ca0ebb19d9dfb1b26b9936ade7b6abc6cb638130d11fff9ef79d65b5c10696",
+      "bytes": 1682
+    },
+    "build-bindings-02/observer/inputs/tools/probes/neutral/java/dev/abenli/neutralprobe/mixin/NativePendingAccess.java": {
+      "sha256": "c8085826c1cea254d4e5b1baad87065d0e4facea8f3bff3a00f7b03ed71779dd",
+      "bytes": 466
+    },
+    "build-bindings-02/observer/inputs/tools/probes/neutral/java/dev/abenli/neutralprobe/mixin/NativeResourceEpochMixin.java": {
+      "sha256": "193391afbf1bd96f4a7f52e8f97472d1ee75a5e198c74a084b44ec168be7fe32",
+      "bytes": 750
+    },
+    "build-bindings-02/observer/inputs/tools/probes/neutral/java/dev/abenli/neutralprobe/mixin/VehicleCacheAccess.java": {
+      "sha256": "51cb9311a195c7ad331eedbca9dfcf19ba3cf73f5337ded8cf7896d2eb961340",
+      "bytes": 541
+    },
+    "build-bindings-02/observer/inputs/tools/probes/neutral/java/dev/abenli/neutralprobe/mixin/VehicleProgressAccess.java": {
+      "sha256": "6b797416f707714e3f3a351ea19d4216659fded1a35f4bfbe977ece03da832d1",
+      "bytes": 336
+    },
+    "build-bindings-02/observer/inputs/tools/probes/neutral/java/dev/abenli/neutralprobe/NativeCompatibilityPlugin.java": {
+      "sha256": "e55d46f296ca48b6c1f76fddfe9dd2d5b19c0746050f51111d6cc63398041625",
+      "bytes": 2205
+    },
+    "build-bindings-02/observer/inputs/tools/probes/neutral/java/dev/abenli/neutralprobe/NativeModelDiagnostics.java": {
+      "sha256": "d3726a66e0eee7469631c6a4c2b9c13bd42025c44525ed722b22d392317cb729",
+      "bytes": 5481
+    },
+    "build-bindings-02/observer/inputs/tools/probes/neutral/java/dev/abenli/neutralprobe/NativeObserver.java": {
+      "sha256": "de17a424fa0aa10c4829e60fec7f5ba8c1f1f36265b424935aa57bbe676589a8",
+      "bytes": 9782
+    },
+    "build-bindings-02/observer/inputs/tools/probes/neutral/java/dev/abenli/neutralprobe/NativeRegistry.java": {
+      "sha256": "dc5bfa9ed7db4240df6659c30980005a5f46d5a95c5b26a18459e50fef854755",
+      "bytes": 878
+    },
+    "build-bindings-02/observer/inputs/tools/probes/neutral/java/dev/abenli/neutralprobe/NativeScene.java": {
+      "sha256": "f9db55850823262e2cda33be445b4280720f002512bdccfad1377ee306651ba9",
+      "bytes": 5496
+    },
+    "build-bindings-02/observer/inputs/tools/probes/neutral/java/dev/abenli/neutralprobe/NativeTarget.java": {
+      "sha256": "41fd47c5c206459c2aadcc7bc19b661d039d7e63e55330e043e9c12da794f212",
+      "bytes": 2031
+    },
+    "build-bindings-02/observer/inputs/tools/probes/neutral/java/dev/abenli/neutralprobe/ObservationSchema.java": {
+      "sha256": "5e46aa608040073c958a43bdd702e0c6adf9621c55dcd8387507d0e9265d814c",
+      "bytes": 3810
+    },
+    "build-bindings-02/observer/inputs/tools/probes/neutral/java/dev/abenli/neutralprobe/RegistrationCounts.java": {
+      "sha256": "47cecc739d67218c160bbc76b12d611c5ba24f49b529066fd1d099d4ae72f1c2",
+      "bytes": 464
+    },
+    "build-bindings-02/observer/inputs/tools/probes/neutral/observer.json": {
+      "sha256": "7737c6162f67bd261c1cc2fc6eed54637741ee80c70a28dfddcde85d3c23a19a",
+      "bytes": 807
+    },
+    "build-bindings-02/observer/mtr-native-observer-official-nf248-1.0.2.build.json": {
+      "sha256": "0313078937b878206cc6d1bf4975b1bd89146ac6d6abf9ed0ba3cd67e38ecc48",
+      "bytes": 4673
+    },
+    "capture-01/collector-read.jsonl.raw": {
+      "sha256": "c654042ca350449ed8ff18097151ea52cd8394e46f6843e61a4abcdbfae7f6ce",
+      "bytes": 3361892
+    },
+    "capture-01/freeze-script.py": {
+      "sha256": "a3cab02e09d6b37f700e5bd123affb4aa20db8e68549550a65f9658117209a03",
+      "bytes": 1914
+    },
+    "capture-01/freeze.json": {
+      "sha256": "cb78f01d97b35eea6326fc2f9ae80060266790a8df7192b096fc9f3930933ab5",
+      "bytes": 3016
+    },
+    "capture-01/game-probe/native-invalid-model.jsonl": {
+      "sha256": "d682169d51aafec516cb3b02f851976e724d96ebc9dea47e74f25950960dd365",
+      "bytes": 22050
+    },
+    "capture-01/game-probe/native-observer.json": {
+      "sha256": "2ee441fa6db0ace67bfde49655521449135f414d8ede24ad2abb2f4c69941ea0",
+      "bytes": 6619
+    },
+    "capture-01/game-probe/native-resource-epochs.jsonl": {
+      "sha256": "d2f0271df55eaf8368a34416506802d69125e34b00c28e4797ec3e837b8d4bb4",
+      "bytes": 1787
+    },
+    "capture-01/logs/latest.log": {
+      "sha256": "d40759a0e12a9f434a280138175793c795679cb16385944661c63ad765a9d782",
+      "bytes": 27946
+    },
+    "capture-01/native-snapshots-prefix.jsonl": {
+      "sha256": "d11a98ded9896d313d50d19d527ce5f86b9e11662972cadb17b46b8d5d31cddc",
+      "bytes": 2881532
+    },
+    "capture-01/options.txt": {
+      "sha256": "29867dbf781b9671625cef9f746ff00863745376f9c20d496efd4db22a3bb2db",
+      "bytes": 4686
+    },
+    "capture-01/packaged-client-launch.json": {
+      "sha256": "9a11cbb027e87d18b6993fb38d4932580eb18f9fa22cf36f218624178f69a27e",
+      "bytes": 26097
+    },
+    "capture-01/packaged-client-plan.json": {
+      "sha256": "3de45574436598a7978a4019e5aa601a53b38d015e2b860ddbf8b20f74f348b0",
+      "bytes": 42324
+    },
+    "capture-01/screenshots/2026-11-16_19.25.21.png": {
+      "sha256": "25537b27b8da9c6afa06b8c94bd7b03f4c96fbabc2238a6b5a661476311c0776",
+      "bytes": 115857
+    },
+    "freeze_prefix.py": {
+      "sha256": "a3cab02e09d6b37f700e5bd123affb4aa20db8e68549550a65f9658117209a03",
+      "bytes": 1914
+    },
+    "README.md": {
+      "sha256": "ab1209110496c5fba29bd8df0d1ad06ee535bafab74c31055e6e5f97a601e9b9",
+      "bytes": 6063
+    },
+    "verification-result.json": {
+      "sha256": "0dd9a62225af450eb217971480ae65b22abb1d94b83c49e21b461c109dcc605d",
+      "bytes": 914
+    },
+    "verify_sealed.py": {
+      "sha256": "dc675794807f06b104425836a31e2c208eba2d66e2d9b3ddd703b6d4b78d3873",
+      "bytes": 7138
+    }
+  }
+}

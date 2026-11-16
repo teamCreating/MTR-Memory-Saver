@@ -1,0 +1,11 @@
+{
+  "argv": [
+    "pwsh",
+    "-NoProfile",
+    "-Command",
+    "Get-CimInstance Win32_Process -Filter 'ProcessId=58468' | Select-Object ProcessId,ExecutablePath,CommandLine,@{Name='CreatedUtc';Expression={$_.CreationDate.ToUniversalTime().ToString('o')}} | ConvertTo-Json -Depth 4"
+  ],
+  "started": "2026-11-16T11:30:08.841447+00:00",
+  "ended": "2026-11-16T11:30:10.980838+00:00",
+  "exit_code": 0
+}

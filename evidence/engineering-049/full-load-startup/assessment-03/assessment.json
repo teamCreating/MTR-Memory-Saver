@@ -1,0 +1,79 @@
+{
+  "timestamp": "2026-11-16T11:34:42.108970+00:00",
+  "scope": "Official 0.4.7 native startup and photographed selected side body only",
+  "scoped_native_startup_passed": true,
+  "artifact": "mtr-memory-saver-official-nf248-0.4.7.jar",
+  "artifact_sha256": "e8b5b40230d0f44c541c12b32c8a30d4c2ea056b8a972335ae10166496837a99",
+  "pid": 58468,
+  "native_snapshot_prefix_count": 394,
+  "first_snapshot": "2026-11-16T11:20:17.363070300Z",
+  "last_snapshot": "2026-11-16T11:27:06.489324Z",
+  "startup_stability": {
+    "start": "2026-11-16T11:20:20.965025400Z",
+    "end": "2026-11-16T11:21:21.692182Z",
+    "seconds": 60.727157,
+    "samples": 60,
+    "maximum_gap_seconds": 1.064498,
+    "maximum_capture_delay_seconds": 0.99428
+  },
+  "native_counts": {
+    "distinct_ids": 1091,
+    "declarations": 1092
+  },
+  "native_pending": 0,
+  "observer_errors": 0,
+  "native_epochs": {
+    "started": 1,
+    "completed": 1,
+    "in_flight": 0,
+    "max_nesting": 1,
+    "last_completed_sequence": 1
+  },
+  "native_diagnostic_attribution_passed": true,
+  "all_collector_errors_retained": [
+    {
+      "at": "2026-11-16T11:26:17.199589+00:00",
+      "error": "PermissionError(13, '另一个程序正在使用此文件，进程无法访问。', None, 32)"
+    }
+  ],
+  "whole_collector_error_free": false,
+  "other_raw_errors_retained": [
+    {
+      "line": 83,
+      "text": "[1611月2026 19:18:13.932] [Download-2/ERROR] [net.minecraft.client.Minecraft/]: Failed to fetch user properties"
+    }
+  ],
+  "caches": [
+    {
+      "id": "mtr_custom_train_dc01_update_cab_1_native_7ea57bf708e8",
+      "entries": [
+        {
+          "floors": 5,
+          "doorways": 10
+        }
+      ]
+    },
+    {
+      "id": "mtr_custom_train_dc01_update_cab_2_native_7b8391aef2c8",
+      "entries": [
+        {
+          "floors": 6,
+          "doorways": 10
+        }
+      ]
+    }
+  ],
+  "verified_original_and_installed_packs": 16,
+  "bound_mods": 3,
+  "image": {
+    "path": "capture-01/screenshots/2026-11-16_19.25.21.png",
+    "sha256": "25537b27b8da9c6afa06b8c94bd7b03f4c96fbabc2238a6b5a661476311c0776",
+    "scope": "Independently reviewed selected DC01 two-car side bodies/windows/visible open doors/junction only"
+  },
+  "limits": [
+    "Frozen startup prefix; no final save/exit acceptance is derived",
+    "Only selected photographed side view",
+    "No passenger/boarding, cab/consist-wide geometry, 20-reload, two-hour route or controlled performance acceptance",
+    "No product permit/workspace counters are supplied by the neutral observer"
+  ]
+}

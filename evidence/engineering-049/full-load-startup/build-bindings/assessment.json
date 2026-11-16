@@ -1,0 +1,433 @@
+{
+  "bound_manifests": [
+    {
+      "role": "companion",
+      "artifact": "mtr-memory-saver-official-nf248-0.4.7.jar",
+      "artifact_sha256": "e8b5b40230d0f44c541c12b32c8a30d4c2ea056b8a972335ae10166496837a99",
+      "inputs": [
+        {
+          "path": "build.gradle",
+          "expected_sha256": "5054012da1dc10622fbee281b53d169acc3ba6f0a759dc23db6d6e1822642413",
+          "actual_sha256": "5054012da1dc10622fbee281b53d169acc3ba6f0a759dc23db6d6e1822642413",
+          "matches": true
+        },
+        {
+          "path": "build/generated/resources/official-nf248/META-INF/neoforge.mods.toml",
+          "expected_sha256": "10178f48c2f6f23a8b19adf221e6c4bda321a47246628b1f076b4418a85a3177",
+          "actual_sha256": "10178f48c2f6f23a8b19adf221e6c4bda321a47246628b1f076b4418a85a3177",
+          "matches": true
+        },
+        {
+          "path": "build/generated/resources/official-nf248/mtr-memory-sharing.mixins.json",
+          "expected_sha256": "9a8a6282dbe871c05fefbcac56a3cf3ba33f153fe46ece935cc4c8d09d238851",
+          "actual_sha256": "9a8a6282dbe871c05fefbcac56a3cf3ba33f153fe46ece935cc4c8d09d238851",
+          "matches": true
+        },
+        {
+          "path": "build/generated/resources/official-nf248/mtr-memory-target.json",
+          "expected_sha256": "6611ac176d8750290d264bba62e468d44912976e5f3d5ca9439a69ddfa1a2630",
+          "actual_sha256": "6611ac176d8750290d264bba62e468d44912976e5f3d5ca9439a69ddfa1a2630",
+          "matches": true
+        },
+        {
+          "path": "config/targets.json",
+          "expected_sha256": "e3d1d3a81d4fe8d7e60ba376654c943cc9766ce1d213b119fe7f6b175ac1d4ff",
+          "actual_sha256": "e3d1d3a81d4fe8d7e60ba376654c943cc9766ce1d213b119fe7f6b175ac1d4ff",
+          "matches": true
+        },
+        {
+          "path": "src/main/java/site/benli06/BinaryFingerprint.java",
+          "expected_sha256": "d14118714c8837eb0d478b83383399675c6810e500c2a90e4512793c6e81f34a",
+          "actual_sha256": "d14118714c8837eb0d478b83383399675c6810e500c2a90e4512793c6e81f34a",
+          "matches": true
+        },
+        {
+          "path": "src/main/java/site/benli06/BoundedTextCache.java",
+          "expected_sha256": "0dd7a9e226a3f6f9ae2d114bd540ea3b400289a613034c89bad2831b7e5c142d",
+          "actual_sha256": "0dd7a9e226a3f6f9ae2d114bd540ea3b400289a613034c89bad2831b7e5c142d",
+          "matches": true
+        },
+        {
+          "path": "src/main/java/site/benli06/CompatibilityPlugin.java",
+          "expected_sha256": "0d140cd909676510711f346fec38dc4d749bba0319d6c51acdd245d5b1aad82d",
+          "actual_sha256": "0d140cd909676510711f346fec38dc4d749bba0319d6c51acdd245d5b1aad82d",
+          "matches": true
+        },
+        {
+          "path": "src/main/java/site/benli06/CompressedResourceTextCache.java",
+          "expected_sha256": "8b5c0678586cf8dfe1978d29ba657ce05fea64ffa64ea3c2cb83b40faeabc485",
+          "actual_sha256": "8b5c0678586cf8dfe1978d29ba657ce05fea64ffa64ea3c2cb83b40faeabc485",
+          "matches": true
+        },
+        {
+          "path": "src/main/java/site/benli06/DisplayRetention.java",
+          "expected_sha256": "9586b3f89567e395bf7c3a7ab6fd912402d6c30c5b02884f0ac22fb9dcf43b6a",
+          "actual_sha256": "9586b3f89567e395bf7c3a7ab6fd912402d6c30c5b02884f0ac22fb9dcf43b6a",
+          "matches": true
+        },
+        {
+          "path": "src/main/java/site/benli06/GenerationWorkCache.java",
+          "expected_sha256": "9df8981274dbf68c1d4f688b5245f0020058bcd11fe4259becd33bd445d7fe62",
+          "actual_sha256": "9df8981274dbf68c1d4f688b5245f0020058bcd11fe4259becd33bd445d7fe62",
+          "matches": true
+        },
+        {
+          "path": "src/main/java/site/benli06/PackedModelGroupAccess.java",
+          "expected_sha256": "c76a1cf74d9eab70d60e93183c0452e336a006a5d5e880c45bd0fd3cbf0448d1",
+          "actual_sha256": "c76a1cf74d9eab70d60e93183c0452e336a006a5d5e880c45bd0fd3cbf0448d1",
+          "matches": true
+        },
+        {
+          "path": "src/main/java/site/benli06/PackedModelGroupOperations.java",
+          "expected_sha256": "409c6e93c899217659aa220c9e031c93bbb589d996ad1fdc9eda0bfc4d3b1676",
+          "actual_sha256": "409c6e93c899217659aa220c9e031c93bbb589d996ad1fdc9eda0bfc4d3b1676",
+          "matches": true
+        },
+        {
+          "path": "src/main/java/site/benli06/PackedModelGroupStore.java",
+          "expected_sha256": "696e67c3308a9673363b023f48880dfa9d6c94f1fdab8138049ad4f9028c08b1",
+          "actual_sha256": "696e67c3308a9673363b023f48880dfa9d6c94f1fdab8138049ad4f9028c08b1",
+          "matches": true
+        },
+        {
+          "path": "src/main/java/site/benli06/PackedVertexEmitter.java",
+          "expected_sha256": "7c996e3bd75ae339d6d74d603833111ba84fab2662b69196f374db8c4cf02dd5",
+          "actual_sha256": "7c996e3bd75ae339d6d74d603833111ba84fab2662b69196f374db8c4cf02dd5",
+          "matches": true
+        },
+        {
+          "path": "src/main/java/site/benli06/ReadAdmission.java",
+          "expected_sha256": "dd785b1ed9e4805b6688a911ded27c051ea558a0aac0ae479101fc62631d9535",
+          "actual_sha256": "dd785b1ed9e4805b6688a911ded27c051ea558a0aac0ae479101fc62631d9535",
+          "matches": true
+        },
+        {
+          "path": "src/main/java/site/benli06/ResourceSourceKey.java",
+          "expected_sha256": "129bfbc44538f80860a196034ebcb62df18304dc9ecc60276b12dad3ae74b6a6",
+          "actual_sha256": "129bfbc44538f80860a196034ebcb62df18304dc9ecc60276b12dad3ae74b6a6",
+          "matches": true
+        },
+        {
+          "path": "src/main/java/site/benli06/ResourceTextDigest.java",
+          "expected_sha256": "0ef90480b26891683d560774894da6e7d826d0cb42f189db20589c49c5badd67",
+          "actual_sha256": "0ef90480b26891683d560774894da6e7d826d0cb42f189db20589c49c5badd67",
+          "matches": true
+        },
+        {
+          "path": "src/main/java/site/benli06/SegmentedResourceText.java",
+          "expected_sha256": "6ec9b5faca7a889491a5209c0cab120a600e12aa63739201c12822dfea8b8fda",
+          "actual_sha256": "6ec9b5faca7a889491a5209c0cab120a600e12aa63739201c12822dfea8b8fda",
+          "matches": true
+        },
+        {
+          "path": "src/main/java/site/benli06/SharedBlockbenchCache.java",
+          "expected_sha256": "7fdd6c66602557370f476bef65781f8a28a4e6ca7785d1c6c4cf6c33497f7d07",
+          "actual_sha256": "7fdd6c66602557370f476bef65781f8a28a4e6ca7785d1c6c4cf6c33497f7d07",
+          "matches": true
+        },
+        {
+          "path": "src/main/java/site/benli06/StrictResourceText.java",
+          "expected_sha256": "ef6c139fa60267f23c6b062874e4ed055a22c879cb2875250203ef851708a649",
+          "actual_sha256": "ef6c139fa60267f23c6b062874e4ed055a22c879cb2875250203ef851708a649",
+          "matches": true
+        },
+        {
+          "path": "src/main/java/site/benli06/TextWorkspace.java",
+          "expected_sha256": "574cb84e23f5c97536320a7c9874acbaa06901bbf50c3b7e6458e8941cd51dc2",
+          "actual_sha256": "574cb84e23f5c97536320a7c9874acbaa06901bbf50c3b7e6458e8941cd51dc2",
+          "matches": true
+        },
+        {
+          "path": "src/main/java/site/benli06/VehicleJsonCache.java",
+          "expected_sha256": "cf9e1690166c0f5c79d442b847baeae731b4f9b82abb618562e9de4debe6c5e4",
+          "actual_sha256": "cf9e1690166c0f5c79d442b847baeae731b4f9b82abb618562e9de4debe6c5e4",
+          "matches": true
+        },
+        {
+          "path": "src/main/java/site/benli06/mixin/BlockbenchParseExecutorMixin.java",
+          "expected_sha256": "6d3e9567457cf46a9593980dc0bb7144147dd9f92cbf0a680209522d999c34a2",
+          "actual_sha256": "6d3e9567457cf46a9593980dc0bb7144147dd9f92cbf0a680209522d999c34a2",
+          "matches": true
+        },
+        {
+          "path": "src/main/java/site/benli06/mixin/CompressedResourceTextMixin.java",
+          "expected_sha256": "36ebaa22206f15b9a8cbbea337cd1dac0ba775d016834d06ec5fda28137e5698",
+          "actual_sha256": "36ebaa22206f15b9a8cbbea337cd1dac0ba775d016834d06ec5fda28137e5698",
+          "matches": true
+        },
+        {
+          "path": "src/main/java/site/benli06/mixin/DisplayPartAccess.java",
+          "expected_sha256": "61066972b183bc5e03cbf758ffef39e626538a4c0c9747784d495ac0802fb378",
+          "actual_sha256": "61066972b183bc5e03cbf758ffef39e626538a4c0c9747784d495ac0802fb378",
+          "matches": true
+        },
+        {
+          "path": "src/main/java/site/benli06/mixin/DisplaySelectionMixin.java",
+          "expected_sha256": "6f85bcfd58d679d72389dac22e773d2e1a65654b68ad8d9cb6aec37ba4c8de7c",
+          "actual_sha256": "6f85bcfd58d679d72389dac22e773d2e1a65654b68ad8d9cb6aec37ba4c8de7c",
+          "matches": true
+        },
+        {
+          "path": "src/main/java/site/benli06/mixin/ModelLoaderAccess.java",
+          "expected_sha256": "028a8fd2d6116e1839966d6103a23401f7c77aa0a9378192253279a14c4f336a",
+          "actual_sha256": "028a8fd2d6116e1839966d6103a23401f7c77aa0a9378192253279a14c4f336a",
+          "matches": true
+        },
+        {
+          "path": "src/main/java/site/benli06/mixin/ModelLoaderCompletionMixin.java",
+          "expected_sha256": "1146d5c540f2afee7071f0c89e31d13dda21ffd927fe33a89d96e7128f45e164",
+          "actual_sha256": "1146d5c540f2afee7071f0c89e31d13dda21ffd927fe33a89d96e7128f45e164",
+          "matches": true
+        },
+        {
+          "path": "src/main/java/site/benli06/mixin/ResourceReloadMixin.java",
+          "expected_sha256": "ed0c05fc5443712e4776c5a47ccc336da1d7cef59440051992549517cd1b9ff6",
+          "actual_sha256": "ed0c05fc5443712e4776c5a47ccc336da1d7cef59440051992549517cd1b9ff6",
+          "matches": true
+        },
+        {
+          "path": "src/main/java/site/benli06/mixin/SegmentedResourceTextMixin.java",
+          "expected_sha256": "fb480ed48b2294942d1a2bad558a4ff641268a4dbac6b11a49fecc047c62e291",
+          "actual_sha256": "fb480ed48b2294942d1a2bad558a4ff641268a4dbac6b11a49fecc047c62e291",
+          "matches": true
+        },
+        {
+          "path": "src/main/java/site/benli06/mixin/SourceLifetimeMixin.java",
+          "expected_sha256": "685f795565885e1569657435c01824cc8191ccae9f8652b84be6780729ec870b",
+          "actual_sha256": "685f795565885e1569657435c01824cc8191ccae9f8652b84be6780729ec870b",
+          "matches": true
+        },
+        {
+          "path": "src/main/java/site/benli06/mixin/VehicleJsonCacheMixin.java",
+          "expected_sha256": "28f0b99f94c8f4b693e447347aebae99a60fdf1ecd211d1cda23e1ce7fef024e",
+          "actual_sha256": "28f0b99f94c8f4b693e447347aebae99a60fdf1ecd211d1cda23e1ce7fef024e",
+          "matches": true
+        },
+        {
+          "path": "src/main/java/site/benli06/mixin/VehicleJsonEpochMixin.java",
+          "expected_sha256": "f1c67e2e354190de1355a6b79039270f2be2cfc4ee113bf0c71897c2be158a17",
+          "actual_sha256": "f1c67e2e354190de1355a6b79039270f2be2cfc4ee113bf0c71897c2be158a17",
+          "matches": true
+        },
+        {
+          "path": "src/main/java/site/benli06/mixin/VehicleModelFactoryMixin.java",
+          "expected_sha256": "1fb9b2984cd917cf5010158bbb4a0312a80a8931535036ec1394ca04633e98bc",
+          "actual_sha256": "1fb9b2984cd917cf5010158bbb4a0312a80a8931535036ec1394ca04633e98bc",
+          "matches": true
+        },
+        {
+          "path": "src/main/resources/assets/mtr_memory_sharing/lang/en_us.json",
+          "expected_sha256": "4522126f7d8979b5013ecae2d45aeed8a211f31eee493a14f30b327cdbf24986",
+          "actual_sha256": "4522126f7d8979b5013ecae2d45aeed8a211f31eee493a14f30b327cdbf24986",
+          "matches": true
+        },
+        {
+          "path": "src/main/resources/assets/mtr_memory_sharing/lang/zh_cn.json",
+          "expected_sha256": "2f3e9bf2726f455abea8a6081711954417493949798c9278c2f3e07537c21131",
+          "actual_sha256": "2f3e9bf2726f455abea8a6081711954417493949798c9278c2f3e07537c21131",
+          "matches": true
+        },
+        {
+          "path": "src/main/resources/pack.mcmeta",
+          "expected_sha256": "cb0c633e325e5487a39079e4186c7b46bf6410f83e07cc5adabbdef0f54a770a",
+          "actual_sha256": "cb0c633e325e5487a39079e4186c7b46bf6410f83e07cc5adabbdef0f54a770a",
+          "matches": true
+        },
+        {
+          "path": "src/main/resources/pack.png",
+          "expected_sha256": "9b9f413f5e6d0350be08e2460b1b9cbe84e317143976b4b1b13208d09ffac8a7",
+          "actual_sha256": "9b9f413f5e6d0350be08e2460b1b9cbe84e317143976b4b1b13208d09ffac8a7",
+          "matches": true
+        },
+        {
+          "path": "src/targets/official/java/site/benli06/PackedVertices.java",
+          "expected_sha256": "83c1121d86d3a02f35d9585976399ade88fc744523d3dd20453de0af8ddb7404",
+          "actual_sha256": "83c1121d86d3a02f35d9585976399ade88fc744523d3dd20453de0af8ddb7404",
+          "matches": true
+        },
+        {
+          "path": "src/targets/official/java/site/benli06/SharedBlockbenchLoader.java",
+          "expected_sha256": "62d081e56e318bddf4a6a26116cb12d9aa36f8cbe1934e4607b621e7fdc626a9",
+          "actual_sha256": "62d081e56e318bddf4a6a26116cb12d9aa36f8cbe1934e4607b621e7fdc626a9",
+          "matches": true
+        },
+        {
+          "path": "src/targets/official/java/site/benli06/mixin/PackedModelGroupMixin.java",
+          "expected_sha256": "9c5c4bfaedee250e2b1b139bef5a410d7f2d1a43f331e36ab6d98c7b8d6a19bf",
+          "actual_sha256": "9c5c4bfaedee250e2b1b139bef5a410d7f2d1a43f331e36ab6d98c7b8d6a19bf",
+          "matches": true
+        },
+        {
+          "path": "src/targets/official/java/site/benli06/mixin/ResourceTextReadMixin.java",
+          "expected_sha256": "54cc5f0a8846a748955e09b9028a7b020f98a9a24f16356f46b31e20839cd779",
+          "actual_sha256": "54cc5f0a8846a748955e09b9028a7b020f98a9a24f16356f46b31e20839cd779",
+          "matches": true
+        },
+        {
+          "path": "src/targets/official/java/site/benli06/mixin/VertexColorMixin.java",
+          "expected_sha256": "e22c48c2e22bc15a47199671e8db8a2ed490f9c985f6e66c0d5c5201fdcff27b",
+          "actual_sha256": "e22c48c2e22bc15a47199671e8db8a2ed490f9c985f6e66c0d5c5201fdcff27b",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "role": "observer",
+      "artifact": "mtr-native-observer-official-nf248-1.0.2.jar",
+      "artifact_sha256": "1f5a3f9721bd7199cd952f4926afa8cf40996cf76fdc9484a9372f45d1664167",
+      "inputs": [
+        {
+          "path": "build.gradle",
+          "expected_sha256": "082a5ef7d82edff88912090a7991d711b36cb47d95258fe14e234e8d6b92920f",
+          "actual_sha256": "5054012da1dc10622fbee281b53d169acc3ba6f0a759dc23db6d6e1822642413",
+          "matches": false
+        },
+        {
+          "path": "build/generated/neutral-probe/official-nf248/META-INF/neoforge.mods.toml",
+          "expected_sha256": "ddfe702db9e814669e0143c204d36c1365ade044384eeb0f5a1fefb0a982dae0",
+          "actual_sha256": "ddfe702db9e814669e0143c204d36c1365ade044384eeb0f5a1fefb0a982dae0",
+          "matches": true
+        },
+        {
+          "path": "build/generated/neutral-probe/official-nf248/capabilities.json",
+          "expected_sha256": "ae964b07f1de72328a44cd3c5be37655624a790e8562fc954705fe339febdea4",
+          "actual_sha256": "ae964b07f1de72328a44cd3c5be37655624a790e8562fc954705fe339febdea4",
+          "matches": true
+        },
+        {
+          "path": "build/generated/neutral-probe/official-nf248/mtr-native-observer-target.json",
+          "expected_sha256": "2f5d4e4c02641b9f7cfae1951dc7a8b377a8b32d8470a9b6e19ccd5356c6b9a5",
+          "actual_sha256": "2f5d4e4c02641b9f7cfae1951dc7a8b377a8b32d8470a9b6e19ccd5356c6b9a5",
+          "matches": true
+        },
+        {
+          "path": "build/generated/neutral-probe/official-nf248/mtr-native-observer.mixins.json",
+          "expected_sha256": "5263b013d308c3b9a68253eee1a7e1cb177f4926470c03020e8c6791131d3776",
+          "actual_sha256": "5263b013d308c3b9a68253eee1a7e1cb177f4926470c03020e8c6791131d3776",
+          "matches": true
+        },
+        {
+          "path": "config/targets.json",
+          "expected_sha256": "e3d1d3a81d4fe8d7e60ba376654c943cc9766ce1d213b119fe7f6b175ac1d4ff",
+          "actual_sha256": "e3d1d3a81d4fe8d7e60ba376654c943cc9766ce1d213b119fe7f6b175ac1d4ff",
+          "matches": true
+        },
+        {
+          "path": "tools/probes/io/java/dev/abenli/probeio/AtomicSnapshot.java",
+          "expected_sha256": "5a2db91d8ab7dfb88851f480cd0021f2954a8ca394a46cf11cc3305910f7ab4a",
+          "actual_sha256": "2b257083840cdfb0184d0d51f97436dcd5363fb3027d6a31e3c9740a8189de57",
+          "matches": false
+        },
+        {
+          "path": "tools/probes/neutral/java/dev/abenli/neutralprobe/DiagnosticTracker.java",
+          "expected_sha256": "d7fe099e6d99491171774ebbb923fc2faba4f5d6d027d2562333460dfe9a6355",
+          "actual_sha256": "d7fe099e6d99491171774ebbb923fc2faba4f5d6d027d2562333460dfe9a6355",
+          "matches": true
+        },
+        {
+          "path": "tools/probes/neutral/java/dev/abenli/neutralprobe/EpochTracker.java",
+          "expected_sha256": "e528056801e40314d46cfbb1d240923bb9f78f250ab63a04b0f4c2efb6dbd036",
+          "actual_sha256": "e528056801e40314d46cfbb1d240923bb9f78f250ab63a04b0f4c2efb6dbd036",
+          "matches": true
+        },
+        {
+          "path": "tools/probes/neutral/java/dev/abenli/neutralprobe/ExistingCaches.java",
+          "expected_sha256": "cdf26f83a4fb246b3d04286f89c3b35fe2d351468b5cbd418f75e1c43daceba1",
+          "actual_sha256": "cdf26f83a4fb246b3d04286f89c3b35fe2d351468b5cbd418f75e1c43daceba1",
+          "matches": true
+        },
+        {
+          "path": "tools/probes/neutral/java/dev/abenli/neutralprobe/NativeCompatibilityPlugin.java",
+          "expected_sha256": "e55d46f296ca48b6c1f76fddfe9dd2d5b19c0746050f51111d6cc63398041625",
+          "actual_sha256": "e55d46f296ca48b6c1f76fddfe9dd2d5b19c0746050f51111d6cc63398041625",
+          "matches": true
+        },
+        {
+          "path": "tools/probes/neutral/java/dev/abenli/neutralprobe/NativeModelDiagnostics.java",
+          "expected_sha256": "d3726a66e0eee7469631c6a4c2b9c13bd42025c44525ed722b22d392317cb729",
+          "actual_sha256": "d3726a66e0eee7469631c6a4c2b9c13bd42025c44525ed722b22d392317cb729",
+          "matches": true
+        },
+        {
+          "path": "tools/probes/neutral/java/dev/abenli/neutralprobe/NativeObserver.java",
+          "expected_sha256": "de17a424fa0aa10c4829e60fec7f5ba8c1f1f36265b424935aa57bbe676589a8",
+          "actual_sha256": "de17a424fa0aa10c4829e60fec7f5ba8c1f1f36265b424935aa57bbe676589a8",
+          "matches": true
+        },
+        {
+          "path": "tools/probes/neutral/java/dev/abenli/neutralprobe/NativeRegistry.java",
+          "expected_sha256": "dc5bfa9ed7db4240df6659c30980005a5f46d5a95c5b26a18459e50fef854755",
+          "actual_sha256": "dc5bfa9ed7db4240df6659c30980005a5f46d5a95c5b26a18459e50fef854755",
+          "matches": true
+        },
+        {
+          "path": "tools/probes/neutral/java/dev/abenli/neutralprobe/NativeScene.java",
+          "expected_sha256": "f9db55850823262e2cda33be445b4280720f002512bdccfad1377ee306651ba9",
+          "actual_sha256": "f9db55850823262e2cda33be445b4280720f002512bdccfad1377ee306651ba9",
+          "matches": true
+        },
+        {
+          "path": "tools/probes/neutral/java/dev/abenli/neutralprobe/NativeTarget.java",
+          "expected_sha256": "41fd47c5c206459c2aadcc7bc19b661d039d7e63e55330e043e9c12da794f212",
+          "actual_sha256": "41fd47c5c206459c2aadcc7bc19b661d039d7e63e55330e043e9c12da794f212",
+          "matches": true
+        },
+        {
+          "path": "tools/probes/neutral/java/dev/abenli/neutralprobe/ObservationSchema.java",
+          "expected_sha256": "5e46aa608040073c958a43bdd702e0c6adf9621c55dcd8387507d0e9265d814c",
+          "actual_sha256": "5e46aa608040073c958a43bdd702e0c6adf9621c55dcd8387507d0e9265d814c",
+          "matches": true
+        },
+        {
+          "path": "tools/probes/neutral/java/dev/abenli/neutralprobe/RegistrationCounts.java",
+          "expected_sha256": "47cecc739d67218c160bbc76b12d611c5ba24f49b529066fd1d099d4ae72f1c2",
+          "actual_sha256": "47cecc739d67218c160bbc76b12d611c5ba24f49b529066fd1d099d4ae72f1c2",
+          "matches": true
+        },
+        {
+          "path": "tools/probes/neutral/java/dev/abenli/neutralprobe/mixin/NativeClientDataAccess.java",
+          "expected_sha256": "40a5948959b7e5efa96dfff507891d689908a50872d3d14623357fe81da5d3f4",
+          "actual_sha256": "40a5948959b7e5efa96dfff507891d689908a50872d3d14623357fe81da5d3f4",
+          "matches": true
+        },
+        {
+          "path": "tools/probes/neutral/java/dev/abenli/neutralprobe/mixin/NativeInvalidModelMixin.java",
+          "expected_sha256": "09ca0ebb19d9dfb1b26b9936ade7b6abc6cb638130d11fff9ef79d65b5c10696",
+          "actual_sha256": "09ca0ebb19d9dfb1b26b9936ade7b6abc6cb638130d11fff9ef79d65b5c10696",
+          "matches": true
+        },
+        {
+          "path": "tools/probes/neutral/java/dev/abenli/neutralprobe/mixin/NativePendingAccess.java",
+          "expected_sha256": "c8085826c1cea254d4e5b1baad87065d0e4facea8f3bff3a00f7b03ed71779dd",
+          "actual_sha256": "c8085826c1cea254d4e5b1baad87065d0e4facea8f3bff3a00f7b03ed71779dd",
+          "matches": true
+        },
+        {
+          "path": "tools/probes/neutral/java/dev/abenli/neutralprobe/mixin/NativeResourceEpochMixin.java",
+          "expected_sha256": "193391afbf1bd96f4a7f52e8f97472d1ee75a5e198c74a084b44ec168be7fe32",
+          "actual_sha256": "193391afbf1bd96f4a7f52e8f97472d1ee75a5e198c74a084b44ec168be7fe32",
+          "matches": true
+        },
+        {
+          "path": "tools/probes/neutral/java/dev/abenli/neutralprobe/mixin/VehicleCacheAccess.java",
+          "expected_sha256": "51cb9311a195c7ad331eedbca9dfcf19ba3cf73f5337ded8cf7896d2eb961340",
+          "actual_sha256": "51cb9311a195c7ad331eedbca9dfcf19ba3cf73f5337ded8cf7896d2eb961340",
+          "matches": true
+        },
+        {
+          "path": "tools/probes/neutral/java/dev/abenli/neutralprobe/mixin/VehicleProgressAccess.java",
+          "expected_sha256": "6b797416f707714e3f3a351ea19d4216659fded1a35f4bfbe977ece03da832d1",
+          "actual_sha256": "6b797416f707714e3f3a351ea19d4216659fded1a35f4bfbe977ece03da832d1",
+          "matches": true
+        },
+        {
+          "path": "tools/probes/neutral/observer.json",
+          "expected_sha256": "7737c6162f67bd261c1cc2fc6eed54637741ee80c70a28dfddcde85d3c23a19a",
+          "actual_sha256": "7737c6162f67bd261c1cc2fc6eed54637741ee80c70a28dfddcde85d3c23a19a",
+          "matches": true
+        }
+      ]
+    }
+  ],
+  "all_current_inputs_match": false
+}

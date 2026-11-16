@@ -1,0 +1,66 @@
+{
+  "scope": "diagnostic client; no performance or full gameplay acceptance",
+  "started": "2026-11-16T11:17:45.696191+00:00",
+  "instance": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049",
+  "status": "exited",
+  "sources": {
+    "capture_diagnostic_client.py": "a9ee4e8f2a068ba9c0b72a6f7b348cecdd9c5e4bbe534aeabf851b704e1fb69a",
+    "packaged_client.py": "ad2e0dbf209ded20942891378e0a5855d6c3f65f8d89baa9afa2a7d24b2af13c",
+    "windows_snapshot_io.py": "56ff1d6abcb7be7780bb057f239831d813a5e5c867320f1797f8710370765ac5"
+  },
+  "exports": [
+    {
+      "started": "2026-11-16T11:29:18.075460+00:00",
+      "status": "readable",
+      "commands": [
+        {
+          "argv": [
+            "C:\\Users\\ben_l\\Saved Games\\Yuuniverse 1.20.1 Shenyang\\porting-output\\work\\tools\\jdk21\\jdk-21.0.11+10\\bin\\jcmd.exe",
+            "58468",
+            "JFR.dump",
+            "name=acceptance",
+            "filename=diagnostic-01.jfr"
+          ],
+          "exit_code": 0
+        },
+        {
+          "argv": [
+            "C:\\Users\\ben_l\\Saved Games\\Yuuniverse 1.20.1 Shenyang\\porting-output\\work\\tools\\jdk21\\jdk-21.0.11+10\\bin\\jfr.exe",
+            "summary",
+            "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049\\diagnostic-01.jfr"
+          ],
+          "exit_code": 0
+        }
+      ],
+      "recording": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049\\diagnostic-01.jfr",
+      "sha256": "1c20bc45774e75998d6810999b21d715b5f43959ff1445ee2719b98b86a6b494",
+      "ended": "2026-11-16T11:29:19.664792+00:00"
+    }
+  ],
+  "capture_errors": [
+    {
+      "at": "2026-11-16T11:26:17.199589+00:00",
+      "error": "PermissionError(13, '另一个程序正在使用此文件，进程无法访问。', None, 32)"
+    }
+  ],
+  "pid": 58468,
+  "exit_code": 0,
+  "ended": "2026-11-16T11:30:55.176134+00:00",
+  "files": {
+    "acceptance-gc.log": "c4e6645cfacdb7a68d5dc55dcb7caf12d501e110c18436cb146b46904bd345bb",
+    "export-01-dump.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "export-01-dump.stdout.log": "ac0d24877186bbdd08686c9a16a37a483d8bd8c495a712ff787c2310fe467da1",
+    "export-01-summary.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "export-01-summary.stdout.log": "a9420cdacfef1339fa5f6bed38dd3839ff9d7a07fa1e076055b70c367004fe52",
+    "export-request-01": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "launch.stderr.log": "cdae65bf766ea393dc8a278555f2e612d066df20a8db4f1f1aee8a625358cead",
+    "launch.stdout.log": "abf702c538aeeb1980edc518bbb7dbb40d9ec147dbc7a1160f3141ed476068b6",
+    "native-snapshots.jsonl": "9536c6d33bf99cc750a03bd37f8ccba3f94e7b81edd50497b0b0fc1c8c54e6aa",
+    "packaged-client-launch.json": "9a11cbb027e87d18b6993fb38d4932580eb18f9fa22cf36f218624178f69a27e",
+    "packaged-client-plan.json": "3de45574436598a7978a4019e5aa601a53b38d015e2b860ddbf8b20f74f348b0",
+    "game-probe\\native-invalid-model.jsonl": "d682169d51aafec516cb3b02f851976e724d96ebc9dea47e74f25950960dd365",
+    "game-probe\\native-observer.json": "3d36434b8deb4c446b8e025ea13a6c756c5027a93a78dfcd2aa0ec0214a4e550",
+    "game-probe\\native-resource-epochs.jsonl": "d2f0271df55eaf8368a34416506802d69125e34b00c28e4797ec3e837b8d4bb4",
+    "logs\\latest.log": "39983b4f9bcf2c0fb4790fad6ba35982c83c6d2a5e53f6d62e60f6810b015548"
+  }
+}

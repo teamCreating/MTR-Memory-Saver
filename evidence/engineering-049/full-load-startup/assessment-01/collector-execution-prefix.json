@@ -1,0 +1,47 @@
+{
+  "scope": "diagnostic client; no performance or full gameplay acceptance",
+  "started": "2026-11-16T11:17:45.696191+00:00",
+  "instance": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049",
+  "status": "observing",
+  "sources": {
+    "capture_diagnostic_client.py": "a9ee4e8f2a068ba9c0b72a6f7b348cecdd9c5e4bbe534aeabf851b704e1fb69a",
+    "packaged_client.py": "ad2e0dbf209ded20942891378e0a5855d6c3f65f8d89baa9afa2a7d24b2af13c",
+    "windows_snapshot_io.py": "56ff1d6abcb7be7780bb057f239831d813a5e5c867320f1797f8710370765ac5"
+  },
+  "exports": [
+    {
+      "started": "2026-11-16T11:29:18.075460+00:00",
+      "status": "readable",
+      "commands": [
+        {
+          "argv": [
+            "C:\\Users\\ben_l\\Saved Games\\Yuuniverse 1.20.1 Shenyang\\porting-output\\work\\tools\\jdk21\\jdk-21.0.11+10\\bin\\jcmd.exe",
+            "58468",
+            "JFR.dump",
+            "name=acceptance",
+            "filename=diagnostic-01.jfr"
+          ],
+          "exit_code": 0
+        },
+        {
+          "argv": [
+            "C:\\Users\\ben_l\\Saved Games\\Yuuniverse 1.20.1 Shenyang\\porting-output\\work\\tools\\jdk21\\jdk-21.0.11+10\\bin\\jfr.exe",
+            "summary",
+            "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049\\diagnostic-01.jfr"
+          ],
+          "exit_code": 0
+        }
+      ],
+      "recording": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049\\diagnostic-01.jfr",
+      "sha256": "1c20bc45774e75998d6810999b21d715b5f43959ff1445ee2719b98b86a6b494",
+      "ended": "2026-11-16T11:29:19.664792+00:00"
+    }
+  ],
+  "capture_errors": [
+    {
+      "at": "2026-11-16T11:26:17.199589+00:00",
+      "error": "PermissionError(13, '另一个程序正在使用此文件，进程无法访问。', None, 32)"
+    }
+  ],
+  "pid": 58468
+}

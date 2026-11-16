@@ -1,0 +1,29 @@
+{
+  "timestamp": "2026-11-16T15:32:55.875389+00:00",
+  "sealed_only": true,
+  "passed": true,
+  "frozen_core_files": 8,
+  "prefix_samples": 394,
+  "startup_stability": {
+    "start": "2026-11-16T11:20:20.965025400Z",
+    "end": "2026-11-16T11:21:21.692182Z",
+    "seconds": 60.727157,
+    "samples": 60,
+    "maximum_gap_seconds": 1.064498,
+    "maximum_capture_delay_seconds": 0.99428
+  },
+  "exact_build_input_counts": {
+    "companion": 44,
+    "observer": 25
+  },
+  "native_diagnostic_replay_equal": true,
+  "collector_errors_retained": [
+    {
+      "at": "2026-11-16T11:26:17.199589+00:00",
+      "error": "PermissionError(13, '另一个程序正在使用此文件，进程无法访问。', None, 32)"
+    }
+  ],
+  "whole_collector_error_free": false,
+  "outer_index_verified_payloads": null,
+  "scope": "Official 0.4.7 native startup and photographed selected side body only"
+}
