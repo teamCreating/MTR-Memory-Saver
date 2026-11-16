@@ -307,3 +307,8 @@ Bound the newly recorded build-replay commands with explicit -PmodVersion=0.4.7,
 - confirm先保留实际外部输入receipt，再唯一选择输入前最近完整发布，复用既有 confirm_reload_input API。stale/failed尝试不会删去；完整消费者必须用 input_events 交叉核对每个attempt，缺失/中断/锁冲突显式失败。真实读/写/身份错误记录后停止，正常重载中或菜单状态留为ineligible。
 - 26个新增合成/失败路径测试通过；4个既有 Windows ReplaceFileW/共享句柄实测通过。真实 PID41800 在06:37:59Z已正常退出，本记录器06:39Z启动读前返回OpenProcess WinError87，原始失败与journal完整保留，没有发布before，也未声称实跑成功。
 - 证据：evidence/engineering-048/reload-before-recorder/。此提交是录制器；neutral连续20次最终原生适配器与fresh0.4.7客户端完整验证继续进行，不将module-only旧校验器当作已支持neutral全链。
+
+
+## 2026-11-16T19:13:49.375148+08:00 (UTC+08:00) — packaged 0.4.7 evidence log decoding
+
+Started the existing official-nf248 owned-channel packaged fault client as PID 51108. The actual JVM completed all 24 lifecycle and 18 resource checks, balanced workspace ownership and exited normally with code zero. The post-exit evidence runner then failed by decoding native launch.stdout.log as UTF-8; its original failed receipt and verbatim logs remain unchanged. The runner now matches required ASCII binary-rejection markers directly against raw log bytes, without choosing a locale, losing bytes or rewriting console evidence. Preserved the original prepared runner and a separate fixed source snapshot. Product classes and launcher/observer sources are unchanged. Their six recorded source fingerprints match the current files. Final independent assessment and JFR checks remain pending; later target runs use the repaired evidence consumer.
