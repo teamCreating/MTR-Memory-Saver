@@ -1,0 +1,23 @@
+{
+  "timestamp": "2026-11-16T06:37:46.604633+00:00",
+  "passed": true,
+  "scope": "Recomputed every sealed file and archived ZIP member digest; no original workspace artifacts or audit module were loaded",
+  "sealed_files": 64,
+  "source_fingerprints": 61,
+  "targets": [
+    {
+      "target": "official-nf248",
+      "verified_member_payloads": 67
+    },
+    {
+      "target": "official-nf265",
+      "verified_member_payloads": 67
+    }
+  ],
+  "argv": [
+    "evidence/engineering-048/candidate-artifact-review/verify_sealed.py",
+    "evidence/engineering-048/candidate-artifact-review/run-01",
+    "evidence/engineering-048/candidate-artifact-review/sealed-verification.json"
+  ],
+  "python": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.venv\\Scripts\\python.exe"
+}

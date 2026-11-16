@@ -1,0 +1,67 @@
+{
+  "started": "2026-11-16T06:33:43.959275+00:00",
+  "passed": true,
+  "commands": [
+    {
+      "target": "official-nf248",
+      "command": [
+        "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\gradlew.bat",
+        "test",
+        "jar",
+        "buildManifest",
+        "verifyRelease",
+        "-Ptarget=official-nf248",
+        "-PmodVersion=0.4.7",
+        "--rerun-tasks",
+        "--console=plain"
+      ],
+      "cwd": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory",
+      "started": "2026-11-16T06:33:43.969927+00:00",
+      "pid": 39884,
+      "exit_code": 0,
+      "ended": "2026-11-16T06:34:18.470879+00:00",
+      "artifact_sha256": "e8b5b40230d0f44c541c12b32c8a30d4c2ea056b8a972335ae10166496837a99",
+      "junit": {
+        "tests": 73,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "manifest_byte_identical": true,
+      "passed": true
+    },
+    {
+      "target": "official-nf265",
+      "command": [
+        "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\gradlew.bat",
+        "test",
+        "jar",
+        "buildManifest",
+        "verifyRelease",
+        "-Ptarget=official-nf265",
+        "-PmodVersion=0.4.7",
+        "--rerun-tasks",
+        "--console=plain"
+      ],
+      "cwd": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory",
+      "started": "2026-11-16T06:34:18.532460+00:00",
+      "pid": 47096,
+      "exit_code": 0,
+      "ended": "2026-11-16T06:34:48.635518+00:00",
+      "artifact_sha256": "12162be2d0e75962e58d33dec6951e0a82b1455ef1466f9b94c3dce1c4d36a02",
+      "junit": {
+        "tests": 73,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "manifest_byte_identical": true,
+      "passed": true
+    }
+  ],
+  "purpose": "New actual executions with explicit argv/time/exit receipts; initial raw logs are preserved separately.",
+  "java_home": "C:\\Users\\ben_l\\Saved Games\\Yuuniverse 1.20.1 Shenyang\\porting-output\\work\\tools\\jdk21\\jdk-21.0.11+10",
+  "java_sha256": "5e0fab9f07952ceb6e71eb9fd33e1ed69959904ca00cf70869b7baf516a98016",
+  "runner_sha256": "ab23d78e25a1f5e9789f8684bffa60ac131eca41acecf8b41bb7a55961081727",
+  "ended": "2026-11-16T06:34:48.701205+00:00"
+}

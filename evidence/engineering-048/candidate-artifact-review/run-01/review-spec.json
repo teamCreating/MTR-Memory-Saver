@@ -1,0 +1,35 @@
+{
+  "schema": 1,
+  "reference_version": "0.4.6",
+  "candidate_version": "0.4.7",
+  "expected_changed_classes": [
+    "site/benli06/SegmentedResourceText$Snapshot.class",
+    "site/benli06/SegmentedResourceText.class"
+  ],
+  "metadata_members": [
+    "META-INF/MANIFEST.MF",
+    "META-INF/neoforge.mods.toml",
+    "mtr-memory-target.json"
+  ],
+  "expected_changed_java_sources": [
+    "src/main/java/site/benli06/SegmentedResourceText.java"
+  ],
+  "targets": {
+    "official-nf248": {
+      "reference_manifest": "evidence/engineering-046/official-nf248/mtr-memory-saver-official-nf248-0.4.6.build.json",
+      "reference_jar": "build/libs/mtr-memory-saver-official-nf248-0.4.6.jar",
+      "reference_sha256": "dd47f6ae4daa4139b9ada9196d757db634a79ebdd7fa5f06083719d764285997",
+      "candidate_manifest": "build/libs/mtr-memory-saver-official-nf248-0.4.7.build.json",
+      "candidate_jar": "build/libs/mtr-memory-saver-official-nf248-0.4.7.jar",
+      "candidate_sha256": "e8b5b40230d0f44c541c12b32c8a30d4c2ea056b8a972335ae10166496837a99"
+    },
+    "official-nf265": {
+      "reference_manifest": "evidence/engineering-046/official-nf265/mtr-memory-saver-official-nf265-0.4.6.build.json",
+      "reference_jar": "build/libs/mtr-memory-saver-official-nf265-0.4.6.jar",
+      "reference_sha256": "fbcb608fd5b2452f650c656bc930934ac4e4880addae4d24846faa5df5d9f63e",
+      "candidate_manifest": "build/libs/mtr-memory-saver-official-nf265-0.4.7.build.json",
+      "candidate_jar": "build/libs/mtr-memory-saver-official-nf265-0.4.7.jar",
+      "candidate_sha256": "12162be2d0e75962e58d33dec6951e0a82b1455ef1466f9b94c3dce1c4d36a02"
+    }
+  }
+}
