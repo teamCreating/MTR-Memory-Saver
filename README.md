@@ -69,8 +69,11 @@ failures while preserving legal empty text and native charset replacement.
 Version 0.4.7 retains one owned snapshot channel through writing, workspace waiting
 and restoration. Atomic delete-on-close ownership removes these temporary files
 when a Windows JVM exits abruptly. Both official targets pass 73 Java tests and
-the actual abrupt-exit and 3 GiB large-input audits. Their new packaged-client and
-full-pack runtime acceptance remain separate from the 0.4.6 evidence.
+the actual abrupt-exit and 3 GiB large-input audits. Both exact packaged clients
+pass 24 lifecycle and 18 resource checks. A fresh NF248 sixteen-pack startup with
+observer 1.0.3 also has an [independently sealed settled window](evidence/engineering-050/neutral103-startup/README.md).
+Interaction, reload endurance, route and controlled performance remain pending;
+historical 0.4.6 results retain their original artifact identities.
 
 Historical guides and measurements are indexed in [HISTORY.md](docs/HISTORY.md)
 and [TECHNICAL.md](TECHNICAL.md). New candidate tests and performance reports have

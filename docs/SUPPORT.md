@@ -1,13 +1,13 @@
 # Support and artifact identity
 
-Updated: 2026-11-16T19:21:08.958951+08:00 (UTC+08:00).
+Updated: 2026-11-17 (UTC+08:00).
 
 Minecraft **1.21.1**, Java **21**, client only. The authoritative build targets and
 fingerprints are in [config/targets.json](../config/targets.json).
 
 | Target preset | MTR binary | NeoForge | 0.4.x status |
 | --- | --- | --- | --- |
-| `official-nf248` (default) | Official 4.1.0-beta.2 | 21.1.248 exactly | 0.4.7 build, 73 tests, abrupt-exit, 3 GiB source audits, 42 packaged checks and fatal wrong-binary rejection passed; full-pack acceptance pending |
+| `official-nf248` (default) | Official 4.1.0-beta.2 | 21.1.248 exactly | 0.4.7 build, 73 tests, abrupt-exit, 3 GiB source audits, 42 packaged checks, fatal wrong-binary rejection and scoped sixteen-pack startup passed; interaction/endurance/performance pending |
 | `official-nf265` | Same official binary | 21.1.265 exactly | 0.4.7 build, 73 tests, abrupt-exit, 3 GiB source audits, 42 packaged checks and fatal wrong-binary rejection passed; full-pack acceptance pending |
 | `v6-nf248` | Audited custom Performance v6 | 21.1.248 exactly | Historical 0.4.2 client smoke/GPU cycles; new validation paused |
 | `v6-nf265` | Same custom v6 binary | 21.1.265 exactly | Historical development candidate; new validation paused |
@@ -25,6 +25,14 @@ readable JFRs. Both same-version wrong-binary clients fail fatally before vehicl
 registration. [Packaged 0.4.7 evidence](../evidence/engineering-048/packaged-owned-channel/README.md)
 binds all four independent JVMs; full-pack interaction, reload endurance, route
 duration and controlled performance are still pending.
+
+Current NF248 runtime coverage includes the [independently sealed 0.4.7 startup
+with observer 1.0.3](../evidence/engineering-050/neutral103-startup/README.md):
+13/13 valid samples, a 60.0146004-second external interval, all sixteen archive
+pairs, 1092 declarations/1091 distinct IDs and zero native pending work/observer
+errors. Native timestamps span 59.7471383 seconds. Existing cache regions are
+observed, but visual, passenger, complete-exit, reload and performance acceptance
+remain separate. The probe-only publisher repair changes no product class.
 
 A later 0.4.6 NF248 run with neutral observer 1.0.2 completed one actual F3+T
 ResourceManager reload and exited normally with a readable JFR. Its explicitly

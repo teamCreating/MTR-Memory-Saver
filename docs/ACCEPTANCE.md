@@ -1,6 +1,6 @@
 # Acceptance and performance procedure
 
-Updated: 2026-11-16T19:21:08.958951+08:00 (UTC+08:00).
+Updated: 2026-11-17 (UTC+08:00).
 
 The default candidate is now **0.4.7**. Both official targets pass 73 Java tests,
 four actual abrupt-exit cleanup checks across writing and workspace waiting, and
@@ -15,6 +15,17 @@ readable JFRs. Both same-version wrong-binary clients fail fatally before vehicl
 registration. [Packaged 0.4.7 evidence](../evidence/engineering-048/packaged-owned-channel/README.md)
 binds all four independent JVMs; full-pack interaction, reload endurance, route
 duration and controlled performance are still pending.
+
+The fresh 0.4.7 NF248 / observer 1.0.3 run now passes a separately
+[sealed startup observation](../evidence/engineering-050/neutral103-startup/README.md):
+13/13 independent samples at five-second cadence cover 60.0146004 seconds of
+external observation, with all sixteen archive pairs verified, 1092 declarations,
+1091 distinct IDs and no native pending work or observer errors. Its native
+timestamps span 59.7471383 seconds. This startup window does not qualify the later
+paused/UI portions, a complete exit, interactions, twenty reloads or performance.
+Use the default five-second cadence when requiring every observed native state
+to advance; the one-second failed attempt and identity-query failures remain
+[preserved separately](../evidence/engineering-050/observation-attempts/README.md).
 
 A later 0.4.6 NF248 run with neutral observer 1.0.2 completed one actual F3+T
 ResourceManager reload and exited normally with a readable JFR. Its explicitly

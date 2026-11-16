@@ -3,7 +3,7 @@
 Scope: Memory Saver 0.4.7 candidate and separately identified historical 0.4.6
 evidence with official MTR 4.1.0-beta.2, Minecraft 1.21.1,
 Java 21 and the two explicit NeoForge targets. New v6 validation is paused.
-Updated: 2026-11-16T19:21:08.958951+08:00 (UTC+08:00).
+Updated: 2026-11-17 (UTC+08:00).
 
 The default candidate is now **0.4.7**. Both official targets pass 73 Java tests,
 four actual abrupt-exit cleanup checks across writing and workspace waiting, and
@@ -18,6 +18,19 @@ readable JFRs. Both same-version wrong-binary clients fail fatally before vehicl
 registration. [Packaged 0.4.7 evidence](../evidence/engineering-048/packaged-owned-channel/README.md)
 binds all four independent JVMs; full-pack interaction, reload endurance, route
 duration and controlled performance are still pending.
+
+A fresh official NF248 **0.4.7 / neutral observer 1.0.3** startup now has an
+independently sealed settled window: 13/13 valid samples over 60.0146004 seconds
+of external observation at a five-second cadence, 1,092 declarations / 1,091
+distinct IDs and zero native pending work or observer errors. The native sample
+timestamps span 59.7471383 seconds; the external interval is not relabeled as a
+continuous sixty-second native trace. All sixteen plan-listed source/installed
+archive pairs and the installed artifacts match their fingerprints. DC01's
+existing caches contain 5/6 floor regions and ten doorways each. The exact live
+default-rail diagnostic is attributed; the account-property error remains visible.
+This establishes the stated startup scope, without a visual, boarding, reload,
+route, performance or final-exit pass. See the [sealed startup and independent
+replay](../evidence/engineering-050/neutral103-startup/README.md).
 
 A later 0.4.6 NF248 run with neutral observer 1.0.2 completed one actual F3+T
 ResourceManager reload and exited normally with a readable JFR. Its explicitly
@@ -122,17 +135,18 @@ need their own runtime verification. See [sealed runtime evidence](../evidence/e
   JFR chunks are preserved, twelve readable; the last remains incomplete. The
   first 2400-second sampled window passes, but the complete two-hour session and
   JFR coverage fail. [Recovery and raw evidence](../evidence/engineering-048/route-recovery/assessment.json).
-- Real Windows tests exposed a separate observer publication conflict: shared
-  delete access alone does not permit MoveFileEx replacement over an open target.
-  The probe-only publisher now uses ReplaceFileW, preserving the old reader's
-  bytes and reporting actual failures. Two targets pass eighteen tests each at
-  observer 1.0.1; this repair changes no product class or native game state.
+- Historical observer 1.0.1 used ReplaceFileW after MoveFileEx rejected an open
+  target. Actual 1.0.2 client collection and concurrent-open controls later
+  exposed missing-path/sharing windows. Observer 1.0.3 uses one FileRenameInfoEx
+  POSIX replacement; both targets pass 27 tests, including concurrent readers,
+  without changing any product class. Its fresh runtime startup is scoped above;
+  the earlier failures remain preserved in the [publisher repair evidence](../evidence/engineering-049/publisher-race/README.md).
 
 ## Remaining gates
 
 | Priority | Coverage | Current boundary and required observation |
 | --- | --- | --- |
-| P1 | Full catalogue interaction | The 0.4.6 NF248 16-pack/669-entry catalogue has registered 1092 declarations/1091 distinct IDs and settled. Observe geometry, displays, doors, floors, boarding and native diagnostics in the actual scene. Current largest referenced Blockbench input is 13,141,932 bytes; the old 65 MB Blockbench asset is unreferenced. |
+| P1 | Full catalogue interaction | The current 0.4.7 NF248 sixteen-pack startup has a sealed settled minute, 1092 declarations/1091 distinct IDs and the observed DC01 caches. Observe geometry, displays, doors, floors and boarding in the actual scene; registration and cache regions do not establish these interactions. Current largest referenced Blockbench input is 13,141,932 bytes; the old 65 MB Blockbench asset is unreferenced. |
 | P1 | Twenty consecutive full-pack reloads | Strict accepted reloads remain 0/20. One actual 0.4.6 F3+T reload completed after input-method recovery, but its before snapshot exceeds 15 seconds; earlier no-epoch inputs remain preserved. Require an external input receipt, native HEAD/RETURN pair, complete reload log and settled fresh snapshot for every accepted reload. |
 | P1 | Two-hour unpaused route | All three attempts failed. Attempt 03's first 2400-second sampled window passes, but the process crashes and JFR coverage is incomplete. Retain strict sampling/availability gates for a fresh complete route; do not promote the partial window. |
 | P1 | Controlled full-client performance | Current control/protocol engineering is ready for qualification. First apply the same final neutral observer in actual clients and qualify baseline/candidate independently in plain/profile modes. The frozen comparison requires 48 independent JVM trials plus separate observer-off calibration. No new performance trial has run. Source allocation results alone do not settle loading latency, Full-GC pauses or frame regressions. |
@@ -141,8 +155,10 @@ need their own runtime verification. See [sealed runtime evidence](../evidence/e
 | P2 | Repeated official registration ordering | Static analysis establishes synchronous official reload entry points; the initial 0.4.6 full registration is paired on the render thread with nesting one. Collect the same evidence through 20 actual full ResourceManager reloads. |
 | P2 | Snapshot failure boundaries | 0.4.7 actual abrupt exits delete this owner's snapshot during writing and budget waiting, while other-owner sentinels remain unchanged. Real disk-full and power loss remain untested. There is deliberately no broad stale-file sweep. |
 
-The previous 0.4.6 release ZIPs remain intact. The new 0.4.7 delivery bundles still
-need a fresh support/evidence audit; their packaged-client checks are now complete.
+The previous 0.4.6 release ZIPs remain intact. Both 0.4.7 delivery bundles have a
+[version-bound support/evidence audit](../evidence/engineering-049/release/README.md);
+their packaged-client checks and the stated NF248 startup scope are complete.
+The remaining gameplay, endurance and performance gates above are unchanged.
 
 The malformed-model fallback and admission-generation races have already been
 repaired and tested. Full-pack interaction and repeated reload ordering remain
