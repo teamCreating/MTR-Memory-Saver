@@ -1,0 +1,255 @@
+{
+  "started": "2026-11-16T15:30:43.621711+00:00",
+  "ended": "2026-11-16T15:30:43.924346+00:00",
+  "elapsed_seconds": 0.3026211999822408,
+  "status": "duration_complete",
+  "passed": true,
+  "error": null,
+  "mode": "route",
+  "instance": "C:\\Users\\ben_l\\AppData\\Local\\Temp\\tmpkpm_trwh",
+  "plan_sha256": "0be87b506ccfdab61c99073039fa324f9cf9ae21cdda02d6c75fa942961eb025",
+  "launch_sha256": "1a44e0ed6f85ba26fe1d20c0e1d695b1d70423fc39a4286696bbc439247669e1",
+  "process_identity": {
+    "pid": 999,
+    "created": "2026-11-16T15:30:43.589306+00:00"
+  },
+  "process_created": "2026-11-16T15:30:43.589306+00:00",
+  "policy": {
+    "duration": 0.3,
+    "interval": 0.02,
+    "freshness_seconds": 15,
+    "stable_seconds": 5,
+    "expected_count": 669,
+    "expected_declarations": null,
+    "require_world": true,
+    "unpaused": true,
+    "required_zero_counters": [
+      "native_pending",
+      "module_pending",
+      "module_outstanding",
+      "module_queued",
+      "active_reads",
+      "resource_in_flight",
+      "module_failures"
+    ],
+    "require_reloads": 0,
+    "gpu_counter_paths": [],
+    "nmt": true,
+    "auxiliary_interval": 60,
+    "auxiliary_maximum_in_flight": 1,
+    "auxiliary_shutdown_seconds": 0.5,
+    "route_windows": {
+      "duration_seconds": 0.3,
+      "window_count": 3,
+      "minimum_window_progress_displacement": 0.01,
+      "maximum_sampling_gap_seconds": 15.02,
+      "windows": [
+        {
+          "index": 0,
+          "start_seconds": 0.0,
+          "end_seconds": 0.09999999999999999,
+          "coverage_tolerance_seconds": 0.024999999999999998
+        },
+        {
+          "index": 1,
+          "start_seconds": 0.09999999999999999,
+          "end_seconds": 0.19999999999999998,
+          "coverage_tolerance_seconds": 0.024999999999999998
+        },
+        {
+          "index": 2,
+          "start_seconds": 0.19999999999999998,
+          "end_seconds": 0.3,
+          "coverage_tolerance_seconds": 0.025
+        }
+      ],
+      "motion_evidence": "Positive absolute railProgress displacement between eligible observations of the same vehicle ID inside each window.",
+      "limits": "Sampled route motion does not establish doors, arrivals, visual rendering or unsampled continuity."
+    },
+    "sampling_cadence": "future phase-aligned deadlines; missed slots are skipped without catch-up",
+    "gpu_query_paths": [],
+    "route_window_policy_sha256": "33fc5d4a056af745c849a8dea1367fdbd4db330767224c11d9a585fa201b2a77"
+  },
+  "route_window_evidence": {
+    "passed": true,
+    "windows": [
+      {
+        "index": 0,
+        "start_seconds": 0.0,
+        "end_seconds": 0.09999999999999999,
+        "coverage_tolerance_seconds": 0.024999999999999998,
+        "sample_count": 5,
+        "eligible_sample_count": 5,
+        "first_elapsed_seconds": 0.0030846999725326896,
+        "last_elapsed_seconds": 0.08047450002050027,
+        "first_timestamp": "2026-11-16T15:30:43.624832+00:00",
+        "last_timestamp": "2026-11-16T15:30:43.702227+00:00",
+        "maximum_observed_gap_seconds": 0.02045640000142157,
+        "same_id_pair_count": 4,
+        "observed_progress_displacement": {
+          "int:7": 4.0
+        },
+        "coverage_verified": true,
+        "motion_verified": true,
+        "passed": true
+      },
+      {
+        "index": 1,
+        "start_seconds": 0.09999999999999999,
+        "end_seconds": 0.19999999999999998,
+        "coverage_tolerance_seconds": 0.024999999999999998,
+        "sample_count": 5,
+        "eligible_sample_count": 5,
+        "first_elapsed_seconds": 0.10049069998785853,
+        "last_elapsed_seconds": 0.18049830000381917,
+        "first_timestamp": "2026-11-16T15:30:43.722241+00:00",
+        "last_timestamp": "2026-11-16T15:30:43.802244+00:00",
+        "maximum_observed_gap_seconds": 0.020024599973112345,
+        "same_id_pair_count": 4,
+        "observed_progress_displacement": {
+          "int:7": 4.0
+        },
+        "coverage_verified": true,
+        "motion_verified": true,
+        "passed": true
+      },
+      {
+        "index": 2,
+        "start_seconds": 0.19999999999999998,
+        "end_seconds": 0.3,
+        "coverage_tolerance_seconds": 0.025,
+        "sample_count": 6,
+        "eligible_sample_count": 6,
+        "first_elapsed_seconds": 0.20051599998259917,
+        "last_elapsed_seconds": 0.3005369000020437,
+        "first_timestamp": "2026-11-16T15:30:43.822269+00:00",
+        "last_timestamp": "2026-11-16T15:30:43.922286+00:00",
+        "maximum_observed_gap_seconds": 0.020128599950112402,
+        "same_id_pair_count": 5,
+        "observed_progress_displacement": {
+          "int:7": 5.0
+        },
+        "coverage_verified": true,
+        "motion_verified": true,
+        "passed": true
+      }
+    ]
+  },
+  "sample_count": 16,
+  "verified_sample_count": 16,
+  "missing_observation_fields": [],
+  "observed_failures": [],
+  "sampled_peaks_bytes": {
+    "working_set": 100,
+    "private_usage": 200,
+    "heap_used": 10
+  },
+  "observed_vehicle_motion": true,
+  "observed_game_time_advanced": true,
+  "auxiliary_available_samples": {
+    "gpu": 0,
+    "nmt": 1
+  },
+  "auxiliary_attempted_samples": {
+    "gpu": 0,
+    "nmt": 1
+  },
+  "auxiliary_sampled_peaks": {},
+  "verified_reload_count": 0,
+  "longest_verified_reload_run": 0,
+  "reload_evidence": [],
+  "auxiliary_shutdown": {
+    "worker_stopped": true,
+    "uncompleted_request_ids": [],
+    "worker_entry_confirmed": true,
+    "worker_exit_confirmed": true,
+    "worker_exit_pending_request_ids": [],
+    "worker_startup_state": "start_returned",
+    "worker_startup_error": null,
+    "requests": [
+      {
+        "request_id": "f346fc0d-7538-4e80-af2a-967c844e74d4",
+        "expected_observers": [
+          "nmt"
+        ],
+        "status": "completed",
+        "requested": {
+          "request_id": "f346fc0d-7538-4e80-af2a-967c844e74d4",
+          "phase": "requested",
+          "timestamp": "2026-11-16T15:30:43.629424+00:00",
+          "elapsed_seconds": 0.0077052999986335635,
+          "expected_observers": [
+            "nmt"
+          ]
+        },
+        "started": {
+          "request_id": "f346fc0d-7538-4e80-af2a-967c844e74d4",
+          "phase": "started",
+          "timestamp": "2026-11-16T15:30:43.631502+00:00",
+          "elapsed_seconds": 0.009795899968594313
+        },
+        "completed": {
+          "request_id": "f346fc0d-7538-4e80-af2a-967c844e74d4",
+          "phase": "completed",
+          "timestamp": "2026-11-16T15:30:43.957831+00:00",
+          "elapsed_seconds": 0.3361169999698177,
+          "result": {
+            "nmt": {
+              "available": true
+            }
+          },
+          "post_sampling_window": true
+        }
+      }
+    ],
+    "closed_at": "2026-11-16T15:30:43.958088+00:00",
+    "closed_elapsed_seconds": 0.33636469999328256,
+    "in_flight_request_id_at_sampling_end": "f346fc0d-7538-4e80-af2a-967c844e74d4"
+  },
+  "terminal_auxiliary_events": [
+    {
+      "request_id": "f346fc0d-7538-4e80-af2a-967c844e74d4",
+      "phase": "completed",
+      "timestamp": "2026-11-16T15:30:43.957831+00:00",
+      "elapsed_seconds": 0.3361169999698177,
+      "result": {
+        "nmt": {
+          "available": true
+        }
+      },
+      "post_sampling_window": true
+    }
+  ],
+  "auxiliary_events_sha256": "1cdebffd87374206d88e10599879c7015a3781e68a14061c49c2509c5b2d658b",
+  "auxiliary_count_unit": "accepted auxiliary requests",
+  "auxiliary_peaks_scope": "Available results from accepted auxiliary requests, including explicitly marked post-window completions.",
+  "samples_sha256": "19f17e40f253b0cf23494b2d8addc27e648d6f895acb103b759c233710298812",
+  "source_sha256": "f96d1fc4843a00286592b78732a6dfb15bfd7d46799432c0f2c911dc57f3c1aa",
+  "current_source_sha256": "f96d1fc4843a00286592b78732a6dfb15bfd7d46799432c0f2c911dc57f3c1aa",
+  "source_changed_during_observation": false,
+  "neutral_source_sha256": {},
+  "neutral_sources_changed": [],
+  "neutral_observer_target": null,
+  "snapshot_io_source_sha256": "6967cd6efee7a673e5df72700ea8de26e2e92c02d4614306bcb106fa527b02e1",
+  "current_snapshot_io_source_sha256": "6967cd6efee7a673e5df72700ea8de26e2e92c02d4614306bcb106fa527b02e1",
+  "log_sha256_at_completion": "6c1083b7b48898524203621dacadf09743338ec4cb167085e8c7dd6218a81ebd",
+  "native_diagnostics": {
+    "blocking": [],
+    "other_mtr_error_lines_requiring_review": []
+  },
+  "native_registration_declaration_counts": [
+    670
+  ],
+  "reload_events_sha256": null,
+  "native_epoch_events_sha256": null,
+  "baseline_completed_epoch_sequence": 1,
+  "limits": [
+    "Sampled peaks may miss brief peaks. Missing or stale state cannot pass settlement or route observation.",
+    "Route evidence requires every sampled state to be fresh, in-game, explicitly unpaused and settled, plus same-ID railProgress displacement in every frozen time window. It does not establish doors, arrivals, visual rendering or unsampled continuity.",
+    "Reload counts require distinct real log starts/registration/work completion and externally recorded native input, not repeated polling.",
+    "NMT includes Java heap and does not account for all driver/third-party native allocations. OS private usage minus heap is not reported as native memory.",
+    "GPU counters are driver/OS observations. Frame and GC distributions require the separate raw JFR/GC analysis.",
+    "Auxiliary results belong to their request start/completion interval. Terminal results do not extend the actual game observation window.",
+    "CIM identity verification, sampling and optional jcmd/PowerShell GPU queries add instrumentation overhead; pair matching controls."
+  ]
+}

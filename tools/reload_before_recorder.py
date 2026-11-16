@@ -101,14 +101,18 @@ def verify_journal(raw):
 
 def source_files():
     return [Path(__file__), Path(observer.__file__), Path(analysis.__file__),
-            Path(diagnostics.__file__), Path(windows_snapshot_io.__file__)]
+            Path(diagnostics.__file__), Path(windows_snapshot_io.__file__), observer.NEUTRAL_CONTRACT_FILE]
 
 
 def before_errors(state, process, stamp, expected, metadata, log, epochs, events, review, plan):
     errors = analysis.native_snapshot_errors(state, process, stamp, FRESHNESS_SECONDS,
                                             {"expected_registration": expected}, require_scene=False)
-    if state.get("target") != metadata or metadata.get("observer_version") != "1.0.2":
-        errors.append("Native snapshot metadata differs from the pinned 1.0.2 observer.")
+    if state.get("target") != metadata:
+        errors.append("Native snapshot metadata differs from its actual pinned observer.")
+    try:
+        observer.validate_neutral_contract(metadata, state)
+    except ValueError as error:
+        errors.append(str(error))
     if state.get("in_world") is not True or state.get("screen") is not None or state.get("paused") is not False:
         errors.append("Actual unpaused, unobstructed game screen is required.")
     if state.get("timestamp") != state.get("observed_at"):

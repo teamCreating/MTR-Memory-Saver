@@ -1,0 +1,28 @@
+{
+  "duration_seconds": 0.3,
+  "window_count": 3,
+  "minimum_window_progress_displacement": 0.01,
+  "maximum_sampling_gap_seconds": 15.02,
+  "windows": [
+    {
+      "index": 0,
+      "start_seconds": 0.0,
+      "end_seconds": 0.09999999999999999,
+      "coverage_tolerance_seconds": 0.024999999999999998
+    },
+    {
+      "index": 1,
+      "start_seconds": 0.09999999999999999,
+      "end_seconds": 0.19999999999999998,
+      "coverage_tolerance_seconds": 0.024999999999999998
+    },
+    {
+      "index": 2,
+      "start_seconds": 0.19999999999999998,
+      "end_seconds": 0.3,
+      "coverage_tolerance_seconds": 0.025
+    }
+  ],
+  "motion_evidence": "Positive absolute railProgress displacement between eligible observations of the same vehicle ID inside each window.",
+  "limits": "Sampled route motion does not establish doors, arrivals, visual rendering or unsampled continuity."
+}

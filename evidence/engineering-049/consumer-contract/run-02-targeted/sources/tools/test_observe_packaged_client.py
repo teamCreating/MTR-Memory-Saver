@@ -1,0 +1,937 @@
+import argparse
+import datetime as dt
+import hashlib
+import json
+import math
+import pathlib
+import tempfile
+import threading
+import time
+import unittest
+from unittest import mock
+from types import SimpleNamespace
+
+import observe_packaged_client as observer
+
+
+class ObservationTest(unittest.TestCase):
+    def setUp(self):
+        self.temporary = tempfile.TemporaryDirectory()
+        self.addCleanup(self.temporary.cleanup)
+        self.root = pathlib.Path(self.temporary.name)
+        self.now = dt.datetime(2026, 11, 15, 1, 0, tzinfo=dt.timezone.utc)
+        self.launch = {"pid": 999, "timestamp": self.now.isoformat(), "command": [str(self.root / "java.exe"), "-Xmx3g"]}
+        self.plan = {"instance": str(self.root), "java": str(self.root / "java.exe"), "mods": [], "packs": []}
+        self.state_path = self.root / "packaged-observer.json"
+        self.state = {"schema_version": 2, "timestamp": self.now.isoformat(), "pid": 999, "paused": False,
+            "in_world": True, "screen": None, "game_time": 10, "registered_count": 669,
+            "heap": {"used_bytes": 10, "committed_bytes": 20, "max_bytes": 30}, "native_pending": 0, "native_settled": True,
+            "shared_blockbench": {"pending": 0, "outstanding": 0, "queued": 0, "failures": 0}, "active_read_permits": 0,
+            "resource_epochs": {"last_completed_sequence": 1, "in_flight": 0}, "monotonic_nanos": 1000,
+            "text_workspace": {"budget_bytes": 64, "used_bytes": 0, "peak_bytes": 32, "waiting": 0}}
+        self.vehicle_path = self.root / "live.json"
+        self.vehicle = {"timestamp": self.now.isoformat(), "registered_count": 669, "vehicles": [{"id": 7, "railProgress": 15.0}]}
+
+    def write(self, path, value):
+        path.write_text(json.dumps(value), encoding="utf-8")
+
+    def observe(self, require_world=False, last_stamp=None):
+        self.write(self.state_path, self.state)
+        self.write(self.vehicle_path, self.vehicle)
+        return observer.state_observation(self.state_path, self.now, last_stamp, 15, 669, require_world, True,
+            self.vehicle_path, 999)[0]
+
+    def test_current_native_and_vehicle_observations_are_verified(self):
+        result = self.observe(require_world=True)
+        self.assertTrue(result["verified"], result)
+        self.assertEqual(result["state"]["runtime_counters"]["native_pending"], 0)
+        self.assertEqual(result["raw_state"], self.state)
+        self.assertEqual(result["raw_vehicle_state"], self.vehicle)
+        self.assertEqual(result["state_sha256"], observer.digest(self.state_path))
+
+    def test_missing_explicit_paused_state_cannot_pass(self):
+        del self.state["paused"]
+        result = self.observe()
+        self.assertFalse(result["verified"])
+        self.assertIn("paused", result["missing"])
+
+    def test_schema_two_requires_complete_text_workspace(self):
+        workspace = dict(self.state["text_workspace"])
+        for field in workspace:
+            with self.subTest(field=field):
+                self.state["text_workspace"] = {key: value for key, value in workspace.items() if key != field}
+                result = self.observe()
+                self.assertFalse(result["verified"])
+                self.assertIn("text_workspace." + field, result["missing"])
+        for value in (None, [], "unknown"):
+            with self.subTest(workspace=value):
+                self.state["text_workspace"] = value
+                self.assertIn("text_workspace", self.observe()["missing"])
+        del self.state["text_workspace"]
+        self.assertIn("text_workspace", self.observe()["missing"])
+
+    def test_schema_two_text_workspace_counters_are_integers(self):
+        for field in self.state["text_workspace"]:
+            original = self.state["text_workspace"][field]
+            for value in (False, True, 0.0, "0"):
+                with self.subTest(field=field, value=value):
+                    self.state["text_workspace"][field] = value
+                    result = self.observe()
+                    self.assertFalse(result["verified"])
+                    self.assertIn("invalid_text_workspace_counter." + field, result["failures"])
+            self.state["text_workspace"][field] = original
+
+    def test_schema_two_text_workspace_budget_bounds_are_checked(self):
+        original = dict(self.state["text_workspace"])
+        for values in ({"budget_bytes": 0}, {"budget_bytes": -1}, {"used_bytes": -1},
+                {"used_bytes": 33}, {"peak_bytes": -1}, {"peak_bytes": 65}, {"waiting": -1}):
+            with self.subTest(values=values):
+                self.state["text_workspace"] = {**original, **values}
+                self.assertIn("invalid_text_workspace_bounds", self.observe()["failures"])
+        self.state["text_workspace"] = {**original, "peak_bytes": original["budget_bytes"]}
+        self.assertTrue(self.observe()["verified"])
+
+    def test_schema_two_text_workspace_must_release_used_and_waiting(self):
+        original = dict(self.state["text_workspace"])
+        for values in ({"used_bytes": 1}, {"waiting": 1}):
+            with self.subTest(values=values):
+                self.state["text_workspace"] = {**original, **values}
+                result = self.observe()
+                self.assertFalse(result["verified"])
+                self.assertIn("text_workspace_not_settled", result["failures"])
+
+    def test_schema_one_retains_historical_observation_compatibility(self):
+        self.state["schema_version"] = 1
+        del self.state["text_workspace"]
+        self.assertTrue(self.observe()["verified"])
+
+    def test_current_game_screen_does_not_hide_pause(self):
+        self.state["paused"] = True
+        self.assertIn("client_paused", self.observe()["failures"])
+
+    def test_missing_or_nonzero_native_ownership_cannot_settle(self):
+        del self.state["native_pending"]
+        self.assertIn("runtime_counters.native_pending", self.observe()["missing"])
+        self.state["native_pending"] = 1
+        self.assertIn("unsettled_counter.native_pending", self.observe()["failures"])
+        self.state["native_pending"] = False
+        self.assertFalse(self.observe()["verified"])
+
+    def test_stale_repeated_and_future_observations_cannot_pass(self):
+        self.state["timestamp"] = (self.now-dt.timedelta(seconds=16)).isoformat()
+        self.assertIn("stale_or_future_state", self.observe()["failures"])
+        self.state["timestamp"] = self.now.isoformat()
+        self.assertIn("state_did_not_advance", self.observe(last_stamp=self.now.isoformat())["failures"])
+        self.state["timestamp"] = (self.now+dt.timedelta(seconds=3)).isoformat()
+        self.assertIn("stale_or_future_state", self.observe()["failures"])
+
+    def test_old_vehicle_snapshot_cannot_be_combined_with_current_counters(self):
+        self.vehicle["timestamp"] = (self.now-dt.timedelta(seconds=20)).isoformat()
+        result = self.observe(require_world=True)
+        self.assertFalse(result["verified"])
+        self.assertIn("stale_or_future_vehicle_state", result["failures"])
+
+    def test_other_process_state_cannot_pass(self):
+        self.state["pid"] = 998
+        self.assertIn("observer_process_identity_mismatch", self.observe()["failures"])
+
+    def test_process_creation_and_exact_argument_identity_are_required(self):
+        process = {"pid": 999, "created": self.now.isoformat(), "executable": self.plan["java"]}
+        observer.verify_process_identity(self.plan, self.launch, process, self.launch["command"])
+        with self.assertRaisesRegex(ValueError, "arguments"):
+            observer.verify_process_identity(self.plan, self.launch, process, [self.plan["java"], "-Xmx4g"])
+        process["created"] = (self.now-dt.timedelta(minutes=1)).isoformat()
+        with self.assertRaisesRegex(ValueError, "start time"):
+            observer.verify_process_identity(self.plan, self.launch, process, self.launch["command"])
+
+    def test_modified_frozen_input_or_plan_is_rejected(self):
+        (self.root / "mods").mkdir()
+        jar = self.root / "mods/mod.jar"
+        jar.write_bytes(b"original")
+        self.plan["mods"] = [{"filename": "mod.jar", "sha256": observer.digest(jar)}]
+        self.write(self.root / "packaged-client-plan.json", self.plan)
+        self.launch["plan_sha256"] = observer.digest(self.root / "packaged-client-plan.json")
+        self.write(self.root / "packaged-client-launch.json", self.launch)
+        observer.frozen_context(self.root)
+        jar.write_bytes(b"changed")
+        with self.assertRaisesRegex(ValueError, "mod"):
+            observer.frozen_context(self.root)
+        jar.write_bytes(b"original")
+        self.plan["instance"] = str(self.root / "other")
+        self.write(self.root / "packaged-client-plan.json", self.plan)
+        with self.assertRaises(ValueError):
+            observer.frozen_context(self.root)
+
+    def test_reload_in_flight_prevents_premature_settlement(self):
+        self.state["resource_epochs"]["in_flight"] = 1
+        self.assertIn("unsettled_counter.resource_in_flight", self.observe()["failures"])
+
+    def run_observation(self, mode, interrupt=False, change_source=False, native_failure=False, motion_pattern="distributed",
+            process_sample_cost=1, snapshot_period=None, auxiliary_delays=()):
+        initial_time = dt.datetime.now(dt.timezone.utc)
+        now = initial_time.isoformat()
+        self.launch["timestamp"] = now
+        self.write(self.root / "packaged-client-plan.json", self.plan)
+        self.launch["plan_sha256"] = observer.digest(self.root / "packaged-client-plan.json")
+        self.write(self.root / "packaged-client-launch.json", self.launch)
+        output = self.root / (mode + "-observation")
+        state, vehicle = self.state, self.vehicle
+        state_path, vehicle_path = self.state_path, self.vehicle_path
+        owner = self
+        clock = [0.0]
+        class SimulatedDatetime(dt.datetime):
+            @classmethod
+            def now(cls, timezone=None):
+                result = initial_time + dt.timedelta(seconds=clock[0])
+                return result.astimezone(timezone) if timezone else result.replace(tzinfo=None)
+        source = self.root / "source.py"
+        source.write_bytes(b"captured observer source")
+        (self.root / "logs").mkdir()
+        log = "Loaded 670 vehicles and completed door movement validation\n"
+        if native_failure:
+            log += "Failed to decode resource [test:valid-large.obj] as UTF-8 text\nResource text exceeds the configured limit\n"
+        (self.root / "logs/latest.log").write_text(log)
+        class FakeProcess:
+            def __init__(self, plan, launch):
+                self.identity = {"pid": 999, "created": now}
+                self.created = now
+                self.closed = False
+            def sample(self):
+                sampled_elapsed = clock[0]
+                clock[0] += process_sample_cost
+                if interrupt:
+                    raise KeyboardInterrupt()
+                if change_source:
+                    source.write_bytes(b"changed source after observer began")
+                snapshot_clock = math.floor(clock[0]/snapshot_period)*snapshot_period if snapshot_period else clock[0]
+                stamp = (initial_time + dt.timedelta(seconds=snapshot_clock)).isoformat()
+                advanced = stamp != state["timestamp"]
+                state["timestamp"] = stamp
+                if advanced:
+                    state["game_time"] += 1
+                vehicle["timestamp"] = state["timestamp"]
+                if advanced and motion_pattern == "changing_id":
+                    vehicle["vehicles"][0]["id"] += 1
+                elif advanced and (motion_pattern == "distributed" or (motion_pattern == "early_only" and sampled_elapsed < 20)):
+                    vehicle["vehicles"][0]["railProgress"] += 1
+                owner.write(state_path, state)
+                owner.write(vehicle_path, vehicle)
+                return {"running": True, "working_set": 100, "private_usage": 200}
+            def close(self):
+                self.closed = True
+        args = SimpleNamespace(instance=self.root, output=output, state_file=state_path, vehicle_state_file=vehicle_path,
+            epoch_events=None, mode=mode, require_world=mode == "route", unpaused=True, duration=60, interval=5,
+            freshness_seconds=15, expected_count=669, stable_seconds=5, auxiliary_interval=60,
+            route_windows=3, minimum_window_progress_displacement=0.01,
+            gpu_counter=[], nmt=False, reload_events=None, require_reloads=0, expected_declarations=None)
+        def advance_clock(seconds):
+            clock[0] += seconds
+        auxiliary_call = [0]
+        def delayed_auxiliary(*unused):
+            if auxiliary_call[0] < len(auxiliary_delays):
+                clock[0] += auxiliary_delays[auxiliary_call[0]]
+            auxiliary_call[0] += 1
+            return {}
+        with mock.patch.object(observer, "WindowsProcess", FakeProcess), mock.patch.object(observer, "__file__", str(source)), \
+                mock.patch.object(observer.time, "monotonic", side_effect=lambda: clock[0]), \
+                mock.patch.object(observer.time, "sleep", side_effect=advance_clock), \
+                mock.patch.object(observer.dt, "datetime", SimulatedDatetime), \
+                mock.patch.object(observer, "auxiliary", side_effect=delayed_auxiliary):
+            code = observer.observe(args)
+        return code, observer.read(output / "summary.json"), output
+
+    def test_route_uses_observed_monotonic_window_and_motion_with_all_valid_states(self):
+        code, summary, output = self.run_observation("route")
+        self.assertEqual(code, 0)
+        self.assertTrue(summary["passed"])
+        self.assertGreaterEqual(summary["elapsed_seconds"], 60)
+        self.assertTrue(summary["observed_vehicle_motion"])
+        self.assertTrue(summary["observed_game_time_advanced"])
+        self.assertEqual(summary["samples_sha256"], observer.digest(output / "samples.jsonl"))
+        self.assertTrue(summary["route_window_evidence"]["passed"])
+        self.assertEqual(len(summary["route_window_evidence"]["windows"]), 3)
+        policy_hash = observer.digest(output / "route-window-policy.json")
+        self.assertEqual(summary["policy"]["route_window_policy_sha256"], policy_hash)
+        self.assertEqual(observer.read(output / "route-window-policy.json"), summary["policy"]["route_windows"])
+        samples = [json.loads(line) for line in (output / "samples.jsonl").read_text(encoding="utf-8").splitlines()]
+        self.assertEqual({sample["route_window"]["index"] for sample in samples}, {0, 1, 2})
+        self.assertTrue(all(sample["route_window"]["eligible"] and sample["route_window"]["policy_sha256"] == policy_hash for sample in samples))
+
+    def test_changing_vehicle_ids_without_progress_cannot_pass_route(self):
+        code, summary, _ = self.run_observation("route", motion_pattern="changing_id")
+        self.assertEqual(code, 1)
+        self.assertFalse(summary["observed_vehicle_motion"])
+        self.assertFalse(summary["passed"])
+        self.assertTrue(all(not window["motion_verified"] for window in summary["route_window_evidence"]["windows"]))
+
+    def test_only_early_motion_cannot_pass_full_route_duration(self):
+        code, summary, _ = self.run_observation("route", motion_pattern="early_only")
+        self.assertEqual(code, 1)
+        self.assertTrue(summary["observed_vehicle_motion"])
+        self.assertFalse(summary["passed"])
+        self.assertEqual([window["motion_verified"] for window in summary["route_window_evidence"]["windows"]], [True, False, False])
+        self.assertIn("distributed_route_windows_unverified", summary["observed_failures"])
+
+    def run_realtime_auxiliary(self, provider, on_sample=None, shutdown_seconds=0.5, before_shutdown=None, duration=0.6,
+            after_request=None, after_poll=None):
+        now = dt.datetime.now(dt.timezone.utc).isoformat()
+        self.launch["timestamp"] = now
+        self.write(self.root / "packaged-client-plan.json", self.plan)
+        self.launch["plan_sha256"] = observer.digest(self.root / "packaged-client-plan.json")
+        self.write(self.root / "packaged-client-launch.json", self.launch)
+        output = self.root / ("realtime-" + str(time.monotonic_ns()))
+        (self.root / "logs").mkdir(exist_ok=True)
+        (self.root / "logs/latest.log").write_text("Loaded 670 vehicles and completed door movement validation\n", encoding="utf-8")
+        owner = self
+        sample_times, samplers = [], []
+        class FakeProcess:
+            def __init__(self, plan, launch):
+                self.identity = {"pid": 999, "created": now}
+                self.created = now
+            def sample(self):
+                sample_times.append(time.monotonic())
+                owner.state["timestamp"] = dt.datetime.now(dt.timezone.utc).isoformat()
+                owner.state["game_time"] += 1
+                owner.vehicle["timestamp"] = owner.state["timestamp"]
+                owner.vehicle["vehicles"][0]["railProgress"] += 1
+                owner.write(owner.state_path, owner.state)
+                owner.write(owner.vehicle_path, owner.vehicle)
+                if on_sample:
+                    on_sample(len(sample_times))
+                return {"running": True, "working_set": 100, "private_usage": 200}
+            def close(self):
+                pass
+        real_sampler = observer.AuxiliarySampler
+        class CapturedSampler(real_sampler):
+            def request(self):
+                result = super().request()
+                if result is not None and after_request:
+                    after_request()
+                return result
+            def poll(self):
+                result = super().poll()
+                if after_poll:
+                    after_poll(result)
+                return result
+            def close(self, timeout):
+                if before_shutdown:
+                    before_shutdown()
+                return super().close(timeout)
+        def create_sampler(*args):
+            result = CapturedSampler(*args, provider=provider)
+            samplers.append(result)
+            return result
+        args = SimpleNamespace(instance=self.root, output=output, state_file=self.state_path,
+            vehicle_state_file=self.vehicle_path, epoch_events=None, mode="route", require_world=True,
+            unpaused=True, duration=duration, interval=0.02, freshness_seconds=15, expected_count=669,
+            stable_seconds=5, auxiliary_interval=60, auxiliary_shutdown_seconds=shutdown_seconds,
+            route_windows=3, minimum_window_progress_displacement=0.01, gpu_counter=[], nmt=True,
+            reload_events=None, require_reloads=0, expected_declarations=None)
+        with mock.patch.object(observer, "WindowsProcess", FakeProcess), \
+                mock.patch.object(observer, "AuxiliarySampler", side_effect=create_sampler):
+            code = observer.observe(args)
+        return code, observer.read(output / "summary.json"), output, sample_times, samplers
+
+    def test_background_auxiliary_keeps_sampling_while_provider_is_blocked(self):
+        started, release = threading.Event(), threading.Event()
+        samples_while_blocked = []
+        def provider(*unused):
+            started.set()
+            if not release.wait(2):
+                raise TimeoutError("Main sampler did not advance while auxiliary was blocked")
+            return {"nmt": {"available": True, "reserved_bytes": 40, "committed_bytes": 20}}
+        def sampled(count):
+            if started.is_set() and not release.is_set():
+                samples_while_blocked.append(count)
+                if len(samples_while_blocked) == 4:
+                    release.set()
+        try:
+            code, summary, output, _, _ = self.run_realtime_auxiliary(provider, sampled)
+        finally:
+            release.set()
+        self.assertEqual(len(samples_while_blocked), 4)
+        self.assertEqual(code, 0)
+        self.assertTrue(summary["passed"])
+        self.assertEqual(summary["auxiliary_attempted_samples"]["nmt"], 1)
+        self.assertEqual(summary["auxiliary_available_samples"]["nmt"], 1)
+        events = [json.loads(line) for line in (output / "auxiliary-events.jsonl").read_text(encoding="utf-8").splitlines()]
+        self.assertEqual([event["phase"] for event in events], ["requested", "started", "completed"])
+        self.assertEqual(len({event["request_id"] for event in events}), 1)
+        self.assertEqual(events[-1]["result"]["nmt"]["committed_bytes"], 20)
+        samples = [json.loads(line) for line in (output / "samples.jsonl").read_text(encoding="utf-8").splitlines()]
+        self.assertTrue(any(sample.get("auxiliary_in_flight_request_id") for sample in samples))
+        self.assertTrue(any(any(event["phase"] == "completed" for event in sample.get("auxiliary_events", [])) for sample in samples))
+        self.assertEqual(summary["auxiliary_events_sha256"], observer.digest(output / "auxiliary-events.jsonl"))
+
+    def test_background_auxiliary_missing_failed_or_exception_result_still_rejects(self):
+        for outcome in ({}, {"nmt": {"available": False, "stderr": "fixture failure"}}, RuntimeError("fixture provider error")):
+            with self.subTest(outcome=outcome):
+                def provider(*unused):
+                    if isinstance(outcome, Exception):
+                        raise outcome
+                    return outcome
+                code, summary, output, _, _ = self.run_realtime_auxiliary(provider, duration=0.3)
+                self.assertEqual(code, 1)
+                self.assertFalse(summary["passed"])
+                self.assertEqual(summary["auxiliary_attempted_samples"]["nmt"], 1)
+                self.assertEqual(summary["auxiliary_available_samples"]["nmt"], 0)
+                self.assertTrue(summary["auxiliary_shutdown"]["worker_stopped"])
+                events = [json.loads(line) for line in (output / "auxiliary-events.jsonl").read_text(encoding="utf-8").splitlines()]
+                self.assertEqual(sum(event["phase"] == "completed" for event in events), 1)
+                if isinstance(outcome, Exception):
+                    self.assertIn("fixture provider error", events[-1]["error"])
+                    self.assertIsNone(events[-1]["result"])
+                else:
+                    self.assertEqual(events[-1]["result"], outcome)
+
+    def test_pending_auxiliary_shutdown_is_bounded_and_cannot_claim_cleanup_or_pass(self):
+        release = threading.Event()
+        def provider(*unused):
+            release.wait(2)
+            return {"nmt": {"available": True}}
+        samplers = []
+        try:
+            code, summary, _, _, samplers = self.run_realtime_auxiliary(provider,
+                shutdown_seconds=0.03, duration=0.3)
+            self.assertEqual(code, 1)
+            self.assertFalse(summary["passed"])
+            self.assertFalse(summary["auxiliary_shutdown"]["worker_stopped"])
+            self.assertEqual(len(summary["auxiliary_shutdown"]["uncompleted_request_ids"]), 1)
+            self.assertIn("auxiliary_shutdown_incomplete", summary["observed_failures"])
+            self.assertEqual(summary["auxiliary_attempted_samples"]["nmt"], 1)
+            self.assertEqual(summary["auxiliary_available_samples"]["nmt"], 0)
+            self.assertLess(summary["auxiliary_shutdown"]["closed_elapsed_seconds"], 1)
+        finally:
+            release.set()
+            for sampler in samplers:
+                _, cleanup = sampler.close(1)
+                self.assertTrue(cleanup["worker_stopped"])
+
+    def test_shutdown_completion_is_explicit_and_does_not_extend_route_window(self):
+        release = threading.Event()
+        def provider(*unused):
+            if not release.wait(2):
+                raise TimeoutError("No shutdown release")
+            return {"nmt": {"available": True}}
+        try:
+            code, summary, output, _, _ = self.run_realtime_auxiliary(provider,
+                before_shutdown=lambda: threading.Timer(0.03, release.set).start(), duration=0.3)
+        finally:
+            release.set()
+        self.assertEqual(code, 0)
+        self.assertTrue(summary["passed"])
+        terminal = [event for event in summary["terminal_auxiliary_events"] if event["phase"] == "completed"]
+        self.assertEqual(len(terminal), 1)
+        self.assertTrue(terminal[0]["post_sampling_window"])
+        self.assertGreater(terminal[0]["elapsed_seconds"], summary["elapsed_seconds"])
+        self.assertGreater(summary["auxiliary_shutdown"]["closed_elapsed_seconds"], summary["elapsed_seconds"])
+        rows = [json.loads(line) for line in (output / "samples.jsonl").read_text(encoding="utf-8").splitlines()]
+        self.assertFalse(any(any(event["phase"] == "completed" for event in row.get("auxiliary_events", [])) for row in rows))
+        events = [json.loads(line) for line in (output / "auxiliary-events.jsonl").read_text(encoding="utf-8").splitlines()]
+        self.assertTrue(events[-1]["post_sampling_window"])
+
+    def test_interrupted_main_sampling_preserves_accepted_auxiliary_result(self):
+        release = threading.Event()
+        def provider(*unused):
+            release.wait(2)
+            return {"nmt": {"available": True}}
+        def sampled(count):
+            if count == 5:
+                raise KeyboardInterrupt()
+        try:
+            code, summary, output, _, _ = self.run_realtime_auxiliary(provider, sampled,
+                before_shutdown=release.set)
+        finally:
+            release.set()
+        self.assertEqual(code, 1)
+        self.assertEqual(summary["status"], "interrupted")
+        self.assertFalse(summary["passed"])
+        self.assertEqual(summary["auxiliary_attempted_samples"]["nmt"], 1)
+        self.assertEqual(summary["auxiliary_available_samples"]["nmt"], 1)
+        self.assertTrue(summary["auxiliary_shutdown"]["worker_stopped"])
+        events = [json.loads(line) for line in (output / "auxiliary-events.jsonl").read_text(encoding="utf-8").splitlines()]
+        self.assertEqual([event["phase"] for event in events], ["requested", "started", "completed"])
+
+    def test_interruption_after_submission_preserves_request_and_attempt_count(self):
+        def interrupted():
+            raise KeyboardInterrupt()
+        code, summary, output, _, _ = self.run_realtime_auxiliary(
+            lambda *unused: {"nmt": {"available": True}}, after_request=interrupted)
+        self.assertEqual(code, 1)
+        self.assertEqual(summary["status"], "interrupted")
+        self.assertEqual(summary["auxiliary_attempted_samples"]["nmt"], 1)
+        self.assertEqual(summary["auxiliary_available_samples"]["nmt"], 1)
+        events = [json.loads(line) for line in (output / "auxiliary-events.jsonl").read_text(encoding="utf-8").splitlines()]
+        self.assertEqual([event["phase"] for event in events], ["requested", "started", "completed"])
+        self.assertEqual(events[0], summary["auxiliary_shutdown"]["requests"][0]["requested"])
+
+    def test_interruption_after_completion_poll_preserves_unaccounted_result(self):
+        interrupted = [False]
+        def after_poll(events):
+            if not interrupted[0] and any(event["phase"] == "completed" for event in events):
+                interrupted[0] = True
+                raise KeyboardInterrupt()
+        code, summary, output, _, _ = self.run_realtime_auxiliary(
+            lambda *unused: {"nmt": {"available": True}}, after_poll=after_poll)
+        self.assertEqual(code, 1)
+        self.assertEqual(summary["status"], "interrupted")
+        self.assertEqual(summary["auxiliary_attempted_samples"]["nmt"], 1)
+        self.assertEqual(summary["auxiliary_available_samples"]["nmt"], 1)
+        events = [json.loads(line) for line in (output / "auxiliary-events.jsonl").read_text(encoding="utf-8").splitlines()]
+        self.assertEqual([event["phase"] for event in events], ["requested", "started", "completed"])
+        self.assertEqual(sum(event["phase"] == "completed" for event in events), 1)
+
+    def test_actual_worker_start_then_interrupt_preserves_real_terminal_result(self):
+        entered, release = threading.Event(), threading.Event()
+        actual_start = threading.Thread.start
+        def provider(*unused):
+            entered.set()
+            if not release.wait(2):
+                raise TimeoutError("No worker release after start interruption")
+            return {"nmt": {"available": True, "committed_bytes": 17}}
+        def start_then_interrupt(worker):
+            actual_start(worker)
+            self.assertTrue(entered.wait(1))
+            raise KeyboardInterrupt("fixture after actual worker startup")
+        try:
+            with mock.patch.object(threading.Thread, "start", new=start_then_interrupt):
+                code, summary, output, _, samplers = self.run_realtime_auxiliary(provider,
+                    before_shutdown=release.set)
+        finally:
+            release.set()
+        self.assertEqual(code, 1)
+        self.assertEqual(summary["status"], "interrupted")
+        self.assertFalse(summary["passed"])
+        self.assertIsNotNone(samplers[0].thread)
+        self.assertTrue(summary["auxiliary_shutdown"]["worker_stopped"])
+        self.assertTrue(summary["auxiliary_shutdown"]["worker_entry_confirmed"])
+        self.assertTrue(summary["auxiliary_shutdown"]["worker_exit_confirmed"])
+        self.assertEqual(summary["auxiliary_shutdown"]["worker_exit_pending_request_ids"], [])
+        self.assertEqual(summary["auxiliary_attempted_samples"]["nmt"], 1)
+        self.assertEqual(summary["auxiliary_available_samples"]["nmt"], 1)
+        events = [json.loads(line) for line in (output / "auxiliary-events.jsonl").read_text(encoding="utf-8").splitlines()]
+        completed = [event for event in events if event["phase"] == "completed"]
+        self.assertEqual(len(completed), 1)
+        self.assertEqual(completed[0]["result"]["nmt"]["committed_bytes"], 17)
+        self.assertFalse(completed[0].get("cancelled_before_query", False))
+        self.assertEqual(sum(event["phase"] == "worker_start_error" for event in events), 1)
+
+    def test_failed_preflight_preserves_failure_instead_of_missing_run(self):
+        self.write(self.root / "packaged-client-plan.json", self.plan)
+        self.launch["plan_sha256"] = observer.digest(self.root / "packaged-client-plan.json")
+        self.write(self.root / "packaged-client-launch.json", self.launch)
+        output = self.root / "failed-preflight"
+        args = SimpleNamespace(instance=self.root, output=output, mode="route")
+        with mock.patch.object(observer, "WindowsProcess", side_effect=ValueError("Reused PID")):
+            self.assertEqual(observer.observe(args), 1)
+        summary = observer.read(output / "summary.json")
+        self.assertEqual(summary["status"], "preflight_failed")
+        self.assertIn("Reused PID", summary["error"])
+        self.assertFalse(summary["passed"])
+        self.assertTrue((output / "samples.jsonl").exists())
+
+    def test_interruption_preserves_raw_evidence_and_cannot_pass(self):
+        code, summary, output = self.run_observation("route", interrupt=True)
+        self.assertEqual(code, 1)
+        self.assertEqual(summary["status"], "interrupted")
+        self.assertFalse(summary["passed"])
+        self.assertTrue((output / "samples.jsonl").exists())
+        self.assertEqual(summary["samples_sha256"], hashlib.sha256(b"").hexdigest())
+
+    def epochs(self, count):
+        events, observations = [], []
+        for index in range(1, count+1):
+            base = {"pid": 999, "sequence": index, "timestamp": (self.now+dt.timedelta(seconds=index)).isoformat(),
+                    "render_thread": True, "thread_id": 7, "monotonic_nanos": index*1000}
+            events.append({**base, "phase": "start"})
+            events.append({**base, "phase": "return", "monotonic_nanos": index*1000+100})
+            observations.append({"verified": True, "state": {"timestamp": base["timestamp"]}, "state_sha256": str(index),
+                "raw_state": {"monotonic_nanos": index*1000+200, "resource_epochs": {"last_completed_sequence": index}}})
+        return events, observations
+
+    def test_twenty_distinct_settled_reloads_exclude_initial_startup(self):
+        events, observations = self.epochs(21)
+        result = observer.native_epoch_evidence(events, observations, 1, self.launch, self.now.isoformat())
+        self.assertEqual(len(result), 20)
+        self.assertTrue(all(item["verified"] for item in result))
+        self.assertEqual(observer.consecutive_reloads(result), 20)
+
+    def test_repeating_one_reload_twenty_times_cannot_pass(self):
+        events, observations = self.epochs(1)
+        result = observer.native_epoch_evidence(events*20, observations*20, 0, self.launch, self.now.isoformat())
+        self.assertEqual(len(result), 1)
+        self.assertFalse(result[0]["verified"])
+
+    def test_return_without_settlement_before_next_reload_fails(self):
+        events, observations = self.epochs(2)
+        observations[0]["raw_state"]["monotonic_nanos"] = 2200
+        result = observer.native_epoch_evidence(events, observations, 0, self.launch, self.now.isoformat())
+        self.assertFalse(result[0]["verified"])
+        self.assertTrue(result[1]["verified"])
+        self.assertEqual(observer.consecutive_reloads(result), 1)
+
+    def test_missing_sequence_breaks_consecutive_reload_proof(self):
+        records = [{"sequence": 2, "verified": True}, {"sequence": 4, "verified": True}]
+        self.assertEqual(observer.consecutive_reloads(records), 1)
+
+    def test_missing_return_and_foreign_process_events_do_not_count(self):
+        events, observations = self.epochs(1)
+        result = observer.native_epoch_evidence(events[:1], observations, 0, self.launch, self.now.isoformat())
+        self.assertFalse(result[0]["verified"])
+        events[0]["pid"] = 1000
+        result = observer.native_epoch_evidence(events, observations, 0, self.launch, self.now.isoformat())
+        self.assertFalse(result[0]["verified"])
+
+    def test_registration_log_polling_alone_cannot_be_twenty_reloads(self):
+        log = b"Reloading ResourceManager: vanilla\nLoaded 669 vehicles and completed door movement validation\nMTR memory sharing: 1 requests, 0 path hits, 1 unique parses, 0 failures, 0 pending, 0 outstanding, 0 queued\n"
+        event = {"timestamp": self.now.isoformat(), "pid": 999, "process_created": self.now.isoformat(), "method": "native_f3_t", "log_offset": 0,
+                 "before": {"timestamp": self.now.isoformat(), "screen": "game", "paused": False, "model_parsing_complete": True, "registered_count": 669}}
+        results = observer.reload_evidence(log, [event]*20, self.launch, self.now.isoformat(), 669)
+        self.assertEqual(sum(item["verified"] for item in results), 1)
+        self.assertEqual(observer.consecutive_reloads(results), 1)
+
+    def full_reload_fixture(self, count=21, declarations=670):
+        epochs, observations = self.epochs(count)
+        inputs, chunks, offset = [], [], 0
+        for index in range(2, count+1):
+            start = self.now+dt.timedelta(seconds=index)
+            before_stamp = (start-dt.timedelta(seconds=0.5)).isoformat()
+            event_stamp = (start-dt.timedelta(seconds=0.4)).isoformat()
+            issued = (start-dt.timedelta(seconds=0.2)).isoformat()
+            confirmed = (start-dt.timedelta(seconds=0.1)).isoformat()
+            before = {"timestamp": before_stamp, "screen": None, "in_world": True, "paused": False,
+                "native_settled": True, "registered_count": 669, "resource_epochs": {"last_completed_sequence": index-1}}
+            inputs.append({"event_id": str(index), "timestamp": event_stamp, "pid": 999, "process_created": self.now.isoformat(),
+                "method": "native_f3_t", "log_offset": offset, "before": before,
+                "input": {"method": "native_f3_t", "provider": "@oai/sky", "succeeded": True, "issued_at": issued, "confirmed_at": confirmed}})
+            chunk = ("Reloading ResourceManager: vanilla, file/full-pack.zip\nLoaded " + str(declarations) + " vehicles and completed door movement validation\nMTR memory sharing: 1 requests, 0 path hits, 1 unique parses, 0 failures, 0 pending, 0 outstanding, 0 queued\n").encode()
+            chunks.append(chunk)
+            offset += len(chunk)
+        return b"".join(chunks), inputs, epochs, observations
+
+    def test_full_twenty_reload_gate_cross_checks_input_log_and_settled_epochs(self):
+        log, inputs, epochs, observations = self.full_reload_fixture()
+        records = observer.full_reload_evidence(log, inputs, epochs, observations, 1, self.launch, self.now.isoformat(), 669, 670)
+        self.assertEqual(observer.consecutive_reloads(records), 20)
+        self.assertEqual(records[0]["declared_vehicle_count"], 670)
+        self.assertEqual(records[0]["native_epoch"]["sequence"], 2)
+
+    def test_native_creator_reload_cycles_cannot_pass_full_resource_gate(self):
+        log, inputs, epochs, observations = self.full_reload_fixture()
+        records = observer.full_reload_evidence(b"", inputs, epochs, observations, 1, self.launch, self.now.isoformat(), 669, 670)
+        self.assertEqual(observer.consecutive_reloads(records), 0)
+        self.assertEqual(observer.full_reload_evidence(log, [], epochs, observations, 1, self.launch, self.now.isoformat(), 669, 670), [])
+
+    def test_unconfirmed_or_stale_input_cannot_count_as_full_reload(self):
+        log, inputs, epochs, observations = self.full_reload_fixture(2)
+        inputs[0]["input"]["succeeded"] = False
+        records = observer.full_reload_evidence(log, inputs, epochs, observations, 1, self.launch, self.now.isoformat(), 669, 670)
+        self.assertFalse(records[0]["verified"])
+        inputs[0]["input"]["succeeded"] = True
+        inputs[0]["before"]["timestamp"] = (self.now-dt.timedelta(seconds=20)).isoformat()
+        records = observer.full_reload_evidence(log, inputs, epochs, observations, 1, self.launch, self.now.isoformat(), 669, 670)
+        self.assertFalse(records[0]["verified"])
+
+    def test_declaration_and_unique_id_count_units_are_independent(self):
+        self.vehicle["registered_count"] = 670
+        self.write(self.state_path, self.state)
+        self.write(self.vehicle_path, self.vehicle)
+        result, _ = observer.state_observation(self.state_path, self.now, None, 15, 669, True, True, self.vehicle_path, 999, 670)
+        self.assertTrue(result["verified"])
+        log, inputs, epochs, observations = self.full_reload_fixture(2)
+        records = observer.full_reload_evidence(log, inputs, epochs, observations, 1, self.launch, self.now.isoformat(), 669, 669)
+        self.assertFalse(records[0]["verified"])
+
+    def test_native_decode_error_rejects_full_reload_even_with_zero_work_counters(self):
+        log, inputs, epochs, observations = self.full_reload_fixture(2)
+        log += b"Failed to decode resource [test:large.obj] as UTF-8 text\n"
+        records = observer.full_reload_evidence(log, inputs, epochs, observations, 1, self.launch, self.now.isoformat(), 669, 670)
+        self.assertFalse(records[0]["verified"])
+
+    def test_native_decode_error_rejects_settlement_even_with_zero_counters(self):
+        code, summary, output = self.run_observation("startup", native_failure=True)
+        self.assertEqual(code, 1)
+        self.assertFalse(summary["passed"])
+        self.assertEqual(len(summary["native_diagnostics"]["blocking"]), 2)
+        self.assertIn(b"valid-large.obj", (output / "native-log-at-completion.log").read_bytes())
+
+    def test_source_identity_is_captured_before_sampling_and_later_change_is_explicit(self):
+        code, summary, output = self.run_observation("route", change_source=True)
+        self.assertEqual(code, 0)
+        self.assertEqual((output / "observer-source.py").read_bytes(), b"captured observer source")
+        self.assertEqual(summary["source_sha256"], hashlib.sha256(b"captured observer source").hexdigest())
+        self.assertTrue(summary["source_changed_during_observation"])
+        self.assertNotEqual(summary["source_sha256"], summary["current_source_sha256"])
+        dependency = pathlib.Path(observer.windows_snapshot_io.__file__)
+        self.assertEqual((output / "windows_snapshot_io.py").read_bytes(), dependency.read_bytes())
+        self.assertEqual(summary["snapshot_io_source_sha256"], observer.digest(dependency))
+        self.assertEqual(summary["current_snapshot_io_source_sha256"], observer.digest(dependency))
+
+    def test_external_input_receipt_preserves_original_and_rejects_duplicate_confirmation(self):
+        _, inputs, _, _ = self.full_reload_fixture(2)
+        receipt = inputs[0].pop("input")
+        before_path, events_path = self.root / "before.json", self.root / "inputs.jsonl"
+        self.write(before_path, inputs[0])
+        original = before_path.read_bytes()
+        record = observer.confirm_reload_input(before_path, events_path, receipt)
+        self.assertEqual(before_path.read_bytes(), original)
+        self.assertEqual(record["before_record_sha256"], hashlib.sha256(original).hexdigest())
+        self.assertEqual(json.loads(events_path.read_text())["input"], receipt)
+        with self.assertRaisesRegex(ValueError, "already been recorded"):
+            observer.confirm_reload_input(before_path, events_path, receipt)
+
+    def test_nonfinite_or_nonpositive_intervals_are_rejected(self):
+        for value in ("nan", "inf", "-1", "0"):
+            with self.assertRaises(argparse.ArgumentTypeError):
+                observer.finite_positive(value)
+
+
+class AuxiliarySamplerTest(unittest.TestCase):
+    def test_single_worker_retains_ownership_until_completion_is_consumed(self):
+        started, release = threading.Event(), threading.Event()
+        worker_ids = []
+        def provider(*unused):
+            worker_ids.append(threading.get_ident())
+            started.set()
+            release.wait(2)
+            return {"nmt": {"available": True}}
+        sampler = observer.AuxiliarySampler({}, {}, [], True, time.monotonic(), provider)
+        events = []
+        try:
+            first = sampler.request()
+            self.assertTrue(started.wait(1))
+            events.extend(sampler.poll())
+            self.assertIsNone(sampler.request())
+            release.set()
+            deadline = time.monotonic()+1
+            while sampler.in_flight and time.monotonic() < deadline:
+                events.extend(sampler.poll())
+                time.sleep(0.001)
+            self.assertIsNone(sampler.in_flight)
+            self.assertEqual(sum(event["phase"] == "completed" for event in events), 1)
+            self.assertEqual(first["request_id"], events[-1]["request_id"])
+            self.assertEqual(sampler.poll(), [])
+            self.assertIsNotNone(sampler.request())
+        finally:
+            release.set()
+            remaining, result = sampler.close(1)
+        self.assertTrue(result["worker_stopped"])
+        self.assertEqual(result["uncompleted_request_ids"], [])
+        self.assertEqual(len(result["requests"]), 2)
+        self.assertEqual(len(worker_ids), 2)
+        self.assertEqual(len(set(worker_ids)), 1)
+        self.assertEqual(sum(event["phase"] == "completed" for event in remaining), 1)
+        self.assertIsNone(sampler.request())
+
+    def test_no_requested_channels_start_no_worker(self):
+        provider = mock.Mock()
+        sampler = observer.AuxiliarySampler({}, {}, [], False, time.monotonic(), provider)
+        self.assertIsNone(sampler.request())
+        events, result = sampler.close(0.01)
+        provider.assert_not_called()
+        self.assertEqual(events, [])
+        self.assertEqual(result["requests"], [])
+        self.assertTrue(result["worker_stopped"])
+
+    def test_worker_start_failure_remains_a_recorded_failed_request(self):
+        sampler = observer.AuxiliarySampler({}, {}, [], True, time.monotonic(), mock.Mock())
+        with mock.patch.object(threading.Thread, "start", side_effect=RuntimeError("fixture thread failure")):
+            requested = sampler.request()
+        events, result = sampler.close(0.1)
+        self.assertIsNotNone(requested)
+        self.assertEqual(len(result["requests"]), 1)
+        self.assertEqual(len(events), 1)
+        self.assertEqual(events[0]["phase"], "completed")
+        self.assertIsNone(events[0]["result"])
+        self.assertIn("Worker start failed", events[0]["error"])
+        self.assertTrue(events[0]["cancelled_before_query"])
+        self.assertEqual(result["uncompleted_request_ids"], [])
+        self.assertFalse(result["worker_stopped"])
+        self.assertFalse(result["worker_entry_confirmed"])
+        self.assertFalse(result["worker_exit_confirmed"])
+        self.assertEqual(result["worker_exit_pending_request_ids"], [requested["request_id"]])
+
+    def test_real_started_worker_reference_survives_start_keyboard_interrupt(self):
+        entered, release = threading.Event(), threading.Event()
+        actual_start = threading.Thread.start
+        def provider(*unused):
+            entered.set()
+            release.wait(2)
+            return {"nmt": {"available": True}}
+        def start_then_interrupt(worker):
+            actual_start(worker)
+            self.assertTrue(entered.wait(1))
+            raise KeyboardInterrupt("fixture start acknowledged then interrupted")
+        sampler = observer.AuxiliarySampler({}, {}, [], True, time.monotonic(), provider)
+        try:
+            with mock.patch.object(threading.Thread, "start", new=start_then_interrupt):
+                with self.assertRaises(KeyboardInterrupt):
+                    sampler.request()
+            worker = sampler.thread
+            self.assertIsNotNone(worker)
+            self.assertTrue(sampler.worker_entered.is_set())
+            before = time.monotonic()
+            events, pending = sampler.close(0.03)
+            self.assertLess(time.monotonic()-before, 1)
+            self.assertIs(sampler.thread, worker)
+            self.assertFalse(pending["worker_stopped"])
+            self.assertTrue(pending["worker_entry_confirmed"])
+            self.assertFalse(pending["worker_exit_confirmed"])
+            self.assertEqual(len(pending["uncompleted_request_ids"]), 1)
+            self.assertEqual(sum(event["phase"] == "started" for event in events), 1)
+            self.assertEqual(sum(event["phase"] == "completed" for event in events), 0)
+        finally:
+            release.set()
+            terminal, finished = sampler.close(1)
+        self.assertIs(sampler.thread, worker)
+        self.assertTrue(finished["worker_stopped"])
+        self.assertTrue(finished["worker_exit_confirmed"])
+        self.assertEqual(finished["uncompleted_request_ids"], [])
+        self.assertEqual(sum(event["phase"] == "completed" for event in terminal), 1)
+        self.assertTrue(terminal[-1]["result"]["nmt"]["available"])
+
+    def test_unconfirmed_worker_entry_cannot_be_reported_stopped(self):
+        provider = mock.Mock()
+        sampler = observer.AuxiliarySampler({}, {}, [], True, time.monotonic(), provider)
+        with mock.patch.object(threading.Thread, "start", side_effect=KeyboardInterrupt("fixture before entry")):
+            with self.assertRaises(KeyboardInterrupt):
+                sampler.request()
+        worker = sampler.thread
+        events, pending = sampler.close(0.03)
+        self.assertIsNotNone(worker)
+        self.assertIs(sampler.thread, worker)
+        provider.assert_not_called()
+        self.assertEqual(events, [])
+        self.assertFalse(pending["worker_stopped"])
+        self.assertFalse(pending["worker_entry_confirmed"])
+        self.assertFalse(pending["worker_exit_confirmed"])
+        self.assertEqual(len(pending["uncompleted_request_ids"]), 1)
+        self.assertEqual(len(pending["worker_exit_pending_request_ids"]), 1)
+
+
+class AuxiliaryTest(unittest.TestCase):
+    def setUp(self):
+        self.paths = [r"\GPU Process Memory(*)\Shared Usage", r"\GPU Process Memory(*)\Dedicated Usage"]
+        self.plan, self.launch = {"java": "java.exe"}, {"pid": 999}
+
+    def test_gpu_query_scopes_wildcard_instances_and_preserves_counter_names(self):
+        paths = [r"\\host\custom collection(*)\本地计数器", r"\custom(pid_999_fixed)\Other"]
+        self.assertEqual(observer.gpu_process_paths(paths, 999),
+            [r"\\host\custom collection(pid_999_*)\本地计数器", paths[1]])
+
+    def test_complete_process_gpu_counters_pass_and_query_only_this_pid(self):
+        values = [{"Path": path, "InstanceName": "pid_999_luid_0_phys_0", "CookedValue": amount, "Status": 0}
+            for path, amount in zip(self.paths, (16, 32))]
+        completed = SimpleNamespace(returncode=0, stdout=json.dumps(values), stderr="")
+        with mock.patch.object(observer.subprocess, "run", return_value=completed) as run:
+            result = observer.auxiliary(self.plan, self.launch, self.paths, False)["gpu"]
+        self.assertTrue(result["available"])
+        self.assertEqual(result["totals_by_counter"], {"Shared Usage": 16, "Dedicated Usage": 32})
+        payload = json.loads(run.call_args.kwargs["input"])
+        self.assertEqual(payload["paths"], [path.replace("(*)", "(pid_999_*)") for path in self.paths])
+        self.assertEqual(result["paths"], self.paths)
+        self.assertEqual(result["raw_stdout"], completed.stdout)
+
+    def test_gpu_query_failure_retains_stdout_stderr_and_exit_status(self):
+        completed = SimpleNamespace(returncode=1, stdout="partial output", stderr="native counter failure")
+        with mock.patch.object(observer.subprocess, "run", return_value=completed):
+            result = observer.auxiliary(self.plan, self.launch, self.paths, False)["gpu"]
+        self.assertFalse(result["available"])
+        self.assertEqual(result["exit_code"], 1)
+        self.assertEqual(result["raw_stdout"], completed.stdout)
+        self.assertEqual(result["raw_stderr"], completed.stderr)
+
+    def test_missing_or_invalid_gpu_counter_still_fails(self):
+        shared = {"Path": self.paths[0], "CookedValue": 16, "Status": 0}
+        dedicated = {"Path": self.paths[1], "CookedValue": 32, "Status": 0}
+        for values in ([shared], [shared, {**dedicated, "Status": 2}], [shared, {**dedicated, "CookedValue": float("nan")}], []):
+            with self.subTest(values=values):
+                completed = SimpleNamespace(returncode=0, stdout=json.dumps(values), stderr="")
+                with mock.patch.object(observer.subprocess, "run", return_value=completed):
+                    result = observer.auxiliary(self.plan, self.launch, self.paths, False)["gpu"]
+                self.assertFalse(result["available"])
+
+
+class RouteWindowsTest(unittest.TestCase):
+    def make_windows(self, progress=lambda elapsed: elapsed, identifier=lambda elapsed: 7, omit=lambda elapsed: False):
+        windows = observer.RouteWindows(60, 3, 0.01, 5, 1)
+        records = []
+        for elapsed in range(0, 61, 5):
+            if not omit(elapsed):
+                records.append(windows.add(elapsed, self.observation(elapsed, progress(elapsed), identifier(elapsed))))
+        return windows, records
+
+    def observation(self, elapsed, progress=0, identifier=7, verified=True):
+        return {"verified": verified, "state": {"timestamp": str(elapsed), "vehicles": [{"id": identifier, "railProgress": progress}]}}
+
+    def test_distributed_same_id_motion_passes_each_window(self):
+        windows, records = self.make_windows()
+        self.assertTrue(windows.summary()["passed"])
+        self.assertTrue(all(window["coverage_verified"] and window["motion_verified"] for window in windows.summary()["windows"]))
+        self.assertEqual(records[-1]["index"], 2)
+        self.assertEqual(records[1]["same_id_progress_displacements"][0]["absolute_progress_displacement"], 5)
+
+    def test_only_early_motion_fails_later_windows(self):
+        windows, _ = self.make_windows(progress=lambda elapsed: min(elapsed, 15))
+        self.assertFalse(windows.summary()["passed"])
+        self.assertEqual([window["motion_verified"] for window in windows.summary()["windows"]], [True, False, False])
+
+    def test_vehicle_id_replacement_does_not_establish_motion(self):
+        windows, _ = self.make_windows(progress=lambda elapsed: 10, identifier=lambda elapsed: elapsed)
+        self.assertFalse(windows.summary()["passed"])
+        self.assertTrue(all(window["same_id_pair_count"] == 0 for window in windows.summary()["windows"]))
+
+    def test_missing_middle_window_cannot_pass(self):
+        windows, _ = self.make_windows(omit=lambda elapsed: 20 <= elapsed < 40)
+        self.assertFalse(windows.summary()["passed"])
+        self.assertEqual(windows.summary()["windows"][1]["sample_count"], 0)
+        self.assertFalse(windows.summary()["windows"][1]["coverage_verified"])
+
+    def test_motion_without_window_edge_coverage_cannot_pass(self):
+        windows, _ = self.make_windows(omit=lambda elapsed: elapsed == 35)
+        middle = windows.summary()["windows"][1]
+        self.assertTrue(middle["motion_verified"])
+        self.assertFalse(middle["coverage_verified"])
+        self.assertFalse(windows.summary()["passed"])
+
+    def test_sampling_gap_or_unverified_state_breaks_window_coverage(self):
+        windows, _ = self.make_windows(omit=lambda elapsed: elapsed == 10)
+        self.assertFalse(windows.summary()["passed"])
+        self.assertEqual(windows.summary()["windows"][0]["maximum_observed_gap_seconds"], 10)
+        windows = observer.RouteWindows(60, 3, 0.01, 5, 1)
+        windows.add(0, self.observation(0))
+        windows.add(5, self.observation(5, 1, verified=False))
+        after = windows.add(10, self.observation(10, 2))
+        self.assertEqual(after["same_id_progress_displacements"], [])
+        self.assertFalse(windows.summary()["windows"][0]["coverage_verified"])
+
+    def test_no_motion_is_paired_across_window_boundary(self):
+        windows = observer.RouteWindows(60, 3, 0.01, 5, 1)
+        windows.add(15, self.observation(15, 0))
+        boundary = windows.add(20, self.observation(20, 10))
+        self.assertEqual(boundary["same_id_progress_displacements"], [])
+        self.assertEqual(windows.summary()["windows"][1]["same_id_pair_count"], 0)
+
+    def test_invalid_or_duplicate_trajectory_is_ineligible(self):
+        for vehicles in ([{"id": 7}], [{"id": 7, "railProgress": float("nan")}],
+                [{"id": 7, "railProgress": float("inf")}], [{"id": False, "railProgress": 1}],
+                [{"id": 7, "railProgress": True}], [{"id": 7, "railProgress": 1}, {"id": 7, "railProgress": 2}],
+                [None], {"id": 7, "railProgress": 1}):
+            with self.subTest(vehicles=vehicles):
+                windows = observer.RouteWindows(60, 3, 0.01, 5, 1)
+                record = windows.add(0, {"verified": True, "state": {"vehicles": vehicles}})
+                self.assertFalse(record["eligible"])
+                self.assertTrue(record["invalid_trajectory_records"])
+
+    def test_window_policy_rejects_single_or_invalid_windows(self):
+        for count in (0, 1, True, 3.0):
+            with self.subTest(count=count), self.assertRaises(ValueError):
+                observer.RouteWindows(60, count, 0.01, 5, 1)
+        for duration, displacement, interval, freshness in ((0, 0.01, 5, 1), (60, 0, 5, 1),
+                (60, float("nan"), 5, 1), (60, 0.01, float("inf"), 1), (60, 0.01, 5, 0)):
+            with self.subTest(values=(duration, displacement, interval, freshness)), self.assertRaises(ValueError):
+                observer.RouteWindows(duration, 3, displacement, interval, freshness)
+
+
+if __name__ == "__main__":
+    unittest.main()

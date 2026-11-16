@@ -1,0 +1,17 @@
+test_background_auxiliary_keeps_sampling_while_provider_is_blocked (test_observe_packaged_client.ObservationTest.test_background_auxiliary_keeps_sampling_while_provider_is_blocked) ... ok
+test_background_auxiliary_missing_failed_or_exception_result_still_rejects (test_observe_packaged_client.ObservationTest.test_background_auxiliary_missing_failed_or_exception_result_still_rejects) ... ok
+test_shutdown_completion_is_explicit_and_does_not_extend_route_window (test_observe_packaged_client.ObservationTest.test_shutdown_completion_is_explicit_and_does_not_extend_route_window) ... FAIL
+
+======================================================================
+FAIL: test_shutdown_completion_is_explicit_and_does_not_extend_route_window (test_observe_packaged_client.ObservationTest.test_shutdown_completion_is_explicit_and_does_not_extend_route_window)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\ben_l\Documents\Coding\resoucepack update\vehicle-memory\tools\test_observe_packaged_client.py", line 421, in test_shutdown_completion_is_explicit_and_does_not_extend_route_window
+    self.assertEqual(code, 0)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^
+AssertionError: 1 != 0
+
+----------------------------------------------------------------------
+Ran 3 tests in 3.032s
+
+FAILED (failures=1)

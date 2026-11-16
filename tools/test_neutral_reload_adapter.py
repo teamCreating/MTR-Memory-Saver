@@ -118,6 +118,30 @@ class NeutralReloadTest(unittest.TestCase):
             result, _ = observer.state_observation(path, stamp, None, 15, 1091, False, True, expected_declarations=1092, expected_process=wrong)
             self.assertFalse(result["verified"])
 
+    def test_only_reviewed_metadata_versions_and_capabilities_are_accepted(self):
+        for version in ("1.0.2", "1.0.3"):
+            metadata = {**self.metadata, "observer_version": version}
+            self.assertEqual(observer.validate_neutral_contract(metadata, self.state)["schema"], 1)
+        for field, value in (("observer_version", "1.0.4"), ("schema_version", 2),
+                             ("probe_kind", "other-observer"), ("diagnostics_schema", None)):
+            with self.subTest(field=field), self.assertRaisesRegex(ValueError, "reviewed consumer"):
+                observer.validate_neutral_contract({**self.metadata, field: value}, self.state)
+        for capabilities in ({}, None, {**self.state["capabilities"], "native_model_diagnostics": False},
+                             {**self.state["capabilities"], "native_model_diagnostics": 1}):
+            with self.subTest(capabilities=capabilities), self.assertRaisesRegex(ValueError, "diagnostic capabilities"):
+                observer.validate_neutral_contract(self.metadata, {**self.state, "capabilities": capabilities})
+
+    def test_repaired_snapshot_preserves_actual_version_and_unavailable_module_fields(self):
+        state = copy.deepcopy(self.state)
+        state["target"]["observer_version"] = "1.0.3"
+        stamp = observer.instant(state["timestamp"])+dt.timedelta(seconds=1)
+        result, _ = observer.neutral_state_observation(state, "fixture-sha", Path("fixture.json"), stamp,
+            None, 15, 1091, 1092, True, True, self.process)
+        self.assertTrue(result["verified"], result)
+        self.assertEqual(result["raw_state"]["target"], state["target"])
+        self.assertNotIn("text_workspace", result["state"])
+        self.assertNotIn("module_pending", result["state"]["runtime_counters"])
+
     def test_neutral_startup_consumes_real_contract_without_module_observer(self):
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)

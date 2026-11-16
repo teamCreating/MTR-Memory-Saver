@@ -1,0 +1,51 @@
+{
+  "started_at": "2026-11-16T23:24:21.928555+08:00",
+  "ended_at": "2026-11-16T23:25:37.203059+08:00",
+  "elapsed_seconds": 75.27427649998572,
+  "command": [
+    "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.venv\\Scripts\\python.exe",
+    "-X",
+    "utf8",
+    "-m",
+    "unittest",
+    "-v",
+    "test_neutral_reload_adapter",
+    "test_reload_before_recorder",
+    "test_observe_packaged_client",
+    "test_windows_snapshot_io"
+  ],
+  "cwd": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\tools",
+  "exit_code": 1,
+  "test_count": 100,
+  "stdout_sha256": "74616017fa1b710ef4784e4f4b42deb3576f9b7a754b1f7e847eac3414ee0f75",
+  "stderr_sha256": "cba59413016721fc68e34a37873080d6ea78f18d218392d7cb8a9bf7cfdf4977",
+  "source_sha256_before": {
+    "tools/observe_packaged_client.py": "f96d1fc4843a00286592b78732a6dfb15bfd7d46799432c0f2c911dc57f3c1aa",
+    "tools/reload_before_recorder.py": "f4ae20d99f9660f698146abc7fb6b49e657bac9b954577bdef7c7c70fa5b7cdc",
+    "tools/windows_snapshot_io.py": "6967cd6efee7a673e5df72700ea8de26e2e92c02d4614306bcb106fa527b02e1",
+    "config/native-observer-consumer.json": "fae895c646ff796473bdc2c83a1b1c4abfc518bb75c0ec3bcf10a476a5750e62",
+    "tools/test_neutral_reload_adapter.py": "4134ee3c4daf78a54fdfaabaf942ceec0bf1d0cadec99e76a6a3bd137dee533b",
+    "tools/test_reload_before_recorder.py": "d6bfd3dc939e05498a15ee97cd26c0996cd4563a1eed7c45a797e87434f8d9a9",
+    "tools/test_observe_packaged_client.py": "918c14f2fd7b8ca14d352111e5f08046347d3c441fc30afdad5aa0b1b27bbe69",
+    "tools/test_windows_snapshot_io.py": "1df2b5fefb7f6b7d04cafa2be06e9f8f8ccc7451ba3c185cabc3c49c47ca12f8",
+    "tools/client_experiment_analysis.py": "0669d421d09a47664cf9207f559f247983f76a666a1cfe8487c7d02d4c5a7d6e",
+    "tools/native_diagnostic_review.py": "39807f2f3b8173097d30d7fef7499e8bac419f72ff6abd1faf91b014c097e45d",
+    "config/native-diagnostic-review.json": "4d91b89a3600d44a9ec132b7dd58fb61d46d34ae63f9148716f24c9c144f745c"
+  },
+  "source_sha256_after": {
+    "tools/observe_packaged_client.py": "f96d1fc4843a00286592b78732a6dfb15bfd7d46799432c0f2c911dc57f3c1aa",
+    "tools/reload_before_recorder.py": "f4ae20d99f9660f698146abc7fb6b49e657bac9b954577bdef7c7c70fa5b7cdc",
+    "tools/windows_snapshot_io.py": "6967cd6efee7a673e5df72700ea8de26e2e92c02d4614306bcb106fa527b02e1",
+    "config/native-observer-consumer.json": "fae895c646ff796473bdc2c83a1b1c4abfc518bb75c0ec3bcf10a476a5750e62",
+    "tools/test_neutral_reload_adapter.py": "4134ee3c4daf78a54fdfaabaf942ceec0bf1d0cadec99e76a6a3bd137dee533b",
+    "tools/test_reload_before_recorder.py": "d6bfd3dc939e05498a15ee97cd26c0996cd4563a1eed7c45a797e87434f8d9a9",
+    "tools/test_observe_packaged_client.py": "918c14f2fd7b8ca14d352111e5f08046347d3c441fc30afdad5aa0b1b27bbe69",
+    "tools/test_windows_snapshot_io.py": "1df2b5fefb7f6b7d04cafa2be06e9f8f8ccc7451ba3c185cabc3c49c47ca12f8",
+    "tools/client_experiment_analysis.py": "0669d421d09a47664cf9207f559f247983f76a666a1cfe8487c7d02d4c5a7d6e",
+    "tools/native_diagnostic_review.py": "39807f2f3b8173097d30d7fef7499e8bac419f72ff6abd1faf91b014c097e45d",
+    "config/native-diagnostic-review.json": "4d91b89a3600d44a9ec132b7dd58fb61d46d34ae63f9148716f24c9c144f745c"
+  },
+  "runner_sha256": "d171ecf62fe69f3e19dd6bfd62feb273b3139b7f61d30ec94b541bf2aafcb928",
+  "passed": false,
+  "scope": "Engineering controls only. Generated epochs/receipts do not award actual reload, gameplay or performance acceptance."
+}

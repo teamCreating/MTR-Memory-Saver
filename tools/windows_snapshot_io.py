@@ -19,9 +19,10 @@ if os.name == "nt":
 def open_snapshot(path):
     """Return an owned binary reader; Windows permits read/write/delete sharing.
 
-    A compatible publisher (ReplaceFileW on Windows) may replace the path while
-    this handle continues to refer to the original file. MoveFileExW replacement
-    still denies an open target even with delete sharing.
+    A publisher using Windows 10 1607+ FileRenameInfoEx with POSIX semantics may
+    replace the name while this handle still refers to the original complete
+    file. ReplaceFileW preserves held readers but exposes missing/sharing windows
+    to concurrent new opens; MoveFileExW replacement denies an open target.
     Genuine access or publication errors are not retried or suppressed.
     """
     if os.name != "nt":

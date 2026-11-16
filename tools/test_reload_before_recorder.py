@@ -152,6 +152,18 @@ class RecorderTest(unittest.TestCase):
         self.assertEqual(reader.call_count, 1)
         self.assertEqual(self.rows()[-1]["event"]["kind"], "capture_failed")
 
+    def test_review_contract_is_frozen_and_change_stops_before_reading_snapshot(self):
+        self.assertIn(tool.observer.NEUTRAL_CONTRACT_FILE, tool.source_files())
+        contract = self.root / "native-observer-consumer.json"
+        contract.write_bytes(tool.observer.NEUTRAL_CONTRACT_FILE.read_bytes())
+        self.recorder.source_hashes[str(contract)] = tool.observer.digest(contract)
+        contract.write_bytes(contract.read_bytes() + b"\n")
+        with mock.patch.object(tool.windows_snapshot_io, "read_snapshot_bytes") as reader:
+            with self.assertRaisesRegex(ValueError, "source changed"):
+                self.recorder.capture()
+        reader.assert_not_called()
+        self.assertEqual(self.rows()[-1]["event"]["kind"], "capture_failed")
+
     def test_receipt_write_failure_retains_payload_and_never_publishes(self):
         original = tool.write_once
         def failed(path, raw):

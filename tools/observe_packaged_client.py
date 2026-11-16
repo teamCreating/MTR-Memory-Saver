@@ -27,6 +27,7 @@ import windows_snapshot_io
 
 UTC = dt.timezone.utc
 ZERO_COUNTERS = ("native_pending", "module_pending", "module_outstanding", "module_queued", "active_reads", "resource_in_flight", "module_failures")
+NEUTRAL_CONTRACT_FILE = pathlib.Path(__file__).resolve().parent.parent / "config/native-observer-consumer.json"
 
 
 def timestamp():
@@ -184,6 +185,10 @@ def neutral_state_observation(raw, state_hash, path, now, last_stamp, freshness,
     expected = {"distinct_ids": expected_count, "declarations": expected_declarations}
     errors = analysis.native_snapshot_errors(raw, process, now.isoformat(), freshness,
                                              {"expected_registration": expected}, require_scene=False)
+    try:
+        validate_neutral_contract(raw.get("target"), raw)
+    except ValueError as error:
+        errors.append(str(error))
     if raw.get("timestamp") != raw.get("observed_at"):
         errors.append("Native snapshot timestamp aliases differ.")
     if raw.get("timestamp") == last_stamp:
@@ -561,13 +566,25 @@ def neutral_context(instance, plan):
         if "mtr-native-observer-target.json" not in jar.namelist():
             return None
         metadata = json.loads(jar.read("mtr-native-observer-target.json"))
-    if metadata.get("probe_kind") != "official-native-observer" or metadata.get("observer_version") != "1.0.2":
-        raise ValueError("The neutral reload consumer requires the diagnostic 1.0.2 contract.")
+    validate_neutral_contract(metadata)
     for name in ("snapshot_path", "epochs_path", "diagnostics_path"):
         path = (instance / metadata[name]).resolve()
         if not path.is_relative_to(instance):
             raise ValueError("Installed observer output path escapes its instance.")
     return metadata
+
+
+def validate_neutral_contract(metadata, state=None):
+    """Accept only reviewed versions with the loaded metadata and native capabilities."""
+    contract = read(NEUTRAL_CONTRACT_FILE)
+    if (not isinstance(metadata, dict) or contract.get("schema") != 1 or metadata.get("observer_version") not in contract["accepted_observer_versions"]
+            or any(metadata.get(field) != value for field, value in contract["metadata"].items())):
+        raise ValueError("Installed observer metadata has no reviewed consumer contract.")
+    if state is not None:
+        capabilities = state.get("capabilities", {})
+        if not isinstance(capabilities, dict) or any(capabilities.get(field) is not True for field in contract["required_capabilities"]):
+            raise ValueError("The native snapshot lacks its reviewed diagnostic capabilities.")
+    return contract
 
 
 def neutral_reload_evidence(log, inputs, epochs, diagnostic_events, observations, baseline_sequence, launch, process,
@@ -876,7 +893,7 @@ def observe(args):
             neutral_review = read(review_path)
             diagnostic_review.validate_review(neutral_review, metadata)
             (output / "observer-target.json").write_text(json.dumps(metadata, indent=2) + "\n", encoding="utf-8")
-            for dependency in (pathlib.Path(analysis.__file__), pathlib.Path(diagnostic_review.__file__), pathlib.Path(recorder.__file__), review_path):
+            for dependency in (pathlib.Path(analysis.__file__), pathlib.Path(diagnostic_review.__file__), pathlib.Path(recorder.__file__), review_path, NEUTRAL_CONTRACT_FILE):
                 raw = dependency.read_bytes()
                 (output / dependency.name).write_bytes(raw)
                 neutral_sources[str(dependency)] = hashlib.sha256(raw).hexdigest()

@@ -1,0 +1,23 @@
+{
+  "started_at": "2026-11-16T15:30:43.582661+00:00",
+  "ended_at": "2026-11-16T15:30:44.013247+00:00",
+  "elapsed_seconds": 0.4305995000177063,
+  "argv": [
+    "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.venv\\Scripts\\python.exe",
+    "evidence/engineering-049/consumer-contract/diagnose_realtime.py"
+  ],
+  "test": "test_shutdown_completion_is_explicit_and_does_not_extend_route_window",
+  "tests": 1,
+  "failures": 0,
+  "errors": 0,
+  "passed": true,
+  "source_sha256_before": {
+    "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\tools\\test_observe_packaged_client.py": "918c14f2fd7b8ca14d352111e5f08046347d3c441fc30afdad5aa0b1b27bbe69",
+    "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\tools\\observe_packaged_client.py": "f96d1fc4843a00286592b78732a6dfb15bfd7d46799432c0f2c911dc57f3c1aa"
+  },
+  "source_sha256_after": {
+    "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\tools\\test_observe_packaged_client.py": "918c14f2fd7b8ca14d352111e5f08046347d3c441fc30afdad5aa0b1b27bbe69",
+    "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\tools\\observe_packaged_client.py": "f96d1fc4843a00286592b78732a6dfb15bfd7d46799432c0f2c911dc57f3c1aa"
+  },
+  "scope": "Unchanged test and observer. The wrapper copies the completed result only after the observation returns; it changes no timing gate or asserted result."
+}

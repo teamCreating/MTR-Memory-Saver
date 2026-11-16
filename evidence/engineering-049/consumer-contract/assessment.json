@@ -1,0 +1,25 @@
+{
+  "timestamp": "2026-11-16T15:31:50.902786+00:00",
+  "sealed_controls_verified": true,
+  "initial_suite": {
+    "tests": 100,
+    "failures": [
+      "test_background_auxiliary_keeps_sampling_while_provider_is_blocked (test_observe_packaged_client.ObservationTest.test_background_auxiliary_keeps_sampling_while_provider_is_blocked)",
+      "test_background_auxiliary_missing_failed_or_exception_result_still_rejects (test_observe_packaged_client.ObservationTest.test_background_auxiliary_missing_failed_or_exception_result_still_rejects) (outcome={'nmt': {'available': False, 'stderr': 'fixture failure'}})",
+      "test_shutdown_completion_is_explicit_and_does_not_extend_route_window (test_observe_packaged_client.ObservationTest.test_shutdown_completion_is_explicit_and_does_not_extend_route_window)"
+    ],
+    "passed_tests": 97
+  },
+  "targeted_repeat": {
+    "tests": 3,
+    "failures": [
+      "test_shutdown_completion_is_explicit_and_does_not_extend_route_window (test_observe_packaged_client.ObservationTest.test_shutdown_completion_is_explicit_and_does_not_extend_route_window)"
+    ],
+    "passed_tests": 2
+  },
+  "retained_shutdown_diagnostic_passed": true,
+  "all_green_single_full_suite": false,
+  "original_failed_summary_available": false,
+  "production_or_existing_timing_test_changed": false,
+  "scope": "Reviewed neutral consumer contract and retained engineering controls; no actual client/reload/gameplay/performance acceptance."
+}
