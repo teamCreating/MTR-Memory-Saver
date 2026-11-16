@@ -1,0 +1,3517 @@
+{
+  "started_at": "2026-11-16T15:50:31.434813+00:00",
+  "argv": [
+    "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\observation-attempts-verification\\independent-seal-review-20261116-a\\verify_sealed_attempts.py",
+    "--sealed-root",
+    "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\observation-attempts",
+    "--output",
+    "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\observation-attempts-verification\\independent-seal-review-20261116-a\\execution-20261116T155030029610Z"
+  ],
+  "python_executable": "C:\\Python314\\python.exe",
+  "python_version": "3.14.5 (tags/v3.14.5:5607950, May 10 2026, 10:43:50) [MSC v.1944 64 bit (AMD64)]",
+  "sealed_root": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\observation-attempts",
+  "checks": [
+    {
+      "name": "safe index path: capture-01/assessment.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "safe index path: capture-01/attempts/reload-observation/observer-source.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "safe index path: capture-01/attempts/reload-observation/samples.jsonl",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "safe index path: capture-01/attempts/reload-observation/summary.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "safe index path: capture-01/attempts/reload-observation/windows_snapshot_io.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "safe index path: capture-01/attempts/reload-recorder/journal.jsonl",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "safe index path: capture-01/attempts/reload-recorder/packaged-client-launch.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "safe index path: capture-01/attempts/reload-recorder/packaged-client-plan.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "safe index path: capture-01/attempts/reload-recorder/sources/client_experiment_analysis.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "safe index path: capture-01/attempts/reload-recorder/sources/native-observer-consumer.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "safe index path: capture-01/attempts/reload-recorder/sources/native_diagnostic_review.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "safe index path: capture-01/attempts/reload-recorder/sources/observe_packaged_client.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "safe index path: capture-01/attempts/reload-recorder/sources/reload_before_recorder.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "safe index path: capture-01/attempts/reload-recorder/sources/windows_snapshot_io.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "safe index path: capture-01/attempts/startup/auxiliary-events.jsonl",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "safe index path: capture-01/attempts/startup/client_experiment_analysis.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "safe index path: capture-01/attempts/startup/native-diagnostic-review.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "safe index path: capture-01/attempts/startup/native-observer-consumer.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "safe index path: capture-01/attempts/startup/native_diagnostic_review.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "safe index path: capture-01/attempts/startup/observer-source.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "safe index path: capture-01/attempts/startup/observer-target.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "safe index path: capture-01/attempts/startup/reload_before_recorder.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "safe index path: capture-01/attempts/startup/samples.jsonl",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "safe index path: capture-01/attempts/startup/windows_snapshot_io.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "safe index path: capture-01/collector-checkpoint/execution.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "safe index path: capture-01/collector-checkpoint/native-snapshots.jsonl",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "safe index path: capture-01/collector-checkpoint/packaged-client-launch.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "safe index path: capture-01/collector-checkpoint/packaged-client-plan.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "safe index path: capture-01/collector-checkpoint/sources/capture_diagnostic_client.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "safe index path: capture-01/collector-checkpoint/sources/packaged_client.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "safe index path: capture-01/collector-checkpoint/sources/windows_snapshot_io.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "safe index path: capture-01/instance/installed-bindings.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "safe index path: capture-01/instance/mods/mtr-memory-saver-official-nf248-0.4.7.jar",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "safe index path: capture-01/instance/mods/mtr-native-observer-official-nf248-1.0.3.jar",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "safe index path: capture-01/instance/packaged-client-launch.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "safe index path: capture-01/instance/packaged-client-plan.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "safe index path: capture-01/instance-checkpoint/game-probe/native-invalid-model.jsonl",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "safe index path: capture-01/instance-checkpoint/game-probe/native-observer.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "safe index path: capture-01/instance-checkpoint/game-probe/native-resource-epochs.jsonl",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "safe index path: capture-01/instance-checkpoint/logs/latest.log",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "safe index path: capture-01/parent-reported-tool-results.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "safe index path: capture_attempts.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "safe index path: README.md",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "exact payload inventory",
+      "passed": true,
+      "detail": {
+        "missing": [],
+        "unindexed": []
+      }
+    },
+    {
+      "name": "43 indexed payload files",
+      "passed": true,
+      "detail": {
+        "indexed": 43,
+        "with_index": 44
+      }
+    },
+    {
+      "name": "indexed bytes and SHA-256: capture-01/assessment.json",
+      "passed": true,
+      "detail": {
+        "declared": {
+          "sha256": "bd9c38f71f38730de3b03b558a538808a5fd39e1e58ec805bcc6decc9fb361ae",
+          "bytes": 28651
+        },
+        "recomputed": {
+          "sha256": "bd9c38f71f38730de3b03b558a538808a5fd39e1e58ec805bcc6decc9fb361ae",
+          "bytes": 28651
+        }
+      }
+    },
+    {
+      "name": "indexed bytes and SHA-256: capture-01/attempts/reload-observation/observer-source.py",
+      "passed": true,
+      "detail": {
+        "declared": {
+          "sha256": "f96d1fc4843a00286592b78732a6dfb15bfd7d46799432c0f2c911dc57f3c1aa",
+          "bytes": 85281
+        },
+        "recomputed": {
+          "sha256": "f96d1fc4843a00286592b78732a6dfb15bfd7d46799432c0f2c911dc57f3c1aa",
+          "bytes": 85281
+        }
+      }
+    },
+    {
+      "name": "indexed bytes and SHA-256: capture-01/attempts/reload-observation/samples.jsonl",
+      "passed": true,
+      "detail": {
+        "declared": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        },
+        "recomputed": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        }
+      }
+    },
+    {
+      "name": "indexed bytes and SHA-256: capture-01/attempts/reload-observation/summary.json",
+      "passed": true,
+      "detail": {
+        "declared": {
+          "sha256": "a8890d958f185382cbb57d3313b0cb53934e7e983d9b6a6135f352eb0c97667b",
+          "bytes": 1432
+        },
+        "recomputed": {
+          "sha256": "a8890d958f185382cbb57d3313b0cb53934e7e983d9b6a6135f352eb0c97667b",
+          "bytes": 1432
+        }
+      }
+    },
+    {
+      "name": "indexed bytes and SHA-256: capture-01/attempts/reload-observation/windows_snapshot_io.py",
+      "passed": true,
+      "detail": {
+        "declared": {
+          "sha256": "6967cd6efee7a673e5df72700ea8de26e2e92c02d4614306bcb106fa527b02e1",
+          "bytes": 1992
+        },
+        "recomputed": {
+          "sha256": "6967cd6efee7a673e5df72700ea8de26e2e92c02d4614306bcb106fa527b02e1",
+          "bytes": 1992
+        }
+      }
+    },
+    {
+      "name": "indexed bytes and SHA-256: capture-01/attempts/reload-recorder/journal.jsonl",
+      "passed": true,
+      "detail": {
+        "declared": {
+          "sha256": "04074ccc0dcddd6dd78669ce8e65d29b19c6bd7e5d17f7bb97f0accfe5b2a41b",
+          "bytes": 952
+        },
+        "recomputed": {
+          "sha256": "04074ccc0dcddd6dd78669ce8e65d29b19c6bd7e5d17f7bb97f0accfe5b2a41b",
+          "bytes": 952
+        }
+      }
+    },
+    {
+      "name": "indexed bytes and SHA-256: capture-01/attempts/reload-recorder/packaged-client-launch.json",
+      "passed": true,
+      "detail": {
+        "declared": {
+          "sha256": "6a64b382abe1766c9ab1b508173994bc4ca9ed54dac7123b2b97b26041db3635",
+          "bytes": 26219
+        },
+        "recomputed": {
+          "sha256": "6a64b382abe1766c9ab1b508173994bc4ca9ed54dac7123b2b97b26041db3635",
+          "bytes": 26219
+        }
+      }
+    },
+    {
+      "name": "indexed bytes and SHA-256: capture-01/attempts/reload-recorder/packaged-client-plan.json",
+      "passed": true,
+      "detail": {
+        "declared": {
+          "sha256": "d286eedb9786b86296e72d6effb8fbc9529326d450e0a375d8eed7345abd2c1b",
+          "bytes": 42325
+        },
+        "recomputed": {
+          "sha256": "d286eedb9786b86296e72d6effb8fbc9529326d450e0a375d8eed7345abd2c1b",
+          "bytes": 42325
+        }
+      }
+    },
+    {
+      "name": "indexed bytes and SHA-256: capture-01/attempts/reload-recorder/sources/client_experiment_analysis.py",
+      "passed": true,
+      "detail": {
+        "declared": {
+          "sha256": "0669d421d09a47664cf9207f559f247983f76a666a1cfe8487c7d02d4c5a7d6e",
+          "bytes": 41656
+        },
+        "recomputed": {
+          "sha256": "0669d421d09a47664cf9207f559f247983f76a666a1cfe8487c7d02d4c5a7d6e",
+          "bytes": 41656
+        }
+      }
+    },
+    {
+      "name": "indexed bytes and SHA-256: capture-01/attempts/reload-recorder/sources/native-observer-consumer.json",
+      "passed": true,
+      "detail": {
+        "declared": {
+          "sha256": "fae895c646ff796473bdc2c83a1b1c4abfc518bb75c0ec3bcf10a476a5750e62",
+          "bytes": 364
+        },
+        "recomputed": {
+          "sha256": "fae895c646ff796473bdc2c83a1b1c4abfc518bb75c0ec3bcf10a476a5750e62",
+          "bytes": 364
+        }
+      }
+    },
+    {
+      "name": "indexed bytes and SHA-256: capture-01/attempts/reload-recorder/sources/native_diagnostic_review.py",
+      "passed": true,
+      "detail": {
+        "declared": {
+          "sha256": "39807f2f3b8173097d30d7fef7499e8bac419f72ff6abd1faf91b014c097e45d",
+          "bytes": 14788
+        },
+        "recomputed": {
+          "sha256": "39807f2f3b8173097d30d7fef7499e8bac419f72ff6abd1faf91b014c097e45d",
+          "bytes": 14788
+        }
+      }
+    },
+    {
+      "name": "indexed bytes and SHA-256: capture-01/attempts/reload-recorder/sources/observe_packaged_client.py",
+      "passed": true,
+      "detail": {
+        "declared": {
+          "sha256": "f96d1fc4843a00286592b78732a6dfb15bfd7d46799432c0f2c911dc57f3c1aa",
+          "bytes": 85281
+        },
+        "recomputed": {
+          "sha256": "f96d1fc4843a00286592b78732a6dfb15bfd7d46799432c0f2c911dc57f3c1aa",
+          "bytes": 85281
+        }
+      }
+    },
+    {
+      "name": "indexed bytes and SHA-256: capture-01/attempts/reload-recorder/sources/reload_before_recorder.py",
+      "passed": true,
+      "detail": {
+        "declared": {
+          "sha256": "f4ae20d99f9660f698146abc7fb6b49e657bac9b954577bdef7c7c70fa5b7cdc",
+          "bytes": 27651
+        },
+        "recomputed": {
+          "sha256": "f4ae20d99f9660f698146abc7fb6b49e657bac9b954577bdef7c7c70fa5b7cdc",
+          "bytes": 27651
+        }
+      }
+    },
+    {
+      "name": "indexed bytes and SHA-256: capture-01/attempts/reload-recorder/sources/windows_snapshot_io.py",
+      "passed": true,
+      "detail": {
+        "declared": {
+          "sha256": "6967cd6efee7a673e5df72700ea8de26e2e92c02d4614306bcb106fa527b02e1",
+          "bytes": 1992
+        },
+        "recomputed": {
+          "sha256": "6967cd6efee7a673e5df72700ea8de26e2e92c02d4614306bcb106fa527b02e1",
+          "bytes": 1992
+        }
+      }
+    },
+    {
+      "name": "indexed bytes and SHA-256: capture-01/attempts/startup/auxiliary-events.jsonl",
+      "passed": true,
+      "detail": {
+        "declared": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        },
+        "recomputed": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        }
+      }
+    },
+    {
+      "name": "indexed bytes and SHA-256: capture-01/attempts/startup/client_experiment_analysis.py",
+      "passed": true,
+      "detail": {
+        "declared": {
+          "sha256": "0669d421d09a47664cf9207f559f247983f76a666a1cfe8487c7d02d4c5a7d6e",
+          "bytes": 41656
+        },
+        "recomputed": {
+          "sha256": "0669d421d09a47664cf9207f559f247983f76a666a1cfe8487c7d02d4c5a7d6e",
+          "bytes": 41656
+        }
+      }
+    },
+    {
+      "name": "indexed bytes and SHA-256: capture-01/attempts/startup/native-diagnostic-review.json",
+      "passed": true,
+      "detail": {
+        "declared": {
+          "sha256": "4d91b89a3600d44a9ec132b7dd58fb61d46d34ae63f9148716f24c9c144f745c",
+          "bytes": 2328
+        },
+        "recomputed": {
+          "sha256": "4d91b89a3600d44a9ec132b7dd58fb61d46d34ae63f9148716f24c9c144f745c",
+          "bytes": 2328
+        }
+      }
+    },
+    {
+      "name": "indexed bytes and SHA-256: capture-01/attempts/startup/native-observer-consumer.json",
+      "passed": true,
+      "detail": {
+        "declared": {
+          "sha256": "fae895c646ff796473bdc2c83a1b1c4abfc518bb75c0ec3bcf10a476a5750e62",
+          "bytes": 364
+        },
+        "recomputed": {
+          "sha256": "fae895c646ff796473bdc2c83a1b1c4abfc518bb75c0ec3bcf10a476a5750e62",
+          "bytes": 364
+        }
+      }
+    },
+    {
+      "name": "indexed bytes and SHA-256: capture-01/attempts/startup/native_diagnostic_review.py",
+      "passed": true,
+      "detail": {
+        "declared": {
+          "sha256": "39807f2f3b8173097d30d7fef7499e8bac419f72ff6abd1faf91b014c097e45d",
+          "bytes": 14788
+        },
+        "recomputed": {
+          "sha256": "39807f2f3b8173097d30d7fef7499e8bac419f72ff6abd1faf91b014c097e45d",
+          "bytes": 14788
+        }
+      }
+    },
+    {
+      "name": "indexed bytes and SHA-256: capture-01/attempts/startup/observer-source.py",
+      "passed": true,
+      "detail": {
+        "declared": {
+          "sha256": "f96d1fc4843a00286592b78732a6dfb15bfd7d46799432c0f2c911dc57f3c1aa",
+          "bytes": 85281
+        },
+        "recomputed": {
+          "sha256": "f96d1fc4843a00286592b78732a6dfb15bfd7d46799432c0f2c911dc57f3c1aa",
+          "bytes": 85281
+        }
+      }
+    },
+    {
+      "name": "indexed bytes and SHA-256: capture-01/attempts/startup/observer-target.json",
+      "passed": true,
+      "detail": {
+        "declared": {
+          "sha256": "ad88abd18239df098a877342ee8a8cb21b7e373934a5b22a1d0b1481fd3e868d",
+          "bytes": 679
+        },
+        "recomputed": {
+          "sha256": "ad88abd18239df098a877342ee8a8cb21b7e373934a5b22a1d0b1481fd3e868d",
+          "bytes": 679
+        }
+      }
+    },
+    {
+      "name": "indexed bytes and SHA-256: capture-01/attempts/startup/reload_before_recorder.py",
+      "passed": true,
+      "detail": {
+        "declared": {
+          "sha256": "f4ae20d99f9660f698146abc7fb6b49e657bac9b954577bdef7c7c70fa5b7cdc",
+          "bytes": 27651
+        },
+        "recomputed": {
+          "sha256": "f4ae20d99f9660f698146abc7fb6b49e657bac9b954577bdef7c7c70fa5b7cdc",
+          "bytes": 27651
+        }
+      }
+    },
+    {
+      "name": "indexed bytes and SHA-256: capture-01/attempts/startup/samples.jsonl",
+      "passed": true,
+      "detail": {
+        "declared": {
+          "sha256": "d4014c2a1b515f03b1e1eb0ccb68a74d28f1404ef297fed5a006e7087fa40f9a",
+          "bytes": 1764372
+        },
+        "recomputed": {
+          "sha256": "d4014c2a1b515f03b1e1eb0ccb68a74d28f1404ef297fed5a006e7087fa40f9a",
+          "bytes": 1764372
+        }
+      }
+    },
+    {
+      "name": "indexed bytes and SHA-256: capture-01/attempts/startup/windows_snapshot_io.py",
+      "passed": true,
+      "detail": {
+        "declared": {
+          "sha256": "6967cd6efee7a673e5df72700ea8de26e2e92c02d4614306bcb106fa527b02e1",
+          "bytes": 1992
+        },
+        "recomputed": {
+          "sha256": "6967cd6efee7a673e5df72700ea8de26e2e92c02d4614306bcb106fa527b02e1",
+          "bytes": 1992
+        }
+      }
+    },
+    {
+      "name": "indexed bytes and SHA-256: capture-01/collector-checkpoint/execution.json",
+      "passed": true,
+      "detail": {
+        "declared": {
+          "sha256": "48fa63c04cdfb2b5bcb59da56ed8b9e5bd89db2ec21de4b970cb57feb694b7fb",
+          "bytes": 675
+        },
+        "recomputed": {
+          "sha256": "48fa63c04cdfb2b5bcb59da56ed8b9e5bd89db2ec21de4b970cb57feb694b7fb",
+          "bytes": 675
+        }
+      }
+    },
+    {
+      "name": "indexed bytes and SHA-256: capture-01/collector-checkpoint/native-snapshots.jsonl",
+      "passed": true,
+      "detail": {
+        "declared": {
+          "sha256": "70944551d57d6f1659c2fa4c87c3a14958c9112f9d15b968a871480883febbd5",
+          "bytes": 3671823
+        },
+        "recomputed": {
+          "sha256": "70944551d57d6f1659c2fa4c87c3a14958c9112f9d15b968a871480883febbd5",
+          "bytes": 3671823
+        }
+      }
+    },
+    {
+      "name": "indexed bytes and SHA-256: capture-01/collector-checkpoint/packaged-client-launch.json",
+      "passed": true,
+      "detail": {
+        "declared": {
+          "sha256": "6a64b382abe1766c9ab1b508173994bc4ca9ed54dac7123b2b97b26041db3635",
+          "bytes": 26219
+        },
+        "recomputed": {
+          "sha256": "6a64b382abe1766c9ab1b508173994bc4ca9ed54dac7123b2b97b26041db3635",
+          "bytes": 26219
+        }
+      }
+    },
+    {
+      "name": "indexed bytes and SHA-256: capture-01/collector-checkpoint/packaged-client-plan.json",
+      "passed": true,
+      "detail": {
+        "declared": {
+          "sha256": "d286eedb9786b86296e72d6effb8fbc9529326d450e0a375d8eed7345abd2c1b",
+          "bytes": 42325
+        },
+        "recomputed": {
+          "sha256": "d286eedb9786b86296e72d6effb8fbc9529326d450e0a375d8eed7345abd2c1b",
+          "bytes": 42325
+        }
+      }
+    },
+    {
+      "name": "indexed bytes and SHA-256: capture-01/collector-checkpoint/sources/capture_diagnostic_client.py",
+      "passed": true,
+      "detail": {
+        "declared": {
+          "sha256": "a9ee4e8f2a068ba9c0b72a6f7b348cecdd9c5e4bbe534aeabf851b704e1fb69a",
+          "bytes": 5287
+        },
+        "recomputed": {
+          "sha256": "a9ee4e8f2a068ba9c0b72a6f7b348cecdd9c5e4bbe534aeabf851b704e1fb69a",
+          "bytes": 5287
+        }
+      }
+    },
+    {
+      "name": "indexed bytes and SHA-256: capture-01/collector-checkpoint/sources/packaged_client.py",
+      "passed": true,
+      "detail": {
+        "declared": {
+          "sha256": "ad2e0dbf209ded20942891378e0a5855d6c3f65f8d89baa9afa2a7d24b2af13c",
+          "bytes": 42086
+        },
+        "recomputed": {
+          "sha256": "ad2e0dbf209ded20942891378e0a5855d6c3f65f8d89baa9afa2a7d24b2af13c",
+          "bytes": 42086
+        }
+      }
+    },
+    {
+      "name": "indexed bytes and SHA-256: capture-01/collector-checkpoint/sources/windows_snapshot_io.py",
+      "passed": true,
+      "detail": {
+        "declared": {
+          "sha256": "6967cd6efee7a673e5df72700ea8de26e2e92c02d4614306bcb106fa527b02e1",
+          "bytes": 1992
+        },
+        "recomputed": {
+          "sha256": "6967cd6efee7a673e5df72700ea8de26e2e92c02d4614306bcb106fa527b02e1",
+          "bytes": 1992
+        }
+      }
+    },
+    {
+      "name": "indexed bytes and SHA-256: capture-01/instance/installed-bindings.json",
+      "passed": true,
+      "detail": {
+        "declared": {
+          "sha256": "dfb35930d76e00a55471e5f20196fb051d245d6ba89a2300477188fb5e95f4c7",
+          "bytes": 8164
+        },
+        "recomputed": {
+          "sha256": "dfb35930d76e00a55471e5f20196fb051d245d6ba89a2300477188fb5e95f4c7",
+          "bytes": 8164
+        }
+      }
+    },
+    {
+      "name": "indexed bytes and SHA-256: capture-01/instance/mods/mtr-memory-saver-official-nf248-0.4.7.jar",
+      "passed": true,
+      "detail": {
+        "declared": {
+          "sha256": "e8b5b40230d0f44c541c12b32c8a30d4c2ea056b8a972335ae10166496837a99",
+          "bytes": 321705
+        },
+        "recomputed": {
+          "sha256": "e8b5b40230d0f44c541c12b32c8a30d4c2ea056b8a972335ae10166496837a99",
+          "bytes": 321705
+        }
+      }
+    },
+    {
+      "name": "indexed bytes and SHA-256: capture-01/instance/mods/mtr-native-observer-official-nf248-1.0.3.jar",
+      "passed": true,
+      "detail": {
+        "declared": {
+          "sha256": "1a4e69a81e8baaeaf30e76b7647a371a39411ab7687934da83742c0fdce8487d",
+          "bytes": 44068
+        },
+        "recomputed": {
+          "sha256": "1a4e69a81e8baaeaf30e76b7647a371a39411ab7687934da83742c0fdce8487d",
+          "bytes": 44068
+        }
+      }
+    },
+    {
+      "name": "indexed bytes and SHA-256: capture-01/instance/packaged-client-launch.json",
+      "passed": true,
+      "detail": {
+        "declared": {
+          "sha256": "6a64b382abe1766c9ab1b508173994bc4ca9ed54dac7123b2b97b26041db3635",
+          "bytes": 26219
+        },
+        "recomputed": {
+          "sha256": "6a64b382abe1766c9ab1b508173994bc4ca9ed54dac7123b2b97b26041db3635",
+          "bytes": 26219
+        }
+      }
+    },
+    {
+      "name": "indexed bytes and SHA-256: capture-01/instance/packaged-client-plan.json",
+      "passed": true,
+      "detail": {
+        "declared": {
+          "sha256": "d286eedb9786b86296e72d6effb8fbc9529326d450e0a375d8eed7345abd2c1b",
+          "bytes": 42325
+        },
+        "recomputed": {
+          "sha256": "d286eedb9786b86296e72d6effb8fbc9529326d450e0a375d8eed7345abd2c1b",
+          "bytes": 42325
+        }
+      }
+    },
+    {
+      "name": "indexed bytes and SHA-256: capture-01/instance-checkpoint/game-probe/native-invalid-model.jsonl",
+      "passed": true,
+      "detail": {
+        "declared": {
+          "sha256": "9db47ddc968470cc1a88b84c441da17c174c390ddee7eec04343707650e4d12c",
+          "bytes": 22050
+        },
+        "recomputed": {
+          "sha256": "9db47ddc968470cc1a88b84c441da17c174c390ddee7eec04343707650e4d12c",
+          "bytes": 22050
+        }
+      }
+    },
+    {
+      "name": "indexed bytes and SHA-256: capture-01/instance-checkpoint/game-probe/native-observer.json",
+      "passed": true,
+      "detail": {
+        "declared": {
+          "sha256": "6c79195ac547382e370539479290bfdbfb4d68adcbeea7eb0b1527907872772a",
+          "bytes": 6713
+        },
+        "recomputed": {
+          "sha256": "6c79195ac547382e370539479290bfdbfb4d68adcbeea7eb0b1527907872772a",
+          "bytes": 6713
+        }
+      }
+    },
+    {
+      "name": "indexed bytes and SHA-256: capture-01/instance-checkpoint/game-probe/native-resource-epochs.jsonl",
+      "passed": true,
+      "detail": {
+        "declared": {
+          "sha256": "7b68271761a14e40d775b0e4f9a8a3b459b59fa4296d12b9953cf1f5a04a812a",
+          "bytes": 1787
+        },
+        "recomputed": {
+          "sha256": "7b68271761a14e40d775b0e4f9a8a3b459b59fa4296d12b9953cf1f5a04a812a",
+          "bytes": 1787
+        }
+      }
+    },
+    {
+      "name": "indexed bytes and SHA-256: capture-01/instance-checkpoint/logs/latest.log",
+      "passed": true,
+      "detail": {
+        "declared": {
+          "sha256": "24cd40679c7b6c2041eefd6f04e249c48fcbc8dc52de50df9bbb7a29dcef0501",
+          "bytes": 27952
+        },
+        "recomputed": {
+          "sha256": "24cd40679c7b6c2041eefd6f04e249c48fcbc8dc52de50df9bbb7a29dcef0501",
+          "bytes": 27952
+        }
+      }
+    },
+    {
+      "name": "indexed bytes and SHA-256: capture-01/parent-reported-tool-results.json",
+      "passed": true,
+      "detail": {
+        "declared": {
+          "sha256": "b01ba2c47bb4712d273c20d09fbb5c1902d469f7683d977fca0e53e09c6f58ca",
+          "bytes": 926
+        },
+        "recomputed": {
+          "sha256": "b01ba2c47bb4712d273c20d09fbb5c1902d469f7683d977fca0e53e09c6f58ca",
+          "bytes": 926
+        }
+      }
+    },
+    {
+      "name": "indexed bytes and SHA-256: capture_attempts.py",
+      "passed": true,
+      "detail": {
+        "declared": {
+          "sha256": "aee1c8e8f8437e7754170ceaf2e6afa076afc621d54dcca6fdb825847da700a9",
+          "bytes": 10725
+        },
+        "recomputed": {
+          "sha256": "aee1c8e8f8437e7754170ceaf2e6afa076afc621d54dcca6fdb825847da700a9",
+          "bytes": 10725
+        }
+      }
+    },
+    {
+      "name": "indexed bytes and SHA-256: README.md",
+      "passed": true,
+      "detail": {
+        "declared": {
+          "sha256": "2f651e0fc26da6a48a7ac2730dc4beb24bdd1b60533bdeab1f825e4bc94aa744",
+          "bytes": 3092
+        },
+        "recomputed": {
+          "sha256": "2f651e0fc26da6a48a7ac2730dc4beb24bdd1b60533bdeab1f825e4bc94aa744",
+          "bytes": 3092
+        }
+      }
+    },
+    {
+      "name": "no attempt02 payload or directory",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "assessment capture interval",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "38 original copy read receipts",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt bytes/hash: attempts/startup/auxiliary-events.jsonl",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt temporal boundary: attempts/startup/auxiliary-events.jsonl",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt size frontier: attempts/startup/auxiliary-events.jsonl",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt excludes attempt02: attempts/startup/auxiliary-events.jsonl",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt bytes/hash: attempts/startup/client_experiment_analysis.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt temporal boundary: attempts/startup/client_experiment_analysis.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt size frontier: attempts/startup/client_experiment_analysis.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt excludes attempt02: attempts/startup/client_experiment_analysis.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt bytes/hash: attempts/startup/native-diagnostic-review.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt temporal boundary: attempts/startup/native-diagnostic-review.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt size frontier: attempts/startup/native-diagnostic-review.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt excludes attempt02: attempts/startup/native-diagnostic-review.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt bytes/hash: attempts/startup/native-observer-consumer.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt temporal boundary: attempts/startup/native-observer-consumer.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt size frontier: attempts/startup/native-observer-consumer.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt excludes attempt02: attempts/startup/native-observer-consumer.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt bytes/hash: attempts/startup/native_diagnostic_review.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt temporal boundary: attempts/startup/native_diagnostic_review.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt size frontier: attempts/startup/native_diagnostic_review.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt excludes attempt02: attempts/startup/native_diagnostic_review.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt bytes/hash: attempts/startup/observer-source.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt temporal boundary: attempts/startup/observer-source.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt size frontier: attempts/startup/observer-source.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt excludes attempt02: attempts/startup/observer-source.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt bytes/hash: attempts/startup/observer-target.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt temporal boundary: attempts/startup/observer-target.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt size frontier: attempts/startup/observer-target.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt excludes attempt02: attempts/startup/observer-target.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt bytes/hash: attempts/startup/reload_before_recorder.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt temporal boundary: attempts/startup/reload_before_recorder.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt size frontier: attempts/startup/reload_before_recorder.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt excludes attempt02: attempts/startup/reload_before_recorder.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt bytes/hash: attempts/startup/samples.jsonl",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt temporal boundary: attempts/startup/samples.jsonl",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt size frontier: attempts/startup/samples.jsonl",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt excludes attempt02: attempts/startup/samples.jsonl",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt bytes/hash: attempts/startup/windows_snapshot_io.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt temporal boundary: attempts/startup/windows_snapshot_io.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt size frontier: attempts/startup/windows_snapshot_io.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt excludes attempt02: attempts/startup/windows_snapshot_io.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt bytes/hash: attempts/reload-recorder/journal.jsonl",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt temporal boundary: attempts/reload-recorder/journal.jsonl",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt size frontier: attempts/reload-recorder/journal.jsonl",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt excludes attempt02: attempts/reload-recorder/journal.jsonl",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt bytes/hash: attempts/reload-recorder/packaged-client-launch.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt temporal boundary: attempts/reload-recorder/packaged-client-launch.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt size frontier: attempts/reload-recorder/packaged-client-launch.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt excludes attempt02: attempts/reload-recorder/packaged-client-launch.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt bytes/hash: attempts/reload-recorder/packaged-client-plan.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt temporal boundary: attempts/reload-recorder/packaged-client-plan.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt size frontier: attempts/reload-recorder/packaged-client-plan.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt excludes attempt02: attempts/reload-recorder/packaged-client-plan.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt bytes/hash: attempts/reload-recorder/sources/client_experiment_analysis.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt temporal boundary: attempts/reload-recorder/sources/client_experiment_analysis.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt size frontier: attempts/reload-recorder/sources/client_experiment_analysis.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt excludes attempt02: attempts/reload-recorder/sources/client_experiment_analysis.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt bytes/hash: attempts/reload-recorder/sources/native-observer-consumer.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt temporal boundary: attempts/reload-recorder/sources/native-observer-consumer.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt size frontier: attempts/reload-recorder/sources/native-observer-consumer.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt excludes attempt02: attempts/reload-recorder/sources/native-observer-consumer.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt bytes/hash: attempts/reload-recorder/sources/native_diagnostic_review.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt temporal boundary: attempts/reload-recorder/sources/native_diagnostic_review.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt size frontier: attempts/reload-recorder/sources/native_diagnostic_review.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt excludes attempt02: attempts/reload-recorder/sources/native_diagnostic_review.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt bytes/hash: attempts/reload-recorder/sources/observe_packaged_client.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt temporal boundary: attempts/reload-recorder/sources/observe_packaged_client.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt size frontier: attempts/reload-recorder/sources/observe_packaged_client.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt excludes attempt02: attempts/reload-recorder/sources/observe_packaged_client.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt bytes/hash: attempts/reload-recorder/sources/reload_before_recorder.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt temporal boundary: attempts/reload-recorder/sources/reload_before_recorder.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt size frontier: attempts/reload-recorder/sources/reload_before_recorder.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt excludes attempt02: attempts/reload-recorder/sources/reload_before_recorder.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt bytes/hash: attempts/reload-recorder/sources/windows_snapshot_io.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt temporal boundary: attempts/reload-recorder/sources/windows_snapshot_io.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt size frontier: attempts/reload-recorder/sources/windows_snapshot_io.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt excludes attempt02: attempts/reload-recorder/sources/windows_snapshot_io.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt bytes/hash: attempts/reload-observation/observer-source.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt temporal boundary: attempts/reload-observation/observer-source.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt size frontier: attempts/reload-observation/observer-source.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt excludes attempt02: attempts/reload-observation/observer-source.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt bytes/hash: attempts/reload-observation/samples.jsonl",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt temporal boundary: attempts/reload-observation/samples.jsonl",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt size frontier: attempts/reload-observation/samples.jsonl",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt excludes attempt02: attempts/reload-observation/samples.jsonl",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt bytes/hash: attempts/reload-observation/summary.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt temporal boundary: attempts/reload-observation/summary.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt size frontier: attempts/reload-observation/summary.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt excludes attempt02: attempts/reload-observation/summary.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt bytes/hash: attempts/reload-observation/windows_snapshot_io.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt temporal boundary: attempts/reload-observation/windows_snapshot_io.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt size frontier: attempts/reload-observation/windows_snapshot_io.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt excludes attempt02: attempts/reload-observation/windows_snapshot_io.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt bytes/hash: instance/packaged-client-plan.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt temporal boundary: instance/packaged-client-plan.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt size frontier: instance/packaged-client-plan.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt excludes attempt02: instance/packaged-client-plan.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt bytes/hash: instance/packaged-client-launch.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt temporal boundary: instance/packaged-client-launch.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt size frontier: instance/packaged-client-launch.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt excludes attempt02: instance/packaged-client-launch.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt bytes/hash: instance/mods/mtr-memory-saver-official-nf248-0.4.7.jar",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt temporal boundary: instance/mods/mtr-memory-saver-official-nf248-0.4.7.jar",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt size frontier: instance/mods/mtr-memory-saver-official-nf248-0.4.7.jar",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt excludes attempt02: instance/mods/mtr-memory-saver-official-nf248-0.4.7.jar",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt bytes/hash: instance/mods/mtr-native-observer-official-nf248-1.0.3.jar",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt temporal boundary: instance/mods/mtr-native-observer-official-nf248-1.0.3.jar",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt size frontier: instance/mods/mtr-native-observer-official-nf248-1.0.3.jar",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt excludes attempt02: instance/mods/mtr-native-observer-official-nf248-1.0.3.jar",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt bytes/hash: collector-checkpoint/execution.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt temporal boundary: collector-checkpoint/execution.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt size frontier: collector-checkpoint/execution.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt excludes attempt02: collector-checkpoint/execution.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt bytes/hash: collector-checkpoint/native-snapshots.jsonl",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt temporal boundary: collector-checkpoint/native-snapshots.jsonl",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt size frontier: collector-checkpoint/native-snapshots.jsonl",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt excludes attempt02: collector-checkpoint/native-snapshots.jsonl",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt bytes/hash: collector-checkpoint/packaged-client-plan.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt temporal boundary: collector-checkpoint/packaged-client-plan.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt size frontier: collector-checkpoint/packaged-client-plan.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt excludes attempt02: collector-checkpoint/packaged-client-plan.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt bytes/hash: collector-checkpoint/packaged-client-launch.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt temporal boundary: collector-checkpoint/packaged-client-launch.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt size frontier: collector-checkpoint/packaged-client-launch.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt excludes attempt02: collector-checkpoint/packaged-client-launch.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt bytes/hash: collector-checkpoint/sources/capture_diagnostic_client.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt temporal boundary: collector-checkpoint/sources/capture_diagnostic_client.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt size frontier: collector-checkpoint/sources/capture_diagnostic_client.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt excludes attempt02: collector-checkpoint/sources/capture_diagnostic_client.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt bytes/hash: collector-checkpoint/sources/packaged_client.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt temporal boundary: collector-checkpoint/sources/packaged_client.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt size frontier: collector-checkpoint/sources/packaged_client.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt excludes attempt02: collector-checkpoint/sources/packaged_client.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt bytes/hash: collector-checkpoint/sources/windows_snapshot_io.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt temporal boundary: collector-checkpoint/sources/windows_snapshot_io.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt size frontier: collector-checkpoint/sources/windows_snapshot_io.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt excludes attempt02: collector-checkpoint/sources/windows_snapshot_io.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt bytes/hash: instance-checkpoint/game-probe/native-observer.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt temporal boundary: instance-checkpoint/game-probe/native-observer.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt size frontier: instance-checkpoint/game-probe/native-observer.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt excludes attempt02: instance-checkpoint/game-probe/native-observer.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt bytes/hash: instance-checkpoint/game-probe/native-resource-epochs.jsonl",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt temporal boundary: instance-checkpoint/game-probe/native-resource-epochs.jsonl",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt size frontier: instance-checkpoint/game-probe/native-resource-epochs.jsonl",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt excludes attempt02: instance-checkpoint/game-probe/native-resource-epochs.jsonl",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt bytes/hash: instance-checkpoint/game-probe/native-invalid-model.jsonl",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt temporal boundary: instance-checkpoint/game-probe/native-invalid-model.jsonl",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt size frontier: instance-checkpoint/game-probe/native-invalid-model.jsonl",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt excludes attempt02: instance-checkpoint/game-probe/native-invalid-model.jsonl",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt bytes/hash: instance-checkpoint/logs/latest.log",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt temporal boundary: instance-checkpoint/logs/latest.log",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt size frontier: instance-checkpoint/logs/latest.log",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy receipt excludes attempt02: instance-checkpoint/logs/latest.log",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "all other indexed files have copy receipts",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "shared snapshot reader retains null handle-size boundary",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "identical frozen plan copy: attempts/reload-recorder",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "identical frozen launch copy: attempts/reload-recorder",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "identical frozen plan copy: collector-checkpoint",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "identical frozen launch copy: collector-checkpoint",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "launch binds actual plan hash",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "launch PID",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "launcher source hash binding",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "exact installed plan mod declarations",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copied installed JAR hash: companion",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "JAR CRC integrity: companion",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copied installed JAR hash: observer",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "JAR CRC integrity: observer",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "product manifest agrees with plan",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "product embedded version and target",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "companion TOML/manifest version",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "observer embedded metadata",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "observer TOML/manifest version",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "uncopied MTR declaration agrees",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "sixteen packs are declarations only",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "recorder canonical journal link 1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "recorder canonical journal link 2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "recorder terminal initialization failure only",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "assessment terminal event agrees",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "recorder exception configured timeout",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "recorder has no ready/session/publication/input artifact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "reload preflight failed with no samples",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "reload failure identity query timeout literal",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "reload copied source/file binding: source_sha256",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "reload copied source/file binding: current_source_sha256",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "reload copied source/file binding: snapshot_io_source_sha256",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "reload copied source/file binding: current_snapshot_io_source_sha256",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "reload copied source/file binding: samples_sha256",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "reload plan/launch binding",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "startup 201 complete lines with no summary",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "startup samples only report running PID 18796",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "startup assessment remains unaccepted",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "matching copied source group: attempts/startup/observer-source.py",
+      "passed": true,
+      "detail": [
+        "attempts/startup/observer-source.py",
+        "attempts/reload-recorder/sources/observe_packaged_client.py",
+        "attempts/reload-observation/observer-source.py"
+      ]
+    },
+    {
+      "name": "matching copied source group: attempts/startup/windows_snapshot_io.py",
+      "passed": true,
+      "detail": [
+        "attempts/startup/windows_snapshot_io.py",
+        "attempts/reload-recorder/sources/windows_snapshot_io.py",
+        "attempts/reload-observation/windows_snapshot_io.py",
+        "collector-checkpoint/sources/windows_snapshot_io.py"
+      ]
+    },
+    {
+      "name": "matching copied source group: attempts/startup/client_experiment_analysis.py",
+      "passed": true,
+      "detail": [
+        "attempts/startup/client_experiment_analysis.py",
+        "attempts/reload-recorder/sources/client_experiment_analysis.py"
+      ]
+    },
+    {
+      "name": "matching copied source group: attempts/startup/native_diagnostic_review.py",
+      "passed": true,
+      "detail": [
+        "attempts/startup/native_diagnostic_review.py",
+        "attempts/reload-recorder/sources/native_diagnostic_review.py"
+      ]
+    },
+    {
+      "name": "matching copied source group: attempts/startup/reload_before_recorder.py",
+      "passed": true,
+      "detail": [
+        "attempts/startup/reload_before_recorder.py",
+        "attempts/reload-recorder/sources/reload_before_recorder.py"
+      ]
+    },
+    {
+      "name": "matching copied source group: attempts/startup/native-observer-consumer.json",
+      "passed": true,
+      "detail": [
+        "attempts/startup/native-observer-consumer.json",
+        "attempts/reload-recorder/sources/native-observer-consumer.json"
+      ]
+    },
+    {
+      "name": "collector observing prefix and no exit field",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "collector copied source binding: capture_diagnostic_client.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "collector copied source binding: packaged_client.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "collector copied source binding: windows_snapshot_io.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "collector snapshots bind PID and metadata",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "collector assessment checkpoint only",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "native checkpoint PID and identity",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "native checkpoint zero observation errors",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "native checkpoint timestamp agrees",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "native process identity metadata",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "parent reported tool history explicitly non-original",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "exact parent-reported final poll object",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "reload original tool receipts absent",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "no acceptance transfer in assessment",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "sealed inventory/bytes unchanged throughout independent review",
+      "passed": true,
+      "detail": null
+    }
+  ],
+  "read_receipts": [
+    {
+      "target": "capture-01/assessment.json",
+      "started_at": "2026-11-16T15:50:31.454500+00:00",
+      "read_completed_at": "2026-11-16T15:50:31.455177+00:00",
+      "sha256": "bd9c38f71f38730de3b03b558a538808a5fd39e1e58ec805bcc6decc9fb361ae",
+      "bytes": 28651
+    },
+    {
+      "target": "capture-01/attempts/reload-observation/observer-source.py",
+      "started_at": "2026-11-16T15:50:31.459462+00:00",
+      "read_completed_at": "2026-11-16T15:50:31.460512+00:00",
+      "sha256": "f96d1fc4843a00286592b78732a6dfb15bfd7d46799432c0f2c911dc57f3c1aa",
+      "bytes": 85281
+    },
+    {
+      "target": "capture-01/attempts/reload-observation/samples.jsonl",
+      "started_at": "2026-11-16T15:50:31.462310+00:00",
+      "read_completed_at": "2026-11-16T15:50:31.462625+00:00",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "target": "capture-01/attempts/reload-observation/summary.json",
+      "started_at": "2026-11-16T15:50:31.464114+00:00",
+      "read_completed_at": "2026-11-16T15:50:31.464957+00:00",
+      "sha256": "a8890d958f185382cbb57d3313b0cb53934e7e983d9b6a6135f352eb0c97667b",
+      "bytes": 1432
+    },
+    {
+      "target": "capture-01/attempts/reload-observation/windows_snapshot_io.py",
+      "started_at": "2026-11-16T15:50:31.485752+00:00",
+      "read_completed_at": "2026-11-16T15:50:31.486874+00:00",
+      "sha256": "6967cd6efee7a673e5df72700ea8de26e2e92c02d4614306bcb106fa527b02e1",
+      "bytes": 1992
+    },
+    {
+      "target": "capture-01/attempts/reload-recorder/journal.jsonl",
+      "started_at": "2026-11-16T15:50:31.488675+00:00",
+      "read_completed_at": "2026-11-16T15:50:31.489371+00:00",
+      "sha256": "04074ccc0dcddd6dd78669ce8e65d29b19c6bd7e5d17f7bb97f0accfe5b2a41b",
+      "bytes": 952
+    },
+    {
+      "target": "capture-01/attempts/reload-recorder/packaged-client-launch.json",
+      "started_at": "2026-11-16T15:50:31.490451+00:00",
+      "read_completed_at": "2026-11-16T15:50:31.491192+00:00",
+      "sha256": "6a64b382abe1766c9ab1b508173994bc4ca9ed54dac7123b2b97b26041db3635",
+      "bytes": 26219
+    },
+    {
+      "target": "capture-01/attempts/reload-recorder/packaged-client-plan.json",
+      "started_at": "2026-11-16T15:50:31.492577+00:00",
+      "read_completed_at": "2026-11-16T15:50:31.493254+00:00",
+      "sha256": "d286eedb9786b86296e72d6effb8fbc9529326d450e0a375d8eed7345abd2c1b",
+      "bytes": 42325
+    },
+    {
+      "target": "capture-01/attempts/reload-recorder/sources/client_experiment_analysis.py",
+      "started_at": "2026-11-16T15:50:31.497322+00:00",
+      "read_completed_at": "2026-11-16T15:50:31.498161+00:00",
+      "sha256": "0669d421d09a47664cf9207f559f247983f76a666a1cfe8487c7d02d4c5a7d6e",
+      "bytes": 41656
+    },
+    {
+      "target": "capture-01/attempts/reload-recorder/sources/native-observer-consumer.json",
+      "started_at": "2026-11-16T15:50:31.499585+00:00",
+      "read_completed_at": "2026-11-16T15:50:31.500708+00:00",
+      "sha256": "fae895c646ff796473bdc2c83a1b1c4abfc518bb75c0ec3bcf10a476a5750e62",
+      "bytes": 364
+    },
+    {
+      "target": "capture-01/attempts/reload-recorder/sources/native_diagnostic_review.py",
+      "started_at": "2026-11-16T15:50:31.501602+00:00",
+      "read_completed_at": "2026-11-16T15:50:31.502262+00:00",
+      "sha256": "39807f2f3b8173097d30d7fef7499e8bac419f72ff6abd1faf91b014c097e45d",
+      "bytes": 14788
+    },
+    {
+      "target": "capture-01/attempts/reload-recorder/sources/observe_packaged_client.py",
+      "started_at": "2026-11-16T15:50:31.503248+00:00",
+      "read_completed_at": "2026-11-16T15:50:31.504565+00:00",
+      "sha256": "f96d1fc4843a00286592b78732a6dfb15bfd7d46799432c0f2c911dc57f3c1aa",
+      "bytes": 85281
+    },
+    {
+      "target": "capture-01/attempts/reload-recorder/sources/reload_before_recorder.py",
+      "started_at": "2026-11-16T15:50:31.505894+00:00",
+      "read_completed_at": "2026-11-16T15:50:31.506621+00:00",
+      "sha256": "f4ae20d99f9660f698146abc7fb6b49e657bac9b954577bdef7c7c70fa5b7cdc",
+      "bytes": 27651
+    },
+    {
+      "target": "capture-01/attempts/reload-recorder/sources/windows_snapshot_io.py",
+      "started_at": "2026-11-16T15:50:31.508372+00:00",
+      "read_completed_at": "2026-11-16T15:50:31.509665+00:00",
+      "sha256": "6967cd6efee7a673e5df72700ea8de26e2e92c02d4614306bcb106fa527b02e1",
+      "bytes": 1992
+    },
+    {
+      "target": "capture-01/attempts/startup/auxiliary-events.jsonl",
+      "started_at": "2026-11-16T15:50:31.513398+00:00",
+      "read_completed_at": "2026-11-16T15:50:31.513829+00:00",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "target": "capture-01/attempts/startup/client_experiment_analysis.py",
+      "started_at": "2026-11-16T15:50:31.514886+00:00",
+      "read_completed_at": "2026-11-16T15:50:31.515580+00:00",
+      "sha256": "0669d421d09a47664cf9207f559f247983f76a666a1cfe8487c7d02d4c5a7d6e",
+      "bytes": 41656
+    },
+    {
+      "target": "capture-01/attempts/startup/native-diagnostic-review.json",
+      "started_at": "2026-11-16T15:50:31.516676+00:00",
+      "read_completed_at": "2026-11-16T15:50:31.517566+00:00",
+      "sha256": "4d91b89a3600d44a9ec132b7dd58fb61d46d34ae63f9148716f24c9c144f745c",
+      "bytes": 2328
+    },
+    {
+      "target": "capture-01/attempts/startup/native-observer-consumer.json",
+      "started_at": "2026-11-16T15:50:31.519173+00:00",
+      "read_completed_at": "2026-11-16T15:50:31.519547+00:00",
+      "sha256": "fae895c646ff796473bdc2c83a1b1c4abfc518bb75c0ec3bcf10a476a5750e62",
+      "bytes": 364
+    },
+    {
+      "target": "capture-01/attempts/startup/native_diagnostic_review.py",
+      "started_at": "2026-11-16T15:50:31.520421+00:00",
+      "read_completed_at": "2026-11-16T15:50:31.521186+00:00",
+      "sha256": "39807f2f3b8173097d30d7fef7499e8bac419f72ff6abd1faf91b014c097e45d",
+      "bytes": 14788
+    },
+    {
+      "target": "capture-01/attempts/startup/observer-source.py",
+      "started_at": "2026-11-16T15:50:31.522127+00:00",
+      "read_completed_at": "2026-11-16T15:50:31.523087+00:00",
+      "sha256": "f96d1fc4843a00286592b78732a6dfb15bfd7d46799432c0f2c911dc57f3c1aa",
+      "bytes": 85281
+    },
+    {
+      "target": "capture-01/attempts/startup/observer-target.json",
+      "started_at": "2026-11-16T15:50:31.564692+00:00",
+      "read_completed_at": "2026-11-16T15:50:31.565486+00:00",
+      "sha256": "ad88abd18239df098a877342ee8a8cb21b7e373934a5b22a1d0b1481fd3e868d",
+      "bytes": 679
+    },
+    {
+      "target": "capture-01/attempts/startup/reload_before_recorder.py",
+      "started_at": "2026-11-16T15:50:31.566914+00:00",
+      "read_completed_at": "2026-11-16T15:50:31.567738+00:00",
+      "sha256": "f4ae20d99f9660f698146abc7fb6b49e657bac9b954577bdef7c7c70fa5b7cdc",
+      "bytes": 27651
+    },
+    {
+      "target": "capture-01/attempts/startup/samples.jsonl",
+      "started_at": "2026-11-16T15:50:31.569093+00:00",
+      "read_completed_at": "2026-11-16T15:50:31.572562+00:00",
+      "sha256": "d4014c2a1b515f03b1e1eb0ccb68a74d28f1404ef297fed5a006e7087fa40f9a",
+      "bytes": 1764372
+    },
+    {
+      "target": "capture-01/attempts/startup/windows_snapshot_io.py",
+      "started_at": "2026-11-16T15:50:31.581827+00:00",
+      "read_completed_at": "2026-11-16T15:50:31.582683+00:00",
+      "sha256": "6967cd6efee7a673e5df72700ea8de26e2e92c02d4614306bcb106fa527b02e1",
+      "bytes": 1992
+    },
+    {
+      "target": "capture-01/collector-checkpoint/execution.json",
+      "started_at": "2026-11-16T15:50:31.584912+00:00",
+      "read_completed_at": "2026-11-16T15:50:31.599863+00:00",
+      "sha256": "48fa63c04cdfb2b5bcb59da56ed8b9e5bd89db2ec21de4b970cb57feb694b7fb",
+      "bytes": 675
+    },
+    {
+      "target": "capture-01/collector-checkpoint/native-snapshots.jsonl",
+      "started_at": "2026-11-16T15:50:31.601355+00:00",
+      "read_completed_at": "2026-11-16T15:50:31.609660+00:00",
+      "sha256": "70944551d57d6f1659c2fa4c87c3a14958c9112f9d15b968a871480883febbd5",
+      "bytes": 3671823
+    },
+    {
+      "target": "capture-01/collector-checkpoint/packaged-client-launch.json",
+      "started_at": "2026-11-16T15:50:31.672188+00:00",
+      "read_completed_at": "2026-11-16T15:50:31.672825+00:00",
+      "sha256": "6a64b382abe1766c9ab1b508173994bc4ca9ed54dac7123b2b97b26041db3635",
+      "bytes": 26219
+    },
+    {
+      "target": "capture-01/collector-checkpoint/packaged-client-plan.json",
+      "started_at": "2026-11-16T15:50:31.673691+00:00",
+      "read_completed_at": "2026-11-16T15:50:31.674236+00:00",
+      "sha256": "d286eedb9786b86296e72d6effb8fbc9529326d450e0a375d8eed7345abd2c1b",
+      "bytes": 42325
+    },
+    {
+      "target": "capture-01/collector-checkpoint/sources/capture_diagnostic_client.py",
+      "started_at": "2026-11-16T15:50:31.675669+00:00",
+      "read_completed_at": "2026-11-16T15:50:31.676235+00:00",
+      "sha256": "a9ee4e8f2a068ba9c0b72a6f7b348cecdd9c5e4bbe534aeabf851b704e1fb69a",
+      "bytes": 5287
+    },
+    {
+      "target": "capture-01/collector-checkpoint/sources/packaged_client.py",
+      "started_at": "2026-11-16T15:50:31.677088+00:00",
+      "read_completed_at": "2026-11-16T15:50:31.677708+00:00",
+      "sha256": "ad2e0dbf209ded20942891378e0a5855d6c3f65f8d89baa9afa2a7d24b2af13c",
+      "bytes": 42086
+    },
+    {
+      "target": "capture-01/collector-checkpoint/sources/windows_snapshot_io.py",
+      "started_at": "2026-11-16T15:50:31.678662+00:00",
+      "read_completed_at": "2026-11-16T15:50:31.679153+00:00",
+      "sha256": "6967cd6efee7a673e5df72700ea8de26e2e92c02d4614306bcb106fa527b02e1",
+      "bytes": 1992
+    },
+    {
+      "target": "capture-01/instance/installed-bindings.json",
+      "started_at": "2026-11-16T15:50:31.680583+00:00",
+      "read_completed_at": "2026-11-16T15:50:31.681179+00:00",
+      "sha256": "dfb35930d76e00a55471e5f20196fb051d245d6ba89a2300477188fb5e95f4c7",
+      "bytes": 8164
+    },
+    {
+      "target": "capture-01/instance/mods/mtr-memory-saver-official-nf248-0.4.7.jar",
+      "started_at": "2026-11-16T15:50:31.682914+00:00",
+      "read_completed_at": "2026-11-16T15:50:31.686120+00:00",
+      "sha256": "e8b5b40230d0f44c541c12b32c8a30d4c2ea056b8a972335ae10166496837a99",
+      "bytes": 321705
+    },
+    {
+      "target": "capture-01/instance/mods/mtr-native-observer-official-nf248-1.0.3.jar",
+      "started_at": "2026-11-16T15:50:31.689674+00:00",
+      "read_completed_at": "2026-11-16T15:50:31.690368+00:00",
+      "sha256": "1a4e69a81e8baaeaf30e76b7647a371a39411ab7687934da83742c0fdce8487d",
+      "bytes": 44068
+    },
+    {
+      "target": "capture-01/instance/packaged-client-launch.json",
+      "started_at": "2026-11-16T15:50:31.691909+00:00",
+      "read_completed_at": "2026-11-16T15:50:31.692473+00:00",
+      "sha256": "6a64b382abe1766c9ab1b508173994bc4ca9ed54dac7123b2b97b26041db3635",
+      "bytes": 26219
+    },
+    {
+      "target": "capture-01/instance/packaged-client-plan.json",
+      "started_at": "2026-11-16T15:50:31.693391+00:00",
+      "read_completed_at": "2026-11-16T15:50:31.693946+00:00",
+      "sha256": "d286eedb9786b86296e72d6effb8fbc9529326d450e0a375d8eed7345abd2c1b",
+      "bytes": 42325
+    },
+    {
+      "target": "capture-01/instance-checkpoint/game-probe/native-invalid-model.jsonl",
+      "started_at": "2026-11-16T15:50:31.695946+00:00",
+      "read_completed_at": "2026-11-16T15:50:31.696910+00:00",
+      "sha256": "9db47ddc968470cc1a88b84c441da17c174c390ddee7eec04343707650e4d12c",
+      "bytes": 22050
+    },
+    {
+      "target": "capture-01/instance-checkpoint/game-probe/native-observer.json",
+      "started_at": "2026-11-16T15:50:31.697846+00:00",
+      "read_completed_at": "2026-11-16T15:50:31.698893+00:00",
+      "sha256": "6c79195ac547382e370539479290bfdbfb4d68adcbeea7eb0b1527907872772a",
+      "bytes": 6713
+    },
+    {
+      "target": "capture-01/instance-checkpoint/game-probe/native-resource-epochs.jsonl",
+      "started_at": "2026-11-16T15:50:31.700122+00:00",
+      "read_completed_at": "2026-11-16T15:50:31.700861+00:00",
+      "sha256": "7b68271761a14e40d775b0e4f9a8a3b459b59fa4296d12b9953cf1f5a04a812a",
+      "bytes": 1787
+    },
+    {
+      "target": "capture-01/instance-checkpoint/logs/latest.log",
+      "started_at": "2026-11-16T15:50:31.703117+00:00",
+      "read_completed_at": "2026-11-16T15:50:31.703795+00:00",
+      "sha256": "24cd40679c7b6c2041eefd6f04e249c48fcbc8dc52de50df9bbb7a29dcef0501",
+      "bytes": 27952
+    },
+    {
+      "target": "capture-01/parent-reported-tool-results.json",
+      "started_at": "2026-11-16T15:50:31.704777+00:00",
+      "read_completed_at": "2026-11-16T15:50:31.728663+00:00",
+      "sha256": "b01ba2c47bb4712d273c20d09fbb5c1902d469f7683d977fca0e53e09c6f58ca",
+      "bytes": 926
+    },
+    {
+      "target": "capture_attempts.py",
+      "started_at": "2026-11-16T15:50:31.729755+00:00",
+      "read_completed_at": "2026-11-16T15:50:31.730746+00:00",
+      "sha256": "aee1c8e8f8437e7754170ceaf2e6afa076afc621d54dcca6fdb825847da700a9",
+      "bytes": 10725
+    },
+    {
+      "target": "README.md",
+      "started_at": "2026-11-16T15:50:31.733041+00:00",
+      "read_completed_at": "2026-11-16T15:50:31.734009+00:00",
+      "sha256": "2f651e0fc26da6a48a7ac2730dc4beb24bdd1b60533bdeab1f825e4bc94aa744",
+      "bytes": 3092
+    },
+    {
+      "target": "sha256-index.json",
+      "started_at": "2026-11-16T15:50:31.735288+00:00",
+      "read_completed_at": "2026-11-16T15:50:31.736093+00:00",
+      "sha256": "c30e65c80bdda1d9c2be8ffe79b9ab00dfc2afb11c36f4ac3354d2f9b5d41b82",
+      "bytes": 7764
+    },
+    {
+      "target": "capture-01/assessment.json",
+      "started_at": "2026-11-16T15:50:32.298972+00:00",
+      "read_completed_at": "2026-11-16T15:50:32.299284+00:00",
+      "sha256": "bd9c38f71f38730de3b03b558a538808a5fd39e1e58ec805bcc6decc9fb361ae",
+      "bytes": 28651
+    },
+    {
+      "target": "capture-01/attempts/reload-observation/observer-source.py",
+      "started_at": "2026-11-16T15:50:32.302446+00:00",
+      "read_completed_at": "2026-11-16T15:50:32.302990+00:00",
+      "sha256": "f96d1fc4843a00286592b78732a6dfb15bfd7d46799432c0f2c911dc57f3c1aa",
+      "bytes": 85281
+    },
+    {
+      "target": "capture-01/attempts/reload-observation/samples.jsonl",
+      "started_at": "2026-11-16T15:50:32.304834+00:00",
+      "read_completed_at": "2026-11-16T15:50:32.305160+00:00",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "target": "capture-01/attempts/reload-observation/summary.json",
+      "started_at": "2026-11-16T15:50:32.307106+00:00",
+      "read_completed_at": "2026-11-16T15:50:32.307635+00:00",
+      "sha256": "a8890d958f185382cbb57d3313b0cb53934e7e983d9b6a6135f352eb0c97667b",
+      "bytes": 1432
+    },
+    {
+      "target": "capture-01/attempts/reload-observation/windows_snapshot_io.py",
+      "started_at": "2026-11-16T15:50:32.309691+00:00",
+      "read_completed_at": "2026-11-16T15:50:32.310110+00:00",
+      "sha256": "6967cd6efee7a673e5df72700ea8de26e2e92c02d4614306bcb106fa527b02e1",
+      "bytes": 1992
+    },
+    {
+      "target": "capture-01/attempts/reload-recorder/journal.jsonl",
+      "started_at": "2026-11-16T15:50:32.313318+00:00",
+      "read_completed_at": "2026-11-16T15:50:32.313828+00:00",
+      "sha256": "04074ccc0dcddd6dd78669ce8e65d29b19c6bd7e5d17f7bb97f0accfe5b2a41b",
+      "bytes": 952
+    },
+    {
+      "target": "capture-01/attempts/reload-recorder/packaged-client-launch.json",
+      "started_at": "2026-11-16T15:50:32.314711+00:00",
+      "read_completed_at": "2026-11-16T15:50:32.314959+00:00",
+      "sha256": "6a64b382abe1766c9ab1b508173994bc4ca9ed54dac7123b2b97b26041db3635",
+      "bytes": 26219
+    },
+    {
+      "target": "capture-01/attempts/reload-recorder/packaged-client-plan.json",
+      "started_at": "2026-11-16T15:50:32.316085+00:00",
+      "read_completed_at": "2026-11-16T15:50:32.316398+00:00",
+      "sha256": "d286eedb9786b86296e72d6effb8fbc9529326d450e0a375d8eed7345abd2c1b",
+      "bytes": 42325
+    },
+    {
+      "target": "capture-01/attempts/reload-recorder/sources/client_experiment_analysis.py",
+      "started_at": "2026-11-16T15:50:32.318721+00:00",
+      "read_completed_at": "2026-11-16T15:50:32.318977+00:00",
+      "sha256": "0669d421d09a47664cf9207f559f247983f76a666a1cfe8487c7d02d4c5a7d6e",
+      "bytes": 41656
+    },
+    {
+      "target": "capture-01/attempts/reload-recorder/sources/native-observer-consumer.json",
+      "started_at": "2026-11-16T15:50:32.319953+00:00",
+      "read_completed_at": "2026-11-16T15:50:32.320319+00:00",
+      "sha256": "fae895c646ff796473bdc2c83a1b1c4abfc518bb75c0ec3bcf10a476a5750e62",
+      "bytes": 364
+    },
+    {
+      "target": "capture-01/attempts/reload-recorder/sources/native_diagnostic_review.py",
+      "started_at": "2026-11-16T15:50:32.321394+00:00",
+      "read_completed_at": "2026-11-16T15:50:32.321972+00:00",
+      "sha256": "39807f2f3b8173097d30d7fef7499e8bac419f72ff6abd1faf91b014c097e45d",
+      "bytes": 14788
+    },
+    {
+      "target": "capture-01/attempts/reload-recorder/sources/observe_packaged_client.py",
+      "started_at": "2026-11-16T15:50:32.325051+00:00",
+      "read_completed_at": "2026-11-16T15:50:32.325807+00:00",
+      "sha256": "f96d1fc4843a00286592b78732a6dfb15bfd7d46799432c0f2c911dc57f3c1aa",
+      "bytes": 85281
+    },
+    {
+      "target": "capture-01/attempts/reload-recorder/sources/reload_before_recorder.py",
+      "started_at": "2026-11-16T15:50:32.327415+00:00",
+      "read_completed_at": "2026-11-16T15:50:32.352139+00:00",
+      "sha256": "f4ae20d99f9660f698146abc7fb6b49e657bac9b954577bdef7c7c70fa5b7cdc",
+      "bytes": 27651
+    },
+    {
+      "target": "capture-01/attempts/reload-recorder/sources/windows_snapshot_io.py",
+      "started_at": "2026-11-16T15:50:32.360449+00:00",
+      "read_completed_at": "2026-11-16T15:50:32.376740+00:00",
+      "sha256": "6967cd6efee7a673e5df72700ea8de26e2e92c02d4614306bcb106fa527b02e1",
+      "bytes": 1992
+    },
+    {
+      "target": "capture-01/attempts/startup/auxiliary-events.jsonl",
+      "started_at": "2026-11-16T15:50:32.383534+00:00",
+      "read_completed_at": "2026-11-16T15:50:32.384221+00:00",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "target": "capture-01/attempts/startup/client_experiment_analysis.py",
+      "started_at": "2026-11-16T15:50:32.401937+00:00",
+      "read_completed_at": "2026-11-16T15:50:32.403107+00:00",
+      "sha256": "0669d421d09a47664cf9207f559f247983f76a666a1cfe8487c7d02d4c5a7d6e",
+      "bytes": 41656
+    },
+    {
+      "target": "capture-01/attempts/startup/native-diagnostic-review.json",
+      "started_at": "2026-11-16T15:50:32.404626+00:00",
+      "read_completed_at": "2026-11-16T15:50:32.404948+00:00",
+      "sha256": "4d91b89a3600d44a9ec132b7dd58fb61d46d34ae63f9148716f24c9c144f745c",
+      "bytes": 2328
+    },
+    {
+      "target": "capture-01/attempts/startup/native-observer-consumer.json",
+      "started_at": "2026-11-16T15:50:32.418638+00:00",
+      "read_completed_at": "2026-11-16T15:50:32.418929+00:00",
+      "sha256": "fae895c646ff796473bdc2c83a1b1c4abfc518bb75c0ec3bcf10a476a5750e62",
+      "bytes": 364
+    },
+    {
+      "target": "capture-01/attempts/startup/native_diagnostic_review.py",
+      "started_at": "2026-11-16T15:50:32.419731+00:00",
+      "read_completed_at": "2026-11-16T15:50:32.421204+00:00",
+      "sha256": "39807f2f3b8173097d30d7fef7499e8bac419f72ff6abd1faf91b014c097e45d",
+      "bytes": 14788
+    },
+    {
+      "target": "capture-01/attempts/startup/observer-source.py",
+      "started_at": "2026-11-16T15:50:32.438149+00:00",
+      "read_completed_at": "2026-11-16T15:50:32.438508+00:00",
+      "sha256": "f96d1fc4843a00286592b78732a6dfb15bfd7d46799432c0f2c911dc57f3c1aa",
+      "bytes": 85281
+    },
+    {
+      "target": "capture-01/attempts/startup/observer-target.json",
+      "started_at": "2026-11-16T15:50:32.439643+00:00",
+      "read_completed_at": "2026-11-16T15:50:32.439951+00:00",
+      "sha256": "ad88abd18239df098a877342ee8a8cb21b7e373934a5b22a1d0b1481fd3e868d",
+      "bytes": 679
+    },
+    {
+      "target": "capture-01/attempts/startup/reload_before_recorder.py",
+      "started_at": "2026-11-16T15:50:32.441183+00:00",
+      "read_completed_at": "2026-11-16T15:50:32.442179+00:00",
+      "sha256": "f4ae20d99f9660f698146abc7fb6b49e657bac9b954577bdef7c7c70fa5b7cdc",
+      "bytes": 27651
+    },
+    {
+      "target": "capture-01/attempts/startup/samples.jsonl",
+      "started_at": "2026-11-16T15:50:32.452384+00:00",
+      "read_completed_at": "2026-11-16T15:50:32.453819+00:00",
+      "sha256": "d4014c2a1b515f03b1e1eb0ccb68a74d28f1404ef297fed5a006e7087fa40f9a",
+      "bytes": 1764372
+    },
+    {
+      "target": "capture-01/attempts/startup/windows_snapshot_io.py",
+      "started_at": "2026-11-16T15:50:32.470530+00:00",
+      "read_completed_at": "2026-11-16T15:50:32.470940+00:00",
+      "sha256": "6967cd6efee7a673e5df72700ea8de26e2e92c02d4614306bcb106fa527b02e1",
+      "bytes": 1992
+    },
+    {
+      "target": "capture-01/collector-checkpoint/execution.json",
+      "started_at": "2026-11-16T15:50:32.497444+00:00",
+      "read_completed_at": "2026-11-16T15:50:32.497811+00:00",
+      "sha256": "48fa63c04cdfb2b5bcb59da56ed8b9e5bd89db2ec21de4b970cb57feb694b7fb",
+      "bytes": 675
+    },
+    {
+      "target": "capture-01/collector-checkpoint/native-snapshots.jsonl",
+      "started_at": "2026-11-16T15:50:32.498466+00:00",
+      "read_completed_at": "2026-11-16T15:50:32.522336+00:00",
+      "sha256": "70944551d57d6f1659c2fa4c87c3a14958c9112f9d15b968a871480883febbd5",
+      "bytes": 3671823
+    },
+    {
+      "target": "capture-01/collector-checkpoint/packaged-client-launch.json",
+      "started_at": "2026-11-16T15:50:32.551744+00:00",
+      "read_completed_at": "2026-11-16T15:50:32.552020+00:00",
+      "sha256": "6a64b382abe1766c9ab1b508173994bc4ca9ed54dac7123b2b97b26041db3635",
+      "bytes": 26219
+    },
+    {
+      "target": "capture-01/collector-checkpoint/packaged-client-plan.json",
+      "started_at": "2026-11-16T15:50:32.553061+00:00",
+      "read_completed_at": "2026-11-16T15:50:32.553403+00:00",
+      "sha256": "d286eedb9786b86296e72d6effb8fbc9529326d450e0a375d8eed7345abd2c1b",
+      "bytes": 42325
+    },
+    {
+      "target": "capture-01/collector-checkpoint/sources/capture_diagnostic_client.py",
+      "started_at": "2026-11-16T15:50:32.555289+00:00",
+      "read_completed_at": "2026-11-16T15:50:32.555671+00:00",
+      "sha256": "a9ee4e8f2a068ba9c0b72a6f7b348cecdd9c5e4bbe534aeabf851b704e1fb69a",
+      "bytes": 5287
+    },
+    {
+      "target": "capture-01/collector-checkpoint/sources/packaged_client.py",
+      "started_at": "2026-11-16T15:50:32.556859+00:00",
+      "read_completed_at": "2026-11-16T15:50:32.557185+00:00",
+      "sha256": "ad2e0dbf209ded20942891378e0a5855d6c3f65f8d89baa9afa2a7d24b2af13c",
+      "bytes": 42086
+    },
+    {
+      "target": "capture-01/collector-checkpoint/sources/windows_snapshot_io.py",
+      "started_at": "2026-11-16T15:50:32.561009+00:00",
+      "read_completed_at": "2026-11-16T15:50:32.561498+00:00",
+      "sha256": "6967cd6efee7a673e5df72700ea8de26e2e92c02d4614306bcb106fa527b02e1",
+      "bytes": 1992
+    },
+    {
+      "target": "capture-01/instance/installed-bindings.json",
+      "started_at": "2026-11-16T15:50:32.582645+00:00",
+      "read_completed_at": "2026-11-16T15:50:32.582928+00:00",
+      "sha256": "dfb35930d76e00a55471e5f20196fb051d245d6ba89a2300477188fb5e95f4c7",
+      "bytes": 8164
+    },
+    {
+      "target": "capture-01/instance/mods/mtr-memory-saver-official-nf248-0.4.7.jar",
+      "started_at": "2026-11-16T15:50:32.584266+00:00",
+      "read_completed_at": "2026-11-16T15:50:32.584649+00:00",
+      "sha256": "e8b5b40230d0f44c541c12b32c8a30d4c2ea056b8a972335ae10166496837a99",
+      "bytes": 321705
+    },
+    {
+      "target": "capture-01/instance/mods/mtr-native-observer-official-nf248-1.0.3.jar",
+      "started_at": "2026-11-16T15:50:32.587054+00:00",
+      "read_completed_at": "2026-11-16T15:50:32.587308+00:00",
+      "sha256": "1a4e69a81e8baaeaf30e76b7647a371a39411ab7687934da83742c0fdce8487d",
+      "bytes": 44068
+    },
+    {
+      "target": "capture-01/instance/packaged-client-launch.json",
+      "started_at": "2026-11-16T15:50:32.588102+00:00",
+      "read_completed_at": "2026-11-16T15:50:32.588341+00:00",
+      "sha256": "6a64b382abe1766c9ab1b508173994bc4ca9ed54dac7123b2b97b26041db3635",
+      "bytes": 26219
+    },
+    {
+      "target": "capture-01/instance/packaged-client-plan.json",
+      "started_at": "2026-11-16T15:50:32.591778+00:00",
+      "read_completed_at": "2026-11-16T15:50:32.602442+00:00",
+      "sha256": "d286eedb9786b86296e72d6effb8fbc9529326d450e0a375d8eed7345abd2c1b",
+      "bytes": 42325
+    },
+    {
+      "target": "capture-01/instance-checkpoint/game-probe/native-invalid-model.jsonl",
+      "started_at": "2026-11-16T15:50:32.689481+00:00",
+      "read_completed_at": "2026-11-16T15:50:32.690883+00:00",
+      "sha256": "9db47ddc968470cc1a88b84c441da17c174c390ddee7eec04343707650e4d12c",
+      "bytes": 22050
+    },
+    {
+      "target": "capture-01/instance-checkpoint/game-probe/native-observer.json",
+      "started_at": "2026-11-16T15:50:32.692167+00:00",
+      "read_completed_at": "2026-11-16T15:50:32.692488+00:00",
+      "sha256": "6c79195ac547382e370539479290bfdbfb4d68adcbeea7eb0b1527907872772a",
+      "bytes": 6713
+    },
+    {
+      "target": "capture-01/instance-checkpoint/game-probe/native-resource-epochs.jsonl",
+      "started_at": "2026-11-16T15:50:32.694020+00:00",
+      "read_completed_at": "2026-11-16T15:50:32.694300+00:00",
+      "sha256": "7b68271761a14e40d775b0e4f9a8a3b459b59fa4296d12b9953cf1f5a04a812a",
+      "bytes": 1787
+    },
+    {
+      "target": "capture-01/instance-checkpoint/logs/latest.log",
+      "started_at": "2026-11-16T15:50:32.703542+00:00",
+      "read_completed_at": "2026-11-16T15:50:32.704064+00:00",
+      "sha256": "24cd40679c7b6c2041eefd6f04e249c48fcbc8dc52de50df9bbb7a29dcef0501",
+      "bytes": 27952
+    },
+    {
+      "target": "capture-01/parent-reported-tool-results.json",
+      "started_at": "2026-11-16T15:50:32.706324+00:00",
+      "read_completed_at": "2026-11-16T15:50:32.706586+00:00",
+      "sha256": "b01ba2c47bb4712d273c20d09fbb5c1902d469f7683d977fca0e53e09c6f58ca",
+      "bytes": 926
+    },
+    {
+      "target": "capture_attempts.py",
+      "started_at": "2026-11-16T15:50:32.707668+00:00",
+      "read_completed_at": "2026-11-16T15:50:32.709465+00:00",
+      "sha256": "aee1c8e8f8437e7754170ceaf2e6afa076afc621d54dcca6fdb825847da700a9",
+      "bytes": 10725
+    },
+    {
+      "target": "README.md",
+      "started_at": "2026-11-16T15:50:32.710682+00:00",
+      "read_completed_at": "2026-11-16T15:50:32.711266+00:00",
+      "sha256": "2f651e0fc26da6a48a7ac2730dc4beb24bdd1b60533bdeab1f825e4bc94aa744",
+      "bytes": 3092
+    },
+    {
+      "target": "sha256-index.json",
+      "started_at": "2026-11-16T15:50:32.714469+00:00",
+      "read_completed_at": "2026-11-16T15:50:32.715372+00:00",
+      "sha256": "c30e65c80bdda1d9c2be8ffe79b9ab00dfc2afb11c36f4ac3354d2f9b5d41b82",
+      "bytes": 7764
+    }
+  ],
+  "acceptance_granted": [],
+  "limitations": [
+    "Only sealed bytes are consumed; recorded .cache and runtime paths are not opened.",
+    "Read receipts attest to captured copy boundaries, not a simultaneous multi-file transaction.",
+    "Original parent tool receipts were not persisted; reported exits are not independent exit proof.",
+    "The MTR binary and sixteen resource packs were not copied; their declared hashes cannot be independently rehashed in this review.",
+    "Later collector/native checkpoints do not repair or complete interrupted/failed attempts.",
+    "Successful integrity verification grants no startup, reload, gameplay, endurance, performance, visual, or process-exit acceptance."
+  ],
+  "inventory": {
+    "capture-01/assessment.json": {
+      "sha256": "bd9c38f71f38730de3b03b558a538808a5fd39e1e58ec805bcc6decc9fb361ae",
+      "bytes": 28651
+    },
+    "capture-01/attempts/reload-observation/observer-source.py": {
+      "sha256": "f96d1fc4843a00286592b78732a6dfb15bfd7d46799432c0f2c911dc57f3c1aa",
+      "bytes": 85281
+    },
+    "capture-01/attempts/reload-observation/samples.jsonl": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "capture-01/attempts/reload-observation/summary.json": {
+      "sha256": "a8890d958f185382cbb57d3313b0cb53934e7e983d9b6a6135f352eb0c97667b",
+      "bytes": 1432
+    },
+    "capture-01/attempts/reload-observation/windows_snapshot_io.py": {
+      "sha256": "6967cd6efee7a673e5df72700ea8de26e2e92c02d4614306bcb106fa527b02e1",
+      "bytes": 1992
+    },
+    "capture-01/attempts/reload-recorder/journal.jsonl": {
+      "sha256": "04074ccc0dcddd6dd78669ce8e65d29b19c6bd7e5d17f7bb97f0accfe5b2a41b",
+      "bytes": 952
+    },
+    "capture-01/attempts/reload-recorder/packaged-client-launch.json": {
+      "sha256": "6a64b382abe1766c9ab1b508173994bc4ca9ed54dac7123b2b97b26041db3635",
+      "bytes": 26219
+    },
+    "capture-01/attempts/reload-recorder/packaged-client-plan.json": {
+      "sha256": "d286eedb9786b86296e72d6effb8fbc9529326d450e0a375d8eed7345abd2c1b",
+      "bytes": 42325
+    },
+    "capture-01/attempts/reload-recorder/sources/client_experiment_analysis.py": {
+      "sha256": "0669d421d09a47664cf9207f559f247983f76a666a1cfe8487c7d02d4c5a7d6e",
+      "bytes": 41656
+    },
+    "capture-01/attempts/reload-recorder/sources/native-observer-consumer.json": {
+      "sha256": "fae895c646ff796473bdc2c83a1b1c4abfc518bb75c0ec3bcf10a476a5750e62",
+      "bytes": 364
+    },
+    "capture-01/attempts/reload-recorder/sources/native_diagnostic_review.py": {
+      "sha256": "39807f2f3b8173097d30d7fef7499e8bac419f72ff6abd1faf91b014c097e45d",
+      "bytes": 14788
+    },
+    "capture-01/attempts/reload-recorder/sources/observe_packaged_client.py": {
+      "sha256": "f96d1fc4843a00286592b78732a6dfb15bfd7d46799432c0f2c911dc57f3c1aa",
+      "bytes": 85281
+    },
+    "capture-01/attempts/reload-recorder/sources/reload_before_recorder.py": {
+      "sha256": "f4ae20d99f9660f698146abc7fb6b49e657bac9b954577bdef7c7c70fa5b7cdc",
+      "bytes": 27651
+    },
+    "capture-01/attempts/reload-recorder/sources/windows_snapshot_io.py": {
+      "sha256": "6967cd6efee7a673e5df72700ea8de26e2e92c02d4614306bcb106fa527b02e1",
+      "bytes": 1992
+    },
+    "capture-01/attempts/startup/auxiliary-events.jsonl": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "capture-01/attempts/startup/client_experiment_analysis.py": {
+      "sha256": "0669d421d09a47664cf9207f559f247983f76a666a1cfe8487c7d02d4c5a7d6e",
+      "bytes": 41656
+    },
+    "capture-01/attempts/startup/native-diagnostic-review.json": {
+      "sha256": "4d91b89a3600d44a9ec132b7dd58fb61d46d34ae63f9148716f24c9c144f745c",
+      "bytes": 2328
+    },
+    "capture-01/attempts/startup/native-observer-consumer.json": {
+      "sha256": "fae895c646ff796473bdc2c83a1b1c4abfc518bb75c0ec3bcf10a476a5750e62",
+      "bytes": 364
+    },
+    "capture-01/attempts/startup/native_diagnostic_review.py": {
+      "sha256": "39807f2f3b8173097d30d7fef7499e8bac419f72ff6abd1faf91b014c097e45d",
+      "bytes": 14788
+    },
+    "capture-01/attempts/startup/observer-source.py": {
+      "sha256": "f96d1fc4843a00286592b78732a6dfb15bfd7d46799432c0f2c911dc57f3c1aa",
+      "bytes": 85281
+    },
+    "capture-01/attempts/startup/observer-target.json": {
+      "sha256": "ad88abd18239df098a877342ee8a8cb21b7e373934a5b22a1d0b1481fd3e868d",
+      "bytes": 679
+    },
+    "capture-01/attempts/startup/reload_before_recorder.py": {
+      "sha256": "f4ae20d99f9660f698146abc7fb6b49e657bac9b954577bdef7c7c70fa5b7cdc",
+      "bytes": 27651
+    },
+    "capture-01/attempts/startup/samples.jsonl": {
+      "sha256": "d4014c2a1b515f03b1e1eb0ccb68a74d28f1404ef297fed5a006e7087fa40f9a",
+      "bytes": 1764372
+    },
+    "capture-01/attempts/startup/windows_snapshot_io.py": {
+      "sha256": "6967cd6efee7a673e5df72700ea8de26e2e92c02d4614306bcb106fa527b02e1",
+      "bytes": 1992
+    },
+    "capture-01/collector-checkpoint/execution.json": {
+      "sha256": "48fa63c04cdfb2b5bcb59da56ed8b9e5bd89db2ec21de4b970cb57feb694b7fb",
+      "bytes": 675
+    },
+    "capture-01/collector-checkpoint/native-snapshots.jsonl": {
+      "sha256": "70944551d57d6f1659c2fa4c87c3a14958c9112f9d15b968a871480883febbd5",
+      "bytes": 3671823
+    },
+    "capture-01/collector-checkpoint/packaged-client-launch.json": {
+      "sha256": "6a64b382abe1766c9ab1b508173994bc4ca9ed54dac7123b2b97b26041db3635",
+      "bytes": 26219
+    },
+    "capture-01/collector-checkpoint/packaged-client-plan.json": {
+      "sha256": "d286eedb9786b86296e72d6effb8fbc9529326d450e0a375d8eed7345abd2c1b",
+      "bytes": 42325
+    },
+    "capture-01/collector-checkpoint/sources/capture_diagnostic_client.py": {
+      "sha256": "a9ee4e8f2a068ba9c0b72a6f7b348cecdd9c5e4bbe534aeabf851b704e1fb69a",
+      "bytes": 5287
+    },
+    "capture-01/collector-checkpoint/sources/packaged_client.py": {
+      "sha256": "ad2e0dbf209ded20942891378e0a5855d6c3f65f8d89baa9afa2a7d24b2af13c",
+      "bytes": 42086
+    },
+    "capture-01/collector-checkpoint/sources/windows_snapshot_io.py": {
+      "sha256": "6967cd6efee7a673e5df72700ea8de26e2e92c02d4614306bcb106fa527b02e1",
+      "bytes": 1992
+    },
+    "capture-01/instance/installed-bindings.json": {
+      "sha256": "dfb35930d76e00a55471e5f20196fb051d245d6ba89a2300477188fb5e95f4c7",
+      "bytes": 8164
+    },
+    "capture-01/instance/mods/mtr-memory-saver-official-nf248-0.4.7.jar": {
+      "sha256": "e8b5b40230d0f44c541c12b32c8a30d4c2ea056b8a972335ae10166496837a99",
+      "bytes": 321705
+    },
+    "capture-01/instance/mods/mtr-native-observer-official-nf248-1.0.3.jar": {
+      "sha256": "1a4e69a81e8baaeaf30e76b7647a371a39411ab7687934da83742c0fdce8487d",
+      "bytes": 44068
+    },
+    "capture-01/instance/packaged-client-launch.json": {
+      "sha256": "6a64b382abe1766c9ab1b508173994bc4ca9ed54dac7123b2b97b26041db3635",
+      "bytes": 26219
+    },
+    "capture-01/instance/packaged-client-plan.json": {
+      "sha256": "d286eedb9786b86296e72d6effb8fbc9529326d450e0a375d8eed7345abd2c1b",
+      "bytes": 42325
+    },
+    "capture-01/instance-checkpoint/game-probe/native-invalid-model.jsonl": {
+      "sha256": "9db47ddc968470cc1a88b84c441da17c174c390ddee7eec04343707650e4d12c",
+      "bytes": 22050
+    },
+    "capture-01/instance-checkpoint/game-probe/native-observer.json": {
+      "sha256": "6c79195ac547382e370539479290bfdbfb4d68adcbeea7eb0b1527907872772a",
+      "bytes": 6713
+    },
+    "capture-01/instance-checkpoint/game-probe/native-resource-epochs.jsonl": {
+      "sha256": "7b68271761a14e40d775b0e4f9a8a3b459b59fa4296d12b9953cf1f5a04a812a",
+      "bytes": 1787
+    },
+    "capture-01/instance-checkpoint/logs/latest.log": {
+      "sha256": "24cd40679c7b6c2041eefd6f04e249c48fcbc8dc52de50df9bbb7a29dcef0501",
+      "bytes": 27952
+    },
+    "capture-01/parent-reported-tool-results.json": {
+      "sha256": "b01ba2c47bb4712d273c20d09fbb5c1902d469f7683d977fca0e53e09c6f58ca",
+      "bytes": 926
+    },
+    "capture_attempts.py": {
+      "sha256": "aee1c8e8f8437e7754170ceaf2e6afa076afc621d54dcca6fdb825847da700a9",
+      "bytes": 10725
+    },
+    "README.md": {
+      "sha256": "2f651e0fc26da6a48a7ac2730dc4beb24bdd1b60533bdeab1f825e4bc94aa744",
+      "bytes": 3092
+    },
+    "sha256-index.json": {
+      "sha256": "c30e65c80bdda1d9c2be8ffe79b9ab00dfc2afb11c36f4ac3354d2f9b5d41b82",
+      "bytes": 7764
+    }
+  },
+  "original_copy_read_receipts": [
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\owned-049c-startup\\auxiliary-events.jsonl",
+      "target": "attempts/startup/auxiliary-events.jsonl",
+      "started_at": "2026-11-16T15:44:50.867048+00:00",
+      "read_completed_at": "2026-11-16T15:44:50.869880+00:00",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path_size_before": 0,
+      "source_path_size_after": 0,
+      "source_handle_size_before": 0,
+      "source_handle_size_after": 0,
+      "append_prefix": false,
+      "shared_snapshot_reader": false
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\owned-049c-startup\\client_experiment_analysis.py",
+      "target": "attempts/startup/client_experiment_analysis.py",
+      "started_at": "2026-11-16T15:44:50.878371+00:00",
+      "read_completed_at": "2026-11-16T15:44:50.951417+00:00",
+      "bytes": 41656,
+      "sha256": "0669d421d09a47664cf9207f559f247983f76a666a1cfe8487c7d02d4c5a7d6e",
+      "source_path_size_before": 41656,
+      "source_path_size_after": 41656,
+      "source_handle_size_before": 41656,
+      "source_handle_size_after": 41656,
+      "append_prefix": false,
+      "shared_snapshot_reader": false
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\owned-049c-startup\\native-diagnostic-review.json",
+      "target": "attempts/startup/native-diagnostic-review.json",
+      "started_at": "2026-11-16T15:44:51.003317+00:00",
+      "read_completed_at": "2026-11-16T15:44:51.005846+00:00",
+      "bytes": 2328,
+      "sha256": "4d91b89a3600d44a9ec132b7dd58fb61d46d34ae63f9148716f24c9c144f745c",
+      "source_path_size_before": 2328,
+      "source_path_size_after": 2328,
+      "source_handle_size_before": 2328,
+      "source_handle_size_after": 2328,
+      "append_prefix": false,
+      "shared_snapshot_reader": false
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\owned-049c-startup\\native-observer-consumer.json",
+      "target": "attempts/startup/native-observer-consumer.json",
+      "started_at": "2026-11-16T15:44:51.049932+00:00",
+      "read_completed_at": "2026-11-16T15:44:51.052664+00:00",
+      "bytes": 364,
+      "sha256": "fae895c646ff796473bdc2c83a1b1c4abfc518bb75c0ec3bcf10a476a5750e62",
+      "source_path_size_before": 364,
+      "source_path_size_after": 364,
+      "source_handle_size_before": 364,
+      "source_handle_size_after": 364,
+      "append_prefix": false,
+      "shared_snapshot_reader": false
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\owned-049c-startup\\native_diagnostic_review.py",
+      "target": "attempts/startup/native_diagnostic_review.py",
+      "started_at": "2026-11-16T15:44:51.075220+00:00",
+      "read_completed_at": "2026-11-16T15:44:51.173568+00:00",
+      "bytes": 14788,
+      "sha256": "39807f2f3b8173097d30d7fef7499e8bac419f72ff6abd1faf91b014c097e45d",
+      "source_path_size_before": 14788,
+      "source_path_size_after": 14788,
+      "source_handle_size_before": 14788,
+      "source_handle_size_after": 14788,
+      "append_prefix": false,
+      "shared_snapshot_reader": false
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\owned-049c-startup\\observer-source.py",
+      "target": "attempts/startup/observer-source.py",
+      "started_at": "2026-11-16T15:44:51.183277+00:00",
+      "read_completed_at": "2026-11-16T15:44:51.210739+00:00",
+      "bytes": 85281,
+      "sha256": "f96d1fc4843a00286592b78732a6dfb15bfd7d46799432c0f2c911dc57f3c1aa",
+      "source_path_size_before": 85281,
+      "source_path_size_after": 85281,
+      "source_handle_size_before": 85281,
+      "source_handle_size_after": 85281,
+      "append_prefix": false,
+      "shared_snapshot_reader": false
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\owned-049c-startup\\observer-target.json",
+      "target": "attempts/startup/observer-target.json",
+      "started_at": "2026-11-16T15:44:51.216263+00:00",
+      "read_completed_at": "2026-11-16T15:44:51.217697+00:00",
+      "bytes": 679,
+      "sha256": "ad88abd18239df098a877342ee8a8cb21b7e373934a5b22a1d0b1481fd3e868d",
+      "source_path_size_before": 679,
+      "source_path_size_after": 679,
+      "source_handle_size_before": 679,
+      "source_handle_size_after": 679,
+      "append_prefix": false,
+      "shared_snapshot_reader": false
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\owned-049c-startup\\reload_before_recorder.py",
+      "target": "attempts/startup/reload_before_recorder.py",
+      "started_at": "2026-11-16T15:44:51.224081+00:00",
+      "read_completed_at": "2026-11-16T15:44:51.229612+00:00",
+      "bytes": 27651,
+      "sha256": "f4ae20d99f9660f698146abc7fb6b49e657bac9b954577bdef7c7c70fa5b7cdc",
+      "source_path_size_before": 27651,
+      "source_path_size_after": 27651,
+      "source_handle_size_before": 27651,
+      "source_handle_size_after": 27651,
+      "append_prefix": false,
+      "shared_snapshot_reader": false
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\owned-049c-startup\\samples.jsonl",
+      "target": "attempts/startup/samples.jsonl",
+      "started_at": "2026-11-16T15:44:51.248889+00:00",
+      "read_completed_at": "2026-11-16T15:44:51.254921+00:00",
+      "bytes": 1764372,
+      "sha256": "d4014c2a1b515f03b1e1eb0ccb68a74d28f1404ef297fed5a006e7087fa40f9a",
+      "source_path_size_before": 1764372,
+      "source_path_size_after": 1764372,
+      "source_handle_size_before": 1764372,
+      "source_handle_size_after": 1764372,
+      "append_prefix": false,
+      "shared_snapshot_reader": false
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\owned-049c-startup\\windows_snapshot_io.py",
+      "target": "attempts/startup/windows_snapshot_io.py",
+      "started_at": "2026-11-16T15:44:51.337550+00:00",
+      "read_completed_at": "2026-11-16T15:44:51.404109+00:00",
+      "bytes": 1992,
+      "sha256": "6967cd6efee7a673e5df72700ea8de26e2e92c02d4614306bcb106fa527b02e1",
+      "source_path_size_before": 1992,
+      "source_path_size_after": 1992,
+      "source_handle_size_before": 1992,
+      "source_handle_size_after": 1992,
+      "append_prefix": false,
+      "shared_snapshot_reader": false
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\owned-049c-reload-recorder\\journal.jsonl",
+      "target": "attempts/reload-recorder/journal.jsonl",
+      "started_at": "2026-11-16T15:44:51.455669+00:00",
+      "read_completed_at": "2026-11-16T15:44:51.465233+00:00",
+      "bytes": 952,
+      "sha256": "04074ccc0dcddd6dd78669ce8e65d29b19c6bd7e5d17f7bb97f0accfe5b2a41b",
+      "source_path_size_before": 952,
+      "source_path_size_after": 952,
+      "source_handle_size_before": 952,
+      "source_handle_size_after": 952,
+      "append_prefix": false,
+      "shared_snapshot_reader": false
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\owned-049c-reload-recorder\\packaged-client-launch.json",
+      "target": "attempts/reload-recorder/packaged-client-launch.json",
+      "started_at": "2026-11-16T15:44:51.474139+00:00",
+      "read_completed_at": "2026-11-16T15:44:51.479510+00:00",
+      "bytes": 26219,
+      "sha256": "6a64b382abe1766c9ab1b508173994bc4ca9ed54dac7123b2b97b26041db3635",
+      "source_path_size_before": 26219,
+      "source_path_size_after": 26219,
+      "source_handle_size_before": 26219,
+      "source_handle_size_after": 26219,
+      "append_prefix": false,
+      "shared_snapshot_reader": false
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\owned-049c-reload-recorder\\packaged-client-plan.json",
+      "target": "attempts/reload-recorder/packaged-client-plan.json",
+      "started_at": "2026-11-16T15:44:51.494880+00:00",
+      "read_completed_at": "2026-11-16T15:44:51.499059+00:00",
+      "bytes": 42325,
+      "sha256": "d286eedb9786b86296e72d6effb8fbc9529326d450e0a375d8eed7345abd2c1b",
+      "source_path_size_before": 42325,
+      "source_path_size_after": 42325,
+      "source_handle_size_before": 42325,
+      "source_handle_size_after": 42325,
+      "append_prefix": false,
+      "shared_snapshot_reader": false
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\owned-049c-reload-recorder\\sources\\client_experiment_analysis.py",
+      "target": "attempts/reload-recorder/sources/client_experiment_analysis.py",
+      "started_at": "2026-11-16T15:44:51.507985+00:00",
+      "read_completed_at": "2026-11-16T15:44:51.550012+00:00",
+      "bytes": 41656,
+      "sha256": "0669d421d09a47664cf9207f559f247983f76a666a1cfe8487c7d02d4c5a7d6e",
+      "source_path_size_before": 41656,
+      "source_path_size_after": 41656,
+      "source_handle_size_before": 41656,
+      "source_handle_size_after": 41656,
+      "append_prefix": false,
+      "shared_snapshot_reader": false
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\owned-049c-reload-recorder\\sources\\native-observer-consumer.json",
+      "target": "attempts/reload-recorder/sources/native-observer-consumer.json",
+      "started_at": "2026-11-16T15:44:51.607443+00:00",
+      "read_completed_at": "2026-11-16T15:44:51.611044+00:00",
+      "bytes": 364,
+      "sha256": "fae895c646ff796473bdc2c83a1b1c4abfc518bb75c0ec3bcf10a476a5750e62",
+      "source_path_size_before": 364,
+      "source_path_size_after": 364,
+      "source_handle_size_before": 364,
+      "source_handle_size_after": 364,
+      "append_prefix": false,
+      "shared_snapshot_reader": false
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\owned-049c-reload-recorder\\sources\\native_diagnostic_review.py",
+      "target": "attempts/reload-recorder/sources/native_diagnostic_review.py",
+      "started_at": "2026-11-16T15:44:51.627224+00:00",
+      "read_completed_at": "2026-11-16T15:44:51.651762+00:00",
+      "bytes": 14788,
+      "sha256": "39807f2f3b8173097d30d7fef7499e8bac419f72ff6abd1faf91b014c097e45d",
+      "source_path_size_before": 14788,
+      "source_path_size_after": 14788,
+      "source_handle_size_before": 14788,
+      "source_handle_size_after": 14788,
+      "append_prefix": false,
+      "shared_snapshot_reader": false
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\owned-049c-reload-recorder\\sources\\observe_packaged_client.py",
+      "target": "attempts/reload-recorder/sources/observe_packaged_client.py",
+      "started_at": "2026-11-16T15:44:51.661145+00:00",
+      "read_completed_at": "2026-11-16T15:44:51.670370+00:00",
+      "bytes": 85281,
+      "sha256": "f96d1fc4843a00286592b78732a6dfb15bfd7d46799432c0f2c911dc57f3c1aa",
+      "source_path_size_before": 85281,
+      "source_path_size_after": 85281,
+      "source_handle_size_before": 85281,
+      "source_handle_size_after": 85281,
+      "append_prefix": false,
+      "shared_snapshot_reader": false
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\owned-049c-reload-recorder\\sources\\reload_before_recorder.py",
+      "target": "attempts/reload-recorder/sources/reload_before_recorder.py",
+      "started_at": "2026-11-16T15:44:51.683035+00:00",
+      "read_completed_at": "2026-11-16T15:44:51.687946+00:00",
+      "bytes": 27651,
+      "sha256": "f4ae20d99f9660f698146abc7fb6b49e657bac9b954577bdef7c7c70fa5b7cdc",
+      "source_path_size_before": 27651,
+      "source_path_size_after": 27651,
+      "source_handle_size_before": 27651,
+      "source_handle_size_after": 27651,
+      "append_prefix": false,
+      "shared_snapshot_reader": false
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\owned-049c-reload-recorder\\sources\\windows_snapshot_io.py",
+      "target": "attempts/reload-recorder/sources/windows_snapshot_io.py",
+      "started_at": "2026-11-16T15:44:51.697143+00:00",
+      "read_completed_at": "2026-11-16T15:44:51.700807+00:00",
+      "bytes": 1992,
+      "sha256": "6967cd6efee7a673e5df72700ea8de26e2e92c02d4614306bcb106fa527b02e1",
+      "source_path_size_before": 1992,
+      "source_path_size_after": 1992,
+      "source_handle_size_before": 1992,
+      "source_handle_size_after": 1992,
+      "append_prefix": false,
+      "shared_snapshot_reader": false
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\owned-049c-reload-observation\\observer-source.py",
+      "target": "attempts/reload-observation/observer-source.py",
+      "started_at": "2026-11-16T15:44:51.816740+00:00",
+      "read_completed_at": "2026-11-16T15:44:51.836061+00:00",
+      "bytes": 85281,
+      "sha256": "f96d1fc4843a00286592b78732a6dfb15bfd7d46799432c0f2c911dc57f3c1aa",
+      "source_path_size_before": 85281,
+      "source_path_size_after": 85281,
+      "source_handle_size_before": 85281,
+      "source_handle_size_after": 85281,
+      "append_prefix": false,
+      "shared_snapshot_reader": false
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\owned-049c-reload-observation\\samples.jsonl",
+      "target": "attempts/reload-observation/samples.jsonl",
+      "started_at": "2026-11-16T15:44:51.902253+00:00",
+      "read_completed_at": "2026-11-16T15:44:51.904209+00:00",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path_size_before": 0,
+      "source_path_size_after": 0,
+      "source_handle_size_before": 0,
+      "source_handle_size_after": 0,
+      "append_prefix": false,
+      "shared_snapshot_reader": false
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\owned-049c-reload-observation\\summary.json",
+      "target": "attempts/reload-observation/summary.json",
+      "started_at": "2026-11-16T15:44:51.912045+00:00",
+      "read_completed_at": "2026-11-16T15:44:51.916245+00:00",
+      "bytes": 1432,
+      "sha256": "a8890d958f185382cbb57d3313b0cb53934e7e983d9b6a6135f352eb0c97667b",
+      "source_path_size_before": 1432,
+      "source_path_size_after": 1432,
+      "source_handle_size_before": 1432,
+      "source_handle_size_after": 1432,
+      "append_prefix": false,
+      "shared_snapshot_reader": false
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\owned-049c-reload-observation\\windows_snapshot_io.py",
+      "target": "attempts/reload-observation/windows_snapshot_io.py",
+      "started_at": "2026-11-16T15:44:51.927412+00:00",
+      "read_completed_at": "2026-11-16T15:44:52.015245+00:00",
+      "bytes": 1992,
+      "sha256": "6967cd6efee7a673e5df72700ea8de26e2e92c02d4614306bcb106fa527b02e1",
+      "source_path_size_before": 1992,
+      "source_path_size_after": 1992,
+      "source_handle_size_before": 1992,
+      "source_handle_size_after": 1992,
+      "append_prefix": false,
+      "shared_snapshot_reader": false
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049c\\packaged-client-plan.json",
+      "target": "instance/packaged-client-plan.json",
+      "started_at": "2026-11-16T15:44:52.037860+00:00",
+      "read_completed_at": "2026-11-16T15:44:52.039286+00:00",
+      "bytes": 42325,
+      "sha256": "d286eedb9786b86296e72d6effb8fbc9529326d450e0a375d8eed7345abd2c1b",
+      "source_path_size_before": 42325,
+      "source_path_size_after": 42325,
+      "source_handle_size_before": 42325,
+      "source_handle_size_after": 42325,
+      "append_prefix": false,
+      "shared_snapshot_reader": false
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049c\\packaged-client-launch.json",
+      "target": "instance/packaged-client-launch.json",
+      "started_at": "2026-11-16T15:44:52.047104+00:00",
+      "read_completed_at": "2026-11-16T15:44:52.048608+00:00",
+      "bytes": 26219,
+      "sha256": "6a64b382abe1766c9ab1b508173994bc4ca9ed54dac7123b2b97b26041db3635",
+      "source_path_size_before": 26219,
+      "source_path_size_after": 26219,
+      "source_handle_size_before": 26219,
+      "source_handle_size_after": 26219,
+      "append_prefix": false,
+      "shared_snapshot_reader": false
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049c\\mods\\mtr-memory-saver-official-nf248-0.4.7.jar",
+      "target": "instance/mods/mtr-memory-saver-official-nf248-0.4.7.jar",
+      "started_at": "2026-11-16T15:44:52.064557+00:00",
+      "read_completed_at": "2026-11-16T15:44:52.067212+00:00",
+      "bytes": 321705,
+      "sha256": "e8b5b40230d0f44c541c12b32c8a30d4c2ea056b8a972335ae10166496837a99",
+      "source_path_size_before": 321705,
+      "source_path_size_after": 321705,
+      "source_handle_size_before": 321705,
+      "source_handle_size_after": 321705,
+      "append_prefix": false,
+      "shared_snapshot_reader": false
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049c\\mods\\mtr-native-observer-official-nf248-1.0.3.jar",
+      "target": "instance/mods/mtr-native-observer-official-nf248-1.0.3.jar",
+      "started_at": "2026-11-16T15:44:52.078359+00:00",
+      "read_completed_at": "2026-11-16T15:44:52.079780+00:00",
+      "bytes": 44068,
+      "sha256": "1a4e69a81e8baaeaf30e76b7647a371a39411ab7687934da83742c0fdce8487d",
+      "source_path_size_before": 44068,
+      "source_path_size_after": 44068,
+      "source_handle_size_before": 44068,
+      "source_handle_size_after": 44068,
+      "append_prefix": false,
+      "shared_snapshot_reader": false
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\capture-owned-049c\\execution.json",
+      "target": "collector-checkpoint/execution.json",
+      "started_at": "2026-11-16T15:44:52.886357+00:00",
+      "read_completed_at": "2026-11-16T15:44:52.889903+00:00",
+      "bytes": 675,
+      "sha256": "48fa63c04cdfb2b5bcb59da56ed8b9e5bd89db2ec21de4b970cb57feb694b7fb",
+      "source_path_size_before": 675,
+      "source_path_size_after": 675,
+      "source_handle_size_before": 675,
+      "source_handle_size_after": 675,
+      "append_prefix": false,
+      "shared_snapshot_reader": false
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\capture-owned-049c\\native-snapshots.jsonl",
+      "target": "collector-checkpoint/native-snapshots.jsonl",
+      "started_at": "2026-11-16T15:44:52.899710+00:00",
+      "read_completed_at": "2026-11-16T15:44:52.917001+00:00",
+      "bytes": 3671823,
+      "sha256": "70944551d57d6f1659c2fa4c87c3a14958c9112f9d15b968a871480883febbd5",
+      "source_path_size_before": 3671823,
+      "source_path_size_after": 3671823,
+      "source_handle_size_before": 3671823,
+      "source_handle_size_after": 3671823,
+      "append_prefix": true,
+      "shared_snapshot_reader": false
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\capture-owned-049c\\packaged-client-plan.json",
+      "target": "collector-checkpoint/packaged-client-plan.json",
+      "started_at": "2026-11-16T15:44:52.971732+00:00",
+      "read_completed_at": "2026-11-16T15:44:52.973592+00:00",
+      "bytes": 42325,
+      "sha256": "d286eedb9786b86296e72d6effb8fbc9529326d450e0a375d8eed7345abd2c1b",
+      "source_path_size_before": 42325,
+      "source_path_size_after": 42325,
+      "source_handle_size_before": 42325,
+      "source_handle_size_after": 42325,
+      "append_prefix": false,
+      "shared_snapshot_reader": false
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\capture-owned-049c\\packaged-client-launch.json",
+      "target": "collector-checkpoint/packaged-client-launch.json",
+      "started_at": "2026-11-16T15:44:52.979488+00:00",
+      "read_completed_at": "2026-11-16T15:44:52.980634+00:00",
+      "bytes": 26219,
+      "sha256": "6a64b382abe1766c9ab1b508173994bc4ca9ed54dac7123b2b97b26041db3635",
+      "source_path_size_before": 26219,
+      "source_path_size_after": 26219,
+      "source_handle_size_before": 26219,
+      "source_handle_size_after": 26219,
+      "append_prefix": false,
+      "shared_snapshot_reader": false
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\tools\\capture_diagnostic_client.py",
+      "target": "collector-checkpoint/sources/capture_diagnostic_client.py",
+      "started_at": "2026-11-16T15:44:52.985427+00:00",
+      "read_completed_at": "2026-11-16T15:44:52.988139+00:00",
+      "bytes": 5287,
+      "sha256": "a9ee4e8f2a068ba9c0b72a6f7b348cecdd9c5e4bbe534aeabf851b704e1fb69a",
+      "source_path_size_before": 5287,
+      "source_path_size_after": 5287,
+      "source_handle_size_before": 5287,
+      "source_handle_size_after": 5287,
+      "append_prefix": false,
+      "shared_snapshot_reader": false
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\tools\\packaged_client.py",
+      "target": "collector-checkpoint/sources/packaged_client.py",
+      "started_at": "2026-11-16T15:44:53.025505+00:00",
+      "read_completed_at": "2026-11-16T15:44:53.028910+00:00",
+      "bytes": 42086,
+      "sha256": "ad2e0dbf209ded20942891378e0a5855d6c3f65f8d89baa9afa2a7d24b2af13c",
+      "source_path_size_before": 42086,
+      "source_path_size_after": 42086,
+      "source_handle_size_before": 42086,
+      "source_handle_size_after": 42086,
+      "append_prefix": false,
+      "shared_snapshot_reader": false
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\tools\\windows_snapshot_io.py",
+      "target": "collector-checkpoint/sources/windows_snapshot_io.py",
+      "started_at": "2026-11-16T15:44:53.043787+00:00",
+      "read_completed_at": "2026-11-16T15:44:53.044440+00:00",
+      "bytes": 1992,
+      "sha256": "6967cd6efee7a673e5df72700ea8de26e2e92c02d4614306bcb106fa527b02e1",
+      "source_path_size_before": 1992,
+      "source_path_size_after": 1992,
+      "source_handle_size_before": 1992,
+      "source_handle_size_after": 1992,
+      "append_prefix": false,
+      "shared_snapshot_reader": false
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049c\\game-probe\\native-observer.json",
+      "target": "instance-checkpoint/game-probe/native-observer.json",
+      "started_at": "2026-11-16T15:44:53.064234+00:00",
+      "read_completed_at": "2026-11-16T15:44:53.064961+00:00",
+      "bytes": 6713,
+      "sha256": "6c79195ac547382e370539479290bfdbfb4d68adcbeea7eb0b1527907872772a",
+      "source_path_size_before": 6713,
+      "source_path_size_after": 6713,
+      "source_handle_size_before": null,
+      "source_handle_size_after": null,
+      "append_prefix": false,
+      "shared_snapshot_reader": true
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049c\\game-probe\\native-resource-epochs.jsonl",
+      "target": "instance-checkpoint/game-probe/native-resource-epochs.jsonl",
+      "started_at": "2026-11-16T15:44:53.073537+00:00",
+      "read_completed_at": "2026-11-16T15:44:53.076560+00:00",
+      "bytes": 1787,
+      "sha256": "7b68271761a14e40d775b0e4f9a8a3b459b59fa4296d12b9953cf1f5a04a812a",
+      "source_path_size_before": 1787,
+      "source_path_size_after": 1787,
+      "source_handle_size_before": 1787,
+      "source_handle_size_after": 1787,
+      "append_prefix": true,
+      "shared_snapshot_reader": false
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049c\\game-probe\\native-invalid-model.jsonl",
+      "target": "instance-checkpoint/game-probe/native-invalid-model.jsonl",
+      "started_at": "2026-11-16T15:44:53.081642+00:00",
+      "read_completed_at": "2026-11-16T15:44:53.083275+00:00",
+      "bytes": 22050,
+      "sha256": "9db47ddc968470cc1a88b84c441da17c174c390ddee7eec04343707650e4d12c",
+      "source_path_size_before": 22050,
+      "source_path_size_after": 22050,
+      "source_handle_size_before": 22050,
+      "source_handle_size_after": 22050,
+      "append_prefix": true,
+      "shared_snapshot_reader": false
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049c\\logs\\latest.log",
+      "target": "instance-checkpoint/logs/latest.log",
+      "started_at": "2026-11-16T15:44:53.127113+00:00",
+      "read_completed_at": "2026-11-16T15:44:53.128133+00:00",
+      "bytes": 27952,
+      "sha256": "24cd40679c7b6c2041eefd6f04e249c48fcbc8dc52de50df9bbb7a29dcef0501",
+      "source_path_size_before": 27952,
+      "source_path_size_after": 27952,
+      "source_handle_size_before": 27952,
+      "source_handle_size_after": 27952,
+      "append_prefix": true,
+      "shared_snapshot_reader": false
+    }
+  ],
+  "copy_capture_interval": {
+    "started_at": "2026-11-16T15:44:50.855994+00:00",
+    "ended_at": "2026-11-16T15:44:53.902150+00:00",
+    "not_simultaneous_transaction": true
+  },
+  "identity": {
+    "plan_sha256": "d286eedb9786b86296e72d6effb8fbc9529326d450e0a375d8eed7345abd2c1b",
+    "launch_sha256": "6a64b382abe1766c9ab1b508173994bc4ca9ed54dac7123b2b97b26041db3635",
+    "pid": 18796,
+    "mods": [
+      {
+        "filename": "mtr-memory-saver-official-nf248-0.4.7.jar",
+        "sha256": "e8b5b40230d0f44c541c12b32c8a30d4c2ea056b8a972335ae10166496837a99",
+        "role": "companion",
+        "actual_sha256": "e8b5b40230d0f44c541c12b32c8a30d4c2ea056b8a972335ae10166496837a99",
+        "copied": true
+      },
+      {
+        "filename": "mtr-native-observer-official-nf248-1.0.3.jar",
+        "sha256": "1a4e69a81e8baaeaf30e76b7647a371a39411ab7687934da83742c0fdce8487d",
+        "role": "observer",
+        "actual_sha256": "1a4e69a81e8baaeaf30e76b7647a371a39411ab7687934da83742c0fdce8487d",
+        "copied": true
+      },
+      {
+        "filename": "MTR-neoforge-4.1.0-beta.2+1.21.1.jar",
+        "sha256": "ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa",
+        "role": "mtr",
+        "actual_sha256": "ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa",
+        "copied": false
+      }
+    ],
+    "embedded_JAR_metadata": {
+      "companion": {
+        "metadata": {
+          "target": "official-nf248",
+          "version": "0.4.7",
+          "minecraft": "1.21.1",
+          "neoForge": "21.1.248",
+          "mtrSha256": "ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa",
+          "variant": "official"
+        },
+        "metadata_sha256": "6611ac176d8750290d264bba62e468d44912976e5f3d5ca9439a69ddfa1a2630",
+        "mods_toml_sha256": "10178f48c2f6f23a8b19adf221e6c4bda321a47246628b1f076b4418a85a3177",
+        "mods": [
+          {
+            "modId": "mtr_memory_sharing",
+            "version": "0.4.7",
+            "displayName": "MTR Memory Saver",
+            "authors": "A-BenLi06",
+            "description": "Shared resource loading for Minecraft Transit Railway.",
+            "logoFile": "pack.png",
+            "logoBlur": false
+          }
+        ],
+        "manifest": "Manifest-Version: 1.0\r\nImplementation-Version: 0.4.7\r\nMTR-Memory-Target: official-nf248\r\n\r\n"
+      },
+      "observer": {
+        "metadata": {
+          "schema_version": 1,
+          "probe_kind": "official-native-observer",
+          "observer_version": "1.0.3",
+          "mod_id": "mtr_native_observer",
+          "target": "official-nf248",
+          "variant": "official",
+          "minecraft": "1.21.1",
+          "java": 21,
+          "neoForge": "21.1.248",
+          "mtrVersion": "4.1.0-beta.2",
+          "mtrSha256": "ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa",
+          "frame_event": "mtrtest.ClientFrame",
+          "server_tick_event": "mtrtest.ServerTick",
+          "snapshot_path": "game-probe/native-observer.json",
+          "epochs_path": "game-probe/native-resource-epochs.jsonl",
+          "diagnostics_path": "game-probe/native-invalid-model.jsonl",
+          "diagnostics_schema": 1
+        },
+        "metadata_sha256": "79d1e3c69bf1d5633a2baf04114c5dd311e30bce6c7ca20eccf31b6934f18137",
+        "mods_toml_sha256": "2664df1c3e86868afdc05fda87311da9ab1a8a1adcfe1b7e2012918ad6eb07a3",
+        "mods": [
+          {
+            "modId": "mtr_native_observer",
+            "version": "1.0.3",
+            "displayName": "MTR Native Observer",
+            "authors": "A-BenLi06",
+            "description": "Native client state and frame observations."
+          }
+        ],
+        "manifest": "Manifest-Version: 1.0\r\nImplementation-Version: 1.0.3\r\nMTR-Native-Observer-Target: official-nf248\r\n\r\n"
+      }
+    },
+    "MTR_binary_independently_rehashed": false,
+    "packs_independently_rehashed": false
+  },
+  "recorder": {
+    "journal_chain": [
+      {
+        "sequence": 1,
+        "previous_sha256": null,
+        "sha256": "b9713cc7ff3b2b8550459f1427b7c4862ff00b15a5c95a3ee1e3c940152053fa",
+        "event": {
+          "kind": "initializing",
+          "recorded_at": "2026-11-16T15:37:38.404696+00:00",
+          "session_id": "fa389d40-f21e-4270-89e5-9ab167dd9eed"
+        }
+      },
+      {
+        "sequence": 2,
+        "previous_sha256": "b9713cc7ff3b2b8550459f1427b7c4862ff00b15a5c95a3ee1e3c940152053fa",
+        "sha256": "2f2e45a9fe5909638cb2b93e8c4d0b2daab6b536e2eb83547800c5359dfbe4e4",
+        "event": {
+          "error": "TimeoutExpired(['pwsh', '-NoProfile', '-Command', \"$observedProcess = Get-CimInstance Win32_Process -Filter 'ProcessId = 18796'; if ($null -eq $observedProcess) { throw 'Launched process is absent' }; @{pid=[int]$observedProcess.ProcessId; executable=$observedProcess.ExecutablePath; created=$observedProcess.CreationDate.ToUniversalTime().ToString('o'); command=$observedProcess.CommandLine} | ConvertTo-Json -Compress\"], 20)",
+          "kind": "initialization_failed",
+          "recorded_at": "2026-11-16T15:39:39.279950+00:00"
+        }
+      }
+    ],
+    "trailing_partial_bytes": 0,
+    "configured_subprocess_timeout_seconds": 20,
+    "initialization_to_failure_wall_seconds": 120.875254,
+    "timeout_boundary": "20 is the subprocess timeout configuration in the exception; journal timestamps span 120.875254 seconds, not an exact 20-second wall latency."
+  },
+  "reload_observation": {
+    "timestamp": "2026-11-16T15:40:04.310511+00:00",
+    "status": "preflight_failed",
+    "passed": false,
+    "error": "Command '['pwsh', '-NoProfile', '-Command', \"$observedProcess = Get-CimInstance Win32_Process -Filter 'ProcessId = 18796'; if ($null -eq $observedProcess) { throw 'Launched process is absent' }; @{pid=[int]$observedProcess.ProcessId; executable=$observedProcess.ExecutablePath; created=$observedProcess.CreationDate.ToUniversalTime().ToString('o'); command=$observedProcess.CommandLine} | ConvertTo-Json -Compress\"]' timed out after 20 seconds",
+    "instance": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049c",
+    "mode": "reloads",
+    "source_sha256": "f96d1fc4843a00286592b78732a6dfb15bfd7d46799432c0f2c911dc57f3c1aa",
+    "current_source_sha256": "f96d1fc4843a00286592b78732a6dfb15bfd7d46799432c0f2c911dc57f3c1aa",
+    "source_changed_during_observation": false,
+    "snapshot_io_source_sha256": "6967cd6efee7a673e5df72700ea8de26e2e92c02d4614306bcb106fa527b02e1",
+    "current_snapshot_io_source_sha256": "6967cd6efee7a673e5df72700ea8de26e2e92c02d4614306bcb106fa527b02e1",
+    "samples_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "plan_sha256": "d286eedb9786b86296e72d6effb8fbc9529326d450e0a375d8eed7345abd2c1b",
+    "launch_sha256": "6a64b382abe1766c9ab1b508173994bc4ca9ed54dac7123b2b97b26041db3635"
+  },
+  "startup": {
+    "complete_lines": 201,
+    "trailing_partial_bytes": 0,
+    "summary_present": false,
+    "first_timestamp": "2026-11-16T15:36:16.112054+00:00",
+    "last_timestamp": "2026-11-16T15:39:36.372015+00:00",
+    "completion_proven": false
+  },
+  "collector_checkpoint": {
+    "execution": {
+      "scope": "diagnostic client; no performance or full gameplay acceptance",
+      "started": "2026-11-16T15:31:14.918453+00:00",
+      "instance": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049c",
+      "status": "observing",
+      "sources": {
+        "capture_diagnostic_client.py": "a9ee4e8f2a068ba9c0b72a6f7b348cecdd9c5e4bbe534aeabf851b704e1fb69a",
+        "packaged_client.py": "ad2e0dbf209ded20942891378e0a5855d6c3f65f8d89baa9afa2a7d24b2af13c",
+        "windows_snapshot_io.py": "6967cd6efee7a673e5df72700ea8de26e2e92c02d4614306bcb106fa527b02e1"
+      },
+      "exports": [],
+      "capture_errors": [],
+      "pid": 18796
+    },
+    "complete_lines": 503,
+    "trailing_partial_bytes": 0,
+    "first_captured_at": "2026-11-16T15:35:00.462815+00:00",
+    "last_captured_at": "2026-11-16T15:44:52.660543+00:00",
+    "process_exit_proven": false
+  },
+  "native_checkpoint": {
+    "timestamp": "2026-11-16T15:44:52.174229700Z",
+    "pid": 18796,
+    "process_created": "2026-11-16T15:31:22.677Z",
+    "process": {
+      "pid": 18796,
+      "start_instant": "2026-11-16T15:31:22.677Z",
+      "executable": "C:\\Users\\ben_l\\Saved Games\\Yuuniverse 1.20.1 Shenyang\\porting-output\\work\\tools\\jdk21\\jdk-21.0.11+10\\bin\\java.exe",
+      "java_version": "21.0.11",
+      "java_runtime_version": "21.0.11+10-LTS",
+      "java_vendor": "Eclipse Adoptium"
+    },
+    "target": {
+      "schema_version": 1,
+      "probe_kind": "official-native-observer",
+      "observer_version": "1.0.3",
+      "mod_id": "mtr_native_observer",
+      "target": "official-nf248",
+      "variant": "official",
+      "minecraft": "1.21.1",
+      "java": 21,
+      "neoForge": "21.1.248",
+      "mtrVersion": "4.1.0-beta.2",
+      "mtrSha256": "ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa",
+      "frame_event": "mtrtest.ClientFrame",
+      "server_tick_event": "mtrtest.ServerTick",
+      "snapshot_path": "game-probe/native-observer.json",
+      "epochs_path": "game-probe/native-resource-epochs.jsonl",
+      "diagnostics_path": "game-probe/native-invalid-model.jsonl",
+      "diagnostics_schema": 1
+    },
+    "observation_errors": 0,
+    "native_model_diagnostics": {
+      "started": 1,
+      "completed": 1,
+      "in_flight": 0,
+      "observation_errors": 0
+    }
+  },
+  "parent_reported_history_not_original_receipt": {
+    "recorded_at": "2026-11-16T15:44:53.895425+00:00",
+    "origin": "Parent agent messages in the current chat; not an independently preserved tool receipt or process-exit observation.",
+    "startup": {
+      "reported_session_id": 3751,
+      "reported_input": {
+        "chars": "\u0003"
+      },
+      "reported_initial_input_result": "Session remained running; final empty poll returned exit_code 1.",
+      "final_tool_response_as_reported": {
+        "chunk_id": "c23302",
+        "wall_time_seconds": 2.32e-05,
+        "exit_code": 1,
+        "original_token_count": 0,
+        "output": ""
+      },
+      "actual_exit_timestamp": null,
+      "independent_exit_cause_proven": false,
+      "reported_cadence_seconds": 1
+    },
+    "reload_recorder": {
+      "reported_exit_code": 1,
+      "raw_tool_receipt_available": false
+    },
+    "reload_observation": {
+      "reported_exit_code": 1,
+      "raw_tool_receipt_available": false
+    }
+  },
+  "ended_at": "2026-11-16T15:50:32.715629+00:00",
+  "failed_checks": [],
+  "passed": true,
+  "check_count": 302
+}

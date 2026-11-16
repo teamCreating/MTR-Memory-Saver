@@ -1,0 +1,29 @@
+{
+  "recorded_at": "2026-11-16T15:44:53.895425+00:00",
+  "origin": "Parent agent messages in the current chat; not an independently preserved tool receipt or process-exit observation.",
+  "startup": {
+    "reported_session_id": 3751,
+    "reported_input": {
+      "chars": "\u0003"
+    },
+    "reported_initial_input_result": "Session remained running; final empty poll returned exit_code 1.",
+    "final_tool_response_as_reported": {
+      "chunk_id": "c23302",
+      "wall_time_seconds": 2.32e-05,
+      "exit_code": 1,
+      "original_token_count": 0,
+      "output": ""
+    },
+    "actual_exit_timestamp": null,
+    "independent_exit_cause_proven": false,
+    "reported_cadence_seconds": 1
+  },
+  "reload_recorder": {
+    "reported_exit_code": 1,
+    "raw_tool_receipt_available": false
+  },
+  "reload_observation": {
+    "reported_exit_code": 1,
+    "raw_tool_receipt_available": false
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "timestamp": "2026-11-16T15:40:04.310511+00:00",
+  "status": "preflight_failed",
+  "passed": false,
+  "error": "Command '['pwsh', '-NoProfile', '-Command', \"$observedProcess = Get-CimInstance Win32_Process -Filter 'ProcessId = 18796'; if ($null -eq $observedProcess) { throw 'Launched process is absent' }; @{pid=[int]$observedProcess.ProcessId; executable=$observedProcess.ExecutablePath; created=$observedProcess.CreationDate.ToUniversalTime().ToString('o'); command=$observedProcess.CommandLine} | ConvertTo-Json -Compress\"]' timed out after 20 seconds",
+  "instance": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049c",
+  "mode": "reloads",
+  "source_sha256": "f96d1fc4843a00286592b78732a6dfb15bfd7d46799432c0f2c911dc57f3c1aa",
+  "current_source_sha256": "f96d1fc4843a00286592b78732a6dfb15bfd7d46799432c0f2c911dc57f3c1aa",
+  "source_changed_during_observation": false,
+  "snapshot_io_source_sha256": "6967cd6efee7a673e5df72700ea8de26e2e92c02d4614306bcb106fa527b02e1",
+  "current_snapshot_io_source_sha256": "6967cd6efee7a673e5df72700ea8de26e2e92c02d4614306bcb106fa527b02e1",
+  "samples_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "plan_sha256": "d286eedb9786b86296e72d6effb8fbc9529326d450e0a375d8eed7345abd2c1b",
+  "launch_sha256": "6a64b382abe1766c9ab1b508173994bc4ca9ed54dac7123b2b97b26041db3635"
+}

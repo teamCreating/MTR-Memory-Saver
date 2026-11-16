@@ -1,0 +1,20 @@
+{
+  "scope": "Raw failure returned during external verifier setup; not an original game, collector, recorder, or observer receipt.",
+  "actual_start_or_end_timestamp_available": false,
+  "command": "Get-ChildItem sealed observation-attempts, then Get-ChildItem observation-attempts-verification with ErrorAction SilentlyContinue",
+  "initial_tool_response": {
+    "chunk_id": "778062",
+    "wall_time_seconds": 10.0045993,
+    "session_id": 46919,
+    "original_token_count": 0,
+    "output": ""
+  },
+  "final_tool_response": {
+    "chunk_id": "123ae1",
+    "wall_time_seconds": 0.000066,
+    "exit_code": 1,
+    "original_token_count": 40,
+    "output": "\r\nMode  Length Name\r\n----  ------ ----\r\nd----        capture-01\r\n-a--- 10725  capture_attempts.py\r\n-a--- 3092   README.md\r\n-a--- 7764   sha256-index.json\r\n\r\n"
+  },
+  "interpretation": "The optional verification-directory listing found no existing directory. The later independent verifier execution has its own actual argv/time/exit receipt."
+}
