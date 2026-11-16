@@ -1,0 +1,17 @@
+{
+  "timestamp": "2026-11-16T13:46:35.007529+08:00",
+  "launched_jar_sha256": "95aa3ac2d140ead4bca42a7625c497fdceeca7cc09acd72dc960065fae5ebea4",
+  "inputs": {
+    "build.gradle": "01ac3570be54732172e9f2e44b176dcfc5ae9a16a68b392c36565b9fc7ad6cd4",
+    "build/generated/model-trace/official-nf248/META-INF/neoforge.mods.toml": "102f2a08254660c739a71e29d13c9fac32038cd07a70974932045641c45d33da",
+    "build/generated/model-trace/official-nf248/mtr-model-trace-target.json": "31f2864a1fe86dcb85a22e25dcb843d2e8a82e2176f13d659d1077b28a657204",
+    "build/generated/model-trace/official-nf248/mtr-model-trace.mixins.json": "c8964041e443a6737f5a51dab04a62c9576e94aaf7f516924689bc14c4efe5a5",
+    "config/targets.json": "e3d1d3a81d4fe8d7e60ba376654c943cc9766ce1d213b119fe7f6b175ac1d4ff",
+    "tools/diagnostics/native-model-trace.gradle": "e83ce8d99dcf73462841078d23ec6fc3e32fcc93b5e8474d76c882cc03da5cad",
+    "tools/diagnostics/native-model-trace/java/dev/abenli/modeltrace/TargetGuard.java": "9b17263a7aae304a2de00d6e0570b4ae5c14e4cd929acdf1dfaa4ec047549324",
+    "tools/diagnostics/native-model-trace/java/dev/abenli/modeltrace/TraceRecorder.java": "8624a4fd3ee19bd38dcd4dbb8c14fa23391b455b0db0397729785727bba3310e",
+    "tools/diagnostics/native-model-trace/java/dev/abenli/modeltrace/mixin/InvalidModelTraceMixin.java": "589ee31752102d0a91f7177bd37dd6a706cedc22d0c1bff98592c3dfe0f96c88",
+    "tools/diagnostics/native-model-trace/test/dev/abenli/modeltrace/TraceContractTest.java": "64f920b5f19121a12649c74fa1634a3643d05d471b8bbea69ee29709c24d0aa2"
+  },
+  "reconstruction": "Only final TAIL annotation changed back to original RETURN. Other sources verify against the final pre-launch build manifest. Class payload reproducibility is checked separately."
+}

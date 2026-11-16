@@ -1,0 +1,13 @@
+{
+    "required": true,
+    "minVersion": "0.8",
+    "package": "dev.abenli.modeltrace.mixin",
+    "plugin": "dev.abenli.modeltrace.TargetGuard",
+    "compatibilityLevel": "JAVA_21",
+    "client": [
+        "InvalidModelTraceMixin"
+    ],
+    "injectors": {
+        "defaultRequire": 1
+    }
+}

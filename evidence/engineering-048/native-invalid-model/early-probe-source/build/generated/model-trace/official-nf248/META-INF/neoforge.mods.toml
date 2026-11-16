@@ -1,0 +1,29 @@
+modLoader="javafml"
+loaderVersion="[4,)"
+license="MIT"
+[[mods]]
+modId="mtr_model_trace"
+version="1.0.0"
+displayName="MTR Model Diagnostic Trace"
+authors="A-BenLi06"
+description="Records native unsupported model calls without replacing their behavior."
+[[dependencies.mtr_model_trace]]
+modId="neoforge"
+type="required"
+versionRange="[21.1.248]"
+ordering="NONE"
+side="CLIENT"
+[[dependencies.mtr_model_trace]]
+modId="minecraft"
+type="required"
+versionRange="[1.21.1]"
+ordering="NONE"
+side="CLIENT"
+[[dependencies.mtr_model_trace]]
+modId="mtr"
+type="required"
+versionRange="[4.1.0-beta.2]"
+ordering="AFTER"
+side="CLIENT"
+[[mixins]]
+config="mtr-model-trace.mixins.json"

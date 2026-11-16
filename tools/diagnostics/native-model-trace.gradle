@@ -1,0 +1,116 @@
+import groovy.json.JsonOutput
+import groovy.json.JsonSlurper
+import java.security.MessageDigest
+
+// Optional diagnostic build: -I tools/diagnostics/native-model-trace.gradle modelTraceManifest modelTraceTest
+gradle.projectsEvaluated {
+    def p = gradle.rootProject
+    def matrix = new JsonSlurper().parse(p.file('config/targets.json'))
+    def name = p.findProperty('target') ?: matrix.default
+    def target = matrix.targets[name]
+    if (target == null || target.variant != 'official') throw new GradleException('The model trace supports exact official targets only.')
+    def mtr = matrix.mtr.official
+    def generatedResources = p.layout.buildDirectory.dir("generated/model-trace/${name}")
+    p.sourceSets {
+        modelTrace {
+            java.srcDir('tools/diagnostics/native-model-trace/java')
+            compileClasspath += p.sourceSets.main.compileClasspath
+            resources.srcDir(generatedResources)
+        }
+        modelTraceTest {
+            java.srcDir('tools/diagnostics/native-model-trace/test')
+            compileClasspath += p.sourceSets.modelTrace.output + p.sourceSets.main.compileClasspath
+            runtimeClasspath += p.sourceSets.modelTrace.output + p.sourceSets.main.compileClasspath
+        }
+    }
+    p.configurations.modelTraceTestImplementation.extendsFrom(p.configurations.testImplementation)
+    p.configurations.modelTraceTestRuntimeOnly.extendsFrom(p.configurations.testRuntimeOnly)
+    p.tasks.register('generateModelTraceMetadata') {
+        inputs.files(p.file('config/targets.json'), p.file('tools/diagnostics/native-model-trace.gradle'))
+        inputs.property('target', name)
+        outputs.dir(generatedResources)
+        doLast {
+            def output = generatedResources.get().asFile
+            def writeJson = { String path, Object value ->
+                def file = new File(output, path); file.parentFile.mkdirs()
+                file.setText(JsonOutput.prettyPrint(JsonOutput.toJson(value)) + '\n', 'UTF-8')
+            }
+            writeJson('mtr-model-trace-target.json', [schema_version: 1, target: name, variant: target.variant,
+                minecraft: matrix.minecraft, java: matrix.java, neoForge: target.neoForge,
+                mtrSha256: mtr.sha256, output: 'game-probe/native-invalid-model.jsonl'])
+            writeJson('mtr-model-trace.mixins.json', [required: true, minVersion: '0.8',
+                package: 'dev.abenli.modeltrace.mixin', plugin: 'dev.abenli.modeltrace.TargetGuard',
+                compatibilityLevel: 'JAVA_21', client: ['InvalidModelTraceMixin'], injectors: [defaultRequire: 1]])
+            def metadata = new File(output, 'META-INF/neoforge.mods.toml'); metadata.parentFile.mkdirs()
+            metadata.setText("""modLoader="javafml"
+loaderVersion="[4,)"
+license="MIT"
+[[mods]]
+modId="mtr_model_trace"
+version="1.0.0"
+displayName="MTR Model Diagnostic Trace"
+authors="A-BenLi06"
+description="Records native unsupported model calls without replacing their behavior."
+[[dependencies.mtr_model_trace]]
+modId="neoforge"
+type="required"
+versionRange="[${target.neoForge}]"
+ordering="NONE"
+side="CLIENT"
+[[dependencies.mtr_model_trace]]
+modId="minecraft"
+type="required"
+versionRange="[${matrix.minecraft}]"
+ordering="NONE"
+side="CLIENT"
+[[dependencies.mtr_model_trace]]
+modId="mtr"
+type="required"
+versionRange="[${mtr.version}]"
+ordering="AFTER"
+side="CLIENT"
+[[mixins]]
+config="mtr-model-trace.mixins.json"
+""", 'UTF-8')
+        }
+    }
+    p.tasks.named('processModelTraceResources') { dependsOn p.tasks.named('generateModelTraceMetadata') }
+    p.tasks.register('modelTraceJar', Jar) {
+        dependsOn p.tasks.named('modelTraceClasses')
+        archiveBaseName = "mtr-model-trace-${name}"
+        archiveVersion = '1.0.0'
+        from(p.sourceSets.modelTrace.output)
+        from(p.file('LICENSE'))
+        preserveFileTimestamps = false
+        reproducibleFileOrder = true
+        manifest.attributes('Implementation-Version': '1.0.0', 'MTR-Model-Trace-Target': name)
+    }
+    p.tasks.register('modelTraceTest', Test) {
+        testClassesDirs = p.sourceSets.modelTraceTest.output.classesDirs
+        classpath = p.sourceSets.modelTraceTest.runtimeClasspath
+        useJUnitPlatform()
+        maxHeapSize = '512m'
+        testLogging { events 'failed', 'skipped'; exceptionFormat 'full' }
+    }
+    p.tasks.register('modelTraceManifest') {
+        dependsOn p.tasks.named('modelTraceJar'), p.tasks.named('modelTraceTest')
+        def destination = p.layout.buildDirectory.file("libs/mtr-model-trace-${name}-1.0.0.build.json")
+        inputs.files(p.sourceSets.modelTrace.allSource, p.file('tools/diagnostics/native-model-trace.gradle'), p.file('config/targets.json'), p.file('build.gradle'))
+        inputs.file(p.tasks.named('modelTraceJar').flatMap { it.archiveFile })
+        outputs.file(destination)
+        doLast {
+            def sha = { File file ->
+                def digest = MessageDigest.getInstance('SHA-256')
+                file.withInputStream { input -> byte[] buffer = new byte[65536]; int count; while ((count = input.read(buffer)) != -1) digest.update(buffer, 0, count) }
+                digest.digest().encodeHex().toString()
+            }
+            def jar = p.tasks.named('modelTraceJar').get().archiveFile.get().asFile
+            def hashes = [:]
+            (p.sourceSets.modelTrace.allSource.files + p.sourceSets.modelTraceTest.allSource.files + p.file('tools/diagnostics/native-model-trace.gradle') + p.file('config/targets.json') + p.file('build.gradle'))
+                .findAll { it.isFile() }.sort { it.path }.each { hashes[p.relativePath(it).replace('\\', '/')] = sha(it) }
+            destination.get().asFile.setText(JsonOutput.prettyPrint(JsonOutput.toJson([schema_version: 1,
+                target: name, artifact: jar.name, sha256: sha(jar), mtrSha256: mtr.sha256,
+                inputs: hashes, scope: 'Opt-in diagnostic only; not a performance-neutral observer or product component.'])) + '\n', 'UTF-8')
+        }
+    }
+}
