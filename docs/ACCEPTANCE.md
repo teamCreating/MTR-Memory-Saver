@@ -1,6 +1,6 @@
 # Acceptance and performance procedure
 
-Updated: 2026-11-16T14:42:02.991919+08:00 (UTC+08:00).
+Updated: 2026-11-16T19:21:08.958951+08:00 (UTC+08:00).
 
 The default candidate is now **0.4.7**. Both official targets pass 73 Java tests,
 four actual abrupt-exit cleanup checks across writing and workspace waiting, and
@@ -9,8 +9,12 @@ four 3 GiB large-OBJ checks across targets and CompactStrings modes. The exact
 [Owned-channel evidence](../evidence/engineering-048/snapshot-owned-channel/README.md)
 and [independent artifact audit](../evidence/engineering-048/candidate-artifact-review/README.md)
 bind the new JARs. Only the reader and its Snapshot class change; the other 56
-classes are byte-identical. Fresh 0.4.7 packaged faults, full-pack interaction,
-reload endurance, route duration and controlled performance are still pending.
+classes are byte-identical. Both exact 0.4.7 packaged official clients now pass
+24 lifecycle and 18 real-resource fault checks each, exit normally, and preserve
+readable JFRs. Both same-version wrong-binary clients fail fatally before vehicle
+registration. [Packaged 0.4.7 evidence](../evidence/engineering-048/packaged-owned-channel/README.md)
+binds all four independent JVMs; full-pack interaction, reload endurance, route
+duration and controlled performance are still pending.
 
 A later 0.4.6 NF248 run with neutral observer 1.0.2 completed one actual F3+T
 ResourceManager reload and exited normally with a readable JFR. Its explicitly

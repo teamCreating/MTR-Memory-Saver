@@ -3,7 +3,7 @@
 Scope: Memory Saver 0.4.7 candidate and separately identified historical 0.4.6
 evidence with official MTR 4.1.0-beta.2, Minecraft 1.21.1,
 Java 21 and the two explicit NeoForge targets. New v6 validation is paused.
-Updated: 2026-11-16T14:42:02.991919+08:00 (UTC+08:00).
+Updated: 2026-11-16T19:21:08.958951+08:00 (UTC+08:00).
 
 The default candidate is now **0.4.7**. Both official targets pass 73 Java tests,
 four actual abrupt-exit cleanup checks across writing and workspace waiting, and
@@ -12,8 +12,12 @@ four 3 GiB large-OBJ checks across targets and CompactStrings modes. The exact
 [Owned-channel evidence](../evidence/engineering-048/snapshot-owned-channel/README.md)
 and [independent artifact audit](../evidence/engineering-048/candidate-artifact-review/README.md)
 bind the new JARs. Only the reader and its Snapshot class change; the other 56
-classes are byte-identical. Fresh 0.4.7 packaged faults, full-pack interaction,
-reload endurance, route duration and controlled performance are still pending.
+classes are byte-identical. Both exact 0.4.7 packaged official clients now pass
+24 lifecycle and 18 real-resource fault checks each, exit normally, and preserve
+readable JFRs. Both same-version wrong-binary clients fail fatally before vehicle
+registration. [Packaged 0.4.7 evidence](../evidence/engineering-048/packaged-owned-channel/README.md)
+binds all four independent JVMs; full-pack interaction, reload endurance, route
+duration and controlled performance are still pending.
 
 A later 0.4.6 NF248 run with neutral observer 1.0.2 completed one actual F3+T
 ResourceManager reload and exited normally with a readable JFR. Its explicitly
@@ -35,6 +39,15 @@ need their own runtime verification. See [sealed runtime evidence](../evidence/e
 - Both official 0.4.7 targets now pass 73 tests each, actual abrupt-exit deletion
   at two reader phases and exact 3 GiB large-input checks in both string modes.
   The independent audit binds each candidate and its unchanged remaining classes.
+- Both current 0.4.7 official packaged clients pass all 24 lifecycle and 18
+  actual-resource checks, including correction/retry, blocked native-parser
+  retirement, replacement publication, balanced tickets/permits and zero used or
+  waiting text workspace. Each exits normally with a readable JFR. Both exact
+  same-version binary negative controls change only the MTR ZIP comment, install
+  no probe, and exit with code 1 through the fatal fingerprint guard before vehicle
+  registration. The first NF248 evidence runner's post-exit log-decoding failure
+  remains preserved; an independent raw-byte assessment verifies the completed
+  JVM's checks and JFR without rewriting that original failed receipt.
 - The historical 0.4.6 official targets pass 66 core Java tests each. Five new snapshot-I/O
   cases cover output write/close, restoration read, deletion and suppressed
   cleanup failure, including failed-cache retry and real memory settlement.
@@ -124,12 +137,12 @@ need their own runtime verification. See [sealed runtime evidence](../evidence/e
 | P1 | Two-hour unpaused route | All three attempts failed. Attempt 03's first 2400-second sampled window passes, but the process crashes and JFR coverage is incomplete. Retain strict sampling/availability gates for a fresh complete route; do not promote the partial window. |
 | P1 | Controlled full-client performance | Current control/protocol engineering is ready for qualification. First apply the same final neutral observer in actual clients and qualify baseline/candidate independently in plain/profile modes. The frozen comparison requires 48 independent JVM trials plus separate observer-off calibration. No new performance trial has run. Source allocation results alone do not settle loading latency, Full-GC pauses or frame regressions. |
 | P1 | Native Invalid model attribution | A new actual NF248 startup traces its one occurrence to the official default RailResource constructor's empty model/texture arguments and unchanged returned fallback. This accounts for that run's diagnostic, not future logs or rail rendering. The final observer 1.0.2 and experiment consumer require per-run call/return evidence; other errors remain blocking. |
-| P2 | NeoForge 21.1.265 full-pack runtime | 0.4.7 build, 73 tests and actual abrupt-exit/large-input audits pass. Its fresh packaged and full-pack/world checks are pending; the 42 packaged checks and wrong-binary pass are 0.4.6 evidence. |
+| P2 | NeoForge 21.1.265 full-pack runtime | 0.4.7 build, 73 tests, actual abrupt-exit/large-input audits, 42 packaged checks and fatal same-version wrong-binary rejection pass. Full-pack/world checks remain pending. |
 | P2 | Repeated official registration ordering | Static analysis establishes synchronous official reload entry points; the initial 0.4.6 full registration is paired on the render thread with nesting one. Collect the same evidence through 20 actual full ResourceManager reloads. |
 | P2 | Snapshot failure boundaries | 0.4.7 actual abrupt exits delete this owner's snapshot during writing and budget waiting, while other-owner sentinels remain unchanged. Real disk-full and power loss remain untested. There is deliberately no broad stale-file sweep. |
 
-The previous 0.4.6 release ZIPs remain intact. The new 0.4.7 delivery bundles need
-a fresh support/evidence audit after their packaged-client checks.
+The previous 0.4.6 release ZIPs remain intact. The new 0.4.7 delivery bundles still
+need a fresh support/evidence audit; their packaged-client checks are now complete.
 
 The malformed-model fallback and admission-generation races have already been
 repaired and tested. Full-pack interaction and repeated reload ordering remain

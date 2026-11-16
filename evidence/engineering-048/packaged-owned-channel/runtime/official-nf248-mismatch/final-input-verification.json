@@ -1,0 +1,36 @@
+{
+  "timestamp": "2026-11-16T11:17:55.610092+00:00",
+  "pid": 57720,
+  "plan_sha256": "19e222eb9ff65f218499e788378c7abf99d2eeff97141e099dda3011127af1b4",
+  "tool_sha256": "ad3f908fbb03220078b693433e1b3518b86c3f5193f55771b2c720708ba29764",
+  "mods": [
+    {
+      "filename": "mtr-memory-saver-official-nf248-0.4.7.jar",
+      "sha256": "e8b5b40230d0f44c541c12b32c8a30d4c2ea056b8a972335ae10166496837a99",
+      "role": "companion"
+    },
+    {
+      "filename": "MTR-neoforge-4.1.0-beta.2+1.21.1.jar",
+      "sha256": "b4a1dacc23c81ca462f10a5bd11044cf2f40860e2a2c8ae148126ccfc0ecdca9",
+      "role": "mtr"
+    }
+  ],
+  "source_sha256": {
+    "tools/packaged_client.py": "ad2e0dbf209ded20942891378e0a5855d6c3f65f8d89baa9afa2a7d24b2af13c",
+    "tools/observe_packaged_client.py": "a9ee0137b594f89fd9dcc220a9a1a77b27bc1c72deda87bd4c183efc0d713207",
+    "tools/windows_snapshot_io.py": "56ff1d6abcb7be7780bb057f239831d813a5e5c867320f1797f8710370765ac5",
+    "tools/legacy_identity.py": "f69223d0ab5763702fede5007ea5a343af3be38baf727ff86f2537297b2963d6",
+    "config/targets.json": "e3d1d3a81d4fe8d7e60ba376654c943cc9766ce1d213b119fe7f6b175ac1d4ff",
+    "config/legacy-baselines.json": "ea524641583b26ecaab3b12b29d25162232942ff08b64916435801cb7d671447"
+  },
+  "passed": true,
+  "mtr_comment_control": {
+    "original_sha256": "ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa",
+    "modified_sha256": "b4a1dacc23c81ca462f10a5bd11044cf2f40860e2a2c8ae148126ccfc0ecdca9",
+    "comment_only_change": true,
+    "original_comment_hex": "",
+    "modified_comment_hex": "4d656d6f72792053617665722069736f6c617465642073616d652d76657273696f6e2066696e6765727072696e74206e6567617469766520636f6e74726f6c",
+    "member_and_metadata_bytes_unchanged": true
+  },
+  "completed": "2026-11-16T11:17:57.411956+00:00"
+}

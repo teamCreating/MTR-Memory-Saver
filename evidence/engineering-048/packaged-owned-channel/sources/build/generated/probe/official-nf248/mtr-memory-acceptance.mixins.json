@@ -1,0 +1,14 @@
+{
+    "required": true,
+    "minVersion": "0.8",
+    "package": "site.benli06.probe.mixin",
+    "compatibilityLevel": "JAVA_21",
+    "client": [
+        "NativeParserPauseMixin",
+        "ResourceEpochObservationMixin",
+        "NativeResourceReadFixtureMixin"
+    ],
+    "injectors": {
+        "defaultRequire": 1
+    }
+}

@@ -1,0 +1,69 @@
+{
+  "timestamp": "2026-11-16T11:19:14.532866+00:00",
+  "passed": true,
+  "source_sha256": "5bcad741a57f8eda88fa33f880eb781390a385a099ae14a5f1a767fe2d3db1b5",
+  "assessor_sha256": "ef39ecb75f9d9dfbf1dd7f6913c7ee4e29efc777687e125ae634ff93a45cd82b",
+  "controls": [
+    {
+      "control": "wrong_process_owner",
+      "rejected": true,
+      "reason": "Wrong process owner"
+    },
+    {
+      "control": "unowned_exit",
+      "rejected": true,
+      "reason": "Exit was not observed with the owned process handle"
+    },
+    {
+      "control": "wrong_candidate",
+      "rejected": true,
+      "reason": "Wrong runtime candidate artifact"
+    },
+    {
+      "control": "unsealed_runner",
+      "rejected": true,
+      "reason": "Unsealed runtime runner"
+    },
+    {
+      "control": "failed_lifecycle",
+      "rejected": true,
+      "reason": "Missing or failed packaged fault checks"
+    },
+    {
+      "control": "leaked_workspace",
+      "rejected": true,
+      "reason": "Leaked text workspace"
+    },
+    {
+      "control": "missing_real_oversize",
+      "rejected": true,
+      "reason": "Oversized fixture did not cross the real admission boundary"
+    },
+    {
+      "control": "transplanted_fault_time",
+      "rejected": true,
+      "reason": "Fault result is outside actual runtime"
+    },
+    {
+      "control": "unrelated_original_failure",
+      "rejected": true,
+      "reason": "Original runner has an unrelated unresolved failure"
+    },
+    {
+      "control": "wrong_jfr_identity",
+      "rejected": true,
+      "reason": "JFR summary/identity failed"
+    },
+    {
+      "control": "missing_binary_rejection",
+      "rejected": true,
+      "reason": "Binary rejection did not terminate early"
+    },
+    {
+      "control": "wrong_binary_control",
+      "rejected": true,
+      "reason": "Invalid same-version binary negative control"
+    }
+  ],
+  "scope": "Copied dictionaries only; original actual receipts/artifacts remain unchanged."
+}

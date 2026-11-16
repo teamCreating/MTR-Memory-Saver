@@ -1,0 +1,28 @@
+{
+  "command": [
+    "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.venv\\Scripts\\python.exe",
+    "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\tools\\packaged_client.py",
+    "prepare",
+    "--source",
+    "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\.cache\\game-test\\neoforge-instance",
+    "--instance",
+    "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf265-faults-048-owned",
+    "--companion",
+    "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-048\\packaged-owned-channel\\artifacts\\official-nf265\\mtr-memory-saver-official-nf265-0.4.7.jar",
+    "--username",
+    "VehicleTest",
+    "--heap-mib",
+    "3072",
+    "--probe",
+    "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-048\\packaged-owned-channel\\artifacts\\official-nf265\\mtr-memory-saver-official-nf265-0.4.7-acceptance-probe.jar",
+    "--smoke",
+    "--jfr",
+    "--faults"
+  ],
+  "cwd": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory",
+  "started": "2026-11-16T06:44:37.419760+00:00",
+  "runner_sha256": "dde642d0ab38a2856cf98e6e2856045eb18bdaa480313ec4894babb5517340ae",
+  "pid": 38812,
+  "exit_code": 0,
+  "ended": "2026-11-16T06:44:59.196912+00:00"
+}

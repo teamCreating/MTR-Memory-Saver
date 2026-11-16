@@ -1,0 +1,513 @@
+{
+  "timestamp": "2026-11-16T11:21:09.356201+00:00",
+  "files": {
+    "artifacts/official-nf248/mtr-memory-saver-official-nf248-0.4.7-acceptance-probe.jar": {
+      "bytes": 36806,
+      "sha256": "ccf6ae9cb4553b58189952d15588363dff3cd88292924cb6a2a7b76b2b936049"
+    },
+    "artifacts/official-nf248/mtr-memory-saver-official-nf248-0.4.7.build.json": {
+      "bytes": 6252,
+      "sha256": "39a277f0de9b4d009c735c984f36460c61e2318344d34ddbc63fafb04276ff12"
+    },
+    "artifacts/official-nf248/mtr-memory-saver-official-nf248-0.4.7.jar": {
+      "bytes": 321705,
+      "sha256": "e8b5b40230d0f44c541c12b32c8a30d4c2ea056b8a972335ae10166496837a99"
+    },
+    "artifacts/official-nf248/probe-identity.json": {
+      "bytes": 7768,
+      "sha256": "bca869c54f866bc5a46efa3f74a328dc3d0e9c360e1e7fc35fc8eec0c81d888e"
+    },
+    "artifacts/official-nf265/mtr-memory-saver-official-nf265-0.4.7-acceptance-probe.jar": {
+      "bytes": 36806,
+      "sha256": "ccf6ae9cb4553b58189952d15588363dff3cd88292924cb6a2a7b76b2b936049"
+    },
+    "artifacts/official-nf265/mtr-memory-saver-official-nf265-0.4.7.build.json": {
+      "bytes": 6252,
+      "sha256": "502e54ee1cc5a3da14214099219993568638cb3e3e8ca33e20e8b2c515015815"
+    },
+    "artifacts/official-nf265/mtr-memory-saver-official-nf265-0.4.7.jar": {
+      "bytes": 321704,
+      "sha256": "12162be2d0e75962e58d33dec6951e0a82b1455ef1466f9b94c3dce1c4d36a02"
+    },
+    "artifacts/official-nf265/probe-identity.json": {
+      "bytes": 7768,
+      "sha256": "1c950c7c88571946b03805a9df538e4065dde8aafe9769332646bfd799d181d5"
+    },
+    "assess.py": {
+      "bytes": 12763,
+      "sha256": "ef39ecb75f9d9dfbf1dd7f6913c7ee4e29efc777687e125ae634ff93a45cd82b"
+    },
+    "assessment.json": {
+      "bytes": 3070,
+      "sha256": "e25e8dc834b90b7e4345f56e22d7dc396124eaa4759cc6288f4ca61ddef65f6d"
+    },
+    "capture_final_inputs.py": {
+      "bytes": 3826,
+      "sha256": "ad3f908fbb03220078b693433e1b3518b86c3f5193f55771b2c720708ba29764"
+    },
+    "final-assessment.json": {
+      "bytes": 3070,
+      "sha256": "6525762117f755f98092a50f8f216f5fe426e89edbc02460fae44a2b88f1a327"
+    },
+    "negative-controls.json": {
+      "bytes": 2023,
+      "sha256": "ff5a2a6e6c755708c8b2a7f5e28622e04a9521a0c56b7ecd34e1198c61172cb9"
+    },
+    "negative_controls.py": {
+      "bytes": 3133,
+      "sha256": "5bcad741a57f8eda88fa33f880eb781390a385a099ae14a5f1a767fe2d3db1b5"
+    },
+    "prepare/official-nf248-faults/execution.json": {
+      "bytes": 1408,
+      "sha256": "bf76780928064c6f47da03669fa188d0f3ceacb06c8283760f425062cf2f7b6e"
+    },
+    "prepare/official-nf248-faults/stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "prepare/official-nf248-faults/stdout.log": {
+      "bytes": 385,
+      "sha256": "15ffa76ad78f9da1fe9a4714ed86051aea42061c9162359d33849976a24c021d"
+    },
+    "prepare/official-nf248-mismatch/execution.json": {
+      "bytes": 1163,
+      "sha256": "8254cef474a2e84462a4e4f7e4f9181722ecbbcfb5ab41535725c62f74908e26"
+    },
+    "prepare/official-nf248-mismatch/mtr-comment-control.json": {
+      "bytes": 453,
+      "sha256": "016c34a51b83dda06b2a1f61a549951853ea1123665cac4910bfa8f2521f7674"
+    },
+    "prepare/official-nf248-mismatch/stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "prepare/official-nf248-mismatch/stdout.log": {
+      "bytes": 389,
+      "sha256": "630798c730a7f78ecd4cfdfb38f0f8561cd82afa10d1211108f147bc3b0da0fc"
+    },
+    "prepare/official-nf265-faults/execution.json": {
+      "bytes": 1408,
+      "sha256": "d835abde8d44a8cf846bc1c780b881dbf38241767aee2ac9c983c683b34d6f90"
+    },
+    "prepare/official-nf265-faults/stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "prepare/official-nf265-faults/stdout.log": {
+      "bytes": 385,
+      "sha256": "6cca06e8e22543e3b4c65dc4b825a3ae54e8c49fd7f6e29cbe25c57bf2fff722"
+    },
+    "prepare/official-nf265-mismatch/execution.json": {
+      "bytes": 1162,
+      "sha256": "910f0f4bf753fbcb8c178241ef58f7f35f88dea52c8ceca1889e95ee355a314d"
+    },
+    "prepare/official-nf265-mismatch/mtr-comment-control.json": {
+      "bytes": 453,
+      "sha256": "016c34a51b83dda06b2a1f61a549951853ea1123665cac4910bfa8f2521f7674"
+    },
+    "prepare/official-nf265-mismatch/stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "prepare/official-nf265-mismatch/stdout.log": {
+      "bytes": 389,
+      "sha256": "11aa7774006080115f1382ff5c0922e18a1f8f88f0ba4a705dd1dfac8ffdddb9"
+    },
+    "prepared/official-nf248-faults.json": {
+      "bytes": 8365,
+      "sha256": "2f2075dd83a7f7ff2ceb801f0e9731a9396686f60c3b03c118d151e31b572cec"
+    },
+    "prepared/official-nf248-mismatch.json": {
+      "bytes": 8167,
+      "sha256": "19e222eb9ff65f218499e788378c7abf99d2eeff97141e099dda3011127af1b4"
+    },
+    "prepared/official-nf265-faults.json": {
+      "bytes": 8365,
+      "sha256": "ae6ab8d13faf8853fd81a76ce15356313b80dc6f3037575439a3e0d6b8ebbc19"
+    },
+    "prepared/official-nf265-mismatch.json": {
+      "bytes": 8167,
+      "sha256": "f4fd8ccab5b864d71c3ea9e9a3f9775202dfde928dece78acb805d71cb8e336c"
+    },
+    "probe-build/official-nf248/execution.json": {
+      "bytes": 548,
+      "sha256": "ffa0bbffb3cefc49ee1697873ea9c6f9a6e3a15265c7f9baadc4e62a317837a2"
+    },
+    "probe-build/official-nf248/stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "probe-build/official-nf248/stdout.log": {
+      "bytes": 2348,
+      "sha256": "c8b51c4b40b0a64732573ffcfce11aa3d4b85f2bc79222cd1195aead3cada439"
+    },
+    "probe-build/official-nf265/execution.json": {
+      "bytes": 548,
+      "sha256": "b4033120c4ebd625e82fad4d211bbba6af1f23d00d797f0ead410c425c330779"
+    },
+    "probe-build/official-nf265/stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "probe-build/official-nf265/stdout.log": {
+      "bytes": 2348,
+      "sha256": "f5d6db7503bebf807a173c3fa6912f5d85acd6f0bb3e96ff3b26894fb07d7467"
+    },
+    "README.md": {
+      "bytes": 4995,
+      "sha256": "2b4d20dc634288f1a8721931309720f9d3d670f993376f481a710ad5d7a8365d"
+    },
+    "review-spec.json": {
+      "bytes": 470,
+      "sha256": "82cdb89dbb2ec15bb6f710857263ccc1e3c1522a3d24d6204ff774e9a59f644e"
+    },
+    "run_matrix.py": {
+      "bytes": 13318,
+      "sha256": "af355e2a254768737cc919f2c53e579d59f61b3397ad5f7cef5aafab81193efb"
+    },
+    "runtime/official-nf248-faults/acceptance-gc.log": {
+      "bytes": 103147,
+      "sha256": "7c3f4964cbe6924576694e7506e7cfb712abfe484ea25760c672f253752fc7ae"
+    },
+    "runtime/official-nf248-faults/acceptance.jfr": {
+      "bytes": 4897560,
+      "sha256": "3f5d59630ab1bbe7ca2628f4c9321356c7bd8e28b778b8fac8655104605ac64b"
+    },
+    "runtime/official-nf248-faults/execution.json": {
+      "bytes": 105778,
+      "sha256": "40bc24df1f33400804538a6acd6dc8a50e78c3942943a7dcbf0130b3a01138fd"
+    },
+    "runtime/official-nf248-faults/final-input-verification.json": {
+      "bytes": 1639,
+      "sha256": "e09324ffad74b11c0ca128c613bf0e0b1d723a8e11dfc76c6cc10458adaf4bec"
+    },
+    "runtime/official-nf248-faults/java-before.json": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "runtime/official-nf248-faults/java-before.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "runtime/official-nf248-faults/jfr-summary/execution.json": {
+      "bytes": 658,
+      "sha256": "7057570ec9daaee420f0537216c4f8f3443b92e25d201efd151db82c41da6c2b"
+    },
+    "runtime/official-nf248-faults/jfr-summary/stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "runtime/official-nf248-faults/jfr-summary/stdout.log": {
+      "bytes": 11555,
+      "sha256": "a0f449d52888a6a4fc337dc7070df294010380b7ea11f40c4a0ee14b52e0d02e"
+    },
+    "runtime/official-nf248-faults/launch.stderr.log": {
+      "bytes": 103,
+      "sha256": "a9ef21f7f6b547fc615c8432cf7c0c1d4631054ae56bf4780dffe974fc4ef069"
+    },
+    "runtime/official-nf248-faults/launch.stdout.log": {
+      "bytes": 74813,
+      "sha256": "2401735f499f638fd5f4c98cdd248f72fc9128924ac97ee1aa2b58c16db58fe7"
+    },
+    "runtime/official-nf248-faults/loader-lifecycle-request.json": {
+      "bytes": 158,
+      "sha256": "61055bcad71f9a47ce051b0df758c2b8288259d4772188327cd0aadafeae1711"
+    },
+    "runtime/official-nf248-faults/loader-lifecycle-result.json": {
+      "bytes": 5564,
+      "sha256": "796b34a8792f0258a614ba795c41a982d37650bccfcde9936cad8fd239c3b682"
+    },
+    "runtime/official-nf248-faults/logs/debug.log": {
+      "bytes": 170354,
+      "sha256": "4175d2240973f13090679453dfa2a5bcff453d44f8567df3991bac75f22d85bf"
+    },
+    "runtime/official-nf248-faults/logs/latest.log": {
+      "bytes": 59137,
+      "sha256": "c9081d82d19b814cf6b7bf264a53282560bde82aa08103b4dbb248cc5edc0276"
+    },
+    "runtime/official-nf248-faults/packaged-client-exit.json": {
+      "bytes": 299,
+      "sha256": "da43e4c7709cd351ef107397674029f80a076674a963911af18bc6a47fa91578"
+    },
+    "runtime/official-nf248-faults/packaged-client-launch.json": {
+      "bytes": 26969,
+      "sha256": "3797bdf38f3ae4119ab24db9baca3266e4a585489eb5f35c8cf5289ffc499d6f"
+    },
+    "runtime/official-nf248-faults/packaged-client-plan.json": {
+      "bytes": 8365,
+      "sha256": "2f2075dd83a7f7ff2ceb801f0e9731a9396686f60c3b03c118d151e31b572cec"
+    },
+    "runtime/official-nf248-faults/process-observations.jsonl": {
+      "bytes": 9594,
+      "sha256": "33e7228314c7097100e11fb13c8c0697f0899cf1aa939efc6f9020cdea16f31b"
+    },
+    "runtime/official-nf248-mismatch/execution.json": {
+      "bytes": 27704,
+      "sha256": "e089644d05c49efc344be396e92f4dc6a48534a6fcaa4e4633c53f0fbe473ab7"
+    },
+    "runtime/official-nf248-mismatch/final-input-verification.json": {
+      "bytes": 1843,
+      "sha256": "d792d8f7eb19f387fa426da177d890e3ad55a6330e0817341bc70971d696f359"
+    },
+    "runtime/official-nf248-mismatch/java-before.json": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "runtime/official-nf248-mismatch/java-before.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "runtime/official-nf248-mismatch/launch.stderr.log": {
+      "bytes": 4884,
+      "sha256": "e78c33ff14df1ad82bbf863ec9f29c30c1b1aa942271a487307ac49a879fc8ad"
+    },
+    "runtime/official-nf248-mismatch/launch.stdout.log": {
+      "bytes": 4659,
+      "sha256": "b7b74e0a82aa242ca98083a27bd05ece968a2fbbd2eb779d1c7c5f5431d1a86e"
+    },
+    "runtime/official-nf248-mismatch/logs/debug.log": {
+      "bytes": 72697,
+      "sha256": "ad7e6700f1e956919f55e3630cdfe0c3e9eca701538d85a08d1036b60635f634"
+    },
+    "runtime/official-nf248-mismatch/logs/latest.log": {
+      "bytes": 5103,
+      "sha256": "6dbae1c9289fa58e577166ed117b8d8bbe0f984dd00f954815feb7d463477538"
+    },
+    "runtime/official-nf248-mismatch/packaged-client-exit.json": {
+      "bytes": 299,
+      "sha256": "07dc8178f2611c22ddad995869d0c9e7654496ed42b3e448fdc03aac4f11fcdc"
+    },
+    "runtime/official-nf248-mismatch/packaged-client-launch.json": {
+      "bytes": 26705,
+      "sha256": "2703dfa89281904ada5e13a9d94027677c1481fae4e92712d66c7b2e2acb5ad5"
+    },
+    "runtime/official-nf248-mismatch/packaged-client-plan.json": {
+      "bytes": 8167,
+      "sha256": "19e222eb9ff65f218499e788378c7abf99d2eeff97141e099dda3011127af1b4"
+    },
+    "runtime/official-nf248-mismatch/process-observations.jsonl": {
+      "bytes": 1487,
+      "sha256": "5ac330f6a979a87662deca3b3687a03579e547d0270a876f784f2a6f26a9ef72"
+    },
+    "runtime/official-nf265-faults/acceptance-gc.log": {
+      "bytes": 107068,
+      "sha256": "ea913f68dbde064a7aa2cbd314e5b06a9aefa5da99fd5dc2c52a0b7578cb50ce"
+    },
+    "runtime/official-nf265-faults/acceptance.jfr": {
+      "bytes": 4647988,
+      "sha256": "95038963b648670bb695b0713c8c3e8d4b10184f1ea1f465ae4de45ff392bf24"
+    },
+    "runtime/official-nf265-faults/execution.json": {
+      "bytes": 27705,
+      "sha256": "20e915b00ebe351f97386a17a4bbc1ab568a9b949ad2d47215d73a31fa0c7c9f"
+    },
+    "runtime/official-nf265-faults/final-input-verification.json": {
+      "bytes": 1639,
+      "sha256": "8dbcb01f92ee5ccf4f9bac97be1fff18889dbb314a5a1fa253ffa2112c0c906a"
+    },
+    "runtime/official-nf265-faults/java-before.json": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "runtime/official-nf265-faults/java-before.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "runtime/official-nf265-faults/jfr-summary/execution.json": {
+      "bytes": 660,
+      "sha256": "a9ebe7c2426231547796f3456eba7306f2049de310c51ca57db570c71d7a81b2"
+    },
+    "runtime/official-nf265-faults/jfr-summary/stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "runtime/official-nf265-faults/jfr-summary/stdout.log": {
+      "bytes": 11555,
+      "sha256": "a3d607267794ad995578c08757935dd38f2dea225f5e47c5ca20f6b61f00d983"
+    },
+    "runtime/official-nf265-faults/launch.stderr.log": {
+      "bytes": 103,
+      "sha256": "fb83e3bd667873cc630de9f65e03eceee223dd20b3138de0391e57a96fa56edd"
+    },
+    "runtime/official-nf265-faults/launch.stdout.log": {
+      "bytes": 74813,
+      "sha256": "28cc3bf7dba951db1b74ce69930ad1b6f17329f6ab5cf9813f0f3b6299bc15de"
+    },
+    "runtime/official-nf265-faults/loader-lifecycle-request.json": {
+      "bytes": 158,
+      "sha256": "cf88c99b9d8de731353af4defcfc1c22db789d1211d4bae8b6f5ccdef8be9e4c"
+    },
+    "runtime/official-nf265-faults/loader-lifecycle-result.json": {
+      "bytes": 5564,
+      "sha256": "1d00eef52b2f1f2305d6b1fba2099a97b4ed23f0419892c27d82da6db4b3c511"
+    },
+    "runtime/official-nf265-faults/logs/debug.log": {
+      "bytes": 170402,
+      "sha256": "80aed9502d2e578596706aeaaeb88709741d9db7783e6d24c64717da0cf35b0e"
+    },
+    "runtime/official-nf265-faults/logs/latest.log": {
+      "bytes": 59137,
+      "sha256": "66b1974e7a4943b6ced16688ec64dfc5ef445a56b60dce863359244662ed40c0"
+    },
+    "runtime/official-nf265-faults/packaged-client-exit.json": {
+      "bytes": 299,
+      "sha256": "c453c6c68635f941d2bea28a1c015a64312e97f94e83a245ae3015747067c1d8"
+    },
+    "runtime/official-nf265-faults/packaged-client-launch.json": {
+      "bytes": 26969,
+      "sha256": "aafdac26825a75521475958849e435e5205945c87438d26a1fbd92e06cae7aeb"
+    },
+    "runtime/official-nf265-faults/packaged-client-plan.json": {
+      "bytes": 8365,
+      "sha256": "ae6ab8d13faf8853fd81a76ce15356313b80dc6f3037575439a3e0d6b8ebbc19"
+    },
+    "runtime/official-nf265-faults/process-observations.jsonl": {
+      "bytes": 8177,
+      "sha256": "8f9160bfbcdbdc29399b6febdc263270277d5955e4d031dd57a462637b158c9e"
+    },
+    "runtime/official-nf265-mismatch/execution.json": {
+      "bytes": 27704,
+      "sha256": "b6436e2b58caa10f342f3a2790f508d6d3c4029fc605b613e19b904670cda63b"
+    },
+    "runtime/official-nf265-mismatch/final-input-verification.json": {
+      "bytes": 1843,
+      "sha256": "d9c00ab1c1854a17a9f23cfe3dbd09d981884aa0560030b194c9cb5a5e00c2f3"
+    },
+    "runtime/official-nf265-mismatch/java-before.json": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "runtime/official-nf265-mismatch/java-before.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "runtime/official-nf265-mismatch/launch.stderr.log": {
+      "bytes": 5210,
+      "sha256": "45923b3855c37d66c8bcdadeaeb276e5cfac728def456e4eeb72b6ec8e9d4fb6"
+    },
+    "runtime/official-nf265-mismatch/launch.stdout.log": {
+      "bytes": 4659,
+      "sha256": "def32a1c44650a47cee2529d66806962a83f65ee39351086f170496d7ef60300"
+    },
+    "runtime/official-nf265-mismatch/logs/debug.log": {
+      "bytes": 72697,
+      "sha256": "0d463770c611de88bbe757e0d466f8eab1abbf71cb81a920b5c8edb56f72fa3c"
+    },
+    "runtime/official-nf265-mismatch/logs/latest.log": {
+      "bytes": 5103,
+      "sha256": "73bdea1c535938f3f2bd5586c9ca501e3f14d3caa3f0be746bcf9e5e38e77205"
+    },
+    "runtime/official-nf265-mismatch/packaged-client-exit.json": {
+      "bytes": 299,
+      "sha256": "e8698fbcce12f0004b248131fffaec272c244803dc1a1308ff3543b2565cbd2a"
+    },
+    "runtime/official-nf265-mismatch/packaged-client-launch.json": {
+      "bytes": 26705,
+      "sha256": "b75789532ef7a73d01a3e1094784325956af361b03eda1543257d4e35039ab98"
+    },
+    "runtime/official-nf265-mismatch/packaged-client-plan.json": {
+      "bytes": 8167,
+      "sha256": "f4fd8ccab5b864d71c3ea9e9a3f9775202dfde928dece78acb805d71cb8e336c"
+    },
+    "runtime/official-nf265-mismatch/process-observations.jsonl": {
+      "bytes": 1487,
+      "sha256": "ae326562c22cdd3601db7d9b716af1064bdb60eb4862e547ac2a4df57c4c41ad"
+    },
+    "seal.py": {
+      "bytes": 2186,
+      "sha256": "3746a5ec2c31431df0c32fc4164eed2bf15b737d4f9c9134d41081cf38b37da0"
+    },
+    "sources/build/generated/probe/official-nf248/META-INF/neoforge.mods.toml": {
+      "bytes": 414,
+      "sha256": "23859f78048939ff5f3ac5c73f1430ebb2127214642509bfc0813a782295eba2"
+    },
+    "sources/build/generated/probe/official-nf248/mtr-memory-acceptance.mixins.json": {
+      "bytes": 323,
+      "sha256": "6f3902ce015947632aa52db5a2c0cd6dc4af7b8e9eff1636b747cdaddf09996a"
+    },
+    "sources/build/generated/probe/official-nf265/META-INF/neoforge.mods.toml": {
+      "bytes": 414,
+      "sha256": "23859f78048939ff5f3ac5c73f1430ebb2127214642509bfc0813a782295eba2"
+    },
+    "sources/build/generated/probe/official-nf265/mtr-memory-acceptance.mixins.json": {
+      "bytes": 323,
+      "sha256": "6f3902ce015947632aa52db5a2c0cd6dc4af7b8e9eff1636b747cdaddf09996a"
+    },
+    "sources/build.gradle": {
+      "bytes": 25256,
+      "sha256": "082a5ef7d82edff88912090a7991d711b36cb47d95258fe14e234e8d6b92920f"
+    },
+    "sources/config/legacy-baselines.json": {
+      "bytes": 581,
+      "sha256": "ea524641583b26ecaab3b12b29d25162232942ff08b64916435801cb7d671447"
+    },
+    "sources/config/targets.json": {
+      "bytes": 1416,
+      "sha256": "e3d1d3a81d4fe8d7e60ba376654c943cc9766ce1d213b119fe7f6b175ac1d4ff"
+    },
+    "sources/run_matrix-byte-log.py": {
+      "bytes": 13318,
+      "sha256": "af355e2a254768737cc919f2c53e579d59f61b3397ad5f7cef5aafab81193efb"
+    },
+    "sources/run_matrix.py": {
+      "bytes": 13152,
+      "sha256": "dde642d0ab38a2856cf98e6e2856045eb18bdaa480313ec4894babb5517340ae"
+    },
+    "sources/tools/legacy_identity.py": {
+      "bytes": 4420,
+      "sha256": "f69223d0ab5763702fede5007ea5a343af3be38baf727ff86f2537297b2963d6"
+    },
+    "sources/tools/observe_packaged_client.py": {
+      "bytes": 70986,
+      "sha256": "a9ee0137b594f89fd9dcc220a9a1a77b27bc1c72deda87bd4c183efc0d713207"
+    },
+    "sources/tools/packaged_client.py": {
+      "bytes": 42086,
+      "sha256": "ad2e0dbf209ded20942891378e0a5855d6c3f65f8d89baa9afa2a7d24b2af13c"
+    },
+    "sources/tools/probes/common/java/site/benli06/probe/LoaderLifecycleProbe.java": {
+      "bytes": 16794,
+      "sha256": "084e060a1152e2779204c9b8ca72702a4681a4e5079f7ea2b9aa7f4cee2bccf7"
+    },
+    "sources/tools/probes/common/java/site/benli06/probe/mixin/NativeParserPauseMixin.java": {
+      "bytes": 851,
+      "sha256": "9bd240c0c9fa6302199239c3fab2cba0af4a43c0bf91c0199e1af92e1167e7b3"
+    },
+    "sources/tools/probes/common/java/site/benli06/probe/mixin/NativeResourceReadFixtureMixin.java": {
+      "bytes": 1099,
+      "sha256": "0ab012660992305e9080fb2da763fbedd5afd966d0bed05e62ac3752d32b614c"
+    },
+    "sources/tools/probes/common/java/site/benli06/probe/mixin/ResourceEpochObservationMixin.java": {
+      "bytes": 878,
+      "sha256": "3462c80f81676d83980483ea94e5916bf358dbb381619caa8699decc8f65f14c"
+    },
+    "sources/tools/probes/common/java/site/benli06/probe/NativeParserPause.java": {
+      "bytes": 1557,
+      "sha256": "54dc2943615f8d432f668d115be32a2359543e570e3d54c793ee9608065a6010"
+    },
+    "sources/tools/probes/common/java/site/benli06/probe/NativeResourceReadFixture.java": {
+      "bytes": 8663,
+      "sha256": "e290d646a2b20c17736420c7e05398489049316af679c7e4f60734f346120172"
+    },
+    "sources/tools/probes/common/java/site/benli06/probe/PackagedClientObservation.java": {
+      "bytes": 9748,
+      "sha256": "56dc0b5ab935bcb7f60b39978e1274207adedb698af65a695ecd84567b94c1c8"
+    },
+    "sources/tools/probes/common/java/site/benli06/probe/PerformanceProbe.java": {
+      "bytes": 2349,
+      "sha256": "993026a9ceebb6525a82f785f7396969b5ff04523abada7251cd72539a3bc425"
+    },
+    "sources/tools/probes/io/java/dev/abenli/probeio/AtomicSnapshot.java": {
+      "bytes": 2163,
+      "sha256": "5a2db91d8ab7dfb88851f480cd0021f2954a8ca394a46cf11cc3305910f7ab4a"
+    },
+    "sources/tools/windows_snapshot_io.py": {
+      "bytes": 1895,
+      "sha256": "56ff1d6abcb7be7780bb057f239831d813a5e5c867320f1797f8710370765ac5"
+    }
+  },
+  "excluded_from_cycle": [
+    "SHA256SUMS.json",
+    "sealed-verification.json"
+  ]
+}
