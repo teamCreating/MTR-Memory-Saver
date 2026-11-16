@@ -1,0 +1,63 @@
+{
+  "started": "2026-11-16T16:23:51.470420+00:00",
+  "source_sha256": "a79af45f15a8ef88c890d54416528050628fc747fa6b08f97fb5584d793e8cdd",
+  "audit_passed": true,
+  "scope": "external_OpenGL_data_source_feasibility_only",
+  "command_receipts_verified": 25,
+  "actual_presentmon_capture_attempts": 2,
+  "extra_upstream_preflight_only_attempts": 1,
+  "target_pid": 18796,
+  "target_before_later_after_identity_equal": true,
+  "vendor": {
+    "helper_pid": 73196,
+    "observed_exit_code": 1,
+    "csv_available": false
+  },
+  "upstream": {
+    "version_from_actual_help": "2.6.0",
+    "helper_pid": 57868,
+    "actual_creation": "2026-11-16T16:18:45.001884+00:00",
+    "official_asset_sha256": "b2a706bc6ad475749e3b7e3409263aa1e6906d45bdcf993f6dbc0f660188f1af",
+    "started_and_stopped_recording_messages": true,
+    "unique_session_observed_live": true,
+    "query_point_loss_counters": {
+      "observed_at": "2026-11-16T16:18:50.033495+00:00",
+      "session_name": "mtr-present-feasibility-b3fb19db5a2c43898d356f3b4f24dad1",
+      "operation": "ControlTraceW_EVENT_TRACE_CONTROL_QUERY",
+      "status": 0,
+      "properties_size": 120,
+      "wnode_size": 48,
+      "counters": {
+        "EventsLost": 0,
+        "LogBuffersLost": 0,
+        "RealTimeBuffersLost": 0,
+        "NumberOfBuffers": 256,
+        "FreeBuffers": 248,
+        "BuffersWritten": 38
+      }
+    },
+    "whole_window_loss_verified": false,
+    "original_wait_exit_code": null,
+    "original_wrapper_error": "PermissionError(13, '连到系统上的设备没有发挥作用。', None, 31)",
+    "helper_later_absent": true,
+    "unique_session_later_absent": true,
+    "csv_available": false
+  },
+  "csv_schema": null,
+  "external_present_metrics": null,
+  "native_render_loop_metrics": null,
+  "capture_data_source_available": false,
+  "calibration_accepted": false,
+  "performance_accepted": false,
+  "wrapper_owned_child_control_passed": true,
+  "limits": [
+    "Neither requested output directory contains an actual CSV; no frame schema or intervals can be certified.",
+    "The exact attempted OpenGL/display path yielded no target present data; this does not prove general driver/API incompatibility.",
+    "Query-point zero losses do not establish whole-window zero losses or complete target-frame coverage.",
+    "The upstream wrapper failed after wait but before saving that result; its actual helper exit code remains unavailable.",
+    "The separate Python child proves engineering behavior only and cannot reconstruct the PresentMon exit code.",
+    "No keyboard/mouse input, permission/service changes, session-stop commands or third PresentMon capture were executed.",
+    "No current game, installed binary, source world, packs, JVM libraries or source files are read by this sealed-only audit."
+  ],
+  "ended": "2026-11-16T16:23:51.725624+00:00"
+}

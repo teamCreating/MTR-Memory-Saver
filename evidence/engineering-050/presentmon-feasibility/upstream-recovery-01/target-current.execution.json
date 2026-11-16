@@ -1,0 +1,35 @@
+{
+  "argv": [
+    "pwsh",
+    "-NoProfile",
+    "-Command",
+    "[Console]::OutputEncoding=[System.Text.UTF8Encoding]::new($false); $pmTarget=@(Get-CimInstance Win32_Process -Filter 'ProcessId = 18796' -ErrorAction Stop | ForEach-Object {@{pid=[int]$_.ProcessId; created=$_.CreationDate.ToUniversalTime().ToString('o'); executable=$_.ExecutablePath; command=$_.CommandLine}}); @{observed_at=[DateTimeOffset]::UtcNow.ToString('o'); processes=$pmTarget} | ConvertTo-Json -Depth 5"
+  ],
+  "cwd": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-feasibility\\upstream-recovery-01",
+  "started": "2026-11-16T16:21:05.494692+00:00",
+  "start_clock": {
+    "utc_between_qpc_reads": "2026-11-16T16:21:05.494655+00:00",
+    "qpc_before": 3645970399314,
+    "qpc_after": 3645970399595,
+    "frequency_hz": 10000000,
+    "pair_span_seconds": 2.81e-05
+  },
+  "owner": {
+    "pid": 63424,
+    "script": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-feasibility\\pilot.py",
+    "source_sha256": "67220fd37a03e4c0e57c371525c3fbe8a2c953732fb38bb1853586446b1f51a7"
+  },
+  "helper_pid": 51392,
+  "exit_code": 0,
+  "ended": "2026-11-16T16:21:09.249759+00:00",
+  "end_clock": {
+    "utc_between_qpc_reads": "2026-11-16T16:21:09.254416+00:00",
+    "qpc_before": 3646007984871,
+    "qpc_after": 3646007998375,
+    "frequency_hz": 10000000,
+    "pair_span_seconds": 0.0013504
+  },
+  "helper_exited": true,
+  "stdout_sha256": "3c5e970f1e970e6f9951926f851a364a2f107cdfd343f688434214694aa881c9",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

@@ -1,0 +1,28 @@
+{
+  "argv": [
+    "C:\\Python314\\python.exe",
+    "-c",
+    "import time; time.sleep(0.25); raise SystemExit(7)"
+  ],
+  "pid": 73488,
+  "actual_owner_pid": 59332,
+  "before": {
+    "pid": 73488,
+    "executable": "C:\\Python314\\python.exe",
+    "image_query_omitted_for_exited_process": false,
+    "created": "2026-11-16T16:21:55.218456+00:00",
+    "exit_time": null,
+    "kernel_100ns": 0,
+    "user_100ns": 0,
+    "source": "actual_owned_Popen_handle"
+  },
+  "exit_code": 7,
+  "wait_completed_at": "2026-11-16T16:21:55.665896+00:00",
+  "clock": {
+    "utc_between_qpc_reads": "2026-11-16T16:21:55.666293+00:00",
+    "qpc_before": 3646472113834,
+    "qpc_after": 3646472114158,
+    "frequency_hz": 10000000,
+    "pair_span_seconds": 3.24e-05
+  }
+}

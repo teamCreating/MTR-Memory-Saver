@@ -1,0 +1,27 @@
+{
+  "started": "2026-11-16T16:18:21.259790+00:00",
+  "argv": [
+    "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.venv\\Scripts\\python.exe",
+    "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-feasibility\\pilot.py",
+    "capture",
+    "--output",
+    "evidence/engineering-050/presentmon-feasibility/upstream-capture-01",
+    "--help-directory",
+    "evidence/engineering-050/presentmon-feasibility/upstream-help-01",
+    "--instance",
+    ".cache/acceptance/official-nf248-owned-049c",
+    "--pid",
+    "18796",
+    "--created",
+    "2026-11-16T15:31:22.677Z",
+    "--duration",
+    "25",
+    "--download-receipt",
+    "evidence/engineering-050/presentmon-feasibility/upstream-download-01/download.execution.json"
+  ],
+  "pid": 73224,
+  "source_sha256": "7cdd2b9425d42912e9e6d9b3d059d64f5988bc7bc810b7159e0753df7912f045",
+  "passed": false,
+  "error": "UnicodeDecodeError('utf-8', b'\\xff\\xfe', 0, 1, 'invalid start byte')",
+  "ended": "2026-11-16T16:18:22.551443+00:00"
+}

@@ -1,0 +1,92 @@
+
+名称:                   mtr-present-feasibility-b3fb19db5a2c43898d356f3b4f24dad1
+状态:                   正在运行
+根路径:                  %systemdrive%\PerfLogs
+弓形:                   关闭
+计划:                   启用
+
+名称:                   mtr-present-feasibility-b3fb19db5a2c43898d356f3b4f24dad1\mtr-present-feasibility-b3fb19db5a2c43898d356f3b4f24dad1
+类型:                   跟踪
+附加:                   关闭
+循环:                   关闭
+覆盖:                   关闭
+缓存大小:                 64
+缓冲区已丢失:               0
+缓冲区已写入:               28
+缓冲区刷新计时器:             1
+时钟类型:                 性能
+文件模式:                 实时
+
+提供程序:
+名称:                   Microsoft-Windows-D3D9
+提供商 Guid:             {783ACA0A-790E-4D7F-8451-AA850511C6B9}
+Level:                255
+KeywordsAll:          0x8000000000000002 (Events,Microsoft-Windows-Direct3D9/Analytic)
+KeywordsAny:          0x8000000000000002 (Events,Microsoft-Windows-Direct3D9/Analytic)
+Properties:           0
+筛选器类型:                0
+
+提供程序:
+名称:                   Microsoft-Windows-DxgKrnl
+提供商 Guid:             {802EC45A-1E99-4B83-9920-87C98277BA9D}
+Level:                4 (win:Informational)
+KeywordsAll:          0x1 (Base)
+KeywordsAny:          0x8000001 (Base,0x8000000)
+Properties:           0
+筛选器类型:                0
+
+提供程序:
+名称:                   Microsoft-Windows-Dwm-Core
+提供商 Guid:             {9E9BBA3C-2E38-40CB-99F4-9E8281425164}
+Level:                5 (win:Verbose)
+KeywordsAll:          0x0
+KeywordsAny:          0x8000000000000001 (DwmCore,Microsoft-Windows-Dwm-Core/Diagnostic)
+Properties:           0
+筛选器类型:                0
+
+提供程序:
+名称:                   {8C9DD1AD-E6E5-4B07-B455-684A9D879900}
+提供商 Guid:             {8C9DD1AD-E6E5-4B07-B455-684A9D879900}
+Level:                5
+KeywordsAll:          0x0
+KeywordsAny:          0xffffffffffffffff
+Properties:           64
+筛选器类型:                0
+
+提供程序:
+名称:                   {AE4F8626-8265-40D1-A70B-11B64240E8E9}
+提供商 Guid:             {AE4F8626-8265-40D1-A70B-11B64240E8E9}
+Level:                4
+KeywordsAll:          0x1000000000000000
+KeywordsAny:          0x1000000000000000
+Properties:           0
+筛选器类型:                0
+
+提供程序:
+名称:                   {65CD4C8A-0848-4583-92A0-31C0FBAF00C0}
+提供商 Guid:             {65CD4C8A-0848-4583-92A0-31C0FBAF00C0}
+Level:                4
+KeywordsAll:          0x0
+KeywordsAny:          0x0
+Properties:           0
+筛选器类型:                0
+
+提供程序:
+名称:                   Microsoft-Windows-DXGI
+提供商 Guid:             {CA11C036-0102-4A2D-A6AD-F03CFED5D3C9}
+Level:                255
+KeywordsAll:          0x8000000000000002 (Events,Microsoft-Windows-DXGI/Analytic)
+KeywordsAny:          0x8000000000000002 (Events,Microsoft-Windows-DXGI/Analytic)
+Properties:           0
+筛选器类型:                0
+
+提供程序:
+名称:                   Microsoft-Windows-Win32k
+提供商 Guid:             {8C416C79-D49B-4F01-A467-E56D3AA8234C}
+Level:                4 (win:Informational)
+KeywordsAll:          0x8000000000001000 (Updates,Microsoft-Windows-Win32k/Tracing)
+KeywordsAny:          0x8000000400001000 (Updates,Visualization,Microsoft-Windows-Win32k/Tracing)
+Properties:           0
+筛选器类型:                0
+
+命令成功结束。

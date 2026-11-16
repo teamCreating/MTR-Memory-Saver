@@ -1,0 +1,35 @@
+{
+  "argv": [
+    "pwsh",
+    "-NoProfile",
+    "-Command",
+    "[Console]::OutputEncoding=[System.Text.UTF8Encoding]::new($false); @{observed_at=[DateTimeOffset]::UtcNow.ToString('o'); frameview_service=@(Get-Service -Name FvSvc | Select-Object Name,Status,DisplayName)} | ConvertTo-Json -Depth 4"
+  ],
+  "cwd": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-feasibility\\upstream-recovery-01",
+  "started": "2026-11-16T16:21:09.277679+00:00",
+  "start_clock": {
+    "utc_between_qpc_reads": "2026-11-16T16:21:09.277641+00:00",
+    "qpc_before": 3646008229025,
+    "qpc_after": 3646008229340,
+    "frequency_hz": 10000000,
+    "pair_span_seconds": 3.15e-05
+  },
+  "owner": {
+    "pid": 63424,
+    "script": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-feasibility\\pilot.py",
+    "source_sha256": "67220fd37a03e4c0e57c371525c3fbe8a2c953732fb38bb1853586446b1f51a7"
+  },
+  "helper_pid": 64004,
+  "exit_code": 0,
+  "ended": "2026-11-16T16:21:10.883802+00:00",
+  "end_clock": {
+    "utc_between_qpc_reads": "2026-11-16T16:21:10.884121+00:00",
+    "qpc_before": 3646024293780,
+    "qpc_after": 3646024294048,
+    "frequency_hz": 10000000,
+    "pair_span_seconds": 2.68e-05
+  },
+  "helper_exited": true,
+  "stdout_sha256": "9979ef65ced69673ab8d0c00043b34a6964680e2bf684f242ab85efd249f6e1f",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

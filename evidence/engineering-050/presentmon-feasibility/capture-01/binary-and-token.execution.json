@@ -1,0 +1,35 @@
+{
+  "argv": [
+    "pwsh",
+    "-NoProfile",
+    "-Command",
+    "[Console]::OutputEncoding=[System.Text.UTF8Encoding]::new($false); $pmFile=Get-Item -LiteralPath 'C:\\Program Files\\NVIDIA Corporation\\FrameViewSDK\\bin\\PresentMon_x64.exe'; $pmSignature=Get-AuthenticodeSignature -LiteralPath $pmFile.FullName; $pmPrincipal=[Security.Principal.WindowsPrincipal]::new([Security.Principal.WindowsIdentity]::GetCurrent()); @{observed_at=[DateTimeOffset]::UtcNow.ToString('o'); path=$pmFile.FullName; bytes=$pmFile.Length; file_version=$pmFile.VersionInfo.FileVersion; product_version=$pmFile.VersionInfo.ProductVersion; company=$pmFile.VersionInfo.CompanyName; signature_status=$pmSignature.Status.ToString(); signer=$pmSignature.SignerCertificate.Subject; administrator=$pmPrincipal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator); performance_log_users=$pmPrincipal.IsInRole([Security.Principal.SecurityIdentifier]::new('S-1-5-32-559'))} | ConvertTo-Json -Depth 4"
+  ],
+  "cwd": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-feasibility\\capture-01",
+  "started": "2026-11-16T16:11:36.641611+00:00",
+  "start_clock": {
+    "utc_between_qpc_reads": "2026-11-16T16:11:36.641510+00:00",
+    "qpc_before": 3640281891263,
+    "qpc_after": 3640281891893,
+    "frequency_hz": 10000000,
+    "pair_span_seconds": 6.3e-05
+  },
+  "owner": {
+    "pid": 62812,
+    "script": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-feasibility\\pilot.py",
+    "source_sha256": "2392429a8d35d75cda320e35e5b4b5f5ced7318f61cce8b8aa8b3d693b69e885"
+  },
+  "helper_pid": 58860,
+  "exit_code": 0,
+  "ended": "2026-11-16T16:11:48.428656+00:00",
+  "end_clock": {
+    "utc_between_qpc_reads": "2026-11-16T16:11:48.429676+00:00",
+    "qpc_before": 3640399772415,
+    "qpc_after": 3640399772728,
+    "frequency_hz": 10000000,
+    "pair_span_seconds": 3.13e-05
+  },
+  "helper_exited": true,
+  "stdout_sha256": "16d90ccdb836c2a31e3298ced616547f567708b9c073cc745e580b87332c5f1b",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

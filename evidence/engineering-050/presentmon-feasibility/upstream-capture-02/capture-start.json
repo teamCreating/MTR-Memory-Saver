@@ -1,0 +1,40 @@
+{
+  "argv": [
+    "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\presentmon-upstream-050\\PresentMon-2.6.0-x64.exe",
+    "--process_id",
+    "18796",
+    "--session_name",
+    "mtr-present-feasibility-b3fb19db5a2c43898d356f3b4f24dad1",
+    "--output_file",
+    "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-feasibility\\upstream-capture-02\\presents.csv",
+    "--timed",
+    "25",
+    "--terminate_after_timed",
+    "--qpc_time",
+    "--no_console_stats",
+    "--no_track_input",
+    "--no_track_gpu"
+  ],
+  "cwd": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-feasibility\\upstream-capture-02",
+  "started": "2026-11-16T16:18:45.000759+00:00",
+  "start_clock": {
+    "utc_between_qpc_reads": "2026-11-16T16:18:45.000867+00:00",
+    "qpc_before": 3644565466672,
+    "qpc_after": 3644565466747,
+    "frequency_hz": 10000000,
+    "pair_span_seconds": 7.5e-06
+  },
+  "owner_pid": 52384,
+  "runner_sha256": "da6feb3bafc72e1e7e7843d86f7250e2a8ac2facf9a0f313a73389be2c244086",
+  "session_name": "mtr-present-feasibility-b3fb19db5a2c43898d356f3b4f24dad1",
+  "helper_pid": 57868,
+  "actual_owned_helper": {
+    "pid": 57868,
+    "executable": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\presentmon-upstream-050\\PresentMon-2.6.0-x64.exe",
+    "created": "2026-11-16T16:18:45.001884+00:00",
+    "exit_time": null,
+    "kernel_100ns": 0,
+    "user_100ns": 0,
+    "source": "actual_owned_Popen_handle"
+  }
+}

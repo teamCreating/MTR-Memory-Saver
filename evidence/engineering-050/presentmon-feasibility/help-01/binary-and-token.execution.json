@@ -1,0 +1,35 @@
+{
+  "argv": [
+    "pwsh",
+    "-NoProfile",
+    "-Command",
+    "[Console]::OutputEncoding=[System.Text.UTF8Encoding]::new($false); $pmFile=Get-Item -LiteralPath 'C:\\Program Files\\NVIDIA Corporation\\FrameViewSDK\\bin\\PresentMon_x64.exe'; $pmSignature=Get-AuthenticodeSignature -LiteralPath $pmFile.FullName; $pmPrincipal=[Security.Principal.WindowsPrincipal]::new([Security.Principal.WindowsIdentity]::GetCurrent()); @{observed_at=[DateTimeOffset]::UtcNow.ToString('o'); path=$pmFile.FullName; bytes=$pmFile.Length; file_version=$pmFile.VersionInfo.FileVersion; product_version=$pmFile.VersionInfo.ProductVersion; company=$pmFile.VersionInfo.CompanyName; signature_status=$pmSignature.Status.ToString(); signer=$pmSignature.SignerCertificate.Subject; administrator=$pmPrincipal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator); performance_log_users=$pmPrincipal.IsInRole([Security.Principal.SecurityIdentifier]::new('S-1-5-32-559'))} | ConvertTo-Json -Depth 4"
+  ],
+  "cwd": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-feasibility\\help-01",
+  "started": "2026-11-16T16:00:27.305275+00:00",
+  "start_clock": {
+    "utc_between_qpc_reads": "2026-11-16T16:00:27.305235+00:00",
+    "qpc_before": 3633588560020,
+    "qpc_after": 3633588560310,
+    "frequency_hz": 10000000,
+    "pair_span_seconds": 2.9e-05
+  },
+  "owner": {
+    "pid": 17916,
+    "script": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-feasibility\\pilot.py",
+    "source_sha256": "ec7fd6adeea9d600ecd1d18a8eda8aa05210d62f2ec8900499cd8b3be96f9614"
+  },
+  "helper_pid": 67776,
+  "exit_code": 0,
+  "ended": "2026-11-16T16:00:36.421490+00:00",
+  "end_clock": {
+    "utc_between_qpc_reads": "2026-11-16T16:00:36.425230+00:00",
+    "qpc_before": 3633679759541,
+    "qpc_after": 3633679759868,
+    "frequency_hz": 10000000,
+    "pair_span_seconds": 3.27e-05
+  },
+  "helper_exited": true,
+  "stdout_sha256": "790dc75f1ae74cc7e651d07a6de0e7a0bbbb8a4aae0785f4e1667a210b9928bd",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}
