@@ -1,0 +1,311 @@
+{
+  "schema": 1,
+  "started_at": "2026-11-16T05:42:10.614325+00:00",
+  "finished_at": "2026-11-16T05:42:20.022511+00:00",
+  "passed": true,
+  "scope": "Synthetic experiment controls and actual JDK parsing of existing standalone event-schema recordings; not gameplay or performance acceptance",
+  "test_command": [
+    "C:\\Python314\\python.exe",
+    "-X",
+    "utf8",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tools",
+    "-p",
+    "test_client_experiment.py",
+    "-v"
+  ],
+  "test_returncode": 0,
+  "java": {
+    "path": "C:\\Users\\ben_l\\Saved Games\\Yuuniverse 1.20.1 Shenyang\\porting-output\\work\\tools\\jdk21\\jdk-21.0.11+10\\bin\\java.exe",
+    "sha256": "5e0fab9f07952ceb6e71eb9fd33e1ed69959904ca00cf70869b7baf516a98016",
+    "bytes": 50344
+  },
+  "jfr": {
+    "path": "C:\\Users\\ben_l\\Saved Games\\Yuuniverse 1.20.1 Shenyang\\porting-output\\work\\tools\\jdk21\\jdk-21.0.11+10\\bin\\jfr.exe",
+    "sha256": "337fbdca40d7d3d35ac0b390ab2ce6ff0f1dc66c90e9fb2dca4c504869c03e5d",
+    "bytes": 24232
+  },
+  "source_before": [
+    {
+      "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\tools\\client_experiment.py",
+      "sha256": "e9369079772ac847d8a017ffed60b449d3ab854e0bf76afb13d7b070f81fa2b2",
+      "bytes": 58311
+    },
+    {
+      "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\tools\\client_experiment_analysis.py",
+      "sha256": "e0e542fb07b226e4bcfca58e2a200189bfbfa55738111c2664bce0434c34958e",
+      "bytes": 41448
+    },
+    {
+      "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\tools\\packaged_client.py",
+      "sha256": "fdc1ccfd2f4189bf11eae7a81244ec96cb86f6811ee291d849407fe62cf1dbf4",
+      "bytes": 41586
+    },
+    {
+      "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\tools\\observe_packaged_client.py",
+      "sha256": "a9ee0137b594f89fd9dcc220a9a1a77b27bc1c72deda87bd4c183efc0d713207",
+      "bytes": 70986
+    },
+    {
+      "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\tools\\windows_snapshot_io.py",
+      "sha256": "872d49d252a1e177ac5fc75728c5343657217c20ce67ee64409bcc2b42ef96e9",
+      "bytes": 1757
+    },
+    {
+      "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\config\\targets.json",
+      "sha256": "e3d1d3a81d4fe8d7e60ba376654c943cc9766ce1d213b119fe7f6b175ac1d4ff",
+      "bytes": 1416
+    },
+    {
+      "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\tools\\test_client_experiment.py",
+      "sha256": "c8f9f5d60d548c78e01b73ef373287fc7a34874aeb3ed6ceeb6d75f477596c7a",
+      "bytes": 50598
+    },
+    {
+      "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\docs\\CLIENT_EXPERIMENT.md",
+      "sha256": "bdaf058eabd1e313d1e8b3d1f43ef45524a4678a49524cdda40a772463e6b99f",
+      "bytes": 14113
+    },
+    {
+      "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-048\\experiment\\run_review.py",
+      "sha256": "ce48906d767164052320eff4779fed4c22c57ce0e7e86e89bef7c6a7d40d19eb",
+      "bytes": 5115
+    }
+  ],
+  "source_after": [
+    {
+      "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\tools\\client_experiment.py",
+      "sha256": "e9369079772ac847d8a017ffed60b449d3ab854e0bf76afb13d7b070f81fa2b2",
+      "bytes": 58311
+    },
+    {
+      "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\tools\\client_experiment_analysis.py",
+      "sha256": "e0e542fb07b226e4bcfca58e2a200189bfbfa55738111c2664bce0434c34958e",
+      "bytes": 41448
+    },
+    {
+      "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\tools\\packaged_client.py",
+      "sha256": "fdc1ccfd2f4189bf11eae7a81244ec96cb86f6811ee291d849407fe62cf1dbf4",
+      "bytes": 41586
+    },
+    {
+      "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\tools\\observe_packaged_client.py",
+      "sha256": "a9ee0137b594f89fd9dcc220a9a1a77b27bc1c72deda87bd4c183efc0d713207",
+      "bytes": 70986
+    },
+    {
+      "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\tools\\windows_snapshot_io.py",
+      "sha256": "872d49d252a1e177ac5fc75728c5343657217c20ce67ee64409bcc2b42ef96e9",
+      "bytes": 1757
+    },
+    {
+      "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\config\\targets.json",
+      "sha256": "e3d1d3a81d4fe8d7e60ba376654c943cc9766ce1d213b119fe7f6b175ac1d4ff",
+      "bytes": 1416
+    },
+    {
+      "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\tools\\test_client_experiment.py",
+      "sha256": "c8f9f5d60d548c78e01b73ef373287fc7a34874aeb3ed6ceeb6d75f477596c7a",
+      "bytes": 50598
+    },
+    {
+      "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\docs\\CLIENT_EXPERIMENT.md",
+      "sha256": "bdaf058eabd1e313d1e8b3d1f43ef45524a4678a49524cdda40a772463e6b99f",
+      "bytes": 14113
+    },
+    {
+      "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-048\\experiment\\run_review.py",
+      "sha256": "ce48906d767164052320eff4779fed4c22c57ce0e7e86e89bef7c6a7d40d19eb",
+      "bytes": 5115
+    }
+  ],
+  "source_unchanged": true,
+  "jfr_parsing": [
+    {
+      "target": "official-nf248",
+      "source": {
+        "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-047\\neutral-observer\\official-nf248\\final\\frame-events.jfr",
+        "sha256": "49984118dc2e7b1141f9d4fbe657f5c62bee3699b4b41d2ea508d90860c197e2",
+        "bytes": 114008
+      },
+      "source_unchanged": true,
+      "events_match_original_export": true,
+      "event_count": 1,
+      "coverage": {
+        "start": "2026-11-14T23:06:33+00:00",
+        "end": "2026-11-14T23:06:33+00:00",
+        "readable": true,
+        "resolution_seconds": 1,
+        "end_bound": "conservative_whole_second"
+      },
+      "truncated_control": {
+        "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-048\\experiment\\review-attempt01\\official-nf248-truncated-control.jfr",
+        "sha256": "3e7fab4006f375a9ce78ad74d973ed62efb8d1741e97241a83464d6f9679b3b9",
+        "bytes": 8
+      },
+      "truncated_rejection": "Sealed raw JFR failed independent parsing: summary",
+      "passed": true
+    },
+    {
+      "target": "official-nf265",
+      "source": {
+        "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-047\\neutral-observer\\official-nf265\\final\\frame-events.jfr",
+        "sha256": "463207d58edaa04baf8644bb4753858d60c500dee06789e5014b09daf4557b42",
+        "bytes": 113998
+      },
+      "source_unchanged": true,
+      "events_match_original_export": true,
+      "event_count": 1,
+      "coverage": {
+        "start": "2026-11-14T23:07:52+00:00",
+        "end": "2026-11-14T23:07:52+00:00",
+        "readable": true,
+        "resolution_seconds": 1,
+        "end_bound": "conservative_whole_second"
+      },
+      "truncated_control": {
+        "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-048\\experiment\\review-attempt01\\official-nf265-truncated-control.jfr",
+        "sha256": "3e7fab4006f375a9ce78ad74d973ed62efb8d1741e97241a83464d6f9679b3b9",
+        "bytes": 8
+      },
+      "truncated_rejection": "Sealed raw JFR failed independent parsing: summary",
+      "passed": true
+    }
+  ],
+  "jfr_commands": [
+    {
+      "command": [
+        "C:\\Users\\ben_l\\Saved Games\\Yuuniverse 1.20.1 Shenyang\\porting-output\\work\\tools\\jdk21\\jdk-21.0.11+10\\bin\\jfr.exe",
+        "summary",
+        "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-047\\neutral-observer\\official-nf248\\final\\frame-events.jfr"
+      ],
+      "started_at": "2026-11-16T05:42:15.971301+00:00",
+      "finished_at": "2026-11-16T05:42:16.867864+00:00",
+      "returncode": 0,
+      "stdout": {
+        "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-048\\experiment\\review-attempt01\\jfr-command-00.stdout.log",
+        "sha256": "3a7585567a9da6c134ff83faa915d6af4f8c93c5d56789fa45419c1643b43ca8",
+        "bytes": 11607
+      },
+      "stderr": {
+        "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-048\\experiment\\review-attempt01\\jfr-command-00.stderr.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      }
+    },
+    {
+      "command": [
+        "C:\\Users\\ben_l\\Saved Games\\Yuuniverse 1.20.1 Shenyang\\porting-output\\work\\tools\\jdk21\\jdk-21.0.11+10\\bin\\jfr.exe",
+        "print",
+        "--json",
+        "--events",
+        "mtrtest.ClientFrame,jdk.GarbageCollection,jdk.GCPhasePause",
+        "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-047\\neutral-observer\\official-nf248\\final\\frame-events.jfr"
+      ],
+      "started_at": "2026-11-16T05:42:16.874277+00:00",
+      "finished_at": "2026-11-16T05:42:17.422717+00:00",
+      "returncode": 0,
+      "stdout": {
+        "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-048\\experiment\\review-attempt01\\jfr-command-01.stdout.log",
+        "sha256": "45e779082fe0458c21888cb3500be15bd6397fdd78050f9165381b8b1e221152",
+        "bytes": 701
+      },
+      "stderr": {
+        "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-048\\experiment\\review-attempt01\\jfr-command-01.stderr.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      }
+    },
+    {
+      "command": [
+        "C:\\Users\\ben_l\\Saved Games\\Yuuniverse 1.20.1 Shenyang\\porting-output\\work\\tools\\jdk21\\jdk-21.0.11+10\\bin\\jfr.exe",
+        "summary",
+        "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-048\\experiment\\review-attempt01\\official-nf248-truncated-control.jfr"
+      ],
+      "started_at": "2026-11-16T05:42:17.456721+00:00",
+      "finished_at": "2026-11-16T05:42:17.745092+00:00",
+      "returncode": 1,
+      "stdout": {
+        "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-048\\experiment\\review-attempt01\\jfr-command-02.stdout.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      "stderr": {
+        "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-048\\experiment\\review-attempt01\\jfr-command-02.stderr.log",
+        "sha256": "869c1bbf5a0b027a524b3c79207d1a740e14e7bb748614ca04809ff415ec52d2",
+        "bytes": 226
+      }
+    },
+    {
+      "command": [
+        "C:\\Users\\ben_l\\Saved Games\\Yuuniverse 1.20.1 Shenyang\\porting-output\\work\\tools\\jdk21\\jdk-21.0.11+10\\bin\\jfr.exe",
+        "summary",
+        "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-047\\neutral-observer\\official-nf265\\final\\frame-events.jfr"
+      ],
+      "started_at": "2026-11-16T05:42:17.761194+00:00",
+      "finished_at": "2026-11-16T05:42:18.709996+00:00",
+      "returncode": 0,
+      "stdout": {
+        "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-048\\experiment\\review-attempt01\\jfr-command-03.stdout.log",
+        "sha256": "1d419d8d3933fea8e1db0dac0bc293836d6c8fb87b3c65c79e30a28354df0a90",
+        "bytes": 11607
+      },
+      "stderr": {
+        "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-048\\experiment\\review-attempt01\\jfr-command-03.stderr.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      }
+    },
+    {
+      "command": [
+        "C:\\Users\\ben_l\\Saved Games\\Yuuniverse 1.20.1 Shenyang\\porting-output\\work\\tools\\jdk21\\jdk-21.0.11+10\\bin\\jfr.exe",
+        "print",
+        "--json",
+        "--events",
+        "mtrtest.ClientFrame,jdk.GarbageCollection,jdk.GCPhasePause",
+        "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-047\\neutral-observer\\official-nf265\\final\\frame-events.jfr"
+      ],
+      "started_at": "2026-11-16T05:42:18.719468+00:00",
+      "finished_at": "2026-11-16T05:42:19.623418+00:00",
+      "returncode": 0,
+      "stdout": {
+        "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-048\\experiment\\review-attempt01\\jfr-command-04.stdout.log",
+        "sha256": "a9632522fc29690443fd64129355441d05ce45cc9ee057938eeb503362f6ef97",
+        "bytes": 701
+      },
+      "stderr": {
+        "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-048\\experiment\\review-attempt01\\jfr-command-04.stderr.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      }
+    },
+    {
+      "command": [
+        "C:\\Users\\ben_l\\Saved Games\\Yuuniverse 1.20.1 Shenyang\\porting-output\\work\\tools\\jdk21\\jdk-21.0.11+10\\bin\\jfr.exe",
+        "summary",
+        "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-048\\experiment\\review-attempt01\\official-nf265-truncated-control.jfr"
+      ],
+      "started_at": "2026-11-16T05:42:19.633819+00:00",
+      "finished_at": "2026-11-16T05:42:19.974889+00:00",
+      "returncode": 1,
+      "stdout": {
+        "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-048\\experiment\\review-attempt01\\jfr-command-05.stdout.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      "stderr": {
+        "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-048\\experiment\\review-attempt01\\jfr-command-05.stderr.log",
+        "sha256": "9e27cef6dafef33b7a7b8ec18827620fb9c5114909c446f0fb77d4bc46d320b8",
+        "bytes": 226
+      }
+    }
+  ],
+  "remaining_gates": [
+    "four_actual_current_client_qualification_groups",
+    "48_actual_scheduled_trials",
+    "neutral_observer_off_calibration"
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "recording": {
+    "events": [{
+      "type": "mtrtest.ClientFrame", 
+      "values": {
+        "startTime": "2026-11-15T07:07:52.346034646+08:00", 
+        "duration": "PT0S", 
+        "eventThread": {
+          "osName": "Test worker", 
+          "osThreadId": 49048, 
+          "javaName": "Test worker", 
+          "javaThreadId": 1, 
+          "group": {
+            "parent": {
+              "parent": null, 
+              "name": "system"
+            }, 
+            "name": "main"
+          }, 
+          "virtual": false
+        }, 
+        "stackTrace": null, 
+        "intervalMs": 12.5, 
+        "inWorld": true, 
+        "paused": false, 
+        "screen": "game"
+      }
+    }]
+  }
+}

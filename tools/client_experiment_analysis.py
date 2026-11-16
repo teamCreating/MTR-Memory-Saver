@@ -67,6 +67,44 @@ def finite(value, *, positive=False):
             math.isfinite(value) and (value > 0 if positive else value >= 0))
 
 
+def process_key(process):
+    if type(process.get("pid")) is not int or process["pid"] <= 0:
+        raise ValueError("Invalid actual process identifier.")
+    return process["pid"], instant(process["created"]).isoformat()
+
+
+def execution_window_errors(evidence, expected_trial=None, experiment_started=None):
+    """Raw producer receipts, rather than edited execution summaries, bound a JVM."""
+    errors = []
+    try:
+        start, finish = evidence["run_start"], evidence["run_finish"]
+        scope = "official_client_performance_trial" if expected_trial is not None else "official_current_client_qualification"
+        if start["scope"] != scope or finish["scope"] != scope or start["trial_spec"] != expected_trial:
+            errors.append("Raw attempt/trial scope or scheduled identity differs.")
+        if start["root"] != finish["root"] or start["root"] != evidence["capture_root"] or start["qualification_key"] != evidence["qualification_key"]:
+            errors.append("Raw run receipts belong to another capture directory/qualification.")
+        if finish["start_sha256"] != evidence["run_start_sha256"]:
+            errors.append("Raw finish does not bind the captured start receipt.")
+        if process_key(finish["process"]) != process_key(evidence["process"]):
+            errors.append("Raw run finish belongs to another actual JVM.")
+        started, finished = instant(start["started_at"]), instant(finish["finished_at"])
+        created, captured = instant(evidence["process"]["created"]), instant(evidence["process"]["captured_at"])
+        launched = instant(evidence["launch"]["timestamp"])
+        completed = instant(evidence["measurement_completed_at"])
+        cleanup = instant(evidence["cleanup"]["timestamp"])
+        if evidence["started_at"] != start["started_at"] or evidence["finished_at"] != finish["finished_at"]:
+            errors.append("Observation times differ from raw attempt/trial receipts.")
+        if finish["measurement_completed_at"] != evidence["measurement_completed_at"] or finish["cleanup"] != evidence["cleanup"]:
+            errors.append("Endpoint/cleanup differs from the raw run finish.")
+        if not started <= created <= launched <= captured <= completed <= cleanup <= finished:
+            errors.append("Actual process creation/capture/endpoint falls outside its raw execution window.")
+        if experiment_started is not None and instant(experiment_started) > started:
+            errors.append("Raw trial predates the actual experiment execution start.")
+    except (KeyError, ValueError, TypeError, AttributeError):
+        errors.append("Missing/invalid raw execution receipts or actual process timestamps.")
+    return errors
+
+
 def validate_policy(policy):
     required = {"schema", "hypothesis", "pairs", "minimum_pairs", "seed", "confidence", "neutral_probe_off_calibration",
                 "startup_timeout_seconds", "warmup_seconds", "measurement_seconds", "sample_interval_seconds",
@@ -209,6 +247,7 @@ def jfr_metrics(events, window, coverage, tolerance, maximum_gap):
     """Count complete GC events; reject events/pauses straddling phase boundaries."""
     start, end = map(instant, (window["start"], window["end"]))
     errors, frames, collections, pauses = [], [], {}, []
+    invalid_gc, invalid_pause = False, False
     try:
         covered_start, covered_end = map(instant, (coverage["start"], coverage["end"]))
         if covered_start > start + dt.timedelta(seconds=tolerance) or covered_end < end:
@@ -221,7 +260,7 @@ def jfr_metrics(events, window, coverage, tolerance, maximum_gap):
         kind, values = event.get("type"), event.get("values", {})
         try:
             stamp = instant(values["startTime"])
-            duration = duration_seconds(values.get("duration", "PT0S"))
+            duration = duration_seconds(values["duration"] if kind in ("jdk.GarbageCollection", "jdk.GCPhasePause") else values.get("duration", "PT0S"))
             finish = stamp + dt.timedelta(seconds=duration)
             if kind in ("jdk.GarbageCollection", "jdk.GCPhasePause") and ((stamp < start < finish) or (stamp < end < finish)):
                 errors.append("GC event crosses a measurement boundary; window is incomplete.")
@@ -244,6 +283,8 @@ def jfr_metrics(events, window, coverage, tolerance, maximum_gap):
                 pauses.append((values["gcId"], duration * 1000))
         except (KeyError, ValueError, TypeError, OverflowError):
             errors.append("Invalid required JFR event: " + str(kind))
+            invalid_gc = invalid_gc or kind == "jdk.GarbageCollection"
+            invalid_pause = invalid_pause or kind == "jdk.GCPhasePause"
     if not frames:
         errors.append("No unpaused in-world frame events.")
     else:
@@ -254,13 +295,17 @@ def jfr_metrics(events, window, coverage, tolerance, maximum_gap):
         errors.append("GC pause has no matching complete collection event.")
     # This protocol freezes UseG1GC. A G1 full collection is named G1Full by JDK 21.
     full_ids = {identity for identity, name in collections.items() if name == "G1Full"}
+    missing_full_pauses = full_ids - {identity for identity, _ in pauses}
+    if missing_full_pauses:
+        errors.append("Full GC lacks a complete matching observed pause event.")
     values = [value for _, value in frames]
+    pause_unavailable = bool(missing_full_pauses) or invalid_gc or invalid_pause
     metrics = {"frame_p99_ms": percentile(values, .99) if values else None,
                "frame_max_ms": max(values) if values else None,
-               "gc_count": len(collections), "gc_pause_total_ms": sum(value for _, value in pauses),
-               "gc_pause_max_ms": max((value for _, value in pauses), default=0),
-               "full_gc_count": len(full_ids),
-               "full_gc_pause_max_ms": max((value for identity, value in pauses if identity in full_ids), default=0)}
+               "gc_count": None if invalid_gc else len(collections), "gc_pause_total_ms": None if pause_unavailable else sum(value for _, value in pauses),
+               "gc_pause_max_ms": None if pause_unavailable else max((value for _, value in pauses), default=0),
+               "full_gc_count": None if invalid_gc else len(full_ids),
+               "full_gc_pause_max_ms": None if pause_unavailable else max((value for identity, value in pauses if identity in full_ids), default=0)}
     return metrics, errors
 
 
@@ -327,6 +372,7 @@ def native_snapshot_errors(snapshot, process, stamp, freshness, scenario, *, req
 def assess_observation(evidence, policy, scenario, instrumentation):
     """Recompute phase metrics from preserved neutral snapshots and OS samples."""
     errors, metrics = [], {metric: None for metric in METRICS}
+    errors.extend(execution_window_errors(evidence, evidence.get("run_start", {}).get("trial_spec")))
     diagnostics = evidence.get("client_diagnostics")
     if evidence.get("client_log_completeness", {}).get("passed") is not True:
         errors.append("Complete startup-to-observation client log was not established.")
@@ -491,7 +537,17 @@ def analyze(plan, execution):
     if [trial.get("id") for trial in actual] != [spec["id"] for spec in expected]:
         errors.append("Recorded trial order/completeness differs from frozen schedule.")
     indexed, passed = {}, 0
+    previous_raw_finish = None
     process_ids = set()
+    qualifier_ids = set()
+    try:
+        if set(plan["qualification_processes"]) != {role + "_" + mode for role in ROLES for mode in MODES}:
+            raise ValueError("Missing current qualification process identities.")
+        qualifier_ids = {process_key(value) for value in plan["qualification_processes"].values()}
+        if len(qualifier_ids) != 4:
+            errors.append("The four qualification groups did not use distinct actual JVMs.")
+    except (KeyError, ValueError, TypeError, AttributeError):
+        errors.append("Current qualification actual process identities are unavailable.")
     for trial in actual:
         identity = trial.get("id")
         if identity in indexed:
@@ -507,10 +563,26 @@ def analyze(plan, execution):
                 errors.append("Changed trial treatment/control: " + spec["id"])
         evidence = trial.get("evidence", {})
         process = evidence.get("process", {})
-        identity = (process.get("pid"), process.get("created"))
-        if None in identity or identity in process_ids:
+        try:
+            identity = process_key(process)
+        except (ValueError, KeyError, TypeError, AttributeError):
+            identity = None
+        if identity is None or identity in process_ids:
             errors.append("Trials do not have distinct actual JVM creation identities: " + spec["id"])
+        if identity in qualifier_ids:
+            errors.append("Qualification JVM reused as a scheduled performance replicate: " + spec["id"])
         process_ids.add(identity)
+        errors.extend(execution_window_errors(evidence, spec, execution.get("started_at")))
+        try:
+            raw_start = instant(evidence["run_start"]["started_at"])
+            raw_finish = instant(evidence["run_finish"]["finished_at"])
+            if not instant(execution["started_at"]) <= instant(trial["started_at"]) <= raw_start <= raw_finish <= instant(trial["finished_at"]) <= instant(execution["finished_at"]):
+                errors.append("Trial/execution summaries do not contain the raw actual execution window: " + spec["id"])
+            if previous_raw_finish is not None and raw_start < previous_raw_finish:
+                errors.append("Actual trial windows overlap or run outside the frozen order: " + spec["id"])
+            previous_raw_finish = max(previous_raw_finish, raw_finish) if previous_raw_finish is not None else raw_finish
+        except (KeyError, ValueError, TypeError, AttributeError):
+            errors.append("Actual trial chronology is unavailable: " + spec["id"])
         key = spec["role"] + "_" + spec["instrumentation"]
         if trial.get("qualification_key") != plan["prepared"][key]["qualification_key"]:
             errors.append("Trial artifact/control/probe qualification differs: " + spec["id"])

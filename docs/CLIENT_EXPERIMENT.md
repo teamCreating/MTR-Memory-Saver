@@ -109,6 +109,9 @@ policy SHA. All four are independently re-audited from raw evidence during
 planning. A profile run cannot lend qualification to plain, nor candidate to
 baseline. A changed policy, source, pack, world, runtime or observer needs current
 qualification again.
+Qualification process identities are frozen from their independently audited raw
+PID and process-creation records. Scheduled trials cannot reuse any of those four
+JVMs, even if timestamps are reformatted with another UTC offset.
 
 ## Planning and execution
 
@@ -154,6 +157,14 @@ must identify this trial's game directory, and every observed log prefix's byte
 count and SHA must match the final raw file. Missing post-load prefixes,
 truncation, rotation or rewriting prevents qualification; a final logfile alone
 does not prove complete history.
+Raw start and finish receipts bind each capture directory, scheduled identity and
+qualification key to actual process creation, launch/capture, measurement and
+cleanup times. The prepared game directory must be this exact attempt's
+`instance/` directory. Copied qualification evidence and edited execution-time
+summaries cannot become scheduled performance replicates.
+The independent analyzer also requires actual run windows to follow the scheduled
+order without overlap; unique PIDs alone do not establish independent sequential
+trials. Every window must fit the enclosing trial and experiment receipts.
 
 Plain and profile both sample independent native heap and OS private/working-set
 memory. The OS startup peak is the actual process-start working-set peak; the heap
@@ -186,10 +197,22 @@ used conservatively, and frame events must continuously cover the complete stead
 window. Missing startup/history, orphan/duplicate GC IDs or GC events crossing a
 measurement boundary prevent acceptance. The explicit G1 collector permits JDK
 21 `G1Full` identification. Plain frame and GC metrics remain **unavailable**.
+JFR summary/print receipts preserve the exact input SHA before and after parsing
+and the output SHA. Canonical recordings and export copies must match those
+bytes. Audit independently reparses the sealed binary using the frozen JDK tool;
+old parsed JSON cannot validate a replaced or corrupt recording. A `G1Full`
+collection requires a complete matching observed pause, and GC/pause durations
+are mandatory. Missing pause evidence stays unavailable and fails qualification.
 
 All 48 scheduled trials remain in the failure denominator. Missing, failed,
 duplicate, reordered or reused-process trials invalidate the experiment. There is
 no outlier removal, additional sample replicates or unrecorded retry substitution.
+Raw inventories must exactly include all captures and failed export attempts;
+omitted, added or duplicated inventory members invalidate the audit. Qualification
+source fingerprints include the Windows snapshot reader used by
+the observer, so changed capture behavior requires fresh qualification. Source,
+prepared-input and host identities are checked again at qualification completion;
+a mid-run edit cannot acquire a new fingerprint over observations made by old code.
 The analysis uses paired median deltas and exact binomial sign-test intervals.
 Zero reference values are handled by predeclared absolute budgets, never invented
 percentage ratios. A/A equivalence and added JFR/GC instrumentation equivalence

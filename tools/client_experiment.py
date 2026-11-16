@@ -22,14 +22,17 @@ import zipfile
 
 import packaged_client as packaged
 from observe_packaged_client import WindowsProcess, verify_process_identity, windows_arguments
+from windows_snapshot_io import read_snapshot_bytes
 from client_experiment_analysis import (COMMON_METRICS, MODES, ROLES, analyze, assess_observation,
-                                         client_log_completeness, finite, instant, native_diagnostics, native_snapshot_errors, schedule, validate_policy)
+                                         client_log_completeness, execution_window_errors, finite, instant, native_diagnostics,
+                                         native_snapshot_errors, process_key, schedule, validate_policy)
 
 ROOT = Path(__file__).resolve().parents[1]
 SCOPE = "official_whole_client_experiment"
 INJECTED_ENV = ("JAVA_TOOL_OPTIONS", "JDK_JAVA_OPTIONS", "_JAVA_OPTIONS", "CLASSPATH")
 SOURCES = (Path(__file__), Path(__file__).with_name("client_experiment_analysis.py"),
-           Path(packaged.__file__), Path(__file__).with_name("observe_packaged_client.py"), ROOT / "config/targets.json")
+           Path(packaged.__file__), Path(__file__).with_name("observe_packaged_client.py"),
+           Path(__file__).with_name("windows_snapshot_io.py"), ROOT / "config/targets.json")
 RETAINED_PROCESSES = {}  # Keep actual handles while a failed export awaits recovery.
 
 
@@ -253,19 +256,29 @@ def verify_raw_files(root, items):
         path = (root / item["relative_path"]).resolve(strict=True)
         if root.resolve() not in path.parents or digest(path) != item["sha256"] or path.stat().st_size != item["bytes"]:
             raise ValueError("Raw evidence changed or escaped attempt directory: " + item["relative_path"])
+    if items != raw_files(root):
+        raise ValueError("Raw evidence inventory is incomplete, duplicated or changed.")
 
 
 def read_jsonl(path):
     return [json.loads(line) for line in Path(path).read_text(encoding="utf-8-sig").splitlines() if line.strip()]
 
 
-def audit_observation(root, policy, scenario, mode):
+def audit_observation(root, policy, scenario, mode, *, expected_trial=None, experiment_started=None):
+    root = Path(root).resolve(strict=True)
     evidence = read(root / "observation.json")
+    prepared = read(root / "prepared-plan.json")
+    if Path(prepared["instance"]).resolve() != root / "instance" or evidence.get("capture_root") != str(root):
+        raise ValueError("Raw observation belongs to another actual instance/capture root; replay is invalid.")
+    if evidence.get("run_start") != read(root / "run-start.json") or evidence.get("run_finish") != read(root / "run-finish.json") or evidence.get("run_start_sha256") != digest(root / "run-start.json"):
+        raise ValueError("Execution window differs from raw producer start/finish receipts.")
+    window_errors = execution_window_errors(evidence, expected_trial, experiment_started)
+    if window_errors:
+        raise ValueError("Invalid raw execution window: " + "; ".join(window_errors))
     if evidence.get("client_diagnostics") != native_diagnostics((root / "latest.log").read_text(encoding="utf-8-sig")):
         raise ValueError("Native/client diagnostic assessment differs from full raw log.")
     if evidence.get("process") != read(root / "actual-process.json") or evidence.get("launch") != read(root / "launch.json"):
         raise ValueError("Process/launch evidence differs from its independent raw capture.")
-    prepared = read(root / "prepared-plan.json")
     if evidence.get("client_log_completeness") != client_log_completeness((root / "latest.log").read_bytes(), evidence["samples"], prepared["instance"]):
         raise ValueError("Client log completeness differs from independent raw prefix analysis.")
     if evidence["launch"]["plan_sha256"] != digest(root / "prepared-plan.json"):
@@ -282,8 +295,7 @@ def audit_observation(root, policy, scenario, mode):
     if evidence.get("epochs") != read_jsonl(root / "native-resource-epochs.jsonl"):
         raise ValueError("Native epoch evidence differs from raw JSONL.")
     if mode == "profile":
-        events = read(root / "jfr-events.json")["recording"]["events"]
-        coverage = summary_coverage((root / "jfr-summary.stdout.log").read_text(encoding="utf-8"))
+        events, coverage = audit_jfr(root, prepared)
         if evidence.get("jfr_events") != events or evidence.get("jfr_coverage") != coverage:
             raise ValueError("JFR observations differ from independently parsed raw output.")
     return evidence, assess_observation(evidence, policy, scenario, mode)
@@ -309,8 +321,6 @@ def audit_qualification(path, descriptor, policy):
     if report.get("sources") != [fingerprint(source) for source in SOURCES]:
         raise ValueError("Qualification tool sources changed; obtain a new current qualification.")
     verify_raw_files(path.parent, report["files"])
-    if report["files"] != raw_files(path.parent):
-        raise ValueError("Qualification raw evidence inventory is incomplete or changed.")
     evidence, result = audit_observation(path.parent, policy, descriptor["scenario"], descriptor["instrumentation"])
     verify_observed_identity(path.parent, descriptor)
     if result != report.get("result") or not result["passed"] or report.get("status") != "passed":
@@ -357,10 +367,15 @@ def make_plan(args):
             descriptor["qualification"] = audit_qualification(qualification_path, descriptor, policy)
         if len(qualifications) != 4:
             raise ValueError("Require exactly the four current qualification groups.")
+        qualification_processes = {key: read(Path(item["qualification"]["path"]).parent / "actual-process.json")
+                                   for key, item in prepared.items()}
+        if len({process_key(value) for value in qualification_processes.values()}) != 4:
+            raise ValueError("The four qualification groups require distinct actual JVMs.")
         plan = {"schema": 1, "scope": SCOPE, "created_at": now(), "policy": policy,
                 "policy_file": fingerprint(args.policy), "environment": host, "environment_notes": args.environment_notes,
                 "sources": [fingerprint(source) for source in SOURCES], "prepared": prepared,
                 "scenario": reference["scenario"], "schedule": schedule(policy),
+                "qualification_processes": qualification_processes,
                 "neutral_probe_off_calibration": {"status": "outstanding", "required_before_uninstrumented_claim": True},
                 "instrumentation_contract": instrumentation_contract(prepared, policy)}
         save(output / "plan.json", plan, exclusive=True)
@@ -390,6 +405,10 @@ def verify_plan(path, plan):
         verify_descriptor(descriptor, plan["policy"])
         verify_fingerprint(descriptor["qualification"])
         audit_qualification(descriptor["qualification"]["path"], descriptor, plan["policy"])
+    actual_qualifiers = {key: read(Path(item["qualification"]["path"]).parent / "actual-process.json")
+                        for key, item in plan["prepared"].items()}
+    if plan.get("qualification_processes") != actual_qualifiers or len({process_key(value) for value in actual_qualifiers.values()}) != 4:
+        raise ValueError("Frozen qualifier JVM identities differ from independently audited raw qualification processes.")
 
 
 def clone_prepared(descriptor, destination):
@@ -424,6 +443,52 @@ def summary_coverage(text):
             "resolution_seconds": 1, "end_bound": "conservative_whole_second"}
 
 
+def parse_jfr_recording(path, java):
+    """Independently parse the actual sealed binary using its frozen JDK tool."""
+    path = Path(path)
+    before = digest(path)
+    suffix = ".exe" if os.name == "nt" else ""
+    jfr = str(Path(java).with_name("jfr" + suffix))
+    outputs = []
+    for options in (("summary",), ("print", "--json", "--events", "mtrtest.ClientFrame,jdk.GarbageCollection,jdk.GCPhasePause")):
+        result = subprocess.run([jfr, *options, str(path)], capture_output=True, text=True, encoding="utf-8-sig", errors="strict", timeout=60)
+        if result.returncode != 0:
+            raise ValueError("Sealed raw JFR failed independent parsing: " + options[0])
+        outputs.append(result.stdout)
+    if digest(path) != before:
+        raise ValueError("Raw JFR changed during independent parsing.")
+    events = json.loads(outputs[1])["recording"]["events"]
+    if not isinstance(events, list):
+        raise ValueError("Independent JFR parse lacks an event array.")
+    return events, summary_coverage(outputs[0])
+
+
+def audit_jfr(root, prepared):
+    verified = [path for path in root.glob("jfr-export-attempt-*/receipt.json") if read(path).get("status") == "verified"]
+    if len(verified) != 1:
+        raise ValueError("Exactly one verified export must bind the canonical raw JFR.")
+    attempt = verified[0].parent
+    receipt = read(verified[0])
+    binary_sha = digest(root / "recording.jfr")
+    if receipt.get("recording_sha256") != binary_sha or digest(attempt / "recording.jfr") != binary_sha:
+        raise ValueError("Sealed JFR binary differs from the actual verified export.")
+    for label in ("jfr-summary", "jfr-print"):
+        execution = read(attempt / (label + ".execution.json"))
+        if execution.get("returncode") != 0 or execution.get("input_jfr_sha256") != binary_sha or execution.get("input_jfr_sha256_after") != binary_sha:
+            raise ValueError("JFR parsing output is not bound to unchanged exact input bytes.")
+        if execution.get("stdout_sha256") != digest(attempt / (label + ".stdout.log")):
+            raise ValueError("JFR helper output bytes changed after parsing.")
+    if digest(root / "jfr-summary.stdout.log") != digest(attempt / "jfr-summary.stdout.log"):
+        raise ValueError("Canonical JFR summary differs from verified helper output.")
+    captured = read(root / "jfr-events.json")["recording"]["events"]
+    if captured != read(attempt / "jfr-print.stdout.log")["recording"]["events"]:
+        raise ValueError("Canonical JFR events differ from verified helper output.")
+    events, coverage = parse_jfr_recording(root / "recording.jfr", prepared["java"])
+    if events != captured or coverage != summary_coverage((root / "jfr-summary.stdout.log").read_text(encoding="utf-8")):
+        raise ValueError("Saved JFR observations differ from independent sealed-binary parsing.")
+    return events, coverage
+
+
 def export_jfr(plan, process, instance, root):
     java = Path(plan["java"])
     suffix = ".exe" if os.name == "nt" else ""
@@ -444,11 +509,17 @@ def export_jfr(plan, process, instance, root):
     receipt = {"started_at": now(), "status": "running", "pid": process.pid}
     try:
         for command, label in commands:
+            input_sha = digest(exported) if label != "jfr-dump" else None
             with (attempt / (label + ".stdout.log")).open("x", encoding="utf-8") as stdout, (attempt / (label + ".stderr.log")).open("x", encoding="utf-8") as stderr:
                 result = subprocess.run(command, cwd=instance, stdout=stdout, stderr=stderr, timeout=60)
-            save(attempt / (label + ".execution.json"), {"command": command, "returncode": result.returncode, "finished_at": now()}, exclusive=True)
+            after_sha = digest(exported) if exported.is_file() else None
+            save(attempt / (label + ".execution.json"), {"command": command, "returncode": result.returncode, "finished_at": now(),
+                "input_jfr_sha256": input_sha, "input_jfr_sha256_after": after_sha,
+                "stdout_sha256": digest(attempt / (label + ".stdout.log"))}, exclusive=True)
             if result.returncode != 0 or (label == "jfr-dump" and not exported.is_file()):
                 raise ValueError("Actual JFR export/read failed: " + label)
+            if label != "jfr-dump" and input_sha != after_sha:
+                raise ValueError("Actual JFR input changed during helper parsing.")
         events = read(attempt / "jfr-print.stdout.log")
         event_list = events["recording"]["events"]
         if not isinstance(event_list, list):
@@ -457,7 +528,10 @@ def export_jfr(plan, process, instance, root):
         save(root / "jfr-events.json", events, exclusive=True)
         shutil.copyfile(attempt / "jfr-summary.stdout.log", root / "jfr-summary.stdout.log")
         shutil.copyfile(exported, root / "recording.jfr")
+        if digest(exported) != after_sha or digest(root / "recording.jfr") != after_sha:
+            raise ValueError("Verified JFR input changed before evidence sealing.")
         receipt["status"] = "verified"
+        receipt["recording_sha256"] = after_sha
         return event_list, coverage
     except BaseException as error:
         receipt.update(status="failed", error=type(error).__name__ + ": " + str(error))
@@ -469,11 +543,18 @@ def export_jfr(plan, process, instance, root):
         save(attempt / "receipt.json", receipt, exclusive=True)
 
 
-def collect_trial(descriptor, policy, root):
+def collect_trial(descriptor, policy, root, *, trial_spec=None):
+    root = Path(root).resolve()
     root.mkdir(parents=True, exist_ok=False)
     instance = root / "instance"
     evidence = {"schema": 1, "status": "running", "qualification_key": descriptor["qualification_key"],
                 "started_at": now(), "samples": [], "epochs": [], "windows": {}, "jfr_events": [], "jfr_coverage": None}
+    evidence["capture_root"] = str(root)
+    evidence["run_start"] = {"schema": 1, "scope": "official_client_performance_trial" if trial_spec is not None else "official_current_client_qualification",
+                             "root": str(root), "started_at": evidence["started_at"], "trial_spec": trial_spec,
+                             "qualification_key": descriptor["qualification_key"]}
+    save(root / "run-start.json", evidence["run_start"], exclusive=True)
+    evidence["run_start_sha256"] = digest(root / "run-start.json")
     process, observer, plan, interrupt_error = None, None, None, None
     jfr_verified = descriptor["instrumentation"] == "plain"
     epochs_path = instance / descriptor["probe_metadata"]["epochs_path"]
@@ -486,7 +567,8 @@ def collect_trial(descriptor, policy, root):
             raise ValueError("Launcher must return the owned actual JVM subprocess.")
         launch = read(instance / "packaged-client-launch.json")
         observer = WindowsProcess(plan, launch)
-        evidence["process"] = {**observer.identity, "created": observer.created, "arguments": windows_arguments(observer.identity["command"])}
+        evidence["process"] = {**observer.identity, "created": observer.created, "captured_at": now(),
+                               "arguments": windows_arguments(observer.identity["command"])}
         evidence["launch"] = launch
         save(root / "actual-process.json", evidence["process"], exclusive=True)
         save(root / "launch.json", launch, exclusive=True)
@@ -509,7 +591,7 @@ def collect_trial(descriptor, policy, root):
                 if sample["os"].get("running") is not True:
                     raise RuntimeError("Actual JVM exited before observation completed.")
                 try:
-                    raw = snapshot_path.read_bytes()
+                    raw = read_snapshot_bytes(snapshot_path)
                     sample["native"] = json.loads(raw.decode("utf-8-sig"))
                     sample["native_snapshot_sha256"] = hashlib.sha256(raw).hexdigest()
                 except (OSError, ValueError) as error:
@@ -630,6 +712,12 @@ def collect_trial(descriptor, policy, root):
                 "other_errors_requiring_contextual_review": [], "error": str(error)}
             evidence["client_log_completeness"] = {"passed": False, "errors": [str(error)]}
         evidence["finished_at"] = now()
+        actual = evidence.get("process", {})
+        evidence["run_finish"] = {"schema": 1, "scope": evidence["run_start"]["scope"], "root": str(root),
+            "finished_at": evidence["finished_at"], "start_sha256": evidence["run_start_sha256"],
+            "process": {"pid": actual.get("pid"), "created": actual.get("created")},
+            "measurement_completed_at": evidence.get("measurement_completed_at"), "cleanup": evidence["cleanup"]}
+        save(root / "run-finish.json", evidence["run_finish"], exclusive=True)
         save(root / "observation.json", evidence)
     result = assess_observation(evidence, policy, descriptor["scenario"], descriptor["instrumentation"])
     save(root / "result.json", result, exclusive=True)
@@ -644,15 +732,21 @@ def qualify(args):
     try:
         policy = read(args.policy)
         validate_policy(policy)
+        frozen_sources = [fingerprint(source) for source in SOURCES]
         descriptor = prepared_descriptor(args.prepared_plan, args.role, args.instrumentation, policy)
         host = environment()
         # Collect in the attempt root's dedicated child so preparation failures also
         # retain attempt.json and never overwrite an earlier run.
         trial_root = output / "trial"
         evidence, result = collect_trial(descriptor, policy, trial_root)
+        for source in frozen_sources:
+            verify_fingerprint(source)
+        verify_descriptor(descriptor, policy)
+        if environment() != host:
+            raise ValueError("Host/injected environment changed during qualification.")
         report = {"schema": 1, "scope": "official_current_client_qualification", "status": "passed" if result["passed"] else "failed",
                   "created_at": now(), "qualification_key": descriptor["qualification_key"], "fields": descriptor["qualification_fields"],
-                  "environment": host, "sources": [fingerprint(source) for source in SOURCES], "result": result, "files": raw_files(trial_root)}
+                  "environment": host, "sources": frozen_sources, "result": result, "files": raw_files(trial_root)}
         save(trial_root / "qualification.json", report, exclusive=True)
         attempt.update(status=report["status"], qualification=str(trial_root / "qualification.json"), result=result)
         if not result["passed"]:
@@ -672,6 +766,8 @@ def run_plan(path):
     state = {"schema": 1, "status": "running", "started_at": now(), "plan_sha256": digest(path), "trials": []}
     state_path = path.parent / "execution.json"
     save(state_path, state, exclusive=True)
+    save(path.parent / "execution-start.json", {"schema": 1, "scope": SCOPE, "root": str(path.parent),
+        "plan_sha256": state["plan_sha256"], "started_at": state["started_at"]}, exclusive=True)
     try:
         verify_plan(path, plan)
         for spec in plan["schedule"]:
@@ -686,7 +782,7 @@ def run_plan(path):
             print("Measuring " + spec["id"], flush=True)
             root = path.parent / spec["id"]
             try:
-                evidence, result = collect_trial(descriptor, plan["policy"], root)
+                evidence, result = collect_trial(descriptor, plan["policy"], root, trial_spec=spec)
                 trial.update(status="complete" if result["passed"] else "failed", evidence=evidence, result=result, files=raw_files(root))
                 if evidence.get("cleanup", {}).get("exited") is not True:
                     raise RuntimeError("Owned JVM cleanup failed; no subsequent independent trial may start.")
@@ -696,6 +792,10 @@ def run_plan(path):
                     trial["files"] = raw_files(root)
                 save(state_path, state)
         verify_plan(path, plan)
+        execution_start = read(path.parent / "execution-start.json")
+        if execution_start != {"schema": 1, "scope": SCOPE, "root": str(path.parent),
+                              "plan_sha256": state["plan_sha256"], "started_at": state["started_at"]}:
+            raise ValueError("Execution summary differs from raw experiment-start receipt.")
         state["status"] = "complete" if all(trial["status"] == "complete" for trial in state["trials"]) else "failed"
     except BaseException as error:
         state.update(status="interrupted" if isinstance(error, KeyboardInterrupt) else "failed", error=type(error).__name__ + ": " + str(error))
@@ -714,16 +814,23 @@ def audit(path):
     errors = []
     try:
         verify_plan(path, plan)
+        execution_start = read(path.parent / "execution-start.json")
+        if execution_start != {"schema": 1, "scope": SCOPE, "root": str(path.parent),
+                              "plan_sha256": state["plan_sha256"], "started_at": state["started_at"]}:
+            raise ValueError("Execution summary differs from raw experiment-start receipt.")
         if state["plan_sha256"] != digest(path):
             errors.append("Plan fingerprint differs from execution.")
-        expected_ids = {spec["id"] for spec in plan["schedule"]}
+        expected_ids = {spec["id"]: spec for spec in plan["schedule"]}
         for trial in state.get("trials", []):
             if trial.get("id") not in expected_ids:
                 raise ValueError("Unexpected trial directory identity.")
             root = path.parent / trial["id"]
             verify_raw_files(root, trial.get("files", []))
             key = trial["role"] + "_" + trial["instrumentation"]
-            evidence, result = audit_observation(root, plan["policy"], plan["scenario"], trial["instrumentation"])
+            evidence, result = audit_observation(root, plan["policy"], plan["scenario"], trial["instrumentation"],
+                expected_trial=expected_ids[trial["id"]], experiment_started=execution_start["started_at"])
+            if not instant(state["started_at"]) <= instant(trial["started_at"]) <= instant(evidence["run_start"]["started_at"]) or not instant(evidence["run_finish"]["finished_at"]) <= instant(trial["finished_at"]) <= instant(state["finished_at"]):
+                raise ValueError("Edited trial/execution summary does not contain the raw actual execution window.")
             verify_observed_identity(root, plan["prepared"][key])
             if evidence != trial.get("evidence") or result != trial.get("result") or evidence.get("qualification_key") != plan["prepared"][key]["qualification_key"]:
                 errors.append("Raw observations/results differ from execution: " + trial["id"])
@@ -735,7 +842,8 @@ def audit(path):
         report = {"status": "invalid", "performance_accepted": False, "errors": [str(error)],
                   "failure_denominator": {"scheduled_trials": len(plan.get("schedule", [])), "recorded_trials": len(state.get("trials", []))}}
     if errors:
-        report.update(status="invalid", performance_accepted=False, integrity_errors=errors)
+        report.update(status="invalid", performance_accepted=False, instrumented_performance_accepted=False,
+                      instrumented_comparison_status="invalid", integrity_errors=errors)
     return {**report, "plan_sha256": digest(path), "execution_sha256": digest(path.parent / "execution.json"),
             "analyzer_sha256": digest(Path(__file__).with_name("client_experiment_analysis.py"))}
 

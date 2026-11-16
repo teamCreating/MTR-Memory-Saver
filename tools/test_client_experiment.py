@@ -6,6 +6,7 @@ import json
 from pathlib import Path
 import tempfile
 import subprocess
+import shutil
 from types import SimpleNamespace
 import unittest
 from unittest import mock
@@ -49,7 +50,7 @@ def evidence(mode="plain", *, pid=10, offset=0, private=100):
         snapshots.append({"observed_at": stamp(seconds), "os": {"running": True, "working_set": 110,
             "private_usage": private, "peak_working_set_since_process_start": 120}, "native": snapshot, "errors": [],
             "client_log_witness": {"bytes": 1, "sha256": hashlib.sha256(b"x").hexdigest()}})
-    result = {"schema": 1, "status": "complete", "process": {"pid": pid, "created": stamp(0)},
+    result = {"schema": 1, "status": "complete", "process": {"pid": pid, "created": stamp(0), "captured_at": stamp(.1)},
               "windows": {"startup": {"start": stamp(0), "end": stamp(2)}, "warmup": {"start": stamp(2), "end": stamp(4)},
                           "steady": {"start": stamp(4), "end": stamp(10)}},
               "samples": snapshots,
@@ -57,6 +58,14 @@ def evidence(mode="plain", *, pid=10, offset=0, private=100):
                          for seconds, phase in ((.5, "start"), (1.5, "return"))],
               "jfr_events": [], "jfr_coverage": None, "cleanup": {"exited": True}}
     result.update(measurement_completed_at=stamp(10), measurement_process_running=True)
+    result.update(started_at=stamp(0), finished_at=stamp(11), qualification_key="fixture", capture_root="fixture-root",
+                  launch={"timestamp": stamp(.05)}, run_start_sha256="fixture-start-sha")
+    result["cleanup"]["timestamp"] = stamp(10.5)
+    result["run_start"] = {"scope": "official_current_client_qualification", "root": "fixture-root", "started_at": stamp(0),
+                           "trial_spec": None, "qualification_key": "fixture"}
+    result["run_finish"] = {"scope": "official_current_client_qualification", "root": "fixture-root", "finished_at": stamp(11),
+        "start_sha256": "fixture-start-sha", "process": {"pid": pid, "created": stamp(0)},
+        "measurement_completed_at": stamp(10), "cleanup": copy.deepcopy(result["cleanup"])}
     result["client_diagnostics"] = {"scanned": True, "unreviewed_native": [], "other_errors_requiring_contextual_review": []}
     result["client_log_completeness"] = {"passed": True}
     if mode == "profile":
@@ -64,6 +73,42 @@ def evidence(mode="plain", *, pid=10, offset=0, private=100):
         result["jfr_events"] = [{"type": "mtrtest.ClientFrame", "values": {"startTime": stamp(seconds / 2), "duration": "PT0S",
             "intervalMs": 16, "inWorld": True, "paused": False, "screen": "game"}} for seconds in range(8, 21)]
     return result
+
+
+def write_raw_qualification_fixture(root):
+    """A complete plain raw fixture, accepted by the raw-audit layer before replay."""
+    root.mkdir()
+    instance = root / "instance"
+    instance.mkdir()
+    raw = evidence(pid=111)
+    raw["capture_root"] = str(root.resolve())
+    raw["run_start"]["root"] = str(root.resolve())
+    raw["run_finish"]["root"] = str(root.resolve())
+    java = str((root / "java.exe").resolve())
+    prepared = {"instance": str(instance.resolve()), "java": java, "heap_mib": 3072, "smoke": False,
+                "jfr": False, "jfr_max_size_bytes": None}
+    arguments = client.packaged.jvm_arguments(prepared)
+    command = [java, *arguments, "--gameDir", str(instance.resolve())]
+    prepared["controls"] = {"launcher": {"command_template": client.packaged.command_template(command, instance.resolve(), java)}}
+    client.save(root / "prepared-plan.json", prepared)
+    raw["launch"].update(pid=111, plan_sha256=client.digest(root / "prepared-plan.json"), command=command, jvm_arguments=arguments)
+    raw["process"].update(executable=java, arguments=command)
+    log = ("[main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--gameDir, " + str(instance.resolve()) + "]\n[INFO] Ready\n").encode()
+    (root / "latest.log").write_bytes(log)
+    for sample in raw["samples"]:
+        sample["client_log_witness"] = {"bytes": len(log), "sha256": hashlib.sha256(log).hexdigest()}
+    raw["client_diagnostics"] = analysis.native_diagnostics(log.decode())
+    raw["client_log_completeness"] = analysis.client_log_completeness(log, raw["samples"], instance.resolve())
+    client.save(root / "run-start.json", raw["run_start"])
+    raw["run_start_sha256"] = client.digest(root / "run-start.json")
+    raw["run_finish"]["start_sha256"] = raw["run_start_sha256"]
+    client.save(root / "run-finish.json", raw["run_finish"])
+    client.save(root / "actual-process.json", raw["process"])
+    client.save(root / "launch.json", raw["launch"])
+    for name, items in (("samples.jsonl", raw["samples"]), ("native-resource-epochs.jsonl", raw["epochs"])):
+        (root / name).write_text("".join(json.dumps(item) + "\n" for item in items), encoding="utf-8")
+    client.save(root / "observation.json", raw)
+    return raw
 
 
 class PolicyAndScheduleTests(unittest.TestCase):
@@ -236,6 +281,24 @@ class JfrTests(unittest.TestCase):
         self.assertEqual(result["metrics"]["full_gc_count"], 1)
         self.assertEqual(result["metrics"]["full_gc_pause_max_ms"], 20)
 
+    def test_full_gc_without_pause_or_duration_is_unavailable_and_failed(self):
+        for missing in ("pause", "pause_duration", "gc_duration"):
+            record = evidence("profile")
+            stamp = record["samples"][5]["observed_at"]
+            gc = {"type": "jdk.GarbageCollection", "values": {"startTime": stamp, "duration": "PT0.03S", "gcId": 99, "name": "G1Full"}}
+            pause = {"type": "jdk.GCPhasePause", "values": {"startTime": stamp, "duration": "PT0.02S", "gcId": 99}}
+            if missing == "gc_duration":
+                del gc["values"]["duration"]
+            if missing == "pause_duration":
+                del pause["values"]["duration"]
+            record["jfr_events"].append(gc)
+            if missing != "pause":
+                record["jfr_events"].append(pause)
+            result = analysis.assess_observation(record, policy(), scenario(), "profile")
+            self.assertFalse(result["passed"])
+            self.assertIsNone(result["metrics"]["full_gc_pause_max_ms"])
+            self.assertIsNone(result["metrics"]["gc_pause_total_ms"])
+
     def test_orphan_pause_duplicate_gc_and_boundary_crossing_fail(self):
         record = evidence("profile")
         stamp = record["samples"][5]["observed_at"]
@@ -268,13 +331,19 @@ class IndependentDecisionTests(unittest.TestCase):
         config = policy()
         scheduled = analysis.schedule(config)
         prepared = {role + "_" + mode: {"qualification_key": role + "_" + mode} for role in analysis.ROLES for mode in analysis.MODES}
-        plan = {"policy": config, "schedule": scheduled, "prepared": prepared, "scenario": scenario()}
+        plan = {"policy": config, "schedule": scheduled, "prepared": prepared, "scenario": scenario(),
+                "qualification_processes": {key: {"pid": 1000 + index, "created": "2026-11-14T00:00:00+00:00"} for index, key in enumerate(prepared)}}
         trials = []
         for index, spec in enumerate(scheduled):
             role = spec["role"]
-            trials.append({**spec, "status": "complete", "qualification_key": role + "_" + spec["instrumentation"],
-                           "evidence": evidence(spec["instrumentation"], pid=index + 1, offset=index * 100, private=80 if role == "candidate" else 100)})
-        return plan, {"status": "complete", "trials": trials}
+            raw = evidence(spec["instrumentation"], pid=index + 1, offset=index * 100, private=80 if role == "candidate" else 100)
+            raw["qualification_key"] = role + "_" + spec["instrumentation"]
+            raw["run_start"].update(scope="official_client_performance_trial", trial_spec=spec, qualification_key=raw["qualification_key"])
+            raw["run_finish"]["scope"] = "official_client_performance_trial"
+            trials.append({**spec, "status": "complete", "qualification_key": raw["qualification_key"], "evidence": raw,
+                           "started_at": raw["started_at"], "finished_at": raw["finished_at"]})
+        return plan, {"status": "complete", "trials": trials, "started_at": "2026-11-14T23:59:00+00:00",
+                      "finished_at": "2026-11-15T02:00:00+00:00"}
 
     def test_complete_independent_aa_ab_and_instrumentation_gates_pass(self):
         plan, execution = self.state()
@@ -300,6 +369,52 @@ class IndependentDecisionTests(unittest.TestCase):
         plan, execution = self.state()
         execution["trials"][0]["qualification_key"] = "other-mode"
         self.assertEqual(analysis.analyze(plan, execution)["status"], "invalid")
+
+    def test_qualifier_process_cannot_be_reused_even_with_timezone_reformatting(self):
+        plan, execution = self.state()
+        qualifier = copy.deepcopy(execution["trials"][0]["evidence"]["process"])
+        qualifier["created"] = qualifier["created"].replace("+00:00", "Z")
+        plan["qualification_processes"]["baseline_plain"] = qualifier
+        result = analysis.analyze(plan, execution)
+        self.assertEqual(result["status"], "invalid")
+        self.assertTrue(any("Qualification JVM reused" in error for error in result["errors"]))
+
+    def test_edited_summary_cannot_move_old_raw_process_into_a_new_window(self):
+        plan, execution = self.state()
+        trial = execution["trials"][0]
+        trial["started_at"] = "2026-11-15T01:00:00+00:00"
+        trial["evidence"]["run_start"]["started_at"] = trial["started_at"]
+        trial["evidence"]["started_at"] = trial["started_at"]
+        result = analysis.analyze(plan, execution)
+        self.assertEqual(result["status"], "invalid")
+        self.assertTrue(any("outside its raw execution window" in error for error in result["errors"]))
+
+    def test_distinct_jvms_with_overlapping_or_reversed_windows_are_not_replicates(self):
+        for reverse in (False, True):
+            plan, execution = self.state()
+            trial = execution["trials"][1]
+            raw = evidence(trial["instrumentation"], pid=trial["evidence"]["process"]["pid"],
+                           offset=-100 if reverse else 0, private=80 if trial["role"] == "candidate" else 100)
+            raw["qualification_key"] = trial["qualification_key"]
+            raw["run_start"].update(scope="official_client_performance_trial", trial_spec=plan["schedule"][1],
+                                    qualification_key=trial["qualification_key"])
+            raw["run_finish"]["scope"] = "official_client_performance_trial"
+            trial.update(evidence=raw, started_at=raw["started_at"], finished_at=raw["finished_at"])
+            execution["started_at"] = "2026-11-14T23:55:00+00:00"
+            result = analysis.analyze(plan, execution)
+            self.assertEqual(result["status"], "invalid")
+            self.assertTrue(any("windows overlap or run outside" in error for error in result["errors"]))
+            self.assertFalse(result["performance_accepted"])
+
+    def test_actual_windows_must_fit_trial_and_experiment_receipts(self):
+        for mutate in (lambda e: e.update(finished_at=e["started_at"]),
+                       lambda e: e["trials"][0].update(finished_at=e["trials"][0]["started_at"]),
+                       lambda e: e["trials"][0].pop("finished_at")):
+            plan, execution = self.state()
+            mutate(execution)
+            result = analysis.analyze(plan, execution)
+            self.assertEqual(result["status"], "invalid")
+            self.assertTrue(any("execution window" in error or "chronology is unavailable" in error for error in result["errors"]))
 
     def test_failure_of_aa_equivalence_prevents_ab_acceptance(self):
         plan, execution = self.state()
@@ -365,6 +480,20 @@ class PreparationBoundaryTests(unittest.TestCase):
             finally:
                 external.unlink(missing_ok=True)
 
+    def test_raw_inventory_cannot_omit_duplicate_or_ignore_added_evidence(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            (root / "samples.jsonl").write_text("{}\n", encoding="utf-8")
+            files = client.raw_files(root)
+            for incomplete in ([], [*files, *files]):
+                with self.assertRaisesRegex(ValueError, "inventory is incomplete, duplicated or changed"):
+                    client.verify_raw_files(root, incomplete)
+            (root / "jfr-export-attempt-01").mkdir()
+            client.save(root / "jfr-export-attempt-01/receipt.json", {"status": "failed"})
+            with self.assertRaisesRegex(ValueError, "inventory is incomplete, duplicated or changed"):
+                client.verify_raw_files(root, files)
+            client.verify_raw_files(root, client.raw_files(root))
+
     def test_missing_baseline_preparation_preserves_failed_attempt_and_does_not_launch(self):
         with tempfile.TemporaryDirectory() as temporary:
             output = Path(temporary) / "attempt"
@@ -397,12 +526,80 @@ class PreparationBoundaryTests(unittest.TestCase):
             self.assertIn("no baseline substitution", result["error"])
             self.assertFalse((args.output / "plan.json").exists())
 
+    def test_source_change_during_capture_cannot_receive_a_new_current_qualification(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            source = root / "capture.py"
+            source.write_text("original capture behavior", encoding="utf-8")
+            args = SimpleNamespace(output=root / "attempt", policy=client.ROOT / "config/client-experiment.json",
+                                   prepared_plan=root / "prepared.json", role="baseline", instrumentation="plain")
+            def collect(descriptor, frozen_policy, trial_root):
+                trial_root.mkdir()
+                client.save(trial_root / "observation.json", {"status": "complete"})
+                source.write_text("changed while capture was running", encoding="utf-8")
+                return {}, {"passed": True}
+            with mock.patch.object(client, "SOURCES", (source,)), mock.patch.object(client, "environment", return_value={}), \
+                 mock.patch.object(client, "prepared_descriptor", return_value={}), mock.patch.object(client, "verify_descriptor"), \
+                 mock.patch.object(client, "collect_trial", side_effect=collect), mock.patch.object(client.packaged, "launch") as launch:
+                with self.assertRaisesRegex(ValueError, "Frozen file changed"):
+                    client.qualify(args)
+                launch.assert_not_called()
+            self.assertEqual(client.read(args.output / "attempt.json")["status"], "failed")
+            self.assertTrue((args.output / "trial/observation.json").exists())
+            self.assertFalse((args.output / "trial/qualification.json").exists())
+
+
+class RawReplayTests(unittest.TestCase):
+    def test_complete_qualification_copied_as_trial_is_rejected_by_actual_root(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            qualification = Path(temporary) / "qualification"
+            write_raw_qualification_fixture(qualification)
+            _, original = client.audit_observation(qualification, policy(), scenario(), "plain")
+            self.assertTrue(original["passed"], original["errors"])
+            trial = Path(temporary) / "001-aa-plain-a"
+            shutil.copytree(qualification, trial)
+            with self.assertRaisesRegex(ValueError, "another actual instance/capture root"):
+                client.audit_observation(trial, policy(), scenario(), "plain")
+
+    def test_qualifier_scope_and_original_created_time_cannot_be_summary_edited(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary) / "qualification"
+            raw = write_raw_qualification_fixture(root)
+            spec = analysis.schedule(policy())[0]
+            with self.assertRaisesRegex(ValueError, "scope or scheduled identity"):
+                client.audit_observation(root, policy(), scenario(), "plain", expected_trial=spec)
+            raw["run_start"]["started_at"] = "2026-11-15T01:00:00+00:00"
+            raw["started_at"] = raw["run_start"]["started_at"]
+            client.save(root / "run-start.json", raw["run_start"])
+            raw["run_start_sha256"] = client.digest(root / "run-start.json")
+            raw["run_finish"]["start_sha256"] = raw["run_start_sha256"]
+            client.save(root / "run-finish.json", raw["run_finish"])
+            client.save(root / "observation.json", raw)
+            with self.assertRaisesRegex(ValueError, "outside its raw execution window"):
+                client.audit_observation(root, policy(), scenario(), "plain")
+
+    def test_raw_integrity_failure_revokes_instrumented_acceptance_flag(self):
+        plan, state = IndependentDecisionTests().state()
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            path = root / "plan.json"
+            client.save(path, plan)
+            state["plan_sha256"] = client.digest(path)
+            client.save(root / "execution.json", state)
+            client.save(root / "execution-start.json", {"schema": 1, "scope": client.SCOPE, "root": str(root),
+                "plan_sha256": state["plan_sha256"], "started_at": state["started_at"]})
+            with mock.patch.object(client, "verify_plan"):
+                report = client.audit(path)
+            self.assertEqual(report["status"], "invalid")
+            self.assertFalse(report["instrumented_performance_accepted"])
+            self.assertEqual(report["instrumented_comparison_status"], "invalid")
+
 
 class OwnedProcessLifecycleTests(unittest.TestCase):
     """Mock handles and clock only; no child process is actually launched."""
     def collect(self, root, *, exporter_error=False, interrupt=False):
         config, scene = policy(), scenario()
-        clock = {"seconds": 1}
+        clock = {"seconds": 0}
         base = dt.datetime(2026, 11, 15, tzinfo=dt.timezone.utc)
         timestamp = lambda: (base + dt.timedelta(seconds=clock["seconds"])).isoformat()
         order = []
@@ -460,7 +657,7 @@ class OwnedProcessLifecycleTests(unittest.TestCase):
         try:
             # The launcher writes this in production. Simulate its raw capture.
             original_read = client.read._mock_wraps
-            client.read.side_effect = lambda path: {"pid": 111, "command": ["java.exe"]} if Path(path).name == "packaged-client-launch.json" else original_read(path)
+            client.read.side_effect = lambda path: {"pid": 111, "command": ["java.exe"], "timestamp": base.isoformat()} if Path(path).name == "packaged-client-launch.json" else original_read(path)
             if interrupt:
                 with self.assertRaises(KeyboardInterrupt):
                     client.collect_trial(descriptor, config, root)
@@ -559,6 +756,56 @@ class ExportHelperTests(unittest.TestCase):
                 self.assertEqual((root / "jfr-export-attempt-01/recording.jfr").read_bytes(), b"raw fixture recording")
                 self.assertFalse((root / "recording.jfr").exists())
                 self.assertEqual(client.read(root / "jfr-export-attempt-01/receipt.json")["status"], "failed")
+
+    def test_sealed_binary_replacement_cannot_reuse_old_parsed_json(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            expected = self.run_export(root)
+            with mock.patch.object(client, "parse_jfr_recording", return_value=expected) as parser:
+                self.assertEqual(client.audit_jfr(root, {"java": str(root / "java.exe")}), expected)
+                parser.assert_called_once()
+            (root / "recording.jfr").write_bytes(b"replacement sealed after the old parse")
+            with mock.patch.object(client, "parse_jfr_recording") as parser:
+                with self.assertRaisesRegex(ValueError, "differs from the actual verified export"):
+                    client.audit_jfr(root, {"java": str(root / "java.exe")})
+                parser.assert_not_called()
+
+    def test_resealed_copies_and_edited_parse_digests_still_require_raw_reparse(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            self.run_export(root)
+            attempt = root / "jfr-export-attempt-01"
+            for path in (root / "recording.jfr", attempt / "recording.jfr"):
+                path.write_bytes(b"corrupt replacement with old saved JSON")
+            replacement_sha = client.digest(root / "recording.jfr")
+            receipt = client.read(attempt / "receipt.json")
+            receipt["recording_sha256"] = replacement_sha
+            client.save(attempt / "receipt.json", receipt)
+            for label in ("jfr-summary", "jfr-print"):
+                execution = client.read(attempt / (label + ".execution.json"))
+                execution.update(input_jfr_sha256=replacement_sha, input_jfr_sha256_after=replacement_sha)
+                client.save(attempt / (label + ".execution.json"), execution)
+            with mock.patch.object(client, "parse_jfr_recording", side_effect=ValueError("Sealed raw JFR failed independent parsing")) as parser:
+                with self.assertRaisesRegex(ValueError, "failed independent parsing"):
+                    client.audit_jfr(root, {"java": str(root / "java.exe")})
+                parser.assert_called_once()
+
+    def test_independent_binary_parser_rejects_failed_or_changed_input(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            recording = root / "recording.jfr"
+            recording.write_bytes(b"fixture")
+            with mock.patch.object(client.subprocess, "run", return_value=SimpleNamespace(returncode=1, stdout="")):
+                with self.assertRaisesRegex(ValueError, "failed independent parsing"):
+                    client.parse_jfr_recording(recording, str(root / "java.exe"))
+            def changed(command, **kwargs):
+                if command[1] == "summary":
+                    return SimpleNamespace(returncode=0, stdout="Start: 2026-11-15 00:00:00 (UTC)\nDuration: 12 s\n")
+                recording.write_bytes(b"changed during parse")
+                return SimpleNamespace(returncode=0, stdout=json.dumps({"recording": {"events": []}}))
+            with mock.patch.object(client.subprocess, "run", side_effect=changed):
+                with self.assertRaisesRegex(ValueError, "changed during independent parsing"):
+                    client.parse_jfr_recording(recording, str(root / "java.exe"))
 
 
 if __name__ == "__main__":
