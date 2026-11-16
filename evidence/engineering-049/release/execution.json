@@ -1,0 +1,56 @@
+{
+  "started": "2026-11-16T11:26:00.359786+00:00",
+  "runner_sha256": "5ff787ae60ead78652381c000b64dd569f47599ab024f40b2ece3edb0943d341",
+  "cwd": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory",
+  "sequential_shared_build_directory": true,
+  "source_sha256": {
+    "build.gradle": "5054012da1dc10622fbee281b53d169acc3ba6f0a759dc23db6d6e1822642413",
+    "gradle.properties": "bd7f4ddda67b74acf091139b7cadfa9708e725c3c3efb0f150996c79d6ba68e5",
+    "config/targets.json": "e3d1d3a81d4fe8d7e60ba376654c943cc9766ce1d213b119fe7f6b175ac1d4ff",
+    "config/delivery-evidence.json": "c275c7ade7ac54fc5f3686492ba769cb51186ad4cdc4da02362400fb54dc56a6",
+    "LICENSE": "6492b753609d47712db23912e68093e602c3992ff1c8c3f6d777341dab3d4826",
+    "docs/templates/delivery-support.md": "9ecbd46d9a9750dd3d8a18ef3a343b19a8c017549ec953c3b2eb171b6431b774",
+    "docs/INSTALL.md": "93a9e41b7b1224da6325a5c7d28e97c10fe02b7f75b2b89125d3e3b6c90c8949",
+    "evidence/engineering-048/packaged-owned-channel/final-assessment.json": "6525762117f755f98092a50f8f216f5fe426e89edbc02460fae44a2b88f1a327"
+  },
+  "commands": [
+    {
+      "started": "2026-11-16T11:26:00.366157+00:00",
+      "command": [
+        "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\gradlew.bat",
+        "releaseBundle",
+        "-Ptarget=official-nf248",
+        "-x",
+        "test",
+        "--console=plain"
+      ],
+      "java_home": "C:\\Users\\ben_l\\Saved Games\\Yuuniverse 1.20.1 Shenyang\\porting-output\\work\\tools\\jdk21\\jdk-21.0.11+10",
+      "java_sha256": "5e0fab9f07952ceb6e71eb9fd33e1ed69959904ca00cf70869b7baf516a98016",
+      "pid": 61216,
+      "exit_code": 0,
+      "ended": "2026-11-16T11:26:53.601546+00:00",
+      "audit_passed": true,
+      "bundle_sha256": "571d3ce58a6bb0b1dba2289935eef78a5e5b8f690a1b76c5df4fa30d45354db4"
+    },
+    {
+      "started": "2026-11-16T11:26:54.334743+00:00",
+      "command": [
+        "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\gradlew.bat",
+        "releaseBundle",
+        "-Ptarget=official-nf265",
+        "-x",
+        "test",
+        "--console=plain"
+      ],
+      "java_home": "C:\\Users\\ben_l\\Saved Games\\Yuuniverse 1.20.1 Shenyang\\porting-output\\work\\tools\\jdk21\\jdk-21.0.11+10",
+      "java_sha256": "5e0fab9f07952ceb6e71eb9fd33e1ed69959904ca00cf70869b7baf516a98016",
+      "pid": 59824,
+      "exit_code": 0,
+      "ended": "2026-11-16T11:27:05.301634+00:00",
+      "audit_passed": true,
+      "bundle_sha256": "17d3f3d5beecd073b26388f3dc72116290a9ced8a8b6d9aa9bce4ac1c481b79d"
+    }
+  ],
+  "passed": true,
+  "ended": "2026-11-16T11:27:05.700930+00:00"
+}

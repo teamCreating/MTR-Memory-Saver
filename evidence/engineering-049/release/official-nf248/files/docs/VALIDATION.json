@@ -1,0 +1,44 @@
+{
+    "schemaVersion": 1,
+    "version": "0.4.7",
+    "target": "official-nf248",
+    "artifactSha256": "e8b5b40230d0f44c541c12b32c8a30d4c2ea056b8a972335ae10166496837a99",
+    "status": "verified-packaged-scope",
+    "assessment": "evidence/engineering-048/packaged-owned-channel/final-assessment.json",
+    "assessmentSha256": "6525762117f755f98092a50f8f216f5fe426e89edbc02460fae44a2b88f1a327",
+    "scope": "Exact packaged 0.4.7 official base-resource fault lifecycle and same-version binary rejection. No full-pack gameplay, full ResourceManager reload, endurance or performance acceptance.",
+    "cases": [
+        {
+            "target": "official-nf248",
+            "mode": "faults",
+            "pid": 51108,
+            "process_created": "2026-11-16T11:11:26.235550+00:00",
+            "exit_code": 0,
+            "artifact_sha256": "e8b5b40230d0f44c541c12b32c8a30d4c2ea056b8a972335ae10166496837a99",
+            "plan_sha256": "2f2075dd83a7f7ff2ceb801f0e9731a9396686f60c3b03c118d151e31b572cec",
+            "process_observations": 48,
+            "source_inputs_verified": 6,
+            "original_runner_passed": false,
+            "passed": true,
+            "preserved_runner_failure": "Post-exit UnicodeDecodeError; independently verified raw receipts and JFR",
+            "lifecycle_checks": 24,
+            "strict_resource_checks": 18,
+            "jfr_sha256": "3f5d59630ab1bbe7ca2628f4c9321356c7bd8e28b778b8fac8655104605ac64b",
+            "settled_workspace": true
+        },
+        {
+            "target": "official-nf248",
+            "mode": "mismatch",
+            "pid": 57720,
+            "process_created": "2026-11-16T11:14:59.348966+00:00",
+            "exit_code": 1,
+            "artifact_sha256": "e8b5b40230d0f44c541c12b32c8a30d4c2ea056b8a972335ae10166496837a99",
+            "plan_sha256": "19e222eb9ff65f218499e788378c7abf99d2eeff97141e099dda3011127af1b4",
+            "process_observations": 8,
+            "source_inputs_verified": 6,
+            "original_runner_passed": true,
+            "passed": true,
+            "rejected_before_registration": true
+        }
+    ]
+}

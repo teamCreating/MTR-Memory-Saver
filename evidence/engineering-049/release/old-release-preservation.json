@@ -1,0 +1,23 @@
+{
+  "timestamp": "2026-11-16T19:30:26.609471+08:00",
+  "passed": true,
+  "checks": [
+    {
+      "target": "official-nf248",
+      "version": "0.4.6",
+      "bundle": "build\\releases\\mtr-memory-saver-official-nf248-0.4.6.zip",
+      "sha256": "eae701e7229e348e70148e8ef064895bccf10a75f9423251773e6d1a55d92af7",
+      "historical_reference": "evidence\\engineering-047\\delivery-audit\\official-nf248.audit.json",
+      "matched_historical_receipt": true
+    },
+    {
+      "target": "official-nf265",
+      "version": "0.4.6",
+      "bundle": "build\\releases\\mtr-memory-saver-official-nf265-0.4.6.zip",
+      "sha256": "242f2492f9ddb7db0b4f5e097d32a8682d33fedb7d03de3b7222f251c79779c1",
+      "historical_reference": "evidence\\engineering-047\\delivery-audit\\official-nf265.audit.json",
+      "matched_historical_receipt": true
+    }
+  ],
+  "reference_note": "An initial ad-hoc check selected earlier engineering-046 pre-repackage ZIP hashes and failed; the unchanged current0.4.6 bundles correctly match the later sealed engineering-047 deliveries."
+}

@@ -1,0 +1,136 @@
+{
+  "timestamp": "2026-11-16T11:27:05.691618+00:00",
+  "passed": true,
+  "target": "official-nf265",
+  "version": "0.4.7",
+  "artifact_sha256": "12162be2d0e75962e58d33dec6951e0a82b1455ef1466f9b94c3dce1c4d36a02",
+  "exact_previously_audited_jar_unchanged": true,
+  "manifest_sha256": "c1f810084e019e0533a5234e83f7f608569f5b6d2c68d59eee0852639af4419e",
+  "declared_build_inputs_verified": 44,
+  "bundle": "mtr-memory-saver-official-nf265-0.4.7.zip",
+  "bundle_sha256": "17d3f3d5beecd073b26388f3dc72116290a9ced8a8b6d9aa9bce4ac1c481b79d",
+  "bundle_bytes": 322680,
+  "zip_crc_passed": true,
+  "file_inventory": {
+    "mtr-memory-saver-official-nf265-0.4.7.jar": {
+      "bytes": 321704,
+      "sha256": "12162be2d0e75962e58d33dec6951e0a82b1455ef1466f9b94c3dce1c4d36a02"
+    },
+    "mtr-memory-saver-official-nf265-0.4.7.build.json": {
+      "bytes": 6252,
+      "sha256": "c1f810084e019e0533a5234e83f7f608569f5b6d2c68d59eee0852639af4419e"
+    },
+    "LICENSE": {
+      "bytes": 1066,
+      "sha256": "6492b753609d47712db23912e68093e602c3992ff1c8c3f6d777341dab3d4826"
+    },
+    "README.md": {
+      "bytes": 589,
+      "sha256": "bf62c1f73d16aef3b73bf23b79a9f3175a4e41d6c945fed3c6b58980edd68c5e"
+    },
+    "docs/INSTALL.md": {
+      "bytes": 1308,
+      "sha256": "93a9e41b7b1224da6325a5c7d28e97c10fe02b7f75b2b89125d3e3b6c90c8949"
+    },
+    "docs/SUPPORT.md": {
+      "bytes": 1591,
+      "sha256": "69234b4ee3b3776be9e324eb7e4949e42e948ba8ef7bda9a7012fe5ec10dc205"
+    },
+    "docs/VALIDATION.json": {
+      "bytes": 1996,
+      "sha256": "6d28a09b7c893c6a7018b70071687e14c28f2382eed52644ba486445896571b8"
+    },
+    "config/targets.json": {
+      "bytes": 1416,
+      "sha256": "e3d1d3a81d4fe8d7e60ba376654c943cc9766ce1d213b119fe7f6b175ac1d4ff"
+    }
+  },
+  "local_markdown_links": [
+    {
+      "source": "README.md",
+      "link": "docs/INSTALL.md",
+      "resolved": "docs/INSTALL.md"
+    },
+    {
+      "source": "README.md",
+      "link": "docs/SUPPORT.md",
+      "resolved": "docs/SUPPORT.md"
+    },
+    {
+      "source": "README.md",
+      "link": "LICENSE",
+      "resolved": "LICENSE"
+    },
+    {
+      "source": "docs/INSTALL.md",
+      "link": "SUPPORT.md",
+      "resolved": "docs/SUPPORT.md"
+    },
+    {
+      "source": "docs/SUPPORT.md",
+      "link": "INSTALL.md",
+      "resolved": "docs/INSTALL.md"
+    },
+    {
+      "source": "docs/SUPPORT.md",
+      "link": "../config/targets.json",
+      "resolved": "config/targets.json"
+    },
+    {
+      "source": "docs/SUPPORT.md",
+      "link": "../LICENSE",
+      "resolved": "LICENSE"
+    },
+    {
+      "source": "docs/SUPPORT.md",
+      "link": "VALIDATION.json",
+      "resolved": "docs/VALIDATION.json"
+    }
+  ],
+  "version_bound_validation": {
+    "schemaVersion": 1,
+    "version": "0.4.7",
+    "target": "official-nf265",
+    "artifactSha256": "12162be2d0e75962e58d33dec6951e0a82b1455ef1466f9b94c3dce1c4d36a02",
+    "status": "verified-packaged-scope",
+    "assessment": "evidence/engineering-048/packaged-owned-channel/final-assessment.json",
+    "assessmentSha256": "6525762117f755f98092a50f8f216f5fe426e89edbc02460fae44a2b88f1a327",
+    "scope": "Exact packaged 0.4.7 official base-resource fault lifecycle and same-version binary rejection. No full-pack gameplay, full ResourceManager reload, endurance or performance acceptance.",
+    "cases": [
+      {
+        "target": "official-nf265",
+        "mode": "faults",
+        "pid": 27604,
+        "process_created": "2026-11-16T11:14:03.088858+00:00",
+        "exit_code": 0,
+        "artifact_sha256": "12162be2d0e75962e58d33dec6951e0a82b1455ef1466f9b94c3dce1c4d36a02",
+        "plan_sha256": "ae6ab8d13faf8853fd81a76ce15356313b80dc6f3037575439a3e0d6b8ebbc19",
+        "process_observations": 41,
+        "source_inputs_verified": 6,
+        "original_runner_passed": true,
+        "passed": true,
+        "lifecycle_checks": 24,
+        "strict_resource_checks": 18,
+        "jfr_sha256": "95038963b648670bb695b0713c8c3e8d4b10184f1ea1f465ae4de45ff392bf24",
+        "settled_workspace": true
+      },
+      {
+        "target": "official-nf265",
+        "mode": "mismatch",
+        "pid": 53920,
+        "process_created": "2026-11-16T11:15:51.012908+00:00",
+        "exit_code": 1,
+        "artifact_sha256": "12162be2d0e75962e58d33dec6951e0a82b1455ef1466f9b94c3dce1c4d36a02",
+        "plan_sha256": "f4fd8ccab5b864d71c3ea9e9a3f9775202dfde928dece78acb805d71cb8e336c",
+        "process_observations": 8,
+        "source_inputs_verified": 6,
+        "original_runner_passed": true,
+        "passed": true,
+        "rejected_before_registration": true
+      }
+    ]
+  },
+  "product_probe_excluded": true,
+  "tests": "No Java test rerun: releaseBundle -x test; exact unchanged product has prior 73-test and packaged acceptance evidence.",
+  "scope": "Local candidate delivery identity, contents and navigation only. No new gameplay, reload, endurance or performance claim."
+}

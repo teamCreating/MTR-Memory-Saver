@@ -1,0 +1,101 @@
+{
+  "timestamp": "2026-11-16T11:30:28.219262+00:00",
+  "passed": true,
+  "payload_files": 125,
+  "bundles": [
+    {
+      "target": "official-nf248",
+      "version": "0.4.7",
+      "artifact_sha256": "e8b5b40230d0f44c541c12b32c8a30d4c2ea056b8a972335ae10166496837a99",
+      "bundle_sha256": "571d3ce58a6bb0b1dba2289935eef78a5e5b8f690a1b76c5df4fa30d45354db4",
+      "file_members": 8,
+      "local_links": 8,
+      "passed": true
+    },
+    {
+      "target": "official-nf265",
+      "version": "0.4.7",
+      "artifact_sha256": "12162be2d0e75962e58d33dec6951e0a82b1455ef1466f9b94c3dce1c4d36a02",
+      "bundle_sha256": "17d3f3d5beecd073b26388f3dc72116290a9ced8a8b6d9aa9bce4ac1c481b79d",
+      "file_members": 8,
+      "local_links": 8,
+      "passed": true
+    }
+  ],
+  "negative_controls": [
+    {
+      "target": "official-nf248",
+      "control": "missing_support",
+      "rejected": true,
+      "reason": "Release member inventory differs"
+    },
+    {
+      "target": "official-nf248",
+      "control": "broken_navigation",
+      "rejected": true,
+      "reason": "Broken local navigation: docs/SUPPORT.md -> absent.md"
+    },
+    {
+      "target": "official-nf248",
+      "control": "promoted_candidate",
+      "rejected": true,
+      "reason": "Candidate label missing"
+    },
+    {
+      "target": "official-nf248",
+      "control": "changed_product",
+      "rejected": true,
+      "reason": "Changed product JAR"
+    },
+    {
+      "target": "official-nf248",
+      "control": "other_version_evidence",
+      "rejected": true,
+      "reason": "Validation metadata differs from exact artifact"
+    },
+    {
+      "target": "official-nf248",
+      "control": "replaced_actual_outcome",
+      "rejected": true,
+      "reason": "Validation overstates/replaces recorded cases"
+    },
+    {
+      "target": "official-nf265",
+      "control": "missing_support",
+      "rejected": true,
+      "reason": "Release member inventory differs"
+    },
+    {
+      "target": "official-nf265",
+      "control": "broken_navigation",
+      "rejected": true,
+      "reason": "Broken local navigation: docs/SUPPORT.md -> absent.md"
+    },
+    {
+      "target": "official-nf265",
+      "control": "promoted_candidate",
+      "rejected": true,
+      "reason": "Candidate label missing"
+    },
+    {
+      "target": "official-nf265",
+      "control": "changed_product",
+      "rejected": true,
+      "reason": "Changed product JAR"
+    },
+    {
+      "target": "official-nf265",
+      "control": "other_version_evidence",
+      "rejected": true,
+      "reason": "Validation metadata differs from exact artifact"
+    },
+    {
+      "target": "official-nf265",
+      "control": "replaced_actual_outcome",
+      "rejected": true,
+      "reason": "Validation overstates/replaces recorded cases"
+    }
+  ],
+  "verifier_sha256": "ec89dccb783d859163cebcea99d941fdfdcf4d3c7c1a0413c64322a877a5e5c4",
+  "scope": "Sealed candidate bundle bytes, exact source/evidence identities and navigation only; no Gradle or client launch."
+}

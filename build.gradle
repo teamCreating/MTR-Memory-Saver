@@ -286,6 +286,72 @@ This is a development candidate; full-pack performance and long-session acceptan
     }
 }
 
+def deliveryEvidenceFile = file('config/delivery-evidence.json')
+def deliveryEvidence = new JsonSlurper().parse(deliveryEvidenceFile)
+def deliveryRecords = deliveryEvidence.records.findAll {
+    it.version == project.version.toString() && it.target == targetName
+}
+if (deliveryEvidence.schemaVersion != 1 || deliveryRecords.size() > 1) {
+    throw new GradleException('Invalid or duplicate version-bound delivery evidence.')
+}
+def deliveryRecord = deliveryRecords ? deliveryRecords[0] : null
+tasks.register('bundleSupport') {
+    dependsOn tasks.named('buildManifest')
+    inputs.files(deliveryEvidenceFile, 'config/targets.json', 'docs/templates/delivery-support.md')
+    if (deliveryRecord != null) inputs.file(file(deliveryRecord.assessment))
+    inputs.property('target', targetName)
+    inputs.property('version', project.version.toString())
+    inputs.file(tasks.jar.archiveFile)
+    def destination = layout.buildDirectory.dir("generated/delivery-support/${targetName}")
+    outputs.dir(destination)
+    doLast {
+        String artifactHash = sha256(tasks.jar.archiveFile.get().asFile)
+        def validation = [schemaVersion: 1, version: project.version.toString(), target: targetName,
+                          artifactSha256: artifactHash, status: 'unavailable',
+                          reason: 'No version-and-artifact-bound packaged record is configured.']
+        String runtimeSummary = validation.reason
+        if (deliveryRecord != null) {
+            File assessmentFile = file(deliveryRecord.assessment)
+            if (deliveryRecord.artifactSha256 != artifactHash || sha256(assessmentFile) != deliveryRecord.assessmentSha256) {
+                throw new GradleException('Delivery evidence does not bind this exact artifact and assessment.')
+            }
+            def assessment = new JsonSlurper().parse(assessmentFile)
+            def cases = assessment.cases.findAll { it.target == targetName }
+            if (assessment.passed != true || cases.size() != 2 ||
+                    cases.any { it.passed != true || it.artifact_sha256 != artifactHash } ||
+                    cases.collect { it.mode }.toSet() != ['faults', 'mismatch'].toSet()) {
+                throw new GradleException('Packaged delivery assessment is incomplete or belongs to another artifact.')
+            }
+            def faults = cases.find { it.mode == 'faults' }
+            def mismatch = cases.find { it.mode == 'mismatch' }
+            if (faults.exit_code != 0 || faults.settled_workspace != true || mismatch.exit_code != 1 ||
+                    mismatch.rejected_before_registration != true || !(faults.lifecycle_checks > 0) ||
+                    !(faults.strict_resource_checks > 0)) {
+                throw new GradleException('Packaged delivery outcomes do not meet their recorded scope.')
+            }
+            validation = [schemaVersion: 1, version: project.version.toString(), target: targetName,
+                          artifactSha256: artifactHash, status: 'verified-packaged-scope',
+                          assessment: deliveryRecord.assessment, assessmentSha256: deliveryRecord.assessmentSha256,
+                          scope: assessment.scope, cases: cases]
+            runtimeSummary = "Recorded packaged checks: ${faults.lifecycle_checks} lifecycle and " +
+                    "${faults.strict_resource_checks} actual-resource checks; normal exit, settled workspace " +
+                    "and readable JFR. A separate same-version wrong-binary client was rejected before registration.\n\n" +
+                    assessment.scope
+        }
+        def values = [modName: matrix.modName, version: project.version.toString(), target: targetName,
+                      minecraft: matrix.minecraft, java: matrix.java, neoForge: target.neoForge,
+                      mtrVersion: mtr.version, mtrSha256: mtr.sha256,
+                      artifactSha256: artifactHash, runtimeSummary: runtimeSummary]
+        String support = file('docs/templates/delivery-support.md').getText('UTF-8')
+        values.each { key, value -> support = support.replace('{{' + key + '}}', value.toString()) }
+        if (support.contains('{{')) throw new GradleException('Unresolved delivery-support template field.')
+        File output = destination.get().asFile
+        output.mkdirs()
+        new File(output, 'SUPPORT.md').setText(support, 'UTF-8')
+        new File(output, 'VALIDATION.json').setText(JsonOutput.prettyPrint(JsonOutput.toJson(validation)) + '\n', 'UTF-8')
+    }
+}
+
 tasks.register('releaseBundle', Zip) {
     dependsOn tasks.named('build')
     archiveBaseName = "${rootProject.name}-${targetName}"
@@ -294,7 +360,8 @@ tasks.register('releaseBundle', Zip) {
     from(tasks.named('buildManifest').map { it.outputs.files })
     from('LICENSE')
     from(tasks.named('bundleReadme').map { it.outputs.files })
-    from('docs') { include('INSTALL.md', 'SUPPORT.md'); into('docs') }
+    from('docs') { include('INSTALL.md'); into('docs') }
+    from(tasks.named('bundleSupport').map { it.outputs.files }) { into('docs') }
     from('config/targets.json') { into('config') }
 }
 
