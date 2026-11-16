@@ -1,0 +1,45 @@
+{
+  "schema": 1,
+  "scenario_name": "official-nf248-native-catalogue-station-a-background-workload",
+  "expected_registration": {
+    "declarations": 1092,
+    "distinct_ids": 1091
+  },
+  "world_name": "Vehicle Acceptance 1_21_1",
+  "camera": {
+    "dimension": "minecraft:overworld",
+    "player": {
+      "x": 38.5,
+      "y": 4.0,
+      "z": 15.5,
+      "yaw": -180.0,
+      "pitch": 0.0
+    },
+    "maximum_position_error": 0.1,
+    "maximum_angle_error": 0.5
+  },
+  "route": {
+    "description": "Observe the same native train on the saved A/B acceptance route from station A. Require that route identity, actual unpaused train state and same-train displacement; camera declarations alone are insufficient.",
+    "route_ids": [
+      1634058583976595067
+    ],
+    "vehicle_ids": []
+  },
+  "cache_policy": "fresh_jvm_warm_os_cache",
+  "observation": {
+    "require_world": true,
+    "require_unpaused": true,
+    "require_train": true,
+    "minimum_train_displacement": 0.01
+  },
+  "machine_context": {
+    "hardware": "Intel(R) Xeon(R) CPU E3-1275 v5 @ 3.60GHz; RAM 33207644160 bytes; GPU GameViewer Virtual Display Adapter (driver 15.6.5.199); Intel(R) HD Graphics P530 (driver 31.0.101.2111); NVIDIA GeForce RTX 3050 Laptop GPU (driver 32.0.15.7688)",
+    "windows": "Microsoft Windows 10 专业工作站版 10.0.19045 build 19045",
+    "power_mode": "Observed powercfg alias SCHEME_BALANCED (381b4222-f694-41f0-9685-ff5bb260df2e). CIM friendly-name read is unavailable; no scheme was changed.",
+    "background_workload": "Observed concurrent applications: msedge×7, devenv×4, explorer×1, chrome×46, codex×2, java×1. User work and other agents remain active; this is not a quiet dedicated benchmark machine. Background process and available-memory observations are a timestamped snapshot, not a guarantee that later trial loads are identical. No user process or power setting was changed."
+  },
+  "warmup": {
+    "duration_seconds": 60,
+    "description": "After native registration and work settlement, keep the declared stationary unpaused camera for the policy warm-up, then observe the same saved route train for the measurement window. Fresh JVM and immutable copied world per qualification/trial; OS cache is warm and uncontrolled."
+  }
+}

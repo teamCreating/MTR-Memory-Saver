@@ -1,0 +1,14 @@
+{
+  "started": "2026-11-16T11:35:07.725161+00:00",
+  "command": [
+    "pwsh",
+    "-NoProfile",
+    "-Command",
+    "[Console]::OutputEncoding=[System.Text.UTF8Encoding]::new($false); $prepOperatingSystem=Get-CimInstance Win32_OperatingSystem; $prepPower=Get-CimInstance -Namespace root/cimv2/power -ClassName Win32_PowerPlan | Where-Object IsActive; $prepProcesses=Get-Process | Group-Object ProcessName | ForEach-Object { [ordered]@{name=$_.Name;count=$_.Count;workingSetBytes=[long](($_.Group | Measure-Object WorkingSet64 -Sum).Sum)}}; [ordered]@{windows=[ordered]@{caption=$prepOperatingSystem.Caption;version=$prepOperatingSystem.Version;build=$prepOperatingSystem.BuildNumber;architecture=$prepOperatingSystem.OSArchitecture;freePhysicalMemoryKiB=[long]$prepOperatingSystem.FreePhysicalMemory}; power=@($prepPower | Select-Object ElementName,InstanceID);backgroundProcesses=@($prepProcesses | Sort-Object name)} | ConvertTo-Json -Depth 6 -Compress"
+  ],
+  "cwd": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory",
+  "source_sha256": "b83e8d190d639229ffe5d5ac186a0f497873a4198c75cb9f9e4b98d2a4829cb4",
+  "pid": 58868,
+  "exit_code": 0,
+  "ended": "2026-11-16T11:35:09.795104+00:00"
+}

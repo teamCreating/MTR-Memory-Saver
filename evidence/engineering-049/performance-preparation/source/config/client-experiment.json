@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "hypothesis": "The candidate lowers steady whole-client private memory for the frozen official beta.2 pack and world without exceeding loading, heap, frame and GC budgets.",
+  "pairs": 6,
+  "minimum_pairs": 6,
+  "seed": 20261115,
+  "confidence": 0.95,
+  "neutral_probe_off_calibration": "required_before_uninstrumented_claim",
+  "startup_timeout_seconds": 900,
+  "warmup_seconds": 60,
+  "measurement_seconds": 180,
+  "sample_interval_seconds": 2,
+  "maximum_sample_gap_seconds": 5,
+  "snapshot_freshness_seconds": 5,
+  "jfr_boundary_tolerance_seconds": 1,
+  "primary": {"metric": "steady_private_bytes", "instrumentation": "plain", "unit": "percent", "limit": -10},
+  "guardrails": [
+    {"metric": "loading_ms", "instrumentation": "plain", "unit": "percent", "limit": 5},
+    {"metric": "steady_heap_bytes", "instrumentation": "plain", "unit": "percent", "limit": 5},
+    {"metric": "frame_p99_ms", "instrumentation": "profile", "unit": "percent", "limit": 5},
+    {"metric": "gc_pause_total_ms", "instrumentation": "profile", "unit": "absolute", "limit": 50},
+    {"metric": "full_gc_count", "instrumentation": "profile", "unit": "absolute", "limit": 0},
+    {"metric": "full_gc_pause_max_ms", "instrumentation": "profile", "unit": "absolute", "limit": 0}
+  ],
+  "aa_equivalence": [
+    {"metric": "steady_private_bytes", "instrumentation": "plain", "unit": "percent", "limit": 5},
+    {"metric": "loading_ms", "instrumentation": "plain", "unit": "percent", "limit": 15},
+    {"metric": "steady_heap_bytes", "instrumentation": "plain", "unit": "percent", "limit": 5},
+    {"metric": "frame_p99_ms", "instrumentation": "profile", "unit": "percent", "limit": 10},
+    {"metric": "gc_pause_total_ms", "instrumentation": "profile", "unit": "absolute", "limit": 50},
+    {"metric": "full_gc_count", "instrumentation": "profile", "unit": "absolute", "limit": 0},
+    {"metric": "full_gc_pause_max_ms", "instrumentation": "profile", "unit": "absolute", "limit": 0}
+  ],
+  "instrumentation_equivalence": [
+    {"metric": "steady_private_bytes", "unit": "percent", "limit": 10},
+    {"metric": "loading_ms", "unit": "percent", "limit": 15},
+    {"metric": "steady_heap_bytes", "unit": "percent", "limit": 10}
+  ]
+}

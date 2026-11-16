@@ -1,0 +1,16 @@
+{
+  "timestamp": "2026-11-16T11:36:42.267585+00:00",
+  "passed": true,
+  "source_sha256": "4aca3028a308143c9a45b3057dbeeb9185d9f0ebbca6609f0094714c9a12faab",
+  "scenario_sha256": "20b4d7bbd29037dbd3e8d7b62ef07cf367e4a2c0bcb7bb73d2128297fde9d898",
+  "policy_sha256": "c1b4c936716d277db1169395486db2b0ac40327b7971e2568c4316ae74fac4eb",
+  "policy_pairs": 6,
+  "planned_independent_trial_jvms": 48,
+  "schema_validation": "Existing client_experiment.scenario_from_controls accepted the exact current schema.",
+  "initial_attempt": {
+    "passed": false,
+    "source": "capture_context.py",
+    "reason": "CIM power friendly-name access failed; empty power declaration was strictly rejected."
+  },
+  "limits": "Read-only hardware/background snapshot and declared scenario only; no template launch, qualification or performance claim."
+}

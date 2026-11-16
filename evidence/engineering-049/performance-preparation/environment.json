@@ -1,0 +1,54 @@
+{
+  "timestamp": "2026-11-16T11:35:07.720760+00:00",
+  "tool_sha256": "b83e8d190d639229ffe5d5ac186a0f497873a4198c75cb9f9e4b98d2a4829cb4",
+  "environment_consumer_sha256": "7b0ed96909171c767ed6e0ced82f60cabd26c32f093d9b4cae3a1b3b7c9735c7",
+  "observed": {
+    "system": "Windows-10-10.0.19045-SP0",
+    "machine": "AMD64",
+    "processor": "Intel64 Family 6 Model 94 Stepping 3, GenuineIntel",
+    "node": "DESKTOP-885HHP9",
+    "cpu_count": 8,
+    "injected_environment": {
+      "JAVA_TOOL_OPTIONS": null,
+      "JDK_JAVA_OPTIONS": null,
+      "_JAVA_OPTIONS": null,
+      "CLASSPATH": null
+    },
+    "active_power_scheme": "381b4222-f694-41f0-9685-ff5bb260df2e",
+    "hardware": {
+      "windows": {
+        "build": "19045",
+        "version": "10.0.19045"
+      },
+      "system": {
+        "model": "30ASS2BL00",
+        "ram": 33207644160,
+        "manufacturer": "LENOVO"
+      },
+      "cpus": [
+        {
+          "Name": "Intel(R) Xeon(R) CPU E3-1275 v5 @ 3.60GHz",
+          "NumberOfCores": 4,
+          "NumberOfLogicalProcessors": 8
+        }
+      ],
+      "gpus": [
+        {
+          "Name": "GameViewer Virtual Display Adapter",
+          "DriverVersion": "15.6.5.199",
+          "AdapterRAM": null
+        },
+        {
+          "Name": "Intel(R) HD Graphics P530",
+          "DriverVersion": "31.0.101.2111",
+          "AdapterRAM": 1073741824
+        },
+        {
+          "Name": "NVIDIA GeForce RTX 3050 Laptop GPU",
+          "DriverVersion": "32.0.15.7688",
+          "AdapterRAM": 4293918720
+        }
+      ]
+    }
+  }
+}

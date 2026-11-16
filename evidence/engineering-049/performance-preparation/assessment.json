@@ -1,0 +1,32 @@
+{
+  "timestamp": "2026-11-16T13:42:59.808815+00:00",
+  "passed": true,
+  "groups": [
+    "baseline_plain",
+    "baseline_profile",
+    "candidate_plain",
+    "candidate_profile"
+  ],
+  "schema": 2,
+  "all_templates_unlaunched": true,
+  "source_world_unchanged": true,
+  "same_neutral_observer_sha256": "1a4e69a81e8baaeaf30e76b7647a371a39411ab7687934da83742c0fdce8487d",
+  "policy_sha256": "c1b4c936716d277db1169395486db2b0ac40327b7971e2568c4316ae74fac4eb",
+  "core_jvm_arguments": [
+    "-Xms512M",
+    "-Xmx3072M",
+    "-Dmtr.memory.acceptance=true",
+    "-XX:+UseG1GC"
+  ],
+  "comparison_groups_verified": true,
+  "planned_trial_jvms": 48,
+  "qualifications": {
+    "baseline_plain": "pending: no actual qualification JVM has run",
+    "baseline_profile": "pending: no actual qualification JVM has run",
+    "candidate_plain": "pending: no actual qualification JVM has run",
+    "candidate_profile": "pending: no actual qualification JVM has run"
+  },
+  "observer_off_calibration": "pending",
+  "performance_result": "unavailable: no experiment has been planned or run",
+  "scope": "Immutable performance preparation only. Four exact actual qualifications are required before the frozen 48-trial plan."
+}

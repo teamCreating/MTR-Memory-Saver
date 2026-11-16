@@ -1,0 +1,35 @@
+{
+  "timestamp": "2026-11-16T11:36:42.259821+00:00",
+  "source_sha256": "4aca3028a308143c9a45b3057dbeeb9185d9f0ebbca6609f0094714c9a12faab",
+  "active_scheme_guid": "381b4222-f694-41f0-9685-ff5bb260df2e",
+  "actual_alias": "SCHEME_BALANCED",
+  "commands": [
+    {
+      "command": [
+        "powercfg",
+        "/getactivescheme"
+      ],
+      "started": "2026-11-16T11:36:42.142744+00:00",
+      "cwd": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory",
+      "pid": 61412,
+      "ended": "2026-11-16T11:36:42.170469+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "84c9ce56ad7e43ec189583fb4980b05f4fedda128896fda11d0611779cf92173",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": [
+        "powercfg",
+        "/aliases"
+      ],
+      "started": "2026-11-16T11:36:42.173136+00:00",
+      "cwd": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory",
+      "pid": 60048,
+      "ended": "2026-11-16T11:36:42.255442+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "0ac960b7865d54e37137b6d08df1e9259b69df23678905ab6a39d858ea948dc8",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "cim_friendly_name_status": "unavailable: original remote-session access failure retained in machine-context.stderr.log"
+}

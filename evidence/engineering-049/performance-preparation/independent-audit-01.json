@@ -1,0 +1,200 @@
+{
+  "started": "2026-11-16T15:24:18.434150+00:00",
+  "source_sha256": "3ca1b0ca69f03922fe73779763609db27debe54ebe1bf93c015ab1a11c6f7f02",
+  "command": [
+    "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.venv\\Scripts\\python.exe",
+    "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-049\\performance-preparation\\audit_preparation.py",
+    "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-049\\performance-preparation\\independent-audit-01.json"
+  ],
+  "passed": true,
+  "started_from_receipt": "2026-11-16T13:36:53.225352+00:00",
+  "scope": "Preparation integrity only; no client was launched or qualified by this audit.",
+  "groups": [
+    {
+      "group": "baseline_plain",
+      "plan_sha256": "c8ab37df566ef626bff63f08db2aa7ff990524246f2f402daadddd78eafcabd5",
+      "controls_sha256": "62ed137dca1a2d1e59c6b75d21b1f056f903cf3edf4ed2b49ca3ae1df835c021",
+      "packs": 16,
+      "mods": [
+        {
+          "role": "companion",
+          "filename": "mtr-memory-sharing-neoforge-v030-nf248.jar",
+          "sha256": "b9c95bbe79c6c76fe6a0c9af6bdb4f9ed7ce6b007fecdb1c9f543544ce562f02"
+        },
+        {
+          "role": "observer",
+          "filename": "mtr-native-observer-official-nf248-1.0.3.jar",
+          "sha256": "1a4e69a81e8baaeaf30e76b7647a371a39411ab7687934da83742c0fdce8487d"
+        }
+      ],
+      "qualification_key": "99dabacab8f7e471e16a5ac88a2e49f2f1147f28a938e9e006d23ddd609872e3",
+      "unlaunched": true
+    },
+    {
+      "group": "baseline_profile",
+      "plan_sha256": "a60943f2982456865028afd4bba1b413e05646638d49fa9db03262961fbfc2bf",
+      "controls_sha256": "b37871f83088ac6e64525c855331241b0d7633b63e9d6eee7a88e342b063dba2",
+      "packs": 16,
+      "mods": [
+        {
+          "role": "companion",
+          "filename": "mtr-memory-sharing-neoforge-v030-nf248.jar",
+          "sha256": "b9c95bbe79c6c76fe6a0c9af6bdb4f9ed7ce6b007fecdb1c9f543544ce562f02"
+        },
+        {
+          "role": "observer",
+          "filename": "mtr-native-observer-official-nf248-1.0.3.jar",
+          "sha256": "1a4e69a81e8baaeaf30e76b7647a371a39411ab7687934da83742c0fdce8487d"
+        }
+      ],
+      "qualification_key": "140ba69e616875f47f494358152cc8b1408c9aa028528eef963246d6b8cf0991",
+      "unlaunched": true
+    },
+    {
+      "group": "candidate_plain",
+      "plan_sha256": "bd302ba1a447d72c7d754e2c2bc8c75f8fefc4e66eeef98eb659a17a6e11c9ad",
+      "controls_sha256": "62ed137dca1a2d1e59c6b75d21b1f056f903cf3edf4ed2b49ca3ae1df835c021",
+      "packs": 16,
+      "mods": [
+        {
+          "role": "companion",
+          "filename": "mtr-memory-saver-official-nf248-0.4.7.jar",
+          "sha256": "e8b5b40230d0f44c541c12b32c8a30d4c2ea056b8a972335ae10166496837a99"
+        },
+        {
+          "role": "observer",
+          "filename": "mtr-native-observer-official-nf248-1.0.3.jar",
+          "sha256": "1a4e69a81e8baaeaf30e76b7647a371a39411ab7687934da83742c0fdce8487d"
+        }
+      ],
+      "qualification_key": "1b8f67f03a6cb4d3edb7462173e11cb8b3793b573cddb82f033b99c8ad8ccaf1",
+      "unlaunched": true
+    },
+    {
+      "group": "candidate_profile",
+      "plan_sha256": "8aa521d0a59d57fc9be304d5118e4520f0e512e31753910357b94add6181ccc9",
+      "controls_sha256": "b37871f83088ac6e64525c855331241b0d7633b63e9d6eee7a88e342b063dba2",
+      "packs": 16,
+      "mods": [
+        {
+          "role": "companion",
+          "filename": "mtr-memory-saver-official-nf248-0.4.7.jar",
+          "sha256": "e8b5b40230d0f44c541c12b32c8a30d4c2ea056b8a972335ae10166496837a99"
+        },
+        {
+          "role": "observer",
+          "filename": "mtr-native-observer-official-nf248-1.0.3.jar",
+          "sha256": "1a4e69a81e8baaeaf30e76b7647a371a39411ab7687934da83742c0fdce8487d"
+        }
+      ],
+      "qualification_key": "f6c3b99dfc0c8dda4ea4d4c6d04f0374dd3a264aa314e51a0d5f7a18cade634e",
+      "unlaunched": true
+    }
+  ],
+  "sources": {
+    "tools/packaged_client.py": {
+      "recorded_sha256": "ad2e0dbf209ded20942891378e0a5855d6c3f65f8d89baa9afa2a7d24b2af13c",
+      "current_sha256": "ad2e0dbf209ded20942891378e0a5855d6c3f65f8d89baa9afa2a7d24b2af13c"
+    },
+    "tools/legacy_identity.py": {
+      "recorded_sha256": "f69223d0ab5763702fede5007ea5a343af3be38baf727ff86f2537297b2963d6",
+      "current_sha256": "f69223d0ab5763702fede5007ea5a343af3be38baf727ff86f2537297b2963d6"
+    },
+    "tools/client_experiment.py": {
+      "recorded_sha256": "7b0ed96909171c767ed6e0ced82f60cabd26c32f093d9b4cae3a1b3b7c9735c7",
+      "current_sha256": "7b0ed96909171c767ed6e0ced82f60cabd26c32f093d9b4cae3a1b3b7c9735c7"
+    },
+    "tools/client_experiment_analysis.py": {
+      "recorded_sha256": "0669d421d09a47664cf9207f559f247983f76a666a1cfe8487c7d02d4c5a7d6e",
+      "current_sha256": "0669d421d09a47664cf9207f559f247983f76a666a1cfe8487c7d02d4c5a7d6e"
+    },
+    "tools/native_diagnostic_review.py": {
+      "recorded_sha256": "39807f2f3b8173097d30d7fef7499e8bac419f72ff6abd1faf91b014c097e45d",
+      "current_sha256": "39807f2f3b8173097d30d7fef7499e8bac419f72ff6abd1faf91b014c097e45d"
+    },
+    "tools/windows_snapshot_io.py": {
+      "recorded_sha256": "6967cd6efee7a673e5df72700ea8de26e2e92c02d4614306bcb106fa527b02e1",
+      "current_sha256": "6967cd6efee7a673e5df72700ea8de26e2e92c02d4614306bcb106fa527b02e1"
+    },
+    "config/targets.json": {
+      "recorded_sha256": "e3d1d3a81d4fe8d7e60ba376654c943cc9766ce1d213b119fe7f6b175ac1d4ff",
+      "current_sha256": "e3d1d3a81d4fe8d7e60ba376654c943cc9766ce1d213b119fe7f6b175ac1d4ff"
+    },
+    "config/legacy-baselines.json": {
+      "recorded_sha256": "ea524641583b26ecaab3b12b29d25162232942ff08b64916435801cb7d671447",
+      "current_sha256": "ea524641583b26ecaab3b12b29d25162232942ff08b64916435801cb7d671447"
+    },
+    "config/client-experiment.json": {
+      "recorded_sha256": "c1b4c936716d277db1169395486db2b0ac40327b7971e2568c4316ae74fac4eb",
+      "current_sha256": "c1b4c936716d277db1169395486db2b0ac40327b7971e2568c4316ae74fac4eb"
+    },
+    "config/native-diagnostic-review.json": {
+      "recorded_sha256": "4d91b89a3600d44a9ec132b7dd58fb61d46d34ae63f9148716f24c9c144f745c",
+      "current_sha256": "4d91b89a3600d44a9ec132b7dd58fb61d46d34ae63f9148716f24c9c144f745c"
+    }
+  },
+  "source_world_unchanged": true,
+  "policy_trial_jvms": 48,
+  "current_host_snapshot": {
+    "system": "Windows-10-10.0.19045-SP0",
+    "machine": "AMD64",
+    "processor": "Intel64 Family 6 Model 94 Stepping 3, GenuineIntel",
+    "node": "DESKTOP-885HHP9",
+    "cpu_count": 8,
+    "injected_environment": {
+      "JAVA_TOOL_OPTIONS": null,
+      "JDK_JAVA_OPTIONS": null,
+      "_JAVA_OPTIONS": null,
+      "CLASSPATH": null
+    },
+    "active_power_scheme": "381b4222-f694-41f0-9685-ff5bb260df2e",
+    "hardware": {
+      "system": {
+        "manufacturer": "LENOVO",
+        "model": "30ASS2BL00",
+        "ram": 33207644160
+      },
+      "cpus": [
+        {
+          "Name": "Intel(R) Xeon(R) CPU E3-1275 v5 @ 3.60GHz",
+          "NumberOfCores": 4,
+          "NumberOfLogicalProcessors": 8
+        }
+      ],
+      "windows": {
+        "version": "10.0.19045",
+        "build": "19045"
+      },
+      "gpus": [
+        {
+          "Name": "GameViewer Virtual Display Adapter",
+          "DriverVersion": "15.6.5.199",
+          "AdapterRAM": null
+        },
+        {
+          "Name": "Intel(R) HD Graphics P530",
+          "DriverVersion": "31.0.101.2111",
+          "AdapterRAM": 1073741824
+        },
+        {
+          "Name": "NVIDIA GeForce RTX 3050 Laptop GPU",
+          "DriverVersion": "32.0.15.7688",
+          "AdapterRAM": 4293918720
+        }
+      ]
+    }
+  },
+  "original_host_snapshot_time": "2026-11-16T11:35:07.720760+00:00",
+  "hardware_power_identity_unchanged": true,
+  "background_workload": "Original process counts are historical observations, not current controls. Qualification and every trial must independently freeze/recheck host identity and retain all noise/failures.",
+  "pending": [
+    "Four actual current qualification JVMs",
+    "Frozen 48-trial plan after qualifications",
+    "48 scheduled fresh-JVM trials and independent analysis",
+    "Observer-off overhead calibration",
+    "New artifact full-pack/reload/gameplay/endurance acceptance",
+    "NF265 separate full-client experiment"
+  ],
+  "performance_accepted": false,
+  "ended": "2026-11-16T15:30:23.815043+00:00"
+}
