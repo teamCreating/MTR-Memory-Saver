@@ -1,0 +1,966 @@
+{
+  "started_at": "2026-11-16T16:12:19.533587+00:00",
+  "completed_at": "2026-11-16T16:13:42.230747+00:00",
+  "source_attempt": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\owned-049c-startup-attempt02",
+  "original_attempt_files_unchanged": {
+    "auxiliary-events.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "client_experiment_analysis.py": "0669d421d09a47664cf9207f559f247983f76a666a1cfe8487c7d02d4c5a7d6e",
+    "native-diagnostic-events-at-completion.jsonl": "9db47ddc968470cc1a88b84c441da17c174c390ddee7eec04343707650e4d12c",
+    "native-diagnostic-review.json": "4d91b89a3600d44a9ec132b7dd58fb61d46d34ae63f9148716f24c9c144f745c",
+    "native-epoch-events-at-completion.jsonl": "7b68271761a14e40d775b0e4f9a8a3b459b59fa4296d12b9953cf1f5a04a812a",
+    "native-log-at-completion.log": "24cd40679c7b6c2041eefd6f04e249c48fcbc8dc52de50df9bbb7a29dcef0501",
+    "native-observer-consumer.json": "fae895c646ff796473bdc2c83a1b1c4abfc518bb75c0ec3bcf10a476a5750e62",
+    "native_diagnostic_review.py": "39807f2f3b8173097d30d7fef7499e8bac419f72ff6abd1faf91b014c097e45d",
+    "observer-source.py": "f96d1fc4843a00286592b78732a6dfb15bfd7d46799432c0f2c911dc57f3c1aa",
+    "observer-target.json": "ad88abd18239df098a877342ee8a8cb21b7e373934a5b22a1d0b1481fd3e868d",
+    "reload_before_recorder.py": "f4ae20d99f9660f698146abc7fb6b49e657bac9b954577bdef7c7c70fa5b7cdc",
+    "samples.jsonl": "45b5e5ac6a7179025e2bea8abbe0257084d01d76d454b3af9ad1208edce2d0c7",
+    "summary.json": "65d37d24a05e0c94a2b708602e2d4a65e416c93b453e923a028e508c5ca8c16a",
+    "windows_snapshot_io.py": "6967cd6efee7a673e5df72700ea8de26e2e92c02d4614306bcb106fa527b02e1"
+  },
+  "read_receipts": [
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\owned-049c-startup-attempt02\\auxiliary-events.jsonl",
+      "target": "observation/auxiliary-events.jsonl",
+      "started_at": "2026-11-16T16:12:19.697192+00:00",
+      "read_completed_at": "2026-11-16T16:12:19.699426+00:00",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_size_before": 0,
+      "source_size_after": 0
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\owned-049c-startup-attempt02\\client_experiment_analysis.py",
+      "target": "observation/client_experiment_analysis.py",
+      "started_at": "2026-11-16T16:12:19.712340+00:00",
+      "read_completed_at": "2026-11-16T16:12:19.727603+00:00",
+      "bytes": 41656,
+      "sha256": "0669d421d09a47664cf9207f559f247983f76a666a1cfe8487c7d02d4c5a7d6e",
+      "source_size_before": 41656,
+      "source_size_after": 41656
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\owned-049c-startup-attempt02\\native-diagnostic-events-at-completion.jsonl",
+      "target": "observation/native-diagnostic-events-at-completion.jsonl",
+      "started_at": "2026-11-16T16:12:19.738162+00:00",
+      "read_completed_at": "2026-11-16T16:12:19.741221+00:00",
+      "bytes": 22050,
+      "sha256": "9db47ddc968470cc1a88b84c441da17c174c390ddee7eec04343707650e4d12c",
+      "source_size_before": 22050,
+      "source_size_after": 22050
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\owned-049c-startup-attempt02\\native-diagnostic-review.json",
+      "target": "observation/native-diagnostic-review.json",
+      "started_at": "2026-11-16T16:12:19.791813+00:00",
+      "read_completed_at": "2026-11-16T16:12:19.796243+00:00",
+      "bytes": 2328,
+      "sha256": "4d91b89a3600d44a9ec132b7dd58fb61d46d34ae63f9148716f24c9c144f745c",
+      "source_size_before": 2328,
+      "source_size_after": 2328
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\owned-049c-startup-attempt02\\native-epoch-events-at-completion.jsonl",
+      "target": "observation/native-epoch-events-at-completion.jsonl",
+      "started_at": "2026-11-16T16:12:19.806555+00:00",
+      "read_completed_at": "2026-11-16T16:12:19.931586+00:00",
+      "bytes": 1787,
+      "sha256": "7b68271761a14e40d775b0e4f9a8a3b459b59fa4296d12b9953cf1f5a04a812a",
+      "source_size_before": 1787,
+      "source_size_after": 1787
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\owned-049c-startup-attempt02\\native-log-at-completion.log",
+      "target": "observation/native-log-at-completion.log",
+      "started_at": "2026-11-16T16:12:19.956809+00:00",
+      "read_completed_at": "2026-11-16T16:12:19.960404+00:00",
+      "bytes": 27952,
+      "sha256": "24cd40679c7b6c2041eefd6f04e249c48fcbc8dc52de50df9bbb7a29dcef0501",
+      "source_size_before": 27952,
+      "source_size_after": 27952
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\owned-049c-startup-attempt02\\native-observer-consumer.json",
+      "target": "observation/native-observer-consumer.json",
+      "started_at": "2026-11-16T16:12:19.969791+00:00",
+      "read_completed_at": "2026-11-16T16:12:19.972591+00:00",
+      "bytes": 364,
+      "sha256": "fae895c646ff796473bdc2c83a1b1c4abfc518bb75c0ec3bcf10a476a5750e62",
+      "source_size_before": 364,
+      "source_size_after": 364
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\owned-049c-startup-attempt02\\native_diagnostic_review.py",
+      "target": "observation/native_diagnostic_review.py",
+      "started_at": "2026-11-16T16:12:19.979574+00:00",
+      "read_completed_at": "2026-11-16T16:12:19.992152+00:00",
+      "bytes": 14788,
+      "sha256": "39807f2f3b8173097d30d7fef7499e8bac419f72ff6abd1faf91b014c097e45d",
+      "source_size_before": 14788,
+      "source_size_after": 14788
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\owned-049c-startup-attempt02\\observer-source.py",
+      "target": "observation/observer-source.py",
+      "started_at": "2026-11-16T16:12:20.010483+00:00",
+      "read_completed_at": "2026-11-16T16:12:20.021059+00:00",
+      "bytes": 85281,
+      "sha256": "f96d1fc4843a00286592b78732a6dfb15bfd7d46799432c0f2c911dc57f3c1aa",
+      "source_size_before": 85281,
+      "source_size_after": 85281
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\owned-049c-startup-attempt02\\observer-target.json",
+      "target": "observation/observer-target.json",
+      "started_at": "2026-11-16T16:12:20.207348+00:00",
+      "read_completed_at": "2026-11-16T16:12:20.210371+00:00",
+      "bytes": 679,
+      "sha256": "ad88abd18239df098a877342ee8a8cb21b7e373934a5b22a1d0b1481fd3e868d",
+      "source_size_before": 679,
+      "source_size_after": 679
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\owned-049c-startup-attempt02\\reload_before_recorder.py",
+      "target": "observation/reload_before_recorder.py",
+      "started_at": "2026-11-16T16:12:20.215525+00:00",
+      "read_completed_at": "2026-11-16T16:12:20.228410+00:00",
+      "bytes": 27651,
+      "sha256": "f4ae20d99f9660f698146abc7fb6b49e657bac9b954577bdef7c7c70fa5b7cdc",
+      "source_size_before": 27651,
+      "source_size_after": 27651
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\owned-049c-startup-attempt02\\samples.jsonl",
+      "target": "observation/samples.jsonl",
+      "started_at": "2026-11-16T16:12:20.239553+00:00",
+      "read_completed_at": "2026-11-16T16:12:20.246208+00:00",
+      "bytes": 112809,
+      "sha256": "45b5e5ac6a7179025e2bea8abbe0257084d01d76d454b3af9ad1208edce2d0c7",
+      "source_size_before": 112809,
+      "source_size_after": 112809
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\owned-049c-startup-attempt02\\summary.json",
+      "target": "observation/summary.json",
+      "started_at": "2026-11-16T16:12:20.281369+00:00",
+      "read_completed_at": "2026-11-16T16:12:20.287859+00:00",
+      "bytes": 34398,
+      "sha256": "65d37d24a05e0c94a2b708602e2d4a65e416c93b453e923a028e508c5ca8c16a",
+      "source_size_before": 34398,
+      "source_size_after": 34398
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\owned-049c-startup-attempt02\\windows_snapshot_io.py",
+      "target": "observation/windows_snapshot_io.py",
+      "started_at": "2026-11-16T16:12:20.306535+00:00",
+      "read_completed_at": "2026-11-16T16:12:20.312792+00:00",
+      "bytes": 1992,
+      "sha256": "6967cd6efee7a673e5df72700ea8de26e2e92c02d4614306bcb106fa527b02e1",
+      "source_size_before": 1992,
+      "source_size_after": 1992
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049c\\packaged-client-plan.json",
+      "target": "instance/packaged-client-plan.json",
+      "started_at": "2026-11-16T16:12:20.384061+00:00",
+      "read_completed_at": "2026-11-16T16:12:20.385797+00:00",
+      "bytes": 42325,
+      "sha256": "d286eedb9786b86296e72d6effb8fbc9529326d450e0a375d8eed7345abd2c1b",
+      "source_size_before": 42325,
+      "source_size_after": 42325
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049c\\packaged-client-launch.json",
+      "target": "instance/packaged-client-launch.json",
+      "started_at": "2026-11-16T16:12:20.444987+00:00",
+      "read_completed_at": "2026-11-16T16:12:20.446917+00:00",
+      "bytes": 26219,
+      "sha256": "6a64b382abe1766c9ab1b508173994bc4ca9ed54dac7123b2b97b26041db3635",
+      "source_size_before": 26219,
+      "source_size_after": 26219
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049c\\mods\\mtr-memory-saver-official-nf248-0.4.7.jar",
+      "target": "instance/mods/mtr-memory-saver-official-nf248-0.4.7.jar",
+      "started_at": "2026-11-16T16:12:20.458867+00:00",
+      "read_completed_at": "2026-11-16T16:12:20.462105+00:00",
+      "bytes": 321705,
+      "sha256": "e8b5b40230d0f44c541c12b32c8a30d4c2ea056b8a972335ae10166496837a99",
+      "source_size_before": 321705,
+      "source_size_after": 321705
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-049\\release\\official-nf248\\files\\mtr-memory-saver-official-nf248-0.4.7.build.json",
+      "target": "build-inputs/companion/mtr-memory-saver-official-nf248-0.4.7.build.json",
+      "started_at": "2026-11-16T16:12:20.477876+00:00",
+      "read_completed_at": "2026-11-16T16:12:20.480197+00:00",
+      "bytes": 6252,
+      "sha256": "d06e4a332742bdb1c04740b9eef456a8c31528d9a31b8e2c9e1f3c6dd54d6afc",
+      "source_size_before": 6252,
+      "source_size_after": 6252
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-049\\full-load-startup\\build-bindings-02\\companion\\inputs\\build.gradle",
+      "target": "build-inputs/companion/inputs/build.gradle",
+      "started_at": "2026-11-16T16:12:20.657990+00:00",
+      "read_completed_at": "2026-11-16T16:12:20.681991+00:00",
+      "bytes": 29818,
+      "sha256": "5054012da1dc10622fbee281b53d169acc3ba6f0a759dc23db6d6e1822642413",
+      "source_size_before": 29818,
+      "source_size_after": 29818
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-049\\full-load-startup\\build-bindings-02\\companion\\inputs\\build\\generated\\resources\\official-nf248\\META-INF\\neoforge.mods.toml",
+      "target": "build-inputs/companion/inputs/build/generated/resources/official-nf248/META-INF/neoforge.mods.toml",
+      "started_at": "2026-11-16T16:12:20.698082+00:00",
+      "read_completed_at": "2026-11-16T16:12:20.704742+00:00",
+      "bytes": 690,
+      "sha256": "10178f48c2f6f23a8b19adf221e6c4bda321a47246628b1f076b4418a85a3177",
+      "source_size_before": 690,
+      "source_size_after": 690
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-049\\full-load-startup\\build-bindings-02\\companion\\inputs\\build\\generated\\resources\\official-nf248\\mtr-memory-sharing.mixins.json",
+      "target": "build-inputs/companion/inputs/build/generated/resources/official-nf248/mtr-memory-sharing.mixins.json",
+      "started_at": "2026-11-16T16:12:20.832782+00:00",
+      "read_completed_at": "2026-11-16T16:12:20.835959+00:00",
+      "bytes": 754,
+      "sha256": "9a8a6282dbe871c05fefbcac56a3cf3ba33f153fe46ece935cc4c8d09d238851",
+      "source_size_before": 754,
+      "source_size_after": 754
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-049\\full-load-startup\\build-bindings-02\\companion\\inputs\\build\\generated\\resources\\official-nf248\\mtr-memory-target.json",
+      "target": "build-inputs/companion/inputs/build/generated/resources/official-nf248/mtr-memory-target.json",
+      "started_at": "2026-11-16T16:12:20.963784+00:00",
+      "read_completed_at": "2026-11-16T16:12:20.966096+00:00",
+      "bytes": 226,
+      "sha256": "6611ac176d8750290d264bba62e468d44912976e5f3d5ca9439a69ddfa1a2630",
+      "source_size_before": 226,
+      "source_size_after": 226
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-049\\full-load-startup\\build-bindings-02\\companion\\inputs\\config\\targets.json",
+      "target": "build-inputs/companion/inputs/config/targets.json",
+      "started_at": "2026-11-16T16:12:20.969709+00:00",
+      "read_completed_at": "2026-11-16T16:12:20.976531+00:00",
+      "bytes": 1416,
+      "sha256": "e3d1d3a81d4fe8d7e60ba376654c943cc9766ce1d213b119fe7f6b175ac1d4ff",
+      "source_size_before": 1416,
+      "source_size_after": 1416
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-049\\full-load-startup\\build-bindings-02\\companion\\inputs\\src\\main\\java\\site\\benli06\\BinaryFingerprint.java",
+      "target": "build-inputs/companion/inputs/src/main/java/site/benli06/BinaryFingerprint.java",
+      "started_at": "2026-11-16T16:12:21.211639+00:00",
+      "read_completed_at": "2026-11-16T16:12:21.217051+00:00",
+      "bytes": 896,
+      "sha256": "d14118714c8837eb0d478b83383399675c6810e500c2a90e4512793c6e81f34a",
+      "source_size_before": 896,
+      "source_size_after": 896
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-049\\full-load-startup\\build-bindings-02\\companion\\inputs\\src\\main\\java\\site\\benli06\\BoundedTextCache.java",
+      "target": "build-inputs/companion/inputs/src/main/java/site/benli06/BoundedTextCache.java",
+      "started_at": "2026-11-16T16:12:21.266081+00:00",
+      "read_completed_at": "2026-11-16T16:12:21.271403+00:00",
+      "bytes": 10784,
+      "sha256": "0dd7a9e226a3f6f9ae2d114bd540ea3b400289a613034c89bad2831b7e5c142d",
+      "source_size_before": 10784,
+      "source_size_after": 10784
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-049\\full-load-startup\\build-bindings-02\\companion\\inputs\\src\\main\\java\\site\\benli06\\CompatibilityPlugin.java",
+      "target": "build-inputs/companion/inputs/src/main/java/site/benli06/CompatibilityPlugin.java",
+      "started_at": "2026-11-16T16:12:21.578661+00:00",
+      "read_completed_at": "2026-11-16T16:12:21.590287+00:00",
+      "bytes": 2197,
+      "sha256": "0d140cd909676510711f346fec38dc4d749bba0319d6c51acdd245d5b1aad82d",
+      "source_size_before": 2197,
+      "source_size_after": 2197
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-049\\full-load-startup\\build-bindings-02\\companion\\inputs\\src\\main\\java\\site\\benli06\\CompressedResourceTextCache.java",
+      "target": "build-inputs/companion/inputs/src/main/java/site/benli06/CompressedResourceTextCache.java",
+      "started_at": "2026-11-16T16:12:21.599394+00:00",
+      "read_completed_at": "2026-11-16T16:12:21.608358+00:00",
+      "bytes": 795,
+      "sha256": "8b5c0678586cf8dfe1978d29ba657ce05fea64ffa64ea3c2cb83b40faeabc485",
+      "source_size_before": 795,
+      "source_size_after": 795
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-049\\full-load-startup\\build-bindings-02\\companion\\inputs\\src\\main\\java\\site\\benli06\\DisplayRetention.java",
+      "target": "build-inputs/companion/inputs/src/main/java/site/benli06/DisplayRetention.java",
+      "started_at": "2026-11-16T16:12:21.621259+00:00",
+      "read_completed_at": "2026-11-16T16:12:21.626543+00:00",
+      "bytes": 1093,
+      "sha256": "9586b3f89567e395bf7c3a7ab6fd912402d6c30c5b02884f0ac22fb9dcf43b6a",
+      "source_size_before": 1093,
+      "source_size_after": 1093
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-049\\full-load-startup\\build-bindings-02\\companion\\inputs\\src\\main\\java\\site\\benli06\\GenerationWorkCache.java",
+      "target": "build-inputs/companion/inputs/src/main/java/site/benli06/GenerationWorkCache.java",
+      "started_at": "2026-11-16T16:12:21.637012+00:00",
+      "read_completed_at": "2026-11-16T16:12:21.791018+00:00",
+      "bytes": 10684,
+      "sha256": "9df8981274dbf68c1d4f688b5245f0020058bcd11fe4259becd33bd445d7fe62",
+      "source_size_before": 10684,
+      "source_size_after": 10684
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-049\\full-load-startup\\build-bindings-02\\companion\\inputs\\src\\main\\java\\site\\benli06\\PackedModelGroupAccess.java",
+      "target": "build-inputs/companion/inputs/src/main/java/site/benli06/PackedModelGroupAccess.java",
+      "started_at": "2026-11-16T16:12:21.808197+00:00",
+      "read_completed_at": "2026-11-16T16:12:21.813722+00:00",
+      "bytes": 118,
+      "sha256": "c76a1cf74d9eab70d60e93183c0452e336a006a5d5e880c45bd0fd3cbf0448d1",
+      "source_size_before": 118,
+      "source_size_after": 118
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-049\\full-load-startup\\build-bindings-02\\companion\\inputs\\src\\main\\java\\site\\benli06\\PackedModelGroupOperations.java",
+      "target": "build-inputs/companion/inputs/src/main/java/site/benli06/PackedModelGroupOperations.java",
+      "started_at": "2026-11-16T16:12:21.821575+00:00",
+      "read_completed_at": "2026-11-16T16:12:21.828575+00:00",
+      "bytes": 1526,
+      "sha256": "409c6e93c899217659aa220c9e031c93bbb589d996ad1fdc9eda0bfc4d3b1676",
+      "source_size_before": 1526,
+      "source_size_after": 1526
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-049\\full-load-startup\\build-bindings-02\\companion\\inputs\\src\\main\\java\\site\\benli06\\PackedModelGroupStore.java",
+      "target": "build-inputs/companion/inputs/src/main/java/site/benli06/PackedModelGroupStore.java",
+      "started_at": "2026-11-16T16:12:21.832832+00:00",
+      "read_completed_at": "2026-11-16T16:12:21.838352+00:00",
+      "bytes": 1555,
+      "sha256": "696e67c3308a9673363b023f48880dfa9d6c94f1fdab8138049ad4f9028c08b1",
+      "source_size_before": 1555,
+      "source_size_after": 1555
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-049\\full-load-startup\\build-bindings-02\\companion\\inputs\\src\\main\\java\\site\\benli06\\PackedVertexEmitter.java",
+      "target": "build-inputs/companion/inputs/src/main/java/site/benli06/PackedVertexEmitter.java",
+      "started_at": "2026-11-16T16:12:21.916982+00:00",
+      "read_completed_at": "2026-11-16T16:12:21.921691+00:00",
+      "bytes": 506,
+      "sha256": "7c996e3bd75ae339d6d74d603833111ba84fab2662b69196f374db8c4cf02dd5",
+      "source_size_before": 506,
+      "source_size_after": 506
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-049\\full-load-startup\\build-bindings-02\\companion\\inputs\\src\\main\\java\\site\\benli06\\ReadAdmission.java",
+      "target": "build-inputs/companion/inputs/src/main/java/site/benli06/ReadAdmission.java",
+      "started_at": "2026-11-16T16:12:21.929239+00:00",
+      "read_completed_at": "2026-11-16T16:12:21.938501+00:00",
+      "bytes": 6146,
+      "sha256": "dd785b1ed9e4805b6688a911ded27c051ea558a0aac0ae479101fc62631d9535",
+      "source_size_before": 6146,
+      "source_size_after": 6146
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-049\\full-load-startup\\build-bindings-02\\companion\\inputs\\src\\main\\java\\site\\benli06\\ResourceSourceKey.java",
+      "target": "build-inputs/companion/inputs/src/main/java/site/benli06/ResourceSourceKey.java",
+      "started_at": "2026-11-16T16:12:21.947658+00:00",
+      "read_completed_at": "2026-11-16T16:12:21.950728+00:00",
+      "bytes": 870,
+      "sha256": "129bfbc44538f80860a196034ebcb62df18304dc9ecc60276b12dad3ae74b6a6",
+      "source_size_before": 870,
+      "source_size_after": 870
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-049\\full-load-startup\\build-bindings-02\\companion\\inputs\\src\\main\\java\\site\\benli06\\ResourceTextDigest.java",
+      "target": "build-inputs/companion/inputs/src/main/java/site/benli06/ResourceTextDigest.java",
+      "started_at": "2026-11-16T16:12:21.956914+00:00",
+      "read_completed_at": "2026-11-16T16:12:21.982386+00:00",
+      "bytes": 3177,
+      "sha256": "0ef90480b26891683d560774894da6e7d826d0cb42f189db20589c49c5badd67",
+      "source_size_before": 3177,
+      "source_size_after": 3177
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-049\\full-load-startup\\build-bindings-02\\companion\\inputs\\src\\main\\java\\site\\benli06\\SegmentedResourceText.java",
+      "target": "build-inputs/companion/inputs/src/main/java/site/benli06/SegmentedResourceText.java",
+      "started_at": "2026-11-16T16:12:21.998555+00:00",
+      "read_completed_at": "2026-11-16T16:12:22.001409+00:00",
+      "bytes": 7456,
+      "sha256": "6ec9b5faca7a889491a5209c0cab120a600e12aa63739201c12822dfea8b8fda",
+      "source_size_before": 7456,
+      "source_size_after": 7456
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-049\\full-load-startup\\build-bindings-02\\companion\\inputs\\src\\main\\java\\site\\benli06\\SharedBlockbenchCache.java",
+      "target": "build-inputs/companion/inputs/src/main/java/site/benli06/SharedBlockbenchCache.java",
+      "started_at": "2026-11-16T16:12:22.014982+00:00",
+      "read_completed_at": "2026-11-16T16:12:22.020109+00:00",
+      "bytes": 4878,
+      "sha256": "7fdd6c66602557370f476bef65781f8a28a4e6ca7785d1c6c4cf6c33497f7d07",
+      "source_size_before": 4878,
+      "source_size_after": 4878
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-049\\full-load-startup\\build-bindings-02\\companion\\inputs\\src\\main\\java\\site\\benli06\\StrictResourceText.java",
+      "target": "build-inputs/companion/inputs/src/main/java/site/benli06/StrictResourceText.java",
+      "started_at": "2026-11-16T16:12:22.026116+00:00",
+      "read_completed_at": "2026-11-16T16:12:22.029848+00:00",
+      "bytes": 1043,
+      "sha256": "ef6c139fa60267f23c6b062874e4ed055a22c879cb2875250203ef851708a649",
+      "source_size_before": 1043,
+      "source_size_after": 1043
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-049\\full-load-startup\\build-bindings-02\\companion\\inputs\\src\\main\\java\\site\\benli06\\TextWorkspace.java",
+      "target": "build-inputs/companion/inputs/src/main/java/site/benli06/TextWorkspace.java",
+      "started_at": "2026-11-16T16:12:22.089029+00:00",
+      "read_completed_at": "2026-11-16T16:12:22.092811+00:00",
+      "bytes": 3279,
+      "sha256": "574cb84e23f5c97536320a7c9874acbaa06901bbf50c3b7e6458e8941cd51dc2",
+      "source_size_before": 3279,
+      "source_size_after": 3279
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-049\\full-load-startup\\build-bindings-02\\companion\\inputs\\src\\main\\java\\site\\benli06\\VehicleJsonCache.java",
+      "target": "build-inputs/companion/inputs/src/main/java/site/benli06/VehicleJsonCache.java",
+      "started_at": "2026-11-16T16:12:22.102566+00:00",
+      "read_completed_at": "2026-11-16T16:12:22.114089+00:00",
+      "bytes": 2550,
+      "sha256": "cf9e1690166c0f5c79d442b847baeae731b4f9b82abb618562e9de4debe6c5e4",
+      "source_size_before": 2550,
+      "source_size_after": 2550
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-049\\full-load-startup\\build-bindings-02\\companion\\inputs\\src\\main\\java\\site\\benli06\\mixin\\BlockbenchParseExecutorMixin.java",
+      "target": "build-inputs/companion/inputs/src/main/java/site/benli06/mixin/BlockbenchParseExecutorMixin.java",
+      "started_at": "2026-11-16T16:12:22.195220+00:00",
+      "read_completed_at": "2026-11-16T16:12:22.203062+00:00",
+      "bytes": 821,
+      "sha256": "6d3e9567457cf46a9593980dc0bb7144147dd9f92cbf0a680209522d999c34a2",
+      "source_size_before": 821,
+      "source_size_after": 821
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-049\\full-load-startup\\build-bindings-02\\companion\\inputs\\src\\main\\java\\site\\benli06\\mixin\\CompressedResourceTextMixin.java",
+      "target": "build-inputs/companion/inputs/src/main/java/site/benli06/mixin/CompressedResourceTextMixin.java",
+      "started_at": "2026-11-16T16:12:22.215044+00:00",
+      "read_completed_at": "2026-11-16T16:12:22.283478+00:00",
+      "bytes": 2364,
+      "sha256": "36ebaa22206f15b9a8cbbea337cd1dac0ba775d016834d06ec5fda28137e5698",
+      "source_size_before": 2364,
+      "source_size_after": 2364
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-049\\full-load-startup\\build-bindings-02\\companion\\inputs\\src\\main\\java\\site\\benli06\\mixin\\DisplayPartAccess.java",
+      "target": "build-inputs/companion/inputs/src/main/java/site/benli06/mixin/DisplayPartAccess.java",
+      "started_at": "2026-11-16T16:12:22.297910+00:00",
+      "read_completed_at": "2026-11-16T16:12:22.307426+00:00",
+      "bytes": 493,
+      "sha256": "61066972b183bc5e03cbf758ffef39e626538a4c0c9747784d495ac0802fb378",
+      "source_size_before": 493,
+      "source_size_after": 493
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-049\\full-load-startup\\build-bindings-02\\companion\\inputs\\src\\main\\java\\site\\benli06\\mixin\\DisplaySelectionMixin.java",
+      "target": "build-inputs/companion/inputs/src/main/java/site/benli06/mixin/DisplaySelectionMixin.java",
+      "started_at": "2026-11-16T16:12:22.314779+00:00",
+      "read_completed_at": "2026-11-16T16:12:22.323992+00:00",
+      "bytes": 955,
+      "sha256": "6f85bcfd58d679d72389dac22e773d2e1a65654b68ad8d9cb6aec37ba4c8de7c",
+      "source_size_before": 955,
+      "source_size_after": 955
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-049\\full-load-startup\\build-bindings-02\\companion\\inputs\\src\\main\\java\\site\\benli06\\mixin\\ModelLoaderAccess.java",
+      "target": "build-inputs/companion/inputs/src/main/java/site/benli06/mixin/ModelLoaderAccess.java",
+      "started_at": "2026-11-16T16:12:22.331562+00:00",
+      "read_completed_at": "2026-11-16T16:12:22.340633+00:00",
+      "bytes": 912,
+      "sha256": "028a8fd2d6116e1839966d6103a23401f7c77aa0a9378192253279a14c4f336a",
+      "source_size_before": 912,
+      "source_size_after": 912
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-049\\full-load-startup\\build-bindings-02\\companion\\inputs\\src\\main\\java\\site\\benli06\\mixin\\ModelLoaderCompletionMixin.java",
+      "target": "build-inputs/companion/inputs/src/main/java/site/benli06/mixin/ModelLoaderCompletionMixin.java",
+      "started_at": "2026-11-16T16:12:22.391470+00:00",
+      "read_completed_at": "2026-11-16T16:12:22.395525+00:00",
+      "bytes": 612,
+      "sha256": "1146d5c540f2afee7071f0c89e31d13dda21ffd927fe33a89d96e7128f45e164",
+      "source_size_before": 612,
+      "source_size_after": 612
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-049\\full-load-startup\\build-bindings-02\\companion\\inputs\\src\\main\\java\\site\\benli06\\mixin\\ResourceReloadMixin.java",
+      "target": "build-inputs/companion/inputs/src/main/java/site/benli06/mixin/ResourceReloadMixin.java",
+      "started_at": "2026-11-16T16:12:22.407944+00:00",
+      "read_completed_at": "2026-11-16T16:12:22.422170+00:00",
+      "bytes": 1257,
+      "sha256": "ed0c05fc5443712e4776c5a47ccc336da1d7cef59440051992549517cd1b9ff6",
+      "source_size_before": 1257,
+      "source_size_after": 1257
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-049\\full-load-startup\\build-bindings-02\\companion\\inputs\\src\\main\\java\\site\\benli06\\mixin\\SegmentedResourceTextMixin.java",
+      "target": "build-inputs/companion/inputs/src/main/java/site/benli06/mixin/SegmentedResourceTextMixin.java",
+      "started_at": "2026-11-16T16:12:22.437333+00:00",
+      "read_completed_at": "2026-11-16T16:12:22.441585+00:00",
+      "bytes": 905,
+      "sha256": "fb480ed48b2294942d1a2bad558a4ff641268a4dbac6b11a49fecc047c62e291",
+      "source_size_before": 905,
+      "source_size_after": 905
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-049\\full-load-startup\\build-bindings-02\\companion\\inputs\\src\\main\\java\\site\\benli06\\mixin\\SourceLifetimeMixin.java",
+      "target": "build-inputs/companion/inputs/src/main/java/site/benli06/mixin/SourceLifetimeMixin.java",
+      "started_at": "2026-11-16T16:12:22.462353+00:00",
+      "read_completed_at": "2026-11-16T16:12:22.468211+00:00",
+      "bytes": 599,
+      "sha256": "685f795565885e1569657435c01824cc8191ccae9f8652b84be6780729ec870b",
+      "source_size_before": 599,
+      "source_size_after": 599
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-049\\full-load-startup\\build-bindings-02\\companion\\inputs\\src\\main\\java\\site\\benli06\\mixin\\VehicleJsonCacheMixin.java",
+      "target": "build-inputs/companion/inputs/src/main/java/site/benli06/mixin/VehicleJsonCacheMixin.java",
+      "started_at": "2026-11-16T16:12:22.494825+00:00",
+      "read_completed_at": "2026-11-16T16:12:22.508933+00:00",
+      "bytes": 680,
+      "sha256": "28f0b99f94c8f4b693e447347aebae99a60fdf1ecd211d1cda23e1ce7fef024e",
+      "source_size_before": 680,
+      "source_size_after": 680
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-049\\full-load-startup\\build-bindings-02\\companion\\inputs\\src\\main\\java\\site\\benli06\\mixin\\VehicleJsonEpochMixin.java",
+      "target": "build-inputs/companion/inputs/src/main/java/site/benli06/mixin/VehicleJsonEpochMixin.java",
+      "started_at": "2026-11-16T16:12:22.515573+00:00",
+      "read_completed_at": "2026-11-16T16:12:22.524135+00:00",
+      "bytes": 758,
+      "sha256": "f1c67e2e354190de1355a6b79039270f2be2cfc4ee113bf0c71897c2be158a17",
+      "source_size_before": 758,
+      "source_size_after": 758
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-049\\full-load-startup\\build-bindings-02\\companion\\inputs\\src\\main\\java\\site\\benli06\\mixin\\VehicleModelFactoryMixin.java",
+      "target": "build-inputs/companion/inputs/src/main/java/site/benli06/mixin/VehicleModelFactoryMixin.java",
+      "started_at": "2026-11-16T16:12:22.569700+00:00",
+      "read_completed_at": "2026-11-16T16:12:22.578380+00:00",
+      "bytes": 928,
+      "sha256": "1fb9b2984cd917cf5010158bbb4a0312a80a8931535036ec1394ca04633e98bc",
+      "source_size_before": 928,
+      "source_size_after": 928
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-049\\full-load-startup\\build-bindings-02\\companion\\inputs\\src\\main\\resources\\assets\\mtr_memory_sharing\\lang\\en_us.json",
+      "target": "build-inputs/companion/inputs/src/main/resources/assets/mtr_memory_sharing/lang/en_us.json",
+      "started_at": "2026-11-16T16:12:22.588207+00:00",
+      "read_completed_at": "2026-11-16T16:12:22.591397+00:00",
+      "bytes": 113,
+      "sha256": "4522126f7d8979b5013ecae2d45aeed8a211f31eee493a14f30b327cdbf24986",
+      "source_size_before": 113,
+      "source_size_after": 113
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-049\\full-load-startup\\build-bindings-02\\companion\\inputs\\src\\main\\resources\\assets\\mtr_memory_sharing\\lang\\zh_cn.json",
+      "target": "build-inputs/companion/inputs/src/main/resources/assets/mtr_memory_sharing/lang/zh_cn.json",
+      "started_at": "2026-11-16T16:12:22.673223+00:00",
+      "read_completed_at": "2026-11-16T16:12:22.683328+00:00",
+      "bytes": 113,
+      "sha256": "2f3e9bf2726f455abea8a6081711954417493949798c9278c2f3e07537c21131",
+      "source_size_before": 113,
+      "source_size_after": 113
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-049\\full-load-startup\\build-bindings-02\\companion\\inputs\\src\\main\\resources\\pack.mcmeta",
+      "target": "build-inputs/companion/inputs/src/main/resources/pack.mcmeta",
+      "started_at": "2026-11-16T16:12:22.801387+00:00",
+      "read_completed_at": "2026-11-16T16:12:22.803915+00:00",
+      "bytes": 127,
+      "sha256": "cb0c633e325e5487a39079e4186c7b46bf6410f83e07cc5adabbdef0f54a770a",
+      "source_size_before": 127,
+      "source_size_after": 127
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-049\\full-load-startup\\build-bindings-02\\companion\\inputs\\src\\main\\resources\\pack.png",
+      "target": "build-inputs/companion/inputs/src/main/resources/pack.png",
+      "started_at": "2026-11-16T16:12:22.808979+00:00",
+      "read_completed_at": "2026-11-16T16:12:22.814715+00:00",
+      "bytes": 243217,
+      "sha256": "9b9f413f5e6d0350be08e2460b1b9cbe84e317143976b4b1b13208d09ffac8a7",
+      "source_size_before": 243217,
+      "source_size_after": 243217
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-049\\full-load-startup\\build-bindings-02\\companion\\inputs\\src\\targets\\official\\java\\site\\benli06\\PackedVertices.java",
+      "target": "build-inputs/companion/inputs/src/targets/official/java/site/benli06/PackedVertices.java",
+      "started_at": "2026-11-16T16:12:22.822715+00:00",
+      "read_completed_at": "2026-11-16T16:12:22.824811+00:00",
+      "bytes": 5863,
+      "sha256": "83c1121d86d3a02f35d9585976399ade88fc744523d3dd20453de0af8ddb7404",
+      "source_size_before": 5863,
+      "source_size_after": 5863
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-049\\full-load-startup\\build-bindings-02\\companion\\inputs\\src\\targets\\official\\java\\site\\benli06\\SharedBlockbenchLoader.java",
+      "target": "build-inputs/companion/inputs/src/targets/official/java/site/benli06/SharedBlockbenchLoader.java",
+      "started_at": "2026-11-16T16:12:22.984689+00:00",
+      "read_completed_at": "2026-11-16T16:12:22.989515+00:00",
+      "bytes": 1816,
+      "sha256": "62d081e56e318bddf4a6a26116cb12d9aa36f8cbe1934e4607b621e7fdc626a9",
+      "source_size_before": 1816,
+      "source_size_after": 1816
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-049\\full-load-startup\\build-bindings-02\\companion\\inputs\\src\\targets\\official\\java\\site\\benli06\\mixin\\PackedModelGroupMixin.java",
+      "target": "build-inputs/companion/inputs/src/targets/official/java/site/benli06/mixin/PackedModelGroupMixin.java",
+      "started_at": "2026-11-16T16:12:22.997598+00:00",
+      "read_completed_at": "2026-11-16T16:12:23.000892+00:00",
+      "bytes": 2779,
+      "sha256": "9c5c4bfaedee250e2b1b139bef5a410d7f2d1a43f331e36ab6d98c7b8d6a19bf",
+      "source_size_before": 2779,
+      "source_size_after": 2779
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-049\\full-load-startup\\build-bindings-02\\companion\\inputs\\src\\targets\\official\\java\\site\\benli06\\mixin\\ResourceTextReadMixin.java",
+      "target": "build-inputs/companion/inputs/src/targets/official/java/site/benli06/mixin/ResourceTextReadMixin.java",
+      "started_at": "2026-11-16T16:12:23.009418+00:00",
+      "read_completed_at": "2026-11-16T16:12:23.013277+00:00",
+      "bytes": 1132,
+      "sha256": "54cc5f0a8846a748955e09b9028a7b020f98a9a24f16356f46b31e20839cd779",
+      "source_size_before": 1132,
+      "source_size_after": 1132
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-049\\full-load-startup\\build-bindings-02\\companion\\inputs\\src\\targets\\official\\java\\site\\benli06\\mixin\\VertexColorMixin.java",
+      "target": "build-inputs/companion/inputs/src/targets/official/java/site/benli06/mixin/VertexColorMixin.java",
+      "started_at": "2026-11-16T16:12:23.020670+00:00",
+      "read_completed_at": "2026-11-16T16:12:23.136475+00:00",
+      "bytes": 638,
+      "sha256": "e22c48c2e22bc15a47199671e8db8a2ed490f9c985f6e66c0d5c5201fdcff27b",
+      "source_size_before": 638,
+      "source_size_after": 638
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049c\\mods\\mtr-native-observer-official-nf248-1.0.3.jar",
+      "target": "instance/mods/mtr-native-observer-official-nf248-1.0.3.jar",
+      "started_at": "2026-11-16T16:12:23.145885+00:00",
+      "read_completed_at": "2026-11-16T16:12:23.151367+00:00",
+      "bytes": 44068,
+      "sha256": "1a4e69a81e8baaeaf30e76b7647a371a39411ab7687934da83742c0fdce8487d",
+      "source_size_before": 44068,
+      "source_size_after": 44068
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-049\\publisher-race\\sealed-01\\official-nf248\\mtr-native-observer-official-nf248-1.0.3.build.json",
+      "target": "build-inputs/observer/mtr-native-observer-official-nf248-1.0.3.build.json",
+      "started_at": "2026-11-16T16:12:23.169197+00:00",
+      "read_completed_at": "2026-11-16T16:12:23.172005+00:00",
+      "bytes": 4673,
+      "sha256": "3c4fc44c8b92bb0ca65c1b0f6245e7b4656714f7f8577350e341416a1923cef5",
+      "source_size_before": 4673,
+      "source_size_after": 4673
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-049\\publisher-race\\sealed-01\\source\\build.gradle",
+      "target": "build-inputs/observer/inputs/build.gradle",
+      "started_at": "2026-11-16T16:12:23.186303+00:00",
+      "read_completed_at": "2026-11-16T16:12:23.189854+00:00",
+      "bytes": 29818,
+      "sha256": "5054012da1dc10622fbee281b53d169acc3ba6f0a759dc23db6d6e1822642413",
+      "source_size_before": 29818,
+      "source_size_after": 29818
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-049\\publisher-race\\sealed-01\\source\\build\\generated\\neutral-probe\\official-nf248\\META-INF\\neoforge.mods.toml",
+      "target": "build-inputs/observer/inputs/build/generated/neutral-probe/official-nf248/META-INF/neoforge.mods.toml",
+      "started_at": "2026-11-16T16:12:23.407388+00:00",
+      "read_completed_at": "2026-11-16T16:12:23.410858+00:00",
+      "bytes": 649,
+      "sha256": "2664df1c3e86868afdc05fda87311da9ab1a8a1adcfe1b7e2012918ad6eb07a3",
+      "source_size_before": 649,
+      "source_size_after": 649
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-049\\publisher-race\\sealed-01\\source\\build\\generated\\neutral-probe\\official-nf248\\capabilities.json",
+      "target": "build-inputs/observer/inputs/build/generated/neutral-probe/official-nf248/capabilities.json",
+      "started_at": "2026-11-16T16:12:23.463457+00:00",
+      "read_completed_at": "2026-11-16T16:12:23.465416+00:00",
+      "bytes": 512,
+      "sha256": "ae964b07f1de72328a44cd3c5be37655624a790e8562fc954705fe339febdea4",
+      "source_size_before": 512,
+      "source_size_after": 512
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-049\\publisher-race\\sealed-01\\source\\build\\generated\\neutral-probe\\official-nf248\\mtr-native-observer-target.json",
+      "target": "build-inputs/observer/inputs/build/generated/neutral-probe/official-nf248/mtr-native-observer-target.json",
+      "started_at": "2026-11-16T16:12:23.473641+00:00",
+      "read_completed_at": "2026-11-16T16:12:23.477157+00:00",
+      "bytes": 694,
+      "sha256": "79d1e3c69bf1d5633a2baf04114c5dd311e30bce6c7ca20eccf31b6934f18137",
+      "source_size_before": 694,
+      "source_size_after": 694
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-049\\publisher-race\\sealed-01\\source\\build\\generated\\neutral-probe\\official-nf248\\mtr-native-observer.mixins.json",
+      "target": "build-inputs/observer/inputs/build/generated/neutral-probe/official-nf248/mtr-native-observer.mixins.json",
+      "started_at": "2026-11-16T16:12:23.720105+00:00",
+      "read_completed_at": "2026-11-16T16:12:23.726686+00:00",
+      "bytes": 477,
+      "sha256": "5263b013d308c3b9a68253eee1a7e1cb177f4926470c03020e8c6791131d3776",
+      "source_size_before": 477,
+      "source_size_after": 477
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-049\\publisher-race\\sealed-01\\source\\config\\targets.json",
+      "target": "build-inputs/observer/inputs/config/targets.json",
+      "started_at": "2026-11-16T16:12:23.740495+00:00",
+      "read_completed_at": "2026-11-16T16:12:23.744999+00:00",
+      "bytes": 1416,
+      "sha256": "e3d1d3a81d4fe8d7e60ba376654c943cc9766ce1d213b119fe7f6b175ac1d4ff",
+      "source_size_before": 1416,
+      "source_size_after": 1416
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-049\\publisher-race\\sealed-01\\source\\tools\\probes\\io\\java\\dev\\abenli\\probeio\\AtomicSnapshot.java",
+      "target": "build-inputs/observer/inputs/tools/probes/io/java/dev/abenli/probeio/AtomicSnapshot.java",
+      "started_at": "2026-11-16T16:12:23.752338+00:00",
+      "read_completed_at": "2026-11-16T16:12:23.769019+00:00",
+      "bytes": 4216,
+      "sha256": "167b2df6238169a6dad2ce27ec0849b12ea5dd041442829179df5b5277d81cae",
+      "source_size_before": 4216,
+      "source_size_after": 4216
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-049\\publisher-race\\sealed-01\\source\\tools\\probes\\neutral\\java\\dev\\abenli\\neutralprobe\\DiagnosticTracker.java",
+      "target": "build-inputs/observer/inputs/tools/probes/neutral/java/dev/abenli/neutralprobe/DiagnosticTracker.java",
+      "started_at": "2026-11-16T16:12:23.879740+00:00",
+      "read_completed_at": "2026-11-16T16:12:23.887129+00:00",
+      "bytes": 1970,
+      "sha256": "d7fe099e6d99491171774ebbb923fc2faba4f5d6d027d2562333460dfe9a6355",
+      "source_size_before": 1970,
+      "source_size_after": 1970
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-049\\publisher-race\\sealed-01\\source\\tools\\probes\\neutral\\java\\dev\\abenli\\neutralprobe\\EpochTracker.java",
+      "target": "build-inputs/observer/inputs/tools/probes/neutral/java/dev/abenli/neutralprobe/EpochTracker.java",
+      "started_at": "2026-11-16T16:12:24.018572+00:00",
+      "read_completed_at": "2026-11-16T16:12:24.025744+00:00",
+      "bytes": 2412,
+      "sha256": "e528056801e40314d46cfbb1d240923bb9f78f250ab63a04b0f4c2efb6dbd036",
+      "source_size_before": 2412,
+      "source_size_after": 2412
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-049\\publisher-race\\sealed-01\\source\\tools\\probes\\neutral\\java\\dev\\abenli\\neutralprobe\\ExistingCaches.java",
+      "target": "build-inputs/observer/inputs/tools/probes/neutral/java/dev/abenli/neutralprobe/ExistingCaches.java",
+      "started_at": "2026-11-16T16:12:24.030506+00:00",
+      "read_completed_at": "2026-11-16T16:12:24.034165+00:00",
+      "bytes": 752,
+      "sha256": "cdf26f83a4fb246b3d04286f89c3b35fe2d351468b5cbd418f75e1c43daceba1",
+      "source_size_before": 752,
+      "source_size_after": 752
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-049\\publisher-race\\sealed-01\\source\\tools\\probes\\neutral\\java\\dev\\abenli\\neutralprobe\\NativeCompatibilityPlugin.java",
+      "target": "build-inputs/observer/inputs/tools/probes/neutral/java/dev/abenli/neutralprobe/NativeCompatibilityPlugin.java",
+      "started_at": "2026-11-16T16:12:24.158502+00:00",
+      "read_completed_at": "2026-11-16T16:12:24.162445+00:00",
+      "bytes": 2205,
+      "sha256": "e55d46f296ca48b6c1f76fddfe9dd2d5b19c0746050f51111d6cc63398041625",
+      "source_size_before": 2205,
+      "source_size_after": 2205
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-049\\publisher-race\\sealed-01\\source\\tools\\probes\\neutral\\java\\dev\\abenli\\neutralprobe\\NativeModelDiagnostics.java",
+      "target": "build-inputs/observer/inputs/tools/probes/neutral/java/dev/abenli/neutralprobe/NativeModelDiagnostics.java",
+      "started_at": "2026-11-16T16:12:24.173568+00:00",
+      "read_completed_at": "2026-11-16T16:12:24.177066+00:00",
+      "bytes": 5481,
+      "sha256": "d3726a66e0eee7469631c6a4c2b9c13bd42025c44525ed722b22d392317cb729",
+      "source_size_before": 5481,
+      "source_size_after": 5481
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-049\\publisher-race\\sealed-01\\source\\tools\\probes\\neutral\\java\\dev\\abenli\\neutralprobe\\NativeObserver.java",
+      "target": "build-inputs/observer/inputs/tools/probes/neutral/java/dev/abenli/neutralprobe/NativeObserver.java",
+      "started_at": "2026-11-16T16:12:24.184713+00:00",
+      "read_completed_at": "2026-11-16T16:12:24.187901+00:00",
+      "bytes": 9782,
+      "sha256": "de17a424fa0aa10c4829e60fec7f5ba8c1f1f36265b424935aa57bbe676589a8",
+      "source_size_before": 9782,
+      "source_size_after": 9782
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-049\\publisher-race\\sealed-01\\source\\tools\\probes\\neutral\\java\\dev\\abenli\\neutralprobe\\NativeRegistry.java",
+      "target": "build-inputs/observer/inputs/tools/probes/neutral/java/dev/abenli/neutralprobe/NativeRegistry.java",
+      "started_at": "2026-11-16T16:12:24.347428+00:00",
+      "read_completed_at": "2026-11-16T16:12:24.522487+00:00",
+      "bytes": 878,
+      "sha256": "dc5bfa9ed7db4240df6659c30980005a5f46d5a95c5b26a18459e50fef854755",
+      "source_size_before": 878,
+      "source_size_after": 878
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-049\\publisher-race\\sealed-01\\source\\tools\\probes\\neutral\\java\\dev\\abenli\\neutralprobe\\NativeScene.java",
+      "target": "build-inputs/observer/inputs/tools/probes/neutral/java/dev/abenli/neutralprobe/NativeScene.java",
+      "started_at": "2026-11-16T16:12:24.532461+00:00",
+      "read_completed_at": "2026-11-16T16:12:24.541224+00:00",
+      "bytes": 5496,
+      "sha256": "f9db55850823262e2cda33be445b4280720f002512bdccfad1377ee306651ba9",
+      "source_size_before": 5496,
+      "source_size_after": 5496
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-049\\publisher-race\\sealed-01\\source\\tools\\probes\\neutral\\java\\dev\\abenli\\neutralprobe\\NativeTarget.java",
+      "target": "build-inputs/observer/inputs/tools/probes/neutral/java/dev/abenli/neutralprobe/NativeTarget.java",
+      "started_at": "2026-11-16T16:12:24.547012+00:00",
+      "read_completed_at": "2026-11-16T16:12:24.552070+00:00",
+      "bytes": 2031,
+      "sha256": "41fd47c5c206459c2aadcc7bc19b661d039d7e63e55330e043e9c12da794f212",
+      "source_size_before": 2031,
+      "source_size_after": 2031
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-049\\publisher-race\\sealed-01\\source\\tools\\probes\\neutral\\java\\dev\\abenli\\neutralprobe\\ObservationSchema.java",
+      "target": "build-inputs/observer/inputs/tools/probes/neutral/java/dev/abenli/neutralprobe/ObservationSchema.java",
+      "started_at": "2026-11-16T16:12:24.557542+00:00",
+      "read_completed_at": "2026-11-16T16:12:24.666238+00:00",
+      "bytes": 3810,
+      "sha256": "5e46aa608040073c958a43bdd702e0c6adf9621c55dcd8387507d0e9265d814c",
+      "source_size_before": 3810,
+      "source_size_after": 3810
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-049\\publisher-race\\sealed-01\\source\\tools\\probes\\neutral\\java\\dev\\abenli\\neutralprobe\\RegistrationCounts.java",
+      "target": "build-inputs/observer/inputs/tools/probes/neutral/java/dev/abenli/neutralprobe/RegistrationCounts.java",
+      "started_at": "2026-11-16T16:12:24.688049+00:00",
+      "read_completed_at": "2026-11-16T16:12:25.061920+00:00",
+      "bytes": 464,
+      "sha256": "47cecc739d67218c160bbc76b12d611c5ba24f49b529066fd1d099d4ae72f1c2",
+      "source_size_before": 464,
+      "source_size_after": 464
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-049\\publisher-race\\sealed-01\\source\\tools\\probes\\neutral\\java\\dev\\abenli\\neutralprobe\\mixin\\NativeClientDataAccess.java",
+      "target": "build-inputs/observer/inputs/tools/probes/neutral/java/dev/abenli/neutralprobe/mixin/NativeClientDataAccess.java",
+      "started_at": "2026-11-16T16:12:25.075270+00:00",
+      "read_completed_at": "2026-11-16T16:12:25.610097+00:00",
+      "bytes": 423,
+      "sha256": "40a5948959b7e5efa96dfff507891d689908a50872d3d14623357fe81da5d3f4",
+      "source_size_before": 423,
+      "source_size_after": 423
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-049\\publisher-race\\sealed-01\\source\\tools\\probes\\neutral\\java\\dev\\abenli\\neutralprobe\\mixin\\NativeInvalidModelMixin.java",
+      "target": "build-inputs/observer/inputs/tools/probes/neutral/java/dev/abenli/neutralprobe/mixin/NativeInvalidModelMixin.java",
+      "started_at": "2026-11-16T16:12:25.649720+00:00",
+      "read_completed_at": "2026-11-16T16:12:25.654778+00:00",
+      "bytes": 1682,
+      "sha256": "09ca0ebb19d9dfb1b26b9936ade7b6abc6cb638130d11fff9ef79d65b5c10696",
+      "source_size_before": 1682,
+      "source_size_after": 1682
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-049\\publisher-race\\sealed-01\\source\\tools\\probes\\neutral\\java\\dev\\abenli\\neutralprobe\\mixin\\NativePendingAccess.java",
+      "target": "build-inputs/observer/inputs/tools/probes/neutral/java/dev/abenli/neutralprobe/mixin/NativePendingAccess.java",
+      "started_at": "2026-11-16T16:12:25.660495+00:00",
+      "read_completed_at": "2026-11-16T16:12:25.664397+00:00",
+      "bytes": 466,
+      "sha256": "c8085826c1cea254d4e5b1baad87065d0e4facea8f3bff3a00f7b03ed71779dd",
+      "source_size_before": 466,
+      "source_size_after": 466
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-049\\publisher-race\\sealed-01\\source\\tools\\probes\\neutral\\java\\dev\\abenli\\neutralprobe\\mixin\\NativeResourceEpochMixin.java",
+      "target": "build-inputs/observer/inputs/tools/probes/neutral/java/dev/abenli/neutralprobe/mixin/NativeResourceEpochMixin.java",
+      "started_at": "2026-11-16T16:12:25.676266+00:00",
+      "read_completed_at": "2026-11-16T16:12:25.812716+00:00",
+      "bytes": 750,
+      "sha256": "193391afbf1bd96f4a7f52e8f97472d1ee75a5e198c74a084b44ec168be7fe32",
+      "source_size_before": 750,
+      "source_size_after": 750
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-049\\publisher-race\\sealed-01\\source\\tools\\probes\\neutral\\java\\dev\\abenli\\neutralprobe\\mixin\\VehicleCacheAccess.java",
+      "target": "build-inputs/observer/inputs/tools/probes/neutral/java/dev/abenli/neutralprobe/mixin/VehicleCacheAccess.java",
+      "started_at": "2026-11-16T16:12:25.976136+00:00",
+      "read_completed_at": "2026-11-16T16:12:25.981040+00:00",
+      "bytes": 541,
+      "sha256": "51cb9311a195c7ad331eedbca9dfcf19ba3cf73f5337ded8cf7896d2eb961340",
+      "source_size_before": 541,
+      "source_size_after": 541
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-049\\publisher-race\\sealed-01\\source\\tools\\probes\\neutral\\java\\dev\\abenli\\neutralprobe\\mixin\\VehicleProgressAccess.java",
+      "target": "build-inputs/observer/inputs/tools/probes/neutral/java/dev/abenli/neutralprobe/mixin/VehicleProgressAccess.java",
+      "started_at": "2026-11-16T16:12:25.987012+00:00",
+      "read_completed_at": "2026-11-16T16:12:25.989397+00:00",
+      "bytes": 336,
+      "sha256": "6b797416f707714e3f3a351ea19d4216659fded1a35f4bfbe977ece03da832d1",
+      "source_size_before": 336,
+      "source_size_after": 336
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-049\\publisher-race\\sealed-01\\source\\tools\\probes\\neutral\\observer.json",
+      "target": "build-inputs/observer/inputs/tools/probes/neutral/observer.json",
+      "started_at": "2026-11-16T16:12:25.996845+00:00",
+      "read_completed_at": "2026-11-16T16:12:25.999483+00:00",
+      "bytes": 807,
+      "sha256": "07ef18d6e4a5ff1b2d738b7ec57531e56823c3d8cf0827ed7206d26eabffdfd5",
+      "source_size_before": 807,
+      "source_size_after": 807
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-047\\native-invalid-model\\assessment.json",
+      "target": "proofs/evidence/engineering-047/native-invalid-model/assessment.json",
+      "started_at": "2026-11-16T16:13:42.105923+00:00",
+      "read_completed_at": "2026-11-16T16:13:42.108892+00:00",
+      "bytes": 25152,
+      "sha256": "7f5ab39b528900363e75f7fabca99fe42cd835a63d3338c50ce7d2d0f08e7c08",
+      "source_size_before": 25152,
+      "source_size_after": 25152
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-047\\native-invalid-model\\legacy-directory-assessment.json",
+      "target": "proofs/evidence/engineering-047/native-invalid-model/legacy-directory-assessment.json",
+      "started_at": "2026-11-16T16:13:42.135154+00:00",
+      "read_completed_at": "2026-11-16T16:13:42.137409+00:00",
+      "bytes": 1853,
+      "sha256": "e29884a6d6344c0280aee7463fa85e8b14a11a3def5d5dd92b5c66ba93b3ef01",
+      "source_size_before": 1853,
+      "source_size_after": 1853
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-047\\native-invalid-model\\rail-consumption-assessment.json",
+      "target": "proofs/evidence/engineering-047/native-invalid-model/rail-consumption-assessment.json",
+      "started_at": "2026-11-16T16:13:42.143773+00:00",
+      "read_completed_at": "2026-11-16T16:13:42.150233+00:00",
+      "bytes": 8410,
+      "sha256": "20d32572f83c3581db4b9b9812038252cb9693bb394da9e9ae42ee6620174cba",
+      "source_size_before": 8410,
+      "source_size_after": 8410
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-048\\native-invalid-model\\startup-prefix\\attribution.json",
+      "target": "proofs/evidence/engineering-048/native-invalid-model/startup-prefix/attribution.json",
+      "started_at": "2026-11-16T16:13:42.157954+00:00",
+      "read_completed_at": "2026-11-16T16:13:42.160899+00:00",
+      "bytes": 3946,
+      "sha256": "71c89b01d4621bf379c162f54e53bcfcdd9979426faa47720cbf5e495adcd8f5",
+      "source_size_before": 3946,
+      "source_size_after": 3946
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-048\\native-invalid-model\\saved-rail-styles\\assessment.json",
+      "target": "proofs/evidence/engineering-048/native-invalid-model/saved-rail-styles/assessment.json",
+      "started_at": "2026-11-16T16:13:42.175776+00:00",
+      "read_completed_at": "2026-11-16T16:13:42.180286+00:00",
+      "bytes": 18654,
+      "sha256": "98936eb3318ea47cd496b429145aa1237857a0d8b89349f101a258dba56e498a",
+      "source_size_before": 18654,
+      "source_size_after": 18654
+    }
+  ],
+  "pack_hashing": "Each of 16 plan-source/installed archive pairs is read once; read receipts are preserved.",
+  "tool_exit_provenance": "Root reports actual terminal exit 0; no separate original terminal receipt is present in this attempt directory.",
+  "scope": "Completed historical settled startup window only. No current-source substitution, game input, exit/reload/route/rendering/performance acceptance."
+}
