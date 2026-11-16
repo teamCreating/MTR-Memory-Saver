@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "probe_kind": "official-native-observer",
+  "observer_version": "1.0.1",
+  "mod_id": "mtr_native_observer",
+  "frame_event": "mtrtest.ClientFrame",
+  "server_tick_event": "mtrtest.ServerTick",
+  "snapshot_path": "game-probe/native-observer.json",
+  "epochs_path": "game-probe/native-resource-epochs.jsonl",
+  "capabilities": {
+    "native_pending": true,
+    "registration_counts": true,
+    "native_epochs": true,
+    "heap": true,
+    "world": true,
+    "train_state": true,
+    "cache_state": true,
+    "frame_jfr": true,
+    "server_tick_jfr": true,
+    "module_counters": false,
+    "active_read_permits": false,
+    "text_workspace": false
+  }
+}

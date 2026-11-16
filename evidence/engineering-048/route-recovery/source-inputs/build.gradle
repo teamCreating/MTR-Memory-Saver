@@ -1,0 +1,498 @@
+import groovy.json.JsonOutput
+import groovy.json.JsonSlurper
+import java.security.MessageDigest
+import java.nio.file.Files
+import java.nio.file.StandardCopyOption
+
+plugins {
+    id 'java'
+    id 'net.neoforged.moddev' version '2.0.148'
+}
+
+def matrix = new JsonSlurper().parse(file('config/targets.json'))
+def targetName = providers.gradleProperty('target').getOrElse(matrix.default)
+def target = matrix.targets[targetName]
+if (target == null) throw new GradleException("Unknown target '${targetName}'. Choose ${matrix.targets.keySet()}.")
+def mtr = matrix.mtr[target.variant]
+def acceptanceProbe = providers.gradleProperty('acceptanceProbe').map { it.toBoolean() }.getOrElse(false)
+def probeIds = ['vehicle_performance_probe', 'mtr_memory_loader_probe', 'mtr_packaged_client_observer'] + (target.variant == 'v6' ? ['v6_memory_compatibility_probe'] : [])
+version = providers.gradleProperty('modVersion').get()
+if (!(version ==~ /0\.\d+\.\d+(?:[-+][A-Za-z0-9.-]+)?/)) {
+    throw new GradleException('Development releases must use a 0.x.x version.')
+}
+group = matrix.javaPackage
+base.archivesName = "${rootProject.name}-${targetName}"
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(matrix.java as int)
+repositories { mavenCentral() }
+
+neoForge {
+    enable {
+        version = target.neoForge
+        disableRecompilation = true
+    }
+    runs {
+        client {
+            client()
+            gameDirectory = file("build/run/${targetName}")
+            if (acceptanceProbe) {
+                jvmArguments.add('-Xmx3g')
+                systemProperty('mtr.memory.acceptance', 'true')
+                systemProperty('mtr.memory.acceptance.exit', 'true')
+                if (target.variant == 'v6') {
+                    systemProperty('mtr.memory.acceptance.gpuAtTitle', 'true')
+                    systemProperty('mtr.memory.acceptance.gpuIterations', '100')
+                }
+            }
+        }
+    }
+    mods {
+        mtr_memory_sharing { sourceSet sourceSets.main }
+    }
+}
+
+sourceSets {
+    main {
+        java.setSrcDirs(['src/main/java', "src/targets/${target.variant}/java"])
+        if (target.variant == 'v6') java.exclude('**/VertexColorMixin.java')
+        resources.srcDir(layout.buildDirectory.dir("generated/resources/${targetName}"))
+    }
+    test {
+        java.srcDirs = ['src/test/java', 'tools/acceptance/java']
+        compileClasspath += sourceSets.main.compileClasspath
+        runtimeClasspath += sourceSets.main.compileClasspath
+    }
+    probe {
+        java.srcDirs = ['tools/probes/common/java', 'tools/probes/io/java']
+        if (target.variant == 'v6') java.srcDir('tools/probes/v6/java')
+        compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
+        resources.srcDir(layout.buildDirectory.dir("generated/probe/${targetName}"))
+    }
+}
+
+def suppliedMtr = providers.gradleProperty('mtrJar').map { file(it) }.getOrNull()
+// A verified canonical dependency name also avoids Windows Java argument-file
+// decoding failures for user-supplied non-ASCII artifact filenames.
+def mtrFile = file(".cache/dependencies/mtr-${mtr.sha256}.jar")
+def sha256 = { File value ->
+    MessageDigest md = MessageDigest.getInstance('SHA-256')
+    value.withInputStream { input ->
+        byte[] buffer = new byte[65536]
+        for (int count; (count = input.read(buffer)) != -1;) md.update(buffer, 0, count)
+    }
+    md.digest().encodeHex().toString()
+}
+
+tasks.register('prepareMtr') {
+    inputs.property('releaseSha256', mtr.sha256)
+    if (suppliedMtr != null) inputs.file(suppliedMtr)
+    outputs.file(mtrFile)
+    // Verify even a previously cached or explicitly supplied artifact.
+    outputs.upToDateWhen { false }
+    doLast {
+        if (suppliedMtr != null) {
+            if (!suppliedMtr.isFile() || sha256(suppliedMtr) != mtr.sha256)
+                throw new GradleException('Supplied MTR fingerprint differs from the selected target.')
+            mtrFile.parentFile.mkdirs()
+            if (!mtrFile.isFile() || sha256(mtrFile) != mtr.sha256)
+                Files.copy(suppliedMtr.toPath(), mtrFile.toPath(), StandardCopyOption.REPLACE_EXISTING)
+        }
+        if (!mtrFile.isFile()) {
+            if (!mtr.url) {
+                throw new GradleException("Supply the audited ${target.variant} MTR JAR with -PmtrJar=<path>. No game instance is required.")
+            }
+            mtrFile.parentFile.mkdirs()
+            File partial = new File(mtrFile.parentFile, mtrFile.name + '.partial')
+            try {
+                def connection = new URI(mtr.url).toURL().openConnection()
+                connection.connectTimeout = 30000
+                connection.readTimeout = 60000
+                connection.getInputStream().withCloseable { input -> partial.withOutputStream { it << input } }
+                if (sha256(partial) != mtr.sha256) throw new GradleException('Downloaded MTR fingerprint differs from the selected target.')
+                Files.move(partial.toPath(), mtrFile.toPath(), StandardCopyOption.REPLACE_EXISTING)
+            } finally { if (partial.exists()) partial.delete() }
+        }
+        if (sha256(mtrFile) != mtr.sha256) throw new GradleException('MTR fingerprint differs from the selected target; version labels are insufficient.')
+        new java.util.zip.ZipFile(mtrFile).withCloseable { zip ->
+            def entry = zip.getEntry('META-INF/neoforge.mods.toml')
+            if (entry == null) throw new GradleException('Audited MTR loader metadata is missing.')
+            String metadata = zip.getInputStream(entry).withCloseable { it.getText('UTF-8') }
+            def declared = metadata =~ /(?m)^version\s*=\s*"([^"]+)"/
+            if (!declared.find() || declared.group(1) != mtr.version)
+                throw new GradleException('The target matrix MTR version differs from its audited binary metadata.')
+        }
+    }
+}
+
+dependencies {
+    compileOnly files(mtrFile)
+    runtimeOnly files(mtrFile)
+    testImplementation files(mtrFile)
+    testImplementation platform('org.junit:junit-bom:5.11.4')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    // Match the strict Minecraft 1.21.1 runtime constraint.
+    testRuntimeOnly 'org.apache.logging.log4j:log4j-core:2.22.1'
+}
+
+tasks.withType(JavaCompile).configureEach {
+    dependsOn tasks.named('prepareMtr')
+    options.encoding = 'UTF-8'
+    options.compilerArgs += ['-proc:none', '-Xlint:unchecked']
+    options.release = matrix.java as int
+    options.debugOptions.debugLevel = 'source,lines'
+}
+
+tasks.register('generateMetadata') {
+    inputs.file('config/targets.json')
+    inputs.property('modVersion', project.version.toString())
+    inputs.property('target', targetName)
+    def destination = layout.buildDirectory.dir("generated/resources/${targetName}")
+    outputs.dir(destination)
+    doLast {
+        File output = destination.get().asFile
+        new File(output, 'META-INF').mkdirs()
+        def writeJson = { String path, Object object ->
+            File destinationFile = new File(output, path)
+            destinationFile.parentFile.mkdirs()
+            destinationFile.setText(JsonOutput.prettyPrint(JsonOutput.toJson(object)) + '\n', 'UTF-8')
+        }
+        writeJson('mtr-memory-target.json', [target: targetName, version: project.version.toString(),
+                minecraft: matrix.minecraft, neoForge: target.neoForge, mtrSha256: mtr.sha256, variant: target.variant])
+        writeJson('mtr-memory-sharing.mixins.json', [required: true, minVersion: '0.8',
+                package: matrix.javaPackage + '.mixin', plugin: matrix.javaPackage + '.CompatibilityPlugin',
+                compatibilityLevel: 'JAVA_21', client: matrix.mixins + matrix.variantMixins[target.variant],
+                injectors: [defaultRequire: 1]])
+        new File(output, 'META-INF/neoforge.mods.toml').setText("""modLoader="lowcodefml"
+loaderVersion="[4,)"
+license="MIT"
+[[mods]]
+modId="${matrix.modId}"
+version="${project.version}"
+displayName="${matrix.modName}"
+authors="A-BenLi06"
+description="Shared resource loading for Minecraft Transit Railway."
+logoFile="pack.png"
+logoBlur=false
+[[dependencies.${matrix.modId}]]
+modId="neoforge"
+type="required"
+versionRange="[${target.neoForge}]"
+ordering="NONE"
+side="CLIENT"
+[[dependencies.${matrix.modId}]]
+modId="minecraft"
+type="required"
+versionRange="[${matrix.minecraft}]"
+ordering="NONE"
+side="CLIENT"
+[[dependencies.${matrix.modId}]]
+modId="mtr"
+type="required"
+versionRange="[${mtr.version}]"
+ordering="AFTER"
+side="CLIENT"
+[[mixins]]
+config="mtr-memory-sharing.mixins.json"
+""", 'UTF-8')
+    }
+}
+
+tasks.named('processResources') { dependsOn tasks.named('generateMetadata') }
+tasks.named('test') {
+    useJUnitPlatform()
+    maxHeapSize = '768m'
+    testLogging { events 'failed', 'skipped'; exceptionFormat 'full' }
+}
+
+if (acceptanceProbe) {
+    probeIds.each { id -> neoForge.mods.register(id) { sourceSet sourceSets.probe } }
+}
+tasks.withType(AbstractArchiveTask).configureEach {
+    preserveFileTimestamps = false
+    reproducibleFileOrder = true
+}
+tasks.named('jar') {
+    from('LICENSE')
+    manifest.attributes('Implementation-Version': project.version, 'MTR-Memory-Target': targetName)
+}
+tasks.register('buildManifest') {
+    dependsOn tasks.named('jar')
+    inputs.file(tasks.jar.archiveFile)
+    inputs.files(sourceSets.main.allSource, file('config/targets.json'), file('build.gradle'))
+    inputs.property('target', targetName)
+    inputs.property('version', project.version.toString())
+    def destination = layout.buildDirectory.file("libs/${base.archivesName.get()}-${version}.build.json")
+    outputs.file(destination)
+    doLast {
+        File jarFile = tasks.jar.archiveFile.get().asFile
+        def hashes = [:]
+        (sourceSets.main.allSource.files + file('config/targets.json') + file('build.gradle')).findAll { it.isFile() }
+                .sort { it.path }.each { hashes[relativePath(it).replace('\\', '/')] = sha256(it) }
+        destination.get().asFile.setText(JsonOutput.prettyPrint(JsonOutput.toJson([
+                version: project.version.toString(), target: targetName, java: matrix.java, mtrSha256: mtr.sha256,
+                neoForge: target.neoForge, artifact: jarFile.name, sha256: sha256(jarFile), inputs: hashes])) + '\n', 'UTF-8')
+    }
+}
+tasks.register('verifyRelease') {
+    dependsOn tasks.named('buildManifest')
+    inputs.file(tasks.jar.archiveFile)
+    doLast {
+        File jarFile = tasks.jar.archiveFile.get().asFile
+        def recorded = new JsonSlurper().parse(file("build/libs/${base.archivesName.get()}-${version}.build.json"))
+        if (recorded.sha256 != sha256(jarFile)) throw new GradleException('Release identity manifest is stale.')
+        new java.util.zip.ZipFile(jarFile).withCloseable { zip ->
+            def json = { String path ->
+                def entry = zip.getEntry(path)
+                if (entry == null) throw new GradleException("Missing release resource ${path}")
+                zip.getInputStream(entry).withCloseable { new JsonSlurper().parse(it) }
+            }
+            def mixins = json('mtr-memory-sharing.mixins.json')
+            (mixins.client + [mixins.plugin.substring(matrix.javaPackage.length() + 1)]).each { name ->
+                String packagePath = name == 'CompatibilityPlugin' ? matrix.javaPackage : mixins.package
+                if (zip.getEntry(packagePath.replace('.', '/') + '/' + name + '.class') == null)
+                    throw new GradleException("Missing configured Mixin/plugin class ${name}")
+            }
+            if (json('pack.mcmeta').pack.pack_format != matrix.packFormat)
+                throw new GradleException('Pack format does not match selected Minecraft target.')
+            if (json('mtr-memory-target.json').mtrSha256 != mtr.sha256)
+                throw new GradleException('Runtime fingerprint metadata does not match build target.')
+            if (zip.getEntry('pack.png') == null || zip.getEntry('LICENSE') == null)
+                throw new GradleException('Release icon/license missing.')
+        }
+    }
+}
+tasks.named('build') { dependsOn tasks.named('verifyRelease') }
+tasks.register('bundleReadme') {
+    inputs.file('config/targets.json')
+    inputs.property('target', targetName)
+    inputs.property('version', project.version.toString())
+    def destination = layout.buildDirectory.file("generated/delivery/${targetName}/README.md")
+    outputs.file(destination)
+    doLast {
+        File output = destination.get().asFile
+        output.parentFile.mkdirs()
+        output.setText("""# ${matrix.modName} ${version}
+
+Target: `${targetName}`. Install `${base.archivesName.get()}-${version}.jar` into the client's mods directory.
+
+Required: Minecraft ${matrix.minecraft}, NeoForge ${target.neoForge} exactly, MTR ${mtr.version}.
+MTR SHA-256: `${mtr.sha256}`.
+
+See [installation and rollback](docs/INSTALL.md), [support and validation scope](docs/SUPPORT.md) and [license](LICENSE).
+The adjacent build JSON records the companion JAR hash and build inputs.
+This is a development candidate; full-pack performance and long-session acceptance remain separate.
+""", 'UTF-8')
+    }
+}
+
+tasks.register('releaseBundle', Zip) {
+    dependsOn tasks.named('build')
+    archiveBaseName = "${rootProject.name}-${targetName}"
+    destinationDirectory = layout.buildDirectory.dir('releases')
+    from(tasks.jar.archiveFile)
+    from(tasks.named('buildManifest').map { it.outputs.files })
+    from('LICENSE')
+    from(tasks.named('bundleReadme').map { it.outputs.files })
+    from('docs') { include('INSTALL.md', 'SUPPORT.md'); into('docs') }
+    from('config/targets.json') { into('config') }
+}
+
+// Optional tools are separate artifacts and never included in the product JAR.
+tasks.register('generateProbeMetadata') {
+    inputs.property('target', targetName)
+    inputs.property('version', project.version.toString())
+    outputs.dir(layout.buildDirectory.dir("generated/probe/${targetName}"))
+    doLast {
+        File metadata = file("build/generated/probe/${targetName}/META-INF/neoforge.mods.toml")
+        metadata.parentFile.mkdirs()
+        metadata.setText('modLoader="javafml"\nloaderVersion="[4,)"\nlicense="MIT"\n' + probeIds.collect { id ->
+            "[[mods]]\nmodId=\"${id}\"\nversion=\"${version}\"\ndisplayName=\"MTR Memory Acceptance Probe\"\n"
+        }.join('') + '\n[[mixins]]\nconfig="mtr-memory-acceptance.mixins.json"\n', 'UTF-8')
+        file("build/generated/probe/${targetName}/mtr-memory-acceptance.mixins.json").setText(
+                JsonOutput.prettyPrint(JsonOutput.toJson([required: true, minVersion: '0.8',
+                package: matrix.javaPackage + '.probe.mixin', compatibilityLevel: 'JAVA_21',
+                client: ['NativeParserPauseMixin', 'ResourceEpochObservationMixin', 'NativeResourceReadFixtureMixin'], injectors: [defaultRequire: 1]])) + '\n', 'UTF-8')
+    }
+}
+tasks.named('processProbeResources') { dependsOn tasks.named('generateProbeMetadata') }
+tasks.register('probeJar', Jar) {
+    dependsOn tasks.named('probeClasses')
+    archiveClassifier = 'acceptance-probe'
+    from(sourceSets.probe.output)
+    from('LICENSE')
+}
+
+tasks.register('auditModels', JavaExec) {
+    dependsOn tasks.named('testClasses')
+    classpath = sourceSets.test.runtimeClasspath
+    javaLauncher = javaToolchains.launcherFor { languageVersion = JavaLanguageVersion.of(matrix.java as int) }
+    mainClass = 'site.benli06.audit.PackedReleaseModelAudit'
+    maxHeapSize = providers.gradleProperty('auditHeap').getOrElse('3g')
+    doFirst {
+        if (!providers.gradleProperty('auditJobs').isPresent()) throw new GradleException('Supply -PauditJobs=<fingerprinted job JSON>.')
+        File output = file(providers.gradleProperty('auditOutput').getOrElse("build/acceptance/models-${targetName}.json"))
+        if (output.exists()) throw new GradleException('Use a fresh audit output.')
+        output.parentFile.mkdirs()
+        args(file(providers.gradleProperty('auditJobs').get()).absolutePath, output.absolutePath)
+    }
+}
+
+// Native observations are byte-identical across companion versions. Neither the
+// source set nor its tests include main/probe output or a companion dependency.
+def neutralSpecFile = file('tools/probes/neutral/observer.json')
+def neutralSpec = new JsonSlurper().parse(neutralSpecFile)
+sourceSets {
+    neutralProbe {
+        java.srcDirs = ['tools/probes/neutral/java', 'tools/probes/io/java']
+        compileClasspath += sourceSets.main.compileClasspath
+        resources.srcDir(layout.buildDirectory.dir("generated/neutral-probe/${targetName}"))
+    }
+    neutralProbeTest {
+        java.srcDirs = ['tools/probes/neutral/test', 'tools/probes/io/test']
+        compileClasspath += sourceSets.neutralProbe.output + sourceSets.main.compileClasspath
+        runtimeClasspath += sourceSets.neutralProbe.output + sourceSets.main.compileClasspath
+    }
+}
+configurations {
+    neutralProbeTestImplementation.extendsFrom testImplementation
+    neutralProbeTestRuntimeOnly.extendsFrom testRuntimeOnly
+}
+gradle.taskGraph.whenReady { graph ->
+    if (target.variant != 'official' && graph.allTasks.any { it.name.toLowerCase(Locale.ROOT).contains('neutralprobe') })
+        throw new GradleException('The native observer supports only the audited official MTR targets.')
+}
+
+tasks.register('generateNeutralProbeMetadata') {
+    inputs.files(neutralSpecFile, file('config/targets.json'))
+    inputs.property('target', targetName)
+    def destination = layout.buildDirectory.dir("generated/neutral-probe/${targetName}")
+    outputs.dir(destination)
+    doLast {
+        File output = destination.get().asFile
+        def writeJson = { String path, Object value ->
+            File destinationFile = new File(output, path)
+            destinationFile.parentFile.mkdirs()
+            destinationFile.setText(JsonOutput.prettyPrint(JsonOutput.toJson(value)) + '\n', 'UTF-8')
+        }
+        writeJson('mtr-native-observer-target.json', [schema_version: neutralSpec.schema_version,
+                probe_kind: neutralSpec.probe_kind, observer_version: neutralSpec.observer_version,
+                mod_id: neutralSpec.mod_id, target: targetName, variant: target.variant,
+                minecraft: matrix.minecraft, java: matrix.java, neoForge: target.neoForge,
+                mtrVersion: mtr.version, mtrSha256: mtr.sha256,
+                frame_event: neutralSpec.frame_event, server_tick_event: neutralSpec.server_tick_event,
+                snapshot_path: neutralSpec.snapshot_path, epochs_path: neutralSpec.epochs_path])
+        writeJson('capabilities.json', [schema_version: neutralSpec.schema_version,
+                probe_kind: neutralSpec.probe_kind, capabilities: neutralSpec.capabilities])
+        writeJson('mtr-native-observer.mixins.json', [required: true, minVersion: '0.8',
+                package: 'dev.abenli.neutralprobe.mixin', plugin: 'dev.abenli.neutralprobe.NativeCompatibilityPlugin',
+                compatibilityLevel: 'JAVA_21', client: ['NativePendingAccess', 'NativeClientDataAccess',
+                'VehicleCacheAccess', 'VehicleProgressAccess', 'NativeResourceEpochMixin'],
+                injectors: [defaultRequire: 1]])
+        File metadata = new File(output, 'META-INF/neoforge.mods.toml')
+        metadata.parentFile.mkdirs()
+        metadata.setText("""modLoader="javafml"
+loaderVersion="[4,)"
+license="MIT"
+[[mods]]
+modId="${neutralSpec.mod_id}"
+version="${neutralSpec.observer_version}"
+displayName="MTR Native Observer"
+authors="A-BenLi06"
+description="Native client state and frame observations."
+[[dependencies.${neutralSpec.mod_id}]]
+modId="neoforge"
+type="required"
+versionRange="[${target.neoForge}]"
+ordering="NONE"
+side="CLIENT"
+[[dependencies.${neutralSpec.mod_id}]]
+modId="minecraft"
+type="required"
+versionRange="[${matrix.minecraft}]"
+ordering="NONE"
+side="CLIENT"
+[[dependencies.${neutralSpec.mod_id}]]
+modId="mtr"
+type="required"
+versionRange="[${mtr.version}]"
+ordering="AFTER"
+side="CLIENT"
+[[mixins]]
+config="mtr-native-observer.mixins.json"
+""", 'UTF-8')
+    }
+}
+tasks.named('processNeutralProbeResources') { dependsOn tasks.named('generateNeutralProbeMetadata') }
+tasks.register('neutralProbeJar', Jar) {
+    dependsOn tasks.named('neutralProbeClasses')
+    archiveBaseName = "mtr-native-observer-${targetName}"
+    archiveVersion = neutralSpec.observer_version
+    from(sourceSets.neutralProbe.output)
+    from('LICENSE')
+    manifest.attributes('Implementation-Version': neutralSpec.observer_version, 'MTR-Native-Observer-Target': targetName)
+}
+tasks.register('neutralProbeTest', Test) {
+    testClassesDirs = sourceSets.neutralProbeTest.output.classesDirs
+    classpath = sourceSets.neutralProbeTest.runtimeClasspath
+    useJUnitPlatform()
+    maxHeapSize = '512m'
+    systemProperty('neutralProbeJfrOutput', layout.buildDirectory.file("neutral-probe/${targetName}/frame-events.jfr").get().asFile.absolutePath)
+    testLogging { events 'failed', 'skipped'; exceptionFormat 'full' }
+}
+tasks.register('neutralProbeManifest') {
+    dependsOn tasks.named('neutralProbeJar')
+    inputs.file(tasks.named('neutralProbeJar').flatMap { it.archiveFile })
+    inputs.files(sourceSets.neutralProbe.allSource, neutralSpecFile, file('config/targets.json'), file('build.gradle'))
+    def destination = layout.buildDirectory.file("libs/mtr-native-observer-${targetName}-${neutralSpec.observer_version}.build.json")
+    outputs.file(destination)
+    doLast {
+        File jarFile = tasks.named('neutralProbeJar').get().archiveFile.get().asFile
+        def hashes = [:]
+        (sourceSets.neutralProbe.allSource.files + neutralSpecFile + file('config/targets.json') + file('build.gradle'))
+                .findAll { it.isFile() }.sort { it.path }.each { hashes[relativePath(it).replace('\\', '/')] = sha256(it) }
+        destination.get().asFile.setText(JsonOutput.prettyPrint(JsonOutput.toJson([
+                schema_version: neutralSpec.schema_version, observer_version: neutralSpec.observer_version,
+                target: targetName, artifact: jarFile.name, sha256: sha256(jarFile),
+                mtrSha256: mtr.sha256, neoForge: target.neoForge, minecraft: matrix.minecraft, java: matrix.java,
+                capabilities: neutralSpec.capabilities, inputs: hashes,
+                scope: 'Tool engineering only; actual loader application, client qualification and observer-off calibration remain unverified'])) + '\n', 'UTF-8')
+    }
+}
+tasks.register('verifyNeutralProbe') {
+    dependsOn tasks.named('neutralProbeManifest'), tasks.named('neutralProbeTest')
+    inputs.file(tasks.named('neutralProbeJar').flatMap { it.archiveFile })
+    doLast {
+        File jarFile = tasks.named('neutralProbeJar').get().archiveFile.get().asFile
+        new java.util.zip.ZipFile(jarFile).withCloseable { zip ->
+            def json = { String path ->
+                def entry = zip.getEntry(path)
+                if (entry == null) throw new GradleException("Missing native observer resource ${path}")
+                zip.getInputStream(entry).withCloseable { new JsonSlurper().parse(it) }
+            }
+            def identity = json('mtr-native-observer-target.json')
+            if (identity.target != targetName || identity.mtrSha256 != mtr.sha256 || identity.neoForge != target.neoForge
+                    || identity.observer_version != neutralSpec.observer_version || identity.variant != 'official')
+                throw new GradleException('Native observer target metadata differs from its selected target.')
+            if (json('capabilities.json').capabilities != neutralSpec.capabilities)
+                throw new GradleException('Native observer capabilities differ from their source contract.')
+            def mixins = json('mtr-native-observer.mixins.json')
+            (mixins.client.collect { mixins.package + '.' + it } + mixins.plugin + 'dev.abenli.neutralprobe.NativeObserver').each { name ->
+                if (zip.getEntry(name.replace('.', '/') + '.class') == null)
+                    throw new GradleException("Missing native observer class ${name}")
+            }
+            zip.entries().each { entry ->
+                if (entry.name.endsWith('.class')) {
+                    if (!entry.name.startsWith('dev/abenli/neutralprobe/') && !entry.name.startsWith('dev/abenli/probeio/'))
+                        throw new GradleException("Unexpected native observer class ${entry.name}")
+                    String pool = zip.getInputStream(entry).withCloseable { new String(it.readAllBytes(), java.nio.charset.StandardCharsets.ISO_8859_1) }
+                    ['site/benli06', 'site.benli06', 'getCachedVehicleResource', 'awaitParsing', 'java/lang/reflect'].each { forbidden ->
+                        if (pool.contains(forbidden)) throw new GradleException("Forbidden native observer class reference ${forbidden}")
+                    }
+                }
+            }
+        }
+        def recorded = new JsonSlurper().parse(file("build/libs/mtr-native-observer-${targetName}-${neutralSpec.observer_version}.build.json"))
+        if (recorded.sha256 != sha256(jarFile)) throw new GradleException('Native observer manifest is stale.')
+    }
+}

@@ -1,0 +1,17 @@
+{
+    "schema_version": 1,
+    "probe_kind": "official-native-observer",
+    "observer_version": "1.0.1",
+    "mod_id": "mtr_native_observer",
+    "target": "official-nf265",
+    "variant": "official",
+    "minecraft": "1.21.1",
+    "java": 21,
+    "neoForge": "21.1.265",
+    "mtrVersion": "4.1.0-beta.2",
+    "mtrSha256": "ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa",
+    "frame_event": "mtrtest.ClientFrame",
+    "server_tick_event": "mtrtest.ServerTick",
+    "snapshot_path": "game-probe/native-observer.json",
+    "epochs_path": "game-probe/native-resource-epochs.jsonl"
+}

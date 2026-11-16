@@ -1,0 +1,30 @@
+[
+  {
+    "TimeCreated": "2026-11-15T07:32:39.1196578+08:00",
+    "ProviderName": "Windows Error Reporting",
+    "Id": 1001,
+    "RecordId": 66378,
+    "Message": "故障存储段 1468673665328192844，类型 4\r\n事件名称: APPCRASH\r\n响应: 不可用\r\nCab ID: 0\r\n\r\n问题签名:\r\nP1: java.exe\r\nP2: 21.0.11.0\r\nP3: 16bab3cc\r\nP4: textinputframework.dll\r\nP5: 10.0.19041.6456\r\nP6: 85253e23\r\nP7: 00000675\r\nP8: 000000000008354b\r\nP9: \r\nP10: \r\n\r\n附加文件:\r\n\\\\?\\C:\\ProgramData\\Microsoft\\Windows\\WER\\Temp\\WER88CE.tmp.mdmp\r\n\\\\?\\C:\\ProgramData\\Microsoft\\Windows\\WER\\Temp\\WER9D03.tmp.WERInternalMetadata.xml\r\n\\\\?\\C:\\ProgramData\\Microsoft\\Windows\\WER\\Temp\\WERA0FB.tmp.xml\r\n\\\\?\\C:\\ProgramData\\Microsoft\\Windows\\WER\\Temp\\WERA261.tmp.csv\r\n\\\\?\\C:\\ProgramData\\Microsoft\\Windows\\WER\\Temp\\WERA427.tmp.txt\r\n\r\n可在此处获取这些文件:\r\n\\\\?\\C:\\ProgramData\\Microsoft\\Windows\\WER\\ReportArchive\\AppCrash_java.exe_5a1269fd74ddcd0cbbb64bb8ddc89507966b290_7445cf29_95bc9609-4d53-44e3-b10e-8696ad1864de\r\n\r\n分析符号: \r\n重新检查解决方案: 0\r\n报告 ID: 9cfcc36c-1d66-49c6-b89e-caf7ba66761a\r\n报告状态: 268435456\r\n哈希存储段: 5b79f2ad8651ad821461c6ead0db9d4c\r\nCab GUID: 0"
+  },
+  {
+    "TimeCreated": "2026-11-15T07:32:27.1572818+08:00",
+    "ProviderName": "Application Error",
+    "Id": 1000,
+    "RecordId": 66377,
+    "Message": "错误应用程序名称: java.exe，版本: 21.0.11.0，时间戳: 0x16bab3cc\r\n错误模块名称: textinputframework.dll，版本: 10.0.19041.6456，时间戳: 0x85253e23\r\n异常代码: 0x00000675\r\n错误偏移量: 0x000000000008354b\r\n错误进程 ID: 0x876c\r\n错误应用程序启动时间: 0x01dd747afcbda438\r\n错误应用程序路径: C:\\Users\\ben_l\\Saved Games\\Yuuniverse 1.20.1 Shenyang\\porting-output\\work\\tools\\jdk21\\jdk-21.0.11+10\\bin\\java.exe\r\n错误模块路径: C:\\Windows\\SYSTEM32\\textinputframework.dll\r\n报告 ID: 9cfcc36c-1d66-49c6-b89e-caf7ba66761a\r\n错误程序包全名: \r\n错误程序包相对应用程序 ID: "
+  },
+  {
+    "TimeCreated": "2026-11-15T07:31:58.9646211+08:00",
+    "ProviderName": "Microsoft-Windows-Perflib",
+    "Id": 1008,
+    "RecordId": 66376,
+    "Message": "DLL“C:\\Windows\\Microsoft.NET\\Framework64\\v2.0.50727\\aspnet_perf.dll”中“ASP.NET_64_2.0.50727”服务的 Open 过程失败，错误代码为 未指定的错误。此服务的性能数据将不可用。"
+  },
+  {
+    "TimeCreated": "2026-11-15T07:30:53.2469268+08:00",
+    "ProviderName": "Microsoft-Windows-Perflib",
+    "Id": 1008,
+    "RecordId": 66375,
+    "Message": "DLL“C:\\Windows\\Microsoft.NET\\Framework64\\v2.0.50727\\aspnet_perf.dll”中“ASP.NET_64_2.0.50727”服务的 Open 过程失败，错误代码为 未指定的错误。此服务的性能数据将不可用。"
+  }
+]

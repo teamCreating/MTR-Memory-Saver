@@ -1,12 +1,11 @@
 package site.benli06.probe;
 
 import com.mojang.blaze3d.systems.RenderSystem;
+import dev.abenli.probeio.AtomicSnapshot;
 import java.lang.management.ManagementFactory;
 import java.lang.reflect.Field;
-import java.nio.file.AtomicMoveNotSupportedException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.StandardCopyOption;
 import java.nio.file.StandardOpenOption;
 import java.time.OffsetDateTime;
 import java.util.ArrayDeque;
@@ -193,9 +192,6 @@ public final class PackagedClientObservation {
     }
 
     private static void writeAtomic(Path destination, JsonObject value) throws java.io.IOException {
-        Path temporary = destination.resolveSibling(destination.getFileName() + ".tmp");
-        Files.writeString(temporary, value + "\n");
-        try { Files.move(temporary, destination, StandardCopyOption.REPLACE_EXISTING, StandardCopyOption.ATOMIC_MOVE); }
-        catch (AtomicMoveNotSupportedException unsupported) { Files.move(temporary, destination, StandardCopyOption.REPLACE_EXISTING); }
+        AtomicSnapshot.write(destination, value + "\n");
     }
 }

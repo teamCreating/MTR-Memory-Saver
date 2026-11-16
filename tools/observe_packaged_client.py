@@ -22,6 +22,7 @@ import subprocess
 import threading
 import time
 import uuid
+import windows_snapshot_io
 
 UTC = dt.timezone.utc
 ZERO_COUNTERS = ("native_pending", "module_pending", "module_outstanding", "module_queued", "active_reads", "resource_in_flight", "module_failures")
@@ -36,7 +37,7 @@ def read(path):
 
 
 def read_snapshot(path):
-    raw = path.read_bytes()
+    raw = windows_snapshot_io.read_snapshot_bytes(path)
     return json.loads(raw.decode("utf-8-sig")), hashlib.sha256(raw).hexdigest()
 
 
@@ -741,6 +742,10 @@ def observe(args):
     source_bytes = pathlib.Path(__file__).read_bytes()
     source_hash = hashlib.sha256(source_bytes).hexdigest()
     (output / "observer-source.py").write_bytes(source_bytes)
+    snapshot_io_source = pathlib.Path(windows_snapshot_io.__file__)
+    snapshot_io_bytes = snapshot_io_source.read_bytes()
+    snapshot_io_hash = hashlib.sha256(snapshot_io_bytes).hexdigest()
+    (output / "windows_snapshot_io.py").write_bytes(snapshot_io_bytes)
     process = None
     try:
         plan, launch = frozen_context(instance)
@@ -769,6 +774,8 @@ def observe(args):
         summary = {"timestamp": timestamp(), "status": "preflight_failed", "passed": False, "error": str(preflight_error),
             "instance": str(instance), "mode": args.mode, "source_sha256": source_hash, "current_source_sha256": digest(pathlib.Path(__file__)),
             "source_changed_during_observation": digest(pathlib.Path(__file__)) != source_hash,
+            "snapshot_io_source_sha256": snapshot_io_hash,
+            "current_snapshot_io_source_sha256": digest(snapshot_io_source) if snapshot_io_source.exists() else None,
             "samples_sha256": digest(output / "samples.jsonl"),
             "plan_sha256": digest(instance / "packaged-client-plan.json") if (instance / "packaged-client-plan.json").exists() else None,
             "launch_sha256": digest(instance / "packaged-client-launch.json") if (instance / "packaged-client-launch.json").exists() else None}
@@ -1021,6 +1028,8 @@ def observe(args):
         "auxiliary_peaks_scope": "Available results from accepted auxiliary requests, including explicitly marked post-window completions.",
         "samples_sha256": digest(output / "samples.jsonl"), "source_sha256": source_hash, "current_source_sha256": current_source_hash,
         "source_changed_during_observation": current_source_hash != source_hash,
+        "snapshot_io_source_sha256": snapshot_io_hash,
+        "current_snapshot_io_source_sha256": digest(snapshot_io_source) if snapshot_io_source.exists() else None,
         "log_sha256_at_completion": hashlib.sha256(log_bytes).hexdigest(), "native_diagnostics": diagnostics, "native_registration_declaration_counts": declaration_counts,
         "reload_events_sha256": hashlib.sha256(input_bytes).hexdigest() if args.reload_events else None,
         "native_epoch_events_sha256": hashlib.sha256(epoch_bytes).hexdigest() if epoch_path.exists() else None, "baseline_completed_epoch_sequence": baseline_sequence,

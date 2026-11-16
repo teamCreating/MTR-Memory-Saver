@@ -1,13 +1,12 @@
 package dev.abenli.neutralprobe;
 
 import com.mojang.blaze3d.systems.RenderSystem;
+import dev.abenli.probeio.AtomicSnapshot;
 import dev.abenli.neutralprobe.mixin.NativePendingAccess;
 import java.io.IOException;
 import java.lang.management.ManagementFactory;
-import java.nio.file.AtomicMoveNotSupportedException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.StandardCopyOption;
 import java.nio.file.StandardOpenOption;
 import java.time.Instant;
 import java.util.concurrent.TimeUnit;
@@ -166,10 +165,7 @@ public final class NativeObserver {
         return destination;
     }
     private static void writeAtomic(Path destination, JsonObject value) throws IOException {
-        Path temporary = destination.resolveSibling(destination.getFileName() + ".tmp");
-        Files.writeString(temporary, value + "\n");
-        try { Files.move(temporary, destination, StandardCopyOption.REPLACE_EXISTING, StandardCopyOption.ATOMIC_MOVE); }
-        catch (AtomicMoveNotSupportedException unsupported) { Files.move(temporary, destination, StandardCopyOption.REPLACE_EXISTING); }
+        AtomicSnapshot.write(destination, value + "\n");
     }
     private static void failure(String operation, Exception failure) {
         OBSERVATION_ERRORS.incrementAndGet();

@@ -1,0 +1,17 @@
+test_missing_snapshot_preserves_the_real_filesystem_error (test_windows_snapshot_io.WindowsSnapshotSharingTests.test_missing_snapshot_preserves_the_real_filesystem_error) ... ok
+test_ordinary_python_reader_reproduces_denied_atomic_replacement (test_windows_snapshot_io.WindowsSnapshotSharingTests.test_ordinary_python_reader_reproduces_denied_atomic_replacement) ... ok
+test_shared_reader_allows_replacement_and_preserves_one_file_version (test_windows_snapshot_io.WindowsSnapshotSharingTests.test_shared_reader_allows_replacement_and_preserves_one_file_version) ... ERROR
+
+======================================================================
+ERROR: test_shared_reader_allows_replacement_and_preserves_one_file_version (test_windows_snapshot_io.WindowsSnapshotSharingTests.test_shared_reader_allows_replacement_and_preserves_one_file_version)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\ben_l\Documents\Coding\resoucepack update\vehicle-memory\tools\test_windows_snapshot_io.py", line 34, in test_shared_reader_allows_replacement_and_preserves_one_file_version
+    os.replace(self.replacement, self.destination)
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] 拒绝访问。: 'C:\\Users\\ben_l\\AppData\\Local\\Temp\\memory-snapshot-sharing-9rl9r159\\replacement.json' -> 'C:\\Users\\ben_l\\AppData\\Local\\Temp\\memory-snapshot-sharing-9rl9r159\\snapshot.json'
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.024s
+
+FAILED (errors=1)

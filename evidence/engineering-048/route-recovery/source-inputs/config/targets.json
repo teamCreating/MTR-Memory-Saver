@@ -1,0 +1,37 @@
+{
+  "default": "official-nf248",
+  "minecraft": "1.21.1",
+  "java": 21,
+  "packFormat": 34,
+  "modId": "mtr_memory_sharing",
+  "modName": "MTR Memory Saver",
+  "javaPackage": "site.benli06",
+  "mtr": {
+    "official": {
+      "version": "4.1.0-beta.2",
+      "sha256": "ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa",
+      "url": "https://cdn.modrinth.com/data/XKPAmI6u/versions/9SDO8rYc/MTR-neoforge-4.1.0-beta.2%2B1.21.1.jar"
+    },
+    "v6": {
+      "version": "4.1.0-beta.2-mc1.21.1-performance-v6",
+      "sha256": "8bd419bd798c2ab2fa03e08850409387804fdeb2e4f2987c66b9984236263585",
+      "url": null
+    }
+  },
+  "targets": {
+    "official-nf248": {"variant": "official", "neoForge": "21.1.248"},
+    "official-nf265": {"variant": "official", "neoForge": "21.1.265"},
+    "v6-nf248": {"variant": "v6", "neoForge": "21.1.248"},
+    "v6-nf265": {"variant": "v6", "neoForge": "21.1.265"}
+  },
+  "mixins": [
+    "ModelLoaderAccess", "ModelLoaderCompletionMixin", "BlockbenchParseExecutorMixin", "VehicleModelFactoryMixin",
+    "ResourceReloadMixin", "PackedModelGroupMixin", "DisplayPartAccess",
+    "DisplaySelectionMixin", "SourceLifetimeMixin", "VehicleJsonCacheMixin",
+    "VehicleJsonEpochMixin", "CompressedResourceTextMixin", "SegmentedResourceTextMixin"
+  ],
+  "variantMixins": {
+    "official": ["VertexColorMixin", "ResourceTextReadMixin"],
+    "v6": ["V6LoaderLifecycleMixin"]
+  }
+}

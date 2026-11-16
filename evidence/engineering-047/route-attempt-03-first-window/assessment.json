@@ -1,0 +1,53 @@
+{
+  "timestamp": "2026-11-15T07:30:33.346836+08:00",
+  "utc_offset": "+08:00",
+  "scope": "Completed first 2400-second window of the still-running official NF248 route attempt 03",
+  "pid": 34668,
+  "observer_pid": 50196,
+  "source_sha256": "0c4a742543769a0eb40d582a0f29646ef8b1f24c0286360b077eee0d9e4089f8",
+  "route_policy_sha256": "e4caba40db8efeaf106ac7699564388958636904a6aaae30d7f251e7364894b5",
+  "first_window": {
+    "index": 0,
+    "start_seconds": 0.0,
+    "end_seconds": 2400.0,
+    "coverage_tolerance_seconds": 20.0,
+    "sample_count": 480,
+    "eligible_sample_count": 480,
+    "first_elapsed_seconds": 0.005885099992156029,
+    "last_elapsed_seconds": 2395.0009642000077,
+    "first_timestamp": "2026-11-15T06:47:34.981993100+08:00",
+    "last_timestamp": "2026-11-15T07:27:29.593748100+08:00",
+    "maximum_observed_gap_seconds": 5.158047199976863,
+    "same_id_pair_count": 479,
+    "observed_progress_displacement": {
+      "int:-6776748962888878428": 8110.388145645826
+    },
+    "coverage_verified": true,
+    "motion_verified": true,
+    "passed": true
+  },
+  "raw_prefix_samples": 481,
+  "first_window_samples": 480,
+  "verified_first_window_samples": 480,
+  "boundary_witness_elapsed_seconds": 2400.0012776000076,
+  "native_epoch_sequences": [
+    1
+  ],
+  "sampled_progress_range": [
+    65.0,
+    758.5134656935371
+  ],
+  "sampled_door_value_range": [
+    0.0,
+    1.0
+  ],
+  "game_time_advance": 47892,
+  "auxiliary_phase_counts_before_window_boundary": {
+    "requested": 38,
+    "started": 38,
+    "completed": 38
+  },
+  "complete_two_hour_route_proven": false,
+  "actual_visual_or_boarding_proven": false,
+  "limits": "Only the first sampled window is complete. Door values and route motion are native state, not visual geometry, door animation, boarding or uninterrupted continuity. The complete three-window/JFR/GPU/NMT and native-diagnostic audit remains pending. No game input, instance modification or process stop was performed."
+}

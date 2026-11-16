@@ -1,0 +1,18 @@
+{
+    "schema_version": 1,
+    "probe_kind": "official-native-observer",
+    "capabilities": {
+        "native_pending": true,
+        "registration_counts": true,
+        "native_epochs": true,
+        "heap": true,
+        "world": true,
+        "train_state": true,
+        "cache_state": true,
+        "frame_jfr": true,
+        "server_tick_jfr": true,
+        "module_counters": false,
+        "active_read_permits": false,
+        "text_workspace": false
+    }
+}

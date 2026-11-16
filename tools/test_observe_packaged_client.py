@@ -662,6 +662,10 @@ class ObservationTest(unittest.TestCase):
         self.assertEqual(summary["source_sha256"], hashlib.sha256(b"captured observer source").hexdigest())
         self.assertTrue(summary["source_changed_during_observation"])
         self.assertNotEqual(summary["source_sha256"], summary["current_source_sha256"])
+        dependency = pathlib.Path(observer.windows_snapshot_io.__file__)
+        self.assertEqual((output / "windows_snapshot_io.py").read_bytes(), dependency.read_bytes())
+        self.assertEqual(summary["snapshot_io_source_sha256"], observer.digest(dependency))
+        self.assertEqual(summary["current_snapshot_io_source_sha256"], observer.digest(dependency))
 
     def test_external_input_receipt_preserves_original_and_rejects_duplicate_confirmation(self):
         _, inputs, _, _ = self.full_reload_fixture(2)

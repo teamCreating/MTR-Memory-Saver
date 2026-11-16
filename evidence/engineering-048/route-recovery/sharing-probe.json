@@ -1,0 +1,34 @@
+[
+  {
+    "operation": "move_replace",
+    "success": false,
+    "winerror": 5,
+    "held_reader": "original",
+    "destination_exists": true,
+    "destination": "original"
+  },
+  {
+    "operation": "move_away",
+    "success": true,
+    "winerror": 0,
+    "held_reader": "original",
+    "destination_exists": false,
+    "destination": null
+  },
+  {
+    "operation": "replace_file",
+    "success": true,
+    "winerror": 0,
+    "held_reader": "original",
+    "destination_exists": true,
+    "destination": "updated"
+  },
+  {
+    "operation": "delete",
+    "success": true,
+    "winerror": 0,
+    "held_reader": "original",
+    "destination_exists": false,
+    "destination": null
+  }
+]

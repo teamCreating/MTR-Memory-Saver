@@ -63,7 +63,7 @@ sourceSets {
         runtimeClasspath += sourceSets.main.compileClasspath
     }
     probe {
-        java.srcDirs = ['tools/probes/common/java']
+        java.srcDirs = ['tools/probes/common/java', 'tools/probes/io/java']
         if (target.variant == 'v6') java.srcDir('tools/probes/v6/java')
         compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
         resources.srcDir(layout.buildDirectory.dir("generated/probe/${targetName}"))
@@ -344,12 +344,12 @@ def neutralSpecFile = file('tools/probes/neutral/observer.json')
 def neutralSpec = new JsonSlurper().parse(neutralSpecFile)
 sourceSets {
     neutralProbe {
-        java.srcDirs = ['tools/probes/neutral/java']
+        java.srcDirs = ['tools/probes/neutral/java', 'tools/probes/io/java']
         compileClasspath += sourceSets.main.compileClasspath
         resources.srcDir(layout.buildDirectory.dir("generated/neutral-probe/${targetName}"))
     }
     neutralProbeTest {
-        java.srcDirs = ['tools/probes/neutral/test']
+        java.srcDirs = ['tools/probes/neutral/test', 'tools/probes/io/test']
         compileClasspath += sourceSets.neutralProbe.output + sourceSets.main.compileClasspath
         runtimeClasspath += sourceSets.neutralProbe.output + sourceSets.main.compileClasspath
     }
@@ -483,7 +483,7 @@ tasks.register('verifyNeutralProbe') {
             }
             zip.entries().each { entry ->
                 if (entry.name.endsWith('.class')) {
-                    if (!entry.name.startsWith('dev/abenli/neutralprobe/'))
+                    if (!entry.name.startsWith('dev/abenli/neutralprobe/') && !entry.name.startsWith('dev/abenli/probeio/'))
                         throw new GradleException("Unexpected native observer class ${entry.name}")
                     String pool = zip.getInputStream(entry).withCloseable { new String(it.readAllBytes(), java.nio.charset.StandardCharsets.ISO_8859_1) }
                     ['site/benli06', 'site.benli06', 'getCachedVehicleResource', 'awaitParsing', 'java/lang/reflect'].each { forbidden ->

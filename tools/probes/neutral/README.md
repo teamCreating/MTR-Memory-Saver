@@ -11,7 +11,7 @@ Build without launching a game:
 ./gradlew.bat -Ptarget=official-nf265 neutralProbeJar verifyNeutralProbe
 ```
 
-Each target produces `build/libs/mtr-native-observer-<target>-1.0.0.jar` and the
+Each target produces `build/libs/mtr-native-observer-<target>-<version>.jar` and the
 adjacent `.build.json`. The embedded `mtr-native-observer-target.json` freezes the
 native ABI identity and output paths. `capabilities.json` distinguishes supported
 native observations from unsupported companion measurements. Install the exact
@@ -50,6 +50,15 @@ Snapshot timestamps represent completion of its reads. `capture_started_at` and
 `capture_started_monotonic_nanos` preserve the capture start; completion is never
 backdated when native pending work settles during the capture. Output may finish
 later. Native epoch timestamps retain the actual hook entry time instead.
+
+Snapshot publication uses the shared probe-only `AtomicSnapshot` helper. On
+Windows it uses `ReplaceFileW` for existing destinations and an atomic rename for
+first publication; readers must grant delete sharing (the Python
+`windows_snapshot_io.read_snapshot_bytes` helper does so). Windows
+`MoveFileExW(REPLACE_EXISTING)` rejects open destinations even when readers grant
+delete sharing. Publication errors remain visible and count as observation
+failures. The helper uses Minecraft's existing JNA library and is excluded from
+the companion product JAR.
 
 `world` is null outside a world; otherwise it contains dimension, game time and
 player x/y/z/yaw/pitch (player can be null during transition). `train_state` is
