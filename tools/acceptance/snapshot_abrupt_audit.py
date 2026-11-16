@@ -6,11 +6,14 @@ import json
 import pathlib
 import shutil
 import subprocess
+import sys
 import time
 import urllib.parse
 import zipfile
 
 ROOT = pathlib.Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(ROOT / "tools"))
+from windows_snapshot_io import read_snapshot_bytes
 
 
 def stamp():
@@ -31,7 +34,7 @@ def save(path, value):
 
 
 def inventory(directory):
-    return [{"name": path.name, "bytes": path.stat().st_size, "sha256": digest(path)}
+    return [{"name": path.name, "bytes": path.stat().st_size, "sha256": hashlib.sha256(read_snapshot_bytes(path)).hexdigest()}
             for path in sorted(directory.iterdir()) if path.is_file()]
 
 
@@ -51,6 +54,7 @@ def main():
     parser.add_argument("--artifact", type=pathlib.Path, required=True)
     parser.add_argument("--mtr", type=pathlib.Path, required=True)
     parser.add_argument("--output", type=pathlib.Path, required=True)
+    parser.add_argument("--expect-cleanup", choices=("retained", "removed"), default="retained")
     args = parser.parse_args()
     java, artifact, mtr, output = (value.resolve() for value in (args.java, args.artifact, args.mtr, args.output))
     output.mkdir(parents=True, exist_ok=False)
@@ -78,7 +82,8 @@ def main():
         shutil.copy2(source, source_copy)
         shutil.copy2(pathlib.Path(__file__), output / pathlib.Path(__file__).name)
         shutil.copy2(manifest, output / "artifact.build.json")
-        execution["inputs"] = {str(path): digest(path) for path in (java, java.with_name("javac.exe"), artifact, manifest, mtr, source, pathlib.Path(__file__))}
+        execution["inputs"] = {str(path): digest(path) for path in (java, java.with_name("javac.exe"), artifact, manifest, mtr, source, pathlib.Path(__file__), ROOT / "tools/windows_snapshot_io.py")}
+        execution["expected_cleanup"] = args.expect_cleanup
         execution["artifact_identity"] = identity
         command = [str(java.with_name("javac.exe")), "-proc:none", "-encoding", "UTF-8", "--release", "21",
                    "-cp", str(artifact) + ";" + str(mtr), "-d", str(classes), str(source)]
@@ -115,7 +120,7 @@ def main():
                 item["pid"] = child.pid
                 record()
                 try:
-                    if mode == "halt":
+                    if mode in ("halt", "wait"):
                         deadline = time.monotonic() + 40
                         ready_path = directory / "spill-ready.json"
                         while not ready_path.exists():
@@ -132,7 +137,21 @@ def main():
                         if path.stat().st_size <= 0 or path.stat().st_size != ready["snapshot_bytes"]:
                             raise ValueError("Actual spill bytes absent or changed while child is paused")
                         item["observed_before_halt"] = {"timestamp": stamp(), "snapshot": str(path),
-                            "bytes": path.stat().st_size, "sha256": digest(path), "child_running": child.poll() is None}
+                            "bytes": path.stat().st_size, "sha256": hashlib.sha256(read_snapshot_bytes(path)).hexdigest(), "child_running": child.poll() is None,
+                            "workspace_statistics": ready["workspace_statistics"]}
+                        try:
+                            with path.open("rb") as ordinary_reader:
+                                ordinary_reader.read(1)
+                            item["ordinary_reader"] = {"opened_without_delete_sharing": True}
+                        except PermissionError as sharing_error:
+                            item["ordinary_reader"] = {"opened_without_delete_sharing": False,
+                                "error": repr(sharing_error), "winerror": getattr(sharing_error, "winerror", None)}
+                        if args.expect_cleanup == "removed" and item["ordinary_reader"]["opened_without_delete_sharing"]:
+                            raise ValueError("Snapshot does not retain the expected Windows delete-on-close ownership")
+                        if mode == "wait" and ready["workspace_statistics"][3] != 1:
+                            raise ValueError("Reader was not waiting for its full text budget")
+                        if mode == "halt" and (ready["source_bytes_remaining"] <= 0 or ready["snapshot_bytes"] >= ready["expected_utf16_bytes"]):
+                            raise ValueError("Writing halt did not observe an incomplete snapshot with source bytes remaining")
                         record()
                         (directory / "halt-after-observation").write_text("Parent observed real snapshot bytes; halt only this audit child.\n", encoding="utf-8")
                     item["exit_code"] = child.wait(timeout=45)
@@ -143,14 +162,20 @@ def main():
                     item["ended"] = stamp()
                     item["after"] = inventory(temporary)
                     record()
-            if mode == "halt":
+            if mode in ("halt", "wait"):
                 prior = item["observed_before_halt"]
-                after = next(entry for entry in item["after"] if entry["name"] == pathlib.Path(prior["snapshot"]).name)
-                if item["exit_code"] != 74 or after["bytes"] != prior["bytes"] or after["sha256"] != prior["sha256"]:
-                    raise ValueError("Abrupt exit or preserved residue mismatch")
+                if item["exit_code"] != 74:
+                    raise ValueError("Abrupt exit code differs")
+                if args.expect_cleanup == "retained":
+                    after = next(entry for entry in item["after"] if entry["name"] == pathlib.Path(prior["snapshot"]).name)
+                    if after["bytes"] != prior["bytes"] or after["sha256"] != prior["sha256"]:
+                        raise ValueError("Preserved residue differs")
+                elif item["after"] != before or pathlib.Path(prior["snapshot"]).exists():
+                    raise ValueError("Abrupt snapshot was not removed or another owner's files changed")
                 if any((directory / name).exists() for name in ("shutdown-hook-ran", "caller-stream-closed", "result.json")):
                     raise ValueError("Halt unexpectedly ran normal cleanup")
                 item["halt_bypassed_cleanup_confirmed"] = True
+                item["snapshot_removed_after_halt"] = args.expect_cleanup == "removed"
             else:
                 result = read(directory / "result.json")
                 ready = read(directory / "spill-ready.json")
@@ -164,24 +189,25 @@ def main():
             record()
 
         trial("normal-before", "normal")
-        trial("abrupt-first", "halt")
-        trial("restart-after-first", "normal")
-        trial("abrupt-second", "halt")
-        trial("restart-after-second", "normal")
+        trial("abrupt-writing", "halt")
+        trial("restart-after-writing", "normal")
+        trial("abrupt-waiting", "wait")
+        trial("restart-after-waiting", "normal")
         final = inventory(temporary)
-        if len(final) != len(initial) + 2:
-            raise ValueError("Expected exactly two retained abrupt snapshots")
+        expected_files = len(initial) + (2 if args.expect_cleanup == "retained" else 0)
+        if len(final) != expected_files:
+            raise ValueError("Unexpected final snapshot ownership")
         for entry in initial:
             if entry not in final:
                 raise ValueError("An existing owner file was changed")
         if any(digest(pathlib.Path(name)) != expected for name, expected in execution["inputs"].items()):
             raise ValueError("An audit input changed during execution")
         execution.update(passed=True, ended=stamp(), residue_after_two_halts=final,
-            product_cleanup_after_halt=False, later_read_reclaims_prior_residue=False,
-            notes="Audit passes by correctly demonstrating retained abrupt residue and normal same-directory retry. This is not a product crash-cleanup acceptance.")
+            product_cleanup_after_halt=args.expect_cleanup == "removed", later_read_reclaims_prior_residue=False,
+            notes="Audit matches its explicit cleanup expectation. Later readers preserve other-owner files; no stale-temp sweep is performed.")
         record()
         print(json.dumps({"passed": True, "target": identity["target"], "abrupt_exits": 2,
-            "normal_controls": 3, "retained_files": len(final), "product_cleanup_after_halt": False}))
+            "normal_controls": 3, "retained_files": len(final), "product_cleanup_after_halt": args.expect_cleanup == "removed"}))
     except BaseException as failure:
         execution.update(passed=False, error=repr(failure), ended=stamp())
         record()

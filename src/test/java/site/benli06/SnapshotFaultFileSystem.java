@@ -11,15 +11,20 @@ import java.util.*;
 
 /** Test-only forwarding filesystem: faults the real snapshot I/O, not the resource input. */
 final class SnapshotFaultFileSystem extends FileSystem {
-    enum Fault { NONE, WRITE, OUTPUT_CLOSE, READ, DELETE, WRITE_AND_DELETE }
+    enum Fault { NONE, CREATE, WRITE, CLOSE, READ, REWIND, WRITE_AND_CLOSE, SHORT_IO, ZERO_IO, ZERO_READ, ZERO_WRITE, COLLISION, UNSUPPORTED, TRUNCATE_ON_REWIND }
+    final IOException createFailure = new IOException("snapshot channel creation failed");
     final IOException writeFailure = new IOException("snapshot output write failed");
-    final IOException closeFailure = new IOException("snapshot output close failed");
+    final IOException closeFailure = new IOException("snapshot owner close failed");
     final IOException readFailure = new IOException("snapshot restoration read failed");
-    final IOException deleteFailure = new IOException("snapshot deletion failed");
+    final IOException rewindFailure = new IOException("snapshot rewind failed");
+    final UnsupportedOperationException unsupportedFailure = new UnsupportedOperationException("delete-on-close unsupported");
     private final FileSystem delegate = FileSystems.getDefault();
     private final Provider provider = new Provider();
     Fault fault;
-    int outputWrites, restorationReads, deletionAttempts;
+    int createAttempts, outputWrites, restorationReads, closeCalls, zeroWrites, zeroReads;
+    Set<? extends OpenOption> openedOptions;
+    Path collisionPath;
+    Runnable onZeroProgress = () -> {};
     SnapshotFaultFileSystem(Fault fault) { this.fault = fault; }
     Path wrap(Path path) { return new Wrapped(path); }
     Path unwrap(Path path) {
@@ -47,32 +52,56 @@ final class SnapshotFaultFileSystem extends FileSystem {
         @Override public Path getPath(URI uri) { throw new UnsupportedOperationException(); }
         @Override public SeekableByteChannel newByteChannel(Path path, Set<? extends OpenOption> options,
                 FileAttribute<?>... attrs) throws IOException {
+            createAttempts++;
+            if (fault == Fault.CREATE) throw createFailure;
+            if (fault == Fault.UNSUPPORTED) throw unsupportedFailure;
+            if (fault == Fault.COLLISION && createAttempts == 1) {
+                collisionPath = unwrap(path);
+                Files.writeString(collisionPath, "another owner's existing file", StandardOpenOption.CREATE_NEW);
+                throw new FileAlreadyExistsException(path.toString());
+            }
+            openedOptions = Set.copyOf(options);
             var channel = nativeProvider.newByteChannel(unwrap(path), options, attrs);
-            boolean output = options.contains(StandardOpenOption.TRUNCATE_EXISTING);
+            boolean output = options.contains(StandardOpenOption.WRITE);
             boolean input = options.isEmpty() || options.contains(StandardOpenOption.READ);
             return new SeekableByteChannel() {
                 @Override public int read(ByteBuffer destination) throws IOException {
                     if (input) {
                         restorationReads++;
                         if (fault == Fault.READ) throw readFailure;
+                        if (fault == Fault.ZERO_READ) { zeroReads++; onZeroProgress.run(); return 0; }
+                        if (fault == Fault.ZERO_IO && restorationReads == 1) { zeroReads++; return 0; }
                     }
-                    return channel.read(destination);
+                    int limit = destination.limit();
+                    if (fault == Fault.SHORT_IO) destination.limit(destination.position() + Math.min(7, destination.remaining()));
+                    try { return channel.read(destination); }
+                    finally { destination.limit(limit); }
                 }
                 @Override public int write(ByteBuffer source) throws IOException {
                     if (output) {
                         outputWrites++;
-                        if (outputWrites == 1 && (fault == Fault.WRITE || fault == Fault.WRITE_AND_DELETE)) throw writeFailure;
+                        if (outputWrites == 1 && (fault == Fault.WRITE || fault == Fault.WRITE_AND_CLOSE)) throw writeFailure;
+                        if (fault == Fault.ZERO_WRITE) { zeroWrites++; onZeroProgress.run(); return 0; }
+                        if (fault == Fault.ZERO_IO && outputWrites == 1) { zeroWrites++; return 0; }
                     }
-                    return channel.write(source);
+                    int limit = source.limit();
+                    if (fault == Fault.SHORT_IO) source.limit(source.position() + Math.min(7, source.remaining()));
+                    try { return channel.write(source); }
+                    finally { source.limit(limit); }
                 }
                 @Override public long position() throws IOException { return channel.position(); }
-                @Override public SeekableByteChannel position(long value) throws IOException { channel.position(value); return this; }
+                @Override public SeekableByteChannel position(long value) throws IOException {
+                    if (fault == Fault.REWIND) throw rewindFailure;
+                    if (fault == Fault.TRUNCATE_ON_REWIND) channel.truncate(channel.size() - 1);
+                    channel.position(value); return this;
+                }
                 @Override public long size() throws IOException { return channel.size(); }
                 @Override public SeekableByteChannel truncate(long size) throws IOException { channel.truncate(size); return this; }
                 @Override public boolean isOpen() { return channel.isOpen(); }
                 @Override public void close() throws IOException {
+                    closeCalls++;
                     channel.close();
-                    if (output && fault == Fault.OUTPUT_CLOSE) throw closeFailure;
+                    if (fault == Fault.CLOSE || fault == Fault.WRITE_AND_CLOSE) throw closeFailure;
                 }
             };
         }
@@ -92,8 +121,6 @@ final class SnapshotFaultFileSystem extends FileSystem {
         }
         @Override public void createDirectory(Path path, FileAttribute<?>... attributes) throws IOException { nativeProvider.createDirectory(unwrap(path), attributes); }
         @Override public void delete(Path path) throws IOException {
-            deletionAttempts++;
-            if (fault == Fault.DELETE || fault == Fault.WRITE_AND_DELETE) throw deleteFailure;
             nativeProvider.delete(unwrap(path));
         }
         @Override public void copy(Path source, Path target, CopyOption... options) throws IOException { nativeProvider.copy(unwrap(source), unwrap(target), options); }

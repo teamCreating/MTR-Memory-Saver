@@ -1,0 +1,57 @@
+
+> Configure project :
+Creating Minecraft artifacts without recompilation.
+
+> Task :createMinecraftArtifacts
+Loaded 145 artifacts from C:\Users\ben_l\Documents\Coding\resoucepack update\vehicle-memory\build\tmp\createMinecraftArtifacts\nfrt_artifact_manifest.properties
+*** Started working on downloadJson
+ DONE  Completed downloadJson in 0.23s
+*** Started working on downloadServer
+*** Started working on downloadClientMappings
+*** Started working on downloadClient
+ DONE  Completed downloadClientMappings in 0.19s
+ DONE  Completed downloadClient in 0.19s
+ DONE  Completed downloadServer in 0.23s
+*** Started working on mergeMappings
+ REUSE Used cache of mergeMappings in 0.01s
+*** Started working on stripClient
+*** Started working on extractServer
+ REUSE Used cache of extractServer in 0.00s
+ REUSE Used cache of stripClient in 0.01s
+*** Started working on stripServer
+ REUSE Used cache of stripServer in 0.01s
+*** Started working on merge
+ REUSE Used cache of merge in 0.01s
+*** Started working on rename
+ REUSE Used cache of rename in 0.01s
+*** Started working on binaryPatch
+ REUSE Used cache of binaryPatch in 0.01s
+*** Started working on copyUnpatchedClasses
+ REUSE Used cache of copyUnpatchedClasses in 0.01s
+*** Started working on applyDevTransforms
+ REUSE Used cache of applyDevTransforms in 0.01s
+*** Started working on binaryWithNeoForge
+ REUSE Used cache of binaryWithNeoForge in 0.01s
+Total runtime: 5.65s
+
+
+> Task :prepareMtr
+> Task :compileJava
+> Task :generateMetadata
+> Task :processResources
+> Task :classes
+> Task :compileTestJava
+> Task :processTestResources NO-SOURCE
+> Task :testClasses
+> Task :test
+
+[Incubating] Problems report is available at: file:///C:/Users/ben_l/Documents/Coding/resoucepack%20update/vehicle-memory/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.14.3/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 31s
+7 actionable tasks: 7 executed

@@ -4,6 +4,17 @@ All tools are owned by this repository. Java audits compile against the selected
 fingerprinted MTR target and Gradle-provided game dependencies. They require no
 launcher-private Python API, patched client or prepared-instance marker.
 
+For snapshot crash-cleanup checks, run `snapshot_abrupt_audit.py` with explicit
+`--java`, `--artifact`, `--mtr`, a fresh `--output`, and `--expect-cleanup removed`.
+It starts only small audit-owned JVMs with a dedicated temporary directory and
+halts them after independently observing incomplete writing or full-budget
+waiting. Normal controls, exact loaded artifact identity, actual exit codes and
+another-owner sentinel are retained. Use `--expect-cleanup retained` to record
+the older reader's known residue behavior; audit success then does not mean
+product crash-cleanup acceptance. The historical `snapshot_windows_audit.py`
+checks the pre-owned-channel deletion-lock behavior; an owned delete-on-close
+snapshot instead denies opening an incompatible reader that lacks delete sharing.
+
 `gradlew test` runs the native packed-mesh, display-retention and JSON-reader
 reference audits as JUnit checks, alongside the Java-only failure/churn tests.
 Native mesh checks compare 1,400,028 emitted/stored vertices in 27 cases, including

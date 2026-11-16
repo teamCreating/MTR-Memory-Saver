@@ -31,13 +31,14 @@ class SnapshotFilesystemFailureTest {
         settled(admission); assertEquals(0, files());
     }
 
-    @Test void outputCloseFailureRemainsTerminalAndDeletesSnapshot() throws Exception {
-        var filesystem = new SnapshotFaultFileSystem(SnapshotFaultFileSystem.Fault.OUTPUT_CLOSE);
+    @Test void ownerCloseFailureRemainsTerminalAndDeletesSnapshot() throws Exception {
+        var filesystem = new SnapshotFaultFileSystem(SnapshotFaultFileSystem.Fault.CLOSE);
         var admission = new ReadAdmission(2, 20000);
         assertSame(filesystem.closeFailure, assertThrows(UncheckedIOException.class,
                 () -> decoded(filesystem, admission)).getCause());
         assertTrue(filesystem.outputWrites > 0);
-        assertEquals(1, filesystem.deletionAttempts);
+        assertTrue(filesystem.restorationReads > 0);
+        assertEquals(1, filesystem.closeCalls);
         settled(admission); assertEquals(0, files());
     }
 
@@ -51,26 +52,107 @@ class SnapshotFilesystemFailureTest {
         settled(admission); assertEquals(0, files());
     }
 
-    @Test void deletionFailureRejectsResultButDoesNotInventSuccessfulFileCleanup() throws Exception {
-        var filesystem = new SnapshotFaultFileSystem(SnapshotFaultFileSystem.Fault.DELETE);
+    @Test void rewindFailureRejectsResultAndClosesItsOwner() throws Exception {
+        var filesystem = new SnapshotFaultFileSystem(SnapshotFaultFileSystem.Fault.REWIND);
         var admission = new ReadAdmission(2, 20000);
-        assertSame(filesystem.deleteFailure, assertThrows(UncheckedIOException.class,
+        assertSame(filesystem.rewindFailure, assertThrows(UncheckedIOException.class,
                 () -> decoded(filesystem, admission)).getCause());
-        assertTrue(filesystem.restorationReads > 0);
-        assertEquals(1, filesystem.deletionAttempts);
-        settled(admission); assertEquals(1, files());
-        // The operation reported failure. Explicit fixture cleanup is not a product recovery pass.
-        cleanup();
+        assertEquals(0, filesystem.restorationReads);
+        assertEquals(1, filesystem.closeCalls);
+        settled(admission); assertEquals(0, files());
     }
 
-    @Test void deletionFailureIsSuppressedBehindTheOriginalWriteFailure() throws Exception {
-        var filesystem = new SnapshotFaultFileSystem(SnapshotFaultFileSystem.Fault.WRITE_AND_DELETE);
+    @Test void ownerCloseFailureIsSuppressedBehindTheOriginalWriteFailure() throws Exception {
+        var filesystem = new SnapshotFaultFileSystem(SnapshotFaultFileSystem.Fault.WRITE_AND_CLOSE);
         var admission = new ReadAdmission(2, 20000);
         var failure = assertThrows(UncheckedIOException.class, () -> decoded(filesystem, admission));
         assertSame(filesystem.writeFailure, failure.getCause());
-        assertTrue(java.util.Arrays.asList(failure.getCause().getSuppressed()).contains(filesystem.deleteFailure));
+        assertTrue(java.util.Arrays.asList(failure.getCause().getSuppressed()).contains(filesystem.closeFailure));
+        assertEquals(1, filesystem.closeCalls);
+        settled(admission); assertEquals(0, files());
+    }
+
+    @Test void creationFailureCannotPublishAnEmptyEntryAndSameKeyRetries() throws Exception {
+        var filesystem = new SnapshotFaultFileSystem(SnapshotFaultFileSystem.Fault.CREATE);
+        var admission = new ReadAdmission(2, 20000);
+        var cache = new BoundedTextCache(100000, admission);
+        var failure = assertThrows(UncheckedIOException.class,
+                () -> cache.get("source", ignored -> decoded(filesystem, admission)));
+        assertSame(filesystem.createFailure, failure.getCause());
+        assertEquals(0, filesystem.closeCalls);
+        assertEquals(0, cache.statistics()[0]);
+        settled(admission); assertEquals(0, files());
+        filesystem.fault = SnapshotFaultFileSystem.Fault.NONE;
+        assertEquals(TEXT, cache.get("source", ignored -> decoded(filesystem, admission)));
+        assertEquals(TEXT, cache.get("source", ignored -> fail("Successful retry was not cached")));
+        settled(admission); assertEquals(0, files());
+    }
+
+    @Test void oddPartialReadsAndWritesPreserveUtf16AcrossNativeChannelCalls() throws Exception {
+        var filesystem = new SnapshotFaultFileSystem(SnapshotFaultFileSystem.Fault.SHORT_IO);
+        var admission = new ReadAdmission(2, 20000);
+        assertEquals(TEXT, decoded(filesystem, admission));
+        assertTrue(filesystem.outputWrites > 1000);
+        assertTrue(filesystem.restorationReads > 1000);
+        assertEquals(1, filesystem.closeCalls);
+        assertEquals(java.util.Set.of(StandardOpenOption.CREATE_NEW, StandardOpenOption.READ,
+                StandardOpenOption.WRITE, StandardOpenOption.DELETE_ON_CLOSE), filesystem.openedOptions);
+        settled(admission); assertEquals(0, files());
+    }
+
+    @Test void transientZeroProgressIsNeitherEofNorLostOutput() throws Exception {
+        var filesystem = new SnapshotFaultFileSystem(SnapshotFaultFileSystem.Fault.ZERO_IO);
+        var admission = new ReadAdmission(2, 20000);
+        assertEquals(TEXT, decoded(filesystem, admission));
+        assertEquals(1, filesystem.zeroWrites);
+        assertEquals(1, filesystem.zeroReads);
+        settled(admission); assertEquals(0, files());
+    }
+
+    @Test void retirementCancelsPersistentZeroProgressAndReleasesTheOwner() throws Exception {
+        for (var fault : new SnapshotFaultFileSystem.Fault[]{SnapshotFaultFileSystem.Fault.ZERO_READ, SnapshotFaultFileSystem.Fault.ZERO_WRITE}) {
+            var filesystem = new SnapshotFaultFileSystem(fault);
+            var admission = new ReadAdmission(2, 20000);
+            var retired = new java.util.concurrent.atomic.AtomicBoolean();
+            filesystem.onZeroProgress = () -> {
+                if (filesystem.zeroReads + filesystem.zeroWrites == 3) retired.set(true);
+            };
+            try (var scope = admission.open(retired::get)) {
+                assertThrows(java.util.concurrent.CancellationException.class, () -> decoded(filesystem, admission));
+            }
+            assertEquals(3, filesystem.zeroReads + filesystem.zeroWrites);
+            assertEquals(1, filesystem.closeCalls);
+            settled(admission); assertEquals(0, files());
+        }
+    }
+
+    @Test void nameCollisionNeverOverwritesOrDeletesAnotherOwnersFile() throws Exception {
+        var filesystem = new SnapshotFaultFileSystem(SnapshotFaultFileSystem.Fault.COLLISION);
+        var admission = new ReadAdmission(2, 20000);
+        assertEquals(TEXT, decoded(filesystem, admission));
+        assertEquals(2, filesystem.createAttempts);
+        assertEquals("another owner's existing file", Files.readString(filesystem.collisionPath));
+        assertEquals(1, filesystem.closeCalls);
         settled(admission); assertEquals(1, files());
-        cleanup();
+    }
+
+    @Test void unsupportedDeleteOwnershipNeverFallsBackToAnUnownedFile() throws Exception {
+        var filesystem = new SnapshotFaultFileSystem(SnapshotFaultFileSystem.Fault.UNSUPPORTED);
+        var admission = new ReadAdmission(2, 20000);
+        assertSame(filesystem.unsupportedFailure, assertThrows(UnsupportedOperationException.class,
+                () -> decoded(filesystem, admission)));
+        assertEquals(1, filesystem.createAttempts);
+        assertEquals(0, filesystem.closeCalls);
+        settled(admission); assertEquals(0, files());
+    }
+
+    @Test void actualOddTruncationIsRejectedBeforePublishingText() throws Exception {
+        var filesystem = new SnapshotFaultFileSystem(SnapshotFaultFileSystem.Fault.TRUNCATE_ON_REWIND);
+        var admission = new ReadAdmission(2, 20000);
+        assertTrue(assertThrows(UncheckedIOException.class, () -> decoded(filesystem, admission))
+                .getCause().getMessage().contains("decoded length mismatch"));
+        assertEquals(1, filesystem.closeCalls);
+        settled(admission); assertEquals(0, files());
     }
 
     private String decoded(SnapshotFaultFileSystem filesystem, ReadAdmission admission) {
@@ -86,11 +168,5 @@ class SnapshotFilesystemFailureTest {
     }
     private long files() throws IOException {
         try (var files = Files.list(directory)) { return files.count(); }
-    }
-    private void cleanup() throws IOException {
-        try (var files = Files.list(directory)) {
-            for (Path path : files.toList()) Files.delete(path);
-        }
-        assertEquals(0, files());
     }
 }

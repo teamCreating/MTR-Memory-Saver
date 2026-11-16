@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="site.benli06.GenerationWorkCacheTest" tests="15" skipped="0" failures="0" errors="0" timestamp="2026-11-16T06:34:37.778Z" hostname="DESKTOP-885HHP9" time="1.087">
+  <properties/>
+  <testcase name="failedContentOwnerTerminatesPendingAliasesAndBothPathsCanRetry()" classname="site.benli06.GenerationWorkCacheTest" time="0.052"/>
+  <testcase name="cancellationAndLateRegistrationCompletionReleaseEverything()" classname="site.benli06.GenerationWorkCacheTest" time="0.014"/>
+  <testcase name="cancelingOwnerCancelsAliasesButRetainsRunningTicketUntilExit()" classname="site.benli06.GenerationWorkCacheTest" time="0.014"/>
+  <testcase name="cancelingAliasPreservesOwnerAndSiblingAndLateRegistrationReleasesKeys()" classname="site.benli06.GenerationWorkCacheTest" time="0.015"/>
+  <testcase name="reloadRejectsCallerStillWaitingForDescriptorAdmission()" classname="site.benli06.GenerationWorkCacheTest" time="0.023"/>
+  <testcase name="providerIdentityAndTextureArePartOfFastKey()" classname="site.benli06.GenerationWorkCacheTest" time="0.006"/>
+  <testcase name="timeoutIsTerminalButCannotReleaseStillRunningNativeMemory()" classname="site.benli06.GenerationWorkCacheTest" time="0.267"/>
+  <testcase name="pathHitSkipsPreparationAndContentAliasesParseOnce()" classname="site.benli06.GenerationWorkCacheTest" time="0.012"/>
+  <testcase name="recursiveSaturatedAdmissionFailsInsteadOfBlockingWorker()" classname="site.benli06.GenerationWorkCacheTest" time="0.019"/>
+  <testcase name="reloadCancelsQueuedAndRunningWorkAndCannotPublishIntoNewEpoch()" classname="site.benli06.GenerationWorkCacheTest" time="0.007"/>
+  <testcase name="readAndParseFailureAllowRetryAndCleanTickets()" classname="site.benli06.GenerationWorkCacheTest" time="0.016"/>
+  <testcase name="interruptedDescriptorWaitPreservesInterruptAndCannotRead()" classname="site.benli06.GenerationWorkCacheTest" time="0.02"/>
+  <testcase name="queueBackpressureDoesNotReadQueuedInputs()" classname="site.benli06.GenerationWorkCacheTest" time="0.115"/>
+  <testcase name="admissionHookFailureReturnsSlot()" classname="site.benli06.GenerationWorkCacheTest" time="0.015"/>
+  <testcase name="oneThousandEpochsMixingSuccessFailureAndRetirementDoNotAccumulate()" classname="site.benli06.GenerationWorkCacheTest" time="0.46"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

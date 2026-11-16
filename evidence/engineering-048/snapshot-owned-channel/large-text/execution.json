@@ -1,0 +1,184 @@
+{
+  "started": "2026-11-16T06:27:25.710383+00:00",
+  "passed": true,
+  "historical_input_plan_sha256": "76f72066febe596338acfbce29ecd9637713b913ba1a7a216f38b6340bbc6a87",
+  "commands": [
+    {
+      "name": "compile",
+      "command": [
+        "C:\\Users\\ben_l\\Saved Games\\Yuuniverse 1.20.1 Shenyang\\porting-output\\work\\tools\\jdk21\\jdk-21.0.11+10\\bin\\javac.exe",
+        "-proc:none",
+        "-encoding",
+        "UTF-8",
+        "--release",
+        "21",
+        "-cp",
+        "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\build\\libs\\mtr-memory-saver-official-nf248-0.4.7.jar;C:\\Users\\ben_l\\.gradle\\caches\\modules-2\\files-2.1\\commons-io\\commons-io\\2.15.1\\f11560da189ab563a5c8e351941415430e9304ea\\commons-io-2.15.1.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\dependencies\\mtr-ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa.jar",
+        "-d",
+        "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-048\\snapshot-owned-channel\\large-text\\classes",
+        "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\tools\\acceptance\\java\\LargeTextWorkspaceAudit.java"
+      ],
+      "cwd": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-048\\snapshot-owned-channel\\large-text",
+      "started": "2026-11-16T06:27:28.196341+00:00",
+      "exit_code": 0,
+      "ended": "2026-11-16T06:27:32.427790+00:00"
+    },
+    {
+      "name": "audit",
+      "command": [
+        "C:\\Users\\ben_l\\Saved Games\\Yuuniverse 1.20.1 Shenyang\\porting-output\\work\\tools\\jdk21\\jdk-21.0.11+10\\bin\\java.exe",
+        "-Xmx3g",
+        "-Dfile.encoding=UTF-8",
+        "-Xlog:class+load=info:file=class-load.log",
+        "-cp",
+        "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-048\\snapshot-owned-channel\\large-text\\classes;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\build\\libs\\mtr-memory-saver-official-nf248-0.4.7.jar;C:\\Users\\ben_l\\.gradle\\caches\\modules-2\\files-2.1\\commons-io\\commons-io\\2.15.1\\f11560da189ab563a5c8e351941415430e9304ea\\commons-io-2.15.1.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\dependencies\\mtr-ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa.jar",
+        "site.benli06.LargeTextWorkspaceAudit",
+        "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\[MTR4.1原生目录]产物\\[MTR4.1]rpsync-mtr4.0.0-hxd3d-yw25t.zip",
+        "assets/mtr/hxd3d/25t__doors_b351ad1ecabb.obj",
+        "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-048\\snapshot-owned-channel\\large-text\\official-nf248-default\\result.json"
+      ],
+      "cwd": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-048\\snapshot-owned-channel\\large-text\\official-nf248-default",
+      "started": "2026-11-16T06:27:32.867382+00:00",
+      "exit_code": 0,
+      "ended": "2026-11-16T06:27:40.758751+00:00"
+    },
+    {
+      "name": "audit",
+      "command": [
+        "C:\\Users\\ben_l\\Saved Games\\Yuuniverse 1.20.1 Shenyang\\porting-output\\work\\tools\\jdk21\\jdk-21.0.11+10\\bin\\java.exe",
+        "-Xmx3g",
+        "-Dfile.encoding=UTF-8",
+        "-XX:-CompactStrings",
+        "-Xlog:class+load=info:file=class-load.log",
+        "-cp",
+        "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-048\\snapshot-owned-channel\\large-text\\classes;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\build\\libs\\mtr-memory-saver-official-nf248-0.4.7.jar;C:\\Users\\ben_l\\.gradle\\caches\\modules-2\\files-2.1\\commons-io\\commons-io\\2.15.1\\f11560da189ab563a5c8e351941415430e9304ea\\commons-io-2.15.1.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\dependencies\\mtr-ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa.jar",
+        "site.benli06.LargeTextWorkspaceAudit",
+        "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\[MTR4.1原生目录]产物\\[MTR4.1]rpsync-mtr4.0.0-hxd3d-yw25t.zip",
+        "assets/mtr/hxd3d/25t__doors_b351ad1ecabb.obj",
+        "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-048\\snapshot-owned-channel\\large-text\\official-nf248-no-compact\\result.json"
+      ],
+      "cwd": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-048\\snapshot-owned-channel\\large-text\\official-nf248-no-compact",
+      "started": "2026-11-16T06:27:40.773869+00:00",
+      "exit_code": 0,
+      "ended": "2026-11-16T06:27:51.793168+00:00"
+    },
+    {
+      "name": "audit",
+      "command": [
+        "C:\\Users\\ben_l\\Saved Games\\Yuuniverse 1.20.1 Shenyang\\porting-output\\work\\tools\\jdk21\\jdk-21.0.11+10\\bin\\java.exe",
+        "-Xmx3g",
+        "-Dfile.encoding=UTF-8",
+        "-Xlog:class+load=info:file=class-load.log",
+        "-cp",
+        "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-048\\snapshot-owned-channel\\large-text\\classes;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\build\\libs\\mtr-memory-saver-official-nf265-0.4.7.jar;C:\\Users\\ben_l\\.gradle\\caches\\modules-2\\files-2.1\\commons-io\\commons-io\\2.15.1\\f11560da189ab563a5c8e351941415430e9304ea\\commons-io-2.15.1.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\dependencies\\mtr-ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa.jar",
+        "site.benli06.LargeTextWorkspaceAudit",
+        "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\[MTR4.1原生目录]产物\\[MTR4.1]rpsync-mtr4.0.0-hxd3d-yw25t.zip",
+        "assets/mtr/hxd3d/25t__doors_b351ad1ecabb.obj",
+        "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-048\\snapshot-owned-channel\\large-text\\official-nf265-default\\result.json"
+      ],
+      "cwd": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-048\\snapshot-owned-channel\\large-text\\official-nf265-default",
+      "started": "2026-11-16T06:27:52.407138+00:00",
+      "exit_code": 0,
+      "ended": "2026-11-16T06:28:01.339866+00:00"
+    },
+    {
+      "name": "audit",
+      "command": [
+        "C:\\Users\\ben_l\\Saved Games\\Yuuniverse 1.20.1 Shenyang\\porting-output\\work\\tools\\jdk21\\jdk-21.0.11+10\\bin\\java.exe",
+        "-Xmx3g",
+        "-Dfile.encoding=UTF-8",
+        "-XX:-CompactStrings",
+        "-Xlog:class+load=info:file=class-load.log",
+        "-cp",
+        "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-048\\snapshot-owned-channel\\large-text\\classes;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\build\\libs\\mtr-memory-saver-official-nf265-0.4.7.jar;C:\\Users\\ben_l\\.gradle\\caches\\modules-2\\files-2.1\\commons-io\\commons-io\\2.15.1\\f11560da189ab563a5c8e351941415430e9304ea\\commons-io-2.15.1.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\dependencies\\mtr-ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa.jar",
+        "site.benli06.LargeTextWorkspaceAudit",
+        "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\[MTR4.1原生目录]产物\\[MTR4.1]rpsync-mtr4.0.0-hxd3d-yw25t.zip",
+        "assets/mtr/hxd3d/25t__doors_b351ad1ecabb.obj",
+        "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-048\\snapshot-owned-channel\\large-text\\official-nf265-no-compact\\result.json"
+      ],
+      "cwd": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-048\\snapshot-owned-channel\\large-text\\official-nf265-no-compact",
+      "started": "2026-11-16T06:28:01.357251+00:00",
+      "exit_code": 0,
+      "ended": "2026-11-16T06:28:11.457742+00:00"
+    }
+  ],
+  "trials": [
+    {
+      "target": "official-nf248",
+      "mode": "default",
+      "artifact_sha256": "e8b5b40230d0f44c541c12b32c8a30d4c2ea056b8a972335ae10166496837a99",
+      "output": "official-nf248-default\\result.json",
+      "passed": true,
+      "actual_reader_class_sources": {
+        "ReadAdmission": "file:/C:/Users/ben_l/Documents/Coding/resoucepack%20update/vehicle-memory/build/libs/mtr-memory-saver-official-nf248-0.4.7.jar",
+        "TextWorkspace": "file:/C:/Users/ben_l/Documents/Coding/resoucepack%20update/vehicle-memory/build/libs/mtr-memory-saver-official-nf248-0.4.7.jar",
+        "SegmentedResourceText": "file:/C:/Users/ben_l/Documents/Coding/resoucepack%20update/vehicle-memory/build/libs/mtr-memory-saver-official-nf248-0.4.7.jar"
+      },
+      "source_bytes": 102035449,
+      "decoded_utf16_units": 102035449,
+      "synthetic_controls": 8
+    },
+    {
+      "target": "official-nf248",
+      "mode": "no-compact",
+      "artifact_sha256": "e8b5b40230d0f44c541c12b32c8a30d4c2ea056b8a972335ae10166496837a99",
+      "output": "official-nf248-no-compact\\result.json",
+      "passed": true,
+      "actual_reader_class_sources": {
+        "ReadAdmission": "file:/C:/Users/ben_l/Documents/Coding/resoucepack%20update/vehicle-memory/build/libs/mtr-memory-saver-official-nf248-0.4.7.jar",
+        "TextWorkspace": "file:/C:/Users/ben_l/Documents/Coding/resoucepack%20update/vehicle-memory/build/libs/mtr-memory-saver-official-nf248-0.4.7.jar",
+        "SegmentedResourceText": "file:/C:/Users/ben_l/Documents/Coding/resoucepack%20update/vehicle-memory/build/libs/mtr-memory-saver-official-nf248-0.4.7.jar"
+      },
+      "source_bytes": 102035449,
+      "decoded_utf16_units": 102035449,
+      "synthetic_controls": 8
+    },
+    {
+      "target": "official-nf265",
+      "mode": "default",
+      "artifact_sha256": "12162be2d0e75962e58d33dec6951e0a82b1455ef1466f9b94c3dce1c4d36a02",
+      "output": "official-nf265-default\\result.json",
+      "passed": true,
+      "actual_reader_class_sources": {
+        "ReadAdmission": "file:/C:/Users/ben_l/Documents/Coding/resoucepack%20update/vehicle-memory/build/libs/mtr-memory-saver-official-nf265-0.4.7.jar",
+        "TextWorkspace": "file:/C:/Users/ben_l/Documents/Coding/resoucepack%20update/vehicle-memory/build/libs/mtr-memory-saver-official-nf265-0.4.7.jar",
+        "SegmentedResourceText": "file:/C:/Users/ben_l/Documents/Coding/resoucepack%20update/vehicle-memory/build/libs/mtr-memory-saver-official-nf265-0.4.7.jar"
+      },
+      "source_bytes": 102035449,
+      "decoded_utf16_units": 102035449,
+      "synthetic_controls": 8
+    },
+    {
+      "target": "official-nf265",
+      "mode": "no-compact",
+      "artifact_sha256": "12162be2d0e75962e58d33dec6951e0a82b1455ef1466f9b94c3dce1c4d36a02",
+      "output": "official-nf265-no-compact\\result.json",
+      "passed": true,
+      "actual_reader_class_sources": {
+        "ReadAdmission": "file:/C:/Users/ben_l/Documents/Coding/resoucepack%20update/vehicle-memory/build/libs/mtr-memory-saver-official-nf265-0.4.7.jar",
+        "TextWorkspace": "file:/C:/Users/ben_l/Documents/Coding/resoucepack%20update/vehicle-memory/build/libs/mtr-memory-saver-official-nf265-0.4.7.jar",
+        "SegmentedResourceText": "file:/C:/Users/ben_l/Documents/Coding/resoucepack%20update/vehicle-memory/build/libs/mtr-memory-saver-official-nf265-0.4.7.jar"
+      },
+      "source_bytes": 102035449,
+      "decoded_utf16_units": 102035449,
+      "synthetic_controls": 8
+    }
+  ],
+  "inputs": {
+    "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\[MTR4.1原生目录]产物\\[MTR4.1]rpsync-mtr4.0.0-hxd3d-yw25t.zip": "fe15135afd9a53f6f72a910b09d7caf64eab3195a2bb71a3662d5c90318167a5",
+    "C:\\Users\\ben_l\\.gradle\\caches\\modules-2\\files-2.1\\commons-io\\commons-io\\2.15.1\\f11560da189ab563a5c8e351941415430e9304ea\\commons-io-2.15.1.jar": "a58af12ee1b68cfd2ebb0c27caef164f084381a00ec81a48cc275fd7ea54e154",
+    "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\dependencies\\mtr-ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa.jar": "ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa",
+    "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\tools\\acceptance\\java\\LargeTextWorkspaceAudit.java": "88fc0a1cc6849501adbb2d6c1d497d74e3f92bca09cfe17af08695a5264ce702",
+    "C:\\Users\\ben_l\\Saved Games\\Yuuniverse 1.20.1 Shenyang\\porting-output\\work\\tools\\jdk21\\jdk-21.0.11+10\\bin\\java.exe": "5e0fab9f07952ceb6e71eb9fd33e1ed69959904ca00cf70869b7baf516a98016",
+    "C:\\Users\\ben_l\\Saved Games\\Yuuniverse 1.20.1 Shenyang\\porting-output\\work\\tools\\jdk21\\jdk-21.0.11+10\\bin\\javac.exe": "2df52e1bcb1256e09734c12939eec114997082ea4c3e7898d19c7a35fea34281",
+    "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-048\\snapshot-owned-channel\\large_matrix.py": "ee79f9139c59c2cdc28f1b9c398a5aab3fd352f7340000bbfab2152f659808c2",
+    "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\build\\libs\\mtr-memory-saver-official-nf248-0.4.7.jar": "e8b5b40230d0f44c541c12b32c8a30d4c2ea056b8a972335ae10166496837a99",
+    "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\build\\libs\\mtr-memory-saver-official-nf265-0.4.7.jar": "12162be2d0e75962e58d33dec6951e0a82b1455ef1466f9b94c3dce1c4d36a02"
+  },
+  "classes": {
+    "site/benli06/LargeTextWorkspaceAudit$Observed.class": "fc8d23a15417bf0a170e64d0b147099d7b42361bd3f9323f12546599d3c21840",
+    "site/benli06/LargeTextWorkspaceAudit.class": "4ff751e5a131c6b519350a7e3e38c7cd2794081e2a32f819ead9f96b3b92139d"
+  },
+  "ended": "2026-11-16T06:28:12.649171+00:00",
+  "limits": "Standalone exact-text/ownership checks, not gameplay or client performance acceptance."
+}

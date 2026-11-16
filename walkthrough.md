@@ -268,3 +268,18 @@ Read-only disk-full capability inspection finds VHD tooling installed but this p
 - 核对精确安装 patched-client JAR 字节码：F2 在早期截图分支返回；tick→handleKeybinds 受 screen/overlay 门控，但 ESC→pauseGame 不查 overlay。采样 window_active=true、mouse_grabbed=true、screen=null 只证明当时状态，不证明特定外部键事件送达，也不证明 overlay 是否存在。已将结论交主任务继续 UI 调查。
 - 保留 capture-01 原始失败与脚本：采样脚本误要求每次读取都为新快照，末次正常重复1秒发布快照被误报；capture-02 按发布逻辑保留重复读，要求时间不回退及15秒内至少3个推进快照。未用重试或过滤掩盖实际观测错误。
 - 证据：evidence/engineering-048/neutral-runtime-02-review/。MTR v6 继续暂停；最终退出封存和后续重载/玩法验证由主任务继续。
+
+
+## 2026-11-16T14:37:50.285256+08:00 (UTC+08:00) — 工程 048：0.4.7 快照句柄所有权修复
+
+修复 0.4.6 在 JVM 突然终止后留下 UTF-16 spill 文件的问题。Snapshot 现在以 CREATE_NEW/READ/WRITE/DELETE_ON_CLOSE 原子创建并持有单一 SeekableByteChannel，贯穿写入、完整工作区预算等待、回卷和恢复，最后只关闭一次所有者句柄。Windows 在进程句柄释放时删除文件；保持 8 KiB 固定缓冲、短读写/零进展循环中的退休检查、调用者流所有权、解码长度限制和释放顺序。支持时保留 POSIX 0600 创建权限；文件名碰撞仅重试，不触碰其他所有者；不支持删除所有权选项则保留真实失败，没有降级路径或旧临时文件清扫。
+
+实际 channel 故障测试覆盖创建、读写、回卷、关闭、主/附加异常、7 字节奇数短传输、短暂零进展、持续零进展后的 generation retirement、实际奇数截断和碰撞保留。两个官方目标各 73 项测试全部通过。独立源码审查无阻断项。初次 full 日志缺少结构化 argv/起止/退出码，不事后重构；随后保存两套真实 --rerun-tasks 构建收据（显式 -PmodVersion=0.4.7），两次均 exit 0、73 tests、无失败/错误/跳过，JAR 与 manifest 精确复现。初次 targeted 日志早于持续零进展测试，明确保留为中间记录。
+
+两个精确 0.4.7 JAR 各执行 5 个独立小 JVM（3 个正常/重启控制及写入中、完整预算等待中各 1 次 Runtime.halt(74)）。父进程在 halt 前独立核对实际 PID、reader/admission JAR 来源和真实 UTF-16 字节：写入中为 65,536/90,008 字节且 9,007 源字节未读；等待中为完整 90,008 字节，只有竞争工作区 share 持有 120,000 字节且 1 个请求等待。四次 halt 均跳过 caller finally 和 shutdown hook，OS 删除全部本次快照，其他所有者 sentinel 不变。同一新 harness 对精确 0.4.6 NF248 的两个阶段均复现残留，保留原始残留及哈希；该负控制的 audit pass 不表示产品清理通过。
+
+四个真实 3 GiB 大文本 JVM（两个目标 × 默认/-XX:-CompactStrings）全部通过同一 102,035,449 字节 OBJ 的独立原文、字符数、结果哈希校验，另各 8 个 Unicode/畸形输入 forced-spill 控制等价于 native IOUtils；结束后 admission/workspace 与快照库存清零。实际 class-load 日志绑定精确候选 JAR。两目标对旧包均仅改变 SegmentedResourceText 与其 Snapshot 两类及 3 个只改变版本的 metadata；其余 56 个类字节相同。
+
+证据封存在 evidence/engineering-048/snapshot-owned-channel/：原始/复现构建日志、JUnit XML、两个候选及 manifest、实际 abrupt/旧版控制/大文本源与 class、66 个最终源/构建输入冻结、机械复核 assessment 和 256 个载荷 SHA 索引。NF248 SHA-256 e8b5b40230d0f44c541c12b32c8a30d4c2ea056b8a972335ae10166496837a99；NF265 12162be2d0e75962e58d33dec6951e0a82b1455ef1466f9b94c3dce1c4d36a02。默认版本提升和发布文件由主任务后续处理。
+
+本批不声称断电、真实磁盘满、游戏生命周期/重载、视觉正确性、两小时路线或整机性能通过；新候选仍需相应游戏验收。未启动或停止 Minecraft 客户端；MTR v6 继续暂停。作者与提交者均为 A-BenLi06 <ben_li06@outlook.com>。

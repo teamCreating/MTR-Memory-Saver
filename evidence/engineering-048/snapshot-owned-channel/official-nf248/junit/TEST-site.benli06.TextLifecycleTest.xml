@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="site.benli06.TextLifecycleTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2026-11-16T06:21:07.200Z" hostname="DESKTOP-885HHP9" time="0.347">
+  <properties/>
+  <testcase name="reloadRejectsTextCallerStillWaitingForReadAdmission()" classname="site.benli06.TextLifecycleTest" time="0.123"/>
+  <testcase name="incompressibleUtf16RemainsExact()" classname="site.benli06.TextLifecycleTest" time="0.006"/>
+  <testcase name="reloadCancelsSingleFlightFollowerAndPreservesReplacement()" classname="site.benli06.TextLifecycleTest" time="0.014"/>
+  <testcase name="exactCodeUnitsAndFirstReaderIdentity()" classname="site.benli06.TextLifecycleTest" time="0.013"/>
+  <testcase name="nestedAdmissionAndInterruptedWaitDoNotLeak()" classname="site.benli06.TextLifecycleTest" time="0.006"/>
+  <testcase name="repeatedTextGenerationsReturnToZero()" classname="site.benli06.TextLifecycleTest" time="0.099"/>
+  <testcase name="concurrentSingleFlightAndFailureRetry()" classname="site.benli06.TextLifecycleTest" time="0.027"/>
+  <testcase name="reloadDuringReaderCannotPublishOldText()" classname="site.benli06.TextLifecycleTest" time="0.012"/>
+  <testcase name="segmentedGuardAndIoFailureReleaseAdmissionWithoutClosingNativeStream()" classname="site.benli06.TextLifecycleTest" time="0.005"/>
+  <testcase name="oversizedInputsBypassCompressionAndNeverExceedLruWeight()" classname="site.benli06.TextLifecycleTest" time="0.014"/>
+  <testcase name="interruptedSingleFlightFollowerDoesNotCancelOwner()" classname="site.benli06.TextLifecycleTest" time="0.013"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
