@@ -1,0 +1,17 @@
+{
+  "timestamp": "2026-11-16T15:24:06.441287+00:00",
+  "api": "posix-rename",
+  "reader_source_sha256": "6967cd6efee7a673e5df72700ea8de26e2e92c02d4614306bcb106fa527b02e1",
+  "elapsed_seconds": 18.33066979999421,
+  "publications": 1500,
+  "publisher_failures": 0,
+  "reader_successes": 79954,
+  "reader_failures": 0,
+  "struct_offsets": {
+    "Flags": 0,
+    "RootDirectory": 8,
+    "FileNameLength": 16,
+    "FileName": 20
+  },
+  "limits": "Independent Win32 fixture only. Every failed reader attempt is retained; no retry within an attempt. No game or JVM access."
+}

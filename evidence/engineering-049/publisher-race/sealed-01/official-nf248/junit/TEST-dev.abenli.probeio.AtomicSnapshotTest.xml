@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="dev.abenli.probeio.AtomicSnapshotTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2026-11-16T15:24:11.170Z" hostname="DESKTOP-885HHP9" time="85.947">
+  <properties/>
+  <testcase name="deniedSourceDeleteHandleFailsWithoutMovingTheDestination()" classname="dev.abenli.probeio.AtomicSnapshotTest" time="0.513"/>
+  <testcase name="inaccessibleDestinationCannotBeReportedAsPublished()" classname="dev.abenli.probeio.AtomicSnapshotTest" time="0.114"/>
+  <testcase name="unicodeNameAndContentKeepTheirExactEncoding()" classname="dev.abenli.probeio.AtomicSnapshotTest" time="0.026"/>
+  <testcase name="concurrentOpensAlwaysReadOneCompletePublishedVersion()" classname="dev.abenli.probeio.AtomicSnapshotTest" time="84.797"/>
+  <testcase name="firstPublicationAndReplacementPreserveExactText()" classname="dev.abenli.probeio.AtomicSnapshotTest" time="0.132"/>
+  <testcase name="deleteSharingReaderKeepsOldFileAcrossActualNativeReplacement()" classname="dev.abenli.probeio.AtomicSnapshotTest" time="0.046"/>
+  <testcase name="restrictiveDestinationReaderPreservesTheRealSharingFailure()" classname="dev.abenli.probeio.AtomicSnapshotTest" time="0.306"/>
+  <system-out><![CDATA[FileRenameInfoEx: 1000 publications, 768317 complete concurrent reads, 0 failures
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

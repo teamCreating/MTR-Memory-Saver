@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="dev.abenli.neutralprobe.DiagnosticTrackerTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2026-11-16T11:38:49.699Z" hostname="DESKTOP-885HHP9" time="0.127">
+  <properties/>
+  <testcase name="nestedAndConcurrentInvalidCallsPairOnlyTheirOwnReturns()" classname="dev.abenli.neutralprobe.DiagnosticTrackerTest" time="0.106"/>
+  <testcase name="outsideEpochIsKeptExplicitInsteadOfAssigningLastEpoch()" classname="dev.abenli.neutralprobe.DiagnosticTrackerTest" time="0.009"/>
+  <testcase name="changedEpochArgumentsDepthOrThreadNeverCompletesACall()" classname="dev.abenli.neutralprobe.DiagnosticTrackerTest" time="0.003"/>
+  <testcase name="failedInnerOrPriorCallCannotStealLaterReturn()" classname="dev.abenli.neutralprobe.DiagnosticTrackerTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

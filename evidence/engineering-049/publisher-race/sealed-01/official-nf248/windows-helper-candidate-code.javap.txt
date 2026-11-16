@@ -1,0 +1,19 @@
+Compiled from "AtomicSnapshot.java"
+final class dev.abenli.probeio.AtomicSnapshot$Windows {
+  private static final dev.abenli.probeio.AtomicSnapshot$WindowsApi API;
+
+  private dev.abenli.probeio.AtomicSnapshot$Windows();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: return
+
+  static {};
+    Code:
+       0: ldc           #7                  // String kernel32
+       2: ldc           #9                  // class dev/abenli/probeio/AtomicSnapshot$WindowsApi
+       4: invokestatic  #11                 // Method com/sun/jna/Native.load:(Ljava/lang/String;Ljava/lang/Class;)Lcom/sun/jna/Library;
+       7: checkcast     #9                  // class dev/abenli/probeio/AtomicSnapshot$WindowsApi
+      10: putstatic     #17                 // Field API:Ldev/abenli/probeio/AtomicSnapshot$WindowsApi;
+      13: return
+}

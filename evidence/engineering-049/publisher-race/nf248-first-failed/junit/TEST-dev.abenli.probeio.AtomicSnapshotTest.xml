@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="dev.abenli.probeio.AtomicSnapshotTest" tests="7" skipped="0" failures="1" errors="0" timestamp="2026-11-16T11:38:50.977Z" hostname="DESKTOP-885HHP9" time="4.805">
+  <properties/>
+  <testcase name="deniedSourceDeleteHandleFailsWithoutMovingTheDestination()" classname="dev.abenli.probeio.AtomicSnapshotTest" time="0.171"/>
+  <testcase name="inaccessibleDestinationCannotBeReportedAsPublished()" classname="dev.abenli.probeio.AtomicSnapshotTest" time="0.008"/>
+  <testcase name="unicodeNameAndContentKeepTheirExactEncoding()" classname="dev.abenli.probeio.AtomicSnapshotTest" time="0.017"/>
+  <testcase name="concurrentOpensAlwaysReadOneCompletePublishedVersion()" classname="dev.abenli.probeio.AtomicSnapshotTest" time="4.523"/>
+  <testcase name="posixReplacementKeepsARestrictiveDestinationReaderValid()" classname="dev.abenli.probeio.AtomicSnapshotTest" time="0.034">
+    <failure message="java.nio.file.FileSystemException: C:\Users\ben_l\AppData\Local\Temp\junit-2264945656637785916\snapshot.json.tmp -&gt; C:\Users\ben_l\AppData\Local\Temp\junit-2264945656637785916\snapshot.json: SetFileInformationByHandle(FileRenameInfoEx) failed with Windows error 32" type="java.nio.file.FileSystemException">java.nio.file.FileSystemException: C:\Users\ben_l\AppData\Local\Temp\junit-2264945656637785916\snapshot.json.tmp -&gt; C:\Users\ben_l\AppData\Local\Temp\junit-2264945656637785916\snapshot.json: SetFileInformationByHandle(FileRenameInfoEx) failed with Windows error 32
+	at dev.abenli.probeio.AtomicSnapshot.failure(AtomicSnapshot.java:72)
+	at dev.abenli.probeio.AtomicSnapshot.publishWindows(AtomicSnapshot.java:56)
+	at dev.abenli.probeio.AtomicSnapshot.write(AtomicSnapshot.java:24)
+	at dev.abenli.probeio.AtomicSnapshotTest.posixReplacementKeepsARestrictiveDestinationReaderValid(AtomicSnapshotTest.java:65)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+</failure>
+  </testcase>
+  <testcase name="firstPublicationAndReplacementPreserveExactText()" classname="dev.abenli.probeio.AtomicSnapshotTest" time="0.018"/>
+  <testcase name="deleteSharingReaderKeepsOldFileAcrossActualNativeReplacement()" classname="dev.abenli.probeio.AtomicSnapshotTest" time="0.024"/>
+  <system-out><![CDATA[FileRenameInfoEx: 1000 publications, 53966 complete concurrent reads, 0 failures
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

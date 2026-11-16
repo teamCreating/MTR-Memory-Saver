@@ -1,0 +1,66 @@
+{
+  "timestamp": "2026-11-16T11:28:30.872343+00:00",
+  "method": "Exact current reader with shared read/write/delete against single-publisher ReplaceFileW, four concurrent independently recorded reader attempts",
+  "elapsed_seconds": 20.327347000013106,
+  "publications": 1500,
+  "publisher_errors": [],
+  "readers": [
+    {
+      "reader": 3,
+      "successes": 17183,
+      "failures": {
+        "FileNotFoundError:2": 6914,
+        "PermissionError:32": 3029
+      },
+      "invalid_payloads": 0,
+      "first_failure": {
+        "time_ns": 347022156089300,
+        "exception": "FileNotFoundError(2, '\u7cfb\u7edf\u627e\u4e0d\u5230\u6307\u5b9a\u7684\u6587\u4ef6\u3002', None, 2)",
+        "path_exists_immediately_after": true
+      }
+    },
+    {
+      "reader": 1,
+      "successes": 19508,
+      "failures": {
+        "FileNotFoundError:2": 9118,
+        "PermissionError:32": 3933
+      },
+      "invalid_payloads": 0,
+      "first_failure": {
+        "time_ns": 347022157870800,
+        "exception": "FileNotFoundError(2, '\u7cfb\u7edf\u627e\u4e0d\u5230\u6307\u5b9a\u7684\u6587\u4ef6\u3002', None, 2)",
+        "path_exists_immediately_after": true
+      }
+    },
+    {
+      "reader": 0,
+      "successes": 17201,
+      "failures": {
+        "FileNotFoundError:2": 6999,
+        "PermissionError:32": 3009
+      },
+      "invalid_payloads": 0,
+      "first_failure": {
+        "time_ns": 347022157080600,
+        "exception": "FileNotFoundError(2, '\u7cfb\u7edf\u627e\u4e0d\u5230\u6307\u5b9a\u7684\u6587\u4ef6\u3002', None, 2)",
+        "path_exists_immediately_after": true
+      }
+    },
+    {
+      "reader": 2,
+      "successes": 19538,
+      "failures": {
+        "FileNotFoundError:2": 9053,
+        "PermissionError:32": 3929
+      },
+      "invalid_payloads": 0,
+      "first_failure": {
+        "time_ns": 347022155155500,
+        "exception": "FileNotFoundError(2, '\u7cfb\u7edf\u627e\u4e0d\u5230\u6307\u5b9a\u7684\u6587\u4ef6\u3002', None, 2)",
+        "path_exists_immediately_after": false
+      }
+    }
+  ],
+  "limits": "Independent Win32 fixture only; no game or frozen source changes. Every failed open is retained, not retried within its request."
+}

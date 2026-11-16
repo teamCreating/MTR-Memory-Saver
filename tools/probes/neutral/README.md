@@ -51,14 +51,21 @@ Snapshot timestamps represent completion of its reads. `capture_started_at` and
 backdated when native pending work settles during the capture. Output may finish
 later. Native epoch timestamps retain the actual hook entry time instead.
 
-Snapshot publication uses the shared probe-only `AtomicSnapshot` helper. On
-Windows it uses `ReplaceFileW` for existing destinations and an atomic rename for
-first publication; readers must grant delete sharing (the Python
-`windows_snapshot_io.read_snapshot_bytes` helper does so). Windows
-`MoveFileExW(REPLACE_EXISTING)` rejects open destinations even when readers grant
-delete sharing. Publication errors remain visible and count as observation
-failures. The helper uses Minecraft's existing JNA library and is excluded from
-the companion product JAR.
+Observer 1.0.3 publishes snapshots through the shared probe-only `AtomicSnapshot`
+helper. On Windows 10 1607 or later it owns a DELETE handle to the completed
+temporary file and issues one `SetFileInformationByHandle(FileRenameInfoEx)` call
+with `REPLACE_IF_EXISTS | POSIX_SEMANTICS`. Held readers keep their complete old
+version, while new opens reach the replacement. The Python reader grants
+read/write/delete sharing and does not retry failed reads. Actual API failures
+remain visible and count as observation errors; unsupported systems fail rather
+than silently falling back. The helper uses Minecraft's existing JNA library and
+is excluded from the companion product JAR.
+
+The former 1.0.2 `ReplaceFileW` publisher preserved held readers but exposed
+missing-path and sharing failures to concurrent new opens in a real client and
+independent Windows stress tests. Its original failure evidence remains
+preserved. Neither a later successful read nor a held-reader test establishes
+that every concurrent open succeeded.
 
 `world` is null outside a world; otherwise it contains dimension, game time and
 player x/y/z/yaw/pitch (player can be null during transition). `train_state` is
@@ -99,7 +106,7 @@ valid geometry. The JUnit/ABI/JFR checks and archive reference audit verify tool
 engineering only. Actual loader application and client qualification require
 the separate real-client runs.
 
-The read-only Python consumer now selects the installed 1.0.2 observer's output
+The read-only Python consumer selects the installed reviewed observer's output
 paths and validates native snapshots without inventing unavailable companion
 counters. For consecutive full resource reloads, start `reload_before_recorder.py
 record` on the already launched JVM, retain its complete directory, and confirm
@@ -122,3 +129,9 @@ complete live call/return attribution; changed resources, missing traces and
 unreviewed native errors reject the chain. Failed or interrupted input attempts
 remain failures rather than disappearing from a shortened input file. The
 observer does not perform game input or establish rendering/passenger acceptance.
+
+`config/native-observer-consumer.json` lists the reviewed 1.0.2/1.0.3 schema and
+diagnostic capabilities. The consumer freezes that configuration along with the
+actual installed observer identity and rejects unknown versions or unsupported
+capabilities. Historical 1.0.2 sources and failed runs retain their original bytes;
+the repaired 1.0.3 observer requires a fresh actual client acceptance run.

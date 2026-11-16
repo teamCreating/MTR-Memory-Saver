@@ -1,0 +1,55 @@
+{
+  "timestamp": "2026-11-16T11:30:31.353551+00:00",
+  "method": "SetFileInformationByHandle FileRenameInfoEx=22 flags REPLACE_IF_EXISTS|POSIX_SEMANTICS=3, owned DELETE source handle, four current shared readers",
+  "struct_offsets": {
+    "Flags": 0,
+    "RootDirectory": 8,
+    "FileNameLength": 16,
+    "FileName": 20
+  },
+  "elapsed_seconds": 15.864338000013959,
+  "publications": 1500,
+  "publisher_errors": [],
+  "controls": [
+    {
+      "name": "old_handle_complete_version",
+      "passed": true
+    },
+    {
+      "name": "missing_parent_error_visible",
+      "passed": true,
+      "exception": "FileNotFoundError(2, '\u7cfb\u7edf\u627e\u4e0d\u5230\u6307\u5b9a\u7684\u8def\u5f84\u3002', None, 3)"
+    }
+  ],
+  "readers": [
+    {
+      "reader": 1,
+      "successes": 13340,
+      "failures": {},
+      "invalid_payloads": 0,
+      "first_failure": null
+    },
+    {
+      "reader": 0,
+      "successes": 11644,
+      "failures": {},
+      "invalid_payloads": 0,
+      "first_failure": null
+    },
+    {
+      "reader": 3,
+      "successes": 11544,
+      "failures": {},
+      "invalid_payloads": 0,
+      "first_failure": null
+    },
+    {
+      "reader": 2,
+      "successes": 13378,
+      "failures": {},
+      "invalid_payloads": 0,
+      "first_failure": null
+    }
+  ],
+  "limits": "Independent Win32 fixture only; no game or frozen source changes. Every failed open is retained, no retry/fallback."
+}

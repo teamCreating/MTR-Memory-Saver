@@ -1,0 +1,76 @@
+{
+  "timestamp": "2026-11-16T15:30:39.768245+00:00",
+  "targets": [
+    {
+      "target": "official-nf248",
+      "reference_sha256": "1f5a3f9721bd7199cd952f4926afa8cf40996cf76fdc9484a9372f45d1664167",
+      "candidate_sha256": "1a4e69a81e8baaeaf30e76b7647a371a39411ab7687934da83742c0fdce8487d",
+      "all_class_count": 28,
+      "unchanged_class_count": 25,
+      "changed_classes": [
+        "dev/abenli/probeio/AtomicSnapshot$Windows.class",
+        "dev/abenli/probeio/AtomicSnapshot$WindowsApi.class",
+        "dev/abenli/probeio/AtomicSnapshot.class"
+      ],
+      "windows_helper_instruction_disassembly_identical": true,
+      "windows_helper_debug_line_byte_changes": [
+        {
+          "offset": 556,
+          "before": 44,
+          "after": 83
+        },
+        {
+          "offset": 608,
+          "before": 45,
+          "after": 84
+        }
+      ],
+      "changed_version_metadata": [
+        "META-INF/MANIFEST.MF",
+        "META-INF/neoforge.mods.toml",
+        "mtr-native-observer-target.json"
+      ],
+      "declared_input_count": 25,
+      "all_declared_inputs_match": true
+    },
+    {
+      "target": "official-nf265",
+      "reference_sha256": "6cc023b0024ad3884cae73d7fa7381328758a88a17ba3624d7c8e5abbd3917d6",
+      "candidate_sha256": "e06ce6c06c99aa135d69e4e448ac73878420e99f2bd4ac7b14e8b686031a8599",
+      "all_class_count": 28,
+      "unchanged_class_count": 25,
+      "changed_classes": [
+        "dev/abenli/probeio/AtomicSnapshot$Windows.class",
+        "dev/abenli/probeio/AtomicSnapshot$WindowsApi.class",
+        "dev/abenli/probeio/AtomicSnapshot.class"
+      ],
+      "windows_helper_instruction_disassembly_identical": true,
+      "windows_helper_debug_line_byte_changes": [
+        {
+          "offset": 556,
+          "before": 44,
+          "after": 83
+        },
+        {
+          "offset": 608,
+          "before": 45,
+          "after": 84
+        }
+      ],
+      "changed_version_metadata": [
+        "META-INF/MANIFEST.MF",
+        "META-INF/neoforge.mods.toml",
+        "mtr-native-observer-target.json"
+      ],
+      "declared_input_count": 25,
+      "all_declared_inputs_match": true
+    }
+  ],
+  "preserved_original_source_count": 6,
+  "unchanged_recorded_product_input_count": 113,
+  "unchanged_product_jars": {
+    "build/libs/mtr-memory-saver-official-nf248-0.4.7.jar": "e8b5b40230d0f44c541c12b32c8a30d4c2ea056b8a972335ae10166496837a99",
+    "build/libs/mtr-memory-saver-official-nf265-0.4.7.jar": "12162be2d0e75962e58d33dec6951e0a82b1455ef1466f9b94c3dce1c4d36a02"
+  },
+  "limits": "Probe engineering and independent Windows I/O fixtures only; no client start, installed application, reload, gameplay, endurance or performance acceptance. Initial failed restrictive-reader assumption and earlier unstructured build logs remain separate."
+}

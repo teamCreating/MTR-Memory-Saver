@@ -1,0 +1,9 @@
+{
+  "timestamp": "2026-11-16T19:29:17.6609672+08:00",
+  "reason": "Recorder FileNotFoundError during native snapshot publication; preserve incomplete observation with zero reload inputs",
+  "observer_pid": 3060,
+  "wrapper_pid": 45192,
+  "command_line": "\"C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.venv\\Scripts\\python.exe\" -X utf8 tools/observe_packaged_client.py reloads --instance .cache/acceptance/official-nf248-owned-049 --output .cache/acceptance/owned-049-reload-observation --reload-recorder .cache/acceptance/owned-049-reload-recorder --expected-count 1091 --expected-declarations 1092 --require-reloads 20 --interval 1 --duration 7200 --unpaused",
+  "game_pid": 58468,
+  "game_stop_requested": false
+}
