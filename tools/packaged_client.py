@@ -161,6 +161,11 @@ def verified_observer(path, identity, matrix, manifest_path=None):
                "cache_state", "frame_jfr", "server_tick_jfr")
     unavailable = ("module_counters", "active_read_permits", "text_workspace")
     required = {**dict.fromkeys(enabled, True), **dict.fromkeys(unavailable, False)}
+    if "diagnostics_schema" in target or "diagnostics_path" in target or "native_model_diagnostics" in capabilities.get("capabilities", {}):
+        if (type(target.get("diagnostics_schema")) is not int or target["diagnostics_schema"] != 1
+                or target.get("diagnostics_path") != "game-probe/native-invalid-model.jsonl"):
+            raise ValueError("Independent observer diagnostic metadata differs from its supported live schema.")
+        required["native_model_diagnostics"] = True
     if (capabilities.get("schema_version") != 1 or capabilities.get("probe_kind") != target["probe_kind"]
             or capabilities.get("capabilities") != required or manifest.get("capabilities") != required
             or any(type(value) is not bool for value in capabilities.get("capabilities", {}).values())

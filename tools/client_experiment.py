@@ -23,16 +23,19 @@ import zipfile
 import packaged_client as packaged
 from observe_packaged_client import WindowsProcess, verify_process_identity, windows_arguments
 from windows_snapshot_io import read_snapshot_bytes
+from native_diagnostic_review import review_diagnostics, validate_review
 from client_experiment_analysis import (COMMON_METRICS, MODES, ROLES, analyze, assess_observation,
                                          client_log_completeness, execution_window_errors, finite, instant, native_diagnostics,
                                          native_snapshot_errors, process_key, schedule, validate_policy)
 
 ROOT = Path(__file__).resolve().parents[1]
+DIAGNOSTIC_REVIEW = ROOT / "config/native-diagnostic-review.json"
 SCOPE = "official_whole_client_experiment"
 INJECTED_ENV = ("JAVA_TOOL_OPTIONS", "JDK_JAVA_OPTIONS", "_JAVA_OPTIONS", "CLASSPATH")
 SOURCES = (Path(__file__), Path(__file__).with_name("client_experiment_analysis.py"),
            Path(packaged.__file__), Path(__file__).with_name("observe_packaged_client.py"),
-           Path(__file__).with_name("windows_snapshot_io.py"), ROOT / "config/targets.json")
+           Path(__file__).with_name("windows_snapshot_io.py"), Path(__file__).with_name("native_diagnostic_review.py"),
+           DIAGNOSTIC_REVIEW, ROOT / "config/targets.json")
 RETAINED_PROCESSES = {}  # Keep actual handles while a failed export awaits recovery.
 
 
@@ -191,6 +194,8 @@ def prepared_descriptor(path, role, mode, policy):
     probe, metadata = neutral[0]
     if metadata.get("schema_version") != 1 or metadata.get("probe_kind") != "official-native-observer" or metadata.get("target") != identity["target"] or metadata.get("mtrSha256") != identity["mtrSha256"] or metadata.get("neoForge") != identity["neoForge"]:
         raise ValueError("Neutral observer metadata differs from the exact official target.")
+    validate_review(read(DIAGNOSTIC_REVIEW), metadata, root=ROOT)
+    diagnostic_review = fingerprint(DIAGNOSTIC_REVIEW)
     scenario = scenario_from_controls(controls)
     if scenario["warmup"]["duration_seconds"] != policy["warmup_seconds"]:
         raise ValueError("Frozen scenario warm-up differs from experiment policy.")
@@ -198,10 +203,12 @@ def prepared_descriptor(path, role, mode, policy):
         raise ValueError("Frozen scenario world differs from actual prepared world.")
     key_fields = {"role": role, "instrumentation": mode, "artifact_sha256": artifact_sha,
                   "controls_sha256": packaged.controls_sha256(plan), "neutral_probe_sha256": probe["sha256"],
-                  "policy_sha256": canonical_sha(policy), "target": identity["target"]}
+                  "policy_sha256": canonical_sha(policy), "target": identity["target"],
+                  "diagnostic_review_sha256": diagnostic_review["sha256"]}
     return {"role": role, "instrumentation": mode, "prepared_plan": fingerprint(path), "instance": str(instance),
             "controls": controls, "core_jvm_arguments": core_arguments(arguments), "scenario": scenario,
             "artifact_sha256": artifact_sha, "probe_metadata": metadata, "qualification_fields": key_fields,
+            "diagnostic_review": diagnostic_review,
             "qualification_key": canonical_sha(key_fields)}
 
 
@@ -275,7 +282,15 @@ def audit_observation(root, policy, scenario, mode, *, expected_trial=None, expe
     window_errors = execution_window_errors(evidence, expected_trial, experiment_started)
     if window_errors:
         raise ValueError("Invalid raw execution window: " + "; ".join(window_errors))
-    if evidence.get("client_diagnostics") != native_diagnostics((root / "latest.log").read_text(encoding="utf-8-sig")):
+    diagnostic_events = read_jsonl(root / "native-invalid-model.jsonl")
+    diagnostic_review = read(root / "diagnostic-review.json")
+    metadata = prepared["controls"]["observer"]["target"]
+    validate_review(diagnostic_review, metadata, root=ROOT)
+    if diagnostic_review != read(DIAGNOSTIC_REVIEW) or evidence.get("diagnostic_review_sha256") != digest(root / "diagnostic-review.json"):
+        raise ValueError("Actual diagnostic review differs from the frozen current proof.")
+    if evidence.get("diagnostic_events") != diagnostic_events:
+        raise ValueError("Diagnostic attribution events differ from raw JSONL.")
+    if evidence.get("client_diagnostics") != assess_native_diagnostics(root, evidence, metadata, diagnostic_review):
         raise ValueError("Native/client diagnostic assessment differs from full raw log.")
     if evidence.get("process") != read(root / "actual-process.json") or evidence.get("launch") != read(root / "launch.json"):
         raise ValueError("Process/launch evidence differs from its independent raw capture.")
@@ -309,6 +324,20 @@ def verify_observed_identity(root, descriptor):
     probes = [item for item in prepared["mods"] if item.get("role") == "observer"]
     if len(probes) != 1 or probes[0]["sha256"] != fields["neutral_probe_sha256"]:
         raise ValueError("Observed independent probe bytes differ from current qualification.")
+    if digest(root / "diagnostic-review.json") != fields["diagnostic_review_sha256"]:
+        raise ValueError("Observed native diagnostic review differs from current qualification.")
+
+
+def assess_native_diagnostics(root, evidence, metadata, review):
+    text = (Path(root) / "latest.log").read_text(encoding="utf-8-sig")
+    raw = native_diagnostics(text)
+    try:
+        final_snapshot = read(Path(root) / "native-observer-final.json")
+    except (OSError, ValueError) as error:
+        return {**raw, "reviewed_native": [], "native_attribution": {"passed": False, "errors": [str(error)]}}
+    return review_diagnostics(raw, text, evidence.get("diagnostic_events", []), evidence.get("epochs", []),
+        evidence.get("process", {}), metadata, review, {"start": evidence["started_at"], "end": evidence["finished_at"]},
+        final_snapshot)
 
 
 def audit_qualification(path, descriptor, policy):
@@ -559,8 +588,11 @@ def collect_trial(descriptor, policy, root, *, trial_spec=None):
     jfr_verified = descriptor["instrumentation"] == "plain"
     epochs_path = instance / descriptor["probe_metadata"]["epochs_path"]
     snapshot_path = instance / descriptor["probe_metadata"]["snapshot_path"]
+    diagnostic_path = instance / descriptor["probe_metadata"]["diagnostics_path"]
     try:
         verify_descriptor(descriptor, policy)
+        shutil.copyfile(descriptor["diagnostic_review"]["path"], root / "diagnostic-review.json")
+        evidence["diagnostic_review_sha256"] = digest(root / "diagnostic-review.json")
         plan = clone_prepared(descriptor, instance)
         process = packaged.launch(SimpleNamespace(instance=instance, wait_seconds=None))
         if not isinstance(process, subprocess.Popen):
@@ -688,6 +720,8 @@ def collect_trial(descriptor, policy, root, *, trial_spec=None):
         if observer and evidence["cleanup"]["exited"]:
             observer.close()
         for source, filename in ((epochs_path, "native-resource-epochs.jsonl"),
+                                 (diagnostic_path, "native-invalid-model.jsonl"),
+                                 (snapshot_path, "native-observer-final.json"),
                                  (instance / "launch.stdout.log", "launch.stdout.log"),
                                  (instance / "launch.stderr.log", "launch.stderr.log"),
                                  (instance / "logs/latest.log", "latest.log"),
@@ -703,15 +737,24 @@ def collect_trial(descriptor, policy, root, *, trial_spec=None):
             (root / "native-resource-epochs.jsonl").write_text("", encoding="utf-8")
         if not (root / "samples.jsonl").exists():
             (root / "samples.jsonl").write_text("", encoding="utf-8")
+        evidence["diagnostic_events"] = []
+        try:
+            evidence["diagnostic_events"] = read_jsonl(root / "native-invalid-model.jsonl")
+        except (OSError, ValueError) as error:
+            evidence.update(status="failed", diagnostic_error="Incomplete native diagnostic JSONL: " + str(error))
+        evidence["finished_at"] = now()
         try:
             raw_log = (root / "latest.log").read_bytes()
-            evidence["client_diagnostics"] = native_diagnostics(raw_log.decode("utf-8-sig"))
+            evidence["client_diagnostics"] = assess_native_diagnostics(root, evidence, descriptor["probe_metadata"], read(root / "diagnostic-review.json"))
             evidence["client_log_completeness"] = client_log_completeness(raw_log, evidence["samples"], instance)
-        except (OSError, UnicodeError) as error:
-            evidence["client_diagnostics"] = {"scanned": False, "unreviewed_native": [],
-                "other_errors_requiring_contextual_review": [], "error": str(error)}
+        except (OSError, UnicodeError, ValueError) as error:
+            try:
+                evidence["client_diagnostics"] = native_diagnostics((root / "latest.log").read_text(encoding="utf-8-sig"))
+                evidence["client_diagnostics"].update(reviewed_native=[], native_attribution={"passed": False, "errors": [str(error)]})
+            except (OSError, UnicodeError) as log_error:
+                evidence["client_diagnostics"] = {"scanned": False, "unreviewed_native": [],
+                    "other_errors_requiring_contextual_review": [], "error": str(log_error)}
             evidence["client_log_completeness"] = {"passed": False, "errors": [str(error)]}
-        evidence["finished_at"] = now()
         actual = evidence.get("process", {})
         evidence["run_finish"] = {"schema": 1, "scope": evidence["run_start"]["scope"], "root": str(root),
             "finished_at": evidence["finished_at"], "start_sha256": evidence["run_start_sha256"],

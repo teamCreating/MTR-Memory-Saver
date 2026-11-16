@@ -380,6 +380,8 @@ def assess_observation(evidence, policy, scenario, instrumentation):
         errors.append("Complete native/client log diagnostic scan is unavailable.")
     elif diagnostics["unreviewed_native"]:
         errors.append("Unreviewed native/client diagnostics require attribution before qualification.")
+    if not isinstance(diagnostics, dict) or diagnostics.get("native_attribution", {}).get("passed") is not True:
+        errors.append("Complete live native diagnostic attribution is unavailable or failed.")
     try:
         process = evidence["process"]
         created = instant(process["created"])

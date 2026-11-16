@@ -1,0 +1,307 @@
+{
+  "schema": 1,
+  "started_at": "2026-11-16T06:07:06.101102+00:00",
+  "finished_at": "2026-11-16T06:07:22.564406+00:00",
+  "passed": true,
+  "scope": "Consumer/launcher synthetic controls and actual final observer artifact identity; no new runtime/gameplay or performance acceptance",
+  "python": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.venv\\Scripts\\python.exe",
+  "minecraft_launcher_lib_version": "8.0",
+  "tests": [
+    {
+      "command": [
+        "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.venv\\Scripts\\python.exe",
+        "-X",
+        "utf8",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tools",
+        "-p",
+        "test_native_diagnostic_review.py",
+        "-v"
+      ],
+      "exit_code": 0,
+      "count": 7
+    },
+    {
+      "command": [
+        "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.venv\\Scripts\\python.exe",
+        "-X",
+        "utf8",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tools",
+        "-p",
+        "test_client_experiment.py",
+        "-v"
+      ],
+      "exit_code": 0,
+      "count": 57
+    },
+    {
+      "command": [
+        "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.venv\\Scripts\\python.exe",
+        "-X",
+        "utf8",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tools",
+        "-p",
+        "test_packaged_client.py",
+        "-v"
+      ],
+      "exit_code": 0,
+      "count": 40
+    }
+  ],
+  "total_tests": 104,
+  "artifacts": [
+    {
+      "input": {
+        "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-048\\neutral-diagnostics\\final-official-nf248\\mtr-native-observer-official-nf248-1.0.2.jar",
+        "sha256": "1f5a3f9721bd7199cd952f4926afa8cf40996cf76fdc9484a9372f45d1664167",
+        "bytes": 43136
+      },
+      "build_manifest": {
+        "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-048\\neutral-diagnostics\\final-official-nf248\\mtr-native-observer-official-nf248-1.0.2.build.json",
+        "sha256": "0313078937b878206cc6d1bf4975b1bd89146ac6d6abf9ed0ba3cd67e38ecc48",
+        "bytes": 4673
+      },
+      "verified_metadata": {
+        "target": {
+          "schema_version": 1,
+          "probe_kind": "official-native-observer",
+          "observer_version": "1.0.2",
+          "mod_id": "mtr_native_observer",
+          "target": "official-nf248",
+          "variant": "official",
+          "minecraft": "1.21.1",
+          "java": 21,
+          "neoForge": "21.1.248",
+          "mtrVersion": "4.1.0-beta.2",
+          "mtrSha256": "ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa",
+          "frame_event": "mtrtest.ClientFrame",
+          "server_tick_event": "mtrtest.ServerTick",
+          "snapshot_path": "game-probe/native-observer.json",
+          "epochs_path": "game-probe/native-resource-epochs.jsonl",
+          "diagnostics_path": "game-probe/native-invalid-model.jsonl",
+          "diagnostics_schema": 1
+        },
+        "capabilities": {
+          "native_pending": true,
+          "registration_counts": true,
+          "native_epochs": true,
+          "heap": true,
+          "world": true,
+          "train_state": true,
+          "cache_state": true,
+          "frame_jfr": true,
+          "server_tick_jfr": true,
+          "module_counters": false,
+          "active_read_permits": false,
+          "text_workspace": false,
+          "native_model_diagnostics": true
+        },
+        "sha256": "1f5a3f9721bd7199cd952f4926afa8cf40996cf76fdc9484a9372f45d1664167",
+        "manifest_sha256": "0313078937b878206cc6d1bf4975b1bd89146ac6d6abf9ed0ba3cd67e38ecc48"
+      },
+      "unchanged": true
+    },
+    {
+      "input": {
+        "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-048\\neutral-diagnostics\\final-official-nf265\\mtr-native-observer-official-nf265-1.0.2.jar",
+        "sha256": "6cc023b0024ad3884cae73d7fa7381328758a88a17ba3624d7c8e5abbd3917d6",
+        "bytes": 43136
+      },
+      "build_manifest": {
+        "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-048\\neutral-diagnostics\\final-official-nf265\\mtr-native-observer-official-nf265-1.0.2.build.json",
+        "sha256": "f1024a1a64b1a8b0e842b529bfbd4cc92f13dc598b6083fa78bcdae467abfdc8",
+        "bytes": 4673
+      },
+      "verified_metadata": {
+        "target": {
+          "schema_version": 1,
+          "probe_kind": "official-native-observer",
+          "observer_version": "1.0.2",
+          "mod_id": "mtr_native_observer",
+          "target": "official-nf265",
+          "variant": "official",
+          "minecraft": "1.21.1",
+          "java": 21,
+          "neoForge": "21.1.265",
+          "mtrVersion": "4.1.0-beta.2",
+          "mtrSha256": "ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa",
+          "frame_event": "mtrtest.ClientFrame",
+          "server_tick_event": "mtrtest.ServerTick",
+          "snapshot_path": "game-probe/native-observer.json",
+          "epochs_path": "game-probe/native-resource-epochs.jsonl",
+          "diagnostics_path": "game-probe/native-invalid-model.jsonl",
+          "diagnostics_schema": 1
+        },
+        "capabilities": {
+          "native_pending": true,
+          "registration_counts": true,
+          "native_epochs": true,
+          "heap": true,
+          "world": true,
+          "train_state": true,
+          "cache_state": true,
+          "frame_jfr": true,
+          "server_tick_jfr": true,
+          "module_counters": false,
+          "active_read_permits": false,
+          "text_workspace": false,
+          "native_model_diagnostics": true
+        },
+        "sha256": "6cc023b0024ad3884cae73d7fa7381328758a88a17ba3624d7c8e5abbd3917d6",
+        "manifest_sha256": "f1024a1a64b1a8b0e842b529bfbd4cc92f13dc598b6083fa78bcdae467abfdc8"
+      },
+      "unchanged": true
+    }
+  ],
+  "review": {
+    "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\config\\native-diagnostic-review.json",
+    "sha256": "4d91b89a3600d44a9ec132b7dd58fb61d46d34ae63f9148716f24c9c144f745c",
+    "bytes": 2328
+  },
+  "source_before": [
+    {
+      "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\tools\\client_experiment.py",
+      "sha256": "7b0ed96909171c767ed6e0ced82f60cabd26c32f093d9b4cae3a1b3b7c9735c7",
+      "bytes": 61476
+    },
+    {
+      "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\tools\\client_experiment_analysis.py",
+      "sha256": "0669d421d09a47664cf9207f559f247983f76a666a1cfe8487c7d02d4c5a7d6e",
+      "bytes": 41656
+    },
+    {
+      "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\tools\\packaged_client.py",
+      "sha256": "ad2e0dbf209ded20942891378e0a5855d6c3f65f8d89baa9afa2a7d24b2af13c",
+      "bytes": 42086
+    },
+    {
+      "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\tools\\observe_packaged_client.py",
+      "sha256": "a9ee0137b594f89fd9dcc220a9a1a77b27bc1c72deda87bd4c183efc0d713207",
+      "bytes": 70986
+    },
+    {
+      "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\tools\\windows_snapshot_io.py",
+      "sha256": "56ff1d6abcb7be7780bb057f239831d813a5e5c867320f1797f8710370765ac5",
+      "bytes": 1895
+    },
+    {
+      "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\tools\\native_diagnostic_review.py",
+      "sha256": "39807f2f3b8173097d30d7fef7499e8bac419f72ff6abd1faf91b014c097e45d",
+      "bytes": 14788
+    },
+    {
+      "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\config\\native-diagnostic-review.json",
+      "sha256": "4d91b89a3600d44a9ec132b7dd58fb61d46d34ae63f9148716f24c9c144f745c",
+      "bytes": 2328
+    },
+    {
+      "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\config\\targets.json",
+      "sha256": "e3d1d3a81d4fe8d7e60ba376654c943cc9766ce1d213b119fe7f6b175ac1d4ff",
+      "bytes": 1416
+    },
+    {
+      "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\tools\\test_client_experiment.py",
+      "sha256": "d25687643bdcbfb87e776d73a09ec8e39033828b9b85fe2ed7f94bb839cf54c2",
+      "bytes": 53869
+    },
+    {
+      "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\tools\\test_packaged_client.py",
+      "sha256": "c24385a770c1d150b4de4fd12f2d528350bbef3780c1292b4b6b5775efbc407a",
+      "bytes": 40988
+    },
+    {
+      "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\tools\\test_native_diagnostic_review.py",
+      "sha256": "52e35e7d64d5f37f14a1b436887aee132364281f7609e34141b81fb16cad9c69",
+      "bytes": 8982
+    },
+    {
+      "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\docs\\CLIENT_EXPERIMENT.md",
+      "sha256": "e722ce9e4a355ce31c9f943eebae2d52567a987b760545c921c7b11ad9231ab9",
+      "bytes": 15939
+    },
+    {
+      "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-048\\diagnostic-consumer\\run_review.py",
+      "sha256": "462e3dc0b36dd5ede9ba8502765890d486f0ac271580ca36de3904758caf05d3",
+      "bytes": 3765
+    }
+  ],
+  "source_after": [
+    {
+      "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\tools\\client_experiment.py",
+      "sha256": "7b0ed96909171c767ed6e0ced82f60cabd26c32f093d9b4cae3a1b3b7c9735c7",
+      "bytes": 61476
+    },
+    {
+      "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\tools\\client_experiment_analysis.py",
+      "sha256": "0669d421d09a47664cf9207f559f247983f76a666a1cfe8487c7d02d4c5a7d6e",
+      "bytes": 41656
+    },
+    {
+      "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\tools\\packaged_client.py",
+      "sha256": "ad2e0dbf209ded20942891378e0a5855d6c3f65f8d89baa9afa2a7d24b2af13c",
+      "bytes": 42086
+    },
+    {
+      "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\tools\\observe_packaged_client.py",
+      "sha256": "a9ee0137b594f89fd9dcc220a9a1a77b27bc1c72deda87bd4c183efc0d713207",
+      "bytes": 70986
+    },
+    {
+      "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\tools\\windows_snapshot_io.py",
+      "sha256": "56ff1d6abcb7be7780bb057f239831d813a5e5c867320f1797f8710370765ac5",
+      "bytes": 1895
+    },
+    {
+      "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\tools\\native_diagnostic_review.py",
+      "sha256": "39807f2f3b8173097d30d7fef7499e8bac419f72ff6abd1faf91b014c097e45d",
+      "bytes": 14788
+    },
+    {
+      "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\config\\native-diagnostic-review.json",
+      "sha256": "4d91b89a3600d44a9ec132b7dd58fb61d46d34ae63f9148716f24c9c144f745c",
+      "bytes": 2328
+    },
+    {
+      "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\config\\targets.json",
+      "sha256": "e3d1d3a81d4fe8d7e60ba376654c943cc9766ce1d213b119fe7f6b175ac1d4ff",
+      "bytes": 1416
+    },
+    {
+      "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\tools\\test_client_experiment.py",
+      "sha256": "d25687643bdcbfb87e776d73a09ec8e39033828b9b85fe2ed7f94bb839cf54c2",
+      "bytes": 53869
+    },
+    {
+      "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\tools\\test_packaged_client.py",
+      "sha256": "c24385a770c1d150b4de4fd12f2d528350bbef3780c1292b4b6b5775efbc407a",
+      "bytes": 40988
+    },
+    {
+      "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\tools\\test_native_diagnostic_review.py",
+      "sha256": "52e35e7d64d5f37f14a1b436887aee132364281f7609e34141b81fb16cad9c69",
+      "bytes": 8982
+    },
+    {
+      "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\docs\\CLIENT_EXPERIMENT.md",
+      "sha256": "e722ce9e4a355ce31c9f943eebae2d52567a987b760545c921c7b11ad9231ab9",
+      "bytes": 15939
+    },
+    {
+      "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-048\\diagnostic-consumer\\run_review.py",
+      "sha256": "462e3dc0b36dd5ede9ba8502765890d486f0ac271580ca36de3904758caf05d3",
+      "bytes": 3765
+    }
+  ],
+  "source_unchanged": true
+}

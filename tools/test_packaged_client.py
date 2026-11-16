@@ -613,6 +613,41 @@ class PerformancePreparationTest(unittest.TestCase):
                 with self.assertRaises(ValueError):
                     client.verified_observer(self.observer, identity, self.matrix)
 
+    def test_live_diagnostic_capability_requires_complete_supported_embedded_contract(self):
+        identity = self.prepare()["artifact"]
+        original_manifest = client.read(self.observer.with_suffix(".build.json"))
+        with zipfile.ZipFile(self.observer) as archive:
+            original_payloads = {name: archive.read(name) for name in archive.namelist()}
+        for mutation in ("valid", "missing_path", "missing_capability", "wrong_schema_type", "unknown_path"):
+            with self.subTest(mutation=mutation):
+                payloads = copy.deepcopy(original_payloads)
+                metadata = json.loads(payloads["mtr-native-observer-target.json"])
+                capabilities = json.loads(payloads["capabilities.json"])
+                metadata.update(diagnostics_schema=1, diagnostics_path="game-probe/native-invalid-model.jsonl", observer_version="1.0.2")
+                capabilities["capabilities"]["native_model_diagnostics"] = True
+                if mutation == "missing_path":
+                    del metadata["diagnostics_path"]
+                elif mutation == "missing_capability":
+                    del capabilities["capabilities"]["native_model_diagnostics"]
+                elif mutation == "wrong_schema_type":
+                    metadata["diagnostics_schema"] = True
+                elif mutation == "unknown_path":
+                    metadata["diagnostics_path"] = "../outside.jsonl"
+                payloads["mtr-native-observer-target.json"] = json.dumps(metadata)
+                payloads["capabilities.json"] = json.dumps(capabilities)
+                with zipfile.ZipFile(self.observer, "w") as archive:
+                    for name, payload in payloads.items():
+                        archive.writestr(name, payload)
+                manifest = {**original_manifest, "observer_version": "1.0.2", "sha256": client.digest(self.observer),
+                            "capabilities": capabilities["capabilities"]}
+                client.write(self.observer.with_suffix(".build.json"), manifest)
+                if mutation == "valid":
+                    result = client.verified_observer(self.observer, identity, self.matrix)
+                    self.assertTrue(result["capabilities"]["native_model_diagnostics"])
+                else:
+                    with self.assertRaises(ValueError):
+                        client.verified_observer(self.observer, identity, self.matrix)
+
 
 class ExtraJvmControlsTest(unittest.TestCase):
     def test_control_aliases_response_files_and_launcher_inputs_are_rejected(self):

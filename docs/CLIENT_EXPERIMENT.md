@@ -20,6 +20,10 @@ native catalogue, options, world snapshot, local profile, camera and route,
 Xms/Xmx, collector, scheduler settings and injection environment. The same loader
 must use **identical neutral observer JAR bytes in all four groups**. Companion
 artifact identity is the treatment; its source provenance remains frozen.
+Performance qualification additionally requires the observer's live
+`native_model_diagnostics` capability and schema. Older observer binaries may
+still be inspected or used for their original diagnostics, but they cannot supply
+the new per-run attribution evidence.
 
 The baseline may use the explicitly selected `official-030-nf248` or
 `official-030-nf265` legacy identity adapter. Its original JAR bytes are preserved.
@@ -150,8 +154,30 @@ or parse failures, OOM, Mixin startup failures and FATAL messages prevent
 qualification. Other ERROR messages remain in a separate contextual-review list;
 an authlib user-properties HTTP 401 does not become a native Memory Saver failure.
 Native registration counts cannot establish that `transparent.png` is harmless.
-There is no automatic native-diagnostic allowlist; such messages remain pending
-attribution.
+The only supported reviewed case is the official generated default rail, using
+the explicit [frozen review](../config/native-diagnostic-review.json). That review
+pins source/runtime proof fingerprints and the exact official target. It cannot
+classify a message on its own: each run must capture matching live native calls
+from the same neutral observer installed identically in both treatment arms.
+Its SHA is part of the qualification key and its exact bytes are copied into
+every raw attempt.
+
+Independent audit checks the complete `native-invalid-model.jsonl`, actual JVM
+creation identity, event sequence, UTC and monotonic times within paired native
+epochs, render-thread identity, invocation depth, model/texture arguments,
+native method descriptors and caller bytecode indices, and the actual returned
+fallback loader. The final native snapshot must confirm matching started and
+completed counts, zero in-flight calls and zero observation errors. There must
+be exactly one reviewed default call per completed epoch, and every invalid-model
+log line must match the native logger, exact message and thread in call order.
+Missing, extra, transplanted, unfinished or malformed observations fail closed.
+
+Raw logs remain unchanged. Matched entries stay visible as `reviewed_native`
+with their live call and epoch identities; all other diagnostics remain
+`unreviewed_native` and continue to block qualification. Known upstream fallback
+attribution does not mean the rail renders correctly or costs no resources.
+The standalone traced prefix from an earlier client supports the review's
+provenance, but cannot substitute for any later run's live trace.
 The template must contain no prior logs. The actual ModLauncher startup header
 must identify this trial's game directory, and every observed log prefix's byte
 count and SHA must match the final raw file. Missing post-load prefixes,

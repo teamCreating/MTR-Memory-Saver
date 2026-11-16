@@ -13,6 +13,7 @@ from unittest import mock
 
 import client_experiment as client
 import client_experiment_analysis as analysis
+from test_native_diagnostic_review import fixture as diagnostic_fixture, evaluate as evaluate_diagnostics
 
 
 def policy():
@@ -66,7 +67,12 @@ def evidence(mode="plain", *, pid=10, offset=0, private=100):
     result["run_finish"] = {"scope": "official_current_client_qualification", "root": "fixture-root", "finished_at": stamp(11),
         "start_sha256": "fixture-start-sha", "process": {"pid": pid, "created": stamp(0)},
         "measurement_completed_at": stamp(10), "cleanup": copy.deepcopy(result["cleanup"])}
-    result["client_diagnostics"] = {"scanned": True, "unreviewed_native": [], "other_errors_requiring_contextual_review": []}
+    diagnostic = diagnostic_fixture(result["process"], result["epochs"])
+    result["epochs"] = diagnostic["epochs"]
+    result["diagnostic_events"] = diagnostic["events"]
+    result["client_diagnostics"] = evaluate_diagnostics(diagnostic)
+    for sample in result["samples"]:
+        sample["native"]["native_model_diagnostics"] = copy.deepcopy(diagnostic["snapshot"]["native_model_diagnostics"])
     result["client_log_completeness"] = {"passed": True}
     if mode == "profile":
         result["jfr_coverage"] = {"start": stamp(0), "end": stamp(12), "readable": True}
@@ -81,6 +87,7 @@ def write_raw_qualification_fixture(root):
     instance = root / "instance"
     instance.mkdir()
     raw = evidence(pid=111)
+    diagnostic = diagnostic_fixture(raw["process"], raw["epochs"])
     raw["capture_root"] = str(root.resolve())
     raw["run_start"]["root"] = str(root.resolve())
     raw["run_finish"]["root"] = str(root.resolve())
@@ -89,15 +96,19 @@ def write_raw_qualification_fixture(root):
                 "jfr": False, "jfr_max_size_bytes": None}
     arguments = client.packaged.jvm_arguments(prepared)
     command = [java, *arguments, "--gameDir", str(instance.resolve())]
-    prepared["controls"] = {"launcher": {"command_template": client.packaged.command_template(command, instance.resolve(), java)}}
+    prepared["controls"] = {"launcher": {"command_template": client.packaged.command_template(command, instance.resolve(), java)},
+                            "observer": {"target": diagnostic["metadata"]}}
     client.save(root / "prepared-plan.json", prepared)
     raw["launch"].update(pid=111, plan_sha256=client.digest(root / "prepared-plan.json"), command=command, jvm_arguments=arguments)
     raw["process"].update(executable=java, arguments=command)
-    log = ("[main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--gameDir, " + str(instance.resolve()) + "]\n[INFO] Ready\n").encode()
+    log = ("[main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--gameDir, " + str(instance.resolve()) + "]\n" + diagnostic["log"] + "[INFO] Ready\n").encode()
     (root / "latest.log").write_bytes(log)
     for sample in raw["samples"]:
         sample["client_log_witness"] = {"bytes": len(log), "sha256": hashlib.sha256(log).hexdigest()}
-    raw["client_diagnostics"] = analysis.native_diagnostics(log.decode())
+    shutil.copyfile(client.DIAGNOSTIC_REVIEW, root / "diagnostic-review.json")
+    raw["diagnostic_review_sha256"] = client.digest(root / "diagnostic-review.json")
+    client.save(root / "native-observer-final.json", diagnostic["snapshot"])
+    raw["client_diagnostics"] = client.assess_native_diagnostics(root, raw, diagnostic["metadata"], diagnostic["review"])
     raw["client_log_completeness"] = analysis.client_log_completeness(log, raw["samples"], instance.resolve())
     client.save(root / "run-start.json", raw["run_start"])
     raw["run_start_sha256"] = client.digest(root / "run-start.json")
@@ -105,7 +116,8 @@ def write_raw_qualification_fixture(root):
     client.save(root / "run-finish.json", raw["run_finish"])
     client.save(root / "actual-process.json", raw["process"])
     client.save(root / "launch.json", raw["launch"])
-    for name, items in (("samples.jsonl", raw["samples"]), ("native-resource-epochs.jsonl", raw["epochs"])):
+    for name, items in (("samples.jsonl", raw["samples"]), ("native-resource-epochs.jsonl", raw["epochs"]),
+                        ("native-invalid-model.jsonl", raw["diagnostic_events"])):
         (root / name).write_text("".join(json.dumps(item) + "\n" for item in items), encoding="utf-8")
     client.save(root / "observation.json", raw)
     return raw
@@ -247,7 +259,9 @@ class ObservationTests(unittest.TestCase):
 
     def test_other_errors_are_preserved_separately_for_contextual_review(self):
         record = evidence()
-        record["client_diagnostics"] = analysis.native_diagnostics("[Render thread/ERROR] [authlib] User properties HTTP 401")
+        case = diagnostic_fixture(record["process"], record["epochs"])
+        case["log"] += "[Render thread/ERROR] [authlib] User properties HTTP 401"
+        record["client_diagnostics"] = evaluate_diagnostics(case)
         self.assertEqual(record["client_diagnostics"]["unreviewed_native"], [])
         self.assertEqual(len(record["client_diagnostics"]["other_errors_requiring_contextual_review"]), 1)
         self.assertTrue(self.assess(record)["passed"])
@@ -550,6 +564,39 @@ class PreparationBoundaryTests(unittest.TestCase):
 
 
 class RawReplayTests(unittest.TestCase):
+    def test_unfinished_or_transplanted_raw_diagnostic_jsonl_cannot_reuse_saved_review(self):
+        for mutation in ("partial", "extra", "other-process"):
+            with tempfile.TemporaryDirectory() as temporary:
+                root = Path(temporary) / "qualification"
+                raw = write_raw_qualification_fixture(root)
+                path = root / "native-invalid-model.jsonl"
+                if mutation == "partial":
+                    with path.open("a", encoding="utf-8") as stream:
+                        stream.write('{"phase":')
+                else:
+                    events = copy.deepcopy(raw["diagnostic_events"])
+                    if mutation == "extra":
+                        events.append(copy.deepcopy(events[-1]))
+                    else:
+                        events[1]["pid"] += 1
+                    path.write_text("".join(json.dumps(event) + "\n" for event in events), encoding="utf-8")
+                with self.assertRaises(ValueError):
+                    client.audit_observation(root, policy(), scenario(), "plain")
+
+    def test_missing_final_native_snapshot_keeps_raw_native_errors_visible(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary) / "qualification"
+            raw = write_raw_qualification_fixture(root)
+            (root / "native-observer-final.json").unlink()
+            metadata = client.read(root / "prepared-plan.json")["controls"]["observer"]["target"]
+            review = client.read(root / "diagnostic-review.json")
+            result = client.assess_native_diagnostics(root, raw, metadata, review)
+            self.assertFalse(result["native_attribution"]["passed"])
+            self.assertEqual(len(result["unreviewed_native"]), 1)
+            self.assertIn("Invalid model", result["unreviewed_native"][0]["text"])
+            with self.assertRaisesRegex(ValueError, "assessment differs"):
+                client.audit_observation(root, policy(), scenario(), "plain")
+
     def test_complete_qualification_copied_as_trial_is_rejected_by_actual_root(self):
         with tempfile.TemporaryDirectory() as temporary:
             qualification = Path(temporary) / "qualification"
@@ -620,6 +667,7 @@ class OwnedProcessLifecycleTests(unittest.TestCase):
             return {"running": True, "working_set": 110, "private_usage": 100, "peak_working_set_since_process_start": 120}
         observer.sample.side_effect = sample
         instance = root / "instance"
+        diagnostic = diagnostic_fixture({"pid": 111, "created": base.isoformat()})
         def write_snapshot():
             state = copy.deepcopy(evidence(pid=111)["samples"][0]["native"])
             state.update(observed_at=timestamp())
@@ -630,9 +678,11 @@ class OwnedProcessLifecycleTests(unittest.TestCase):
         def clone(descriptor, destination):
             (destination / "game-probe").mkdir(parents=True)
             (destination / "logs").mkdir()
-            (destination / "logs/latest.log").write_text("[main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--gameDir, " + str(destination) + "]\n", encoding="utf-8")
+            (destination / "logs/latest.log").write_text("[main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--gameDir, " + str(destination) + "]\n" + diagnostic["log"], encoding="utf-8")
             (destination / "game-probe/native-resource-epochs.jsonl").write_text(
                 "".join(json.dumps(event) + "\n" for event in evidence(pid=111)["epochs"]), encoding="utf-8")
+            (destination / "game-probe/native-invalid-model.jsonl").write_text(
+                "".join(json.dumps(event) + "\n" for event in diagnostic["events"]), encoding="utf-8")
             write_snapshot()
             return {"instance": str(destination), "java": "java.exe", "jfr": True, "heap_mib": 3072, "smoke": False}
         def sleep(seconds):
@@ -645,7 +695,7 @@ class OwnedProcessLifecycleTests(unittest.TestCase):
             profile = evidence("profile", pid=111)
             return profile["jfr_events"], profile["jfr_coverage"]
         descriptor = {"role": "baseline", "instrumentation": "profile", "qualification_key": "exact-group", "scenario": scene,
-                      "probe_metadata": {"epochs_path": "game-probe/native-resource-epochs.jsonl", "snapshot_path": "game-probe/native-observer.json"}}
+                      "probe_metadata": diagnostic["metadata"], "diagnostic_review": client.fingerprint(client.DIAGNOSTIC_REVIEW)}
         patches = [mock.patch.object(client, "verify_descriptor"), mock.patch.object(client, "clone_prepared", side_effect=clone),
                    mock.patch.object(client.packaged, "launch", return_value=process), mock.patch.object(client, "WindowsProcess", return_value=observer),
                    mock.patch.object(client, "windows_arguments", return_value=["java.exe"]),
