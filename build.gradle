@@ -381,13 +381,14 @@ tasks.register('generateNeutralProbeMetadata') {
                 minecraft: matrix.minecraft, java: matrix.java, neoForge: target.neoForge,
                 mtrVersion: mtr.version, mtrSha256: mtr.sha256,
                 frame_event: neutralSpec.frame_event, server_tick_event: neutralSpec.server_tick_event,
-                snapshot_path: neutralSpec.snapshot_path, epochs_path: neutralSpec.epochs_path])
+                snapshot_path: neutralSpec.snapshot_path, epochs_path: neutralSpec.epochs_path,
+                diagnostics_path: neutralSpec.diagnostics_path, diagnostics_schema: neutralSpec.diagnostics_schema])
         writeJson('capabilities.json', [schema_version: neutralSpec.schema_version,
                 probe_kind: neutralSpec.probe_kind, capabilities: neutralSpec.capabilities])
         writeJson('mtr-native-observer.mixins.json', [required: true, minVersion: '0.8',
                 package: 'dev.abenli.neutralprobe.mixin', plugin: 'dev.abenli.neutralprobe.NativeCompatibilityPlugin',
                 compatibilityLevel: 'JAVA_21', client: ['NativePendingAccess', 'NativeClientDataAccess',
-                'VehicleCacheAccess', 'VehicleProgressAccess', 'NativeResourceEpochMixin'],
+                'VehicleCacheAccess', 'VehicleProgressAccess', 'NativeResourceEpochMixin', 'NativeInvalidModelMixin'],
                 injectors: [defaultRequire: 1]])
         File metadata = new File(output, 'META-INF/neoforge.mods.toml')
         metadata.parentFile.mkdirs()

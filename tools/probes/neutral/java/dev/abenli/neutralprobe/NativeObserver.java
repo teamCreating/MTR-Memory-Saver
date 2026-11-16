@@ -61,6 +61,7 @@ public final class NativeObserver {
         NeoForge.EVENT_BUS.addListener(this::frame);
         NeoForge.EVENT_BUS.addListener(this::beforeTick);
         NeoForge.EVENT_BUS.addListener(this::afterTick);
+        NativeModelDiagnostics.installed();
     }
     private static JsonObject targetMetadata() {
         try { return ObservationSchema.resource("/mtr-native-observer-target.json"); }
@@ -81,6 +82,8 @@ public final class NativeObserver {
             value.add("capabilities", CAPABILITIES.deepCopy());
             value.addProperty("paused", mc.isPaused());
             value.addProperty("in_world", mc.level != null);
+            value.addProperty("window_active", mc.isWindowActive());
+            value.addProperty("mouse_grabbed", mc.mouseHandler.isMouseGrabbed());
             ObservationSchema.nullableString(value, "screen", mc.screen == null ? null : mc.screen.getClass().getName());
             if (mc.level == null) value.add("game_time", JsonNull.INSTANCE);
             else value.addProperty("game_time", mc.level.getGameTime());
@@ -95,6 +98,7 @@ public final class NativeObserver {
             NativeScene.capture(value, mc, registry);
             synchronized (OUTPUT_LOCK) {
                 value.add("resource_epochs", ObservationSchema.epochs(EPOCHS.state()));
+                value.add("native_model_diagnostics", NativeModelDiagnostics.snapshot());
                 value.addProperty("observation_errors", OBSERVATION_ERRORS.get());
                 ObservationSchema.completedCapture(value, Instant.now(), System.nanoTime());
                 writeAtomic(path("snapshot_path"), value);
@@ -127,6 +131,15 @@ public final class NativeObserver {
     }
     public static void reloadStarted() { recordEpoch(true); }
     public static void reloadReturned() { recordEpoch(false); }
+    static JsonObject diagnosticEnvelope(Instant at, long nanos) {
+        JsonObject value = ObservationSchema.envelope(at, nanos, PROCESS);
+        value.add("target", TARGET.deepCopy());
+        return value;
+    }
+    static EpochTracker.Call activeEpoch(long threadId, int nesting) { return EPOCHS.current(threadId, nesting); }
+    static long observationErrorCount() { return OBSERVATION_ERRORS.get(); }
+    static void diagnosticFailure(Exception error) { failure("model diagnostic", error); }
+    static Path diagnosticsPath() throws IOException { return path("diagnostics_path"); }
     private static void recordEpoch(boolean start) {
         Instant observedAt = Instant.now();
         long now = System.nanoTime();

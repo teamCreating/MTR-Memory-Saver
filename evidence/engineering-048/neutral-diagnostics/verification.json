@@ -1,0 +1,110 @@
+{
+  "timestamp": "2026-11-16T14:06:05.742935+08:00",
+  "scope": "Engineering verification. Live application and qualification are separate evidence.",
+  "targets": [
+    {
+      "target": "official-nf248",
+      "sha256": "1f5a3f9721bd7199cd952f4926afa8cf40996cf76fdc9484a9372f45d1664167",
+      "source_inputs": 25,
+      "classes": {
+        "dev/abenli/neutralprobe/DiagnosticTracker$Call.class": "4f978f9861d1c09a6fd8e57538cf3b3e5179e472f1a056c57d908017d66091e3",
+        "dev/abenli/neutralprobe/DiagnosticTracker$State.class": "66c8da29cf79b8f1884ae339b7e07eadd2de7a76852759d719772267bb93f87d",
+        "dev/abenli/neutralprobe/DiagnosticTracker.class": "d6afaa669926baefb2a545886dd4316eb2a82c7950d948f6cc8464729a0f105a",
+        "dev/abenli/neutralprobe/EpochTracker$Call.class": "5dda27fb6fbee654952ea15335f2ff12dabd7b482c643f35cedee83cba74c490",
+        "dev/abenli/neutralprobe/EpochTracker$State.class": "1021b4ce07dac9d14dd931d713338f5b3ab044a7b0ac7965a9a1fc4924be7432",
+        "dev/abenli/neutralprobe/EpochTracker.class": "35431e62bb5ffb8f77921bcc3366e62a2eff33007119501ac7b32238f1b31ef6",
+        "dev/abenli/neutralprobe/ExistingCaches$Entry.class": "87ccc4364206d0a20f11790dfaf87fd1dbeaa54fe2fd40b4b91ff8416e45daf1",
+        "dev/abenli/neutralprobe/ExistingCaches.class": "ab159c79d305b74d5b036e5b75db34b7b18d1dd80f654e4f889f28aaca6d7f3f",
+        "dev/abenli/neutralprobe/NativeCompatibilityPlugin.class": "f7aa89ab9efdbe84db48aa7d5e19617f833cc793f0c802291f930baaaf976511",
+        "dev/abenli/neutralprobe/NativeModelDiagnostics.class": "1345015ca4eb26e15f047d40fef176a9de533bae967625fc6c7e1480be73a25e",
+        "dev/abenli/neutralprobe/NativeObserver$Frame.class": "b24d9bcbec3cdd2e28bbf414d0016df447265a3b4707149c0f170d7ebe19701d",
+        "dev/abenli/neutralprobe/NativeObserver$Tick.class": "d4721f3ee6594bc46e2a1d32ce63f7b211af6db76208ed35b8df96377b756cd1",
+        "dev/abenli/neutralprobe/NativeObserver.class": "38ed754d7fa5a0aa4f265d62805b82e7a82ff966df4e30da2eea16df2c902ca5",
+        "dev/abenli/neutralprobe/NativeRegistry$Key.class": "dfd27fbfc18ec4d50b7a56c4cfdb9e47be11c60c1ae00822f4143c7b2503fc4c",
+        "dev/abenli/neutralprobe/NativeRegistry.class": "a6d6478632948c342860e1ce2ef05cd894ac334be5c0addab89cd6237c2cc816",
+        "dev/abenli/neutralprobe/NativeScene.class": "d1da3a8f6ff988a370b0b877dea79211d33a67d0680739021f4f2331f7d2d275",
+        "dev/abenli/neutralprobe/NativeTarget.class": "5ac1249c444097ed3bad56761a2d5b81af308926dcdf014c8b4c5cb8d6c7c6ad",
+        "dev/abenli/neutralprobe/ObservationSchema.class": "793b006c8e6d164effadcf27c7add3bf73e82548e4566510c0669e8da929deba",
+        "dev/abenli/neutralprobe/RegistrationCounts.class": "f60068c6eb59b7b0d0cf1827e0c06783d5391ab104e0ea641bc0fdac34d7814d",
+        "dev/abenli/neutralprobe/mixin/NativeClientDataAccess.class": "93acbda6272e2bca716b0abefab369ad26db72e092812fd5104ebfe63afb0f41",
+        "dev/abenli/neutralprobe/mixin/NativeInvalidModelMixin.class": "8a228bfeb360a8aa499a173837dd4ca312662ec8ee09307d9c6c44dbf95dd374",
+        "dev/abenli/neutralprobe/mixin/NativePendingAccess.class": "61149365b316537798c7594643d433a669b1f9860dcc7df29be6fa4c80f405bb",
+        "dev/abenli/neutralprobe/mixin/NativeResourceEpochMixin.class": "628325178606135c46e235644ade89237ebe7a0c451f00e79ace00450285bfa6",
+        "dev/abenli/neutralprobe/mixin/VehicleCacheAccess.class": "4b92e475d510ba917c8141971f452cac71e458c7aa94315296faa47fb49c01df",
+        "dev/abenli/neutralprobe/mixin/VehicleProgressAccess.class": "71a75f76231bbf897faf91cba8fa400a3adc7f0395a87d06373ad5b79d0df7aa",
+        "dev/abenli/probeio/AtomicSnapshot$Windows.class": "fa42834d5b3eeefd0727c705bc0fc843c6d7e14a5c189cfb93a1db3d4d4d9e6b",
+        "dev/abenli/probeio/AtomicSnapshot$WindowsApi.class": "980ab617fc6e4e92e250ac93e9b3f0bec8202ce35d3bae6d5cea828242637be3",
+        "dev/abenli/probeio/AtomicSnapshot.class": "50f3e8829ddb9a11a1a96033ef28520631636d3f08579922067021ff0a0713a3"
+      },
+      "junit": {
+        "tests": 24,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "product_version_independent_build": {
+        "target": "official-nf248",
+        "product_version": "0.3.0",
+        "expected": "1f5a3f9721bd7199cd952f4926afa8cf40996cf76fdc9484a9372f45d1664167",
+        "actual": "1f5a3f9721bd7199cd952f4926afa8cf40996cf76fdc9484a9372f45d1664167",
+        "equal": true
+      }
+    },
+    {
+      "target": "official-nf265",
+      "sha256": "6cc023b0024ad3884cae73d7fa7381328758a88a17ba3624d7c8e5abbd3917d6",
+      "source_inputs": 25,
+      "classes": {
+        "dev/abenli/neutralprobe/DiagnosticTracker$Call.class": "4f978f9861d1c09a6fd8e57538cf3b3e5179e472f1a056c57d908017d66091e3",
+        "dev/abenli/neutralprobe/DiagnosticTracker$State.class": "66c8da29cf79b8f1884ae339b7e07eadd2de7a76852759d719772267bb93f87d",
+        "dev/abenli/neutralprobe/DiagnosticTracker.class": "d6afaa669926baefb2a545886dd4316eb2a82c7950d948f6cc8464729a0f105a",
+        "dev/abenli/neutralprobe/EpochTracker$Call.class": "5dda27fb6fbee654952ea15335f2ff12dabd7b482c643f35cedee83cba74c490",
+        "dev/abenli/neutralprobe/EpochTracker$State.class": "1021b4ce07dac9d14dd931d713338f5b3ab044a7b0ac7965a9a1fc4924be7432",
+        "dev/abenli/neutralprobe/EpochTracker.class": "35431e62bb5ffb8f77921bcc3366e62a2eff33007119501ac7b32238f1b31ef6",
+        "dev/abenli/neutralprobe/ExistingCaches$Entry.class": "87ccc4364206d0a20f11790dfaf87fd1dbeaa54fe2fd40b4b91ff8416e45daf1",
+        "dev/abenli/neutralprobe/ExistingCaches.class": "ab159c79d305b74d5b036e5b75db34b7b18d1dd80f654e4f889f28aaca6d7f3f",
+        "dev/abenli/neutralprobe/NativeCompatibilityPlugin.class": "f7aa89ab9efdbe84db48aa7d5e19617f833cc793f0c802291f930baaaf976511",
+        "dev/abenli/neutralprobe/NativeModelDiagnostics.class": "1345015ca4eb26e15f047d40fef176a9de533bae967625fc6c7e1480be73a25e",
+        "dev/abenli/neutralprobe/NativeObserver$Frame.class": "b24d9bcbec3cdd2e28bbf414d0016df447265a3b4707149c0f170d7ebe19701d",
+        "dev/abenli/neutralprobe/NativeObserver$Tick.class": "d4721f3ee6594bc46e2a1d32ce63f7b211af6db76208ed35b8df96377b756cd1",
+        "dev/abenli/neutralprobe/NativeObserver.class": "38ed754d7fa5a0aa4f265d62805b82e7a82ff966df4e30da2eea16df2c902ca5",
+        "dev/abenli/neutralprobe/NativeRegistry$Key.class": "dfd27fbfc18ec4d50b7a56c4cfdb9e47be11c60c1ae00822f4143c7b2503fc4c",
+        "dev/abenli/neutralprobe/NativeRegistry.class": "a6d6478632948c342860e1ce2ef05cd894ac334be5c0addab89cd6237c2cc816",
+        "dev/abenli/neutralprobe/NativeScene.class": "d1da3a8f6ff988a370b0b877dea79211d33a67d0680739021f4f2331f7d2d275",
+        "dev/abenli/neutralprobe/NativeTarget.class": "5ac1249c444097ed3bad56761a2d5b81af308926dcdf014c8b4c5cb8d6c7c6ad",
+        "dev/abenli/neutralprobe/ObservationSchema.class": "793b006c8e6d164effadcf27c7add3bf73e82548e4566510c0669e8da929deba",
+        "dev/abenli/neutralprobe/RegistrationCounts.class": "f60068c6eb59b7b0d0cf1827e0c06783d5391ab104e0ea641bc0fdac34d7814d",
+        "dev/abenli/neutralprobe/mixin/NativeClientDataAccess.class": "93acbda6272e2bca716b0abefab369ad26db72e092812fd5104ebfe63afb0f41",
+        "dev/abenli/neutralprobe/mixin/NativeInvalidModelMixin.class": "8a228bfeb360a8aa499a173837dd4ca312662ec8ee09307d9c6c44dbf95dd374",
+        "dev/abenli/neutralprobe/mixin/NativePendingAccess.class": "61149365b316537798c7594643d433a669b1f9860dcc7df29be6fa4c80f405bb",
+        "dev/abenli/neutralprobe/mixin/NativeResourceEpochMixin.class": "628325178606135c46e235644ade89237ebe7a0c451f00e79ace00450285bfa6",
+        "dev/abenli/neutralprobe/mixin/VehicleCacheAccess.class": "4b92e475d510ba917c8141971f452cac71e458c7aa94315296faa47fb49c01df",
+        "dev/abenli/neutralprobe/mixin/VehicleProgressAccess.class": "71a75f76231bbf897faf91cba8fa400a3adc7f0395a87d06373ad5b79d0df7aa",
+        "dev/abenli/probeio/AtomicSnapshot$Windows.class": "fa42834d5b3eeefd0727c705bc0fc843c6d7e14a5c189cfb93a1db3d4d4d9e6b",
+        "dev/abenli/probeio/AtomicSnapshot$WindowsApi.class": "980ab617fc6e4e92e250ac93e9b3f0bec8202ce35d3bae6d5cea828242637be3",
+        "dev/abenli/probeio/AtomicSnapshot.class": "50f3e8829ddb9a11a1a96033ef28520631636d3f08579922067021ff0a0713a3"
+      },
+      "junit": {
+        "tests": 24,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "product_version_independent_build": {
+        "target": "official-nf265",
+        "product_version": "0.3.0",
+        "expected": "6cc023b0024ad3884cae73d7fa7381328758a88a17ba3624d7c8e5abbd3917d6",
+        "actual": "6cc023b0024ad3884cae73d7fa7381328758a88a17ba3624d7c8e5abbd3917d6",
+        "equal": true
+      }
+    }
+  ],
+  "test_sources": {
+    "tools/probes/neutral/test/dev/abenli/neutralprobe/DiagnosticTrackerTest.java": "1688284f76aed4a063ffe3065d2928032b96016d99e856ff33695992e10a7e0b",
+    "tools/probes/neutral/test/dev/abenli/neutralprobe/EpochTrackerTest.java": "3b9083a17c14e6bd6f2f6e689c1f70ce5f29dfbc25bac89676b4b0da7ec626b3",
+    "tools/probes/neutral/test/dev/abenli/neutralprobe/FrameEventTest.java": "1f051119b280b03283a0faf5006f71515410b53aeeb49d0ebc330ade8ee228b6",
+    "tools/probes/neutral/test/dev/abenli/neutralprobe/NativeAbiTest.java": "b02dbe09e3ed1d967092911d0759819b500be3b3b01b7227c75326f91b66bf33",
+    "tools/probes/neutral/test/dev/abenli/neutralprobe/NeutralContractTest.java": "94b27ad9e42e8b184a8c8a80ece15c3eefa346ad1b647d648bbf2201120a5f91"
+  },
+  "passed": true
+}

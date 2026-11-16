@@ -42,4 +42,12 @@ public final class EpochTracker {
     public synchronized State state() {
         return new State(started, completed, started - completed, maxNesting, lastCompletedSequence);
     }
+
+    /** Return the actually active frame at this depth, never the last completed epoch. */
+    public synchronized Call current(long threadId, int nesting) {
+        var stack = stacks.get(threadId);
+        if (stack == null || nesting < 1) return null;
+        for (var call : stack) if (call.nesting() == nesting) return call;
+        return null;
+    }
 }

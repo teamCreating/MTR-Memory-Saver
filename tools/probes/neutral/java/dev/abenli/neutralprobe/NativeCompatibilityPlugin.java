@@ -21,6 +21,8 @@ public final class NativeCompatibilityPlugin implements IMixinConfigPlugin {
                     FMLLoader.versionInfo().neoForgeVersion(), mtrFile.getFile().getFilePath());
             if (list.getModFileById("vehicle_performance_probe") != null)
                 throw new IllegalStateException("Multiple client frame observation providers are installed");
+            if (list.getModFileById("mtr_model_trace") != null)
+                throw new IllegalStateException("Multiple native model diagnostic providers are installed");
         } catch (Exception failure) {
             throw new MixinInitialisationError("The native observer cannot apply to this client", failure);
         }

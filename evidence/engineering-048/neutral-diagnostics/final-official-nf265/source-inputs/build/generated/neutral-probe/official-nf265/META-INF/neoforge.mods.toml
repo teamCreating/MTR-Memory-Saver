@@ -1,0 +1,29 @@
+modLoader="javafml"
+loaderVersion="[4,)"
+license="MIT"
+[[mods]]
+modId="mtr_native_observer"
+version="1.0.2"
+displayName="MTR Native Observer"
+authors="A-BenLi06"
+description="Native client state and frame observations."
+[[dependencies.mtr_native_observer]]
+modId="neoforge"
+type="required"
+versionRange="[21.1.265]"
+ordering="NONE"
+side="CLIENT"
+[[dependencies.mtr_native_observer]]
+modId="minecraft"
+type="required"
+versionRange="[1.21.1]"
+ordering="NONE"
+side="CLIENT"
+[[dependencies.mtr_native_observer]]
+modId="mtr"
+type="required"
+versionRange="[4.1.0-beta.2]"
+ordering="AFTER"
+side="CLIENT"
+[[mixins]]
+config="mtr-native-observer.mixins.json"
