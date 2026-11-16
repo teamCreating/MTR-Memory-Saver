@@ -1,0 +1,443 @@
+{
+  "schema": 1,
+  "timestamp": "2026-11-16T15:41:34.411011+00:00",
+  "files": {
+    "README.md": {
+      "sha256": "e6f2df1d7e1ced74f5eb8999c116640877dd0fd030e0d49f984c02a2a26a9972",
+      "bytes": 3451
+    },
+    "seal_unfinished.py": {
+      "sha256": "e7fc3abd0eb1ad7c731b0d182fa039f44dd557ce5bf41fe645b3373820f89254",
+      "bytes": 11184
+    },
+    "sealed-01/artifact-sources/companion/build/generated/resources/official-nf248/META-INF/neoforge.mods.toml": {
+      "sha256": "10178f48c2f6f23a8b19adf221e6c4bda321a47246628b1f076b4418a85a3177",
+      "bytes": 690
+    },
+    "sealed-01/artifact-sources/companion/build/generated/resources/official-nf248/mtr-memory-sharing.mixins.json": {
+      "sha256": "9a8a6282dbe871c05fefbcac56a3cf3ba33f153fe46ece935cc4c8d09d238851",
+      "bytes": 754
+    },
+    "sealed-01/artifact-sources/companion/build/generated/resources/official-nf248/mtr-memory-target.json": {
+      "sha256": "6611ac176d8750290d264bba62e468d44912976e5f3d5ca9439a69ddfa1a2630",
+      "bytes": 226
+    },
+    "sealed-01/artifact-sources/companion/build.gradle": {
+      "sha256": "5054012da1dc10622fbee281b53d169acc3ba6f0a759dc23db6d6e1822642413",
+      "bytes": 29818
+    },
+    "sealed-01/artifact-sources/companion/config/targets.json": {
+      "sha256": "e3d1d3a81d4fe8d7e60ba376654c943cc9766ce1d213b119fe7f6b175ac1d4ff",
+      "bytes": 1416
+    },
+    "sealed-01/artifact-sources/companion/src/main/java/site/benli06/BinaryFingerprint.java": {
+      "sha256": "d14118714c8837eb0d478b83383399675c6810e500c2a90e4512793c6e81f34a",
+      "bytes": 896
+    },
+    "sealed-01/artifact-sources/companion/src/main/java/site/benli06/BoundedTextCache.java": {
+      "sha256": "0dd7a9e226a3f6f9ae2d114bd540ea3b400289a613034c89bad2831b7e5c142d",
+      "bytes": 10784
+    },
+    "sealed-01/artifact-sources/companion/src/main/java/site/benli06/CompatibilityPlugin.java": {
+      "sha256": "0d140cd909676510711f346fec38dc4d749bba0319d6c51acdd245d5b1aad82d",
+      "bytes": 2197
+    },
+    "sealed-01/artifact-sources/companion/src/main/java/site/benli06/CompressedResourceTextCache.java": {
+      "sha256": "8b5c0678586cf8dfe1978d29ba657ce05fea64ffa64ea3c2cb83b40faeabc485",
+      "bytes": 795
+    },
+    "sealed-01/artifact-sources/companion/src/main/java/site/benli06/DisplayRetention.java": {
+      "sha256": "9586b3f89567e395bf7c3a7ab6fd912402d6c30c5b02884f0ac22fb9dcf43b6a",
+      "bytes": 1093
+    },
+    "sealed-01/artifact-sources/companion/src/main/java/site/benli06/GenerationWorkCache.java": {
+      "sha256": "9df8981274dbf68c1d4f688b5245f0020058bcd11fe4259becd33bd445d7fe62",
+      "bytes": 10684
+    },
+    "sealed-01/artifact-sources/companion/src/main/java/site/benli06/mixin/BlockbenchParseExecutorMixin.java": {
+      "sha256": "6d3e9567457cf46a9593980dc0bb7144147dd9f92cbf0a680209522d999c34a2",
+      "bytes": 821
+    },
+    "sealed-01/artifact-sources/companion/src/main/java/site/benli06/mixin/CompressedResourceTextMixin.java": {
+      "sha256": "36ebaa22206f15b9a8cbbea337cd1dac0ba775d016834d06ec5fda28137e5698",
+      "bytes": 2364
+    },
+    "sealed-01/artifact-sources/companion/src/main/java/site/benli06/mixin/DisplayPartAccess.java": {
+      "sha256": "61066972b183bc5e03cbf758ffef39e626538a4c0c9747784d495ac0802fb378",
+      "bytes": 493
+    },
+    "sealed-01/artifact-sources/companion/src/main/java/site/benli06/mixin/DisplaySelectionMixin.java": {
+      "sha256": "6f85bcfd58d679d72389dac22e773d2e1a65654b68ad8d9cb6aec37ba4c8de7c",
+      "bytes": 955
+    },
+    "sealed-01/artifact-sources/companion/src/main/java/site/benli06/mixin/ModelLoaderAccess.java": {
+      "sha256": "028a8fd2d6116e1839966d6103a23401f7c77aa0a9378192253279a14c4f336a",
+      "bytes": 912
+    },
+    "sealed-01/artifact-sources/companion/src/main/java/site/benli06/mixin/ModelLoaderCompletionMixin.java": {
+      "sha256": "1146d5c540f2afee7071f0c89e31d13dda21ffd927fe33a89d96e7128f45e164",
+      "bytes": 612
+    },
+    "sealed-01/artifact-sources/companion/src/main/java/site/benli06/mixin/ResourceReloadMixin.java": {
+      "sha256": "ed0c05fc5443712e4776c5a47ccc336da1d7cef59440051992549517cd1b9ff6",
+      "bytes": 1257
+    },
+    "sealed-01/artifact-sources/companion/src/main/java/site/benli06/mixin/SegmentedResourceTextMixin.java": {
+      "sha256": "fb480ed48b2294942d1a2bad558a4ff641268a4dbac6b11a49fecc047c62e291",
+      "bytes": 905
+    },
+    "sealed-01/artifact-sources/companion/src/main/java/site/benli06/mixin/SourceLifetimeMixin.java": {
+      "sha256": "685f795565885e1569657435c01824cc8191ccae9f8652b84be6780729ec870b",
+      "bytes": 599
+    },
+    "sealed-01/artifact-sources/companion/src/main/java/site/benli06/mixin/VehicleJsonCacheMixin.java": {
+      "sha256": "28f0b99f94c8f4b693e447347aebae99a60fdf1ecd211d1cda23e1ce7fef024e",
+      "bytes": 680
+    },
+    "sealed-01/artifact-sources/companion/src/main/java/site/benli06/mixin/VehicleJsonEpochMixin.java": {
+      "sha256": "f1c67e2e354190de1355a6b79039270f2be2cfc4ee113bf0c71897c2be158a17",
+      "bytes": 758
+    },
+    "sealed-01/artifact-sources/companion/src/main/java/site/benli06/mixin/VehicleModelFactoryMixin.java": {
+      "sha256": "1fb9b2984cd917cf5010158bbb4a0312a80a8931535036ec1394ca04633e98bc",
+      "bytes": 928
+    },
+    "sealed-01/artifact-sources/companion/src/main/java/site/benli06/PackedModelGroupAccess.java": {
+      "sha256": "c76a1cf74d9eab70d60e93183c0452e336a006a5d5e880c45bd0fd3cbf0448d1",
+      "bytes": 118
+    },
+    "sealed-01/artifact-sources/companion/src/main/java/site/benli06/PackedModelGroupOperations.java": {
+      "sha256": "409c6e93c899217659aa220c9e031c93bbb589d996ad1fdc9eda0bfc4d3b1676",
+      "bytes": 1526
+    },
+    "sealed-01/artifact-sources/companion/src/main/java/site/benli06/PackedModelGroupStore.java": {
+      "sha256": "696e67c3308a9673363b023f48880dfa9d6c94f1fdab8138049ad4f9028c08b1",
+      "bytes": 1555
+    },
+    "sealed-01/artifact-sources/companion/src/main/java/site/benli06/PackedVertexEmitter.java": {
+      "sha256": "7c996e3bd75ae339d6d74d603833111ba84fab2662b69196f374db8c4cf02dd5",
+      "bytes": 506
+    },
+    "sealed-01/artifact-sources/companion/src/main/java/site/benli06/ReadAdmission.java": {
+      "sha256": "dd785b1ed9e4805b6688a911ded27c051ea558a0aac0ae479101fc62631d9535",
+      "bytes": 6146
+    },
+    "sealed-01/artifact-sources/companion/src/main/java/site/benli06/ResourceSourceKey.java": {
+      "sha256": "129bfbc44538f80860a196034ebcb62df18304dc9ecc60276b12dad3ae74b6a6",
+      "bytes": 870
+    },
+    "sealed-01/artifact-sources/companion/src/main/java/site/benli06/ResourceTextDigest.java": {
+      "sha256": "0ef90480b26891683d560774894da6e7d826d0cb42f189db20589c49c5badd67",
+      "bytes": 3177
+    },
+    "sealed-01/artifact-sources/companion/src/main/java/site/benli06/SegmentedResourceText.java": {
+      "sha256": "6ec9b5faca7a889491a5209c0cab120a600e12aa63739201c12822dfea8b8fda",
+      "bytes": 7456
+    },
+    "sealed-01/artifact-sources/companion/src/main/java/site/benli06/SharedBlockbenchCache.java": {
+      "sha256": "7fdd6c66602557370f476bef65781f8a28a4e6ca7785d1c6c4cf6c33497f7d07",
+      "bytes": 4878
+    },
+    "sealed-01/artifact-sources/companion/src/main/java/site/benli06/StrictResourceText.java": {
+      "sha256": "ef6c139fa60267f23c6b062874e4ed055a22c879cb2875250203ef851708a649",
+      "bytes": 1043
+    },
+    "sealed-01/artifact-sources/companion/src/main/java/site/benli06/TextWorkspace.java": {
+      "sha256": "574cb84e23f5c97536320a7c9874acbaa06901bbf50c3b7e6458e8941cd51dc2",
+      "bytes": 3279
+    },
+    "sealed-01/artifact-sources/companion/src/main/java/site/benli06/VehicleJsonCache.java": {
+      "sha256": "cf9e1690166c0f5c79d442b847baeae731b4f9b82abb618562e9de4debe6c5e4",
+      "bytes": 2550
+    },
+    "sealed-01/artifact-sources/companion/src/main/resources/assets/mtr_memory_sharing/lang/en_us.json": {
+      "sha256": "4522126f7d8979b5013ecae2d45aeed8a211f31eee493a14f30b327cdbf24986",
+      "bytes": 113
+    },
+    "sealed-01/artifact-sources/companion/src/main/resources/assets/mtr_memory_sharing/lang/zh_cn.json": {
+      "sha256": "2f3e9bf2726f455abea8a6081711954417493949798c9278c2f3e07537c21131",
+      "bytes": 113
+    },
+    "sealed-01/artifact-sources/companion/src/main/resources/pack.mcmeta": {
+      "sha256": "cb0c633e325e5487a39079e4186c7b46bf6410f83e07cc5adabbdef0f54a770a",
+      "bytes": 127
+    },
+    "sealed-01/artifact-sources/companion/src/main/resources/pack.png": {
+      "sha256": "9b9f413f5e6d0350be08e2460b1b9cbe84e317143976b4b1b13208d09ffac8a7",
+      "bytes": 243217
+    },
+    "sealed-01/artifact-sources/companion/src/targets/official/java/site/benli06/mixin/PackedModelGroupMixin.java": {
+      "sha256": "9c5c4bfaedee250e2b1b139bef5a410d7f2d1a43f331e36ab6d98c7b8d6a19bf",
+      "bytes": 2779
+    },
+    "sealed-01/artifact-sources/companion/src/targets/official/java/site/benli06/mixin/ResourceTextReadMixin.java": {
+      "sha256": "54cc5f0a8846a748955e09b9028a7b020f98a9a24f16356f46b31e20839cd779",
+      "bytes": 1132
+    },
+    "sealed-01/artifact-sources/companion/src/targets/official/java/site/benli06/mixin/VertexColorMixin.java": {
+      "sha256": "e22c48c2e22bc15a47199671e8db8a2ed490f9c985f6e66c0d5c5201fdcff27b",
+      "bytes": 638
+    },
+    "sealed-01/artifact-sources/companion/src/targets/official/java/site/benli06/PackedVertices.java": {
+      "sha256": "83c1121d86d3a02f35d9585976399ade88fc744523d3dd20453de0af8ddb7404",
+      "bytes": 5863
+    },
+    "sealed-01/artifact-sources/companion/src/targets/official/java/site/benli06/SharedBlockbenchLoader.java": {
+      "sha256": "62d081e56e318bddf4a6a26116cb12d9aa36f8cbe1934e4607b621e7fdc626a9",
+      "bytes": 1816
+    },
+    "sealed-01/artifact-sources/observer/build/generated/neutral-probe/official-nf248/capabilities.json": {
+      "sha256": "ae964b07f1de72328a44cd3c5be37655624a790e8562fc954705fe339febdea4",
+      "bytes": 512
+    },
+    "sealed-01/artifact-sources/observer/build/generated/neutral-probe/official-nf248/META-INF/neoforge.mods.toml": {
+      "sha256": "2664df1c3e86868afdc05fda87311da9ab1a8a1adcfe1b7e2012918ad6eb07a3",
+      "bytes": 649
+    },
+    "sealed-01/artifact-sources/observer/build/generated/neutral-probe/official-nf248/mtr-native-observer-target.json": {
+      "sha256": "79d1e3c69bf1d5633a2baf04114c5dd311e30bce6c7ca20eccf31b6934f18137",
+      "bytes": 694
+    },
+    "sealed-01/artifact-sources/observer/build/generated/neutral-probe/official-nf248/mtr-native-observer.mixins.json": {
+      "sha256": "5263b013d308c3b9a68253eee1a7e1cb177f4926470c03020e8c6791131d3776",
+      "bytes": 477
+    },
+    "sealed-01/artifact-sources/observer/build.gradle": {
+      "sha256": "5054012da1dc10622fbee281b53d169acc3ba6f0a759dc23db6d6e1822642413",
+      "bytes": 29818
+    },
+    "sealed-01/artifact-sources/observer/config/targets.json": {
+      "sha256": "e3d1d3a81d4fe8d7e60ba376654c943cc9766ce1d213b119fe7f6b175ac1d4ff",
+      "bytes": 1416
+    },
+    "sealed-01/artifact-sources/observer/tools/probes/io/java/dev/abenli/probeio/AtomicSnapshot.java": {
+      "sha256": "167b2df6238169a6dad2ce27ec0849b12ea5dd041442829179df5b5277d81cae",
+      "bytes": 4216
+    },
+    "sealed-01/artifact-sources/observer/tools/probes/neutral/java/dev/abenli/neutralprobe/DiagnosticTracker.java": {
+      "sha256": "d7fe099e6d99491171774ebbb923fc2faba4f5d6d027d2562333460dfe9a6355",
+      "bytes": 1970
+    },
+    "sealed-01/artifact-sources/observer/tools/probes/neutral/java/dev/abenli/neutralprobe/EpochTracker.java": {
+      "sha256": "e528056801e40314d46cfbb1d240923bb9f78f250ab63a04b0f4c2efb6dbd036",
+      "bytes": 2412
+    },
+    "sealed-01/artifact-sources/observer/tools/probes/neutral/java/dev/abenli/neutralprobe/ExistingCaches.java": {
+      "sha256": "cdf26f83a4fb246b3d04286f89c3b35fe2d351468b5cbd418f75e1c43daceba1",
+      "bytes": 752
+    },
+    "sealed-01/artifact-sources/observer/tools/probes/neutral/java/dev/abenli/neutralprobe/mixin/NativeClientDataAccess.java": {
+      "sha256": "40a5948959b7e5efa96dfff507891d689908a50872d3d14623357fe81da5d3f4",
+      "bytes": 423
+    },
+    "sealed-01/artifact-sources/observer/tools/probes/neutral/java/dev/abenli/neutralprobe/mixin/NativeInvalidModelMixin.java": {
+      "sha256": "09ca0ebb19d9dfb1b26b9936ade7b6abc6cb638130d11fff9ef79d65b5c10696",
+      "bytes": 1682
+    },
+    "sealed-01/artifact-sources/observer/tools/probes/neutral/java/dev/abenli/neutralprobe/mixin/NativePendingAccess.java": {
+      "sha256": "c8085826c1cea254d4e5b1baad87065d0e4facea8f3bff3a00f7b03ed71779dd",
+      "bytes": 466
+    },
+    "sealed-01/artifact-sources/observer/tools/probes/neutral/java/dev/abenli/neutralprobe/mixin/NativeResourceEpochMixin.java": {
+      "sha256": "193391afbf1bd96f4a7f52e8f97472d1ee75a5e198c74a084b44ec168be7fe32",
+      "bytes": 750
+    },
+    "sealed-01/artifact-sources/observer/tools/probes/neutral/java/dev/abenli/neutralprobe/mixin/VehicleCacheAccess.java": {
+      "sha256": "51cb9311a195c7ad331eedbca9dfcf19ba3cf73f5337ded8cf7896d2eb961340",
+      "bytes": 541
+    },
+    "sealed-01/artifact-sources/observer/tools/probes/neutral/java/dev/abenli/neutralprobe/mixin/VehicleProgressAccess.java": {
+      "sha256": "6b797416f707714e3f3a351ea19d4216659fded1a35f4bfbe977ece03da832d1",
+      "bytes": 336
+    },
+    "sealed-01/artifact-sources/observer/tools/probes/neutral/java/dev/abenli/neutralprobe/NativeCompatibilityPlugin.java": {
+      "sha256": "e55d46f296ca48b6c1f76fddfe9dd2d5b19c0746050f51111d6cc63398041625",
+      "bytes": 2205
+    },
+    "sealed-01/artifact-sources/observer/tools/probes/neutral/java/dev/abenli/neutralprobe/NativeModelDiagnostics.java": {
+      "sha256": "d3726a66e0eee7469631c6a4c2b9c13bd42025c44525ed722b22d392317cb729",
+      "bytes": 5481
+    },
+    "sealed-01/artifact-sources/observer/tools/probes/neutral/java/dev/abenli/neutralprobe/NativeObserver.java": {
+      "sha256": "de17a424fa0aa10c4829e60fec7f5ba8c1f1f36265b424935aa57bbe676589a8",
+      "bytes": 9782
+    },
+    "sealed-01/artifact-sources/observer/tools/probes/neutral/java/dev/abenli/neutralprobe/NativeRegistry.java": {
+      "sha256": "dc5bfa9ed7db4240df6659c30980005a5f46d5a95c5b26a18459e50fef854755",
+      "bytes": 878
+    },
+    "sealed-01/artifact-sources/observer/tools/probes/neutral/java/dev/abenli/neutralprobe/NativeScene.java": {
+      "sha256": "f9db55850823262e2cda33be445b4280720f002512bdccfad1377ee306651ba9",
+      "bytes": 5496
+    },
+    "sealed-01/artifact-sources/observer/tools/probes/neutral/java/dev/abenli/neutralprobe/NativeTarget.java": {
+      "sha256": "41fd47c5c206459c2aadcc7bc19b661d039d7e63e55330e043e9c12da794f212",
+      "bytes": 2031
+    },
+    "sealed-01/artifact-sources/observer/tools/probes/neutral/java/dev/abenli/neutralprobe/ObservationSchema.java": {
+      "sha256": "5e46aa608040073c958a43bdd702e0c6adf9621c55dcd8387507d0e9265d814c",
+      "bytes": 3810
+    },
+    "sealed-01/artifact-sources/observer/tools/probes/neutral/java/dev/abenli/neutralprobe/RegistrationCounts.java": {
+      "sha256": "47cecc739d67218c160bbc76b12d611c5ba24f49b529066fd1d099d4ae72f1c2",
+      "bytes": 464
+    },
+    "sealed-01/artifact-sources/observer/tools/probes/neutral/observer.json": {
+      "sha256": "07ef18d6e4a5ff1b2d738b7ec57531e56823c3d8cf0827ed7206d26eabffdfd5",
+      "bytes": 807
+    },
+    "sealed-01/artifacts/mtr-memory-saver-official-nf248-0.4.7.build.json": {
+      "sha256": "d06e4a332742bdb1c04740b9eef456a8c31528d9a31b8e2c9e1f3c6dd54d6afc",
+      "bytes": 6252
+    },
+    "sealed-01/artifacts/mtr-memory-saver-official-nf248-0.4.7.jar": {
+      "sha256": "e8b5b40230d0f44c541c12b32c8a30d4c2ea056b8a972335ae10166496837a99",
+      "bytes": 321705
+    },
+    "sealed-01/artifacts/mtr-native-observer-official-nf248-1.0.3.build.json": {
+      "sha256": "3c4fc44c8b92bb0ca65c1b0f6245e7b4656714f7f8577350e341416a1923cef5",
+      "bytes": 4673
+    },
+    "sealed-01/artifacts/mtr-native-observer-official-nf248-1.0.3.jar": {
+      "sha256": "1a4e69a81e8baaeaf30e76b7647a371a39411ab7687934da83742c0fdce8487d",
+      "bytes": 44068
+    },
+    "sealed-01/assessment.json": {
+      "sha256": "bb7db70617b54f3e5ec14ff471ce0e5808bb1e00fcaecb70642ed2efec715f75",
+      "bytes": 2123
+    },
+    "sealed-01/collector/execution.json": {
+      "sha256": "51c82b3cecea0ed97171e3e397e9db4aeaa5b88cb502d634db45e152f251f05d",
+      "bytes": 675
+    },
+    "sealed-01/collector/native-snapshots.jsonl": {
+      "sha256": "b785fffcad397c7386bbfba7f170d84fa9236b214a4abf15ca121a11619b9c6b",
+      "bytes": 18989864
+    },
+    "sealed-01/collector/packaged-client-launch.json": {
+      "sha256": "8461bcec5db008844aced17b404019608087ad70e3207c37d38bd238bca97873",
+      "bytes": 26219
+    },
+    "sealed-01/collector/packaged-client-plan.json": {
+      "sha256": "678d0fb961b3b132c41662d591b3291f76c40a7ef21c1ca1b4a85d37e844b627",
+      "bytes": 42325
+    },
+    "sealed-01/collector-sources/tools/capture_diagnostic_client.py": {
+      "sha256": "a9ee4e8f2a068ba9c0b72a6f7b348cecdd9c5e4bbe534aeabf851b704e1fb69a",
+      "bytes": 5287
+    },
+    "sealed-01/collector-sources/tools/packaged_client.py": {
+      "sha256": "ad2e0dbf209ded20942891378e0a5855d6c3f65f8d89baa9afa2a7d24b2af13c",
+      "bytes": 42086
+    },
+    "sealed-01/collector-sources/tools/windows_snapshot_io.py": {
+      "sha256": "6967cd6efee7a673e5df72700ea8de26e2e92c02d4614306bcb106fa527b02e1",
+      "bytes": 1992
+    },
+    "sealed-01/copy-receipts.json": {
+      "sha256": "384a8c47a65f764edb2386d064d23c0e178720c47a2fbcba4d1cccd8dbcb9d0e",
+      "bytes": 49157
+    },
+    "sealed-01/current-process.execution.json": {
+      "sha256": "3d0462779915413d36a7cfe6dc6622f4f8114e3c0924c4b59c62ef261c88b005",
+      "bytes": 1232
+    },
+    "sealed-01/current-process.json": {
+      "sha256": "96f69f0a5244a9a856c2974c7d68c91a64be9ecf697b8421496b99bccaf483f8",
+      "bytes": 134
+    },
+    "sealed-01/current-process.stderr.log": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "sealed-01/current-process.stdout.log": {
+      "sha256": "972e9dda5b457fdb60dc953d7a9a3d30aff9aad61b4cd8e83913449ffc3c7926",
+      "bytes": 140
+    },
+    "sealed-01/instance/acceptance-gc.log": {
+      "sha256": "2d5709837c4f6fe4019556fd22cec217b97726a33c2226cf6727617550e8d547",
+      "bytes": 996120
+    },
+    "sealed-01/instance/acceptance.jfr": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "sealed-01/instance/game-probe/native-invalid-model.jsonl": {
+      "sha256": "94cfa58999e7c4edb9cb0eea274892e5e161a92b8c818bf4ba90e7bfb25deb80",
+      "bytes": 22050
+    },
+    "sealed-01/instance/game-probe/native-observer.json": {
+      "sha256": "220b63ccf50e00eb09903836e5165fa690748807aa6b2dcb0705666451a0549a",
+      "bytes": 6671
+    },
+    "sealed-01/instance/game-probe/native-resource-epochs.jsonl": {
+      "sha256": "60eb202b6dfeda41f31aa6d677e664d6b1e518b430fffdcd92976198da06e638",
+      "bytes": 1787
+    },
+    "sealed-01/instance/launch.stderr.log": {
+      "sha256": "6db9d40df6296c12c118bcaf58b9dbfb3413555d815547fcedc52e7c7d9e3132",
+      "bytes": 672
+    },
+    "sealed-01/instance/launch.stdout.log": {
+      "sha256": "8a411b909717de866c3c88cf6ae452fab768ad8625c252504a6de567a09e1b84",
+      "bytes": 25086
+    },
+    "sealed-01/instance/logs/debug.log": {
+      "sha256": "97e5d9fc69be0d8924a48771dcdc72f347253ad02d4e127bea197298bd40fe24",
+      "bytes": 143725
+    },
+    "sealed-01/instance/logs/latest.log": {
+      "sha256": "819ff58fe806a2bcdf3f7acb51765d3a73c434fca62c5cf670460d3fc56edd03",
+      "bytes": 28295
+    },
+    "sealed-01/instance/options.txt": {
+      "sha256": "29867dbf781b9671625cef9f746ff00863745376f9c20d496efd4db22a3bb2db",
+      "bytes": 4686
+    },
+    "sealed-01/instance/packaged-client-launch.json": {
+      "sha256": "8461bcec5db008844aced17b404019608087ad70e3207c37d38bd238bca97873",
+      "bytes": 26219
+    },
+    "sealed-01/instance/packaged-client-plan.json": {
+      "sha256": "678d0fb961b3b132c41662d591b3291f76c40a7ef21c1ca1b4a85d37e844b627",
+      "bytes": 42325
+    },
+    "sealed-01/instance/usercache.json": {
+      "sha256": "a48ebf7252bd5844fbd87c461cf9016dc41be14b67a20f3dc48d557b544458d5",
+      "bytes": 110
+    },
+    "sealed-01/instance/usernamecache.json": {
+      "sha256": "d6c922108b26ba356150f983af61f7878f21cdafa0bad84e94a6932be05a81b9",
+      "bytes": 59
+    },
+    "sealed-01/instance/vehicle-test-instance.json": {
+      "sha256": "b2f8f15589284282fbeb7d12bf6788fe7f382c4c961f28a8ef4d702e2b125b71",
+      "bytes": 5823
+    },
+    "sealed-01/sealing.execution.json": {
+      "sha256": "e1ac443c03758b9c7e561f768fa938c7a638955c9834be18ef6d89e2143bded4",
+      "bytes": 578
+    },
+    "sealed-01/SHA256SUMS.json": {
+      "sha256": "9d014345f321405c53ce07d1b3aad03d113fa9eae7ffea5844783a4f2d478282",
+      "bytes": 20744
+    },
+    "sealed-01/source/seal_unfinished.py": {
+      "sha256": "e7fc3abd0eb1ad7c731b0d182fa039f44dd557ce5bf41fe645b3373820f89254",
+      "bytes": 11184
+    },
+    "sealed-01/source-resolutions.json": {
+      "sha256": "0cf591185eb70ae06957de52bbbb649c68e155180083e4ceabc0bd9ee97e60e3",
+      "bytes": 33084
+    },
+    "verification-01.json": {
+      "sha256": "2d1b0b0938ca9ffa47d94c7425c15d02c5ffc20c2b832af056cafa00419ade16",
+      "bytes": 936
+    },
+    "verify_sealed.py": {
+      "sha256": "585b1fe29bb2d8e400b136c223bed3fc9a74811a852c360778820f4c7686ea97",
+      "bytes": 5749
+    }
+  },
+  "scope": "Retrospective unfinished run observation; no inferred exit."
+}

@@ -1,0 +1,50 @@
+{
+  "scope": "retrospective_unfinished_diagnostic_run_observation",
+  "observed_at": "2026-11-16T15:40:14.1980365+00:00",
+  "pid": 63044,
+  "process_created_from_native_snapshot": "2026-11-16T13:35:59.994Z",
+  "status": "unfinished_at_retrospective_observation",
+  "pid_currently_absent": true,
+  "matching_collector_currently_absent": true,
+  "original_collector_status": "observing",
+  "exit_code": null,
+  "exit_time": null,
+  "termination_cause": "unknown",
+  "normal_exit_verified": false,
+  "interruption_action_observed": false,
+  "native_snapshot_records": 2596,
+  "first_capture": "2026-11-16T13:38:50.539323+00:00",
+  "last_capture": "2026-11-16T14:23:18.168570+00:00",
+  "last_native_observation": "2026-11-16T14:23:17.566868600Z",
+  "last_native_state": {
+    "paused": true,
+    "in_world": true,
+    "screen": "net.minecraft.client.gui.screens.PauseScreen",
+    "registered_count": 1091,
+    "registered_declarations": 1092,
+    "native_pending": 0,
+    "native_settled": true,
+    "resource_epochs": {
+      "started": 1,
+      "completed": 1,
+      "in_flight": 0,
+      "max_nesting": 1,
+      "last_completed_sequence": 1
+    },
+    "observation_errors": 0
+  },
+  "empty_jfr": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "readable_recording": false
+  },
+  "sealed_companion_and_observer_manifest_inputs": 69,
+  "limits": [
+    "No exit status, exact exit time or stopping action can be reconstructed from process absence.",
+    "Original observing receipt is unchanged; its empty capture_errors is not a completed-run certification.",
+    "The last published snapshot and retained prefix do not establish error-free behavior after that observation.",
+    "Native registration/caches are observations only, not full gameplay, reload, endurance or performance acceptance.",
+    "Source-world, resource archives, MTR JAR and JDK/runtime/library bytes were not freshly rehashed; original plan declarations are retained.",
+    "No original game/world, process or source file was changed by sealing; the separate running 049c was not accessed."
+  ]
+}

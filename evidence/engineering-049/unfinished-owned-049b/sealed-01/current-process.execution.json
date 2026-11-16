@@ -1,0 +1,15 @@
+{
+  "started": "2026-11-16T15:39:48.934052+00:00",
+  "command": [
+    "pwsh",
+    "-NoProfile",
+    "-Command",
+    "[Console]::OutputEncoding=[System.Text.UTF8Encoding]::new($false); $retrospectivePid=63044; $retrospectiveProcess=@(Get-CimInstance Win32_Process -Filter \"ProcessId = $retrospectivePid\" -ErrorAction Stop | Select-Object ProcessId,CreationDate,ExecutablePath,CommandLine); $retrospectiveCollectors=@(Get-CimInstance Win32_Process -Filter \"Name = 'python.exe'\" -ErrorAction Stop | Where-Object {$_.CommandLine -match 'capture_diagnostic_client.py' -and $_.CommandLine -match 'capture-owned-049b'} | Select-Object ProcessId,CreationDate,ExecutablePath,CommandLine); @{observed_at=[DateTimeOffset]::UtcNow.ToString('o'); target_pid=$retrospectivePid; process_records=$retrospectiveProcess; matching_collectors=$retrospectiveCollectors} | ConvertTo-Json -Depth 5"
+  ],
+  "cwd": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory",
+  "helper_pid": 70808,
+  "ended": "2026-11-16T15:40:14.971021+00:00",
+  "exit_code": 0,
+  "stdout_sha256": "972e9dda5b457fdb60dc953d7a9a3d30aff9aad61b4cd8e83913449ffc3c7926",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}
