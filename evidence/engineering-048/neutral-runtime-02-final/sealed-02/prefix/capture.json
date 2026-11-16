@@ -1,0 +1,365 @@
+{
+  "schema": 1,
+  "scope": "Live startup prefix and native diagnostic attribution only; no gameplay or performance acceptance",
+  "capture_started": "2026-11-16T06:21:51.360775+00:00",
+  "instance": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-neutral-048b",
+  "pid": 41800,
+  "status": "captured",
+  "consumer_sources": {
+    "tools/client_experiment_analysis.py": "0669d421d09a47664cf9207f559f247983f76a666a1cfe8487c7d02d4c5a7d6e",
+    "tools/native_diagnostic_review.py": "39807f2f3b8173097d30d7fef7499e8bac419f72ff6abd1faf91b014c097e45d",
+    "tools/windows_snapshot_io.py": "56ff1d6abcb7be7780bb057f239831d813a5e5c867320f1797f8710370765ac5",
+    "tools/packaged_client.py": "ad2e0dbf209ded20942891378e0a5855d6c3f65f8d89baa9afa2a7d24b2af13c",
+    "config/native-diagnostic-review.json": "4d91b89a3600d44a9ec132b7dd58fb61d46d34ae63f9148716f24c9c144f745c"
+  },
+  "launcher_source_matches_receipt": true,
+  "options_match_plan_at_capture": true,
+  "mods": [
+    {
+      "filename": "mtr-memory-saver-official-nf248-0.4.6.jar",
+      "sha256": "dd47f6ae4daa4139b9ada9196d757db634a79ebdd7fa5f06083719d764285997",
+      "role": "companion",
+      "actual_sha256": "dd47f6ae4daa4139b9ada9196d757db634a79ebdd7fa5f06083719d764285997"
+    },
+    {
+      "filename": "mtr-native-observer-official-nf248-1.0.2.jar",
+      "sha256": "1f5a3f9721bd7199cd952f4926afa8cf40996cf76fdc9484a9372f45d1664167",
+      "role": "observer",
+      "actual_sha256": "1f5a3f9721bd7199cd952f4926afa8cf40996cf76fdc9484a9372f45d1664167"
+    },
+    {
+      "filename": "MTR-neoforge-4.1.0-beta.2+1.21.1.jar",
+      "sha256": "ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa",
+      "role": "mtr",
+      "actual_sha256": "ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa"
+    }
+  ],
+  "packs": [
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\[MTR4.1原生目录]产物\\[MTR4.1][MTR] Taiwan Train V000 EMU3000 20251107.zip",
+      "filename": "[MTR4.1][MTR] Taiwan Train V000 EMU3000 20251107.zip",
+      "sha256": "59252e44bc3f8337a041cc83c3e2eb4ebdaa6d97b7d756dbd578f2d5f6273ea2",
+      "installed_sha256": "59252e44bc3f8337a041cc83c3e2eb4ebdaa6d97b7d756dbd578f2d5f6273ea2",
+      "source_sha256": "59252e44bc3f8337a041cc83c3e2eb4ebdaa6d97b7d756dbd578f2d5f6273ea2"
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\[MTR4.1原生目录]产物\\[MTR4.1][材质模型包]悠日计画 交通运输类模型 8.2505.1.zip",
+      "filename": "[MTR4.1][材质模型包]悠日计画 交通运输类模型 8.2505.1.zip",
+      "sha256": "024484cabde00b7a020fd7213c685d7a796efa85ee4abf00921cfca4aa4d8fd9",
+      "installed_sha256": "024484cabde00b7a020fd7213c685d7a796efa85ee4abf00921cfca4aa4d8fd9",
+      "source_sha256": "024484cabde00b7a020fd7213c685d7a796efa85ee4abf00921cfca4aa4d8fd9"
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\[MTR4.1原生目录]产物\\[MTR4.1]ChenDianMetroWayV0.5.1R.zip",
+      "filename": "[MTR4.1]ChenDianMetroWayV0.5.1R.zip",
+      "sha256": "53b22f198d35009af71dfc2f2da32a7b06852ef10fd125c8102e3283a0630a66",
+      "installed_sha256": "53b22f198d35009af71dfc2f2da32a7b06852ef10fd125c8102e3283a0630a66",
+      "source_sha256": "53b22f198d35009af71dfc2f2da32a7b06852ef10fd125c8102e3283a0630a66"
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\[MTR4.1原生目录]产物\\[MTR4.1]HSM-2000 v1.2.1 (Adapted for MTR 4.0.x)-20260722-210944.zip",
+      "filename": "[MTR4.1]HSM-2000 v1.2.1 (Adapted for MTR 4.0.x)-20260722-210944.zip",
+      "sha256": "e1ff1857a8b4f9fbf049e009ccb5fa79aff7d73212aadec54d6727810979adcb",
+      "installed_sha256": "e1ff1857a8b4f9fbf049e009ccb5fa79aff7d73212aadec54d6727810979adcb",
+      "source_sha256": "e1ff1857a8b4f9fbf049e009ccb5fa79aff7d73212aadec54d6727810979adcb"
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\[MTR4.1原生目录]产物\\[MTR4.1]rpsync-mtr4.0.0-hxd3d-yw25t.zip",
+      "filename": "[MTR4.1]rpsync-mtr4.0.0-hxd3d-yw25t.zip",
+      "sha256": "fe15135afd9a53f6f72a910b09d7caf64eab3195a2bb71a3662d5c90318167a5",
+      "installed_sha256": "fe15135afd9a53f6f72a910b09d7caf64eab3195a2bb71a3662d5c90318167a5",
+      "source_sha256": "fe15135afd9a53f6f72a910b09d7caf64eab3195a2bb71a3662d5c90318167a5"
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\[MTR4.1原生目录]产物\\[MTR4.1]rpsync-shanghaimetroaddon_v3.4.0_creating_trimmed_v2.zip",
+      "filename": "[MTR4.1]rpsync-shanghaimetroaddon_v3.4.0_creating_trimmed_v2.zip",
+      "sha256": "f4e722fdf459b954ba5c747146ab20b281085543b027d755784b460645126032",
+      "installed_sha256": "f4e722fdf459b954ba5c747146ab20b281085543b027d755784b460645126032",
+      "source_sha256": "f4e722fdf459b954ba5c747146ab20b281085543b027d755784b460645126032"
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\[MTR4.1原生目录]产物\\[MTR4.1]ShirahaneVehicle v2.4.3 release_hotfix1.zip",
+      "filename": "[MTR4.1]ShirahaneVehicle v2.4.3 release_hotfix1.zip",
+      "sha256": "4e5faea0c9bbb2f12da0aa183c99ec5618caf0d133b8db436205e93409653924",
+      "installed_sha256": "4e5faea0c9bbb2f12da0aa183c99ec5618caf0d133b8db436205e93409653924",
+      "source_sha256": "4e5faea0c9bbb2f12da0aa183c99ec5618caf0d133b8db436205e93409653924"
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\[MTR4.1原生目录]产物\\[MTR4.1]STCP Bus Pack.zip",
+      "filename": "[MTR4.1]STCP Bus Pack.zip",
+      "sha256": "01793de2077d4a4cd4a0795c91c51bdcfdff3806c405c617ad81ade229d56e26",
+      "installed_sha256": "01793de2077d4a4cd4a0795c91c51bdcfdff3806c405c617ad81ade229d56e26",
+      "source_sha256": "01793de2077d4a4cd4a0795c91c51bdcfdff3806c405c617ad81ade229d56e26"
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\[MTR4.1原生目录]产物\\[MTR4.1]Zhongtong Base Pack - 1.1.0.zip",
+      "filename": "[MTR4.1]Zhongtong Base Pack - 1.1.0.zip",
+      "sha256": "395defdda548bc058d1bf3aefd6f0bf39d4cf57640deda64577b2970689f436b",
+      "installed_sha256": "395defdda548bc058d1bf3aefd6f0bf39d4cf57640deda64577b2970689f436b",
+      "source_sha256": "395defdda548bc058d1bf3aefd6f0bf39d4cf57640deda64577b2970689f436b"
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\[MTR4.1原生目录]产物\\[MTR4.1]§9§l现代城市系列追加包§7-v2.0.zip",
+      "filename": "[MTR4.1]§9§l现代城市系列追加包§7-v2.0.zip",
+      "sha256": "51ae8f3e3cccec5f41dae49c3a85f5c263568a0b8f43217f3bcd150f7849efe3",
+      "installed_sha256": "51ae8f3e3cccec5f41dae49c3a85f5c263568a0b8f43217f3bcd150f7849efe3",
+      "source_sha256": "51ae8f3e3cccec5f41dae49c3a85f5c263568a0b8f43217f3bcd150f7849efe3"
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\[MTR4.1原生目录]产物\\[MTR4.1]悠日交通资源包part3-260708.zip",
+      "filename": "[MTR4.1]悠日交通资源包part3-260708.zip",
+      "sha256": "fab04085d6c7553319f391d36eeecf185e6cdc981d88c0d7ac1ca15a78b244d8",
+      "installed_sha256": "fab04085d6c7553319f391d36eeecf185e6cdc981d88c0d7ac1ca15a78b244d8",
+      "source_sha256": "fab04085d6c7553319f391d36eeecf185e6cdc981d88c0d7ac1ca15a78b244d8"
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\[MTR4.1原生目录]产物\\[MTR4.1]悠日计画 故事模式用材质 8.2504.zip",
+      "filename": "[MTR4.1]悠日计画 故事模式用材质 8.2504.zip",
+      "sha256": "6772b10629ffffca783ab7ce8bc512d960fc579d1d4510a817114a8ab665476f",
+      "installed_sha256": "6772b10629ffffca783ab7ce8bc512d960fc579d1d4510a817114a8ab665476f",
+      "source_sha256": "6772b10629ffffca783ab7ce8bc512d960fc579d1d4510a817114a8ab665476f"
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\[MTR4.1原生目录]产物\\[MTR4.1]悠日计画交通资源包part2 release v2.1-hotfix2.zip",
+      "filename": "[MTR4.1]悠日计画交通资源包part2 release v2.1-hotfix2.zip",
+      "sha256": "bb099ebb73630c3a0e1835e142669bbd3524b4933f70e998dccf15e8ca62f3a3",
+      "installed_sha256": "bb099ebb73630c3a0e1835e142669bbd3524b4933f70e998dccf15e8ca62f3a3",
+      "source_sha256": "bb099ebb73630c3a0e1835e142669bbd3524b4933f70e998dccf15e8ca62f3a3"
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\[MTR4.1原生目录]产物\\[MTR4.1]新艾利都地铁_疾锋龙号(性能优化版).zip",
+      "filename": "[MTR4.1]新艾利都地铁_疾锋龙号(性能优化版).zip",
+      "sha256": "32abec5da78751bf0ea22d295df4dc815366554227f075dab21ba2752917e3d3",
+      "installed_sha256": "32abec5da78751bf0ea22d295df4dc815366554227f075dab21ba2752917e3d3",
+      "source_sha256": "32abec5da78751bf0ea22d295df4dc815366554227f075dab21ba2752917e3d3"
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\[MTR4.1原生目录]产物\\[MTR4.1]新铁路铁轨基本轨包BY默淼yams.zip",
+      "filename": "[MTR4.1]新铁路铁轨基本轨包BY默淼yams.zip",
+      "sha256": "f3993fd8b78e7ca0f85b6ba0a148718b582cbf2cdc6fa7985d2e224b534adc42",
+      "installed_sha256": "f3993fd8b78e7ca0f85b6ba0a148718b582cbf2cdc6fa7985d2e224b534adc42",
+      "source_sha256": "f3993fd8b78e7ca0f85b6ba0a148718b582cbf2cdc6fa7985d2e224b534adc42"
+    },
+    {
+      "source": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\[MTR4.1原生目录]产物\\[MTR4.1]新艾利都地铁 ERIDU-10000一期改造型.zip",
+      "filename": "[MTR4.1]新艾利都地铁 ERIDU-10000一期改造型.zip",
+      "sha256": "61b763b59bf98be3f860f0297dc46c00a4df972469321a310a21bcb5c3c120b4",
+      "installed_sha256": "61b763b59bf98be3f860f0297dc46c00a4df972469321a310a21bcb5c3c120b4",
+      "source_sha256": "61b763b59bf98be3f860f0297dc46c00a4df972469321a310a21bcb5c3c120b4"
+    }
+  ],
+  "observer_classes": {
+    "dev/abenli/neutralprobe/DiagnosticTracker$Call.class": "4f978f9861d1c09a6fd8e57538cf3b3e5179e472f1a056c57d908017d66091e3",
+    "dev/abenli/neutralprobe/DiagnosticTracker$State.class": "66c8da29cf79b8f1884ae339b7e07eadd2de7a76852759d719772267bb93f87d",
+    "dev/abenli/neutralprobe/DiagnosticTracker.class": "d6afaa669926baefb2a545886dd4316eb2a82c7950d948f6cc8464729a0f105a",
+    "dev/abenli/neutralprobe/EpochTracker$Call.class": "5dda27fb6fbee654952ea15335f2ff12dabd7b482c643f35cedee83cba74c490",
+    "dev/abenli/neutralprobe/EpochTracker$State.class": "1021b4ce07dac9d14dd931d713338f5b3ab044a7b0ac7965a9a1fc4924be7432",
+    "dev/abenli/neutralprobe/EpochTracker.class": "35431e62bb5ffb8f77921bcc3366e62a2eff33007119501ac7b32238f1b31ef6",
+    "dev/abenli/neutralprobe/ExistingCaches$Entry.class": "87ccc4364206d0a20f11790dfaf87fd1dbeaa54fe2fd40b4b91ff8416e45daf1",
+    "dev/abenli/neutralprobe/ExistingCaches.class": "ab159c79d305b74d5b036e5b75db34b7b18d1dd80f654e4f889f28aaca6d7f3f",
+    "dev/abenli/neutralprobe/NativeCompatibilityPlugin.class": "f7aa89ab9efdbe84db48aa7d5e19617f833cc793f0c802291f930baaaf976511",
+    "dev/abenli/neutralprobe/NativeModelDiagnostics.class": "1345015ca4eb26e15f047d40fef176a9de533bae967625fc6c7e1480be73a25e",
+    "dev/abenli/neutralprobe/NativeObserver$Frame.class": "b24d9bcbec3cdd2e28bbf414d0016df447265a3b4707149c0f170d7ebe19701d",
+    "dev/abenli/neutralprobe/NativeObserver$Tick.class": "d4721f3ee6594bc46e2a1d32ce63f7b211af6db76208ed35b8df96377b756cd1",
+    "dev/abenli/neutralprobe/NativeObserver.class": "38ed754d7fa5a0aa4f265d62805b82e7a82ff966df4e30da2eea16df2c902ca5",
+    "dev/abenli/neutralprobe/NativeRegistry$Key.class": "dfd27fbfc18ec4d50b7a56c4cfdb9e47be11c60c1ae00822f4143c7b2503fc4c",
+    "dev/abenli/neutralprobe/NativeRegistry.class": "a6d6478632948c342860e1ce2ef05cd894ac334be5c0addab89cd6237c2cc816",
+    "dev/abenli/neutralprobe/NativeScene.class": "d1da3a8f6ff988a370b0b877dea79211d33a67d0680739021f4f2331f7d2d275",
+    "dev/abenli/neutralprobe/NativeTarget.class": "5ac1249c444097ed3bad56761a2d5b81af308926dcdf014c8b4c5cb8d6c7c6ad",
+    "dev/abenli/neutralprobe/ObservationSchema.class": "793b006c8e6d164effadcf27c7add3bf73e82548e4566510c0669e8da929deba",
+    "dev/abenli/neutralprobe/RegistrationCounts.class": "f60068c6eb59b7b0d0cf1827e0c06783d5391ab104e0ea641bc0fdac34d7814d",
+    "dev/abenli/neutralprobe/mixin/NativeClientDataAccess.class": "93acbda6272e2bca716b0abefab369ad26db72e092812fd5104ebfe63afb0f41",
+    "dev/abenli/neutralprobe/mixin/NativeInvalidModelMixin.class": "8a228bfeb360a8aa499a173837dd4ca312662ec8ee09307d9c6c44dbf95dd374",
+    "dev/abenli/neutralprobe/mixin/NativePendingAccess.class": "61149365b316537798c7594643d433a669b1f9860dcc7df29be6fa4c80f405bb",
+    "dev/abenli/neutralprobe/mixin/NativeResourceEpochMixin.class": "628325178606135c46e235644ade89237ebe7a0c451f00e79ace00450285bfa6",
+    "dev/abenli/neutralprobe/mixin/VehicleCacheAccess.class": "4b92e475d510ba917c8141971f452cac71e458c7aa94315296faa47fb49c01df",
+    "dev/abenli/neutralprobe/mixin/VehicleProgressAccess.class": "71a75f76231bbf897faf91cba8fa400a3adc7f0395a87d06373ad5b79d0df7aa",
+    "dev/abenli/probeio/AtomicSnapshot$Windows.class": "fa42834d5b3eeefd0727c705bc0fc843c6d7e14a5c189cfb93a1db3d4d4d9e6b",
+    "dev/abenli/probeio/AtomicSnapshot$WindowsApi.class": "980ab617fc6e4e92e250ac93e9b3f0bec8202ce35d3bae6d5cea828242637be3",
+    "dev/abenli/probeio/AtomicSnapshot.class": "50f3e8829ddb9a11a1a96033ef28520631636d3f08579922067021ff0a0713a3"
+  },
+  "observer_source_checks": [
+    {
+      "path": "build.gradle",
+      "expected": "082a5ef7d82edff88912090a7991d711b36cb47d95258fe14e234e8d6b92920f",
+      "actual": "082a5ef7d82edff88912090a7991d711b36cb47d95258fe14e234e8d6b92920f",
+      "matches": true
+    },
+    {
+      "path": "build/generated/neutral-probe/official-nf248/META-INF/neoforge.mods.toml",
+      "expected": "ddfe702db9e814669e0143c204d36c1365ade044384eeb0f5a1fefb0a982dae0",
+      "actual": "ddfe702db9e814669e0143c204d36c1365ade044384eeb0f5a1fefb0a982dae0",
+      "matches": true
+    },
+    {
+      "path": "build/generated/neutral-probe/official-nf248/capabilities.json",
+      "expected": "ae964b07f1de72328a44cd3c5be37655624a790e8562fc954705fe339febdea4",
+      "actual": "ae964b07f1de72328a44cd3c5be37655624a790e8562fc954705fe339febdea4",
+      "matches": true
+    },
+    {
+      "path": "build/generated/neutral-probe/official-nf248/mtr-native-observer-target.json",
+      "expected": "2f5d4e4c02641b9f7cfae1951dc7a8b377a8b32d8470a9b6e19ccd5356c6b9a5",
+      "actual": "2f5d4e4c02641b9f7cfae1951dc7a8b377a8b32d8470a9b6e19ccd5356c6b9a5",
+      "matches": true
+    },
+    {
+      "path": "build/generated/neutral-probe/official-nf248/mtr-native-observer.mixins.json",
+      "expected": "5263b013d308c3b9a68253eee1a7e1cb177f4926470c03020e8c6791131d3776",
+      "actual": "5263b013d308c3b9a68253eee1a7e1cb177f4926470c03020e8c6791131d3776",
+      "matches": true
+    },
+    {
+      "path": "config/targets.json",
+      "expected": "e3d1d3a81d4fe8d7e60ba376654c943cc9766ce1d213b119fe7f6b175ac1d4ff",
+      "actual": "e3d1d3a81d4fe8d7e60ba376654c943cc9766ce1d213b119fe7f6b175ac1d4ff",
+      "matches": true
+    },
+    {
+      "path": "tools/probes/io/java/dev/abenli/probeio/AtomicSnapshot.java",
+      "expected": "5a2db91d8ab7dfb88851f480cd0021f2954a8ca394a46cf11cc3305910f7ab4a",
+      "actual": "5a2db91d8ab7dfb88851f480cd0021f2954a8ca394a46cf11cc3305910f7ab4a",
+      "matches": true
+    },
+    {
+      "path": "tools/probes/neutral/java/dev/abenli/neutralprobe/DiagnosticTracker.java",
+      "expected": "d7fe099e6d99491171774ebbb923fc2faba4f5d6d027d2562333460dfe9a6355",
+      "actual": "d7fe099e6d99491171774ebbb923fc2faba4f5d6d027d2562333460dfe9a6355",
+      "matches": true
+    },
+    {
+      "path": "tools/probes/neutral/java/dev/abenli/neutralprobe/EpochTracker.java",
+      "expected": "e528056801e40314d46cfbb1d240923bb9f78f250ab63a04b0f4c2efb6dbd036",
+      "actual": "e528056801e40314d46cfbb1d240923bb9f78f250ab63a04b0f4c2efb6dbd036",
+      "matches": true
+    },
+    {
+      "path": "tools/probes/neutral/java/dev/abenli/neutralprobe/ExistingCaches.java",
+      "expected": "cdf26f83a4fb246b3d04286f89c3b35fe2d351468b5cbd418f75e1c43daceba1",
+      "actual": "cdf26f83a4fb246b3d04286f89c3b35fe2d351468b5cbd418f75e1c43daceba1",
+      "matches": true
+    },
+    {
+      "path": "tools/probes/neutral/java/dev/abenli/neutralprobe/NativeCompatibilityPlugin.java",
+      "expected": "e55d46f296ca48b6c1f76fddfe9dd2d5b19c0746050f51111d6cc63398041625",
+      "actual": "e55d46f296ca48b6c1f76fddfe9dd2d5b19c0746050f51111d6cc63398041625",
+      "matches": true
+    },
+    {
+      "path": "tools/probes/neutral/java/dev/abenli/neutralprobe/NativeModelDiagnostics.java",
+      "expected": "d3726a66e0eee7469631c6a4c2b9c13bd42025c44525ed722b22d392317cb729",
+      "actual": "d3726a66e0eee7469631c6a4c2b9c13bd42025c44525ed722b22d392317cb729",
+      "matches": true
+    },
+    {
+      "path": "tools/probes/neutral/java/dev/abenli/neutralprobe/NativeObserver.java",
+      "expected": "de17a424fa0aa10c4829e60fec7f5ba8c1f1f36265b424935aa57bbe676589a8",
+      "actual": "de17a424fa0aa10c4829e60fec7f5ba8c1f1f36265b424935aa57bbe676589a8",
+      "matches": true
+    },
+    {
+      "path": "tools/probes/neutral/java/dev/abenli/neutralprobe/NativeRegistry.java",
+      "expected": "dc5bfa9ed7db4240df6659c30980005a5f46d5a95c5b26a18459e50fef854755",
+      "actual": "dc5bfa9ed7db4240df6659c30980005a5f46d5a95c5b26a18459e50fef854755",
+      "matches": true
+    },
+    {
+      "path": "tools/probes/neutral/java/dev/abenli/neutralprobe/NativeScene.java",
+      "expected": "f9db55850823262e2cda33be445b4280720f002512bdccfad1377ee306651ba9",
+      "actual": "f9db55850823262e2cda33be445b4280720f002512bdccfad1377ee306651ba9",
+      "matches": true
+    },
+    {
+      "path": "tools/probes/neutral/java/dev/abenli/neutralprobe/NativeTarget.java",
+      "expected": "41fd47c5c206459c2aadcc7bc19b661d039d7e63e55330e043e9c12da794f212",
+      "actual": "41fd47c5c206459c2aadcc7bc19b661d039d7e63e55330e043e9c12da794f212",
+      "matches": true
+    },
+    {
+      "path": "tools/probes/neutral/java/dev/abenli/neutralprobe/ObservationSchema.java",
+      "expected": "5e46aa608040073c958a43bdd702e0c6adf9621c55dcd8387507d0e9265d814c",
+      "actual": "5e46aa608040073c958a43bdd702e0c6adf9621c55dcd8387507d0e9265d814c",
+      "matches": true
+    },
+    {
+      "path": "tools/probes/neutral/java/dev/abenli/neutralprobe/RegistrationCounts.java",
+      "expected": "47cecc739d67218c160bbc76b12d611c5ba24f49b529066fd1d099d4ae72f1c2",
+      "actual": "47cecc739d67218c160bbc76b12d611c5ba24f49b529066fd1d099d4ae72f1c2",
+      "matches": true
+    },
+    {
+      "path": "tools/probes/neutral/java/dev/abenli/neutralprobe/mixin/NativeClientDataAccess.java",
+      "expected": "40a5948959b7e5efa96dfff507891d689908a50872d3d14623357fe81da5d3f4",
+      "actual": "40a5948959b7e5efa96dfff507891d689908a50872d3d14623357fe81da5d3f4",
+      "matches": true
+    },
+    {
+      "path": "tools/probes/neutral/java/dev/abenli/neutralprobe/mixin/NativeInvalidModelMixin.java",
+      "expected": "09ca0ebb19d9dfb1b26b9936ade7b6abc6cb638130d11fff9ef79d65b5c10696",
+      "actual": "09ca0ebb19d9dfb1b26b9936ade7b6abc6cb638130d11fff9ef79d65b5c10696",
+      "matches": true
+    },
+    {
+      "path": "tools/probes/neutral/java/dev/abenli/neutralprobe/mixin/NativePendingAccess.java",
+      "expected": "c8085826c1cea254d4e5b1baad87065d0e4facea8f3bff3a00f7b03ed71779dd",
+      "actual": "c8085826c1cea254d4e5b1baad87065d0e4facea8f3bff3a00f7b03ed71779dd",
+      "matches": true
+    },
+    {
+      "path": "tools/probes/neutral/java/dev/abenli/neutralprobe/mixin/NativeResourceEpochMixin.java",
+      "expected": "193391afbf1bd96f4a7f52e8f97472d1ee75a5e198c74a084b44ec168be7fe32",
+      "actual": "193391afbf1bd96f4a7f52e8f97472d1ee75a5e198c74a084b44ec168be7fe32",
+      "matches": true
+    },
+    {
+      "path": "tools/probes/neutral/java/dev/abenli/neutralprobe/mixin/VehicleCacheAccess.java",
+      "expected": "51cb9311a195c7ad331eedbca9dfcf19ba3cf73f5337ded8cf7896d2eb961340",
+      "actual": "51cb9311a195c7ad331eedbca9dfcf19ba3cf73f5337ded8cf7896d2eb961340",
+      "matches": true
+    },
+    {
+      "path": "tools/probes/neutral/java/dev/abenli/neutralprobe/mixin/VehicleProgressAccess.java",
+      "expected": "6b797416f707714e3f3a351ea19d4216659fded1a35f4bfbe977ece03da832d1",
+      "actual": "6b797416f707714e3f3a351ea19d4216659fded1a35f4bfbe977ece03da832d1",
+      "matches": true
+    },
+    {
+      "path": "tools/probes/neutral/observer.json",
+      "expected": "7737c6162f67bd261c1cc2fc6eed54637741ee80c70a28dfddcde85d3c23a19a",
+      "actual": "7737c6162f67bd261c1cc2fc6eed54637741ee80c70a28dfddcde85d3c23a19a",
+      "matches": true
+    }
+  ],
+  "patched_client": {
+    "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-neutral-048b\\libraries\\net\\neoforged\\neoforge\\21.1.248\\neoforge-21.1.248-client.jar",
+    "sha256": "01ba27020f208050884661ff393be3c392e02853d91825f9d5f1bb694282e83b",
+    "classes": {
+      "net/minecraft/client/KeyboardHandler.class": "08efb37d5916c857c38a047be0c731e1a42c00370d39ae341c0c1ec316f400fc",
+      "net/minecraft/client/Minecraft.class": "495f5dc97d07476e23835fcdd034019a020a58b980f7c764d4953ce4ed16d283"
+    }
+  },
+  "stream_captures": {
+    "logs/latest.log": {
+      "started": "2026-11-16T06:22:12.053670+00:00",
+      "ended": "2026-11-16T06:22:12.058346+00:00",
+      "bytes": 28130,
+      "sha256": "0e92cae86bf3077c7d5d9afe876e4c2ca43c990b5c0e881788cd8e453ff1af79"
+    },
+    "game-probe/native-invalid-model.jsonl": {
+      "started": "2026-11-16T06:22:12.060588+00:00",
+      "ended": "2026-11-16T06:22:12.064814+00:00",
+      "bytes": 22050,
+      "sha256": "b8f2b0654058636026f80fd3e5bbb8ab39f98c8bb28f3b65cfd081951b763eae"
+    },
+    "game-probe/native-resource-epochs.jsonl": {
+      "started": "2026-11-16T06:22:12.066732+00:00",
+      "ended": "2026-11-16T06:22:12.069815+00:00",
+      "bytes": 1787,
+      "sha256": "1032319d0496b249b9438ceba135ec9b252b51d3334dddc0ebc77c08fc9352cc"
+    }
+  },
+  "capture_ended": "2026-11-16T06:22:14.223524+00:00",
+  "attribution_passed": true,
+  "snapshot_count": 6,
+  "final_observed_at": "2026-11-16T06:22:11.396208800Z"
+}

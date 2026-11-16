@@ -1,0 +1,18 @@
+{
+    "required": true,
+    "minVersion": "0.8",
+    "package": "dev.abenli.neutralprobe.mixin",
+    "plugin": "dev.abenli.neutralprobe.NativeCompatibilityPlugin",
+    "compatibilityLevel": "JAVA_21",
+    "client": [
+        "NativePendingAccess",
+        "NativeClientDataAccess",
+        "VehicleCacheAccess",
+        "VehicleProgressAccess",
+        "NativeResourceEpochMixin",
+        "NativeInvalidModelMixin"
+    ],
+    "injectors": {
+        "defaultRequire": 1
+    }
+}

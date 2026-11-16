@@ -1,0 +1,32 @@
+{
+  "input_attempts": [
+    {
+      "method": "native_f3_t",
+      "provider": "cua_repl",
+      "key": "F3+t",
+      "window_id": 5898488,
+      "issued_at": "2026-11-16T06:21:44.211Z",
+      "confirmed_at": "2026-11-16T06:21:44.431Z",
+      "succeeded": true,
+      "observed_new_resource_epoch": false
+    },
+    {
+      "method": "native_f3_t",
+      "provider": "cua_repl",
+      "key": "F3+t",
+      "window_id": 5898488,
+      "issued_at": "2026-11-16T06:26:09.402Z",
+      "confirmed_at": "2026-11-16T06:26:09.655Z",
+      "succeeded": true
+    }
+  ],
+  "preserved_before_files": [
+    "capture/reload-before.json",
+    "capture/reload-before-english.json"
+  ],
+  "english_before_age_at_input_seconds": 17.005899,
+  "maximum_strict_before_age_seconds": 15,
+  "observed_new_native_epochs_after_startup": 1,
+  "strict_accepted_reloads": 0,
+  "reason": "The IME-active input has no new native epoch; the later native reload is visible, but its before record exceeds the required 15-second age. Preserve both attempts without retroactive approval."
+}

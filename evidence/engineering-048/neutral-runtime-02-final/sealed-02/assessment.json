@@ -1,0 +1,126 @@
+{
+  "timestamp": "2026-11-16T11:12:32.697803+00:00",
+  "scope": "Completed diagnostic run: official NF248 / Memory Saver 0.4.6 / neutral observer 1.0.2",
+  "scope_passed": true,
+  "pid": 41800,
+  "process_created": "2026-11-16T06:10:21.0898600Z",
+  "normal_saved_exit": true,
+  "exit_code": 0,
+  "native_snapshot_count": 1199,
+  "distinct_snapshot_timestamps": 1199,
+  "first_snapshot": "2026-11-16T06:14:08.821888600Z",
+  "last_snapshot": "2026-11-16T06:37:56.260385300Z",
+  "unpaused_settled_world_snapshots": 1148,
+  "registrations": [
+    [
+      1091,
+      1092
+    ]
+  ],
+  "native_observation_errors": 0,
+  "native_epochs": {
+    "started": 2,
+    "completed": 2,
+    "in_flight": 0,
+    "max_nesting": 1,
+    "last_completed_sequence": 2
+  },
+  "diagnostic_trace_events": 5,
+  "reviewed_native_log_lines": 2,
+  "native_diagnostic_attribution_passed": true,
+  "other_raw_errors": [
+    {
+      "line": 79,
+      "text": "[1611月2026 14:10:55.213] [Download-2/ERROR] [net.minecraft.client.Minecraft/]: Failed to fetch user properties"
+    }
+  ],
+  "prefix_complete_and_final_extends_prefix": true,
+  "final_player": {
+    "x": 38.5,
+    "y": 4.0,
+    "z": 15.5,
+    "yaw": -180.0,
+    "pitch": 0.0
+  },
+  "caches": [
+    {
+      "id": "mtr_custom_train_dc01_update_cab_1_native_7ea57bf708e8",
+      "entries": [
+        {
+          "floors": 5,
+          "doorways": 10
+        }
+      ]
+    },
+    {
+      "id": "mtr_custom_train_dc01_update_cab_2_native_7b8391aef2c8",
+      "entries": [
+        {
+          "floors": 6,
+          "doorways": 10
+        }
+      ]
+    }
+  ],
+  "verified_source_and_installed_packs": 16,
+  "bound_mods": [
+    {
+      "filename": "mtr-memory-saver-official-nf248-0.4.6.jar",
+      "sha256": "dd47f6ae4daa4139b9ada9196d757db634a79ebdd7fa5f06083719d764285997",
+      "role": "companion",
+      "current_sha256": "dd47f6ae4daa4139b9ada9196d757db634a79ebdd7fa5f06083719d764285997",
+      "bytes": 321090
+    },
+    {
+      "filename": "mtr-native-observer-official-nf248-1.0.2.jar",
+      "sha256": "1f5a3f9721bd7199cd952f4926afa8cf40996cf76fdc9484a9372f45d1664167",
+      "role": "observer",
+      "current_sha256": "1f5a3f9721bd7199cd952f4926afa8cf40996cf76fdc9484a9372f45d1664167",
+      "bytes": 43136
+    },
+    {
+      "filename": "MTR-neoforge-4.1.0-beta.2+1.21.1.jar",
+      "sha256": "ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa",
+      "role": "mtr",
+      "current_sha256": "ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa",
+      "bytes": 110673298
+    }
+  ],
+  "recordings": [
+    {
+      "name": "acceptance.jfr",
+      "sha256": "65010e8b525d8ed1e38e2f7c80728b86d237238c0a56b4151b57f80968f35c67",
+      "bytes": 48955753
+    },
+    {
+      "name": "diagnostic-01.jfr",
+      "sha256": "a12edd6ab3f0540990513e84182fd45d864bd2bdae3296a930b6f4488ee7f764",
+      "bytes": 47327433
+    }
+  ],
+  "jfr_event_counts": {
+    "mtrtest.ClientFrame": 67062,
+    "mtrtest.ServerTick": 24106
+  },
+  "unpaused_in_world_frame_events": 64443,
+  "jfr_first_event": "2026-11-16T14:13:57.274842520+08:00",
+  "jfr_last_event": "2026-11-16T14:37:57.258607215+08:00",
+  "screenshots": {
+    "2026-11-16_14.34.07.png": "1b61174919e2aac0fef35ead50f4c39310d5d2a7c8a6749e4dec1b4d2afdea52",
+    "2026-11-16_14.35.20.png": "e5edd4f480b35a3ea719e115a32ca8ba68b8a5d512393cca4dbbd4af91eefc30",
+    "2026-11-16_14.36.15.png": "7567c5ce4e07ea75aa4813f81c7adab2b7b2a7494673705fdecb257146f2fca7"
+  },
+  "strict_accepted_reloads": 0,
+  "observed_native_reloads_after_startup": 1,
+  "full_gameplay_accepted": false,
+  "performance_accepted": false,
+  "whole_route_accepted": false,
+  "limits": [
+    "The three screenshot files show a platform/empty track view and do not establish train rendering, geometry, displays or boarding.",
+    "The later F3+T has an actual second native epoch, but its before record is over 15 seconds old and earns no strict reload credit.",
+    "This diagnostic run used Memory Saver 0.4.6; it does not validate candidate 0.4.7 runtime behavior.",
+    "Background engineering, UI debugging, teleport commands and instrumented collection exclude controlled performance and route/endurance acceptance.",
+    "Official MTR and resource packs are hash-bound in place; their large existing byte copies are not duplicated into this archive.",
+    "Capture starts with available published snapshots after loading; snapshot absence during native work is not replaced by fabricated observations."
+  ]
+}
