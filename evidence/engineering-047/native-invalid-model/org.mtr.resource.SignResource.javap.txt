@@ -1,0 +1,1178 @@
+Compiled from "SignResource.java"
+public final class org.mtr.resource.SignResource extends org.mtr.generated.resource.SignResourceSchema {
+  public final net.minecraft.resources.ResourceLocation textureId;
+
+  public final boolean hasCustomText;
+
+  public final boolean isDefault;
+
+  public final java.lang.String signId;
+
+  public static final float SMALL_SIGN_PADDING;
+
+  private static final int CACHE_TIMEOUT;
+
+  private static final org.mtr.cache.GenericLongCache<org.mtr.core.data.Station> SIGN_STATION_CACHE;
+
+  private static final org.mtr.cache.GenericLongCache<org.mtr.libraries.it.unimi.dsi.fastutil.objects.ObjectArrayList<org.mtr.core.data.Platform>> SIGN_PLATFORMS_CACHE;
+
+  private static final org.mtr.cache.GenericLongCache<org.mtr.libraries.it.unimi.dsi.fastutil.objects.ObjectObjectImmutablePair<org.mtr.libraries.it.unimi.dsi.fastutil.ints.IntArrayList, java.lang.String>> SIGN_PLATFORM_COLORS_AND_DESTINATIONS_CACHE;
+
+  private static final org.mtr.cache.GenericLongCache<org.mtr.libraries.it.unimi.dsi.fastutil.objects.ObjectArrayList<org.mtr.core.data.Route>> SIGN_ROUTES_CACHE;
+
+  private static final org.mtr.cache.GenericLongCache<org.mtr.libraries.it.unimi.dsi.fastutil.objects.ObjectArrayList<org.mtr.core.data.Station>> SIGN_STATIONS_CACHE;
+
+  private static final org.mtr.render.SpecialSignPlatformRenderer SPECIAL_SIGN_PLATFORM_RENDERER;
+
+  private static final org.mtr.render.SpecialSignRouteRenderer SPECIAL_SIGN_ROUTE_RENDERER;
+
+  private static final org.mtr.render.SpecialSignStationRenderer SPECIAL_SIGN_STATION_RENDERER;
+
+  private static final org.mtr.render.SpecialSignStationExitRenderer SPECIAL_SIGN_STATION_EXIT_RENDERER;
+
+  public org.mtr.resource.SignResource(org.mtr.core.serializer.ReaderBase);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokespecial #1                  // Method org/mtr/generated/resource/SignResourceSchema."<init>":(Lorg/mtr/core/serializer/ReaderBase;)V
+       5: aload_0
+       6: aload_1
+       7: invokevirtual #7                  // Method updateData:(Lorg/mtr/core/serializer/ReaderBase;)V
+      10: aload_0
+      11: aload_0
+      12: getfield      #12                 // Field textureResource:Ljava/lang/String;
+      15: ldc           #16                 // String png
+      17: invokestatic  #18                 // InterfaceMethod org/mtr/resource/CustomResourceTools.formatIdentifierWithDefault:(Ljava/lang/String;Ljava/lang/String;)Lnet/minecraft/resources/ResourceLocation;
+      20: putfield      #24                 // Field textureId:Lnet/minecraft/resources/ResourceLocation;
+      23: aload_0
+      24: aload_0
+      25: getfield      #28                 // Field customText:Ljava/lang/String;
+      28: invokevirtual #31                 // Method java/lang/String.isEmpty:()Z
+      31: ifeq          44
+      34: aload_0
+      35: getfield      #37                 // Field signType:Lorg/mtr/resource/SignType;
+      38: getstatic     #41                 // Field org/mtr/resource/SignType.NORMAL:Lorg/mtr/resource/SignType;
+      41: if_acmpeq     48
+      44: iconst_1
+      45: goto          49
+      48: iconst_0
+      49: putfield      #46                 // Field hasCustomText:Z
+      52: aload_0
+      53: aload_0
+      54: getfield      #50                 // Field id:Ljava/lang/String;
+      57: ldc           #53                 // String !
+      59: invokevirtual #55                 // Method java/lang/String.startsWith:(Ljava/lang/String;)Z
+      62: putfield      #59                 // Field isDefault:Z
+      65: aload_0
+      66: aload_0
+      67: getfield      #59                 // Field isDefault:Z
+      70: ifeq          84
+      73: aload_0
+      74: getfield      #50                 // Field id:Ljava/lang/String;
+      77: iconst_1
+      78: invokevirtual #62                 // Method java/lang/String.substring:(I)Ljava/lang/String;
+      81: goto          88
+      84: aload_0
+      85: getfield      #50                 // Field id:Ljava/lang/String;
+      88: putfield      #66                 // Field signId:Ljava/lang/String;
+      91: return
+
+  public boolean getFlipTexture();
+    Code:
+       0: aload_0
+       1: getfield      #69                 // Field flipTexture:Z
+       4: ireturn
+
+  public org.mtr.resource.SignType getSignType();
+    Code:
+       0: aload_0
+       1: getfield      #37                 // Field signType:Lorg/mtr/resource/SignType;
+       4: areturn
+
+  public java.lang.String getCustomText();
+    Code:
+       0: aload_0
+       1: getfield      #28                 // Field customText:Ljava/lang/String;
+       4: invokevirtual #31                 // Method java/lang/String.isEmpty:()Z
+       7: ifeq          15
+      10: ldc           #72                 // String
+      12: goto          25
+      15: aload_0
+      16: getfield      #28                 // Field customText:Ljava/lang/String;
+      19: invokestatic  #74                 // InterfaceMethod net/minecraft/network/chat/Component.translatable:(Ljava/lang/String;)Lnet/minecraft/network/chat/MutableComponent;
+      22: invokevirtual #80                 // Method net/minecraft/network/chat/MutableComponent.getString:()Ljava/lang/String;
+      25: areturn
+
+  public boolean getFlipCustomText();
+    Code:
+       0: aload_0
+       1: getfield      #86                 // Field flipCustomText:Z
+       4: ireturn
+
+  public boolean getSmall();
+    Code:
+       0: aload_0
+       1: getfield      #89                 // Field small:Z
+       4: ireturn
+
+  public int getBackgroundColor();
+    Code:
+       0: aload_0
+       1: getfield      #92                 // Field backgroundColor:Ljava/lang/String;
+       4: invokestatic  #95                 // InterfaceMethod org/mtr/resource/CustomResourceTools.colorStringToInt:(Ljava/lang/String;)I
+       7: ireturn
+
+  public static void render(com.mojang.blaze3d.vertex.PoseStack, net.minecraft.client.renderer.MultiBufferSource, net.minecraft.core.BlockPos, org.mtr.libraries.it.unimi.dsi.fastutil.longs.LongAVLTreeSet[], java.lang.String[], float, float, boolean);
+    Code:
+       0: aload         4
+       2: arraylength
+       3: anewarray     #8                  // class org/mtr/resource/SignResource
+       6: astore        8
+       8: iconst_0
+       9: istore        9
+      11: iload         9
+      13: aload         4
+      15: arraylength
+      16: if_icmpge     38
+      19: aload         8
+      21: iload         9
+      23: aload         4
+      25: iload         9
+      27: aaload
+      28: invokestatic  #99                 // Method org/mtr/client/CustomResourceLoader.getSignById:(Ljava/lang/String;)Lorg/mtr/resource/SignResource;
+      31: aastore
+      32: iinc          9, 1
+      35: goto          11
+      38: aload_0
+      39: aload_1
+      40: aload_2
+      41: fconst_0
+      42: fconst_0
+      43: aload_3
+      44: aload         8
+      46: fload         5
+      48: fload         6
+      50: iload         7
+      52: invokestatic  #105                // Method render:(Lcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;Lnet/minecraft/core/BlockPos;FF[Lorg/mtr/libraries/it/unimi/dsi/fastutil/longs/LongAVLTreeSet;[Lorg/mtr/resource/SignResource;FFZ)V
+      55: return
+
+  public static void render(com.mojang.blaze3d.vertex.PoseStack, net.minecraft.client.renderer.MultiBufferSource, net.minecraft.core.BlockPos, float, float, org.mtr.libraries.it.unimi.dsi.fastutil.longs.LongAVLTreeSet[], org.mtr.resource.SignResource[], float, float, boolean);
+    Code:
+       0: ldc           #109                // float 0.125f
+       2: fload         7
+       4: fmul
+       5: fstore        10
+       7: iconst_0
+       8: istore        11
+      10: iconst_0
+      11: istore        12
+      13: aload         6
+      15: astore        13
+      17: aload         13
+      19: arraylength
+      20: istore        14
+      22: iconst_0
+      23: istore        15
+      25: iload         15
+      27: iload         14
+      29: if_icmpge     68
+      32: aload         13
+      34: iload         15
+      36: aaload
+      37: astore        16
+      39: aload         16
+      41: ifnull        62
+      44: iconst_1
+      45: istore        11
+      47: aload         16
+      49: invokevirtual #110                // Method getBackgroundColor:()I
+      52: istore        12
+      54: iload         12
+      56: ifeq          62
+      59: goto          68
+      62: iinc          15, 1
+      65: goto          25
+      68: iload         11
+      70: ifeq          120
+      73: new           #114                // class org/mtr/tool/Drawing
+      76: dup
+      77: aload_0
+      78: aload_1
+      79: invokestatic  #116                // Method net/minecraft/client/renderer/RenderType.gui:()Lnet/minecraft/client/renderer/RenderType;
+      82: invokeinterface #122,  2          // InterfaceMethod net/minecraft/client/renderer/MultiBufferSource.getBuffer:(Lnet/minecraft/client/renderer/RenderType;)Lcom/mojang/blaze3d/vertex/VertexConsumer;
+      87: invokespecial #128                // Method org/mtr/tool/Drawing."<init>":(Lcom/mojang/blaze3d/vertex/PoseStack;Lcom/mojang/blaze3d/vertex/VertexConsumer;)V
+      90: fload_3
+      91: f2d
+      92: fload         4
+      94: f2d
+      95: aload         6
+      97: arraylength
+      98: i2f
+      99: fload         7
+     101: fmul
+     102: f2d
+     103: fload         7
+     105: f2d
+     106: invokevirtual #131                // Method org/mtr/tool/Drawing.setVerticesWH:(DDDD)Lorg/mtr/tool/Drawing;
+     109: ldc           #137                // int -16777216
+     111: iload         12
+     113: ior
+     114: invokevirtual #138                // Method org/mtr/tool/Drawing.setColor:(I)Lorg/mtr/tool/Drawing;
+     117: invokevirtual #142                // Method org/mtr/tool/Drawing.draw:()V
+     120: new           #146                // class org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList
+     123: dup
+     124: invokespecial #148                // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList."<init>":()V
+     127: astore        13
+     129: iconst_0
+     130: istore        14
+     132: iload         14
+     134: aload         6
+     136: arraylength
+     137: if_icmpge     919
+     140: aload         6
+     142: iload         14
+     144: aaload
+     145: astore        15
+     147: aload         15
+     149: ifnull        913
+     152: new           #114                // class org/mtr/tool/Drawing
+     155: dup
+     156: aload_0
+     157: aload_1
+     158: aload         15
+     160: getfield      #24                 // Field textureId:Lnet/minecraft/resources/ResourceLocation;
+     163: invokestatic  #150                // Method org/mtr/tool/GuiHelper.getGuiTexturedRenderType:(Lnet/minecraft/resources/ResourceLocation;)Lnet/minecraft/client/renderer/RenderType;
+     166: invokeinterface #122,  2          // InterfaceMethod net/minecraft/client/renderer/MultiBufferSource.getBuffer:(Lnet/minecraft/client/renderer/RenderType;)Lcom/mojang/blaze3d/vertex/VertexConsumer;
+     171: invokespecial #128                // Method org/mtr/tool/Drawing."<init>":(Lcom/mojang/blaze3d/vertex/PoseStack;Lcom/mojang/blaze3d/vertex/VertexConsumer;)V
+     174: astore        16
+     176: aload         15
+     178: getfield      #154                // Field font:Ljava/lang/String;
+     181: invokevirtual #31                 // Method java/lang/String.isEmpty:()Z
+     184: ifeq          193
+     187: getstatic     #157                // Field org/mtr/font/FontRenderHelper.MTR_FONT:Lnet/minecraft/resources/ResourceLocation;
+     190: goto          201
+     193: aload         15
+     195: getfield      #154                // Field font:Ljava/lang/String;
+     198: invokestatic  #162                // Method net/minecraft/resources/ResourceLocation.parse:(Ljava/lang/String;)Lnet/minecraft/resources/ResourceLocation;
+     201: astore        17
+     203: aload         15
+     205: getfield      #37                 // Field signType:Lorg/mtr/resource/SignType;
+     208: getstatic     #41                 // Field org/mtr/resource/SignType.NORMAL:Lorg/mtr/resource/SignType;
+     211: if_acmpne     458
+     214: aload         16
+     216: fload_3
+     217: iload         14
+     219: i2f
+     220: fload         7
+     222: fmul
+     223: fadd
+     224: aload         15
+     226: getfield      #89                 // Field small:Z
+     229: ifeq          237
+     232: fload         10
+     234: goto          238
+     237: fconst_0
+     238: fadd
+     239: f2d
+     240: fload         4
+     242: aload         15
+     244: getfield      #89                 // Field small:Z
+     247: ifeq          255
+     250: fload         10
+     252: goto          256
+     255: fconst_0
+     256: fadd
+     257: f2d
+     258: fload_3
+     259: iload         14
+     261: iconst_1
+     262: iadd
+     263: i2f
+     264: fload         7
+     266: fmul
+     267: fadd
+     268: aload         15
+     270: getfield      #89                 // Field small:Z
+     273: ifeq          281
+     276: fload         10
+     278: goto          282
+     281: fconst_0
+     282: fsub
+     283: f2d
+     284: fload         4
+     286: fload         7
+     288: fadd
+     289: aload         15
+     291: getfield      #89                 // Field small:Z
+     294: ifeq          302
+     297: fload         10
+     299: goto          303
+     302: fconst_0
+     303: fsub
+     304: f2d
+     305: fload         8
+     307: fneg
+     308: f2d
+     309: invokevirtual #168                // Method org/mtr/tool/Drawing.setVertices:(DDDDD)Lorg/mtr/tool/Drawing;
+     312: aload         15
+     314: getfield      #69                 // Field flipTexture:Z
+     317: ifeq          324
+     320: dconst_1
+     321: goto          325
+     324: dconst_0
+     325: dconst_0
+     326: aload         15
+     328: getfield      #69                 // Field flipTexture:Z
+     331: ifeq          338
+     334: dconst_0
+     335: goto          339
+     338: dconst_1
+     339: dconst_1
+     340: invokevirtual #172                // Method org/mtr/tool/Drawing.setUv:(DDDD)Lorg/mtr/tool/Drawing;
+     343: invokevirtual #142                // Method org/mtr/tool/Drawing.draw:()V
+     346: aload         15
+     348: getfield      #46                 // Field hasCustomText:Z
+     351: ifeq          367
+     354: aload         6
+     356: iload         14
+     358: invokestatic  #175                // Method getTextSpace:([Lorg/mtr/resource/SignResource;I)F
+     361: fload         7
+     363: fmul
+     364: goto          368
+     367: fconst_0
+     368: fstore        18
+     370: fload         18
+     372: fconst_0
+     373: fcmpl
+     374: ifle          455
+     377: iload         14
+     379: aload         15
+     381: getfield      #86                 // Field flipCustomText:Z
+     384: ifeq          391
+     387: iconst_0
+     388: goto          392
+     391: iconst_1
+     392: iadd
+     393: i2f
+     394: aload         15
+     396: getfield      #89                 // Field small:Z
+     399: ifeq          406
+     402: fconst_0
+     403: goto          423
+     406: aload         15
+     408: getfield      #86                 // Field flipCustomText:Z
+     411: ifeq          418
+     414: iconst_m1
+     415: goto          419
+     418: iconst_1
+     419: i2f
+     420: ldc           #109                // float 0.125f
+     422: fmul
+     423: fadd
+     424: fload         7
+     426: fmul
+     427: fstore        19
+     429: aload         13
+     431: aload         15
+     433: aload         17
+     435: fload         18
+     437: fload         7
+     439: fload_3
+     440: fload         19
+     442: fload         4
+     444: fload         8
+     446: invokedynamic #179,  0            // InvokeDynamic #0:accept:(Lorg/mtr/resource/SignResource;Lnet/minecraft/resources/ResourceLocation;FFFFFF)Ljava/util/function/Consumer;
+     451: invokevirtual #183                // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList.add:(Ljava/lang/Object;)Z
+     454: pop
+     455: goto          913
+     458: aload         5
+     460: iload         14
+     462: aaload
+     463: astore        18
+     465: aload         6
+     467: iload         14
+     469: invokestatic  #175                // Method getTextSpace:([Lorg/mtr/resource/SignResource;I)F
+     472: fconst_1
+     473: fadd
+     474: aload         15
+     476: getfield      #89                 // Field small:Z
+     479: ifeq          486
+     482: iconst_m1
+     483: goto          513
+     486: aload         15
+     488: getfield      #37                 // Field signType:Lorg/mtr/resource/SignType;
+     491: getstatic     #187                // Field org/mtr/resource/SignType.EXIT:Lorg/mtr/resource/SignType;
+     494: if_acmpeq     508
+     497: aload         15
+     499: getfield      #37                 // Field signType:Lorg/mtr/resource/SignType;
+     502: getstatic     #190                // Field org/mtr/resource/SignType.ROUTE:Lorg/mtr/resource/SignType;
+     505: if_acmpne     512
+     508: iconst_0
+     509: goto          513
+     512: iconst_1
+     513: i2f
+     514: ldc           #109                // float 0.125f
+     516: fmul
+     517: fadd
+     518: fload         7
+     520: fmul
+     521: fstore        19
+     523: getstatic     #193                // Field org/mtr/resource/SignResource$1.$SwitchMap$org$mtr$resource$SignType:[I
+     526: aload         15
+     528: getfield      #37                 // Field signType:Lorg/mtr/resource/SignType;
+     531: invokevirtual #199                // Method org/mtr/resource/SignType.ordinal:()I
+     534: iaload
+     535: tableswitch   { // 1 to 4
+
+                     1: 564
+
+                     2: 652
+
+                     3: 740
+
+                     4: 828
+               default: 913
+          }
+     564: getstatic     #202                // Field SPECIAL_SIGN_STATION_EXIT_RENDERER:Lorg/mtr/render/SpecialSignStationExitRenderer;
+     567: aload         16
+     569: aload         13
+     571: fload_3
+     572: iload         14
+     574: i2f
+     575: fload         7
+     577: fmul
+     578: fadd
+     579: fload         4
+     581: fload         8
+     583: fload         7
+     585: aload_2
+     586: invokestatic  #206                // Method getStationExits:(Lnet/minecraft/core/BlockPos;)Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList;
+     589: invokevirtual #210                // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList.stream:()Ljava/util/stream/Stream;
+     592: aload         18
+     594: invokedynamic #214,  0            // InvokeDynamic #1:test:(Lorg/mtr/libraries/it/unimi/dsi/fastutil/longs/LongAVLTreeSet;)Ljava/util/function/Predicate;
+     599: invokeinterface #218,  2          // InterfaceMethod java/util/stream/Stream.filter:(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;
+     604: invokedynamic #224,  0            // InvokeDynamic #2:get:()Ljava/util/function/Supplier;
+     609: invokestatic  #228                // Method java/util/stream/Collectors.toCollection:(Ljava/util/function/Supplier;)Ljava/util/stream/Collector;
+     612: invokeinterface #234,  2          // InterfaceMethod java/util/stream/Stream.collect:(Ljava/util/stream/Collector;)Ljava/lang/Object;
+     617: checkcast     #146                // class org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList
+     620: aload         15
+     622: getfield      #69                 // Field flipTexture:Z
+     625: aload         15
+     627: getfield      #86                 // Field flipCustomText:Z
+     630: aload         15
+     632: getfield      #89                 // Field small:Z
+     635: aload         15
+     637: invokevirtual #238                // Method getCustomText:()Ljava/lang/String;
+     640: aload         17
+     642: fload         19
+     644: iload         9
+     646: invokevirtual #241                // Method org/mtr/render/SpecialSignStationExitRenderer.render:(Lorg/mtr/tool/Drawing;Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList;FFFFLorg/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList;ZZZLjava/lang/String;Lnet/minecraft/resources/ResourceLocation;FZ)V
+     649: goto          913
+     652: getstatic     #246                // Field SPECIAL_SIGN_PLATFORM_RENDERER:Lorg/mtr/render/SpecialSignPlatformRenderer;
+     655: aload         16
+     657: aload         13
+     659: fload_3
+     660: iload         14
+     662: i2f
+     663: fload         7
+     665: fmul
+     666: fadd
+     667: fload         4
+     669: fload         8
+     671: fload         7
+     673: aload_2
+     674: invokestatic  #250                // Method getPlatforms:(Lnet/minecraft/core/BlockPos;)Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList;
+     677: invokevirtual #210                // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList.stream:()Ljava/util/stream/Stream;
+     680: aload         18
+     682: invokedynamic #253,  0            // InvokeDynamic #3:test:(Lorg/mtr/libraries/it/unimi/dsi/fastutil/longs/LongAVLTreeSet;)Ljava/util/function/Predicate;
+     687: invokeinterface #218,  2          // InterfaceMethod java/util/stream/Stream.filter:(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;
+     692: invokedynamic #224,  0            // InvokeDynamic #2:get:()Ljava/util/function/Supplier;
+     697: invokestatic  #228                // Method java/util/stream/Collectors.toCollection:(Ljava/util/function/Supplier;)Ljava/util/stream/Collector;
+     700: invokeinterface #234,  2          // InterfaceMethod java/util/stream/Stream.collect:(Ljava/util/stream/Collector;)Ljava/lang/Object;
+     705: checkcast     #146                // class org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList
+     708: aload         15
+     710: getfield      #69                 // Field flipTexture:Z
+     713: aload         15
+     715: getfield      #86                 // Field flipCustomText:Z
+     718: aload         15
+     720: getfield      #89                 // Field small:Z
+     723: aload         15
+     725: invokevirtual #238                // Method getCustomText:()Ljava/lang/String;
+     728: aload         17
+     730: fload         19
+     732: iload         9
+     734: invokevirtual #254                // Method org/mtr/render/SpecialSignPlatformRenderer.render:(Lorg/mtr/tool/Drawing;Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList;FFFFLorg/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList;ZZZLjava/lang/String;Lnet/minecraft/resources/ResourceLocation;FZ)V
+     737: goto          913
+     740: getstatic     #257                // Field SPECIAL_SIGN_ROUTE_RENDERER:Lorg/mtr/render/SpecialSignRouteRenderer;
+     743: aload         16
+     745: aload         13
+     747: fload_3
+     748: iload         14
+     750: i2f
+     751: fload         7
+     753: fmul
+     754: fadd
+     755: fload         4
+     757: fload         8
+     759: fload         7
+     761: aload_2
+     762: invokestatic  #261                // Method getRoutesForRailwaySign:(Lnet/minecraft/core/BlockPos;)Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList;
+     765: invokevirtual #210                // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList.stream:()Ljava/util/stream/Stream;
+     768: aload         18
+     770: invokedynamic #264,  0            // InvokeDynamic #4:test:(Lorg/mtr/libraries/it/unimi/dsi/fastutil/longs/LongAVLTreeSet;)Ljava/util/function/Predicate;
+     775: invokeinterface #218,  2          // InterfaceMethod java/util/stream/Stream.filter:(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;
+     780: invokedynamic #224,  0            // InvokeDynamic #2:get:()Ljava/util/function/Supplier;
+     785: invokestatic  #228                // Method java/util/stream/Collectors.toCollection:(Ljava/util/function/Supplier;)Ljava/util/stream/Collector;
+     788: invokeinterface #234,  2          // InterfaceMethod java/util/stream/Stream.collect:(Ljava/util/stream/Collector;)Ljava/lang/Object;
+     793: checkcast     #146                // class org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList
+     796: aload         15
+     798: getfield      #69                 // Field flipTexture:Z
+     801: aload         15
+     803: getfield      #86                 // Field flipCustomText:Z
+     806: aload         15
+     808: getfield      #89                 // Field small:Z
+     811: aload         15
+     813: invokevirtual #238                // Method getCustomText:()Ljava/lang/String;
+     816: aload         17
+     818: fload         19
+     820: iload         9
+     822: invokevirtual #265                // Method org/mtr/render/SpecialSignRouteRenderer.render:(Lorg/mtr/tool/Drawing;Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList;FFFFLorg/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList;ZZZLjava/lang/String;Lnet/minecraft/resources/ResourceLocation;FZ)V
+     825: goto          913
+     828: getstatic     #268                // Field SPECIAL_SIGN_STATION_RENDERER:Lorg/mtr/render/SpecialSignStationRenderer;
+     831: aload         16
+     833: aload         13
+     835: fload_3
+     836: iload         14
+     838: i2f
+     839: fload         7
+     841: fmul
+     842: fadd
+     843: fload         4
+     845: fload         8
+     847: fload         7
+     849: aload_2
+     850: invokestatic  #272                // Method getStations:(Lnet/minecraft/core/BlockPos;)Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList;
+     853: invokevirtual #210                // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList.stream:()Ljava/util/stream/Stream;
+     856: aload         18
+     858: invokedynamic #275,  0            // InvokeDynamic #5:test:(Lorg/mtr/libraries/it/unimi/dsi/fastutil/longs/LongAVLTreeSet;)Ljava/util/function/Predicate;
+     863: invokeinterface #218,  2          // InterfaceMethod java/util/stream/Stream.filter:(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;
+     868: invokedynamic #224,  0            // InvokeDynamic #2:get:()Ljava/util/function/Supplier;
+     873: invokestatic  #228                // Method java/util/stream/Collectors.toCollection:(Ljava/util/function/Supplier;)Ljava/util/stream/Collector;
+     876: invokeinterface #234,  2          // InterfaceMethod java/util/stream/Stream.collect:(Ljava/util/stream/Collector;)Ljava/lang/Object;
+     881: checkcast     #146                // class org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList
+     884: aload         15
+     886: getfield      #69                 // Field flipTexture:Z
+     889: aload         15
+     891: getfield      #86                 // Field flipCustomText:Z
+     894: aload         15
+     896: getfield      #89                 // Field small:Z
+     899: aload         15
+     901: invokevirtual #238                // Method getCustomText:()Ljava/lang/String;
+     904: aload         17
+     906: fload         19
+     908: iload         9
+     910: invokevirtual #276                // Method org/mtr/render/SpecialSignStationRenderer.render:(Lorg/mtr/tool/Drawing;Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList;FFFFLorg/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList;ZZZLjava/lang/String;Lnet/minecraft/resources/ResourceLocation;FZ)V
+     913: iinc          14, 1
+     916: goto          132
+     919: aload         13
+     921: aload_0
+     922: invokedynamic #279,  0            // InvokeDynamic #6:accept:(Lcom/mojang/blaze3d/vertex/PoseStack;)Ljava/util/function/Consumer;
+     927: invokevirtual #282                // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList.forEach:(Ljava/util/function/Consumer;)V
+     930: return
+
+  public static org.mtr.libraries.it.unimi.dsi.fastutil.objects.ObjectArrayList<org.mtr.core.data.Platform> getPlatforms(net.minecraft.core.BlockPos);
+    Code:
+       0: aload_0
+       1: ifnonnull     14
+       4: new           #146                // class org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList
+       7: dup
+       8: invokespecial #148                // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList."<init>":()V
+      11: goto          36
+      14: getstatic     #286                // Field SIGN_PLATFORMS_CACHE:Lorg/mtr/cache/GenericLongCache;
+      17: aload_0
+      18: invokevirtual #290                // Method net/minecraft/core/BlockPos.asLong:()J
+      21: invokestatic  #296                // Method java/lang/Long.valueOf:(J)Ljava/lang/Long;
+      24: aload_0
+      25: invokedynamic #302,  0            // InvokeDynamic #7:get:(Lnet/minecraft/core/BlockPos;)Ljava/util/function/Supplier;
+      30: invokevirtual #305                // Method org/mtr/cache/GenericLongCache.get:(Ljava/lang/Object;Ljava/util/function/Supplier;)Ljava/lang/Object;
+      33: checkcast     #146                // class org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList
+      36: areturn
+
+  public static org.mtr.libraries.it.unimi.dsi.fastutil.objects.ObjectArrayList<org.mtr.core.data.Route> getRoutesForRailwaySign(net.minecraft.core.BlockPos);
+    Code:
+       0: aload_0
+       1: ifnonnull     14
+       4: new           #146                // class org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList
+       7: dup
+       8: invokespecial #148                // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList."<init>":()V
+      11: goto          36
+      14: getstatic     #310                // Field SIGN_ROUTES_CACHE:Lorg/mtr/cache/GenericLongCache;
+      17: aload_0
+      18: invokevirtual #290                // Method net/minecraft/core/BlockPos.asLong:()J
+      21: invokestatic  #296                // Method java/lang/Long.valueOf:(J)Ljava/lang/Long;
+      24: aload_0
+      25: invokedynamic #313,  0            // InvokeDynamic #8:get:(Lnet/minecraft/core/BlockPos;)Ljava/util/function/Supplier;
+      30: invokevirtual #305                // Method org/mtr/cache/GenericLongCache.get:(Ljava/lang/Object;Ljava/util/function/Supplier;)Ljava/lang/Object;
+      33: checkcast     #146                // class org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList
+      36: areturn
+
+  public static org.mtr.libraries.it.unimi.dsi.fastutil.objects.ObjectArrayList<org.mtr.core.data.Station> getStations(net.minecraft.core.BlockPos);
+    Code:
+       0: aload_0
+       1: ifnonnull     14
+       4: new           #146                // class org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList
+       7: dup
+       8: invokespecial #148                // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList."<init>":()V
+      11: goto          36
+      14: getstatic     #314                // Field SIGN_STATIONS_CACHE:Lorg/mtr/cache/GenericLongCache;
+      17: aload_0
+      18: invokevirtual #290                // Method net/minecraft/core/BlockPos.asLong:()J
+      21: invokestatic  #296                // Method java/lang/Long.valueOf:(J)Ljava/lang/Long;
+      24: aload_0
+      25: invokedynamic #317,  0            // InvokeDynamic #9:get:(Lnet/minecraft/core/BlockPos;)Ljava/util/function/Supplier;
+      30: invokevirtual #305                // Method org/mtr/cache/GenericLongCache.get:(Ljava/lang/Object;Ljava/util/function/Supplier;)Ljava/lang/Object;
+      33: checkcast     #146                // class org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList
+      36: areturn
+
+  public static org.mtr.libraries.it.unimi.dsi.fastutil.objects.ObjectArrayList<org.mtr.core.data.StationExit> getStationExits(net.minecraft.core.BlockPos);
+    Code:
+       0: aload_0
+       1: ifnonnull     8
+       4: aconst_null
+       5: goto          12
+       8: aload_0
+       9: invokestatic  #318                // Method getStation:(Lnet/minecraft/core/BlockPos;)Lorg/mtr/core/data/Station;
+      12: astore_1
+      13: aload_1
+      14: ifnonnull     25
+      17: new           #146                // class org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList
+      20: dup
+      21: invokespecial #148                // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList."<init>":()V
+      24: areturn
+      25: new           #146                // class org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList
+      28: dup
+      29: aload_1
+      30: invokevirtual #322                // Method org/mtr/core/data/Station.getExits:()Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList;
+      33: invokespecial #328                // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList."<init>":(Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectList;)V
+      36: astore_2
+      37: new           #331                // class org/mtr/libraries/it/unimi/dsi/fastutil/objects/Object2ObjectOpenHashMap
+      40: dup
+      41: invokespecial #333                // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/Object2ObjectOpenHashMap."<init>":()V
+      44: astore_3
+      45: aload_1
+      46: invokevirtual #322                // Method org/mtr/core/data/Station.getExits:()Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList;
+      49: aload_3
+      50: aload_2
+      51: invokedynamic #334,  0            // InvokeDynamic #10:accept:(Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/Object2ObjectOpenHashMap;Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList;)Ljava/util/function/Consumer;
+      56: invokevirtual #282                // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList.forEach:(Ljava/util/function/Consumer;)V
+      59: aload_2
+      60: invokestatic  #337                // Method java/util/Collections.sort:(Ljava/util/List;)V
+      63: aload_2
+      64: areturn
+
+  public static org.mtr.libraries.it.unimi.dsi.fastutil.objects.ObjectObjectImmutablePair<org.mtr.libraries.it.unimi.dsi.fastutil.ints.IntArrayList, java.lang.String> getPlatformColorsAndDestinations(long);
+    Code:
+       0: getstatic     #343                // Field SIGN_PLATFORM_COLORS_AND_DESTINATIONS_CACHE:Lorg/mtr/cache/GenericLongCache;
+       3: lload_0
+       4: invokestatic  #296                // Method java/lang/Long.valueOf:(J)Ljava/lang/Long;
+       7: lload_0
+       8: invokedynamic #346,  0            // InvokeDynamic #11:get:(J)Ljava/util/function/Supplier;
+      13: invokevirtual #305                // Method org/mtr/cache/GenericLongCache.get:(Ljava/lang/Object;Ljava/util/function/Supplier;)Ljava/lang/Object;
+      16: checkcast     #349                // class org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectObjectImmutablePair
+      19: areturn
+
+  private static org.mtr.core.data.Station getStation(net.minecraft.core.BlockPos);
+    Code:
+       0: aload_0
+       1: ifnonnull     8
+       4: aconst_null
+       5: goto          30
+       8: getstatic     #351                // Field SIGN_STATION_CACHE:Lorg/mtr/cache/GenericLongCache;
+      11: aload_0
+      12: invokevirtual #290                // Method net/minecraft/core/BlockPos.asLong:()J
+      15: invokestatic  #296                // Method java/lang/Long.valueOf:(J)Ljava/lang/Long;
+      18: aload_0
+      19: invokedynamic #354,  0            // InvokeDynamic #12:get:(Lnet/minecraft/core/BlockPos;)Ljava/util/function/Supplier;
+      24: invokevirtual #305                // Method org/mtr/cache/GenericLongCache.get:(Ljava/lang/Object;Ljava/util/function/Supplier;)Ljava/lang/Object;
+      27: checkcast     #323                // class org/mtr/core/data/Station
+      30: areturn
+
+  private static float getTextSpace(org.mtr.resource.SignResource[], int);
+    Code:
+       0: aload_0
+       1: iload_1
+       2: aaload
+       3: astore_2
+       4: aload_2
+       5: ifnonnull     10
+       8: fconst_0
+       9: freturn
+      10: aload_2
+      11: getfield      #86                 // Field flipCustomText:Z
+      14: ifeq          21
+      17: iconst_m1
+      18: goto          22
+      21: iconst_1
+      22: istore_3
+      23: aload_2
+      24: getfield      #37                 // Field signType:Lorg/mtr/resource/SignType;
+      27: getstatic     #187                // Field org/mtr/resource/SignType.EXIT:Lorg/mtr/resource/SignType;
+      30: if_acmpeq     43
+      33: aload_2
+      34: getfield      #37                 // Field signType:Lorg/mtr/resource/SignType;
+      37: getstatic     #190                // Field org/mtr/resource/SignType.ROUTE:Lorg/mtr/resource/SignType;
+      40: if_acmpne     54
+      43: aload_2
+      44: getfield      #89                 // Field small:Z
+      47: ifne          54
+      50: iconst_1
+      51: goto          55
+      54: iconst_0
+      55: istore        4
+      57: iload_1
+      58: iload_3
+      59: iadd
+      60: istore        5
+      62: iload         4
+      64: ifeq          71
+      67: fconst_0
+      68: goto          88
+      71: ldc_w         #355                // float -0.125f
+      74: aload_2
+      75: getfield      #89                 // Field small:Z
+      78: ifeq          85
+      81: iconst_1
+      82: goto          86
+      85: iconst_2
+      86: i2f
+      87: fmul
+      88: fstore        6
+      90: iload         5
+      92: iflt          183
+      95: iload         5
+      97: aload_0
+      98: arraylength
+      99: if_icmpge     183
+     102: aload_0
+     103: iload         5
+     105: aaload
+     106: astore        7
+     108: aload         7
+     110: ifnonnull     122
+     113: fload         6
+     115: fconst_1
+     116: fadd
+     117: fstore        6
+     119: goto          174
+     122: iload         4
+     124: ifne          142
+     127: aload         7
+     129: getfield      #89                 // Field small:Z
+     132: ifeq          142
+     135: fload         6
+     137: ldc           #109                // float 0.125f
+     139: fadd
+     140: fstore        6
+     142: aload         7
+     144: getfield      #46                 // Field hasCustomText:Z
+     147: ifeq          183
+     150: aload         7
+     152: getfield      #86                 // Field flipCustomText:Z
+     155: aload_2
+     156: getfield      #86                 // Field flipCustomText:Z
+     159: if_icmpeq     183
+     162: fload         6
+     164: ldc           #109                // float 0.125f
+     166: fsub
+     167: fconst_2
+     168: fdiv
+     169: fstore        6
+     171: goto          183
+     174: iload         5
+     176: iload_3
+     177: iadd
+     178: istore        5
+     180: goto          90
+     183: fload         6
+     185: freturn
+
+  private static org.mtr.core.data.Station lambda$getStation$15(net.minecraft.core.BlockPos);
+    Code:
+       0: aload_0
+       1: invokestatic  #356                // Method org/mtr/MTRClient.findStation:(Lnet/minecraft/core/BlockPos;)Lorg/mtr/core/data/Station;
+       4: areturn
+
+  private static org.mtr.libraries.it.unimi.dsi.fastutil.objects.ObjectObjectImmutablePair lambda$getPlatformColorsAndDestinations$14(long);
+    Code:
+       0: lload_0
+       1: iconst_1
+       2: iconst_0
+       3: invokestatic  #361                // Method org/mtr/tool/RouteHelper.getRouteColorsAndDestinationString:(JZZ)Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectObjectImmutablePair;
+       6: areturn
+
+  private static void lambda$getStationExits$13(org.mtr.libraries.it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap, org.mtr.libraries.it.unimi.dsi.fastutil.objects.ObjectArrayList, org.mtr.core.data.StationExit);
+    Code:
+       0: aload_2
+       1: invokevirtual #367                // Method org/mtr/core/data/StationExit.getName:()Ljava/lang/String;
+       4: invokestatic  #372                // Method org/mtr/tool/DataHelper.getSplitStationExitName:(Ljava/lang/String;)[Ljava/lang/String;
+       7: astore_3
+       8: aload_0
+       9: aload_3
+      10: iconst_0
+      11: aaload
+      12: invokevirtual #378                // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/Object2ObjectOpenHashMap.containsKey:(Ljava/lang/Object;)Z
+      15: ifne          52
+      18: new           #368                // class org/mtr/core/data/StationExit
+      21: dup
+      22: invokespecial #381                // Method org/mtr/core/data/StationExit."<init>":()V
+      25: astore        4
+      27: aload         4
+      29: aload_3
+      30: iconst_0
+      31: aaload
+      32: invokevirtual #382                // Method org/mtr/core/data/StationExit.setName:(Ljava/lang/String;)V
+      35: aload_1
+      36: aload         4
+      38: invokevirtual #183                // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList.add:(Ljava/lang/Object;)Z
+      41: pop
+      42: aload_0
+      43: aload_3
+      44: iconst_0
+      45: aaload
+      46: aload         4
+      48: invokevirtual #386                // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/Object2ObjectOpenHashMap.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+      51: pop
+      52: aload_0
+      53: aload_3
+      54: iconst_0
+      55: aaload
+      56: invokevirtual #390                // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/Object2ObjectOpenHashMap.get:(Ljava/lang/Object;)Ljava/lang/Object;
+      59: checkcast     #368                // class org/mtr/core/data/StationExit
+      62: astore        4
+      64: aload         4
+      66: ifnull        88
+      69: aload         4
+      71: aload_2
+      72: if_acmpeq     88
+      75: aload         4
+      77: invokevirtual #393                // Method org/mtr/core/data/StationExit.getDestinations:()Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList;
+      80: aload_2
+      81: invokevirtual #393                // Method org/mtr/core/data/StationExit.getDestinations:()Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList;
+      84: invokevirtual #396                // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList.addAll:(Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectList;)Z
+      87: pop
+      88: return
+
+  private static org.mtr.libraries.it.unimi.dsi.fastutil.objects.ObjectArrayList lambda$getStations$12(net.minecraft.core.BlockPos);
+    Code:
+       0: aload_0
+       1: invokestatic  #318                // Method getStation:(Lnet/minecraft/core/BlockPos;)Lorg/mtr/core/data/Station;
+       4: astore_1
+       5: aload_1
+       6: ifnonnull     17
+       9: new           #146                // class org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList
+      12: dup
+      13: invokespecial #148                // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList."<init>":()V
+      16: areturn
+      17: new           #146                // class org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList
+      20: dup
+      21: aload_1
+      22: getfield      #400                // Field org/mtr/core/data/Station.connectedStations:Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectAVLTreeSet;
+      25: invokespecial #404                // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList."<init>":(Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectCollection;)V
+      28: astore_2
+      29: aload_2
+      30: invokestatic  #337                // Method java/util/Collections.sort:(Ljava/util/List;)V
+      33: aload_2
+      34: iconst_0
+      35: aload_1
+      36: invokevirtual #407                // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList.add:(ILjava/lang/Object;)V
+      39: aload_2
+      40: areturn
+
+  private static org.mtr.libraries.it.unimi.dsi.fastutil.objects.ObjectArrayList lambda$getRoutesForRailwaySign$11(net.minecraft.core.BlockPos);
+    Code:
+       0: aload_0
+       1: invokestatic  #318                // Method getStation:(Lnet/minecraft/core/BlockPos;)Lorg/mtr/core/data/Station;
+       4: astore_1
+       5: aload_1
+       6: ifnonnull     17
+       9: new           #146                // class org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList
+      12: dup
+      13: invokespecial #148                // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList."<init>":()V
+      16: areturn
+      17: invokestatic  #410                // Method org/mtr/client/MinecraftClientData.getInstance:()Lorg/mtr/client/MinecraftClientData;
+      20: astore_2
+      21: aload_1
+      22: getfield      #416                // Field org/mtr/core/data/Station.savedRails:Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArraySet;
+      25: invokevirtual #420                // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArraySet.stream:()Ljava/util/stream/Stream;
+      28: invokedynamic #423,  0            // InvokeDynamic #13:apply:()Ljava/util/function/Function;
+      33: invokeinterface #427,  2          // InterfaceMethod java/util/stream/Stream.map:(Ljava/util/function/Function;)Ljava/util/stream/Stream;
+      38: invokedynamic #431,  0            // InvokeDynamic #14:get:()Ljava/util/function/Supplier;
+      43: invokestatic  #228                // Method java/util/stream/Collectors.toCollection:(Ljava/util/function/Supplier;)Ljava/util/stream/Collector;
+      46: invokeinterface #234,  2          // InterfaceMethod java/util/stream/Stream.collect:(Ljava/util/stream/Collector;)Ljava/lang/Object;
+      51: checkcast     #432                // class org/mtr/libraries/it/unimi/dsi/fastutil/longs/LongArraySet
+      54: astore_3
+      55: new           #434                // class org/mtr/libraries/it/unimi/dsi/fastutil/ints/Int2ObjectOpenHashMap
+      58: dup
+      59: invokespecial #436                // Method org/mtr/libraries/it/unimi/dsi/fastutil/ints/Int2ObjectOpenHashMap."<init>":()V
+      62: astore        4
+      64: aload_2
+      65: getfield      #437                // Field org/mtr/client/MinecraftClientData.simplifiedRoutes:Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectAVLTreeSet;
+      68: aload_3
+      69: aload         4
+      71: invokedynamic #440,  0            // InvokeDynamic #15:accept:(Lorg/mtr/libraries/it/unimi/dsi/fastutil/longs/LongArraySet;Lorg/mtr/libraries/it/unimi/dsi/fastutil/ints/Int2ObjectOpenHashMap;)Ljava/util/function/Consumer;
+      76: invokevirtual #443                // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectAVLTreeSet.forEach:(Ljava/util/function/Consumer;)V
+      79: new           #146                // class org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList
+      82: dup
+      83: invokespecial #148                // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList."<init>":()V
+      86: astore        5
+      88: aload         4
+      90: aload_2
+      91: aload         5
+      93: invokedynamic #446,  0            // InvokeDynamic #16:accept:(Lorg/mtr/client/MinecraftClientData;Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList;)Lorg/mtr/libraries/it/unimi/dsi/fastutil/ints/IntObjectBiConsumer;
+      98: invokevirtual #449                // Method org/mtr/libraries/it/unimi/dsi/fastutil/ints/Int2ObjectOpenHashMap.forEach:(Lorg/mtr/libraries/it/unimi/dsi/fastutil/ints/IntObjectBiConsumer;)V
+     101: aload         5
+     103: invokestatic  #337                // Method java/util/Collections.sort:(Ljava/util/List;)V
+     106: aload         5
+     108: areturn
+
+  private static void lambda$getRoutesForRailwaySign$10(org.mtr.client.MinecraftClientData, org.mtr.libraries.it.unimi.dsi.fastutil.objects.ObjectArrayList, int, org.mtr.libraries.it.unimi.dsi.fastutil.objects.ObjectOpenHashSet);
+    Code:
+       0: new           #146                // class org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList
+       3: dup
+       4: aload_3
+       5: invokespecial #404                // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList."<init>":(Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectCollection;)V
+       8: astore        4
+      10: aload         4
+      12: invokestatic  #337                // Method java/util/Collections.sort:(Ljava/util/List;)V
+      15: new           #452                // class org/mtr/core/data/Route
+      18: dup
+      19: invokestatic  #454                // Method org/mtr/core/data/TransportMode.values:()[Lorg/mtr/core/data/TransportMode;
+      22: iconst_0
+      23: aaload
+      24: aload_0
+      25: invokespecial #460                // Method org/mtr/core/data/Route."<init>":(Lorg/mtr/core/data/TransportMode;Lorg/mtr/core/data/Data;)V
+      28: astore        5
+      30: aload         5
+      32: aload         4
+      34: invokestatic  #463                // InterfaceMethod org/mtr/data/IGui.mergeStations:(Ljava/util/List;)Ljava/lang/String;
+      37: invokevirtual #469                // Method org/mtr/core/data/Route.setName:(Ljava/lang/String;)V
+      40: aload         5
+      42: iload_2
+      43: invokevirtual #470                // Method org/mtr/core/data/Route.setColor:(I)V
+      46: aload_1
+      47: aload         5
+      49: invokevirtual #183                // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList.add:(Ljava/lang/Object;)Z
+      52: pop
+      53: return
+
+  private static void lambda$getRoutesForRailwaySign$9(org.mtr.libraries.it.unimi.dsi.fastutil.longs.LongArraySet, org.mtr.libraries.it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap, org.mtr.core.data.SimplifiedRoute);
+    Code:
+       0: aload_2
+       1: invokevirtual #473                // Method org/mtr/core/data/SimplifiedRoute.getPlatforms:()Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList;
+       4: invokevirtual #210                // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList.stream:()Ljava/util/stream/Stream;
+       7: aload_0
+       8: invokedynamic #477,  0            // InvokeDynamic #17:test:(Lorg/mtr/libraries/it/unimi/dsi/fastutil/longs/LongArraySet;)Ljava/util/function/Predicate;
+      13: invokeinterface #480,  2          // InterfaceMethod java/util/stream/Stream.anyMatch:(Ljava/util/function/Predicate;)Z
+      18: ifeq          53
+      21: aload_1
+      22: aload_2
+      23: invokevirtual #484                // Method org/mtr/core/data/SimplifiedRoute.getColor:()I
+      26: invokedynamic #487,  0            // InvokeDynamic #18:get:()Lorg/mtr/libraries/it/unimi/dsi/fastutil/ints/Int2ObjectFunction;
+      31: invokevirtual #490                // Method org/mtr/libraries/it/unimi/dsi/fastutil/ints/Int2ObjectOpenHashMap.computeIfAbsent:(ILorg/mtr/libraries/it/unimi/dsi/fastutil/ints/Int2ObjectFunction;)Ljava/lang/Object;
+      34: checkcast     #494                // class org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectOpenHashSet
+      37: aload_2
+      38: invokevirtual #496                // Method org/mtr/core/data/SimplifiedRoute.getName:()Ljava/lang/String;
+      41: ldc_w         #497                // String \\|\\|
+      44: invokevirtual #499                // Method java/lang/String.split:(Ljava/lang/String;)[Ljava/lang/String;
+      47: iconst_0
+      48: aaload
+      49: invokevirtual #502                // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectOpenHashSet.add:(Ljava/lang/Object;)Z
+      52: pop
+      53: return
+
+  private static org.mtr.libraries.it.unimi.dsi.fastutil.objects.ObjectOpenHashSet lambda$getRoutesForRailwaySign$8(int);
+    Code:
+       0: new           #494                // class org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectOpenHashSet
+       3: dup
+       4: invokespecial #503                // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectOpenHashSet."<init>":()V
+       7: areturn
+
+  private static boolean lambda$getRoutesForRailwaySign$7(org.mtr.libraries.it.unimi.dsi.fastutil.longs.LongArraySet, org.mtr.core.data.SimplifiedRoutePlatform);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokevirtual #504                // Method org/mtr/core/data/SimplifiedRoutePlatform.getPlatformId:()J
+       5: invokevirtual #509                // Method org/mtr/libraries/it/unimi/dsi/fastutil/longs/LongArraySet.contains:(J)Z
+       8: ireturn
+
+  private static org.mtr.libraries.it.unimi.dsi.fastutil.objects.ObjectArrayList lambda$getPlatforms$6(net.minecraft.core.BlockPos);
+    Code:
+       0: aload_0
+       1: invokestatic  #318                // Method getStation:(Lnet/minecraft/core/BlockPos;)Lorg/mtr/core/data/Station;
+       4: astore_1
+       5: aload_1
+       6: ifnonnull     17
+       9: new           #146                // class org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList
+      12: dup
+      13: invokespecial #148                // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList."<init>":()V
+      16: areturn
+      17: new           #146                // class org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList
+      20: dup
+      21: aload_1
+      22: getfield      #416                // Field org/mtr/core/data/Station.savedRails:Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArraySet;
+      25: invokespecial #404                // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList."<init>":(Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectCollection;)V
+      28: astore_2
+      29: aload_2
+      30: invokestatic  #337                // Method java/util/Collections.sort:(Ljava/util/List;)V
+      33: aload_2
+      34: areturn
+
+  private static void lambda$render$5(com.mojang.blaze3d.vertex.PoseStack, java.util.function.Consumer);
+    Code:
+       0: aload_1
+       1: aload_0
+       2: invokeinterface #513,  2          // InterfaceMethod java/util/function/Consumer.accept:(Ljava/lang/Object;)V
+       7: return
+
+  private static boolean lambda$render$4(org.mtr.libraries.it.unimi.dsi.fastutil.longs.LongAVLTreeSet, org.mtr.core.data.Station);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokevirtual #518                // Method org/mtr/core/data/Station.getId:()J
+       5: invokevirtual #521                // Method org/mtr/libraries/it/unimi/dsi/fastutil/longs/LongAVLTreeSet.contains:(J)Z
+       8: ireturn
+
+  private static boolean lambda$render$3(org.mtr.libraries.it.unimi.dsi.fastutil.longs.LongAVLTreeSet, org.mtr.core.data.Route);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokevirtual #524                // Method org/mtr/core/data/Route.getColor:()I
+       5: i2l
+       6: invokevirtual #521                // Method org/mtr/libraries/it/unimi/dsi/fastutil/longs/LongAVLTreeSet.contains:(J)Z
+       9: ireturn
+
+  private static boolean lambda$render$2(org.mtr.libraries.it.unimi.dsi.fastutil.longs.LongAVLTreeSet, org.mtr.core.data.Platform);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokevirtual #525                // Method org/mtr/core/data/Platform.getId:()J
+       5: invokevirtual #521                // Method org/mtr/libraries/it/unimi/dsi/fastutil/longs/LongAVLTreeSet.contains:(J)Z
+       8: ireturn
+
+  private static boolean lambda$render$1(org.mtr.libraries.it.unimi.dsi.fastutil.longs.LongAVLTreeSet, org.mtr.core.data.StationExit);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokevirtual #367                // Method org/mtr/core/data/StationExit.getName:()Ljava/lang/String;
+       5: invokestatic  #528                // Method org/mtr/screen/RailwaySignScreen.serializeExit:(Ljava/lang/String;)J
+       8: invokevirtual #521                // Method org/mtr/libraries/it/unimi/dsi/fastutil/longs/LongAVLTreeSet.contains:(J)Z
+      11: ireturn
+
+  private static void lambda$render$0(org.mtr.resource.SignResource, net.minecraft.resources.ResourceLocation, float, float, float, float, float, float, com.mojang.blaze3d.vertex.PoseStack);
+    Code:
+       0: aload         8
+       2: aload_0
+       3: invokevirtual #238                // Method getCustomText:()Ljava/lang/String;
+       6: invokestatic  #534                // Method org/mtr/font/FontRenderOptions.builder:()Lorg/mtr/font/FontRenderOptions$FontRenderOptionsBuilder;
+       9: aload_1
+      10: invokevirtual #540                // Method org/mtr/font/FontRenderOptions$FontRenderOptionsBuilder.font:(Lnet/minecraft/resources/ResourceLocation;)Lorg/mtr/font/FontRenderOptions$FontRenderOptionsBuilder;
+      13: fload_2
+      14: invokevirtual #545                // Method org/mtr/font/FontRenderOptions$FontRenderOptionsBuilder.horizontalSpace:(F)Lorg/mtr/font/FontRenderOptions$FontRenderOptionsBuilder;
+      17: fload_3
+      18: ldc_w         #549                // float 0.75f
+      21: fmul
+      22: invokevirtual #550                // Method org/mtr/font/FontRenderOptions$FontRenderOptionsBuilder.verticalSpace:(F)Lorg/mtr/font/FontRenderOptions$FontRenderOptionsBuilder;
+      25: aload_0
+      26: getfield      #86                 // Field flipCustomText:Z
+      29: ifeq          38
+      32: getstatic     #553                // Field org/mtr/font/FontRenderOptions$Alignment.END:Lorg/mtr/font/FontRenderOptions$Alignment;
+      35: goto          41
+      38: getstatic     #559                // Field org/mtr/font/FontRenderOptions$Alignment.START:Lorg/mtr/font/FontRenderOptions$Alignment;
+      41: invokevirtual #562                // Method org/mtr/font/FontRenderOptions$FontRenderOptionsBuilder.horizontalTextAlignment:(Lorg/mtr/font/FontRenderOptions$Alignment;)Lorg/mtr/font/FontRenderOptions$FontRenderOptionsBuilder;
+      44: getstatic     #566                // Field org/mtr/font/FontRenderOptions$Alignment.CENTER:Lorg/mtr/font/FontRenderOptions$Alignment;
+      47: invokevirtual #569                // Method org/mtr/font/FontRenderOptions$FontRenderOptionsBuilder.verticalTextAlignment:(Lorg/mtr/font/FontRenderOptions$Alignment;)Lorg/mtr/font/FontRenderOptions$FontRenderOptionsBuilder;
+      50: aload_0
+      51: getfield      #86                 // Field flipCustomText:Z
+      54: ifeq          63
+      57: getstatic     #553                // Field org/mtr/font/FontRenderOptions$Alignment.END:Lorg/mtr/font/FontRenderOptions$Alignment;
+      60: goto          66
+      63: getstatic     #559                // Field org/mtr/font/FontRenderOptions$Alignment.START:Lorg/mtr/font/FontRenderOptions$Alignment;
+      66: invokevirtual #572                // Method org/mtr/font/FontRenderOptions$FontRenderOptionsBuilder.horizontalPositioning:(Lorg/mtr/font/FontRenderOptions$Alignment;)Lorg/mtr/font/FontRenderOptions$FontRenderOptionsBuilder;
+      69: fload         4
+      71: fload         5
+      73: fadd
+      74: invokevirtual #575                // Method org/mtr/font/FontRenderOptions$FontRenderOptionsBuilder.offsetX:(F)Lorg/mtr/font/FontRenderOptions$FontRenderOptionsBuilder;
+      77: fload         6
+      79: fload_3
+      80: ldc           #109                // float 0.125f
+      82: fmul
+      83: fadd
+      84: invokevirtual #578                // Method org/mtr/font/FontRenderOptions$FontRenderOptionsBuilder.offsetY:(F)Lorg/mtr/font/FontRenderOptions$FontRenderOptionsBuilder;
+      87: fload         7
+      89: fneg
+      90: invokevirtual #581                // Method org/mtr/font/FontRenderOptions$FontRenderOptionsBuilder.offsetZ:(F)Lorg/mtr/font/FontRenderOptions$FontRenderOptionsBuilder;
+      93: fconst_2
+      94: invokevirtual #584                // Method org/mtr/font/FontRenderOptions$FontRenderOptionsBuilder.cjkScaling:(F)Lorg/mtr/font/FontRenderOptions$FontRenderOptionsBuilder;
+      97: fload_3
+      98: ldc_w         #587                // float 4.0f
+     101: fdiv
+     102: invokevirtual #588                // Method org/mtr/font/FontRenderOptions$FontRenderOptionsBuilder.maxFontSize:(F)Lorg/mtr/font/FontRenderOptions$FontRenderOptionsBuilder;
+     105: getstatic     #591                // Field org/mtr/font/FontRenderOptions$LineBreak.SPLIT:Lorg/mtr/font/FontRenderOptions$LineBreak;
+     108: invokevirtual #597                // Method org/mtr/font/FontRenderOptions$FontRenderOptionsBuilder.lineBreak:(Lorg/mtr/font/FontRenderOptions$LineBreak;)Lorg/mtr/font/FontRenderOptions$FontRenderOptionsBuilder;
+     111: getstatic     #601                // Field org/mtr/font/FontRenderOptions$TextOverflow.COMPRESS:Lorg/mtr/font/FontRenderOptions$TextOverflow;
+     114: invokevirtual #607                // Method org/mtr/font/FontRenderOptions$FontRenderOptionsBuilder.textOverflow:(Lorg/mtr/font/FontRenderOptions$TextOverflow;)Lorg/mtr/font/FontRenderOptions$FontRenderOptionsBuilder;
+     117: invokevirtual #611                // Method org/mtr/font/FontRenderOptions$FontRenderOptionsBuilder.build:()Lorg/mtr/font/FontRenderOptions;
+     120: invokestatic  #615                // Method org/mtr/font/FontRenderHelper.render:(Lcom/mojang/blaze3d/vertex/PoseStack;Ljava/lang/String;Lorg/mtr/font/FontRenderOptions;)Lorg/mtr/libraries/it/unimi/dsi/fastutil/floats/FloatFloatImmutablePair;
+     123: pop
+     124: return
+
+  static {};
+    Code:
+       0: new           #306                // class org/mtr/cache/GenericLongCache
+       3: dup
+       4: sipush        5000
+       7: iconst_1
+       8: invokespecial #618                // Method org/mtr/cache/GenericLongCache."<init>":(IZ)V
+      11: putstatic     #351                // Field SIGN_STATION_CACHE:Lorg/mtr/cache/GenericLongCache;
+      14: new           #306                // class org/mtr/cache/GenericLongCache
+      17: dup
+      18: sipush        5000
+      21: iconst_1
+      22: invokespecial #618                // Method org/mtr/cache/GenericLongCache."<init>":(IZ)V
+      25: putstatic     #286                // Field SIGN_PLATFORMS_CACHE:Lorg/mtr/cache/GenericLongCache;
+      28: new           #306                // class org/mtr/cache/GenericLongCache
+      31: dup
+      32: sipush        5000
+      35: iconst_1
+      36: invokespecial #618                // Method org/mtr/cache/GenericLongCache."<init>":(IZ)V
+      39: putstatic     #343                // Field SIGN_PLATFORM_COLORS_AND_DESTINATIONS_CACHE:Lorg/mtr/cache/GenericLongCache;
+      42: new           #306                // class org/mtr/cache/GenericLongCache
+      45: dup
+      46: sipush        5000
+      49: iconst_1
+      50: invokespecial #618                // Method org/mtr/cache/GenericLongCache."<init>":(IZ)V
+      53: putstatic     #310                // Field SIGN_ROUTES_CACHE:Lorg/mtr/cache/GenericLongCache;
+      56: new           #306                // class org/mtr/cache/GenericLongCache
+      59: dup
+      60: sipush        5000
+      63: iconst_1
+      64: invokespecial #618                // Method org/mtr/cache/GenericLongCache."<init>":(IZ)V
+      67: putstatic     #314                // Field SIGN_STATIONS_CACHE:Lorg/mtr/cache/GenericLongCache;
+      70: new           #255                // class org/mtr/render/SpecialSignPlatformRenderer
+      73: dup
+      74: invokespecial #621                // Method org/mtr/render/SpecialSignPlatformRenderer."<init>":()V
+      77: putstatic     #246                // Field SPECIAL_SIGN_PLATFORM_RENDERER:Lorg/mtr/render/SpecialSignPlatformRenderer;
+      80: new           #266                // class org/mtr/render/SpecialSignRouteRenderer
+      83: dup
+      84: invokespecial #622                // Method org/mtr/render/SpecialSignRouteRenderer."<init>":()V
+      87: putstatic     #257                // Field SPECIAL_SIGN_ROUTE_RENDERER:Lorg/mtr/render/SpecialSignRouteRenderer;
+      90: new           #277                // class org/mtr/render/SpecialSignStationRenderer
+      93: dup
+      94: invokespecial #623                // Method org/mtr/render/SpecialSignStationRenderer."<init>":()V
+      97: putstatic     #268                // Field SPECIAL_SIGN_STATION_RENDERER:Lorg/mtr/render/SpecialSignStationRenderer;
+     100: new           #242                // class org/mtr/render/SpecialSignStationExitRenderer
+     103: dup
+     104: invokespecial #624                // Method org/mtr/render/SpecialSignStationExitRenderer."<init>":()V
+     107: putstatic     #202                // Field SPECIAL_SIGN_STATION_EXIT_RENDERER:Lorg/mtr/render/SpecialSignStationExitRenderer;
+     110: return
+}

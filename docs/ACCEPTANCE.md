@@ -1,11 +1,12 @@
 # Acceptance and performance procedure
 
-Updated: 2026-11-15T06:21:31.898993+08:00 (UTC+08:00).
+Updated: 2026-11-16T14:05:09.075618+08:00 (UTC+08:00).
 
 Use the [optimization and comparison workflow](OPTIMIZATION.md) to preregister
 hypotheses, controls and budgets and interpret paired evidence. Its source runner
-automates plan/run/analysis with A/A and instrumentation controls; client phases
-below still require their actual isolated workload and packaged binaries.
+automates plan/run/analysis with A/A and instrumentation controls. The
+[whole-client protocol](CLIENT_EXPERIMENT.md) separately freezes actual packaged
+client inputs and prerequisite qualification; source evidence cannot replace it.
 
 0.4.2 records NF248 official/v6 development-client Mixin smoke checks and 100 v6
 synthetic GPU ownership cycles. Those historical reports do not record full-pack
@@ -25,7 +26,7 @@ The [official coverage audit](COVERAGE_OFFICIAL.md) preserves the historical 0.4
 NF248 wrong-binary rejection and its failed full-pack load: the old default text
 limit rejected a valid authored OBJ despite settled module counters. 0.4.6 repairs
 the policy with shared weighted text workspace and immutable snapshots and
-propagates real provider read failures. Both official 0.4.6 artifacts pass 61 Java
+propagates real provider read failures. Both official 0.4.6 artifacts pass 66 Java
 tests and 42 packaged fault/resource checks each; the actual large OBJ passes exact
 NF248 source checks with CompactStrings enabled and disabled. The 0.4.6 NF265
 wrong-binary startup is fatal before registration. The exact 0.4.6 NF248 mismatch
@@ -46,9 +47,20 @@ catch-up defect is repaired, but attempt 02 still fails one 20.8426-second gap:
 serial GPU/NMT queries block its sampling loop. Preserve both attempts and their
 partial JFRs; do not relax the frozen 20-second limit. Bounded background auxiliary
 observation now passes regressions, preserving request/terminal events and the
-actual sampling cutoff; a fresh two-hour run remains pending. Native F2 export succeeds,
+actual sampling cutoff. Route attempt 03 also fails: the exact Java process
+crashes in Windows textinputframework.dll with exit code 1653. Twelve of thirteen
+preserved JFR chunks are readable; the final chunk is incomplete. Its first
+forty-minute sampled window does not establish two-hour acceptance. Native F2 export succeeds,
 but that screenshot contains no train. A manual F3+T qualification is requested.
-See the [current verification plan](../evidence/engineering-046/verification-plan.json).
+The new official NF248 diagnostic client traces its one `transparent.png Invalid
+model` occurrence to the official empty default-rail constructor. Future client
+qualification must bind its own live diagnostic evidence; this does not certify
+rail rendering. A new native observer 1.0.0 run provides actual native snapshots,
+frame/tick events and a normal saved exit, with no geometry/reload/performance
+pass inferred. See the [runtime record](../evidence/engineering-048/neutral-runtime-01/assessment.json),
+[route recovery](../evidence/engineering-048/route-recovery/assessment.json), and the
+[current progress](../evidence/engineering-047/verification-progress.json) and
+[historical verification plan](../evidence/engineering-046/verification-plan.json).
 
 ## Reproducible headless checks
 
@@ -79,18 +91,24 @@ Do not reuse a mutable world or modify ordinary user instances for testing.
 1. Confirm the exact runtime binary guard and every required Mixin applied. Start
    once with the expected MTR artifact and once with a same-version mismatched
    binary in the isolated client; the second must fail before hooks install.
-2. Warm up an identical world/route, then collect at least three paired baseline
-   and candidate runs in alternating order with the same heap (start at 3 GiB).
-   Capture JFR and unified GC logs, loading/reload wall time, allocation samples,
-   Full-GC count/pause sum and frame-interval p50/p95/p99/max. Keep raw recordings.
-   Include an uninstrumented timing control to quantify probe/JFR overhead.
+2. Follow [CLIENT_EXPERIMENT.md](CLIENT_EXPERIMENT.md) for the official whole-client
+   comparison. Qualify the exact baseline and candidate independently in both
+   plain and profile modes with identical neutral observer bytes and frozen
+   controls. Then run the declared six pairs in each A/A or A/B and plain or
+   profile stratum: 48 fresh JVM trials at the same heap. Preserve complete raw
+   logs, native snapshots, process/OS evidence and profile JFR/GC/frame records.
+   Plain/profile controls measure the JFR/GC increment; a separate observer-off
+   calibration is required before claims about ordinary uninstrumented play.
+   Missing qualification or unreviewed native diagnostics prevents a valid plan.
    Freeze `maxsize=0` in the recording configuration to retain the complete window;
    JDK 21 otherwise applies an implicit 250 MiB limit and discards older chunks.
    Preserve `JFR.check verbose=true`, dump while the process is still alive and
    verify the dump with `jfr summary` before saving and closing the client.
 3. Complete at least 20 consecutive full-pack reloads and a two-hour route session.
    Separate reload/warm-up/steady-state windows. Require all parse/permit counters
-   to settle and no monotonically growing completed source cache. Compare heap at
+   to settle when supported; require native pending/settled evidence on both arms.
+   Unsupported companion counters remain unavailable. Require no monotonically
+   growing completed source cache. Compare heap at
    the same quiescent points; forced GC is a diagnostic, not normal play timing.
    For packaged clients use `tools/observe_packaged_client.py`: distinct native
    epochs alone are insufficient. Each reload must match a confirmed external

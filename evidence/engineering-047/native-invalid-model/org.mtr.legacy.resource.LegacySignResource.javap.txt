@@ -1,0 +1,68 @@
+Compiled from "LegacySignResource.java"
+public final class org.mtr.legacy.resource.LegacySignResource extends org.mtr.legacy.generated.resource.SignResourceSchema {
+  public org.mtr.legacy.resource.LegacySignResource(org.mtr.core.serializer.ReaderBase);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokespecial #1                  // Method org/mtr/legacy/generated/resource/SignResourceSchema."<init>":(Lorg/mtr/core/serializer/ReaderBase;)V
+       5: aload_0
+       6: aload_1
+       7: invokevirtual #7                  // Method updateData:(Lorg/mtr/core/serializer/ReaderBase;)V
+      10: return
+
+  public void convert(org.mtr.libraries.it.unimi.dsi.fastutil.objects.ObjectArrayList<org.mtr.resource.SignResource>, java.lang.String);
+    Code:
+       0: new           #12                 // class org/mtr/libraries/com/google/gson/JsonObject
+       3: dup
+       4: invokespecial #14                 // Method org/mtr/libraries/com/google/gson/JsonObject."<init>":()V
+       7: astore_3
+       8: aload_3
+       9: ldc           #17                 // String id
+      11: aload_2
+      12: invokedynamic #19,  0             // InvokeDynamic #0:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+      17: invokevirtual #23                 // Method org/mtr/libraries/com/google/gson/JsonObject.addProperty:(Ljava/lang/String;Ljava/lang/String;)V
+      20: aload_3
+      21: ldc           #27                 // String textureResource
+      23: aload_0
+      24: getfield      #29                 // Field texture_id:Ljava/lang/String;
+      27: invokevirtual #23                 // Method org/mtr/libraries/com/google/gson/JsonObject.addProperty:(Ljava/lang/String;Ljava/lang/String;)V
+      30: aload_3
+      31: ldc           #33                 // String flipTexture
+      33: aload_0
+      34: getfield      #35                 // Field flip_texture:Z
+      37: invokestatic  #39                 // Method java/lang/Boolean.valueOf:(Z)Ljava/lang/Boolean;
+      40: invokevirtual #45                 // Method org/mtr/libraries/com/google/gson/JsonObject.addProperty:(Ljava/lang/String;Ljava/lang/Boolean;)V
+      43: aload_3
+      44: ldc           #48                 // String customText
+      46: aload_0
+      47: getfield      #50                 // Field custom_text:Ljava/lang/String;
+      50: invokevirtual #23                 // Method org/mtr/libraries/com/google/gson/JsonObject.addProperty:(Ljava/lang/String;Ljava/lang/String;)V
+      53: aload_3
+      54: ldc           #53                 // String flipCustomText
+      56: aload_0
+      57: getfield      #55                 // Field flip_custom_text:Z
+      60: invokestatic  #39                 // Method java/lang/Boolean.valueOf:(Z)Ljava/lang/Boolean;
+      63: invokevirtual #45                 // Method org/mtr/libraries/com/google/gson/JsonObject.addProperty:(Ljava/lang/String;Ljava/lang/Boolean;)V
+      66: aload_3
+      67: ldc           #58                 // String small
+      69: aload_0
+      70: getfield      #60                 // Field small:Z
+      73: invokestatic  #39                 // Method java/lang/Boolean.valueOf:(Z)Ljava/lang/Boolean;
+      76: invokevirtual #45                 // Method org/mtr/libraries/com/google/gson/JsonObject.addProperty:(Ljava/lang/String;Ljava/lang/Boolean;)V
+      79: aload_3
+      80: ldc           #62                 // String backgroundColor
+      82: aload_0
+      83: getfield      #64                 // Field background_color:Ljava/lang/String;
+      86: invokevirtual #23                 // Method org/mtr/libraries/com/google/gson/JsonObject.addProperty:(Ljava/lang/String;Ljava/lang/String;)V
+      89: aload_1
+      90: new           #67                 // class org/mtr/resource/SignResource
+      93: dup
+      94: new           #69                 // class org/mtr/core/serializer/JsonReader
+      97: dup
+      98: aload_3
+      99: invokespecial #71                 // Method org/mtr/core/serializer/JsonReader."<init>":(Lorg/mtr/libraries/com/google/gson/JsonElement;)V
+     102: invokespecial #74                 // Method org/mtr/resource/SignResource."<init>":(Lorg/mtr/core/serializer/ReaderBase;)V
+     105: invokevirtual #75                 // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList.add:(Ljava/lang/Object;)Z
+     108: pop
+     109: return
+}

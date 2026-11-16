@@ -1,0 +1,518 @@
+Compiled from "JsonReader.java"
+public final class org.mtr.core.serializer.JsonReader extends org.mtr.core.serializer.ReaderBase {
+  private static final org.mtr.libraries.org.apache.logging.log4j.Logger log;
+
+  private final org.mtr.libraries.it.unimi.dsi.fastutil.objects.Object2ObjectArrayMap<java.lang.String, org.mtr.libraries.com.google.gson.JsonElement> map;
+
+  public org.mtr.core.serializer.JsonReader(org.mtr.libraries.com.google.gson.JsonElement);
+    Code:
+       0: aload_0
+       1: invokespecial #21                 // Method org/mtr/core/serializer/ReaderBase."<init>":()V
+       4: aload_0
+       5: new           #23                 // class org/mtr/libraries/it/unimi/dsi/fastutil/objects/Object2ObjectArrayMap
+       8: dup
+       9: invokespecial #24                 // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/Object2ObjectArrayMap."<init>":()V
+      12: putfield      #26                 // Field map:Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/Object2ObjectArrayMap;
+      15: aload_1
+      16: aload_0
+      17: getfield      #26                 // Field map:Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/Object2ObjectArrayMap;
+      20: dup
+      21: invokestatic  #32                 // Method java/util/Objects.requireNonNull:(Ljava/lang/Object;)Ljava/lang/Object;
+      24: pop
+      25: invokedynamic #52,  0             // InvokeDynamic #0:accept:(Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/Object2ObjectArrayMap;)Ljava/util/function/BiConsumer;
+      30: invokestatic  #56                 // Method iterateMap:(Lorg/mtr/libraries/com/google/gson/JsonElement;Ljava/util/function/BiConsumer;)V
+      33: return
+
+  private org.mtr.core.serializer.JsonReader(org.mtr.libraries.it.unimi.dsi.fastutil.objects.Object2ObjectArrayMap<java.lang.String, org.mtr.libraries.com.google.gson.JsonElement>);
+    Code:
+       0: aload_0
+       1: invokespecial #21                 // Method org/mtr/core/serializer/ReaderBase."<init>":()V
+       4: aload_0
+       5: aload_1
+       6: putfield      #26                 // Field map:Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/Object2ObjectArrayMap;
+       9: return
+
+  public void unpackBoolean(java.lang.String, org.mtr.libraries.it.unimi.dsi.fastutil.booleans.BooleanConsumer);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_2
+       3: invokedynamic #75,  0             // InvokeDynamic #1:accept:(Lorg/mtr/libraries/it/unimi/dsi/fastutil/booleans/BooleanConsumer;)Ljava/util/function/Consumer;
+       8: invokevirtual #79                 // Method unpack:(Ljava/lang/String;Ljava/util/function/Consumer;)V
+      11: return
+
+  public boolean getBoolean(java.lang.String, boolean);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: iload_2
+       3: invokestatic  #91                 // Method java/lang/Boolean.valueOf:(Z)Ljava/lang/Boolean;
+       6: invokedynamic #102,  0            // InvokeDynamic #2:apply:()Ljava/util/function/Function;
+      11: invokevirtual #106                // Method getOrDefault:(Ljava/lang/String;Ljava/lang/Object;Ljava/util/function/Function;)Ljava/lang/Object;
+      14: checkcast     #87                 // class java/lang/Boolean
+      17: invokevirtual #110                // Method java/lang/Boolean.booleanValue:()Z
+      20: ireturn
+
+  public void iterateBooleanArray(java.lang.String, java.lang.Runnable, org.mtr.libraries.it.unimi.dsi.fastutil.booleans.BooleanConsumer);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_2
+       3: aload_3
+       4: invokedynamic #122,  0            // InvokeDynamic #3:accept:(Ljava/lang/Runnable;Lorg/mtr/libraries/it/unimi/dsi/fastutil/booleans/BooleanConsumer;)Ljava/util/function/Consumer;
+       9: invokevirtual #79                 // Method unpack:(Ljava/lang/String;Ljava/util/function/Consumer;)V
+      12: return
+
+  public void unpackInt(java.lang.String, org.mtr.libraries.it.unimi.dsi.fastutil.ints.IntConsumer);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_2
+       3: invokedynamic #134,  0            // InvokeDynamic #4:accept:(Lorg/mtr/libraries/it/unimi/dsi/fastutil/ints/IntConsumer;)Ljava/util/function/Consumer;
+       8: invokevirtual #79                 // Method unpack:(Ljava/lang/String;Ljava/util/function/Consumer;)V
+      11: return
+
+  public int getInt(java.lang.String, int);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: iload_2
+       3: invokestatic  #142                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+       6: invokedynamic #149,  0            // InvokeDynamic #5:apply:()Ljava/util/function/Function;
+      11: invokevirtual #106                // Method getOrDefault:(Ljava/lang/String;Ljava/lang/Object;Ljava/util/function/Function;)Ljava/lang/Object;
+      14: checkcast     #139                // class java/lang/Integer
+      17: invokevirtual #153                // Method java/lang/Integer.intValue:()I
+      20: ireturn
+
+  public void iterateIntArray(java.lang.String, java.lang.Runnable, org.mtr.libraries.it.unimi.dsi.fastutil.ints.IntConsumer);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_2
+       3: aload_3
+       4: invokedynamic #164,  0            // InvokeDynamic #6:accept:(Ljava/lang/Runnable;Lorg/mtr/libraries/it/unimi/dsi/fastutil/ints/IntConsumer;)Ljava/util/function/Consumer;
+       9: invokevirtual #79                 // Method unpack:(Ljava/lang/String;Ljava/util/function/Consumer;)V
+      12: return
+
+  public void unpackLong(java.lang.String, org.mtr.libraries.it.unimi.dsi.fastutil.longs.LongConsumer);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_2
+       3: invokedynamic #174,  0            // InvokeDynamic #7:accept:(Lorg/mtr/libraries/it/unimi/dsi/fastutil/longs/LongConsumer;)Ljava/util/function/Consumer;
+       8: invokevirtual #79                 // Method unpack:(Ljava/lang/String;Ljava/util/function/Consumer;)V
+      11: return
+
+  public long getLong(java.lang.String, long);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: lload_2
+       3: invokestatic  #182                // Method java/lang/Long.valueOf:(J)Ljava/lang/Long;
+       6: invokedynamic #189,  0            // InvokeDynamic #8:apply:()Ljava/util/function/Function;
+      11: invokevirtual #106                // Method getOrDefault:(Ljava/lang/String;Ljava/lang/Object;Ljava/util/function/Function;)Ljava/lang/Object;
+      14: checkcast     #179                // class java/lang/Long
+      17: invokevirtual #193                // Method java/lang/Long.longValue:()J
+      20: lreturn
+
+  public void iterateLongArray(java.lang.String, java.lang.Runnable, org.mtr.libraries.it.unimi.dsi.fastutil.longs.LongConsumer);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_2
+       3: aload_3
+       4: invokedynamic #204,  0            // InvokeDynamic #9:accept:(Ljava/lang/Runnable;Lorg/mtr/libraries/it/unimi/dsi/fastutil/longs/LongConsumer;)Ljava/util/function/Consumer;
+       9: invokevirtual #79                 // Method unpack:(Ljava/lang/String;Ljava/util/function/Consumer;)V
+      12: return
+
+  public void unpackDouble(java.lang.String, org.mtr.libraries.it.unimi.dsi.fastutil.doubles.DoubleConsumer);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_2
+       3: invokedynamic #214,  0            // InvokeDynamic #10:accept:(Lorg/mtr/libraries/it/unimi/dsi/fastutil/doubles/DoubleConsumer;)Ljava/util/function/Consumer;
+       8: invokevirtual #79                 // Method unpack:(Ljava/lang/String;Ljava/util/function/Consumer;)V
+      11: return
+
+  public double getDouble(java.lang.String, double);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: dload_2
+       3: invokestatic  #222                // Method java/lang/Double.valueOf:(D)Ljava/lang/Double;
+       6: invokedynamic #229,  0            // InvokeDynamic #11:apply:()Ljava/util/function/Function;
+      11: invokevirtual #106                // Method getOrDefault:(Ljava/lang/String;Ljava/lang/Object;Ljava/util/function/Function;)Ljava/lang/Object;
+      14: checkcast     #219                // class java/lang/Double
+      17: invokevirtual #233                // Method java/lang/Double.doubleValue:()D
+      20: dreturn
+
+  public void iterateDoubleArray(java.lang.String, java.lang.Runnable, org.mtr.libraries.it.unimi.dsi.fastutil.doubles.DoubleConsumer);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_2
+       3: aload_3
+       4: invokedynamic #244,  0            // InvokeDynamic #12:accept:(Ljava/lang/Runnable;Lorg/mtr/libraries/it/unimi/dsi/fastutil/doubles/DoubleConsumer;)Ljava/util/function/Consumer;
+       9: invokevirtual #79                 // Method unpack:(Ljava/lang/String;Ljava/util/function/Consumer;)V
+      12: return
+
+  public void unpackString(java.lang.String, java.util.function.Consumer<java.lang.String>);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_2
+       3: invokedynamic #254,  0            // InvokeDynamic #13:accept:(Ljava/util/function/Consumer;)Ljava/util/function/Consumer;
+       8: invokevirtual #79                 // Method unpack:(Ljava/lang/String;Ljava/util/function/Consumer;)V
+      11: return
+
+  public java.lang.String getString(java.lang.String, java.lang.String);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_2
+       3: invokedynamic #264,  0            // InvokeDynamic #14:apply:()Ljava/util/function/Function;
+       8: invokevirtual #106                // Method getOrDefault:(Ljava/lang/String;Ljava/lang/Object;Ljava/util/function/Function;)Ljava/lang/Object;
+      11: checkcast     #266                // class java/lang/String
+      14: areturn
+
+  public void iterateStringArray(java.lang.String, java.lang.Runnable, java.util.function.Consumer<java.lang.String>);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_2
+       3: aload_3
+       4: invokedynamic #277,  0            // InvokeDynamic #15:accept:(Ljava/lang/Runnable;Ljava/util/function/Consumer;)Ljava/util/function/Consumer;
+       9: invokevirtual #79                 // Method unpack:(Ljava/lang/String;Ljava/util/function/Consumer;)V
+      12: return
+
+  public void iterateReaderArray(java.lang.String, java.lang.Runnable, java.util.function.Consumer<org.mtr.core.serializer.ReaderBase>);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_2
+       3: aload_3
+       4: invokedynamic #284,  0            // InvokeDynamic #16:accept:(Ljava/lang/Runnable;Ljava/util/function/Consumer;)Ljava/util/function/Consumer;
+       9: invokevirtual #79                 // Method unpack:(Ljava/lang/String;Ljava/util/function/Consumer;)V
+      12: return
+
+  public org.mtr.core.serializer.ReaderBase getChild(java.lang.String);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: new           #2                  // class org/mtr/core/serializer/JsonReader
+       5: dup
+       6: new           #289                // class org/mtr/libraries/com/google/gson/JsonObject
+       9: dup
+      10: invokespecial #290                // Method org/mtr/libraries/com/google/gson/JsonObject."<init>":()V
+      13: invokespecial #292                // Method "<init>":(Lorg/mtr/libraries/com/google/gson/JsonElement;)V
+      16: invokedynamic #296,  0            // InvokeDynamic #17:apply:()Ljava/util/function/Function;
+      21: invokevirtual #106                // Method getOrDefault:(Ljava/lang/String;Ljava/lang/Object;Ljava/util/function/Function;)Ljava/lang/Object;
+      24: checkcast     #4                  // class org/mtr/core/serializer/ReaderBase
+      27: areturn
+
+  public void unpackChild(java.lang.String, java.util.function.Consumer<org.mtr.core.serializer.ReaderBase>);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_2
+       3: invokedynamic #303,  0            // InvokeDynamic #18:accept:(Ljava/util/function/Consumer;)Ljava/util/function/Consumer;
+       8: invokevirtual #79                 // Method unpack:(Ljava/lang/String;Ljava/util/function/Consumer;)V
+      11: return
+
+  public void merge(org.mtr.core.serializer.ReaderBase);
+    Code:
+       0: aload_1
+       1: instanceof    #2                  // class org/mtr/core/serializer/JsonReader
+       4: ifeq          23
+       7: aload_1
+       8: checkcast     #2                  // class org/mtr/core/serializer/JsonReader
+      11: astore_2
+      12: aload_0
+      13: getfield      #26                 // Field map:Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/Object2ObjectArrayMap;
+      16: aload_2
+      17: getfield      #26                 // Field map:Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/Object2ObjectArrayMap;
+      20: invokevirtual #309                // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/Object2ObjectArrayMap.putAll:(Ljava/util/Map;)V
+      23: return
+
+  private void unpack(java.lang.String, java.util.function.Consumer<org.mtr.libraries.com.google.gson.JsonElement>);
+    Code:
+       0: aload_0
+       1: aload_0
+       2: getfield      #26                 // Field map:Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/Object2ObjectArrayMap;
+       5: aload_1
+       6: invokevirtual #316                // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/Object2ObjectArrayMap.get:(Ljava/lang/Object;)Ljava/lang/Object;
+       9: checkcast     #318                // class org/mtr/libraries/com/google/gson/JsonElement
+      12: aload_2
+      13: invokevirtual #322                // Method unpackValue:(Ljava/lang/Object;Ljava/util/function/Consumer;)V
+      16: return
+
+  private <T> T getOrDefault(java.lang.String, T, java.util.function.Function<org.mtr.libraries.com.google.gson.JsonElement, T>);
+    Code:
+       0: aload_0
+       1: aload_0
+       2: getfield      #26                 // Field map:Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/Object2ObjectArrayMap;
+       5: aload_1
+       6: invokevirtual #316                // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/Object2ObjectArrayMap.get:(Ljava/lang/Object;)Ljava/lang/Object;
+       9: checkcast     #318                // class org/mtr/libraries/com/google/gson/JsonElement
+      12: aload_2
+      13: aload_3
+      14: invokevirtual #329                // Method getValueOrDefault:(Ljava/lang/Object;Ljava/lang/Object;Ljava/util/function/Function;)Ljava/lang/Object;
+      17: areturn
+
+  public static org.mtr.core.serializer.JsonReader parse(java.lang.String);
+    Code:
+       0: new           #2                  // class org/mtr/core/serializer/JsonReader
+       3: dup
+       4: aload_0
+       5: invokestatic  #342                // InterfaceMethod org/mtr/core/tool/Utilities.parseJson:(Ljava/lang/String;)Lorg/mtr/libraries/com/google/gson/JsonObject;
+       8: invokespecial #292                // Method "<init>":(Lorg/mtr/libraries/com/google/gson/JsonElement;)V
+      11: areturn
+
+  private static boolean getBoolean(org.mtr.libraries.com.google.gson.JsonElement);
+    Code:
+       0: aload_0
+       1: invokevirtual #346                // Method org/mtr/libraries/com/google/gson/JsonElement.getAsBoolean:()Z
+       4: ireturn
+
+  private static int getInt(org.mtr.libraries.com.google.gson.JsonElement);
+    Code:
+       0: aload_0
+       1: invokevirtual #349                // Method org/mtr/libraries/com/google/gson/JsonElement.getAsInt:()I
+       4: ireturn
+
+  private static long getLong(org.mtr.libraries.com.google.gson.JsonElement);
+    Code:
+       0: aload_0
+       1: invokevirtual #352                // Method org/mtr/libraries/com/google/gson/JsonElement.getAsLong:()J
+       4: lreturn
+
+  private static double getDouble(org.mtr.libraries.com.google.gson.JsonElement);
+    Code:
+       0: aload_0
+       1: invokevirtual #355                // Method org/mtr/libraries/com/google/gson/JsonElement.getAsDouble:()D
+       4: dreturn
+
+  private static java.lang.String getString(org.mtr.libraries.com.google.gson.JsonElement);
+    Code:
+       0: aload_0
+       1: invokevirtual #359                // Method org/mtr/libraries/com/google/gson/JsonElement.getAsString:()Ljava/lang/String;
+       4: areturn
+
+  private static void iterateArray(org.mtr.libraries.com.google.gson.JsonElement, java.lang.Runnable, java.util.function.Consumer<org.mtr.libraries.com.google.gson.JsonElement>);
+    Code:
+       0: aload_1
+       1: invokeinterface #367,  1          // InterfaceMethod java/lang/Runnable.run:()V
+       6: aload_0
+       7: invokevirtual #371                // Method org/mtr/libraries/com/google/gson/JsonElement.getAsJsonArray:()Lorg/mtr/libraries/com/google/gson/JsonArray;
+      10: aload_2
+      11: invokedynamic #376,  0            // InvokeDynamic #19:accept:(Ljava/util/function/Consumer;)Ljava/util/function/Consumer;
+      16: invokevirtual #382                // Method org/mtr/libraries/com/google/gson/JsonArray.forEach:(Ljava/util/function/Consumer;)V
+      19: return
+
+  private static void iterateMap(org.mtr.libraries.com.google.gson.JsonElement, java.util.function.BiConsumer<java.lang.String, org.mtr.libraries.com.google.gson.JsonElement>);
+    Code:
+       0: aload_0
+       1: invokevirtual #387                // Method org/mtr/libraries/com/google/gson/JsonElement.getAsJsonObject:()Lorg/mtr/libraries/com/google/gson/JsonObject;
+       4: invokevirtual #391                // Method org/mtr/libraries/com/google/gson/JsonObject.asMap:()Ljava/util/Map;
+       7: aload_1
+       8: invokedynamic #399,  0            // InvokeDynamic #20:accept:(Ljava/util/function/BiConsumer;)Ljava/util/function/BiConsumer;
+      13: invokeinterface #404,  2          // InterfaceMethod java/util/Map.forEach:(Ljava/util/function/BiConsumer;)V
+      18: return
+
+  private static void lambda$iterateMap$19(java.util.function.BiConsumer, java.lang.String, org.mtr.libraries.com.google.gson.JsonElement);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_2
+       3: invokeinterface #412,  3          // InterfaceMethod java/util/function/BiConsumer.accept:(Ljava/lang/Object;Ljava/lang/Object;)V
+       8: goto          26
+      11: astore_3
+      12: getstatic     #414                // Field log:Lorg/mtr/libraries/org/apache/logging/log4j/Logger;
+      15: ldc_w         #416                // String Skipping malformed JSON entry {}={}
+      18: aload_1
+      19: aload_2
+      20: aload_3
+      21: invokeinterface #422,  5          // InterfaceMethod org/mtr/libraries/org/apache/logging/log4j/Logger.debug:(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
+      26: return
+    Exception table:
+       from    to  target type
+           0     8    11   Class java/lang/Exception
+
+  private static void lambda$iterateArray$18(java.util.function.Consumer, org.mtr.libraries.com.google.gson.JsonElement);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokeinterface #430,  2          // InterfaceMethod java/util/function/Consumer.accept:(Ljava/lang/Object;)V
+       7: goto          24
+      10: astore_2
+      11: getstatic     #414                // Field log:Lorg/mtr/libraries/org/apache/logging/log4j/Logger;
+      14: ldc_w         #432                // String Skipping malformed JSON array element {}
+      17: aload_1
+      18: aload_2
+      19: invokeinterface #435,  4          // InterfaceMethod org/mtr/libraries/org/apache/logging/log4j/Logger.debug:(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V
+      24: return
+    Exception table:
+       from    to  target type
+           0     7    10   Class java/lang/Exception
+
+  private static void lambda$unpackChild$17(java.util.function.Consumer, org.mtr.libraries.com.google.gson.JsonElement);
+    Code:
+       0: aload_0
+       1: new           #2                  // class org/mtr/core/serializer/JsonReader
+       4: dup
+       5: aload_1
+       6: invokespecial #292                // Method "<init>":(Lorg/mtr/libraries/com/google/gson/JsonElement;)V
+       9: invokeinterface #430,  2          // InterfaceMethod java/util/function/Consumer.accept:(Ljava/lang/Object;)V
+      14: return
+
+  private static void lambda$iterateReaderArray$16(java.lang.Runnable, java.util.function.Consumer, org.mtr.libraries.com.google.gson.JsonElement);
+    Code:
+       0: aload_2
+       1: aload_0
+       2: aload_1
+       3: invokedynamic #441,  0            // InvokeDynamic #21:accept:(Ljava/util/function/Consumer;)Ljava/util/function/Consumer;
+       8: invokestatic  #443                // Method iterateArray:(Lorg/mtr/libraries/com/google/gson/JsonElement;Ljava/lang/Runnable;Ljava/util/function/Consumer;)V
+      11: return
+
+  private static void lambda$iterateReaderArray$15(java.util.function.Consumer, org.mtr.libraries.com.google.gson.JsonElement);
+    Code:
+       0: aload_0
+       1: new           #2                  // class org/mtr/core/serializer/JsonReader
+       4: dup
+       5: aload_1
+       6: invokespecial #292                // Method "<init>":(Lorg/mtr/libraries/com/google/gson/JsonElement;)V
+       9: invokeinterface #430,  2          // InterfaceMethod java/util/function/Consumer.accept:(Ljava/lang/Object;)V
+      14: return
+
+  private static void lambda$iterateStringArray$14(java.lang.Runnable, java.util.function.Consumer, org.mtr.libraries.com.google.gson.JsonElement);
+    Code:
+       0: aload_2
+       1: aload_0
+       2: aload_1
+       3: invokedynamic #448,  0            // InvokeDynamic #22:accept:(Ljava/util/function/Consumer;)Ljava/util/function/Consumer;
+       8: invokestatic  #443                // Method iterateArray:(Lorg/mtr/libraries/com/google/gson/JsonElement;Ljava/lang/Runnable;Ljava/util/function/Consumer;)V
+      11: return
+
+  private static void lambda$iterateStringArray$13(java.util.function.Consumer, org.mtr.libraries.com.google.gson.JsonElement);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokestatic  #261                // Method getString:(Lorg/mtr/libraries/com/google/gson/JsonElement;)Ljava/lang/String;
+       5: invokeinterface #430,  2          // InterfaceMethod java/util/function/Consumer.accept:(Ljava/lang/Object;)V
+      10: return
+
+  private static void lambda$unpackString$12(java.util.function.Consumer, org.mtr.libraries.com.google.gson.JsonElement);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokestatic  #261                // Method getString:(Lorg/mtr/libraries/com/google/gson/JsonElement;)Ljava/lang/String;
+       5: invokeinterface #430,  2          // InterfaceMethod java/util/function/Consumer.accept:(Ljava/lang/Object;)V
+      10: return
+
+  private static void lambda$iterateDoubleArray$11(java.lang.Runnable, org.mtr.libraries.it.unimi.dsi.fastutil.doubles.DoubleConsumer, org.mtr.libraries.com.google.gson.JsonElement);
+    Code:
+       0: aload_2
+       1: aload_0
+       2: aload_1
+       3: invokedynamic #453,  0            // InvokeDynamic #23:accept:(Lorg/mtr/libraries/it/unimi/dsi/fastutil/doubles/DoubleConsumer;)Ljava/util/function/Consumer;
+       8: invokestatic  #443                // Method iterateArray:(Lorg/mtr/libraries/com/google/gson/JsonElement;Ljava/lang/Runnable;Ljava/util/function/Consumer;)V
+      11: return
+
+  private static void lambda$iterateDoubleArray$10(org.mtr.libraries.it.unimi.dsi.fastutil.doubles.DoubleConsumer, org.mtr.libraries.com.google.gson.JsonElement);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokestatic  #225                // Method getDouble:(Lorg/mtr/libraries/com/google/gson/JsonElement;)D
+       5: invokeinterface #458,  3          // InterfaceMethod org/mtr/libraries/it/unimi/dsi/fastutil/doubles/DoubleConsumer.accept:(D)V
+      10: return
+
+  private static void lambda$unpackDouble$9(org.mtr.libraries.it.unimi.dsi.fastutil.doubles.DoubleConsumer, org.mtr.libraries.com.google.gson.JsonElement);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokestatic  #225                // Method getDouble:(Lorg/mtr/libraries/com/google/gson/JsonElement;)D
+       5: invokeinterface #458,  3          // InterfaceMethod org/mtr/libraries/it/unimi/dsi/fastutil/doubles/DoubleConsumer.accept:(D)V
+      10: return
+
+  private static void lambda$iterateLongArray$8(java.lang.Runnable, org.mtr.libraries.it.unimi.dsi.fastutil.longs.LongConsumer, org.mtr.libraries.com.google.gson.JsonElement);
+    Code:
+       0: aload_2
+       1: aload_0
+       2: aload_1
+       3: invokedynamic #463,  0            // InvokeDynamic #24:accept:(Lorg/mtr/libraries/it/unimi/dsi/fastutil/longs/LongConsumer;)Ljava/util/function/Consumer;
+       8: invokestatic  #443                // Method iterateArray:(Lorg/mtr/libraries/com/google/gson/JsonElement;Ljava/lang/Runnable;Ljava/util/function/Consumer;)V
+      11: return
+
+  private static void lambda$iterateLongArray$7(org.mtr.libraries.it.unimi.dsi.fastutil.longs.LongConsumer, org.mtr.libraries.com.google.gson.JsonElement);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokestatic  #185                // Method getLong:(Lorg/mtr/libraries/com/google/gson/JsonElement;)J
+       5: invokeinterface #468,  3          // InterfaceMethod org/mtr/libraries/it/unimi/dsi/fastutil/longs/LongConsumer.accept:(J)V
+      10: return
+
+  private static void lambda$unpackLong$6(org.mtr.libraries.it.unimi.dsi.fastutil.longs.LongConsumer, org.mtr.libraries.com.google.gson.JsonElement);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokestatic  #185                // Method getLong:(Lorg/mtr/libraries/com/google/gson/JsonElement;)J
+       5: invokeinterface #468,  3          // InterfaceMethod org/mtr/libraries/it/unimi/dsi/fastutil/longs/LongConsumer.accept:(J)V
+      10: return
+
+  private static void lambda$iterateIntArray$5(java.lang.Runnable, org.mtr.libraries.it.unimi.dsi.fastutil.ints.IntConsumer, org.mtr.libraries.com.google.gson.JsonElement);
+    Code:
+       0: aload_2
+       1: aload_0
+       2: aload_1
+       3: invokedynamic #473,  0            // InvokeDynamic #25:accept:(Lorg/mtr/libraries/it/unimi/dsi/fastutil/ints/IntConsumer;)Ljava/util/function/Consumer;
+       8: invokestatic  #443                // Method iterateArray:(Lorg/mtr/libraries/com/google/gson/JsonElement;Ljava/lang/Runnable;Ljava/util/function/Consumer;)V
+      11: return
+
+  private static void lambda$iterateIntArray$4(org.mtr.libraries.it.unimi.dsi.fastutil.ints.IntConsumer, org.mtr.libraries.com.google.gson.JsonElement);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokestatic  #145                // Method getInt:(Lorg/mtr/libraries/com/google/gson/JsonElement;)I
+       5: invokeinterface #478,  2          // InterfaceMethod org/mtr/libraries/it/unimi/dsi/fastutil/ints/IntConsumer.accept:(I)V
+      10: return
+
+  private static void lambda$unpackInt$3(org.mtr.libraries.it.unimi.dsi.fastutil.ints.IntConsumer, org.mtr.libraries.com.google.gson.JsonElement);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokestatic  #145                // Method getInt:(Lorg/mtr/libraries/com/google/gson/JsonElement;)I
+       5: invokeinterface #478,  2          // InterfaceMethod org/mtr/libraries/it/unimi/dsi/fastutil/ints/IntConsumer.accept:(I)V
+      10: return
+
+  private static void lambda$iterateBooleanArray$2(java.lang.Runnable, org.mtr.libraries.it.unimi.dsi.fastutil.booleans.BooleanConsumer, org.mtr.libraries.com.google.gson.JsonElement);
+    Code:
+       0: aload_2
+       1: aload_0
+       2: aload_1
+       3: invokedynamic #483,  0            // InvokeDynamic #26:accept:(Lorg/mtr/libraries/it/unimi/dsi/fastutil/booleans/BooleanConsumer;)Ljava/util/function/Consumer;
+       8: invokestatic  #443                // Method iterateArray:(Lorg/mtr/libraries/com/google/gson/JsonElement;Ljava/lang/Runnable;Ljava/util/function/Consumer;)V
+      11: return
+
+  private static void lambda$iterateBooleanArray$1(org.mtr.libraries.it.unimi.dsi.fastutil.booleans.BooleanConsumer, org.mtr.libraries.com.google.gson.JsonElement);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokestatic  #95                 // Method getBoolean:(Lorg/mtr/libraries/com/google/gson/JsonElement;)Z
+       5: invokeinterface #488,  2          // InterfaceMethod org/mtr/libraries/it/unimi/dsi/fastutil/booleans/BooleanConsumer.accept:(Z)V
+      10: return
+
+  private static void lambda$unpackBoolean$0(org.mtr.libraries.it.unimi.dsi.fastutil.booleans.BooleanConsumer, org.mtr.libraries.com.google.gson.JsonElement);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokestatic  #95                 // Method getBoolean:(Lorg/mtr/libraries/com/google/gson/JsonElement;)Z
+       5: invokeinterface #488,  2          // InterfaceMethod org/mtr/libraries/it/unimi/dsi/fastutil/booleans/BooleanConsumer.accept:(Z)V
+      10: return
+
+  static {};
+    Code:
+       0: ldc           #2                  // class org/mtr/core/serializer/JsonReader
+       2: invokestatic  #495                // Method org/mtr/libraries/org/apache/logging/log4j/LogManager.getLogger:(Ljava/lang/Class;)Lorg/mtr/libraries/org/apache/logging/log4j/Logger;
+       5: putstatic     #414                // Field log:Lorg/mtr/libraries/org/apache/logging/log4j/Logger;
+       8: return
+}

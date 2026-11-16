@@ -173,17 +173,20 @@ GPU or long-session acceptance field. Those outcomes require their actual worklo
 
 ## Full-client counterpart
 
-Use the same predeclared structure for each exact official/v6 and NF248/NF265 target,
-but collect real startup/reload/route evidence with the client probes and JFR tools.
-The source runner does not launch or control a Minecraft world.
+Current validation is limited to official MTR 4.1.0-beta.2 on the exact NF248 and
+NF265 targets; v6 remains paused. Follow [CLIENT_EXPERIMENT.md](CLIENT_EXPERIMENT.md)
+for four prerequisite current qualifications and the frozen 48 independent JVM
+trials. Collect real startup/reload/route evidence with the same independent
+native observer and profile JFR tools. The source runner does not launch or
+control a Minecraft world.
 
 | Stage | Controls and evidence needed |
 | --- | --- |
 | Frozen client | Exact packaged mod/MTR/probe hashes, Java/JVM flags, pack hashes/order, disposable world snapshot, settings, route/camera, hardware/power |
-| Startup | Process-start to completed native registration/parsing; samplers running before loading, final zero pending/tickets/permits |
+| Startup | Actual process creation to the first captured settled native snapshot after matching RETURN; retain native observation time, external capture delay and sample interval. Require native pending zero/settled on both arms; companion tickets/permits remain unavailable where unsupported. |
 | Reload | Request to completion of a **new** resource epoch; start/end snapshots, native F3+T and settled counters |
 | Steady route | Same warm-up, route, camera, duration, VSync/cap and view distance; separate frame/GC windows |
-| Instrumentation control | Matching isolated baseline/candidate runs without probe/JFR; independently establish completion timing |
+| Instrumentation control | Plain/profile runs use identical neutral observer bytes and quantify the JFR/GC increment; observer-off calibration is a separate required gate for claims about uninstrumented play. |
 | Correctness | Exact native geometry/cache comparisons, rendered bodies/doors, passenger paths, failure cleanup and actual GPU ownership |
 | Durability | At least 20 consecutive full-pack reloads and two-hour route; compare matched quiescent points and retaining owners |
 

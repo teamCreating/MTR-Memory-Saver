@@ -1,0 +1,491 @@
+Compiled from "VehicleModel.java"
+public final class org.mtr.resource.VehicleModel extends org.mtr.generated.resource.VehicleModelSchema {
+  final java.util.function.Supplier<org.mtr.model.BuiltVehicleModelHolder> builtVehicleModelHolderSupplier;
+
+  private final org.mtr.core.serializer.JsonReader modelPropertiesJsonReader;
+
+  private final org.mtr.core.serializer.JsonReader positionDefinitionsJsonReader;
+
+  private final org.mtr.model.ModelLoaderBase modelLoaderBase;
+
+  public static final int MODEL_LIFESPAN;
+
+  public org.mtr.resource.VehicleModel(org.mtr.core.serializer.ReaderBase, org.mtr.resource.ResourceProvider);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_2
+       3: invokespecial #1                  // Method org/mtr/generated/resource/VehicleModelSchema."<init>":(Lorg/mtr/core/serializer/ReaderBase;Lorg/mtr/resource/ResourceProvider;)V
+       6: aload_0
+       7: aload_1
+       8: invokevirtual #7                  // Method updateData:(Lorg/mtr/core/serializer/ReaderBase;)V
+      11: aload_0
+      12: new           #13                 // class org/mtr/core/serializer/JsonReader
+      15: dup
+      16: aload_2
+      17: aload_0
+      18: getfield      #15                 // Field modelPropertiesResource:Ljava/lang/String;
+      21: ldc           #19                 // String json
+      23: invokestatic  #21                 // InterfaceMethod org/mtr/resource/CustomResourceTools.formatIdentifierWithDefault:(Ljava/lang/String;Ljava/lang/String;)Lnet/minecraft/resources/ResourceLocation;
+      26: invokeinterface #27,  2           // InterfaceMethod org/mtr/resource/ResourceProvider.get:(Lnet/minecraft/resources/ResourceLocation;)Ljava/lang/String;
+      31: invokestatic  #33                 // InterfaceMethod org/mtr/core/tool/Utilities.parseJson:(Ljava/lang/String;)Lorg/mtr/libraries/com/google/gson/JsonObject;
+      34: invokespecial #39                 // Method org/mtr/core/serializer/JsonReader."<init>":(Lorg/mtr/libraries/com/google/gson/JsonElement;)V
+      37: putfield      #42                 // Field modelPropertiesJsonReader:Lorg/mtr/core/serializer/JsonReader;
+      40: aload_0
+      41: new           #13                 // class org/mtr/core/serializer/JsonReader
+      44: dup
+      45: aload_2
+      46: aload_0
+      47: getfield      #46                 // Field positionDefinitionsResource:Ljava/lang/String;
+      50: ldc           #19                 // String json
+      52: invokestatic  #21                 // InterfaceMethod org/mtr/resource/CustomResourceTools.formatIdentifierWithDefault:(Ljava/lang/String;Ljava/lang/String;)Lnet/minecraft/resources/ResourceLocation;
+      55: invokeinterface #27,  2           // InterfaceMethod org/mtr/resource/ResourceProvider.get:(Lnet/minecraft/resources/ResourceLocation;)Ljava/lang/String;
+      60: invokestatic  #33                 // InterfaceMethod org/mtr/core/tool/Utilities.parseJson:(Ljava/lang/String;)Lorg/mtr/libraries/com/google/gson/JsonObject;
+      63: invokespecial #39                 // Method org/mtr/core/serializer/JsonReader."<init>":(Lorg/mtr/libraries/com/google/gson/JsonElement;)V
+      66: putfield      #49                 // Field positionDefinitionsJsonReader:Lorg/mtr/core/serializer/JsonReader;
+      69: aload_0
+      70: aload_0
+      71: getfield      #52                 // Field modelResource:Ljava/lang/String;
+      74: aload_0
+      75: getfield      #55                 // Field textureResource:Ljava/lang/String;
+      78: aload_2
+      79: aload_0
+      80: getfield      #58                 // Field flipTextureV:Z
+      83: invokestatic  #62                 // Method getModelLoaderBase:(Ljava/lang/String;Ljava/lang/String;Lorg/mtr/resource/ResourceProvider;Z)Lorg/mtr/model/ModelLoaderBase;
+      86: putfield      #66                 // Field modelLoaderBase:Lorg/mtr/model/ModelLoaderBase;
+      89: aload_0
+      90: aload_0
+      91: aload_0
+      92: getfield      #42                 // Field modelPropertiesJsonReader:Lorg/mtr/core/serializer/JsonReader;
+      95: aload_0
+      96: getfield      #49                 // Field positionDefinitionsJsonReader:Lorg/mtr/core/serializer/JsonReader;
+      99: invokevirtual #70                 // Method createModelSupplier:(Lorg/mtr/core/serializer/JsonReader;Lorg/mtr/core/serializer/JsonReader;)Ljava/util/function/Supplier;
+     102: putfield      #74                 // Field builtVehicleModelHolderSupplier:Ljava/util/function/Supplier;
+     105: return
+
+  public org.mtr.resource.VehicleModel(org.mtr.core.serializer.ReaderBase, org.mtr.core.serializer.JsonReader, org.mtr.core.serializer.JsonReader, org.mtr.resource.ResourceProvider);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload         4
+       4: invokespecial #1                  // Method org/mtr/generated/resource/VehicleModelSchema."<init>":(Lorg/mtr/core/serializer/ReaderBase;Lorg/mtr/resource/ResourceProvider;)V
+       7: aload_0
+       8: aload_1
+       9: invokevirtual #7                  // Method updateData:(Lorg/mtr/core/serializer/ReaderBase;)V
+      12: aload_0
+      13: aload_2
+      14: putfield      #42                 // Field modelPropertiesJsonReader:Lorg/mtr/core/serializer/JsonReader;
+      17: aload_0
+      18: aload_3
+      19: putfield      #49                 // Field positionDefinitionsJsonReader:Lorg/mtr/core/serializer/JsonReader;
+      22: aload_0
+      23: aload_0
+      24: getfield      #52                 // Field modelResource:Ljava/lang/String;
+      27: aload_0
+      28: getfield      #55                 // Field textureResource:Ljava/lang/String;
+      31: aload         4
+      33: aload_0
+      34: getfield      #58                 // Field flipTextureV:Z
+      37: invokestatic  #62                 // Method getModelLoaderBase:(Ljava/lang/String;Ljava/lang/String;Lorg/mtr/resource/ResourceProvider;Z)Lorg/mtr/model/ModelLoaderBase;
+      40: putfield      #66                 // Field modelLoaderBase:Lorg/mtr/model/ModelLoaderBase;
+      43: aload_0
+      44: aload_0
+      45: aload_2
+      46: aload_3
+      47: invokevirtual #70                 // Method createModelSupplier:(Lorg/mtr/core/serializer/JsonReader;Lorg/mtr/core/serializer/JsonReader;)Ljava/util/function/Supplier;
+      50: putfield      #74                 // Field builtVehicleModelHolderSupplier:Ljava/util/function/Supplier;
+      53: return
+
+  org.mtr.resource.VehicleModel(java.lang.String, java.lang.String, java.lang.String, java.lang.String, boolean, org.mtr.resource.ResourceProvider);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_2
+       3: aload_3
+       4: aload         4
+       6: iload         5
+       8: aload         6
+      10: invokespecial #78                 // Method org/mtr/generated/resource/VehicleModelSchema."<init>":(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZLorg/mtr/resource/ResourceProvider;)V
+      13: aload_0
+      14: new           #13                 // class org/mtr/core/serializer/JsonReader
+      17: dup
+      18: aload         6
+      20: aload_3
+      21: ldc           #19                 // String json
+      23: invokestatic  #21                 // InterfaceMethod org/mtr/resource/CustomResourceTools.formatIdentifierWithDefault:(Ljava/lang/String;Ljava/lang/String;)Lnet/minecraft/resources/ResourceLocation;
+      26: invokeinterface #27,  2           // InterfaceMethod org/mtr/resource/ResourceProvider.get:(Lnet/minecraft/resources/ResourceLocation;)Ljava/lang/String;
+      31: invokestatic  #33                 // InterfaceMethod org/mtr/core/tool/Utilities.parseJson:(Ljava/lang/String;)Lorg/mtr/libraries/com/google/gson/JsonObject;
+      34: invokespecial #39                 // Method org/mtr/core/serializer/JsonReader."<init>":(Lorg/mtr/libraries/com/google/gson/JsonElement;)V
+      37: putfield      #42                 // Field modelPropertiesJsonReader:Lorg/mtr/core/serializer/JsonReader;
+      40: aload_0
+      41: new           #13                 // class org/mtr/core/serializer/JsonReader
+      44: dup
+      45: aload         6
+      47: aload         4
+      49: ldc           #19                 // String json
+      51: invokestatic  #21                 // InterfaceMethod org/mtr/resource/CustomResourceTools.formatIdentifierWithDefault:(Ljava/lang/String;Ljava/lang/String;)Lnet/minecraft/resources/ResourceLocation;
+      54: invokeinterface #27,  2           // InterfaceMethod org/mtr/resource/ResourceProvider.get:(Lnet/minecraft/resources/ResourceLocation;)Ljava/lang/String;
+      59: invokestatic  #33                 // InterfaceMethod org/mtr/core/tool/Utilities.parseJson:(Ljava/lang/String;)Lorg/mtr/libraries/com/google/gson/JsonObject;
+      62: invokespecial #39                 // Method org/mtr/core/serializer/JsonReader."<init>":(Lorg/mtr/libraries/com/google/gson/JsonElement;)V
+      65: putfield      #49                 // Field positionDefinitionsJsonReader:Lorg/mtr/core/serializer/JsonReader;
+      68: aload_0
+      69: aload_1
+      70: aload_2
+      71: aload         6
+      73: iload         5
+      75: invokestatic  #62                 // Method getModelLoaderBase:(Ljava/lang/String;Ljava/lang/String;Lorg/mtr/resource/ResourceProvider;Z)Lorg/mtr/model/ModelLoaderBase;
+      78: putfield      #66                 // Field modelLoaderBase:Lorg/mtr/model/ModelLoaderBase;
+      81: aload_0
+      82: aload_0
+      83: aload_0
+      84: getfield      #42                 // Field modelPropertiesJsonReader:Lorg/mtr/core/serializer/JsonReader;
+      87: aload_0
+      88: getfield      #49                 // Field positionDefinitionsJsonReader:Lorg/mtr/core/serializer/JsonReader;
+      91: invokevirtual #70                 // Method createModelSupplier:(Lorg/mtr/core/serializer/JsonReader;Lorg/mtr/core/serializer/JsonReader;)Ljava/util/function/Supplier;
+      94: putfield      #74                 // Field builtVehicleModelHolderSupplier:Ljava/util/function/Supplier;
+      97: return
+
+  public void reset();
+    Code:
+       0: aload_0
+       1: getfield      #66                 // Field modelLoaderBase:Lorg/mtr/model/ModelLoaderBase;
+       4: invokevirtual #81                 // Method org/mtr/model/ModelLoaderBase.reset:()V
+       7: return
+
+  public org.mtr.resource.MinecraftModelResource getAsMinecraftResource();
+    Code:
+       0: new           #87                 // class org/mtr/resource/MinecraftModelResource
+       3: dup
+       4: aload_0
+       5: getfield      #52                 // Field modelResource:Ljava/lang/String;
+       8: aload_0
+       9: getfield      #15                 // Field modelPropertiesResource:Ljava/lang/String;
+      12: aload_0
+      13: getfield      #46                 // Field positionDefinitionsResource:Ljava/lang/String;
+      16: invokespecial #89                 // Method org/mtr/resource/MinecraftModelResource."<init>":(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+      19: areturn
+
+  public void addToTextureResource(org.mtr.libraries.it.unimi.dsi.fastutil.objects.ObjectArraySet<java.lang.String>);
+    Code:
+       0: new           #92                 // class org/mtr/resource/ModelProperties
+       3: dup
+       4: aload_0
+       5: getfield      #42                 // Field modelPropertiesJsonReader:Lorg/mtr/core/serializer/JsonReader;
+       8: invokespecial #94                 // Method org/mtr/resource/ModelProperties."<init>":(Lorg/mtr/core/serializer/ReaderBase;)V
+      11: astore_2
+      12: aload_2
+      13: getfield      #96                 // Field org/mtr/resource/ModelProperties.gangwayInnerSideTexture:Lnet/minecraft/resources/ResourceLocation;
+      16: ifnull        31
+      19: aload_1
+      20: aload_2
+      21: getfield      #96                 // Field org/mtr/resource/ModelProperties.gangwayInnerSideTexture:Lnet/minecraft/resources/ResourceLocation;
+      24: invokevirtual #100                // Method net/minecraft/resources/ResourceLocation.toString:()Ljava/lang/String;
+      27: invokevirtual #106                // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArraySet.add:(Ljava/lang/Object;)Z
+      30: pop
+      31: aload_2
+      32: getfield      #112                // Field org/mtr/resource/ModelProperties.gangwayInnerTopTexture:Lnet/minecraft/resources/ResourceLocation;
+      35: ifnull        50
+      38: aload_1
+      39: aload_2
+      40: getfield      #112                // Field org/mtr/resource/ModelProperties.gangwayInnerTopTexture:Lnet/minecraft/resources/ResourceLocation;
+      43: invokevirtual #100                // Method net/minecraft/resources/ResourceLocation.toString:()Ljava/lang/String;
+      46: invokevirtual #106                // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArraySet.add:(Ljava/lang/Object;)Z
+      49: pop
+      50: aload_2
+      51: getfield      #115                // Field org/mtr/resource/ModelProperties.gangwayInnerBottomTexture:Lnet/minecraft/resources/ResourceLocation;
+      54: ifnull        69
+      57: aload_1
+      58: aload_2
+      59: getfield      #115                // Field org/mtr/resource/ModelProperties.gangwayInnerBottomTexture:Lnet/minecraft/resources/ResourceLocation;
+      62: invokevirtual #100                // Method net/minecraft/resources/ResourceLocation.toString:()Ljava/lang/String;
+      65: invokevirtual #106                // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArraySet.add:(Ljava/lang/Object;)Z
+      68: pop
+      69: aload_2
+      70: getfield      #118                // Field org/mtr/resource/ModelProperties.gangwayOuterSideTexture:Lnet/minecraft/resources/ResourceLocation;
+      73: ifnull        88
+      76: aload_1
+      77: aload_2
+      78: getfield      #118                // Field org/mtr/resource/ModelProperties.gangwayOuterSideTexture:Lnet/minecraft/resources/ResourceLocation;
+      81: invokevirtual #100                // Method net/minecraft/resources/ResourceLocation.toString:()Ljava/lang/String;
+      84: invokevirtual #106                // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArraySet.add:(Ljava/lang/Object;)Z
+      87: pop
+      88: aload_2
+      89: getfield      #121                // Field org/mtr/resource/ModelProperties.gangwayOuterTopTexture:Lnet/minecraft/resources/ResourceLocation;
+      92: ifnull        107
+      95: aload_1
+      96: aload_2
+      97: getfield      #121                // Field org/mtr/resource/ModelProperties.gangwayOuterTopTexture:Lnet/minecraft/resources/ResourceLocation;
+     100: invokevirtual #100                // Method net/minecraft/resources/ResourceLocation.toString:()Ljava/lang/String;
+     103: invokevirtual #106                // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArraySet.add:(Ljava/lang/Object;)Z
+     106: pop
+     107: aload_2
+     108: getfield      #124                // Field org/mtr/resource/ModelProperties.gangwayOuterBottomTexture:Lnet/minecraft/resources/ResourceLocation;
+     111: ifnull        126
+     114: aload_1
+     115: aload_2
+     116: getfield      #124                // Field org/mtr/resource/ModelProperties.gangwayOuterBottomTexture:Lnet/minecraft/resources/ResourceLocation;
+     119: invokevirtual #100                // Method net/minecraft/resources/ResourceLocation.toString:()Ljava/lang/String;
+     122: invokevirtual #106                // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArraySet.add:(Ljava/lang/Object;)Z
+     125: pop
+     126: aload_2
+     127: getfield      #127                // Field org/mtr/resource/ModelProperties.barrierInnerSideTexture:Lnet/minecraft/resources/ResourceLocation;
+     130: ifnull        145
+     133: aload_1
+     134: aload_2
+     135: getfield      #127                // Field org/mtr/resource/ModelProperties.barrierInnerSideTexture:Lnet/minecraft/resources/ResourceLocation;
+     138: invokevirtual #100                // Method net/minecraft/resources/ResourceLocation.toString:()Ljava/lang/String;
+     141: invokevirtual #106                // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArraySet.add:(Ljava/lang/Object;)Z
+     144: pop
+     145: aload_2
+     146: getfield      #130                // Field org/mtr/resource/ModelProperties.barrierInnerTopTexture:Lnet/minecraft/resources/ResourceLocation;
+     149: ifnull        164
+     152: aload_1
+     153: aload_2
+     154: getfield      #130                // Field org/mtr/resource/ModelProperties.barrierInnerTopTexture:Lnet/minecraft/resources/ResourceLocation;
+     157: invokevirtual #100                // Method net/minecraft/resources/ResourceLocation.toString:()Ljava/lang/String;
+     160: invokevirtual #106                // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArraySet.add:(Ljava/lang/Object;)Z
+     163: pop
+     164: aload_2
+     165: getfield      #133                // Field org/mtr/resource/ModelProperties.barrierInnerBottomTexture:Lnet/minecraft/resources/ResourceLocation;
+     168: ifnull        183
+     171: aload_1
+     172: aload_2
+     173: getfield      #133                // Field org/mtr/resource/ModelProperties.barrierInnerBottomTexture:Lnet/minecraft/resources/ResourceLocation;
+     176: invokevirtual #100                // Method net/minecraft/resources/ResourceLocation.toString:()Ljava/lang/String;
+     179: invokevirtual #106                // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArraySet.add:(Ljava/lang/Object;)Z
+     182: pop
+     183: aload_2
+     184: getfield      #136                // Field org/mtr/resource/ModelProperties.barrierOuterSideTexture:Lnet/minecraft/resources/ResourceLocation;
+     187: ifnull        202
+     190: aload_1
+     191: aload_2
+     192: getfield      #136                // Field org/mtr/resource/ModelProperties.barrierOuterSideTexture:Lnet/minecraft/resources/ResourceLocation;
+     195: invokevirtual #100                // Method net/minecraft/resources/ResourceLocation.toString:()Ljava/lang/String;
+     198: invokevirtual #106                // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArraySet.add:(Ljava/lang/Object;)Z
+     201: pop
+     202: aload_2
+     203: getfield      #139                // Field org/mtr/resource/ModelProperties.barrierOuterTopTexture:Lnet/minecraft/resources/ResourceLocation;
+     206: ifnull        221
+     209: aload_1
+     210: aload_2
+     211: getfield      #139                // Field org/mtr/resource/ModelProperties.barrierOuterTopTexture:Lnet/minecraft/resources/ResourceLocation;
+     214: invokevirtual #100                // Method net/minecraft/resources/ResourceLocation.toString:()Ljava/lang/String;
+     217: invokevirtual #106                // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArraySet.add:(Ljava/lang/Object;)Z
+     220: pop
+     221: aload_2
+     222: getfield      #142                // Field org/mtr/resource/ModelProperties.barrierOuterBottomTexture:Lnet/minecraft/resources/ResourceLocation;
+     225: ifnull        240
+     228: aload_1
+     229: aload_2
+     230: getfield      #142                // Field org/mtr/resource/ModelProperties.barrierOuterBottomTexture:Lnet/minecraft/resources/ResourceLocation;
+     233: invokevirtual #100                // Method net/minecraft/resources/ResourceLocation.toString:()Ljava/lang/String;
+     236: invokevirtual #106                // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArraySet.add:(Ljava/lang/Object;)Z
+     239: pop
+     240: aload_1
+     241: aload_0
+     242: getfield      #55                 // Field textureResource:Ljava/lang/String;
+     245: invokevirtual #106                // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArraySet.add:(Ljava/lang/Object;)Z
+     248: pop
+     249: return
+
+  org.mtr.resource.VehicleModelWrapper toVehicleModelWrapper();
+    Code:
+       0: new           #92                 // class org/mtr/resource/ModelProperties
+       3: dup
+       4: aload_0
+       5: getfield      #42                 // Field modelPropertiesJsonReader:Lorg/mtr/core/serializer/JsonReader;
+       8: invokespecial #94                 // Method org/mtr/resource/ModelProperties."<init>":(Lorg/mtr/core/serializer/ReaderBase;)V
+      11: astore_1
+      12: new           #145                // class org/mtr/resource/PositionDefinitions
+      15: dup
+      16: aload_0
+      17: getfield      #49                 // Field positionDefinitionsJsonReader:Lorg/mtr/core/serializer/JsonReader;
+      20: invokespecial #147                // Method org/mtr/resource/PositionDefinitions."<init>":(Lorg/mtr/core/serializer/ReaderBase;)V
+      23: astore_2
+      24: new           #148                // class org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList
+      27: dup
+      28: invokespecial #150                // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList."<init>":()V
+      31: astore_3
+      32: aload_1
+      33: aload_2
+      34: aload_3
+      35: invokedynamic #152,  0            // InvokeDynamic #0:accept:(Lorg/mtr/resource/PositionDefinitions;Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList;)Ljava/util/function/Consumer;
+      40: invokevirtual #156                // Method org/mtr/resource/ModelProperties.iterateParts:(Ljava/util/function/Consumer;)V
+      43: aload_1
+      44: aload_0
+      45: getfield      #52                 // Field modelResource:Ljava/lang/String;
+      48: aload_0
+      49: getfield      #55                 // Field textureResource:Ljava/lang/String;
+      52: aload_0
+      53: getfield      #15                 // Field modelPropertiesResource:Ljava/lang/String;
+      56: aload_0
+      57: getfield      #46                 // Field positionDefinitionsResource:Ljava/lang/String;
+      60: aload_0
+      61: getfield      #58                 // Field flipTextureV:Z
+      64: aload_3
+      65: invokevirtual #160                // Method org/mtr/resource/ModelProperties.toVehicleModelWrapper:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZLorg/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList;)Lorg/mtr/resource/VehicleModelWrapper;
+      68: areturn
+
+  private java.util.function.Supplier<org.mtr.model.BuiltVehicleModelHolder> createModelSupplier(org.mtr.core.serializer.JsonReader, org.mtr.core.serializer.JsonReader);
+    Code:
+       0: new           #92                 // class org/mtr/resource/ModelProperties
+       3: dup
+       4: aload_1
+       5: invokespecial #94                 // Method org/mtr/resource/ModelProperties."<init>":(Lorg/mtr/core/serializer/ReaderBase;)V
+       8: astore_3
+       9: new           #145                // class org/mtr/resource/PositionDefinitions
+      12: dup
+      13: aload_2
+      14: invokespecial #147                // Method org/mtr/resource/PositionDefinitions."<init>":(Lorg/mtr/core/serializer/ReaderBase;)V
+      17: astore        4
+      19: aload_0
+      20: aload_3
+      21: aload         4
+      23: invokedynamic #164,  0            // InvokeDynamic #1:get:(Lorg/mtr/resource/VehicleModel;Lorg/mtr/resource/ModelProperties;Lorg/mtr/resource/PositionDefinitions;)Ljava/util/function/Supplier;
+      28: areturn
+
+  public static org.mtr.model.ModelLoaderBase getModelLoaderBase(java.lang.String, java.lang.String, org.mtr.resource.ResourceProvider, boolean);
+    Code:
+       0: aload_1
+       1: ldc           #167                // String png
+       3: invokestatic  #21                 // InterfaceMethod org/mtr/resource/CustomResourceTools.formatIdentifierWithDefault:(Ljava/lang/String;Ljava/lang/String;)Lnet/minecraft/resources/ResourceLocation;
+       6: astore        4
+       8: aload_0
+       9: ldc           #169                // String .bbmodel
+      11: invokevirtual #171                // Method java/lang/String.endsWith:(Ljava/lang/String;)Z
+      14: ifeq          47
+      17: new           #177                // class org/mtr/model/BlockbenchModelLoader
+      20: dup
+      21: aload         4
+      23: invokespecial #179                // Method org/mtr/model/BlockbenchModelLoader."<init>":(Lnet/minecraft/resources/ResourceLocation;)V
+      26: astore        6
+      28: aload         6
+      30: aload_2
+      31: aload_0
+      32: invokedynamic #182,  0            // InvokeDynamic #2:get:(Lorg/mtr/resource/ResourceProvider;Ljava/lang/String;)Ljava/util/function/Supplier;
+      37: invokevirtual #185                // Method org/mtr/model/BlockbenchModelLoader.loadModel:(Ljava/util/function/Supplier;)V
+      40: aload         6
+      42: astore        5
+      44: goto          148
+      47: aload_0
+      48: ldc           #189                // String .obj
+      50: invokevirtual #171                // Method java/lang/String.endsWith:(Ljava/lang/String;)Z
+      53: ifeq          108
+      56: new           #191                // class org/mtr/model/ObjModelLoader
+      59: dup
+      60: aload         4
+      62: invokespecial #193                // Method org/mtr/model/ObjModelLoader."<init>":(Lnet/minecraft/resources/ResourceLocation;)V
+      65: astore        6
+      67: aload         6
+      69: aload_2
+      70: aload_0
+      71: ldc           #194                // String obj
+      73: invokestatic  #21                 // InterfaceMethod org/mtr/resource/CustomResourceTools.formatIdentifierWithDefault:(Ljava/lang/String;Ljava/lang/String;)Lnet/minecraft/resources/ResourceLocation;
+      76: invokeinterface #27,  2           // InterfaceMethod org/mtr/resource/ResourceProvider.get:(Lnet/minecraft/resources/ResourceLocation;)Ljava/lang/String;
+      81: aload_2
+      82: aload_0
+      83: invokedynamic #196,  0            // InvokeDynamic #3:apply:(Lorg/mtr/resource/ResourceProvider;Ljava/lang/String;)Ljava/util/function/Function;
+      88: aload         4
+      90: aload_0
+      91: invokedynamic #200,  0            // InvokeDynamic #4:apply:(Lnet/minecraft/resources/ResourceLocation;Ljava/lang/String;)Ljava/util/function/Function;
+      96: iconst_1
+      97: iload_3
+      98: invokevirtual #203                // Method org/mtr/model/ObjModelLoader.loadModel:(Ljava/lang/String;Ljava/util/function/Function;Ljava/util/function/Function;ZZ)V
+     101: aload         6
+     103: astore        5
+     105: goto          148
+     108: getstatic     #206                // Field org/mtr/MTR.LOGGER:Lorg/apache/logging/log4j/Logger;
+     111: ldc           #212                // String [{}] Invalid model!
+     113: aload         4
+     115: invokevirtual #100                // Method net/minecraft/resources/ResourceLocation.toString:()Ljava/lang/String;
+     118: invokeinterface #214,  3          // InterfaceMethod org/apache/logging/log4j/Logger.error:(Ljava/lang/String;Ljava/lang/Object;)V
+     123: new           #177                // class org/mtr/model/BlockbenchModelLoader
+     126: dup
+     127: aload         4
+     129: invokespecial #179                // Method org/mtr/model/BlockbenchModelLoader."<init>":(Lnet/minecraft/resources/ResourceLocation;)V
+     132: astore        6
+     134: aload         6
+     136: invokedynamic #220,  0            // InvokeDynamic #5:get:()Ljava/util/function/Supplier;
+     141: invokevirtual #185                // Method org/mtr/model/BlockbenchModelLoader.loadModel:(Ljava/util/function/Supplier;)V
+     144: aload         6
+     146: astore        5
+     148: aload         5
+     150: areturn
+
+  private static org.mtr.resource.BlockbenchModel lambda$getModelLoaderBase$5();
+    Code:
+       0: new           #223                // class org/mtr/resource/BlockbenchModel
+       3: dup
+       4: new           #13                 // class org/mtr/core/serializer/JsonReader
+       7: dup
+       8: new           #225                // class org/mtr/libraries/com/google/gson/JsonObject
+      11: dup
+      12: invokespecial #227                // Method org/mtr/libraries/com/google/gson/JsonObject."<init>":()V
+      15: invokespecial #39                 // Method org/mtr/core/serializer/JsonReader."<init>":(Lorg/mtr/libraries/com/google/gson/JsonElement;)V
+      18: invokespecial #228                // Method org/mtr/resource/BlockbenchModel."<init>":(Lorg/mtr/core/serializer/ReaderBase;)V
+      21: areturn
+
+  private static net.minecraft.resources.ResourceLocation lambda$getModelLoaderBase$4(net.minecraft.resources.ResourceLocation, java.lang.String, java.lang.String);
+    Code:
+       0: aload_2
+       1: invokestatic  #229                // Method org/apache/commons/lang3/StringUtils.isEmpty:(Ljava/lang/CharSequence;)Z
+       4: ifeq          17
+       7: ldc           #235                // String mtr
+       9: ldc           #237                // String textures/block/white.png
+      11: invokestatic  #239                // Method net/minecraft/resources/ResourceLocation.fromNamespaceAndPath:(Ljava/lang/String;Ljava/lang/String;)Lnet/minecraft/resources/ResourceLocation;
+      14: goto          37
+      17: aload_2
+      18: ldc           #242                // String default.png
+      20: invokestatic  #244                // Method org/apache/commons/lang3/StringUtils.equals:(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
+      23: ifeq          30
+      26: aload_0
+      27: goto          37
+      30: aload_1
+      31: aload_2
+      32: ldc           #167                // String png
+      34: invokestatic  #248                // InterfaceMethod org/mtr/resource/CustomResourceTools.getResourceFromSamePath:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lnet/minecraft/resources/ResourceLocation;
+      37: areturn
+
+  private static java.lang.String lambda$getModelLoaderBase$3(org.mtr.resource.ResourceProvider, java.lang.String, java.lang.String);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_2
+       3: ldc           #252                // String mtl
+       5: invokestatic  #248                // InterfaceMethod org/mtr/resource/CustomResourceTools.getResourceFromSamePath:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lnet/minecraft/resources/ResourceLocation;
+       8: invokeinterface #27,  2           // InterfaceMethod org/mtr/resource/ResourceProvider.get:(Lnet/minecraft/resources/ResourceLocation;)Ljava/lang/String;
+      13: areturn
+
+  private static org.mtr.resource.BlockbenchModel lambda$getModelLoaderBase$2(org.mtr.resource.ResourceProvider, java.lang.String);
+    Code:
+       0: new           #223                // class org/mtr/resource/BlockbenchModel
+       3: dup
+       4: new           #13                 // class org/mtr/core/serializer/JsonReader
+       7: dup
+       8: aload_0
+       9: aload_1
+      10: ldc           #254                // String bbmodel
+      12: invokestatic  #21                 // InterfaceMethod org/mtr/resource/CustomResourceTools.formatIdentifierWithDefault:(Ljava/lang/String;Ljava/lang/String;)Lnet/minecraft/resources/ResourceLocation;
+      15: invokeinterface #27,  2           // InterfaceMethod org/mtr/resource/ResourceProvider.get:(Lnet/minecraft/resources/ResourceLocation;)Ljava/lang/String;
+      20: invokestatic  #33                 // InterfaceMethod org/mtr/core/tool/Utilities.parseJson:(Ljava/lang/String;)Lorg/mtr/libraries/com/google/gson/JsonObject;
+      23: invokespecial #39                 // Method org/mtr/core/serializer/JsonReader."<init>":(Lorg/mtr/libraries/com/google/gson/JsonElement;)V
+      26: invokespecial #228                // Method org/mtr/resource/BlockbenchModel."<init>":(Lorg/mtr/core/serializer/ReaderBase;)V
+      29: areturn
+
+  private org.mtr.model.BuiltVehicleModelHolder lambda$createModelSupplier$1(org.mtr.resource.ModelProperties, org.mtr.resource.PositionDefinitions);
+    Code:
+       0: aload_0
+       1: getfield      #66                 // Field modelLoaderBase:Lorg/mtr/model/ModelLoaderBase;
+       4: aload_1
+       5: aload_2
+       6: invokevirtual #256                // Method org/mtr/model/ModelLoaderBase.get:(Lorg/mtr/resource/ModelProperties;Lorg/mtr/resource/PositionDefinitions;)Lorg/mtr/model/BuiltVehicleModelHolder;
+       9: areturn
+
+  private static void lambda$toVehicleModelWrapper$0(org.mtr.resource.PositionDefinitions, org.mtr.libraries.it.unimi.dsi.fastutil.objects.ObjectArrayList, org.mtr.resource.ModelPropertiesPart);
+    Code:
+       0: aload_2
+       1: aload_0
+       2: aload_1
+       3: invokevirtual #259                // Method org/mtr/resource/ModelPropertiesPart.addToModelPropertiesPartWrapperMap:(Lorg/mtr/resource/PositionDefinitions;Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList;)V
+       6: return
+}

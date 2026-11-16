@@ -1,0 +1,129 @@
+Compiled from "StoredModelResourceBase.java"
+public interface org.mtr.resource.StoredModelResourceBase {
+  public default org.mtr.libraries.it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap<org.mtr.resource.RenderStage, org.mtr.libraries.it.unimi.dsi.fastutil.objects.ObjectArrayList<org.mtr.model.NewOptimizedModel>> load(java.lang.String, java.lang.String, boolean, double, org.mtr.resource.ResourceProvider);
+    Code:
+       0: aload_1
+       1: ldc           #1                  // String .bbmodel
+       3: invokevirtual #3                  // Method java/lang/String.endsWith:(Ljava/lang/String;)Z
+       6: istore        7
+       8: aload_1
+       9: ldc           #9                  // String .obj
+      11: invokevirtual #3                  // Method java/lang/String.endsWith:(Ljava/lang/String;)Z
+      14: istore        8
+      16: aload_2
+      17: ldc           #11                 // String png
+      19: invokestatic  #13                 // InterfaceMethod org/mtr/resource/CustomResourceTools.formatIdentifierWithDefault:(Ljava/lang/String;Ljava/lang/String;)Lnet/minecraft/resources/ResourceLocation;
+      22: astore        9
+      24: iload         7
+      26: ifeq          63
+      29: new           #19                 // class org/mtr/model/BlockbenchModelLoader
+      32: dup
+      33: aload         9
+      35: invokespecial #21                 // Method org/mtr/model/BlockbenchModelLoader."<init>":(Lnet/minecraft/resources/ResourceLocation;)V
+      38: astore        11
+      40: aload         11
+      42: aload         6
+      44: aload_1
+      45: invokedynamic #25,  0             // InvokeDynamic #0:get:(Lorg/mtr/resource/ResourceProvider;Ljava/lang/String;)Ljava/util/function/Supplier;
+      50: invokevirtual #29                 // Method org/mtr/model/BlockbenchModelLoader.loadModel:(Ljava/util/function/Supplier;)V
+      53: aload         11
+      55: invokevirtual #33                 // Method org/mtr/model/BlockbenchModelLoader.get:()Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/Object2ObjectOpenHashMap;
+      58: astore        10
+      60: goto          128
+      63: iload         8
+      65: ifeq          125
+      68: new           #36                 // class org/mtr/model/ObjModelLoader
+      71: dup
+      72: aload         9
+      74: invokespecial #38                 // Method org/mtr/model/ObjModelLoader."<init>":(Lnet/minecraft/resources/ResourceLocation;)V
+      77: astore        11
+      79: aload         11
+      81: aload         6
+      83: aload_1
+      84: ldc           #39                 // String obj
+      86: invokestatic  #13                 // InterfaceMethod org/mtr/resource/CustomResourceTools.formatIdentifierWithDefault:(Ljava/lang/String;Ljava/lang/String;)Lnet/minecraft/resources/ResourceLocation;
+      89: invokeinterface #41,  2           // InterfaceMethod org/mtr/resource/ResourceProvider.get:(Lnet/minecraft/resources/ResourceLocation;)Ljava/lang/String;
+      94: aload         6
+      96: aload_1
+      97: invokedynamic #46,  0             // InvokeDynamic #1:apply:(Lorg/mtr/resource/ResourceProvider;Ljava/lang/String;)Ljava/util/function/Function;
+     102: aload         9
+     104: aload_1
+     105: invokedynamic #50,  0             // InvokeDynamic #2:apply:(Lnet/minecraft/resources/ResourceLocation;Ljava/lang/String;)Ljava/util/function/Function;
+     110: iconst_1
+     111: iload_3
+     112: invokevirtual #53                 // Method org/mtr/model/ObjModelLoader.loadModel:(Ljava/lang/String;Ljava/util/function/Function;Ljava/util/function/Function;ZZ)V
+     115: aload         11
+     117: invokevirtual #56                 // Method org/mtr/model/ObjModelLoader.get:()Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/Object2ObjectOpenHashMap;
+     120: astore        10
+     122: goto          128
+     125: aconst_null
+     126: astore        10
+     128: aload         10
+     130: areturn
+
+  public default void render(org.mtr.render.StoredMatrixTransformations, int);
+    Code:
+       0: aload_0
+       1: invokeinterface #57,  1           // InterfaceMethod getOptimizedModel:()Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/Object2ObjectOpenHashMap;
+       6: astore_3
+       7: aload_3
+       8: ifnull        17
+      11: aload_3
+      12: aload_1
+      13: iload_2
+      14: invokestatic  #62                 // Method org/mtr/render/MainRenderer.renderModel:(Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/Object2ObjectOpenHashMap;Lorg/mtr/render/StoredMatrixTransformations;I)V
+      17: return
+
+  public abstract org.mtr.libraries.it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap<org.mtr.resource.RenderStage, org.mtr.libraries.it.unimi.dsi.fastutil.objects.ObjectArrayList<org.mtr.model.NewOptimizedModel>> getOptimizedModel();
+
+  public default void preload();
+    Code:
+       0: return
+
+  private static net.minecraft.resources.ResourceLocation lambda$load$2(net.minecraft.resources.ResourceLocation, java.lang.String, java.lang.String);
+    Code:
+       0: aload_2
+       1: invokestatic  #68                 // Method org/apache/commons/lang3/StringUtils.isEmpty:(Ljava/lang/CharSequence;)Z
+       4: ifeq          17
+       7: ldc           #76                 // String mtr
+       9: ldc           #78                 // String textures/block/white.png
+      11: invokestatic  #80                 // Method net/minecraft/resources/ResourceLocation.fromNamespaceAndPath:(Ljava/lang/String;Ljava/lang/String;)Lnet/minecraft/resources/ResourceLocation;
+      14: goto          37
+      17: aload_2
+      18: ldc           #85                 // String default.png
+      20: invokestatic  #87                 // Method org/apache/commons/lang3/StringUtils.equals:(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
+      23: ifeq          30
+      26: aload_0
+      27: goto          37
+      30: aload_1
+      31: aload_2
+      32: ldc           #11                 // String png
+      34: invokestatic  #91                 // InterfaceMethod org/mtr/resource/CustomResourceTools.getResourceFromSamePath:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lnet/minecraft/resources/ResourceLocation;
+      37: areturn
+
+  private static java.lang.String lambda$load$1(org.mtr.resource.ResourceProvider, java.lang.String, java.lang.String);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_2
+       3: ldc           #95                 // String mtl
+       5: invokestatic  #91                 // InterfaceMethod org/mtr/resource/CustomResourceTools.getResourceFromSamePath:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lnet/minecraft/resources/ResourceLocation;
+       8: invokeinterface #41,  2           // InterfaceMethod org/mtr/resource/ResourceProvider.get:(Lnet/minecraft/resources/ResourceLocation;)Ljava/lang/String;
+      13: areturn
+
+  private static org.mtr.resource.BlockbenchModel lambda$load$0(org.mtr.resource.ResourceProvider, java.lang.String);
+    Code:
+       0: new           #97                 // class org/mtr/resource/BlockbenchModel
+       3: dup
+       4: new           #99                 // class org/mtr/core/serializer/JsonReader
+       7: dup
+       8: aload_0
+       9: aload_1
+      10: ldc           #101                // String bbmodel
+      12: invokestatic  #13                 // InterfaceMethod org/mtr/resource/CustomResourceTools.formatIdentifierWithDefault:(Ljava/lang/String;Ljava/lang/String;)Lnet/minecraft/resources/ResourceLocation;
+      15: invokeinterface #41,  2           // InterfaceMethod org/mtr/resource/ResourceProvider.get:(Lnet/minecraft/resources/ResourceLocation;)Ljava/lang/String;
+      20: invokestatic  #103                // InterfaceMethod org/mtr/core/tool/Utilities.parseJson:(Ljava/lang/String;)Lorg/mtr/libraries/com/google/gson/JsonObject;
+      23: invokespecial #109                // Method org/mtr/core/serializer/JsonReader."<init>":(Lorg/mtr/libraries/com/google/gson/JsonElement;)V
+      26: invokespecial #112                // Method org/mtr/resource/BlockbenchModel."<init>":(Lorg/mtr/core/serializer/ReaderBase;)V
+      29: areturn
+}

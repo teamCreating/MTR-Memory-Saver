@@ -1,0 +1,96 @@
+Compiled from "ReaderBase.java"
+public abstract class org.mtr.core.serializer.ReaderBase {
+  private static final org.mtr.libraries.org.apache.logging.log4j.Logger log;
+
+  public org.mtr.core.serializer.ReaderBase();
+    Code:
+       0: aload_0
+       1: invokespecial #12                 // Method java/lang/Object."<init>":()V
+       4: return
+
+  public abstract void unpackBoolean(java.lang.String, org.mtr.libraries.it.unimi.dsi.fastutil.booleans.BooleanConsumer);
+
+  public abstract boolean getBoolean(java.lang.String, boolean);
+
+  public abstract void iterateBooleanArray(java.lang.String, java.lang.Runnable, org.mtr.libraries.it.unimi.dsi.fastutil.booleans.BooleanConsumer);
+
+  public abstract void unpackInt(java.lang.String, org.mtr.libraries.it.unimi.dsi.fastutil.ints.IntConsumer);
+
+  public abstract int getInt(java.lang.String, int);
+
+  public abstract void iterateIntArray(java.lang.String, java.lang.Runnable, org.mtr.libraries.it.unimi.dsi.fastutil.ints.IntConsumer);
+
+  public abstract void unpackLong(java.lang.String, org.mtr.libraries.it.unimi.dsi.fastutil.longs.LongConsumer);
+
+  public abstract long getLong(java.lang.String, long);
+
+  public abstract void iterateLongArray(java.lang.String, java.lang.Runnable, org.mtr.libraries.it.unimi.dsi.fastutil.longs.LongConsumer);
+
+  public abstract void unpackDouble(java.lang.String, org.mtr.libraries.it.unimi.dsi.fastutil.doubles.DoubleConsumer);
+
+  public abstract double getDouble(java.lang.String, double);
+
+  public abstract void iterateDoubleArray(java.lang.String, java.lang.Runnable, org.mtr.libraries.it.unimi.dsi.fastutil.doubles.DoubleConsumer);
+
+  public abstract void unpackString(java.lang.String, java.util.function.Consumer<java.lang.String>);
+
+  public abstract java.lang.String getString(java.lang.String, java.lang.String);
+
+  public abstract void iterateStringArray(java.lang.String, java.lang.Runnable, java.util.function.Consumer<java.lang.String>);
+
+  public abstract void iterateReaderArray(java.lang.String, java.lang.Runnable, java.util.function.Consumer<org.mtr.core.serializer.ReaderBase>);
+
+  public abstract org.mtr.core.serializer.ReaderBase getChild(java.lang.String);
+
+  public abstract void unpackChild(java.lang.String, java.util.function.Consumer<org.mtr.core.serializer.ReaderBase>);
+
+  public abstract void merge(org.mtr.core.serializer.ReaderBase);
+
+  protected final <U> void unpackValue(U, java.util.function.Consumer<U>);
+    Code:
+       0: aload_1
+       1: ifnull        27
+       4: aload_2
+       5: aload_1
+       6: invokeinterface #66,  2           // InterfaceMethod java/util/function/Consumer.accept:(Ljava/lang/Object;)V
+      11: goto          27
+      14: astore_3
+      15: getstatic     #68                 // Field log:Lorg/mtr/libraries/org/apache/logging/log4j/Logger;
+      18: ldc           #70                 // String Failed to unpack value {}
+      20: aload_1
+      21: aload_3
+      22: invokeinterface #76,  4           // InterfaceMethod org/mtr/libraries/org/apache/logging/log4j/Logger.error:(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V
+      27: return
+    Exception table:
+       from    to  target type
+           4    11    14   Class java/lang/Exception
+
+  protected final <T, U> T getValueOrDefault(U, T, java.util.function.Function<U, T>);
+    Code:
+       0: aload_1
+       1: ifnonnull     6
+       4: aload_2
+       5: areturn
+       6: aload_3
+       7: aload_1
+       8: invokeinterface #93,  2           // InterfaceMethod java/util/function/Function.apply:(Ljava/lang/Object;)Ljava/lang/Object;
+      13: areturn
+      14: astore        4
+      16: getstatic     #68                 // Field log:Lorg/mtr/libraries/org/apache/logging/log4j/Logger;
+      19: ldc           #95                 // String Decode of value {} failed; falling back to default
+      21: aload_1
+      22: aload         4
+      24: invokeinterface #98,  4           // InterfaceMethod org/mtr/libraries/org/apache/logging/log4j/Logger.debug:(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V
+      29: aload_2
+      30: areturn
+    Exception table:
+       from    to  target type
+           6    13    14   Class java/lang/Exception
+
+  static {};
+    Code:
+       0: ldc           #2                  // class org/mtr/core/serializer/ReaderBase
+       2: invokestatic  #110                // Method org/mtr/libraries/org/apache/logging/log4j/LogManager.getLogger:(Ljava/lang/Class;)Lorg/mtr/libraries/org/apache/logging/log4j/Logger;
+       5: putstatic     #68                 // Field log:Lorg/mtr/libraries/org/apache/logging/log4j/Logger;
+       8: return
+}

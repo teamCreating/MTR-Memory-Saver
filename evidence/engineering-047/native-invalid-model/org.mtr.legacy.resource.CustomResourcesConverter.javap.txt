@@ -1,0 +1,292 @@
+Compiled from "CustomResourcesConverter.java"
+public final class org.mtr.legacy.resource.CustomResourcesConverter {
+  private static final java.lang.String MOD_ID_NTE;
+
+  public org.mtr.legacy.resource.CustomResourcesConverter();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: return
+
+  public static org.mtr.resource.CustomResources convert(org.mtr.libraries.com.google.gson.JsonObject, org.mtr.resource.ResourceProvider);
+    Code:
+       0: aload_0
+       1: invokevirtual #7                  // Method org/mtr/libraries/com/google/gson/JsonObject.getAsJsonObject:()Lorg/mtr/libraries/com/google/gson/JsonObject;
+       4: ldc           #13                 // String custom_trains
+       6: invokevirtual #15                 // Method org/mtr/libraries/com/google/gson/JsonObject.has:(Ljava/lang/String;)Z
+       9: istore_2
+      10: aload_0
+      11: invokevirtual #7                  // Method org/mtr/libraries/com/google/gson/JsonObject.getAsJsonObject:()Lorg/mtr/libraries/com/google/gson/JsonObject;
+      14: ldc           #19                 // String custom_signs
+      16: invokevirtual #15                 // Method org/mtr/libraries/com/google/gson/JsonObject.has:(Ljava/lang/String;)Z
+      19: istore_3
+      20: iload_2
+      21: ifne          45
+      24: iload_3
+      25: ifne          45
+      28: new           #21                 // class org/mtr/resource/CustomResources
+      31: dup
+      32: new           #23                 // class org/mtr/core/serializer/JsonReader
+      35: dup
+      36: aload_0
+      37: invokespecial #25                 // Method org/mtr/core/serializer/JsonReader."<init>":(Lorg/mtr/libraries/com/google/gson/JsonElement;)V
+      40: aload_1
+      41: invokespecial #28                 // Method org/mtr/resource/CustomResources."<init>":(Lorg/mtr/core/serializer/ReaderBase;Lorg/mtr/resource/ResourceProvider;)V
+      44: areturn
+      45: new           #31                 // class org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList
+      48: dup
+      49: invokespecial #33                 // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList."<init>":()V
+      52: astore        4
+      54: iload_2
+      55: ifeq          80
+      58: aload_0
+      59: ldc           #13                 // String custom_trains
+      61: invokevirtual #34                 // Method org/mtr/libraries/com/google/gson/JsonObject.getAsJsonObject:(Ljava/lang/String;)Lorg/mtr/libraries/com/google/gson/JsonObject;
+      64: invokevirtual #37                 // Method org/mtr/libraries/com/google/gson/JsonObject.entrySet:()Ljava/util/Set;
+      67: aload         4
+      69: aload_1
+      70: invokedynamic #41,  0             // InvokeDynamic #0:accept:(Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList;Lorg/mtr/resource/ResourceProvider;)Ljava/util/function/Consumer;
+      75: invokeinterface #45,  2           // InterfaceMethod java/util/Set.forEach:(Ljava/util/function/Consumer;)V
+      80: new           #31                 // class org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList
+      83: dup
+      84: invokespecial #33                 // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList."<init>":()V
+      87: astore        5
+      89: iload_3
+      90: ifeq          114
+      93: aload_0
+      94: ldc           #19                 // String custom_signs
+      96: invokevirtual #34                 // Method org/mtr/libraries/com/google/gson/JsonObject.getAsJsonObject:(Ljava/lang/String;)Lorg/mtr/libraries/com/google/gson/JsonObject;
+      99: invokevirtual #37                 // Method org/mtr/libraries/com/google/gson/JsonObject.entrySet:()Ljava/util/Set;
+     102: aload         5
+     104: invokedynamic #51,  0             // InvokeDynamic #1:accept:(Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList;)Ljava/util/function/Consumer;
+     109: invokeinterface #45,  2           // InterfaceMethod java/util/Set.forEach:(Ljava/util/function/Consumer;)V
+     114: new           #21                 // class org/mtr/resource/CustomResources
+     117: dup
+     118: aload         4
+     120: aload         5
+     122: invokespecial #54                 // Method org/mtr/resource/CustomResources."<init>":(Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList;Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList;)V
+     125: areturn
+
+  public static void convertRails(java.util.function.Consumer<org.mtr.resource.RailResource>, org.mtr.resource.ResourceProvider);
+    Code:
+       0: ldc           #57                 // String rails
+       2: aload_0
+       3: aload_1
+       4: invokedynamic #59,  0             // InvokeDynamic #2:accept:(Ljava/util/function/Consumer;Lorg/mtr/resource/ResourceProvider;)Ljava/util/function/BiConsumer;
+       9: invokestatic  #62                 // Method org/mtr/resource/ResourceManagerHelper.readDirectory:(Ljava/lang/String;Ljava/util/function/BiConsumer;)V
+      12: return
+
+  public static void convertObjects(java.util.function.Consumer<org.mtr.resource.ObjectResource>, org.mtr.resource.ResourceProvider);
+    Code:
+       0: ldc           #68                 // String eyecandies
+       2: aload_0
+       3: aload_1
+       4: invokedynamic #70,  0             // InvokeDynamic #3:accept:(Ljava/util/function/Consumer;Lorg/mtr/resource/ResourceProvider;)Ljava/util/function/BiConsumer;
+       9: invokestatic  #62                 // Method org/mtr/resource/ResourceManagerHelper.readDirectory:(Ljava/lang/String;Ljava/util/function/BiConsumer;)V
+      12: return
+
+  private static void lambda$convertObjects$5(java.util.function.Consumer, org.mtr.resource.ResourceProvider, net.minecraft.resources.ResourceLocation, java.io.InputStream);
+    Code:
+       0: aload_2
+       1: invokevirtual #71                 // Method net/minecraft/resources/ResourceLocation.getNamespace:()Ljava/lang/String;
+       4: ldc           #79                 // String mtrsteamloco
+       6: invokevirtual #81                 // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+       9: ifeq          113
+      12: aload_2
+      13: invokevirtual #87                 // Method net/minecraft/resources/ResourceLocation.getPath:()Ljava/lang/String;
+      16: ldc           #90                 // String .json
+      18: invokevirtual #92                 // Method java/lang/String.endsWith:(Ljava/lang/String;)Z
+      21: ifeq          113
+      24: aload_3
+      25: invokestatic  #95                 // Method org/mtr/config/Config.readResource:(Ljava/io/InputStream;)Lorg/mtr/libraries/com/google/gson/JsonElement;
+      28: invokevirtual #101                // Method org/mtr/libraries/com/google/gson/JsonElement.getAsJsonObject:()Lorg/mtr/libraries/com/google/gson/JsonObject;
+      31: astore        4
+      33: aload         4
+      35: ldc           #104                // String model
+      37: invokevirtual #15                 // Method org/mtr/libraries/com/google/gson/JsonObject.has:(Ljava/lang/String;)Z
+      40: ifeq          79
+      43: aload_0
+      44: new           #106                // class org/mtr/legacy/resource/LegacyObjectResource
+      47: dup
+      48: new           #23                 // class org/mtr/core/serializer/JsonReader
+      51: dup
+      52: aload         4
+      54: invokespecial #25                 // Method org/mtr/core/serializer/JsonReader."<init>":(Lorg/mtr/libraries/com/google/gson/JsonElement;)V
+      57: invokespecial #108                // Method org/mtr/legacy/resource/LegacyObjectResource."<init>":(Lorg/mtr/core/serializer/ReaderBase;)V
+      60: aload_2
+      61: invokevirtual #87                 // Method net/minecraft/resources/ResourceLocation.getPath:()Ljava/lang/String;
+      64: invokestatic  #111                // Method org/apache/commons/io/FilenameUtils.getBaseName:(Ljava/lang/String;)Ljava/lang/String;
+      67: aload_1
+      68: invokevirtual #117                // Method org/mtr/legacy/resource/LegacyObjectResource.convert:(Ljava/lang/String;Lorg/mtr/resource/ResourceProvider;)Lorg/mtr/resource/ObjectResource;
+      71: invokeinterface #121,  2          // InterfaceMethod java/util/function/Consumer.accept:(Ljava/lang/Object;)V
+      76: goto          96
+      79: aload         4
+      81: invokevirtual #37                 // Method org/mtr/libraries/com/google/gson/JsonObject.entrySet:()Ljava/util/Set;
+      84: aload_0
+      85: aload_1
+      86: invokedynamic #126,  0            // InvokeDynamic #4:accept:(Ljava/util/function/Consumer;Lorg/mtr/resource/ResourceProvider;)Ljava/util/function/Consumer;
+      91: invokeinterface #45,  2           // InterfaceMethod java/util/Set.forEach:(Ljava/util/function/Consumer;)V
+      96: goto          113
+      99: astore        4
+     101: getstatic     #131                // Field org/mtr/MTR.LOGGER:Lorg/apache/logging/log4j/Logger;
+     104: ldc           #137                // String
+     106: aload         4
+     108: invokeinterface #139,  3          // InterfaceMethod org/apache/logging/log4j/Logger.error:(Ljava/lang/String;Ljava/lang/Throwable;)V
+     113: return
+    Exception table:
+       from    to  target type
+          24    96    99   Class java/lang/Exception
+
+  private static void lambda$convertObjects$4(java.util.function.Consumer, org.mtr.resource.ResourceProvider, java.util.Map$Entry);
+    Code:
+       0: aload_0
+       1: new           #106                // class org/mtr/legacy/resource/LegacyObjectResource
+       4: dup
+       5: new           #23                 // class org/mtr/core/serializer/JsonReader
+       8: dup
+       9: aload_2
+      10: invokeinterface #145,  1          // InterfaceMethod java/util/Map$Entry.getValue:()Ljava/lang/Object;
+      15: checkcast     #102                // class org/mtr/libraries/com/google/gson/JsonElement
+      18: invokespecial #25                 // Method org/mtr/core/serializer/JsonReader."<init>":(Lorg/mtr/libraries/com/google/gson/JsonElement;)V
+      21: invokespecial #108                // Method org/mtr/legacy/resource/LegacyObjectResource."<init>":(Lorg/mtr/core/serializer/ReaderBase;)V
+      24: aload_2
+      25: invokeinterface #151,  1          // InterfaceMethod java/util/Map$Entry.getKey:()Ljava/lang/Object;
+      30: checkcast     #82                 // class java/lang/String
+      33: getstatic     #154                // Field java/util/Locale.ENGLISH:Ljava/util/Locale;
+      36: invokevirtual #160                // Method java/lang/String.toLowerCase:(Ljava/util/Locale;)Ljava/lang/String;
+      39: aload_1
+      40: invokevirtual #117                // Method org/mtr/legacy/resource/LegacyObjectResource.convert:(Ljava/lang/String;Lorg/mtr/resource/ResourceProvider;)Lorg/mtr/resource/ObjectResource;
+      43: invokeinterface #121,  2          // InterfaceMethod java/util/function/Consumer.accept:(Ljava/lang/Object;)V
+      48: return
+
+  private static void lambda$convertRails$3(java.util.function.Consumer, org.mtr.resource.ResourceProvider, net.minecraft.resources.ResourceLocation, java.io.InputStream);
+    Code:
+       0: aload_2
+       1: invokevirtual #71                 // Method net/minecraft/resources/ResourceLocation.getNamespace:()Ljava/lang/String;
+       4: ldc           #79                 // String mtrsteamloco
+       6: invokevirtual #81                 // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+       9: ifeq          113
+      12: aload_2
+      13: invokevirtual #87                 // Method net/minecraft/resources/ResourceLocation.getPath:()Ljava/lang/String;
+      16: ldc           #90                 // String .json
+      18: invokevirtual #92                 // Method java/lang/String.endsWith:(Ljava/lang/String;)Z
+      21: ifeq          113
+      24: aload_3
+      25: invokestatic  #95                 // Method org/mtr/config/Config.readResource:(Ljava/io/InputStream;)Lorg/mtr/libraries/com/google/gson/JsonElement;
+      28: invokevirtual #101                // Method org/mtr/libraries/com/google/gson/JsonElement.getAsJsonObject:()Lorg/mtr/libraries/com/google/gson/JsonObject;
+      31: astore        4
+      33: aload         4
+      35: ldc           #104                // String model
+      37: invokevirtual #15                 // Method org/mtr/libraries/com/google/gson/JsonObject.has:(Ljava/lang/String;)Z
+      40: ifeq          79
+      43: aload_0
+      44: new           #164                // class org/mtr/legacy/resource/LegacyRailResource
+      47: dup
+      48: new           #23                 // class org/mtr/core/serializer/JsonReader
+      51: dup
+      52: aload         4
+      54: invokespecial #25                 // Method org/mtr/core/serializer/JsonReader."<init>":(Lorg/mtr/libraries/com/google/gson/JsonElement;)V
+      57: invokespecial #166                // Method org/mtr/legacy/resource/LegacyRailResource."<init>":(Lorg/mtr/core/serializer/ReaderBase;)V
+      60: aload_2
+      61: invokevirtual #87                 // Method net/minecraft/resources/ResourceLocation.getPath:()Ljava/lang/String;
+      64: invokestatic  #111                // Method org/apache/commons/io/FilenameUtils.getBaseName:(Ljava/lang/String;)Ljava/lang/String;
+      67: aload_1
+      68: invokevirtual #167                // Method org/mtr/legacy/resource/LegacyRailResource.convert:(Ljava/lang/String;Lorg/mtr/resource/ResourceProvider;)Lorg/mtr/resource/RailResource;
+      71: invokeinterface #121,  2          // InterfaceMethod java/util/function/Consumer.accept:(Ljava/lang/Object;)V
+      76: goto          96
+      79: aload         4
+      81: invokevirtual #37                 // Method org/mtr/libraries/com/google/gson/JsonObject.entrySet:()Ljava/util/Set;
+      84: aload_0
+      85: aload_1
+      86: invokedynamic #170,  0            // InvokeDynamic #5:accept:(Ljava/util/function/Consumer;Lorg/mtr/resource/ResourceProvider;)Ljava/util/function/Consumer;
+      91: invokeinterface #45,  2           // InterfaceMethod java/util/Set.forEach:(Ljava/util/function/Consumer;)V
+      96: goto          113
+      99: astore        4
+     101: getstatic     #131                // Field org/mtr/MTR.LOGGER:Lorg/apache/logging/log4j/Logger;
+     104: ldc           #137                // String
+     106: aload         4
+     108: invokeinterface #139,  3          // InterfaceMethod org/apache/logging/log4j/Logger.error:(Ljava/lang/String;Ljava/lang/Throwable;)V
+     113: return
+    Exception table:
+       from    to  target type
+          24    96    99   Class java/lang/Exception
+
+  private static void lambda$convertRails$2(java.util.function.Consumer, org.mtr.resource.ResourceProvider, java.util.Map$Entry);
+    Code:
+       0: aload_0
+       1: new           #164                // class org/mtr/legacy/resource/LegacyRailResource
+       4: dup
+       5: new           #23                 // class org/mtr/core/serializer/JsonReader
+       8: dup
+       9: aload_2
+      10: invokeinterface #145,  1          // InterfaceMethod java/util/Map$Entry.getValue:()Ljava/lang/Object;
+      15: checkcast     #102                // class org/mtr/libraries/com/google/gson/JsonElement
+      18: invokespecial #25                 // Method org/mtr/core/serializer/JsonReader."<init>":(Lorg/mtr/libraries/com/google/gson/JsonElement;)V
+      21: invokespecial #166                // Method org/mtr/legacy/resource/LegacyRailResource."<init>":(Lorg/mtr/core/serializer/ReaderBase;)V
+      24: aload_2
+      25: invokeinterface #151,  1          // InterfaceMethod java/util/Map$Entry.getKey:()Ljava/lang/Object;
+      30: checkcast     #82                 // class java/lang/String
+      33: getstatic     #154                // Field java/util/Locale.ENGLISH:Ljava/util/Locale;
+      36: invokevirtual #160                // Method java/lang/String.toLowerCase:(Ljava/util/Locale;)Ljava/lang/String;
+      39: aload_1
+      40: invokevirtual #167                // Method org/mtr/legacy/resource/LegacyRailResource.convert:(Ljava/lang/String;Lorg/mtr/resource/ResourceProvider;)Lorg/mtr/resource/RailResource;
+      43: invokeinterface #121,  2          // InterfaceMethod java/util/function/Consumer.accept:(Ljava/lang/Object;)V
+      48: return
+
+  private static void lambda$convert$1(org.mtr.libraries.it.unimi.dsi.fastutil.objects.ObjectArrayList, java.util.Map$Entry);
+    Code:
+       0: new           #171                // class org/mtr/legacy/resource/LegacySignResource
+       3: dup
+       4: new           #23                 // class org/mtr/core/serializer/JsonReader
+       7: dup
+       8: aload_1
+       9: invokeinterface #145,  1          // InterfaceMethod java/util/Map$Entry.getValue:()Ljava/lang/Object;
+      14: checkcast     #102                // class org/mtr/libraries/com/google/gson/JsonElement
+      17: invokespecial #25                 // Method org/mtr/core/serializer/JsonReader."<init>":(Lorg/mtr/libraries/com/google/gson/JsonElement;)V
+      20: invokespecial #173                // Method org/mtr/legacy/resource/LegacySignResource."<init>":(Lorg/mtr/core/serializer/ReaderBase;)V
+      23: aload_0
+      24: aload_1
+      25: invokeinterface #151,  1          // InterfaceMethod java/util/Map$Entry.getKey:()Ljava/lang/Object;
+      30: checkcast     #82                 // class java/lang/String
+      33: invokevirtual #174                // Method org/mtr/legacy/resource/LegacySignResource.convert:(Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList;Ljava/lang/String;)V
+      36: goto          51
+      39: astore_2
+      40: getstatic     #131                // Field org/mtr/MTR.LOGGER:Lorg/apache/logging/log4j/Logger;
+      43: ldc           #137                // String
+      45: aload_2
+      46: invokeinterface #139,  3          // InterfaceMethod org/apache/logging/log4j/Logger.error:(Ljava/lang/String;Ljava/lang/Throwable;)V
+      51: return
+    Exception table:
+       from    to  target type
+           0    36    39   Class java/lang/Exception
+
+  private static void lambda$convert$0(org.mtr.libraries.it.unimi.dsi.fastutil.objects.ObjectArrayList, org.mtr.resource.ResourceProvider, java.util.Map$Entry);
+    Code:
+       0: new           #177                // class org/mtr/legacy/resource/LegacyVehicleResource
+       3: dup
+       4: new           #23                 // class org/mtr/core/serializer/JsonReader
+       7: dup
+       8: aload_2
+       9: invokeinterface #145,  1          // InterfaceMethod java/util/Map$Entry.getValue:()Ljava/lang/Object;
+      14: checkcast     #102                // class org/mtr/libraries/com/google/gson/JsonElement
+      17: invokespecial #25                 // Method org/mtr/core/serializer/JsonReader."<init>":(Lorg/mtr/libraries/com/google/gson/JsonElement;)V
+      20: invokespecial #179                // Method org/mtr/legacy/resource/LegacyVehicleResource."<init>":(Lorg/mtr/core/serializer/ReaderBase;)V
+      23: aload_0
+      24: aload_2
+      25: invokeinterface #151,  1          // InterfaceMethod java/util/Map$Entry.getKey:()Ljava/lang/Object;
+      30: checkcast     #82                 // class java/lang/String
+      33: getstatic     #154                // Field java/util/Locale.ENGLISH:Ljava/util/Locale;
+      36: invokevirtual #160                // Method java/lang/String.toLowerCase:(Ljava/util/Locale;)Ljava/lang/String;
+      39: aload_1
+      40: invokevirtual #180                // Method org/mtr/legacy/resource/LegacyVehicleResource.convert:(Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectArrayList;Ljava/lang/String;Lorg/mtr/resource/ResourceProvider;)V
+      43: goto          58
+      46: astore_3
+      47: getstatic     #131                // Field org/mtr/MTR.LOGGER:Lorg/apache/logging/log4j/Logger;
+      50: ldc           #137                // String
+      52: aload_3
+      53: invokeinterface #139,  3          // InterfaceMethod org/apache/logging/log4j/Logger.error:(Ljava/lang/String;Ljava/lang/Throwable;)V
+      58: return
+    Exception table:
+       from    to  target type
+           0    43    46   Class java/lang/Exception
+}

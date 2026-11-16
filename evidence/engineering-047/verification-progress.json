@@ -1,19 +1,39 @@
 {
-  "timestamp": "2026-11-15T06:54:13+08:00",
+  "timestamp": "2026-11-16T14:05:09.075618+08:00",
   "utc_offset": "+08:00",
   "objective": "Complete repair and verification of Memory Saver against official MTR 4.1.0-beta.2",
   "version": "0.4.6",
-  "active_targets": ["official-nf248", "official-nf265"],
+  "active_targets": [
+    "official-nf248",
+    "official-nf265"
+  ],
   "v6_validation": "paused by user",
   "historical_plan": "../engineering-046/verification-plan.json",
   "completed_this_stage": {
     "snapshot_io": "snapshot-io/assessment.json",
     "core_java_tests_per_target": 66,
     "new_snapshot_failure_cases": 5,
-    "actual_windows_deletion_lock_audits": 2
+    "actual_windows_deletion_lock_audits": 2,
+    "launcher": {
+      "evidence": "launcher/tests.json",
+      "tests": 39
+    },
+    "neutral_observer": {
+      "evidence": "neutral-observer/assessment.json",
+      "tests_per_target": 14,
+      "actual_mixin_client_run": true,
+      "runtime_evidence": "../engineering-048/neutral-runtime-01/assessment.json",
+      "runtime_version": "1.0.0"
+    },
+    "delivery_identity": {
+      "evidence": "delivery-audit/execution.json",
+      "official_targets": 2,
+      "product_jars_unchanged": true,
+      "observers_excluded": true
+    }
   },
   "route_attempt_03": {
-    "status": "running_at_verified_checkpoint",
+    "status": "failed_native_windows_crash",
     "live_client_pid": 34668,
     "live_observer_pid": 50196,
     "requested_duration_seconds": 7200,
@@ -23,16 +43,42 @@
     "live_process_checkpoint": "route-attempt-03-start/live-processes.json",
     "completion_proven": false,
     "mutable_execution": "../engineering-046/route-attempt-03/execution.json",
-    "mutable_observation": "../engineering-046/route-attempt-03/observation/summary.json"
+    "mutable_observation": "../engineering-046/route-attempt-03/observation/summary.json",
+    "first_window": {
+      "evidence": "route-attempt-03-first-window/assessment.json",
+      "duration_seconds": 2400,
+      "samples": 480,
+      "valid_samples": 480,
+      "maximum_observed_gap_seconds": 5.158047199976863,
+      "sampled_window_passed": true,
+      "complete_two_hour_route_proven": false,
+      "actual_visual_or_boarding_proven": false
+    },
+    "final_evidence": "../engineering-048/route-recovery/assessment.json"
   },
   "remaining": [
     "Full current-artifact scene geometry, displays, doors, floors and boarding",
     "Twenty complete genuine ResourceManager reloads and repeated native ordering; accepted reload count remains zero",
-    "Complete route-attempt-03 and independently verify all windows, raw JFR coverage, native diagnostics and interactions",
+    "Fresh complete two-hour route after failed attempt03",
     "Current-input baseline/candidate qualification and controlled full-client comparisons including observer-off calibration",
     "NF265 full-pack/world and representative interaction",
     "Native Invalid model diagnostic attribution",
     "Real disk-full and abrupt-process snapshot residue recovery coverage"
   ],
-  "limits": "Snapshot failure tests and live route startup are concrete progress, not completion of the full goal. Product JAR hashes remain the exact engineering-046 artifacts. Independent comparison/neutral-observer tooling is recorded by subsequent stage evidence."
+  "limits": "Snapshot failure tests and live route startup are concrete progress, not completion of the full goal. Product JAR hashes remain the exact engineering-046 artifacts. Independent comparison/neutral-observer tooling is recorded by subsequent stage evidence.",
+  "comparison_protocol": {
+    "evidence": "client-experiment/readiness.json",
+    "latest_committed_tests": 55,
+    "independent_review_corrections": "committed af40b02; per-run native diagnostic review is a subsequent stage",
+    "current_qualification_groups": {
+      "baseline_plain": "missing",
+      "candidate_plain": "missing",
+      "baseline_profile": "missing",
+      "candidate_profile": "missing"
+    },
+    "actual_performance_trials": 0,
+    "scheduled_trials_after_qualification": 48,
+    "neutral_probe_off_calibration": "pending",
+    "performance_accepted": false
+  }
 }

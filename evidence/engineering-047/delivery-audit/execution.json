@@ -1,0 +1,58 @@
+{
+  "started_at": "2026-11-15T07:24:23.223591+08:00",
+  "utc_offset": "+08:00",
+  "status": "passed",
+  "java_home": "C:\\Users\\ben_l\\Saved Games\\Yuuniverse 1.20.1 Shenyang\\porting-output\\work\\tools\\jdk21\\jdk-21.0.11+10",
+  "java_executable_sha256": "5e0fab9f07952ceb6e71eb9fd33e1ed69959904ca00cf70869b7baf516a98016",
+  "source_hashes_before": {
+    "build.gradle": "01ac3570be54732172e9f2e44b176dcfc5ae9a16a68b392c36565b9fc7ad6cd4",
+    "gradle.properties": "e0636ac693f5c3c5ab9031e6bb0a4a205cb3426493c31c523dd204d8beb7bb96",
+    "config/targets.json": "e3d1d3a81d4fe8d7e60ba376654c943cc9766ce1d213b119fe7f6b175ac1d4ff",
+    "LICENSE": "6492b753609d47712db23912e68093e602c3992ff1c8c3f6d777341dab3d4826",
+    "docs/INSTALL.md": "93a9e41b7b1224da6325a5c7d28e97c10fe02b7f75b2b89125d3e3b6c90c8949",
+    "docs/SUPPORT.md": "e6a83f1fe78ba41ab98aab8595ea527b2bedf2655b0f680e72402ce7f7e03138"
+  },
+  "target_execution": "sequential shared build directory",
+  "commands": [
+    {
+      "target": "official-nf248",
+      "started_at": "2026-11-15T07:24:23.864136+08:00",
+      "command": [
+        "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\gradlew.bat",
+        "releaseBundle",
+        "-Ptarget=official-nf248",
+        "-x",
+        "test",
+        "--console=plain"
+      ],
+      "exit_code": 0,
+      "finished_at": "2026-11-15T07:25:02.903184+08:00",
+      "audit": "official-nf248.audit.json"
+    },
+    {
+      "target": "official-nf265",
+      "started_at": "2026-11-15T07:25:03.339283+08:00",
+      "command": [
+        "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\gradlew.bat",
+        "releaseBundle",
+        "-Ptarget=official-nf265",
+        "-x",
+        "test",
+        "--console=plain"
+      ],
+      "exit_code": 0,
+      "finished_at": "2026-11-15T07:25:37.772643+08:00",
+      "audit": "official-nf265.audit.json"
+    }
+  ],
+  "passed": true,
+  "finished_at": "2026-11-15T07:25:38.105419+08:00",
+  "source_hashes_after": {
+    "build.gradle": "01ac3570be54732172e9f2e44b176dcfc5ae9a16a68b392c36565b9fc7ad6cd4",
+    "gradle.properties": "e0636ac693f5c3c5ab9031e6bb0a4a205cb3426493c31c523dd204d8beb7bb96",
+    "config/targets.json": "e3d1d3a81d4fe8d7e60ba376654c943cc9766ce1d213b119fe7f6b175ac1d4ff",
+    "LICENSE": "6492b753609d47712db23912e68093e602c3992ff1c8c3f6d777341dab3d4826",
+    "docs/INSTALL.md": "93a9e41b7b1224da6325a5c7d28e97c10fe02b7f75b2b89125d3e3b6c90c8949",
+    "docs/SUPPORT.md": "e6a83f1fe78ba41ab98aab8595ea527b2bedf2655b0f680e72402ce7f7e03138"
+  }
+}

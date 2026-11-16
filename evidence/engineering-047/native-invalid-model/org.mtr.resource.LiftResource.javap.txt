@@ -1,0 +1,58 @@
+Compiled from "LiftResource.java"
+public final class org.mtr.resource.LiftResource extends org.mtr.generated.resource.LiftResourceSchema implements java.lang.Comparable<org.mtr.resource.LiftResource> {
+  public org.mtr.resource.LiftResource(org.mtr.core.serializer.ReaderBase);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokespecial #1                  // Method org/mtr/generated/resource/LiftResourceSchema."<init>":(Lorg/mtr/core/serializer/ReaderBase;)V
+       5: aload_0
+       6: aload_1
+       7: invokevirtual #7                  // Method updateData:(Lorg/mtr/core/serializer/ReaderBase;)V
+      10: return
+
+  public java.lang.String getId();
+    Code:
+       0: aload_0
+       1: getfield      #12                 // Field id:Ljava/lang/String;
+       4: areturn
+
+  public java.lang.String getName();
+    Code:
+       0: aload_0
+       1: getfield      #16                 // Field name:Ljava/lang/String;
+       4: invokestatic  #19                 // InterfaceMethod net/minecraft/network/chat/Component.translatable:(Ljava/lang/String;)Lnet/minecraft/network/chat/MutableComponent;
+       7: invokevirtual #25                 // Method net/minecraft/network/chat/MutableComponent.getString:()Ljava/lang/String;
+      10: areturn
+
+  public int getColor();
+    Code:
+       0: aload_0
+       1: getfield      #31                 // Field color:Ljava/lang/String;
+       4: invokestatic  #34                 // InterfaceMethod org/mtr/resource/CustomResourceTools.colorStringToInt:(Ljava/lang/String;)I
+       7: ireturn
+
+  public net.minecraft.resources.ResourceLocation getTexture();
+    Code:
+       0: aload_0
+       1: getfield      #40                 // Field textureResource:Ljava/lang/String;
+       4: ldc           #43                 // String png
+       6: invokestatic  #45                 // InterfaceMethod org/mtr/resource/CustomResourceTools.formatIdentifierWithDefault:(Ljava/lang/String;Ljava/lang/String;)Lnet/minecraft/resources/ResourceLocation;
+       9: areturn
+
+  public int compareTo(org.mtr.resource.LiftResource);
+    Code:
+       0: aload_1
+       1: invokevirtual #49                 // Method getName:()Ljava/lang/String;
+       4: aload_0
+       5: invokevirtual #49                 // Method getName:()Ljava/lang/String;
+       8: invokevirtual #52                 // Method java/lang/String.compareTo:(Ljava/lang/String;)I
+      11: ireturn
+
+  public int compareTo(java.lang.Object);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: checkcast     #8                  // class org/mtr/resource/LiftResource
+       5: invokevirtual #57                 // Method compareTo:(Lorg/mtr/resource/LiftResource;)I
+       8: ireturn
+}

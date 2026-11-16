@@ -1,0 +1,81 @@
+{
+  "timestamp": "2026-11-16T13:58:56.891420+08:00",
+  "scope": "Actual official NF248 0.4.6 / neutral observer 1.0.0 functional observation only",
+  "pid": 51876,
+  "process_created": "2026-11-16T05:40:37.224Z",
+  "normal_saved_exit": true,
+  "exit_code": 0,
+  "unchanged_current_packs": 16,
+  "bound_mods": [
+    {
+      "filename": "mtr-memory-saver-official-nf248-0.4.6.jar",
+      "sha256": "dd47f6ae4daa4139b9ada9196d757db634a79ebdd7fa5f06083719d764285997",
+      "role": "companion"
+    },
+    {
+      "filename": "mtr-model-trace-official-nf248-1.0.0.jar",
+      "sha256": "95aa3ac2d140ead4bca42a7625c497fdceeca7cc09acd72dc960065fae5ebea4",
+      "role": "observer"
+    },
+    {
+      "filename": "mtr-native-observer-official-nf248-1.0.0.jar",
+      "sha256": "9c63841b48853eda714b31db6ac8367f5f204708a2006d69c0768ced351deaea",
+      "role": "observer"
+    },
+    {
+      "filename": "MTR-neoforge-4.1.0-beta.2+1.21.1.jar",
+      "sha256": "ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa",
+      "role": "mtr"
+    }
+  ],
+  "native_snapshot_count": 603,
+  "unpaused_settled_world_snapshots": 601,
+  "observed_registration": {
+    "distinct_ids": 1091,
+    "declarations": 1092
+  },
+  "native_observation_errors": 0,
+  "actual_native_epochs": {
+    "started": 1,
+    "completed": 1,
+    "in_flight": 0,
+    "max_nesting": 1,
+    "last_completed_sequence": 1
+  },
+  "jfr_event_counts": {
+    "mtrtest.ClientFrame": 33446,
+    "mtrtest.ServerTick": 12607
+  },
+  "unpaused_in_world_frame_events": 33247,
+  "caches": [
+    {
+      "id": "mtr_custom_train_dc01_update_cab_1_native_7ea57bf708e8",
+      "entries": [
+        {
+          "floors": 5,
+          "doorways": 10
+        }
+      ]
+    },
+    {
+      "id": "mtr_custom_train_dc01_update_cab_2_native_7b8391aef2c8",
+      "entries": [
+        {
+          "floors": 6,
+          "doorways": 10
+        }
+      ]
+    }
+  ],
+  "native_invalid_model_review": "../native-invalid-model/startup-prefix/attribution.json",
+  "scope_passed": true,
+  "full_gameplay_accepted": false,
+  "performance_accepted": false,
+  "successful_real_reloads": 0,
+  "limits": [
+    "The initial stock-platform F2 screenshots contain no train; geometry, displays, boarding and floor traversal remain unverified.",
+    "Two computer-use state captures timed out. Slash, T and Escape inputs produced no observed screen transition; no F3+T pass is inferred.",
+    "The old 1.0.0 observer is superseded by the Windows atomic-publication repair. This run did not reproduce the held-reader error, and does not validate the later observer.",
+    "Background engineering work, diagnostic hook, JFR and thread dump make this unsuitable as a controlled benchmark."
+  ]
+}

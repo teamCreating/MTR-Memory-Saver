@@ -1,14 +1,14 @@
 # Support and artifact identity
 
-Updated: 2026-11-15T05:46:47.7460681+08:00 (UTC+08:00).
+Updated: 2026-11-16T14:05:09.075618+08:00 (UTC+08:00).
 
 Minecraft **1.21.1**, Java **21**, client only. The authoritative build targets and
 fingerprints are in [config/targets.json](../config/targets.json).
 
 | Target preset | MTR binary | NeoForge | 0.4.x status |
 | --- | --- | --- | --- |
-| `official-nf248` (default) | Official 4.1.0-beta.2 | 21.1.248 exactly | 0.4.6 build, 61 tests, 42 packaged fault/resource checks, wrong-binary rejection and initial full-pack registration/settlement passed; interaction pending |
-| `official-nf265` | Same official binary | 21.1.265 exactly | 0.4.6 build, 61 tests, 42 packaged fault/resource checks and wrong-binary rejection passed; full-pack acceptance pending |
+| `official-nf248` (default) | Official 4.1.0-beta.2 | 21.1.248 exactly | 0.4.6 build, 66 tests, 42 packaged fault/resource checks, wrong-binary rejection and initial full-pack registration/settlement passed; interaction pending |
+| `official-nf265` | Same official binary | 21.1.265 exactly | 0.4.6 build, 66 tests, 42 packaged fault/resource checks and wrong-binary rejection passed; full-pack acceptance pending |
 | `v6-nf248` | Audited custom Performance v6 | 21.1.248 exactly | Historical 0.4.2 client smoke/GPU cycles; new validation paused |
 | `v6-nf265` | Same custom v6 binary | 21.1.265 exactly | Historical development candidate; new validation paused |
 
@@ -63,6 +63,25 @@ The game exported a native F2 screenshot, but no train is visible in that view;
 it does not establish vehicle interaction. Standalone tool test executions and
 raw observations are under `evidence/engineering-046/`. The source repository's
 `docs/COVERAGE_OFFICIAL.md` records the current gates.
+
+The five additional core checks cover snapshot output write/close, restoration
+read, deletion and suppressed cleanup failures. Actual Windows deletion-lock
+audits also pass on both unchanged packaged readers. A retained file on failed
+deletion is reported honestly; explicit fixture cleanup does not establish
+automatic recovery after an abrupt JVM exit or a full disk.
+
+Route attempt 03 failed after the exact Java process crashed in Windows
+textinputframework.dll (exit 1653). Its partial first window is preserved; the
+two-hour session and final JFR coverage do not pass. A new NF248 diagnostic run
+with native observer 1.0.0 provides actual native/frame/tick data and a normal
+saved exit. Its one `transparent.png Invalid model` message is traced to the
+official empty default-rail constructor, without certifying rail rendering or
+excusing future errors. Probe-only Windows snapshot publication is repaired;
+the revised observer requires fresh runtime checks.
+Independent launcher/observer/comparison engineering does not establish runtime
+qualification. Both versions still need separate current plain/profile
+qualifications, followed by the frozen 48-trial whole-client comparison and
+observer-off calibration. No new performance trial has run.
 
 The custom v6 binary declares `4.1.0-beta.2-mc1.21.1-performance-v6`, distinct from
 the official binary's metadata version. The 0.4.0/0.4.1 v6 presets incorrectly used

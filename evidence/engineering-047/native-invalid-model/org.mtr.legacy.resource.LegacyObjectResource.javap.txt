@@ -1,0 +1,167 @@
+Compiled from "LegacyObjectResource.java"
+public final class org.mtr.legacy.resource.LegacyObjectResource extends org.mtr.legacy.generated.resource.ObjectResourceSchema {
+  public org.mtr.legacy.resource.LegacyObjectResource(org.mtr.core.serializer.ReaderBase);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokespecial #1                  // Method org/mtr/legacy/generated/resource/ObjectResourceSchema."<init>":(Lorg/mtr/core/serializer/ReaderBase;)V
+       5: aload_0
+       6: aload_1
+       7: invokevirtual #7                  // Method updateData:(Lorg/mtr/core/serializer/ReaderBase;)V
+      10: return
+
+  public org.mtr.resource.ObjectResource convert(java.lang.String, org.mtr.resource.ResourceProvider);
+    Code:
+       0: new           #12                 // class org/mtr/libraries/com/google/gson/JsonObject
+       3: dup
+       4: invokespecial #14                 // Method org/mtr/libraries/com/google/gson/JsonObject."<init>":()V
+       7: astore_3
+       8: aload_3
+       9: ldc           #17                 // String id
+      11: aload_1
+      12: invokevirtual #19                 // Method org/mtr/libraries/com/google/gson/JsonObject.addProperty:(Ljava/lang/String;Ljava/lang/String;)V
+      15: aload_3
+      16: ldc           #23                 // String name
+      18: aload_0
+      19: getfield      #25                 // Field name:Ljava/lang/String;
+      22: invokevirtual #19                 // Method org/mtr/libraries/com/google/gson/JsonObject.addProperty:(Ljava/lang/String;Ljava/lang/String;)V
+      25: aload_3
+      26: ldc           #28                 // String color
+      28: iconst_0
+      29: invokestatic  #30                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+      32: invokevirtual #36                 // Method org/mtr/libraries/com/google/gson/JsonObject.addProperty:(Ljava/lang/String;Ljava/lang/Number;)V
+      35: aload_3
+      36: ldc           #39                 // String modelResource
+      38: aload_0
+      39: getfield      #41                 // Field model:Ljava/lang/String;
+      42: invokevirtual #19                 // Method org/mtr/libraries/com/google/gson/JsonObject.addProperty:(Ljava/lang/String;Ljava/lang/String;)V
+      45: aload_3
+      46: ldc           #44                 // String textureResource
+      48: aload_0
+      49: getfield      #46                 // Field textureId:Ljava/lang/String;
+      52: invokevirtual #19                 // Method org/mtr/libraries/com/google/gson/JsonObject.addProperty:(Ljava/lang/String;Ljava/lang/String;)V
+      55: aload_3
+      56: ldc           #49                 // String flipTextureV
+      58: aload_0
+      59: getfield      #51                 // Field flipV:Z
+      62: invokestatic  #55                 // Method java/lang/Boolean.valueOf:(Z)Ljava/lang/Boolean;
+      65: invokevirtual #60                 // Method org/mtr/libraries/com/google/gson/JsonObject.addProperty:(Ljava/lang/String;Ljava/lang/Boolean;)V
+      68: aload_0
+      69: invokestatic  #63                 // InterfaceMethod org/mtr/core/tool/Utilities.getJsonObjectFromData:(Lorg/mtr/core/serializer/SerializedDataBase;)Lorg/mtr/libraries/com/google/gson/JsonObject;
+      72: astore        4
+      74: aload         4
+      76: aload_3
+      77: ldc           #69                 // String translation
+      79: invokestatic  #71                 // Method putArray1:(Lorg/mtr/libraries/com/google/gson/JsonObject;Lorg/mtr/libraries/com/google/gson/JsonObject;Ljava/lang/String;)V
+      82: aload         4
+      84: aload_3
+      85: ldc           #75                 // String rotation
+      87: invokestatic  #71                 // Method putArray1:(Lorg/mtr/libraries/com/google/gson/JsonObject;Lorg/mtr/libraries/com/google/gson/JsonObject;Ljava/lang/String;)V
+      90: aload         4
+      92: aload_3
+      93: ldc           #77                 // String scale
+      95: invokestatic  #71                 // Method putArray1:(Lorg/mtr/libraries/com/google/gson/JsonObject;Lorg/mtr/libraries/com/google/gson/JsonObject;Ljava/lang/String;)V
+      98: aload         4
+     100: aload_3
+     101: ldc           #79                 // String mirror
+     103: invokestatic  #81                 // Method putArray2:(Lorg/mtr/libraries/com/google/gson/JsonObject;Lorg/mtr/libraries/com/google/gson/JsonObject;Ljava/lang/String;)V
+     106: new           #84                 // class org/mtr/resource/ObjectResource
+     109: dup
+     110: new           #86                 // class org/mtr/core/serializer/JsonReader
+     113: dup
+     114: aload_3
+     115: invokespecial #88                 // Method org/mtr/core/serializer/JsonReader."<init>":(Lorg/mtr/libraries/com/google/gson/JsonElement;)V
+     118: aload_2
+     119: invokespecial #91                 // Method org/mtr/resource/ObjectResource."<init>":(Lorg/mtr/core/serializer/ReaderBase;Lorg/mtr/resource/ResourceProvider;)V
+     122: areturn
+
+  private static void putArray1(org.mtr.libraries.com.google.gson.JsonObject, org.mtr.libraries.com.google.gson.JsonObject, java.lang.String);
+    Code:
+       0: aload_0
+       1: aload_2
+       2: invokevirtual #94                 // Method org/mtr/libraries/com/google/gson/JsonObject.getAsJsonArray:(Ljava/lang/String;)Lorg/mtr/libraries/com/google/gson/JsonArray;
+       5: astore_3
+       6: new           #12                 // class org/mtr/libraries/com/google/gson/JsonObject
+       9: dup
+      10: invokespecial #14                 // Method org/mtr/libraries/com/google/gson/JsonObject."<init>":()V
+      13: astore        4
+      15: aload         4
+      17: ldc           #98                 // String x
+      19: aload_3
+      20: iconst_0
+      21: invokevirtual #100                // Method org/mtr/libraries/com/google/gson/JsonArray.get:(I)Lorg/mtr/libraries/com/google/gson/JsonElement;
+      24: invokevirtual #106                // Method org/mtr/libraries/com/google/gson/JsonElement.getAsDouble:()D
+      27: invokestatic  #112                // Method java/lang/Double.valueOf:(D)Ljava/lang/Double;
+      30: invokevirtual #36                 // Method org/mtr/libraries/com/google/gson/JsonObject.addProperty:(Ljava/lang/String;Ljava/lang/Number;)V
+      33: aload         4
+      35: ldc           #117                // String y
+      37: aload_3
+      38: iconst_1
+      39: invokevirtual #100                // Method org/mtr/libraries/com/google/gson/JsonArray.get:(I)Lorg/mtr/libraries/com/google/gson/JsonElement;
+      42: invokevirtual #106                // Method org/mtr/libraries/com/google/gson/JsonElement.getAsDouble:()D
+      45: invokestatic  #112                // Method java/lang/Double.valueOf:(D)Ljava/lang/Double;
+      48: invokevirtual #36                 // Method org/mtr/libraries/com/google/gson/JsonObject.addProperty:(Ljava/lang/String;Ljava/lang/Number;)V
+      51: aload         4
+      53: ldc           #119                // String z
+      55: aload_3
+      56: iconst_2
+      57: invokevirtual #100                // Method org/mtr/libraries/com/google/gson/JsonArray.get:(I)Lorg/mtr/libraries/com/google/gson/JsonElement;
+      60: invokevirtual #106                // Method org/mtr/libraries/com/google/gson/JsonElement.getAsDouble:()D
+      63: invokestatic  #112                // Method java/lang/Double.valueOf:(D)Ljava/lang/Double;
+      66: invokevirtual #36                 // Method org/mtr/libraries/com/google/gson/JsonObject.addProperty:(Ljava/lang/String;Ljava/lang/Number;)V
+      69: aload_1
+      70: aload_2
+      71: aload         4
+      73: invokevirtual #121                // Method org/mtr/libraries/com/google/gson/JsonObject.add:(Ljava/lang/String;Lorg/mtr/libraries/com/google/gson/JsonElement;)V
+      76: goto          80
+      79: astore_3
+      80: return
+    Exception table:
+       from    to  target type
+           0    76    79   Class java/lang/Exception
+
+  private static void putArray2(org.mtr.libraries.com.google.gson.JsonObject, org.mtr.libraries.com.google.gson.JsonObject, java.lang.String);
+    Code:
+       0: aload_0
+       1: aload_2
+       2: invokevirtual #94                 // Method org/mtr/libraries/com/google/gson/JsonObject.getAsJsonArray:(Ljava/lang/String;)Lorg/mtr/libraries/com/google/gson/JsonArray;
+       5: astore_3
+       6: new           #12                 // class org/mtr/libraries/com/google/gson/JsonObject
+       9: dup
+      10: invokespecial #14                 // Method org/mtr/libraries/com/google/gson/JsonObject."<init>":()V
+      13: astore        4
+      15: aload         4
+      17: ldc           #98                 // String x
+      19: aload_3
+      20: iconst_0
+      21: invokevirtual #100                // Method org/mtr/libraries/com/google/gson/JsonArray.get:(I)Lorg/mtr/libraries/com/google/gson/JsonElement;
+      24: invokevirtual #127                // Method org/mtr/libraries/com/google/gson/JsonElement.getAsBoolean:()Z
+      27: invokestatic  #55                 // Method java/lang/Boolean.valueOf:(Z)Ljava/lang/Boolean;
+      30: invokevirtual #60                 // Method org/mtr/libraries/com/google/gson/JsonObject.addProperty:(Ljava/lang/String;Ljava/lang/Boolean;)V
+      33: aload         4
+      35: ldc           #117                // String y
+      37: aload_3
+      38: iconst_1
+      39: invokevirtual #100                // Method org/mtr/libraries/com/google/gson/JsonArray.get:(I)Lorg/mtr/libraries/com/google/gson/JsonElement;
+      42: invokevirtual #127                // Method org/mtr/libraries/com/google/gson/JsonElement.getAsBoolean:()Z
+      45: invokestatic  #55                 // Method java/lang/Boolean.valueOf:(Z)Ljava/lang/Boolean;
+      48: invokevirtual #60                 // Method org/mtr/libraries/com/google/gson/JsonObject.addProperty:(Ljava/lang/String;Ljava/lang/Boolean;)V
+      51: aload         4
+      53: ldc           #119                // String z
+      55: aload_3
+      56: iconst_2
+      57: invokevirtual #100                // Method org/mtr/libraries/com/google/gson/JsonArray.get:(I)Lorg/mtr/libraries/com/google/gson/JsonElement;
+      60: invokevirtual #127                // Method org/mtr/libraries/com/google/gson/JsonElement.getAsBoolean:()Z
+      63: invokestatic  #55                 // Method java/lang/Boolean.valueOf:(Z)Ljava/lang/Boolean;
+      66: invokevirtual #60                 // Method org/mtr/libraries/com/google/gson/JsonObject.addProperty:(Ljava/lang/String;Ljava/lang/Boolean;)V
+      69: aload_1
+      70: aload_2
+      71: aload         4
+      73: invokevirtual #121                // Method org/mtr/libraries/com/google/gson/JsonObject.add:(Ljava/lang/String;Lorg/mtr/libraries/com/google/gson/JsonElement;)V
+      76: goto          80
+      79: astore_3
+      80: return
+    Exception table:
+       from    to  target type
+           0    76    79   Class java/lang/Exception
+}

@@ -1,0 +1,159 @@
+Compiled from "ObjectResource.java"
+public final class org.mtr.resource.ObjectResource extends org.mtr.generated.resource.ObjectResourceSchema implements org.mtr.resource.StoredModelResourceBase, java.lang.Comparable<org.mtr.resource.ObjectResource> {
+  public final boolean shouldPreload;
+
+  private final java.util.function.Supplier<org.mtr.libraries.it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap<org.mtr.resource.RenderStage, org.mtr.libraries.it.unimi.dsi.fastutil.objects.ObjectArrayList<org.mtr.model.NewOptimizedModel>>> modelSupplier;
+
+  public org.mtr.resource.ObjectResource(org.mtr.core.serializer.ReaderBase, org.mtr.resource.ResourceProvider);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_2
+       3: invokespecial #1                  // Method org/mtr/generated/resource/ObjectResourceSchema."<init>":(Lorg/mtr/core/serializer/ReaderBase;Lorg/mtr/resource/ResourceProvider;)V
+       6: aload_0
+       7: aload_1
+       8: invokevirtual #7                  // Method updateData:(Lorg/mtr/core/serializer/ReaderBase;)V
+      11: aload_0
+      12: invokestatic  #13                 // Method org/mtr/config/Config.getClient:()Lorg/mtr/config/Client;
+      15: aload_0
+      16: getfield      #19                 // Field id:Ljava/lang/String;
+      19: invokevirtual #23                 // Method org/mtr/config/Client.matchesPreloadResourcePattern:(Ljava/lang/String;)Z
+      22: putfield      #29                 // Field shouldPreload:Z
+      25: aload_0
+      26: aload_0
+      27: getfield      #33                 // Field modelResource:Ljava/lang/String;
+      30: aload_0
+      31: getfield      #36                 // Field textureResource:Ljava/lang/String;
+      34: aload_2
+      35: aload_0
+      36: getfield      #39                 // Field flipTextureV:Z
+      39: invokestatic  #42                 // Method org/mtr/resource/VehicleModel.getModelLoaderBase:(Ljava/lang/String;Ljava/lang/String;Lorg/mtr/resource/ResourceProvider;Z)Lorg/mtr/model/ModelLoaderBase;
+      42: dup
+      43: invokestatic  #48                 // Method java/util/Objects.requireNonNull:(Ljava/lang/Object;)Ljava/lang/Object;
+      46: pop
+      47: invokedynamic #54,  0             // InvokeDynamic #0:get:(Lorg/mtr/model/ModelLoaderBase;)Ljava/util/function/Supplier;
+      52: putfield      #58                 // Field modelSupplier:Ljava/util/function/Supplier;
+      55: return
+
+  public org.mtr.libraries.it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap<org.mtr.resource.RenderStage, org.mtr.libraries.it.unimi.dsi.fastutil.objects.ObjectArrayList<org.mtr.model.NewOptimizedModel>> getOptimizedModel();
+    Code:
+       0: aload_0
+       1: getfield      #58                 // Field modelSupplier:Ljava/util/function/Supplier;
+       4: invokeinterface #62,  1           // InterfaceMethod java/util/function/Supplier.get:()Ljava/lang/Object;
+       9: checkcast     #67                 // class org/mtr/libraries/it/unimi/dsi/fastutil/objects/Object2ObjectOpenHashMap
+      12: areturn
+
+  public void render(org.mtr.render.StoredMatrixTransformations, int);
+    Code:
+       0: aload_1
+       1: invokevirtual #69                 // Method org/mtr/render/StoredMatrixTransformations.copy:()Lorg/mtr/render/StoredMatrixTransformations;
+       4: astore_3
+       5: aload_3
+       6: aload_0
+       7: invokedynamic #75,  0             // InvokeDynamic #1:accept:(Lorg/mtr/resource/ObjectResource;)Ljava/util/function/Consumer;
+      12: invokevirtual #79                 // Method org/mtr/render/StoredMatrixTransformations.add:(Ljava/util/function/Consumer;)V
+      15: aload_0
+      16: aload_3
+      17: iload_2
+      18: invokespecial #83                 // InterfaceMethod org/mtr/resource/StoredModelResourceBase.render:(Lorg/mtr/render/StoredMatrixTransformations;I)V
+      21: return
+
+  public java.lang.String getId();
+    Code:
+       0: aload_0
+       1: getfield      #19                 // Field id:Ljava/lang/String;
+       4: areturn
+
+  public java.lang.String getName();
+    Code:
+       0: aload_0
+       1: getfield      #89                 // Field name:Ljava/lang/String;
+       4: invokestatic  #92                 // InterfaceMethod net/minecraft/network/chat/Component.translatable:(Ljava/lang/String;)Lnet/minecraft/network/chat/MutableComponent;
+       7: invokevirtual #98                 // Method net/minecraft/network/chat/MutableComponent.getString:()Ljava/lang/String;
+      10: areturn
+
+  public int getColor();
+    Code:
+       0: aload_0
+       1: getfield      #104                // Field color:Ljava/lang/String;
+       4: invokestatic  #107                // InterfaceMethod org/mtr/resource/CustomResourceTools.colorStringToInt:(Ljava/lang/String;)I
+       7: ireturn
+
+  private static float clampNumber(double);
+    Code:
+       0: dload_0
+       1: dconst_0
+       2: dcmpg
+       3: ifgt          10
+       6: fconst_1
+       7: goto          12
+      10: dload_0
+      11: d2f
+      12: freturn
+
+  public int compareTo(org.mtr.resource.ObjectResource);
+    Code:
+       0: aload_1
+       1: invokevirtual #113                // Method getName:()Ljava/lang/String;
+       4: aload_0
+       5: invokevirtual #113                // Method getName:()Ljava/lang/String;
+       8: invokevirtual #116                // Method java/lang/String.compareTo:(Ljava/lang/String;)I
+      11: ireturn
+
+  public int compareTo(java.lang.Object);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: checkcast     #8                  // class org/mtr/resource/ObjectResource
+       5: invokevirtual #121                // Method compareTo:(Lorg/mtr/resource/ObjectResource;)I
+       8: ireturn
+
+  private void lambda$render$0(com.mojang.blaze3d.vertex.PoseStack);
+    Code:
+       0: aload_1
+       1: aload_0
+       2: getfield      #124                // Field translation:Lorg/mtr/resource/PartPosition;
+       5: invokevirtual #128                // Method org/mtr/resource/PartPosition.getX:()D
+       8: aload_0
+       9: getfield      #124                // Field translation:Lorg/mtr/resource/PartPosition;
+      12: invokevirtual #134                // Method org/mtr/resource/PartPosition.getY:()D
+      15: aload_0
+      16: getfield      #124                // Field translation:Lorg/mtr/resource/PartPosition;
+      19: invokevirtual #137                // Method org/mtr/resource/PartPosition.getZ:()D
+      22: invokevirtual #140                // Method com/mojang/blaze3d/vertex/PoseStack.translate:(DDD)V
+      25: aload_1
+      26: aload_0
+      27: getfield      #146                // Field rotation:Lorg/mtr/resource/PartPosition;
+      30: invokevirtual #128                // Method org/mtr/resource/PartPosition.getX:()D
+      33: d2f
+      34: invokestatic  #149                // Method org/mtr/tool/Drawing.rotateXDegrees:(Lcom/mojang/blaze3d/vertex/PoseStack;F)V
+      37: aload_1
+      38: aload_0
+      39: getfield      #146                // Field rotation:Lorg/mtr/resource/PartPosition;
+      42: invokevirtual #134                // Method org/mtr/resource/PartPosition.getY:()D
+      45: d2f
+      46: invokestatic  #155                // Method org/mtr/tool/Drawing.rotateYDegrees:(Lcom/mojang/blaze3d/vertex/PoseStack;F)V
+      49: aload_1
+      50: aload_0
+      51: getfield      #146                // Field rotation:Lorg/mtr/resource/PartPosition;
+      54: invokevirtual #137                // Method org/mtr/resource/PartPosition.getZ:()D
+      57: d2f
+      58: ldc           #158                // float 180.0f
+      60: fadd
+      61: invokestatic  #159                // Method org/mtr/tool/Drawing.rotateZDegrees:(Lcom/mojang/blaze3d/vertex/PoseStack;F)V
+      64: aload_1
+      65: aload_0
+      66: getfield      #162                // Field scale:Lorg/mtr/resource/PartPosition;
+      69: invokevirtual #128                // Method org/mtr/resource/PartPosition.getX:()D
+      72: invokestatic  #165                // Method clampNumber:(D)F
+      75: aload_0
+      76: getfield      #162                // Field scale:Lorg/mtr/resource/PartPosition;
+      79: invokevirtual #134                // Method org/mtr/resource/PartPosition.getY:()D
+      82: invokestatic  #165                // Method clampNumber:(D)F
+      85: aload_0
+      86: getfield      #162                // Field scale:Lorg/mtr/resource/PartPosition;
+      89: invokevirtual #137                // Method org/mtr/resource/PartPosition.getZ:()D
+      92: invokestatic  #165                // Method clampNumber:(D)F
+      95: invokevirtual #169                // Method com/mojang/blaze3d/vertex/PoseStack.scale:(FFF)V
+      98: return
+}

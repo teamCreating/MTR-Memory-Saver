@@ -2,7 +2,15 @@
 
 Scope: Memory Saver 0.4.6 with official MTR 4.1.0-beta.2, Minecraft 1.21.1,
 Java 21 and the two explicit NeoForge targets. New v6 validation is paused.
-Updated: 2026-11-15T06:54:13+08:00 (UTC+08:00).
+Updated: 2026-11-16T14:05:09.075618+08:00 (UTC+08:00).
+
+Latest runtime evidence: a fresh official NF248 0.4.6 client with native observer
+1.0.0 loaded all sixteen packs, produced 603 native snapshots (601 unpaused and
+settled in-world), 33,446 actual frame events and 12,607 server-tick events, and
+saved normally with exit code 0. Both DC01 native caches were observed (5/6 floors,
+10 doorways each). Its screenshots do not show a train, and no full reload or
+performance acceptance follows. The later observer publication/diagnostic repairs
+need their own runtime verification. See [sealed runtime evidence](../evidence/engineering-048/neutral-runtime-01/assessment.json).
 
 ## Established evidence
 
@@ -39,6 +47,13 @@ Updated: 2026-11-15T06:54:13+08:00 (UTC+08:00).
 - Static official call-chain analysis finds synchronous reload RETURN injection,
   not an asynchronous registration completion callback. Actual first full-pack
   HEAD/RETURN records are paired on the render thread with nesting one.
+- Current-input launcher controls, an independent native observer and the
+  whole-client comparison protocol are implemented. The launcher passes 39 tests;
+  the observer passes 14 isolated tests per official target, archive/ABI checks
+  and companion-version-independent reproducibility. Its synthetic JFR schema
+  check is not an actual client Mixin or frame acceptance result. All four
+  baseline/candidate and plain/profile qualifications remain missing; no new
+  whole-client performance trial has run.
 - Historical source-work comparisons do not establish full-client improvement.
   The 48-run source protocol remains inconclusive because A/A timing equivalence
   did not pass its preregistered band.
@@ -66,11 +81,17 @@ Updated: 2026-11-15T06:54:13+08:00 (UTC+08:00).
   F3+T remain separate gaps. A manual qualification is requested from the user.
 - A new UI recovery confirms the live target window but both fresh screenshot
   requests time out. No keyboard/mouse input or visual/reload pass follows.
-- Route attempt 03 is now running against the verified live, unpaused existing
-  client with a separate unlimited-history JFR and the bounded background
-  observer. The frozen duration, three windows and 20-second sampling limit are
-  unchanged. No reload input is sent during this window. Its start checkpoint is
-  evidence of a live observation, not a completed two-hour acceptance result.
+- Route attempt 03 failed when its Java process exited with code 1653. Windows
+  Application Error and WER bind that exact process/start time to a crash in
+  textinputframework.dll; the triggering cause is not established. All thirteen
+  JFR chunks are preserved, twelve readable; the last remains incomplete. The
+  first 2400-second sampled window passes, but the complete two-hour session and
+  JFR coverage fail. [Recovery and raw evidence](../evidence/engineering-048/route-recovery/assessment.json).
+- Real Windows tests exposed a separate observer publication conflict: shared
+  delete access alone does not permit MoveFileEx replacement over an open target.
+  The probe-only publisher now uses ReplaceFileW, preserving the old reader's
+  bytes and reporting actual failures. Two targets pass eighteen tests each at
+  observer 1.0.1; this repair changes no product class or native game state.
 
 ## Remaining gates
 
@@ -78,9 +99,10 @@ Updated: 2026-11-15T06:54:13+08:00 (UTC+08:00).
 | --- | --- | --- |
 | P1 | Full catalogue interaction | The 0.4.6 NF248 16-pack/669-entry catalogue has registered 1092 declarations/1091 distinct IDs and settled. Observe geometry, displays, doors, floors, boarding and native diagnostics in the actual scene. Current largest referenced Blockbench input is 13,141,932 bytes; the old 65 MB Blockbench asset is unreferenced. |
 | P1 | Twenty consecutive full-pack reloads | Successful actual F3+T reloads are 0/20. Three input receipts lack a corresponding new epoch and full ResourceManager reload log. Require an external input receipt, native HEAD/RETURN pair, complete reload log and settled fresh snapshot for every accepted reload. |
-| P1 | Two-hour unpaused route | Attempts 01 and 02 are interrupted and failed. Attempt 03 is running with a fresh JFR and bounded background observer; completion remains unproven. Retain strict sampling and availability gates and observe all three windows, route travel, cache retention, stale publication and heap/OS/native/GPU measurements. |
-| P1 | Controlled full-client performance | Freeze baseline, current candidate, controls and budgets; collect counterbalanced pairs, A/A and instrumentation controls with raw JFR/GC/frame/OS evidence. Source allocation results alone do not settle loading latency, Full-GC pauses or frame regressions. |
-| P2 | NeoForge 21.1.265 full-pack runtime | Build, 61 tests, actual packaged startup, all 42 fault/resource checks and wrong-binary rejection pass. Full-pack/world and representative interaction checks on this loader remain to be observed. |
+| P1 | Two-hour unpaused route | All three attempts failed. Attempt 03's first 2400-second sampled window passes, but the process crashes and JFR coverage is incomplete. Retain strict sampling/availability gates for a fresh complete route; do not promote the partial window. |
+| P1 | Controlled full-client performance | Current control/protocol engineering is ready for qualification. First apply the same final neutral observer in actual clients and qualify baseline/candidate independently in plain/profile modes. The frozen comparison requires 48 independent JVM trials plus separate observer-off calibration. No new performance trial has run. Source allocation results alone do not settle loading latency, Full-GC pauses or frame regressions. |
+| P1 | Native Invalid model attribution | A new actual NF248 startup traces its one occurrence to the official default RailResource constructor's empty model/texture arguments and unchanged returned fallback. This accounts for that run's diagnostic, not future logs or rail rendering. The common observer and experiment consumer are being extended to require per-run call/return evidence; other errors remain blocking. |
+| P2 | NeoForge 21.1.265 full-pack runtime | Build, 66 tests, actual packaged startup, all 42 fault/resource checks and wrong-binary rejection pass. Full-pack/world and representative interaction checks on this loader remain to be observed. |
 | P2 | Repeated official registration ordering | Static analysis establishes synchronous official reload entry points; the initial 0.4.6 full registration is paired on the render thread with nesting one. Collect the same evidence through 20 actual full ResourceManager reloads. |
 | P2 | Snapshot failure boundaries | Injected snapshot write/close/read/delete and actual Windows deletion-lock tests pass. Real disk-full, abrupt JVM exit and stale-file recovery remain separate coverage; explicit fixture cleanup is not automatic product cleanup. |
 
@@ -95,9 +117,13 @@ failure. Its surviving JFR chunks are preserved; its final open chunk is incompl
 and it is not controlled performance evidence. The incomplete 0.4.6 startup and
 route observations likewise cannot establish visual or long-session acceptance.
 
-Evidence: [verification plan](../evidence/engineering-046/verification-plan.json),
+Evidence: [historical verification plan](../evidence/engineering-046/verification-plan.json),
+[current verification progress](../evidence/engineering-047/verification-progress.json),
+[neutral observer assessment](../evidence/engineering-047/neutral-observer/assessment.json),
+[controlled client protocol](CLIENT_EXPERIMENT.md),
 [snapshot-I/O assessment](../evidence/engineering-047/snapshot-io/assessment.json),
 [route attempt 03 start](../evidence/engineering-047/route-attempt-03-start/execution-start.json),
+[route attempt 03 first window](../evidence/engineering-047/route-attempt-03-first-window/assessment.json),
 [packaged fault result](../evidence/engineering-046/packaged-faults-nf248/loader-lifecycle-result.json),
 [NF265 wrong-binary assessment](../evidence/engineering-046/packaged-mismatch-nf265/assessment.json),
 [large-text assessment](../evidence/engineering-046/text-workspace/attempt-02/assessment.json),

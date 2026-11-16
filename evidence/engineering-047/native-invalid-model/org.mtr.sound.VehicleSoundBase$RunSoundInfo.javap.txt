@@ -1,0 +1,119 @@
+Compiled from "VehicleSoundBase.java"
+public final class org.mtr.sound.VehicleSoundBase$RunSoundInfo extends java.lang.Record {
+  private final int index;
+
+  private final int nextIndex;
+
+  private final float blendLevel;
+
+  public org.mtr.sound.VehicleSoundBase$RunSoundInfo(int, int, float);
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Record."<init>":()V
+       4: aload_0
+       5: iload_1
+       6: putfield      #7                  // Field index:I
+       9: aload_0
+      10: iload_2
+      11: putfield      #13                 // Field nextIndex:I
+      14: aload_0
+      15: fload_3
+      16: putfield      #16                 // Field blendLevel:F
+      19: return
+
+  public static org.mtr.sound.VehicleSoundBase$RunSoundInfo create(org.mtr.core.data.Rail, org.mtr.core.data.Rail, float);
+    Code:
+       0: aload_0
+       1: invokevirtual #20                 // Method org/mtr/core/data/Rail.getStyles:()Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectImmutableList;
+       4: invokevirtual #26                 // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectImmutableList.isEmpty:()Z
+       7: ifeq          14
+      10: aconst_null
+      11: goto          27
+      14: aload_0
+      15: invokevirtual #20                 // Method org/mtr/core/data/Rail.getStyles:()Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectImmutableList;
+      18: invokevirtual #32                 // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectImmutableList.getFirst:()Ljava/lang/Object;
+      21: checkcast     #36                 // class java/lang/String
+      24: invokestatic  #38                 // Method org/mtr/client/CustomResourceLoader.getRailById:(Ljava/lang/String;)Lorg/mtr/resource/RailResource;
+      27: astore_3
+      28: aload_3
+      29: ifnonnull     36
+      32: iconst_0
+      33: goto          40
+      36: aload_3
+      37: invokevirtual #44                 // Method org/mtr/resource/RailResource.getSoundIndex:()I
+      40: istore        4
+      42: aload_1
+      43: aload_0
+      44: invokevirtual #50                 // Method java/lang/Object.equals:(Ljava/lang/Object;)Z
+      47: ifeq          63
+      50: new           #8                  // class org/mtr/sound/VehicleSoundBase$RunSoundInfo
+      53: dup
+      54: iload         4
+      56: iload         4
+      58: fload_2
+      59: invokespecial #56                 // Method "<init>":(IIF)V
+      62: areturn
+      63: aload_1
+      64: invokevirtual #20                 // Method org/mtr/core/data/Rail.getStyles:()Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectImmutableList;
+      67: invokevirtual #26                 // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectImmutableList.isEmpty:()Z
+      70: ifeq          77
+      73: aconst_null
+      74: goto          90
+      77: aload_1
+      78: invokevirtual #20                 // Method org/mtr/core/data/Rail.getStyles:()Lorg/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectImmutableList;
+      81: invokevirtual #32                 // Method org/mtr/libraries/it/unimi/dsi/fastutil/objects/ObjectImmutableList.getFirst:()Ljava/lang/Object;
+      84: checkcast     #36                 // class java/lang/String
+      87: invokestatic  #38                 // Method org/mtr/client/CustomResourceLoader.getRailById:(Ljava/lang/String;)Lorg/mtr/resource/RailResource;
+      90: astore        5
+      92: aload         5
+      94: ifnonnull     102
+      97: iload         4
+      99: goto          107
+     102: aload         5
+     104: invokevirtual #44                 // Method org/mtr/resource/RailResource.getSoundIndex:()I
+     107: istore        6
+     109: new           #8                  // class org/mtr/sound/VehicleSoundBase$RunSoundInfo
+     112: dup
+     113: iload         4
+     115: iload         6
+     117: fload_2
+     118: invokespecial #56                 // Method "<init>":(IIF)V
+     121: areturn
+
+  public final java.lang.String toString();
+    Code:
+       0: aload_0
+       1: invokedynamic #59,  0             // InvokeDynamic #0:toString:(Lorg/mtr/sound/VehicleSoundBase$RunSoundInfo;)Ljava/lang/String;
+       6: areturn
+
+  public final int hashCode();
+    Code:
+       0: aload_0
+       1: invokedynamic #63,  0             // InvokeDynamic #0:hashCode:(Lorg/mtr/sound/VehicleSoundBase$RunSoundInfo;)I
+       6: ireturn
+
+  public final boolean equals(java.lang.Object);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokedynamic #67,  0             // InvokeDynamic #0:equals:(Lorg/mtr/sound/VehicleSoundBase$RunSoundInfo;Ljava/lang/Object;)Z
+       7: ireturn
+
+  public int index();
+    Code:
+       0: aload_0
+       1: getfield      #7                  // Field index:I
+       4: ireturn
+
+  public int nextIndex();
+    Code:
+       0: aload_0
+       1: getfield      #13                 // Field nextIndex:I
+       4: ireturn
+
+  public float blendLevel();
+    Code:
+       0: aload_0
+       1: getfield      #16                 // Field blendLevel:F
+       4: freturn
+}
