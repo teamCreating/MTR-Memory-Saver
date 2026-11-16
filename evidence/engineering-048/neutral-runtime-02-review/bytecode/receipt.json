@@ -1,0 +1,110 @@
+{
+  "captured_at": "2026-11-16T06:22:36.621064+00:00",
+  "javap": "C:\\Users\\ben_l\\Saved Games\\Yuuniverse 1.20.1 Shenyang\\porting-output\\work\\tools\\jdk21\\jdk-21.0.11+10\\bin\\javap.exe",
+  "javap_sha256": "1d6f058d5aef5f6f5df4f583cf13de8b2fea65c139f8c5ab6c8dabb734a2cf1a",
+  "classpath": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-neutral-048b\\libraries\\net\\neoforged\\neoforge\\21.1.248\\neoforge-21.1.248-client.jar",
+  "classpath_sha256": "01ba27020f208050884661ff393be3c392e02853d91825f9d5f1bb694282e83b",
+  "commands": [
+    {
+      "argv": [
+        "C:\\Users\\ben_l\\Saved Games\\Yuuniverse 1.20.1 Shenyang\\porting-output\\work\\tools\\jdk21\\jdk-21.0.11+10\\bin\\javap.exe",
+        "-classpath",
+        "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-neutral-048b\\libraries\\net\\neoforged\\neoforge\\21.1.248\\neoforge-21.1.248-client.jar",
+        "-c",
+        "-p",
+        "net.minecraft.client.KeyboardHandler"
+      ],
+      "exit_code": 0
+    },
+    {
+      "argv": [
+        "C:\\Users\\ben_l\\Saved Games\\Yuuniverse 1.20.1 Shenyang\\porting-output\\work\\tools\\jdk21\\jdk-21.0.11+10\\bin\\javap.exe",
+        "-classpath",
+        "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-neutral-048b\\libraries\\net\\neoforged\\neoforge\\21.1.248\\neoforge-21.1.248-client.jar",
+        "-c",
+        "-p",
+        "net.minecraft.client.Minecraft"
+      ],
+      "exit_code": 0
+    },
+    {
+      "argv": [
+        "C:\\Users\\ben_l\\Saved Games\\Yuuniverse 1.20.1 Shenyang\\porting-output\\work\\tools\\jdk21\\jdk-21.0.11+10\\bin\\javap.exe",
+        "-classpath",
+        "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-neutral-048b\\libraries\\net\\neoforged\\neoforge\\21.1.248\\neoforge-21.1.248-client.jar",
+        "-c",
+        "-p",
+        "net.minecraft.client.KeyMapping"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "mixins": {
+    "mtr-memory-saver-official-nf248-0.4.6.jar": {
+      "mtr-memory-sharing.mixins.json": {
+        "required": true,
+        "minVersion": "0.8",
+        "package": "site.benli06.mixin",
+        "plugin": "site.benli06.CompatibilityPlugin",
+        "compatibilityLevel": "JAVA_21",
+        "client": [
+          "ModelLoaderAccess",
+          "ModelLoaderCompletionMixin",
+          "BlockbenchParseExecutorMixin",
+          "VehicleModelFactoryMixin",
+          "ResourceReloadMixin",
+          "PackedModelGroupMixin",
+          "DisplayPartAccess",
+          "DisplaySelectionMixin",
+          "SourceLifetimeMixin",
+          "VehicleJsonCacheMixin",
+          "VehicleJsonEpochMixin",
+          "CompressedResourceTextMixin",
+          "SegmentedResourceTextMixin",
+          "VertexColorMixin",
+          "ResourceTextReadMixin"
+        ],
+        "injectors": {
+          "defaultRequire": 1
+        }
+      }
+    },
+    "mtr-native-observer-official-nf248-1.0.2.jar": {
+      "mtr-native-observer.mixins.json": {
+        "required": true,
+        "minVersion": "0.8",
+        "package": "dev.abenli.neutralprobe.mixin",
+        "plugin": "dev.abenli.neutralprobe.NativeCompatibilityPlugin",
+        "compatibilityLevel": "JAVA_21",
+        "client": [
+          "NativePendingAccess",
+          "NativeClientDataAccess",
+          "VehicleCacheAccess",
+          "VehicleProgressAccess",
+          "NativeResourceEpochMixin",
+          "NativeInvalidModelMixin"
+        ],
+        "injectors": {
+          "defaultRequire": 1
+        }
+      }
+    },
+    "MTR-neoforge-4.1.0-beta.2+1.21.1.jar": {
+      "mtr.mixins.json": {
+        "required": true,
+        "package": "org.mtr.mixin",
+        "compatibilityLevel": "JAVA_21",
+        "minVersion": "0.8",
+        "mixins": [
+          "PlayerTeleportationStateAccessor"
+        ],
+        "client": [
+          "TextFieldSelectionEndAccessor"
+        ],
+        "injectors": {
+          "defaultRequire": 1
+        }
+      }
+    }
+  }
+}

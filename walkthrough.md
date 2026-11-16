@@ -258,3 +258,13 @@ Characterized abrupt JVM termination against the exact unchanged official0.4.6 N
 A separate JDK-only feasibility control holds one CREATE_NEW/READ/WRITE/DELETE_ON_CLOSE FileChannel through70000-byte write, rewind and exact restoration. The parent independently verifies UTF-16 bytes with delete sharing; Runtime.halt(75) then bypasses shutdown hooks and Windows removes the snapshot on handle teardown. The initial control's ordinary Python read was denied delete sharing; that failure and actual owned-child cleanup remain separate from the successful fresh control. No product source was changed. A focused owned-channel product repair is proposed and approved for a subsequent candidate, with no broad temporary-file scavenging or claim to recover prior0.4.6 residues.
 
 Read-only disk-full capability inspection finds VHD tooling installed but this process not elevated. No volume, partition, quota, system setting or shared temp directory was modified. Actual filesystem-full behavior remains untested; a future bounded disposable-volume test requires its own verified setup. Added reusable packaged abrupt-exit audit, exact source/class/command/exit/file receipts, feasibility sources/results, proposed channel lifetime and required test adaptations, assessment and SHA index under engineering-048/snapshot-abrupt. Product version/JARs remain0.4.6 here; v6 remains paused. Commit identity is A-BenLi06 <ben_li06@outlook.com>.
+
+
+## 2026-11-16T14:26:20+08:00（UTC+08:00）— 工程048：neutral observer 1.0.2 实时原生归因前缀
+
+- 对已运行 PID 41800 的 official-nf248-neutral-048b 只读取证，独立 Win32_Process 前后身份收据核对实际启动时间 2026-11-16T06:10:21.0898600Z、JVM、命令行与 launch plan；不启动、关闭或操作运行世界。冻结完整 startup 日志前缀、3 条原生诊断事件、1 组完整资源 epoch，以及 06:22:09–11Z 的三次推进快照与全部重复读取。
+- 已提交严格 consumer 对该前缀归因通过：唯一 Invalid model! 精确匹配官方空 model/texture 的默认 RailResource 构造，并返回原生 BlockbenchModelLoader。保留账户属性获取错误和原始错误全文；结果仅表示该已知原生日志归因，不表示全玩法或性能验收。
+- 三个实际安装 mod 与 plan 一致；16 个资源包的源文件、安装文件与 plan SHA-256 一致；neutral observer 1.0.2 的28个类指纹、25个构建输入全部匹配。封存 consumer/构建来源、metadata、原始日志/快照、独立重放脚本、116个证据载荷 SHA-256。冻结 consumer 重放与原始结果完全一致，完整 startup-header/prefix witness 验证通过。
+- 核对精确安装 patched-client JAR 字节码：F2 在早期截图分支返回；tick→handleKeybinds 受 screen/overlay 门控，但 ESC→pauseGame 不查 overlay。采样 window_active=true、mouse_grabbed=true、screen=null 只证明当时状态，不证明特定外部键事件送达，也不证明 overlay 是否存在。已将结论交主任务继续 UI 调查。
+- 保留 capture-01 原始失败与脚本：采样脚本误要求每次读取都为新快照，末次正常重复1秒发布快照被误报；capture-02 按发布逻辑保留重复读，要求时间不回退及15秒内至少3个推进快照。未用重试或过滤掩盖实际观测错误。
+- 证据：evidence/engineering-048/neutral-runtime-02-review/。MTR v6 继续暂停；最终退出封存和后续重载/玩法验证由主任务继续。
