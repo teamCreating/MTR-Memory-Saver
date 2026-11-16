@@ -1,0 +1,98 @@
+{
+  "timestamp": "2026-11-16T14:10:07.407871+08:00",
+  "utc_offset": "+08:00",
+  "audit_observations_verified": true,
+  "product_cleanup_after_halt": false,
+  "targets": [
+    {
+      "target": "official-nf248",
+      "artifact": "official-nf248/mtr-memory-saver-official-nf248-0.4.6.jar",
+      "sha256": "dd47f6ae4daa4139b9ada9196d757db634a79ebdd7fa5f06083719d764285997",
+      "version": "0.4.6",
+      "child_processes": [
+        29620,
+        34852,
+        57212,
+        14760,
+        40632
+      ],
+      "exit_codes": [
+        0,
+        74,
+        0,
+        74,
+        0
+      ],
+      "reader_class_payloads": {
+        "site/benli06/ReadAdmission$Scope.class": "1951c26ca02f49ff7f27e42a3fb4fc566369b9963b7899f7c65028d87ac1fef4",
+        "site/benli06/ReadAdmission.class": "dc0657e8019f469efb8261e296b91f8c030ab4ade308a42603cb77dbb1b7e73e",
+        "site/benli06/SegmentedResourceText$Snapshot.class": "7ca7dedd3836f485740bf7bf10b63e7eac3b28325714ee5c174c2ebf8a3e660f",
+        "site/benli06/SegmentedResourceText.class": "ca52776d79260976824b6672d959a6c03d46b7f5853f6ea194a8fd9722c93f30",
+        "site/benli06/TextWorkspace$Lease.class": "748b536a00cd94d1e75b354cbfc9488d2c4c44261f293b7d8282149ae46f35c4",
+        "site/benli06/TextWorkspace$Request.class": "f9f5036e889edf2de3826f0fb155326964504962af5e9878eb26b43f9c7bd12f",
+        "site/benli06/TextWorkspace.class": "e64999cd9ba0ff4c35d459156d83f314fdd9fbe41c049347951ef12528372dcd"
+      },
+      "retained_abrupt_snapshots": [
+        {
+          "bytes": 24576,
+          "sha256": "c77351d5aa3640c6a6cf90a559a199296e34bfe1f26f69be5ebd3525bcb02513"
+        },
+        {
+          "bytes": 24576,
+          "sha256": "c77351d5aa3640c6a6cf90a559a199296e34bfe1f26f69be5ebd3525bcb02513"
+        }
+      ]
+    },
+    {
+      "target": "official-nf265",
+      "artifact": "official-nf265/mtr-memory-saver-official-nf265-0.4.6.jar",
+      "sha256": "fbcb608fd5b2452f650c656bc930934ac4e4880addae4d24846faa5df5d9f63e",
+      "version": "0.4.6",
+      "child_processes": [
+        56644,
+        52668,
+        56792,
+        58616,
+        15976
+      ],
+      "exit_codes": [
+        0,
+        74,
+        0,
+        74,
+        0
+      ],
+      "reader_class_payloads": {
+        "site/benli06/ReadAdmission$Scope.class": "1951c26ca02f49ff7f27e42a3fb4fc566369b9963b7899f7c65028d87ac1fef4",
+        "site/benli06/ReadAdmission.class": "dc0657e8019f469efb8261e296b91f8c030ab4ade308a42603cb77dbb1b7e73e",
+        "site/benli06/SegmentedResourceText$Snapshot.class": "7ca7dedd3836f485740bf7bf10b63e7eac3b28325714ee5c174c2ebf8a3e660f",
+        "site/benli06/SegmentedResourceText.class": "ca52776d79260976824b6672d959a6c03d46b7f5853f6ea194a8fd9722c93f30",
+        "site/benli06/TextWorkspace$Lease.class": "748b536a00cd94d1e75b354cbfc9488d2c4c44261f293b7d8282149ae46f35c4",
+        "site/benli06/TextWorkspace$Request.class": "f9f5036e889edf2de3826f0fb155326964504962af5e9878eb26b43f9c7bd12f",
+        "site/benli06/TextWorkspace.class": "e64999cd9ba0ff4c35d459156d83f314fdd9fbe41c049347951ef12528372dcd"
+      },
+      "retained_abrupt_snapshots": [
+        {
+          "bytes": 24576,
+          "sha256": "c77351d5aa3640c6a6cf90a559a199296e34bfe1f26f69be5ebd3525bcb02513"
+        },
+        {
+          "bytes": 24576,
+          "sha256": "c77351d5aa3640c6a6cf90a559a199296e34bfe1f26f69be5ebd3525bcb02513"
+        }
+      ]
+    }
+  ],
+  "delete_on_close_feasibility_verified": true,
+  "feasibility_scope": "Actual Windows/JDK-only channel, not patched product",
+  "disk_full_executed": false,
+  "disk_full_capability_inspection": "disk-full-capabilities.json",
+  "product_source_changed": false,
+  "proposed_follow_up": "proposal.md",
+  "limits": [
+    "A terminated JVM has no surviving admission statistics to measure; no zero counters are invented.",
+    "Two abrupt spills accumulate two files per target; normal restart preserves earlier residues and other owners.",
+    "No shared-temp sweep, volume allocation, filesystem fill or product patch was performed.",
+    "The failed first feasibility control remains separate; its reader denied delete sharing."
+  ]
+}

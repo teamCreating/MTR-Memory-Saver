@@ -1,0 +1,70 @@
+{
+  "started": "2026-11-16T06:05:53.966854+00:00",
+  "passed": true,
+  "source_sha256": "0696422bc82520bf8b71d9e6b9d93dd0da65a14757cb65a43e877ef3c097f0c3",
+  "scope": "JDK-only candidate-design feasibility; packaged0.4.6 remains unchanged.",
+  "compile": {
+    "command": [
+      "C:\\Users\\ben_l\\Saved Games\\Yuuniverse 1.20.1 Shenyang\\porting-output\\work\\tools\\jdk21\\jdk-21.0.11+10\\bin\\javac.exe",
+      "-proc:none",
+      "--release",
+      "21",
+      "-d",
+      "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-048\\snapshot-abrupt\\delete-on-close-control-shared-reader\\classes",
+      "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-048\\snapshot-abrupt\\DeleteOnCloseControl.java"
+    ],
+    "exit_code": 0
+  },
+  "classes": {
+    "DeleteOnCloseControl.class": "7959fcfbd3db5c577ed280ea36346a01c73cb5aa5f24cbecee1779a94b1fd4f3"
+  },
+  "command": [
+    "C:\\Users\\ben_l\\Saved Games\\Yuuniverse 1.20.1 Shenyang\\porting-output\\work\\tools\\jdk21\\jdk-21.0.11+10\\bin\\java.exe",
+    "-Xmx64m",
+    "-cp",
+    "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-048\\snapshot-abrupt\\delete-on-close-control-shared-reader\\classes",
+    "DeleteOnCloseControl",
+    "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-048\\snapshot-abrupt\\delete-on-close-control-shared-reader"
+  ],
+  "pid": 56816,
+  "before_halt": {
+    "timestamp": "2026-11-16T06:05:56.228750+00:00",
+    "ready": {
+      "pid": "56816",
+      "bytes": "70000",
+      "roundtrip": "true",
+      "java": "21.0.11"
+    },
+    "path_visible": true,
+    "listed_names": [
+      "classes",
+      "compile.stderr.log",
+      "compile.stdout.log",
+      "execution.json",
+      "owned-channel-snapshot.utf16",
+      "ready.txt",
+      "stderr.log",
+      "stdout.log"
+    ],
+    "running": true,
+    "disk_bytes": 70000,
+    "sha256": "81052097b8d085d769b59964952a1d4f39ab9d07818ab04b732973bb082ef47a",
+    "independent_utf16_bytes_equal": true
+  },
+  "exit_code": 75,
+  "after_halt": {
+    "snapshot_exists": false,
+    "shutdown_hook_ran": false,
+    "listed_names": [
+      "classes",
+      "compile.stderr.log",
+      "compile.stdout.log",
+      "execution.json",
+      "halt-after-observation",
+      "ready.txt",
+      "stderr.log",
+      "stdout.log"
+    ]
+  },
+  "ended": "2026-11-16T06:05:56.268876+00:00"
+}

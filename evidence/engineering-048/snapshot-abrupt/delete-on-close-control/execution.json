@@ -1,0 +1,58 @@
+{
+  "started": "2026-11-16T06:05:20.190131+00:00",
+  "passed": false,
+  "source_sha256": "0696422bc82520bf8b71d9e6b9d93dd0da65a14757cb65a43e877ef3c097f0c3",
+  "scope": "JDK-only candidate-design feasibility; packaged0.4.6 remains unchanged.",
+  "compile": {
+    "command": [
+      "C:\\Users\\ben_l\\Saved Games\\Yuuniverse 1.20.1 Shenyang\\porting-output\\work\\tools\\jdk21\\jdk-21.0.11+10\\bin\\javac.exe",
+      "-proc:none",
+      "--release",
+      "21",
+      "-d",
+      "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-048\\snapshot-abrupt\\delete-on-close-control\\classes",
+      "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-048\\snapshot-abrupt\\DeleteOnCloseControl.java"
+    ],
+    "exit_code": 0
+  },
+  "classes": {
+    "DeleteOnCloseControl.class": "7959fcfbd3db5c577ed280ea36346a01c73cb5aa5f24cbecee1779a94b1fd4f3"
+  },
+  "command": [
+    "C:\\Users\\ben_l\\Saved Games\\Yuuniverse 1.20.1 Shenyang\\porting-output\\work\\tools\\jdk21\\jdk-21.0.11+10\\bin\\java.exe",
+    "-Xmx64m",
+    "-cp",
+    "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-048\\snapshot-abrupt\\delete-on-close-control\\classes",
+    "DeleteOnCloseControl",
+    "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-048\\snapshot-abrupt\\delete-on-close-control"
+  ],
+  "pid": 41104,
+  "before_halt": {
+    "timestamp": "2026-11-16T06:05:22.221532+00:00",
+    "ready": {
+      "pid": "41104",
+      "bytes": "70000",
+      "roundtrip": "true",
+      "java": "21.0.11"
+    },
+    "path_visible": true,
+    "listed_names": [
+      "classes",
+      "compile.stderr.log",
+      "compile.stdout.log",
+      "execution.json",
+      "owned-channel-snapshot.utf16",
+      "ready.txt",
+      "stderr.log",
+      "stdout.log"
+    ],
+    "running": true,
+    "disk_bytes": 70000
+  },
+  "failure_cleanup": {
+    "owned_pid": 41104,
+    "exit_code": 1
+  },
+  "error": "PermissionError(13, 'Permission denied')",
+  "ended": "2026-11-16T06:05:22.234135+00:00"
+}
