@@ -22,6 +22,7 @@ import subprocess
 import threading
 import time
 import uuid
+import zipfile
 import windows_snapshot_io
 
 UTC = dt.timezone.utc
@@ -178,10 +179,45 @@ class WindowsProcess:
             self.handle = None
 
 
-def state_observation(path, now, last_stamp, freshness, expected_count, require_world, unpaused, vehicle_path=None, expected_pid=None, expected_declarations=None):
+def neutral_state_observation(raw, state_hash, path, now, last_stamp, freshness, expected_count, expected_declarations, require_world, unpaused, process):
+    import client_experiment_analysis as analysis
+    expected = {"distinct_ids": expected_count, "declarations": expected_declarations}
+    errors = analysis.native_snapshot_errors(raw, process, now.isoformat(), freshness,
+                                             {"expected_registration": expected}, require_scene=False)
+    if raw.get("timestamp") != raw.get("observed_at"):
+        errors.append("Native snapshot timestamp aliases differ.")
+    if raw.get("timestamp") == last_stamp:
+        errors.append("state_did_not_advance")
+    if require_world and (raw.get("in_world") is not True or raw.get("screen") is not None):
+        errors.append("not_in_game_screen")
+    if unpaused and raw.get("paused") is not False:
+        errors.append("client_paused")
+    train = raw.get("train_state")
+    vehicles = train.get("vehicles", []) if isinstance(train, dict) and train.get("available") is True else []
+    if require_world and not vehicles:
+        errors.append("no_observed_route_vehicle")
+    state = {"timestamp": raw.get("timestamp"), "registered_count": raw.get("registered_count"),
+             "registered_declarations": raw.get("registered_declarations"), "model_parsing_complete": raw.get("native_settled"),
+             "heap_used": raw.get("heap", {}).get("used_bytes"), "heap_max": raw.get("heap", {}).get("max_bytes"),
+             "screen": "game" if raw.get("in_world") is True and raw.get("screen") is None else raw.get("screen"),
+             "paused": raw.get("paused"), "resource_epochs": raw.get("resource_epochs"), "game_time": raw.get("game_time"),
+             "vehicles": [{**vehicle, "railProgress": vehicle.get("rail_progress")} for vehicle in vehicles],
+             "runtime_counters": {"native_pending": raw.get("native_pending"),
+                                  "resource_in_flight": raw.get("resource_epochs", {}).get("in_flight")}}
+    return {"path": str(path), "verified": not errors, "failures": errors, "missing": [],
+            "raw_state": raw, "state": state, "state_sha256": state_hash,
+            "age_seconds": (now - instant(raw["timestamp"])).total_seconds()}, raw["timestamp"]
+
+
+def state_observation(path, now, last_stamp, freshness, expected_count, require_world, unpaused, vehicle_path=None, expected_pid=None, expected_declarations=None, expected_process=None):
     observation = {"path": str(path), "verified": False, "failures": [], "missing": []}
     try:
         original_state, state_hash = read_snapshot(path)
+        if original_state.get("probe_kind") == "official-native-observer":
+            if expected_process is None or expected_declarations is None:
+                raise ValueError("Neutral observation requires actual process identity and declaration count.")
+            return neutral_state_observation(original_state, state_hash, path, now, last_stamp, freshness,
+                                             expected_count, expected_declarations, require_world, unpaused, expected_process)
         state = original_state
         observation["raw_state"] = original_state
         if "shared_blockbench" in original_state:
@@ -383,7 +419,7 @@ REGISTERED = re.compile(rb"Loaded (\d+) vehicles and completed door movement val
 WORK = re.compile(rb"MTR memory sharing: (\d+) requests, (\d+) path hits, (\d+) unique parses, (\d+) failures, (\d+) pending, (\d+) outstanding, (\d+) queued")
 
 
-def reload_evidence(log, events, launch, process_created, expected_count, expected_declarations=None):
+def reload_evidence(log, events, launch, process_created, expected_count, expected_declarations=None, *, require_module_work=True):
     results, consumed_end = [], 0
     for event in events:
         record = {"event": event, "verified": False, "failures": []}
@@ -415,13 +451,13 @@ def reload_evidence(log, events, launch, process_created, expected_count, expect
                 raise ValueError("Resource decoding/native parsing diagnostics reject this reload.")
             registered = REGISTERED.search(log, start, stop)
             work = WORK.search(log, start, stop)
-            if not registered or not work:
+            if not registered or (require_module_work and not work):
                 raise ValueError("Native registration and module-work completion are missing.")
-            if (expected_declarations is not None and int(registered.group(1)) != expected_declarations) or any(int(work.group(index)) for index in (4, 5, 6, 7)):
+            if (expected_declarations is not None and int(registered.group(1)) != expected_declarations) or (require_module_work and any(int(work.group(index)) for index in (4, 5, 6, 7))):
                 raise ValueError("Reload registration/counters did not settle successfully.")
-            consumed_end = max(registered.end(), work.end())
+            consumed_end = max(registered.end(), work.end()) if require_module_work else registered.end()
             record.update(verified=True, resource_start_offset=start, native_registration_offset=registered.start(),
-                          declared_vehicle_count=int(registered.group(1)), module_report_offset=work.start(), completion_end_offset=consumed_end)
+                          declared_vehicle_count=int(registered.group(1)), module_report_offset=work.start() if require_module_work else None, completion_end_offset=consumed_end)
         except (KeyError, TypeError, ValueError) as error:
             record["failures"].append(str(error))
         results.append(record)
@@ -479,11 +515,11 @@ def consecutive_reloads(records):
     return longest
 
 
-def full_reload_evidence(log, inputs, epochs, observations, baseline_sequence, launch, process_created, expected_count, expected_declarations):
+def full_reload_evidence(log, inputs, epochs, observations, baseline_sequence, launch, process_created, expected_count, expected_declarations, *, require_module_work=True):
     """Require external native input, full ResourceManager work and settled MTR epoch."""
     if expected_declarations is None:
         raise ValueError("Full resource validation requires a separate expected declaration count.")
-    logs = reload_evidence(log, inputs, launch, process_created, expected_count, expected_declarations)
+    logs = reload_evidence(log, inputs, launch, process_created, expected_count, expected_declarations, require_module_work=require_module_work)
     native = native_epoch_evidence(epochs, observations, baseline_sequence, launch, process_created)
     used_sequences, results = set(), []
     for index, record in enumerate(logs):
@@ -512,6 +548,81 @@ def full_reload_evidence(log, inputs, epochs, observations, baseline_sequence, l
             record["failures"].append(str(error))
         results.append(record)
     return results
+
+
+def neutral_context(instance, plan):
+    """Select output paths only from the hash-verified installed observer JAR."""
+    observers = [item for item in plan["mods"] if item.get("role") == "observer"]
+    if not observers:
+        return None
+    if len(observers) != 1:
+        raise ValueError("Exactly one frozen observer is required.")
+    with zipfile.ZipFile(instance / "mods" / observers[0]["filename"]) as jar:
+        if "mtr-native-observer-target.json" not in jar.namelist():
+            return None
+        metadata = json.loads(jar.read("mtr-native-observer-target.json"))
+    if metadata.get("probe_kind") != "official-native-observer" or metadata.get("observer_version") != "1.0.2":
+        raise ValueError("The neutral reload consumer requires the diagnostic 1.0.2 contract.")
+    for name in ("snapshot_path", "epochs_path", "diagnostics_path"):
+        path = (instance / metadata[name]).resolve()
+        if not path.is_relative_to(instance):
+            raise ValueError("Installed observer output path escapes its instance.")
+    return metadata
+
+
+def neutral_reload_evidence(log, inputs, epochs, diagnostic_events, observations, baseline_sequence, launch, process,
+                            expected_count, expected_declarations, metadata, review, run_start, finish):
+    """Cross-check sealed input attempts against complete independent native evidence."""
+    import client_experiment_analysis as analysis
+    import native_diagnostic_review as diagnostic_review
+    eligible = []
+    for observation in observations:
+        raw = observation.get("raw_state", {})
+        value = dict(observation)
+        if raw.get("in_world") is not True or raw.get("screen") is not None or raw.get("paused") is not False:
+            value["verified"] = False
+        eligible.append(value)
+    records = full_reload_evidence(log, inputs, epochs, eligible, baseline_sequence, launch,
+                                   process["created"], expected_count, expected_declarations, require_module_work=False)
+    final = observations[-1]["raw_state"] if observations else {}
+    text = log.decode("utf-8")
+    diagnostics = diagnostic_review.review_diagnostics(analysis.native_diagnostics(text), text, diagnostic_events, epochs, process, metadata,
+                                                        review, {"start": run_start, "end": finish}, final)
+    attribution = diagnostics["native_attribution"]
+    context_errors = list(attribution["errors"]) if not attribution["passed"] else []
+    if diagnostics["unreviewed_native"]:
+        context_errors.append("Unreviewed native diagnostics remain in the complete reload log.")
+    if final.get("target") != metadata:
+        context_errors.append("Final native snapshot differs from the installed observer target.")
+    for index, record in enumerate(records):
+        event = inputs[index]
+        try:
+            if context_errors:
+                raise ValueError("; ".join(context_errors))
+            if event.get("record_status") != "selected":
+                raise ValueError("A retained input attempt was rejected.")
+            offset = event["log_offset"]
+            if hashlib.sha256(log[:offset]).hexdigest() != event.get("log_prefix_sha256"):
+                raise ValueError("Reload log prefix differs from its sealed input-before bytes.")
+            if event["before"].get("target") != metadata:
+                raise ValueError("Input-before native metadata differs from the installed observer.")
+            errors = analysis.native_snapshot_errors(event["before"], process, event["input"]["issued_at"], 15,
+                                                     {"expected_registration": {"distinct_ids": expected_count, "declarations": expected_declarations}}, require_scene=False)
+            if errors:
+                raise ValueError("; ".join(errors))
+            if record.get("sequence") != event["before"]["resource_epochs"]["last_completed_sequence"] + 1:
+                raise ValueError("Input did not cause the immediately following unique native epoch.")
+            native = record["native_epoch"]
+            settled = [item["raw_state"] for item in eligible if item.get("verified")
+                       and item.get("state_sha256") == native["settled_state_sha256"]]
+            if len(settled) != 1 or settled[0].get("capture_started_monotonic_nanos", -1) < native["returned"]["monotonic_nanos"]:
+                raise ValueError("The native settled snapshot capture did not start after this reload returned.")
+            if index and instant(inputs[index-1]["input"]["confirmed_at"]) >= instant(event["input"]["issued_at"]):
+                raise ValueError("Retained input attempts are reordered or overlap.")
+        except (KeyError, TypeError, ValueError) as error:
+            record["verified"] = False
+            record["failures"].append(str(error))
+    return records, diagnostics
 
 
 def capture_reload_before(instance, output, expected_count):
@@ -750,6 +861,25 @@ def observe(args):
     try:
         plan, launch = frozen_context(instance)
         process = WindowsProcess(plan, launch)
+        metadata = neutral_context(instance, plan)
+        recorder_path = getattr(args, "reload_recorder", None)
+        if metadata and args.require_reloads and recorder_path is None:
+            raise ValueError("Neutral full reload validation requires the complete --reload-recorder attempt ledger.")
+        if recorder_path and (metadata is None or not args.require_reloads):
+            raise ValueError("A reload recorder requires the frozen neutral observer and a positive reload count.")
+        neutral_review, neutral_sources = None, {}
+        if metadata:
+            import client_experiment_analysis as analysis
+            import native_diagnostic_review as diagnostic_review
+            import reload_before_recorder as recorder
+            review_path = pathlib.Path(recorder.ROOT) / "config/native-diagnostic-review.json"
+            neutral_review = read(review_path)
+            diagnostic_review.validate_review(neutral_review, metadata)
+            (output / "observer-target.json").write_text(json.dumps(metadata, indent=2) + "\n", encoding="utf-8")
+            for dependency in (pathlib.Path(analysis.__file__), pathlib.Path(diagnostic_review.__file__), pathlib.Path(recorder.__file__), review_path):
+                raw = dependency.read_bytes()
+                (output / dependency.name).write_bytes(raw)
+                neutral_sources[str(dependency)] = hashlib.sha256(raw).hexdigest()
         duration, interval, freshness = args.duration, args.interval, args.freshness_seconds
         route_windows = RouteWindows(duration, args.route_windows, args.minimum_window_progress_displacement, interval, freshness) if args.mode == "route" else None
         route_policy = route_windows.policy() if route_windows else None
@@ -761,7 +891,7 @@ def observe(args):
         observation_policy = {"duration": duration, "interval": interval, "freshness_seconds": freshness,
             "stable_seconds": args.stable_seconds, "expected_count": args.expected_count, "expected_declarations": args.expected_declarations,
             "require_world": args.require_world or args.mode == "route", "unpaused": args.unpaused or args.mode == "route",
-            "required_zero_counters": ZERO_COUNTERS, "require_reloads": args.require_reloads, "gpu_counter_paths": list(args.gpu_counter),
+            "required_zero_counters": ("native_pending", "resource_in_flight") if metadata else ZERO_COUNTERS, "require_reloads": args.require_reloads, "gpu_counter_paths": list(args.gpu_counter),
             "nmt": args.nmt, "auxiliary_interval": args.auxiliary_interval,
             "auxiliary_maximum_in_flight": 1, "auxiliary_shutdown_seconds": getattr(args, "auxiliary_shutdown_seconds", 45), "route_windows": route_policy,
             "sampling_cadence": "future phase-aligned deadlines; missed slots are skipped without catch-up",
@@ -782,11 +912,28 @@ def observe(args):
         (output / "summary.json").write_text(json.dumps(summary, indent=2) + "\n", encoding="utf-8")
         print(json.dumps({"status": "preflight_failed", "passed": False, "summary": str(output / "summary.json")}), flush=True)
         return 1
-    state_path = args.state_file.resolve() if args.state_file else instance / "game-probe/packaged-observer.json"
+    state_path = args.state_file.resolve() if args.state_file else instance / (metadata["snapshot_path"] if metadata else "game-probe/packaged-observer.json")
     vehicle_path = args.vehicle_state_file.resolve() if args.vehicle_state_file else instance / "game-probe/live.json"
-    epoch_path = args.epoch_events.resolve() if args.epoch_events else instance / "game-probe/resource-epochs.jsonl"
+    epoch_path = args.epoch_events.resolve() if args.epoch_events else instance / (metadata["epochs_path"] if metadata else "game-probe/resource-epochs.jsonl")
+    diagnostic_path = instance / metadata["diagnostics_path"] if metadata else None
     epoch_observations, baseline_sequence = [], None
     started, start_clock = timestamp(), time.monotonic()
+    def evaluate_reloads(log_bytes, epoch_bytes, finish):
+        if metadata:
+            events = recorder.input_events(recorder_path)
+            context = read(pathlib.Path(recorder_path) / "session-start.json")
+            if (context["process"]["pid"] != launch["pid"] or instant(context["process"]["created"]) != instant(process.created)
+                    or context["plan_sha256"] != digest(instance / "packaged-client-plan.json")
+                    or context["launch_sha256"] != digest(instance / "packaged-client-launch.json")
+                    or context["metadata"] != metadata or context["expected_registration"] != {"distinct_ids": args.expected_count, "declarations": args.expected_declarations}):
+                raise ValueError("The recorder context differs from the actual frozen client.")
+            return neutral_reload_evidence(log_bytes, events, recorder.json_lines(epoch_bytes), recorder.json_lines(recorder.read_prefix(diagnostic_path)),
+                                           epoch_observations, baseline_sequence, launch, {**process.identity, "created": process.created},
+                                           args.expected_count, args.expected_declarations, metadata, neutral_review, plan["timestamp"], finish)
+        events = [json.loads(line) for line in args.reload_events.read_text(encoding="utf-8-sig").splitlines() if line.strip()]
+        epochs = [json.loads(line) for line in epoch_bytes.decode("utf-8-sig").splitlines() if line.strip()]
+        return full_reload_evidence(log_bytes, events, epochs, epoch_observations, baseline_sequence,
+                                    launch, process.created, args.expected_count, args.expected_declarations), None
     stable_since, last_stamp, prior_valid = None, None, False
     count, valid, missing, failures, peaks, vehicle_motion = 0, 0, set(), set(), {}, False
     previous_game_time, game_time_advanced, previous_clock = None, False, None
@@ -859,7 +1006,11 @@ def observe(args):
                     stream.write(json.dumps(sample) + "\n"); stream.flush()
                     break
                 state, last_stamp = state_observation(state_path, now, last_stamp, freshness,
-                    args.expected_count, args.require_world or args.mode == "route", args.unpaused or args.mode == "route", vehicle_path, launch["pid"], args.expected_declarations)
+                    args.expected_count, args.require_world or args.mode == "route", args.unpaused or args.mode == "route", vehicle_path, launch["pid"], args.expected_declarations,
+                    {**process.identity, "created": process.created} if metadata else None)
+                if metadata and state.get("raw_state", {}).get("target") != metadata:
+                    state["verified"] = False
+                    state["failures"].append("installed_neutral_target_mismatch")
                 if previous_clock is not None and now_clock-previous_clock > interval+freshness:
                     state["verified"] = False
                     state["failures"].append("observation_gap_exceeded")
@@ -887,15 +1038,12 @@ def observe(args):
                 current = state.get("state", {})
                 if baseline_sequence is None and state["verified"] and current.get("resource_epochs"):
                     baseline_sequence = current["resource_epochs"].get("last_completed_sequence", 0)
-                if args.require_reloads and state["verified"]:
+                if (args.require_reloads or metadata) and state["verified"]:
                     epoch_observations.append(state)
                 if args.mode == "reloads" and baseline_sequence is not None and epoch_path.exists():
                     try:
-                        epoch_events = [json.loads(line) for line in epoch_path.read_text(encoding="utf-8-sig").splitlines() if line.strip()]
-                        input_events = [json.loads(line) for line in args.reload_events.read_text(encoding="utf-8-sig").splitlines() if line.strip()]
-                        current_reloads = full_reload_evidence((instance / "logs/latest.log").read_bytes(), input_events, epoch_events,
-                            epoch_observations, baseline_sequence, launch, process.created, args.expected_count, args.expected_declarations)
-                        if consecutive_reloads(current_reloads) >= args.require_reloads:
+                        current_reloads, _ = evaluate_reloads((instance / "logs/latest.log").read_bytes(), epoch_path.read_bytes(), now.isoformat())
+                        if consecutive_reloads(current_reloads) >= args.require_reloads and (not metadata or all(item["verified"] for item in current_reloads)):
                             status = "reloads_verified"
                             break
                     except (OSError, ValueError):
@@ -968,19 +1116,30 @@ def observe(args):
     (output / "native-log-at-completion.log").write_bytes(log_bytes)
     diagnostics = native_diagnostics(log_bytes)
     declaration_counts = [int(match.group(1)) for match in REGISTERED.finditer(log_bytes)]
-    input_bytes = args.reload_events.read_bytes() if args.reload_events and args.reload_events.exists() else b""
+    input_path = pathlib.Path(recorder_path) / "inputs.jsonl" if recorder_path else args.reload_events
+    input_bytes = input_path.read_bytes() if input_path and input_path.exists() else b""
     epoch_bytes = epoch_path.read_bytes() if epoch_path.exists() else b""
-    if args.reload_events:
+    if input_path:
         (output / "external-input-events-at-completion.jsonl").write_bytes(input_bytes)
     if epoch_path.exists():
         (output / "native-epoch-events-at-completion.jsonl").write_bytes(epoch_bytes)
     reloads = []
-    if args.require_reloads and args.reload_events and epoch_path.exists() and baseline_sequence is not None:
+    if metadata and diagnostic_path.exists():
+        (output / "native-diagnostic-events-at-completion.jsonl").write_bytes(diagnostic_path.read_bytes())
+    if metadata:
         try:
-            events = [json.loads(line) for line in input_bytes.decode("utf-8-sig").splitlines() if line.strip()]
-            epoch_events = [json.loads(line) for line in epoch_bytes.decode("utf-8-sig").splitlines() if line.strip()]
-            reloads = full_reload_evidence(log_bytes, events, epoch_events, epoch_observations, baseline_sequence,
-                launch, process.created, args.expected_count, args.expected_declarations)
+            text = log_bytes.decode("utf-8")
+            diagnostics = diagnostic_review.review_diagnostics(analysis.native_diagnostics(text), text,
+                recorder.json_lines(diagnostic_path.read_bytes()), recorder.json_lines(epoch_bytes),
+                {**process.identity, "created": process.created}, metadata, neutral_review,
+                {"start": plan["timestamp"], "end": ended}, epoch_observations[-1]["raw_state"] if epoch_observations else {})
+        except (OSError, ValueError) as observed_error:
+            failures.add("native_diagnostic_evidence_unavailable: " + str(observed_error))
+    if args.require_reloads and input_path and epoch_path.exists() and baseline_sequence is not None:
+        try:
+            reloads, native_review = evaluate_reloads(log_bytes, epoch_bytes, ended)
+            if native_review is not None:
+                diagnostics = native_review
         except (OSError, ValueError) as observed_error:
             failures.add("full_reload_evidence_unavailable: " + str(observed_error))
     verified_reloads = sum(item["verified"] for item in reloads)
@@ -994,13 +1153,19 @@ def observe(args):
         if not route_results["passed"]:
             failures.add("distributed_route_windows_unverified")
     passed = passed and consecutive_reloads(reloads) >= args.require_reloads
+    if metadata and (not diagnostics.get("native_attribution", {}).get("passed") or diagnostics.get("unreviewed_native")):
+        passed = False
+        failures.add("native_diagnostic_attribution_unverified")
+    if metadata and args.require_reloads and (not reloads or not all(item["verified"] for item in reloads)):
+        passed = False
+        failures.add("retained_neutral_reload_attempt_unverified")
     if not log_path.exists():
         passed = False
         failures.add("native_log_unavailable")
     if args.mode == "startup" and (not declaration_counts or (args.expected_declarations is not None and declaration_counts[-1] != args.expected_declarations)):
         passed = False
         failures.add("native_registration_declaration_log_missing_or_mismatched")
-    if diagnostics["blocking"]:
+    if (metadata and diagnostics.get("unreviewed_native")) or (not metadata and diagnostics["blocking"]):
         passed = False
         failures.add("native_resource_decode_or_parse_diagnostics")
     for name in sampler.expected:
@@ -1016,6 +1181,11 @@ def observe(args):
     if "auxiliary_event_journal_incomplete" in failures:
         passed = False
     current_source_hash = digest(pathlib.Path(__file__)) if pathlib.Path(__file__).exists() else None
+    neutral_sources_changed = [path for path, expected in neutral_sources.items()
+                               if not pathlib.Path(path).is_file() or digest(pathlib.Path(path)) != expected]
+    if metadata and (neutral_sources_changed or current_source_hash != source_hash):
+        passed = False
+        failures.add("neutral_consumer_source_changed_during_observation")
     summary = {"started": started, "ended": ended, "elapsed_seconds": elapsed, "status": status, "passed": passed,
         "error": error, "mode": args.mode, "instance": str(instance), "plan_sha256": digest(instance / "packaged-client-plan.json"),
         "launch_sha256": digest(instance / "packaged-client-launch.json"), "process_identity": process.identity,
@@ -1028,6 +1198,7 @@ def observe(args):
         "auxiliary_peaks_scope": "Available results from accepted auxiliary requests, including explicitly marked post-window completions.",
         "samples_sha256": digest(output / "samples.jsonl"), "source_sha256": source_hash, "current_source_sha256": current_source_hash,
         "source_changed_during_observation": current_source_hash != source_hash,
+        "neutral_source_sha256": neutral_sources, "neutral_sources_changed": neutral_sources_changed, "neutral_observer_target": metadata,
         "snapshot_io_source_sha256": snapshot_io_hash,
         "current_snapshot_io_source_sha256": digest(snapshot_io_source) if snapshot_io_source.exists() else None,
         "log_sha256_at_completion": hashlib.sha256(log_bytes).hexdigest(), "native_diagnostics": diagnostics, "native_registration_declaration_counts": declaration_counts,
@@ -1064,7 +1235,10 @@ def main():
         help="Minimum observed absolute railProgress displacement for one vehicle ID inside every route window.")
     parser.add_argument("--require-world", action="store_true")
     parser.add_argument("--unpaused", action="store_true")
-    parser.add_argument("--reload-events", type=pathlib.Path)
+    reload_inputs = parser.add_mutually_exclusive_group()
+    reload_inputs.add_argument("--reload-events", type=pathlib.Path)
+    reload_inputs.add_argument("--reload-recorder", type=pathlib.Path,
+        help="Complete immutable neutral recorder directory, including every input attempt.")
     parser.add_argument("--require-reloads", type=int, default=0)
     parser.add_argument("--gpu-counter", action="append", default=[], help="Explicit local GPU Process Memory counter paths; repeat per counter.")
     parser.add_argument("--nmt", action="store_true", help="Observe enabled JVM NativeMemoryTracking through read-only jcmd summaries.")
@@ -1078,7 +1252,7 @@ def main():
         parser.error("Distributed route validation requires at least two windows.")
     if args.mode == "reloads" and not args.require_reloads:
         parser.error("Reload observation requires a positive consecutive reload count.")
-    if args.require_reloads and (not args.reload_events or args.expected_declarations is None):
+    if args.require_reloads and (not (args.reload_events or args.reload_recorder) or args.expected_declarations is None):
         parser.error("Full reload validation requires actual --reload-events input records and --expected-declarations.")
     return observe(args)
 

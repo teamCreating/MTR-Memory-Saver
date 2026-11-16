@@ -354,6 +354,20 @@ def input_events(output, *, pending_attempt=None):
         event = by_id[path.name]
         if json.loads((path / "result.json").read_bytes()) != event or sha((path / "external-receipt.json").read_bytes()) != event["external_receipt_sha256"]:
             raise ValueError("Input ledger differs from an immutable original attempt.")
+        submission = json.loads((path / "submission.json").read_bytes())
+        if (submission["attempt_id"] != path.name or submission["submitted_at"] != event["attempt_submitted_at"]
+                or submission["external_receipt_sha256"] != event["external_receipt_sha256"]):
+            raise ValueError("Input ledger differs from its original submission receipt.")
+        if event.get("record_status") == "selected":
+            receipt = json.loads((path / "external-receipt.json").read_bytes())
+            before_path, publication = select_before(output, receipt, (path / "journal-prefix.jsonl").read_bytes())
+            before = json.loads(before_path.read_bytes())
+            if (event.get("publication") != publication or event.get("input") != receipt
+                    or event.get("before_record_sha256") != sha(before_path.read_bytes())
+                    or any(event.get(key) != value for key, value in before.items())):
+                raise ValueError("Selected input differs from its independently sealed before evidence.")
+        elif event.get("record_status") != "rejected":
+            raise ValueError("Unknown retained input attempt status.")
     return events
 
 

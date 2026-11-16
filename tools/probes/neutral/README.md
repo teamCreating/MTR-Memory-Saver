@@ -98,3 +98,27 @@ need separate log/scene assessment; zero pending counters do not establish
 valid geometry. The JUnit/ABI/JFR checks and archive reference audit verify tool
 engineering only. Actual loader application and client qualification require
 the separate real-client runs.
+
+The read-only Python consumer now selects the installed 1.0.2 observer's output
+paths and validates native snapshots without inventing unavailable companion
+counters. For consecutive full resource reloads, start `reload_before_recorder.py
+record` on the already launched JVM, retain its complete directory, and confirm
+each actual external F3+T receipt with its `confirm` command. Then observe with:
+
+```powershell
+python -X utf8 tools/observe_packaged_client.py reloads --instance $testInstance `
+  --output $observationOutput --reload-recorder $recorderOutput `
+  --expected-count $distinctIds --expected-declarations $declarations `
+  --require-reloads 20 --interval 1 --duration 7200 --unpaused
+```
+
+Start the consumer before the first input so it records the already completed
+startup epoch as the baseline. The consumer cross-checks every retained attempt,
+its sealed before publication and exact log prefix, a distinct ResourceManager
+log section and the immediately following native reload epoch. Each epoch needs
+its own fresh native snapshot whose capture starts after RETURN, before the next
+input, in the unpaused game. The known official default diagnostic still requires
+complete live call/return attribution; changed resources, missing traces and
+unreviewed native errors reject the chain. Failed or interrupted input attempts
+remain failures rather than disappearing from a shortened input file. The
+observer does not perform game input or establish rendering/passenger acceptance.

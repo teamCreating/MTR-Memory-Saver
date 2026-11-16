@@ -279,6 +279,15 @@ class RecorderTest(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "omits"):
             tool.input_events(self.output)
 
+    def test_coordinated_ledger_and_result_change_cannot_replace_sealed_before(self):
+        self.recorder.capture()
+        event = self.confirm(self.receipt())
+        event["before"]["registered_count"] = 1
+        (self.output / "inputs.jsonl").write_bytes(tool.canonical(event))
+        (self.output / "input-attempts" / event["attempt_id"] / "result.json").write_bytes(tool.canonical(event))
+        with self.assertRaisesRegex(ValueError, "sealed before"):
+            tool.input_events(self.output)
+
     def test_interrupted_or_locked_confirmation_remains_an_explicit_ledger_failure(self):
         self.recorder.capture()
         (self.output / "confirmation.lock").write_text("another owned writer")
