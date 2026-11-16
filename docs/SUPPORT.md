@@ -1,16 +1,33 @@
 # Support and artifact identity
 
-Updated: 2026-11-16T14:05:09.075618+08:00 (UTC+08:00).
+Updated: 2026-11-16T14:42:02.991919+08:00 (UTC+08:00).
 
 Minecraft **1.21.1**, Java **21**, client only. The authoritative build targets and
 fingerprints are in [config/targets.json](../config/targets.json).
 
 | Target preset | MTR binary | NeoForge | 0.4.x status |
 | --- | --- | --- | --- |
-| `official-nf248` (default) | Official 4.1.0-beta.2 | 21.1.248 exactly | 0.4.6 build, 66 tests, 42 packaged fault/resource checks, wrong-binary rejection and initial full-pack registration/settlement passed; interaction pending |
-| `official-nf265` | Same official binary | 21.1.265 exactly | 0.4.6 build, 66 tests, 42 packaged fault/resource checks and wrong-binary rejection passed; full-pack acceptance pending |
+| `official-nf248` (default) | Official 4.1.0-beta.2 | 21.1.248 exactly | 0.4.7 build, 73 tests, abrupt-exit and 3 GiB source audits passed; fresh packaged/full-pack acceptance pending |
+| `official-nf265` | Same official binary | 21.1.265 exactly | 0.4.7 build, 73 tests, abrupt-exit and 3 GiB source audits passed; fresh packaged/full-pack acceptance pending |
 | `v6-nf248` | Audited custom Performance v6 | 21.1.248 exactly | Historical 0.4.2 client smoke/GPU cycles; new validation paused |
 | `v6-nf265` | Same custom v6 binary | 21.1.265 exactly | Historical development candidate; new validation paused |
+
+The default candidate is now **0.4.7**. Both official targets pass 73 Java tests,
+four actual abrupt-exit cleanup checks across writing and workspace waiting, and
+four 3 GiB large-OBJ checks across targets and CompactStrings modes. The exact
+0.4.6 negative controls retain spill files under the same abrupt-exit harness.
+[Owned-channel evidence](../evidence/engineering-048/snapshot-owned-channel/README.md)
+and [independent artifact audit](../evidence/engineering-048/candidate-artifact-review/README.md)
+bind the new JARs. Only the reader and its Snapshot class change; the other 56
+classes are byte-identical. Fresh 0.4.7 packaged faults, full-pack interaction,
+reload endurance, route duration and controlled performance are still pending.
+
+A later 0.4.6 NF248 run with neutral observer 1.0.2 completed one actual F3+T
+ResourceManager reload and exited normally with a readable JFR. Its explicitly
+captured before state is more than 15 seconds before input, so the strict accepted
+streak remains **0/20**. The input-method issue is resolved; manual input is no
+longer requested. Screenshots show the station/empty siding rather than a train.
+The earlier unsuccessful inputs and route failures below retain their identities.
 
 The historical 0.3.x reports include particular full-pack runtime trials. Those
 passes identify their exact older JARs; they are not 0.4.x runtime passes. The new
@@ -77,7 +94,8 @@ with native observer 1.0.0 provides actual native/frame/tick data and a normal
 saved exit. Its one `transparent.png Invalid model` message is traced to the
 official empty default-rail constructor, without certifying rail rendering or
 excusing future errors. Probe-only Windows snapshot publication is repaired;
-the revised observer requires fresh runtime checks.
+observer 1.0.2 has since produced per-call native evidence through the real reload.
+Each later qualification must bind its own diagnostic trace and raw errors.
 Independent launcher/observer/comparison engineering does not establish runtime
 qualification. Both versions still need separate current plain/profile
 qualifications, followed by the frozen 48-trial whole-client comparison and

@@ -1,10 +1,28 @@
 # Official beta.2 coverage audit
 
-Scope: Memory Saver 0.4.6 with official MTR 4.1.0-beta.2, Minecraft 1.21.1,
+Scope: Memory Saver 0.4.7 candidate and separately identified historical 0.4.6
+evidence with official MTR 4.1.0-beta.2, Minecraft 1.21.1,
 Java 21 and the two explicit NeoForge targets. New v6 validation is paused.
-Updated: 2026-11-16T14:05:09.075618+08:00 (UTC+08:00).
+Updated: 2026-11-16T14:42:02.991919+08:00 (UTC+08:00).
 
-Latest runtime evidence: a fresh official NF248 0.4.6 client with native observer
+The default candidate is now **0.4.7**. Both official targets pass 73 Java tests,
+four actual abrupt-exit cleanup checks across writing and workspace waiting, and
+four 3 GiB large-OBJ checks across targets and CompactStrings modes. The exact
+0.4.6 negative controls retain spill files under the same abrupt-exit harness.
+[Owned-channel evidence](../evidence/engineering-048/snapshot-owned-channel/README.md)
+and [independent artifact audit](../evidence/engineering-048/candidate-artifact-review/README.md)
+bind the new JARs. Only the reader and its Snapshot class change; the other 56
+classes are byte-identical. Fresh 0.4.7 packaged faults, full-pack interaction,
+reload endurance, route duration and controlled performance are still pending.
+
+A later 0.4.6 NF248 run with neutral observer 1.0.2 completed one actual F3+T
+ResourceManager reload and exited normally with a readable JFR. Its explicitly
+captured before state is more than 15 seconds before input, so the strict accepted
+streak remains **0/20**. The input-method issue is resolved; manual input is no
+longer requested. Screenshots show the station/empty siding rather than a train.
+The earlier unsuccessful inputs and route failures below retain their identities.
+
+Earlier sealed runtime evidence: a fresh official NF248 0.4.6 client with native observer
 1.0.0 loaded all sixteen packs, produced 603 native snapshots (601 unpaused and
 settled in-world), 33,446 actual frame events and 12,607 server-tick events, and
 saved normally with exit code 0. Both DC01 native caches were observed (5/6 floors,
@@ -14,7 +32,10 @@ need their own runtime verification. See [sealed runtime evidence](../evidence/e
 
 ## Established evidence
 
-- Both official targets now pass 66 core Java tests each. Five new snapshot-I/O
+- Both official 0.4.7 targets now pass 73 tests each, actual abrupt-exit deletion
+  at two reader phases and exact 3 GiB large-input checks in both string modes.
+  The independent audit binds each candidate and its unchanged remaining classes.
+- The historical 0.4.6 official targets pass 66 core Java tests each. Five new snapshot-I/O
   cases cover output write/close, restoration read, deletion and suppressed
   cleanup failure, including failed-cache retry and real memory settlement.
   Both unchanged packaged readers also pass an actual Windows deletion-lock
@@ -24,7 +45,7 @@ need their own runtime verification. See [sealed runtime evidence](../evidence/e
   The archived standalone Python suite passes 100 tests, including background auxiliary-query ownership,
   interrupted thread startup and process-scoped GPU counters. Actual execution,
   source snapshots and logs are archived; the previous 91-test stage is retained.
-- Both packaged official clients pass 24 base-resource loader/fault checks,
+- Both historical 0.4.6 packaged official clients pass 24 base-resource loader/fault checks,
   including malformed/missing/oversized inputs, same-path correction and retry,
   native-parser retirement, replacement publication and ownership cleanup. Each
   also passes 18 real-resource checks covering actual open/read/close/size failure,
@@ -76,9 +97,10 @@ need their own runtime verification. See [sealed runtime evidence](../evidence/e
   sampling. Both partial JFRs end before their final observer samples.
 - Three native F3+T API receipts report successful input delivery, but none is
   followed by a new native epoch or full ResourceManager reload log. Successful
-  real reloads and the longest verified reload sequence are both zero. A native F2
+  strict reloads and the longest verified sequence remain zero after those inputs. A native F2
   screenshot exports successfully but shows no train, so visual interaction and
-  F3+T remain separate gaps. A manual qualification is requested from the user.
+  F3+T evidence remain separate gates. The later English-input recovery completed
+  a real reload, with a stale-before limitation; manual input is no longer needed.
 - A new UI recovery confirms the live target window but both fresh screenshot
   requests time out. No keyboard/mouse input or visual/reload pass follows.
 - Route attempt 03 failed when its Java process exited with code 1653. Windows
@@ -98,17 +120,16 @@ need their own runtime verification. See [sealed runtime evidence](../evidence/e
 | Priority | Coverage | Current boundary and required observation |
 | --- | --- | --- |
 | P1 | Full catalogue interaction | The 0.4.6 NF248 16-pack/669-entry catalogue has registered 1092 declarations/1091 distinct IDs and settled. Observe geometry, displays, doors, floors, boarding and native diagnostics in the actual scene. Current largest referenced Blockbench input is 13,141,932 bytes; the old 65 MB Blockbench asset is unreferenced. |
-| P1 | Twenty consecutive full-pack reloads | Successful actual F3+T reloads are 0/20. Three input receipts lack a corresponding new epoch and full ResourceManager reload log. Require an external input receipt, native HEAD/RETURN pair, complete reload log and settled fresh snapshot for every accepted reload. |
+| P1 | Twenty consecutive full-pack reloads | Strict accepted reloads remain 0/20. One actual 0.4.6 F3+T reload completed after input-method recovery, but its before snapshot exceeds 15 seconds; earlier no-epoch inputs remain preserved. Require an external input receipt, native HEAD/RETURN pair, complete reload log and settled fresh snapshot for every accepted reload. |
 | P1 | Two-hour unpaused route | All three attempts failed. Attempt 03's first 2400-second sampled window passes, but the process crashes and JFR coverage is incomplete. Retain strict sampling/availability gates for a fresh complete route; do not promote the partial window. |
 | P1 | Controlled full-client performance | Current control/protocol engineering is ready for qualification. First apply the same final neutral observer in actual clients and qualify baseline/candidate independently in plain/profile modes. The frozen comparison requires 48 independent JVM trials plus separate observer-off calibration. No new performance trial has run. Source allocation results alone do not settle loading latency, Full-GC pauses or frame regressions. |
-| P1 | Native Invalid model attribution | A new actual NF248 startup traces its one occurrence to the official default RailResource constructor's empty model/texture arguments and unchanged returned fallback. This accounts for that run's diagnostic, not future logs or rail rendering. The common observer and experiment consumer are being extended to require per-run call/return evidence; other errors remain blocking. |
-| P2 | NeoForge 21.1.265 full-pack runtime | Build, 66 tests, actual packaged startup, all 42 fault/resource checks and wrong-binary rejection pass. Full-pack/world and representative interaction checks on this loader remain to be observed. |
+| P1 | Native Invalid model attribution | A new actual NF248 startup traces its one occurrence to the official default RailResource constructor's empty model/texture arguments and unchanged returned fallback. This accounts for that run's diagnostic, not future logs or rail rendering. The final observer 1.0.2 and experiment consumer require per-run call/return evidence; other errors remain blocking. |
+| P2 | NeoForge 21.1.265 full-pack runtime | 0.4.7 build, 73 tests and actual abrupt-exit/large-input audits pass. Its fresh packaged and full-pack/world checks are pending; the 42 packaged checks and wrong-binary pass are 0.4.6 evidence. |
 | P2 | Repeated official registration ordering | Static analysis establishes synchronous official reload entry points; the initial 0.4.6 full registration is paired on the render thread with nesting one. Collect the same evidence through 20 actual full ResourceManager reloads. |
-| P2 | Snapshot failure boundaries | Injected snapshot write/close/read/delete and actual Windows deletion-lock tests pass. Real disk-full, abrupt JVM exit and stale-file recovery remain separate coverage; explicit fixture cleanup is not automatic product cleanup. |
+| P2 | Snapshot failure boundaries | 0.4.7 actual abrupt exits delete this owner's snapshot during writing and budget waiting, while other-owner sentinels remain unchanged. Real disk-full and power loss remain untested. There is deliberately no broad stale-file sweep. |
 
-Both current release ZIPs have been refreshed and audited against their unchanged
-tested JARs, manifests and support bytes. Later acceptance results require a fresh
-support/evidence audit before expanding runtime claims.
+The previous 0.4.6 release ZIPs remain intact. The new 0.4.7 delivery bundles need
+a fresh support/evidence audit after their packaged-client checks.
 
 The malformed-model fallback and admission-generation races have already been
 repaired and tested. Full-pack interaction and repeated reload ordering remain

@@ -291,3 +291,10 @@ Independently audited both official Memory Saver 0.4.7 candidate JARs against th
 Pinned both reference and candidate hashes, captured all inspected JARs/manifests/source inputs, and verified 61 original files remain byte-stable before and after review. Fourteen in-memory negative controls reject added/missing members, class changes outside the reviewed scope, unrelated metadata edits and missing expected changes. An independent sealed-evidence verifier recomputed all 64 sealed files and both complete 67-member inventories. Final evidence includes 73 indexed payloads under evidence/engineering-048/candidate-artifact-review.
 
 Bound the newly recorded build-replay commands with explicit -PmodVersion=0.4.7, actual process/time/exit receipts and exact reproduced candidate hashes. The captured gradle.properties still defaults to 0.4.6; the build obtains the effective version through the explicit project property. Recorded the actual manifest coverage boundary rather than claiming it includes every build-environment file. Initial logs lack complete invocation receipts and retain that limitation. No source/product/Gradle/client mutation was performed by this audit. Whole-client reload, gameplay, endurance and performance acceptance remain separate; v6 remains paused. Commit author and committer are A-BenLi06 <ben_li06@outlook.com>.
+
+
+## 2026-11-16T14:42:02.991919+08:00 (UTC+08:00) — 0.4.7 默认版本与验收边界
+
+将 gradle.properties 默认版本提升到已完成源码修复和独立产物核对的 0.4.7；更新 README、运行契约、支持与覆盖说明，明确单一 CREATE_NEW/READ/WRITE/DELETE_ON_CLOSE 通道覆盖写入、预算等待及回卷恢复。记录两目标各 73 tests、四次实际 abrupt 清理与四组 3 GiB 源输入校验，保留 0.4.6 packaged 和历史性能证据的原版本身份。0.4.7 新 packaged fault、全包、玩法、20重载、两小时线路和性能对照继续执行，v6 暂停。
+
+旧诊断客户端 PID41800 的 neutral1.0.2 在实际 F3+t 后完成 epoch2，JFR导出与summary成功，06:37:59Z正常保存退出0。输入前快照早于调用约17秒，不能计入15秒门槛下的20连次。输入法切英解决按键问题，关闭前恢复单次Shift切换；复制世界内检查站台/停车线后恢复角色原始位置。三张画面均未见列车，不扩展渲染/交互结论。此前人工F3+T请求已不需要。最终原始运行记录由独立归档任务封存。旧0.4.6产物不覆盖。文档与版本修改用 git diff --check 核对；产品源码和73项测试结果已在8bb8582封存，本批未改变实现。

@@ -1,4 +1,4 @@
-# Runtime contract — 0.4.6
+# Runtime contract — 0.4.7
 
 `GenerationWorkCache` is a Java-only scheduling core. Resource/provider identity,
 normalized model path, texture and flip flag form the fast key. A hit returns its
@@ -74,8 +74,15 @@ before waiting to claim the known complete size. Two large unknown readers canno
 hold partial reservations while waiting for each other. Smaller inputs keep the
 segmented in-memory path. Restoration and cache unpacking claim four conservative
 payload bytes per code unit before allocation. Claims inherit generation
-cancellation and release on actual materialization exit. Snapshot files are closed
-and removed on success, failure and cancellation; disk failures propagate.
+cancellation and release on actual materialization exit. A snapshot atomically
+creates one channel with CREATE_NEW, READ, WRITE and DELETE_ON_CLOSE and retains
+that channel across writing, budget waiting, rewind and restoration. Bounded
+channel I/O handles partial transfers and checks retirement during zero progress.
+Closing the owner releases the file on success, failure and cancellation; Windows
+also removes it when abrupt process exit releases the handle. Unsupported ownership
+options and real disk failures propagate. The reader never reopens the path or
+scavenges files from earlier processes. These tests do not establish power-loss or
+real disk-full behavior.
 
 ## Limits and configuration
 

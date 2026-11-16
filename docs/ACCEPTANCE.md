@@ -1,6 +1,23 @@
 # Acceptance and performance procedure
 
-Updated: 2026-11-16T14:05:09.075618+08:00 (UTC+08:00).
+Updated: 2026-11-16T14:42:02.991919+08:00 (UTC+08:00).
+
+The default candidate is now **0.4.7**. Both official targets pass 73 Java tests,
+four actual abrupt-exit cleanup checks across writing and workspace waiting, and
+four 3 GiB large-OBJ checks across targets and CompactStrings modes. The exact
+0.4.6 negative controls retain spill files under the same abrupt-exit harness.
+[Owned-channel evidence](../evidence/engineering-048/snapshot-owned-channel/README.md)
+and [independent artifact audit](../evidence/engineering-048/candidate-artifact-review/README.md)
+bind the new JARs. Only the reader and its Snapshot class change; the other 56
+classes are byte-identical. Fresh 0.4.7 packaged faults, full-pack interaction,
+reload endurance, route duration and controlled performance are still pending.
+
+A later 0.4.6 NF248 run with neutral observer 1.0.2 completed one actual F3+T
+ResourceManager reload and exited normally with a readable JFR. Its explicitly
+captured before state is more than 15 seconds before input, so the strict accepted
+streak remains **0/20**. The input-method issue is resolved; manual input is no
+longer requested. Screenshots show the station/empty siding rather than a train.
+The earlier unsuccessful inputs and route failures below retain their identities.
 
 Use the [optimization and comparison workflow](OPTIMIZATION.md) to preregister
 hypotheses, controls and budgets and interpret paired evidence. Its source runner
@@ -39,7 +56,7 @@ still need visual and interaction evidence. The initial startup observer failed
 its gate with only two of four requested GPU samples available; screenshot capture
 timed out twice. These failures remain alongside the registration evidence.
 
-Current real F3+T reload acceptance is 0/20. Three successful input API receipts
+Earlier input attempts preserve three successful input API receipts that
 produced no new native epoch or complete ResourceManager reload log. Route attempt
 01 was interrupted with `passed=false` after 287 samples over 1432.8089 seconds,
 with 19 repeated-state failures and one unavailable GPU query out of 23. The
@@ -51,7 +68,8 @@ actual sampling cutoff. Route attempt 03 also fails: the exact Java process
 crashes in Windows textinputframework.dll with exit code 1653. Twelve of thirteen
 preserved JFR chunks are readable; the final chunk is incomplete. Its first
 forty-minute sampled window does not establish two-hour acceptance. Native F2 export succeeds,
-but that screenshot contains no train. A manual F3+T qualification is requested.
+but that screenshot contains no train. The later input-method recovery above
+provides functional reload evidence without satisfying the strict before gate.
 The new official NF248 diagnostic client traces its one `transparent.png Invalid
 model` occurrence to the official empty default-rail constructor. Future client
 qualification must bind its own live diagnostic evidence; this does not certify

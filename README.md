@@ -66,6 +66,12 @@ Inputs that exceed a reader's initial share use an owned UTF-16 snapshot before
 claiming their complete size. Official resource reads propagate real I/O and size
 failures while preserving legal empty text and native charset replacement.
 
+Version 0.4.7 retains one owned snapshot channel through writing, workspace waiting
+and restoration. Atomic delete-on-close ownership removes these temporary files
+when a Windows JVM exits abruptly. Both official targets pass 73 Java tests and
+the actual abrupt-exit and 3 GiB large-input audits. Their new packaged-client and
+full-pack runtime acceptance remain separate from the 0.4.6 evidence.
+
 Historical guides and measurements are indexed in [HISTORY.md](docs/HISTORY.md)
 and [TECHNICAL.md](TECHNICAL.md). New candidate tests and performance reports have
 separate artifact identities. GPU lifetime and gameplay require runtime acceptance;
