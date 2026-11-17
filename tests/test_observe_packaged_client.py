@@ -8,11 +8,13 @@ import tempfile
 import threading
 import time
 import unittest
+from contextlib import ExitStack
 from unittest import mock
 from types import SimpleNamespace
 
 import observe_packaged_client as observer
 from minecraft_testkit.fixtures.log_stream import fixture_stream, header
+from minecraft_testkit.fixtures.clock import SamplingClock
 
 
 class ObservationTest(unittest.TestCase):
@@ -308,8 +310,8 @@ class ObservationTest(unittest.TestCase):
         self.assertIn("distributed_route_windows_unverified", summary["observed_failures"])
 
     def run_realtime_auxiliary(self, provider, on_sample=None, shutdown_seconds=0.5, before_shutdown=None, duration=0.6,
-            after_request=None, after_poll=None, stop_after_auxiliary=False):
-        now = dt.datetime.now(dt.timezone.utc).isoformat()
+            after_request=None, after_poll=None, stop_after_auxiliary=False, sampling_clock=None, interval=0.02):
+        now = (sampling_clock.now() if sampling_clock else dt.datetime.now(dt.timezone.utc)).isoformat()
         self.launch["timestamp"] = now
         self.write(self.root / "packaged-client-plan.json", self.plan)
         self.launch["plan_sha256"] = observer.digest(self.root / "packaged-client-plan.json")
@@ -325,7 +327,7 @@ class ObservationTest(unittest.TestCase):
                 self.created = now
             def sample(self):
                 sample_times.append(time.monotonic())
-                owner.state["timestamp"] = dt.datetime.now(dt.timezone.utc).isoformat()
+                owner.state["timestamp"] = (sampling_clock.now() if sampling_clock else dt.datetime.now(dt.timezone.utc)).isoformat()
                 owner.state["game_time"] += 1
                 owner.vehicle["timestamp"] = owner.state["timestamp"]
                 owner.vehicle["vehicles"][0]["railProgress"] += 1
@@ -360,12 +362,22 @@ class ObservationTest(unittest.TestCase):
             return result
         args = SimpleNamespace(instance=self.root, output=output, state_file=self.state_path,
             vehicle_state_file=self.vehicle_path, epoch_events=None, mode="route", require_world=True,
-            unpaused=True, duration=duration, interval=0.02, freshness_seconds=15, expected_count=669,
+            unpaused=True, duration=duration, interval=interval, freshness_seconds=15, expected_count=669,
             stable_seconds=5, auxiliary_interval=60, auxiliary_shutdown_seconds=shutdown_seconds,
             route_windows=3, minimum_window_progress_displacement=0.01, gpu_counter=[], nmt=True,
             reload_events=None, require_reloads=0, expected_declarations=None)
-        with mock.patch.object(observer, "WindowsProcess", FakeProcess), \
-                mock.patch.object(observer, "AuxiliarySampler", side_effect=create_sampler):
+        with ExitStack() as patches:
+            patches.enter_context(mock.patch.object(observer, "WindowsProcess", FakeProcess))
+            patches.enter_context(mock.patch.object(observer, "AuxiliarySampler", side_effect=create_sampler))
+            if sampling_clock:
+                class SamplingDatetime(dt.datetime):
+                    @classmethod
+                    def now(cls, timezone=None):
+                        value = sampling_clock.now()
+                        return value.astimezone(timezone) if timezone else value.replace(tzinfo=None)
+                patches.enter_context(mock.patch.object(observer, "time", SimpleNamespace(monotonic=sampling_clock.monotonic)))
+                patches.enter_context(mock.patch.object(observer, "wait_for_sample", side_effect=sampling_clock.wait_for_sample))
+                patches.enter_context(mock.patch.object(observer.dt, "datetime", SamplingDatetime))
             code = observer.observe(args)
         return code, observer.read(output / "summary.json"), output, sample_times, samplers
 
@@ -456,18 +468,28 @@ class ObservationTest(unittest.TestCase):
                 self.assertTrue(cleanup["worker_stopped"])
 
     def test_shutdown_completion_is_explicit_and_does_not_extend_route_window(self):
-        release = threading.Event()
+        started, release = threading.Event(), threading.Event()
+        clock = SamplingClock(dt.datetime.now(dt.timezone.utc))
         def provider(*unused):
-            if not release.wait(2):
+            started.set()
+            if not release.wait(5):
                 raise TimeoutError("No shutdown release")
             return {"nmt": {"available": True}}
+        def before_shutdown():
+            self.assertTrue(started.wait(2), "The real worker must enter the provider before release")
+            # Sampling has already frozen its end. Complete the real worker at
+            # a later logical time; route coverage must exclude this result.
+            clock.advance(1)
+            release.set()
         try:
             code, summary, output, _, _ = self.run_realtime_auxiliary(provider,
-                before_shutdown=lambda: threading.Timer(0.03, release.set).start(), duration=0.3)
+                before_shutdown=before_shutdown, duration=3, interval=0.25, sampling_clock=clock)
         finally:
             release.set()
         self.assertEqual(code, 0)
         self.assertTrue(summary["passed"])
+        self.assertEqual(summary["elapsed_seconds"], 3)
+        self.assertTrue(summary["route_window_evidence"]["passed"])
         terminal = [event for event in summary["terminal_auxiliary_events"] if event["phase"] == "completed"]
         self.assertEqual(len(terminal), 1)
         self.assertTrue(terminal[0]["post_sampling_window"])

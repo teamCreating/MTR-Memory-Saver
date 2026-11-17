@@ -509,3 +509,11 @@ CI从config/targets.json派生Java及官方目标，Linux/Windows构建、Java/n
 新增tests/tools/data分层说明及docs/MINECRAFT_MCP.md，标注未来从只读资源和离线分析、显式实例观察会话再到实际控制的扩展顺序。保留实例身份、来源、版本能力、任务句柄/真实终态和真实事件完成约束，将MTR专属契约与通用Minecraft能力分离。本批不实现MCP server/传输/游戏控制，不新增SDK、端口或后台服务；旧记录与合成序列不能冒充新的游戏操作。CI和当前文档改用统一verify+test入口，历史构建示例保留并注明旧布局。
 
 验证：本地最终286项Python测试全部通过（25.866s），含新增6项样例来源/篡改/路径边界、索引漂移与不执行历史源码、零匹配拒绝、旧新入口等价测试。447份脚本、2组11份样例来源校验通过；workflow actionlint、相对文档链接和Git whitespace检查通过。保留原Windows平台资格限制与原游戏验收范围；本地286通过不授予实际重载、路线、性能或完整游戏exit通过。提交使用A-BenLi06 <ben_li06@outlook.com>，按AGENTS约定立即自动push当前工作分支，远端CI另核实际终态。
+
+## 2026-11-17T16:41:01+08:00 (UTC+08:00) — 将历史shutdown回归从墙钟调度中解耦
+
+首轮远端push run44047585429的Windows工具测试仅test_shutdown_completion_is_explicit_and_does_not_extend_route_window失败（https://github.com/teamCreating/MTR-Memory-Saver/actions/runs/44047585429）；同一提交的PR工具测试虽通过，未据此忽略失败或重跑筛绿。对原用例的采样等待注入120ms真实调度延迟，受控重现code1：shutdown worker已停止、completed结果已交付，唯一失败为distributed_route_windows_unverified，证明0.3秒墙钟切三窗口把无关调度压力混入关闭契约。
+
+仅在该测试增加SamplingClock合成采样时钟，UTC和monotonic同源、按明确采样deadline推进；使用3秒逻辑时长和0.25秒步进覆盖原三个窗口。真实后台线程通过started/release事件同步，采样窗口冻结后才释放并完成，保留真实join与原终态事件/时间边界断言，新增elapsed精确等于3和路线窗口passed断言。生产观察器、路线覆盖规则与关闭超时未改；合成逻辑时间不冒充实际运行时长。首次合成夹具的UTC与采样边界不足在本地暴露并修正，没有放宽生产校验。
+
+相同每次等待后120ms真实延迟下，修正用例实际13份采样、3个窗口通过、结果仅出现在终态、elapsed逻辑3秒，真实测试耗时1.605s；观察器73项回归通过（4.857s），最终完整286项通过（24.576s）。447份原历史脚本与11份样例再次校验通过；原始失败记录保留，本批不授予任何新的实际游戏验收。改动与思路随本提交记录，使用用户身份并立即自动push工作分支。
