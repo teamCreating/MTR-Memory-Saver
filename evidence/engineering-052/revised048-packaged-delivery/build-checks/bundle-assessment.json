@@ -1,0 +1,90 @@
+[
+  {
+    "target": "official-nf248",
+    "bundle_sha256": "3a148b0d9edf4f560063a74d843cd665e457dbe64ee204638e0609ed40a0bd61",
+    "jar_sha256": "943b3d455fa3ce9d3ede74bc1a2071ece7bf70b09d9b7f829027347b53a9b588",
+    "validation": {
+      "schemaVersion": 1,
+      "version": "0.4.8",
+      "target": "official-nf248",
+      "artifactSha256": "943b3d455fa3ce9d3ede74bc1a2071ece7bf70b09d9b7f829027347b53a9b588",
+      "status": "verified-packaged-scope",
+      "assessment": "evidence/engineering-052/revised048-packaged-delivery/assessment.json",
+      "assessmentSha256": "f2172e4ae1caf8de4c0ce828c9c69d45a5e68bef68d6e4dddc02ff7e48d57924",
+      "scope": "Exact-artifact packaged lifecycle, strict-resource and OBJ/MTL checks, normal shutdown, readable JFR, and incorrect-binary rejection only. This record does not certify reload endurance, complete gameplay, route duration or controlled performance.",
+      "cases": [
+        {
+          "target": "official-nf248",
+          "mode": "faults",
+          "pid": 57308,
+          "exit_code": 0,
+          "artifact_sha256": "943b3d455fa3ce9d3ede74bc1a2071ece7bf70b09d9b7f829027347b53a9b588",
+          "plan_sha256": "7306ae63d909ea8730fcae3cd58634dc92ea6b04126bf80bcc40f9b1f6287115",
+          "launch_receipt_timestamp": "2026-11-17T23:12:53.865868+08:00",
+          "jfr_sha256": "5dcd3dc7f6cc6208c16803f8602acd19ed923be4ffedae24ed828183b92f8f3b",
+          "passed": true,
+          "lifecycle_checks": 24,
+          "strict_resource_checks": 18,
+          "obj_input_checks": 27,
+          "settled_workspace": true
+        },
+        {
+          "target": "official-nf248",
+          "mode": "mismatch",
+          "pid": 44564,
+          "exit_code": 1,
+          "artifact_sha256": "943b3d455fa3ce9d3ede74bc1a2071ece7bf70b09d9b7f829027347b53a9b588",
+          "plan_sha256": "ebf552826ebe72b0332da3ddcff311dd83b55f4fac159484d283bd5d60e3b515",
+          "launch_receipt_timestamp": "2026-11-17T23:23:18.997312+08:00",
+          "jfr_sha256": "584626f6ff71de815a1c6e0a5be941c2c82bdfca6dda33e1aaa2dc5780404037",
+          "passed": true,
+          "rejected_before_registration": true
+        }
+      ]
+    }
+  },
+  {
+    "target": "official-nf265",
+    "bundle_sha256": "deba49402c82c33be2d0cc9caea7adbbbd2247733e7a626de76591702062d718",
+    "jar_sha256": "134770acd53ec81325993604e8441d213d9ea1be990adb3bc2877b0cb7cc17dd",
+    "validation": {
+      "schemaVersion": 1,
+      "version": "0.4.8",
+      "target": "official-nf265",
+      "artifactSha256": "134770acd53ec81325993604e8441d213d9ea1be990adb3bc2877b0cb7cc17dd",
+      "status": "verified-packaged-scope",
+      "assessment": "evidence/engineering-052/revised048-packaged-delivery/assessment.json",
+      "assessmentSha256": "f2172e4ae1caf8de4c0ce828c9c69d45a5e68bef68d6e4dddc02ff7e48d57924",
+      "scope": "Exact-artifact packaged lifecycle, strict-resource and OBJ/MTL checks, normal shutdown, readable JFR, and incorrect-binary rejection only. This record does not certify reload endurance, complete gameplay, route duration or controlled performance.",
+      "cases": [
+        {
+          "target": "official-nf265",
+          "mode": "faults",
+          "pid": 62672,
+          "exit_code": 0,
+          "artifact_sha256": "134770acd53ec81325993604e8441d213d9ea1be990adb3bc2877b0cb7cc17dd",
+          "plan_sha256": "ecd79b1b43f486afb70339515ba7d635f79194a316354d09a1f1bd29ae872578",
+          "launch_receipt_timestamp": "2026-11-17T23:19:42.699303+08:00",
+          "jfr_sha256": "9b684ed17c323525fb696d1aa2b92637eabe1c1eea9c85d12ce214372f49e7a2",
+          "passed": true,
+          "lifecycle_checks": 24,
+          "strict_resource_checks": 18,
+          "obj_input_checks": 27,
+          "settled_workspace": true
+        },
+        {
+          "target": "official-nf265",
+          "mode": "mismatch",
+          "pid": 67416,
+          "exit_code": 1,
+          "artifact_sha256": "134770acd53ec81325993604e8441d213d9ea1be990adb3bc2877b0cb7cc17dd",
+          "plan_sha256": "09ce347edda313d04f055272c4bce4af34c2b127b92480a0c8d7ee8031dd9814",
+          "launch_receipt_timestamp": "2026-11-17T23:28:55.115968+08:00",
+          "jfr_sha256": "fd17ce628430de36d289e30747244b8f6024d613c46e8cdf48ebe1dce58a4636",
+          "passed": true,
+          "rejected_before_registration": true
+        }
+      ]
+    }
+  }
+]

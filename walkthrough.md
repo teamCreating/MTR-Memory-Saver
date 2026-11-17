@@ -642,3 +642,9 @@ engineering-052/input-route-calibration 保存关闭的 full01/full02/full03 诊
 在此前工程与实际客户端均通过的新产物943b…上，完成NF248 baseline/plain、baseline/profile、candidate/plain、candidate/profile四个新模板的实际prepare，全部exit0，尚未启动qualification或scheduled JVM。baseline仍是原始0.3.0 b9c…及其固定manifest；observer始终1.0.3 1a4e…，16包、原始世界副本、3GiB/512MiB、1280×720匹配，profile启用完整JFR，两模式均不启用NMT。现有性能策略/门槛没有修改。复制旧scenario/camera/route，machine_context替换成当前只读CIM、电源方案和指定后台进程计数快照；不声称后台负载未来恒定。
 
 两次前置prepare缺失sidecar的原始失败分别保留在独立attempt目录；从旧冻结prepared-controls取回baseline与observer原始清单，核对固定SHA后第三次prepare四组成功，不改身份校验。封存脚本/实际命令exit/当前元数据/plan/controls及自有baseline和observer JAR，不复制世界、MTR、依赖、JFR或ETL。明确这些是运行后参考拷贝，准备不冒充实际A/A A/B样本或测量通过。独立帧源/正控制、observer-off、四项新qualification和正式试验/配对分析仍未完成。当前20重载正式cohort连续6次ready，第七次原生返回进入稳定观察；不提前宣称20次通过。
+
+## 2026-11-18T01:52:30.6822079+08:00 — 将四个真实客户端结果绑定到 0.4.8 交付包
+
+新增 revised048-packaged-delivery/derive.py，从 engineering-051/streamed-obj-input 已封存原始字节按索引逐项验hash，独立推导NF248/NF265各faults/mismatch两例。实际Popen终态exit、PID/launch/plan/JFR元数据绑定；正例24+18+27检查全部严格true且workspace归零，负例指纹guard拒绝并无原生车辆注册记录。派生assessment四例passed仅限packaged范围，不是整体游戏/20重载/性能通过。config/delivery-evidence.json追加新0.4.8两目标精确JAR与assessment SHA记录，保留旧0.4.7条目不变。
+
+两目标 verifyRelease/releaseBundle实际exit0；更新包JAR仍分别943b…/1347…，与真实客户端及CI33619ce下载包内JAR逐字节相同。支持文件现在是 verified-packaged-scope，保留验收范围。初次ci.py调用误用了不存在的--directory参数，工具实际返回argparse错误；修正为位置参数后独立checksums/verify-assets stdout/stderr/真实exit0已保存，验证两目标齐全。新增离线verify重推源结果、全payload/zipchecksum/JAR/包内VALIDATION/配置绑定，实际通过22payload/四例。仅交付数据/证据修改，Java字节未变，未将13次中间结果或准备模板写成发布通过。当前正式full04连续13次ready，第14次处理中；独立帧源和实际性能对照仍缺验收。
