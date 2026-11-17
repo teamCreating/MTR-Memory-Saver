@@ -1,0 +1,16 @@
+{
+  "written_at": "2026-11-17T12:54:27.852702+00:00",
+  "provenance": "Child stderr is the original raw output. Other details are agent-reported from the actual tool invocation; no original child stdout/exit receipt was persisted.",
+  "argv": [
+    "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.venv\\Scripts\\python.exe",
+    "-m",
+    "minecraft_testkit",
+    "inventory"
+  ],
+  "observed": "UnicodeEncodeError in CLI stdout encoding (gbk) for an existing archived path. Child exit was nonzero; invoking wrapper tool returned exit 1.",
+  "child_exit_code": null,
+  "wrapper_tool_exit_code": 1,
+  "stdout_retained": false,
+  "catalog_written": false,
+  "change": "Use explicit -X utf8 for the next native Python subprocess. No catalog payload or product source was modified by the failed command."
+}

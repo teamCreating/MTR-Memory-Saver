@@ -1,0 +1,27 @@
+{
+  "started_at": "2026-11-17T12:29:14.542924+00:00",
+  "completed_at": "2026-11-17T12:29:18.406976+00:00",
+  "elapsed_seconds": 3.864039000007324,
+  "argv": [
+    "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.venv\\Scripts\\python.exe",
+    "-X",
+    "utf8",
+    "-m",
+    "unittest",
+    "-v",
+    "test_wait_reload_ready"
+  ],
+  "cwd": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\tools",
+  "exit_code": 1,
+  "source_sha256_before": {
+    "tools/wait_reload_ready.py": "453d7157591081b1a701bf5f6c5de35566088e0d8e187f563fd870fbb1523a14",
+    "tools/test_wait_reload_ready.py": "3a0effdb0435b18be9c102012678c3ac969944e6ef3c284e5d47a5280edf4354"
+  },
+  "source_sha256_after": {
+    "tools/wait_reload_ready.py": "453d7157591081b1a701bf5f6c5de35566088e0d8e187f563fd870fbb1523a14",
+    "tools/test_wait_reload_ready.py": "3a0effdb0435b18be9c102012678c3ac969944e6ef3c284e5d47a5280edf4354"
+  },
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stderr_sha256": "8eb82b872aed434d2aac64beabde2afd76588a69a978cf2e4046ff329f1fe8fb",
+  "scope": "Offline waiter controls using sealed real OOM/historical prefix; no reader, game, UI or live process query."
+}
