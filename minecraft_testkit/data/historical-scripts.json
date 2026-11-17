@@ -3423,6 +3423,24 @@
       "sha256": "6967cd6efee7a673e5df72700ea8de26e2e92c02d4614306bcb106fa527b02e1"
     },
     {
+      "path": "evidence/engineering-052/release-decision/final-bundle-runner.py",
+      "group": "engineering-052",
+      "bytes": 2259,
+      "sha256": "42cb3d3afa8afe2bdea47823195bcd86f941ba4ce970363b4798f14a9e506991"
+    },
+    {
+      "path": "evidence/engineering-052/release-decision/initial-bundle-runner.py",
+      "group": "engineering-052",
+      "bytes": 2106,
+      "sha256": "800f65299132843f00b0fc08b0b17b0b8d7d8831c995d22bb35d228f1b4906eb"
+    },
+    {
+      "path": "evidence/engineering-052/release-decision/verify.py",
+      "group": "engineering-052",
+      "bytes": 2356,
+      "sha256": "036235aadba29b2ba049ae1753b43c43b1da78d9df43dbf2640e87fa39e8fc23"
+    },
+    {
       "path": "evidence/engineering-052/revised048-packaged-delivery/build-runner.py",
       "group": "engineering-052",
       "bytes": 1059,
@@ -3457,6 +3475,300 @@
       "group": "engineering-052",
       "bytes": 1840,
       "sha256": "6b6c111a812cefc7ffa655c156ab6a091b44d77e5ef83e391d376e3786a0cdea"
+    },
+    {
+      "path": "evidence/engineering-052/revised048-reload20-verification/01/sealed_producer.py",
+      "group": "engineering-052",
+      "bytes": 2523,
+      "sha256": "bc8a954d1872f87493d4ac5ee257cfeb3bb7f246061a66faac08ff576a3b48c6"
+    },
+    {
+      "path": "evidence/engineering-052/revised048-reload20-verification/01/verify_sealed.py",
+      "group": "engineering-052",
+      "bytes": 11763,
+      "sha256": "e4d2f6e3d3b5f14b1ddcd89f9912e39daa1678133d52b2177c50e9aa2f7d476a"
+    },
+    {
+      "path": "evidence/engineering-052/revised048-reload20-verification/02/sealed_producer.py",
+      "group": "engineering-052",
+      "bytes": 2523,
+      "sha256": "bc8a954d1872f87493d4ac5ee257cfeb3bb7f246061a66faac08ff576a3b48c6"
+    },
+    {
+      "path": "evidence/engineering-052/revised048-reload20-verification/02/verify_sealed.py",
+      "group": "engineering-052",
+      "bytes": 12890,
+      "sha256": "6cb46acbde86ac3b0b56bc6d477819f4a5edcb5909c56058ff2a126c7bd2d4a0"
+    },
+    {
+      "path": "evidence/engineering-052/revised048-reload20/observer/client_experiment_analysis.py",
+      "group": "engineering-052",
+      "bytes": 41656,
+      "sha256": "0669d421d09a47664cf9207f559f247983f76a666a1cfe8487c7d02d4c5a7d6e"
+    },
+    {
+      "path": "evidence/engineering-052/revised048-reload20/observer/native_diagnostic_review.py",
+      "group": "engineering-052",
+      "bytes": 14788,
+      "sha256": "39807f2f3b8173097d30d7fef7499e8bac419f72ff6abd1faf91b014c097e45d"
+    },
+    {
+      "path": "evidence/engineering-052/revised048-reload20/observer/native_log_stream.py",
+      "group": "engineering-052",
+      "bytes": 26565,
+      "sha256": "380f8df01cba5dbde8e53681a70bc0e12a5ae1672d5745049d769a3860d95fbf"
+    },
+    {
+      "path": "evidence/engineering-052/revised048-reload20/observer/observer-source.py",
+      "group": "engineering-052",
+      "bytes": 90825,
+      "sha256": "dcb3645b951f53280dcf394e97a48c3481d6a9cfc4099a388afaa395242f6624"
+    },
+    {
+      "path": "evidence/engineering-052/revised048-reload20/observer/reload_before_recorder.py",
+      "group": "engineering-052",
+      "bytes": 30206,
+      "sha256": "ace15f67d6e86968c75766d98360aadb3db7c69fab196c3e4fd655ad1f16c65b"
+    },
+    {
+      "path": "evidence/engineering-052/revised048-reload20/observer/windows_process_identity.py",
+      "group": "engineering-052",
+      "bytes": 8927,
+      "sha256": "f29dbd8f21f7eea1b0c8bad0a5d0f9cc9657739d53758192c98af0d80fa6cac3"
+    },
+    {
+      "path": "evidence/engineering-052/revised048-reload20/observer/windows_snapshot_io.py",
+      "group": "engineering-052",
+      "bytes": 1992,
+      "sha256": "6967cd6efee7a673e5df72700ea8de26e2e92c02d4614306bcb106fa527b02e1"
+    },
+    {
+      "path": "evidence/engineering-052/revised048-reload20/operators/check-final-jfr.py",
+      "group": "engineering-052",
+      "bytes": 1683,
+      "sha256": "c3571cfd396adcc9f004037a9869f38d2df994c17016563fdf2dd75cad8eefcb"
+    },
+    {
+      "path": "evidence/engineering-052/revised048-reload20/operators/seal.py",
+      "group": "engineering-052",
+      "bytes": 5599,
+      "sha256": "a453435d536666af01ec0b970a53aa2077c41488fbf85bac36db7a12f54f1013"
+    },
+    {
+      "path": "evidence/engineering-052/revised048-reload20/operators/sealed_producer.py",
+      "group": "engineering-052",
+      "bytes": 2523,
+      "sha256": "bc8a954d1872f87493d4ac5ee257cfeb3bb7f246061a66faac08ff576a3b48c6"
+    },
+    {
+      "path": "evidence/engineering-052/revised048-reload20/operators/wait_reload_ready.py",
+      "group": "engineering-052",
+      "bytes": 24785,
+      "sha256": "2ce1525514d71f0c18c4de274832491d7635cf86f46fb13f62816cba09aa66f1"
+    },
+    {
+      "path": "evidence/engineering-052/revised048-reload20/post20/client_experiment_analysis.py",
+      "group": "engineering-052",
+      "bytes": 41656,
+      "sha256": "0669d421d09a47664cf9207f559f247983f76a666a1cfe8487c7d02d4c5a7d6e"
+    },
+    {
+      "path": "evidence/engineering-052/revised048-reload20/post20/native_diagnostic_review.py",
+      "group": "engineering-052",
+      "bytes": 14788,
+      "sha256": "39807f2f3b8173097d30d7fef7499e8bac419f72ff6abd1faf91b014c097e45d"
+    },
+    {
+      "path": "evidence/engineering-052/revised048-reload20/post20/native_log_stream.py",
+      "group": "engineering-052",
+      "bytes": 26565,
+      "sha256": "380f8df01cba5dbde8e53681a70bc0e12a5ae1672d5745049d769a3860d95fbf"
+    },
+    {
+      "path": "evidence/engineering-052/revised048-reload20/post20/observer-source.py",
+      "group": "engineering-052",
+      "bytes": 90825,
+      "sha256": "dcb3645b951f53280dcf394e97a48c3481d6a9cfc4099a388afaa395242f6624"
+    },
+    {
+      "path": "evidence/engineering-052/revised048-reload20/post20/reload_before_recorder.py",
+      "group": "engineering-052",
+      "bytes": 30206,
+      "sha256": "ace15f67d6e86968c75766d98360aadb3db7c69fab196c3e4fd655ad1f16c65b"
+    },
+    {
+      "path": "evidence/engineering-052/revised048-reload20/post20/windows_process_identity.py",
+      "group": "engineering-052",
+      "bytes": 8927,
+      "sha256": "f29dbd8f21f7eea1b0c8bad0a5d0f9cc9657739d53758192c98af0d80fa6cac3"
+    },
+    {
+      "path": "evidence/engineering-052/revised048-reload20/post20/windows_snapshot_io.py",
+      "group": "engineering-052",
+      "bytes": 1992,
+      "sha256": "6967cd6efee7a673e5df72700ea8de26e2e92c02d4614306bcb106fa527b02e1"
+    },
+    {
+      "path": "evidence/engineering-052/revised048-reload20/recorder/sources/client_experiment_analysis.py",
+      "group": "engineering-052",
+      "bytes": 41656,
+      "sha256": "0669d421d09a47664cf9207f559f247983f76a666a1cfe8487c7d02d4c5a7d6e"
+    },
+    {
+      "path": "evidence/engineering-052/revised048-reload20/recorder/sources/native_diagnostic_review.py",
+      "group": "engineering-052",
+      "bytes": 14788,
+      "sha256": "39807f2f3b8173097d30d7fef7499e8bac419f72ff6abd1faf91b014c097e45d"
+    },
+    {
+      "path": "evidence/engineering-052/revised048-reload20/recorder/sources/native_log_stream.py",
+      "group": "engineering-052",
+      "bytes": 26565,
+      "sha256": "380f8df01cba5dbde8e53681a70bc0e12a5ae1672d5745049d769a3860d95fbf"
+    },
+    {
+      "path": "evidence/engineering-052/revised048-reload20/recorder/sources/observe_packaged_client.py",
+      "group": "engineering-052",
+      "bytes": 90825,
+      "sha256": "dcb3645b951f53280dcf394e97a48c3481d6a9cfc4099a388afaa395242f6624"
+    },
+    {
+      "path": "evidence/engineering-052/revised048-reload20/recorder/sources/reload_before_recorder.py",
+      "group": "engineering-052",
+      "bytes": 30206,
+      "sha256": "ace15f67d6e86968c75766d98360aadb3db7c69fab196c3e4fd655ad1f16c65b"
+    },
+    {
+      "path": "evidence/engineering-052/revised048-reload20/recorder/sources/windows_process_identity.py",
+      "group": "engineering-052",
+      "bytes": 8927,
+      "sha256": "f29dbd8f21f7eea1b0c8bad0a5d0f9cc9657739d53758192c98af0d80fa6cac3"
+    },
+    {
+      "path": "evidence/engineering-052/revised048-reload20/recorder/sources/windows_snapshot_io.py",
+      "group": "engineering-052",
+      "bytes": 1992,
+      "sha256": "6967cd6efee7a673e5df72700ea8de26e2e92c02d4614306bcb106fa527b02e1"
+    },
+    {
+      "path": "evidence/engineering-052/revised048-reload20/verify_sealed.py",
+      "group": "engineering-052",
+      "bytes": 12890,
+      "sha256": "6cb46acbde86ac3b0b56bc6d477819f4a5edcb5909c56058ff2a126c7bd2d4a0"
+    },
+    {
+      "path": "evidence/engineering-052/revised048-reload20/waiters/001/waiter-source.py",
+      "group": "engineering-052",
+      "bytes": 24785,
+      "sha256": "2ce1525514d71f0c18c4de274832491d7635cf86f46fb13f62816cba09aa66f1"
+    },
+    {
+      "path": "evidence/engineering-052/revised048-reload20/waiters/002/waiter-source.py",
+      "group": "engineering-052",
+      "bytes": 24785,
+      "sha256": "2ce1525514d71f0c18c4de274832491d7635cf86f46fb13f62816cba09aa66f1"
+    },
+    {
+      "path": "evidence/engineering-052/revised048-reload20/waiters/003/waiter-source.py",
+      "group": "engineering-052",
+      "bytes": 24785,
+      "sha256": "2ce1525514d71f0c18c4de274832491d7635cf86f46fb13f62816cba09aa66f1"
+    },
+    {
+      "path": "evidence/engineering-052/revised048-reload20/waiters/004/waiter-source.py",
+      "group": "engineering-052",
+      "bytes": 24785,
+      "sha256": "2ce1525514d71f0c18c4de274832491d7635cf86f46fb13f62816cba09aa66f1"
+    },
+    {
+      "path": "evidence/engineering-052/revised048-reload20/waiters/005/waiter-source.py",
+      "group": "engineering-052",
+      "bytes": 24785,
+      "sha256": "2ce1525514d71f0c18c4de274832491d7635cf86f46fb13f62816cba09aa66f1"
+    },
+    {
+      "path": "evidence/engineering-052/revised048-reload20/waiters/006/waiter-source.py",
+      "group": "engineering-052",
+      "bytes": 24785,
+      "sha256": "2ce1525514d71f0c18c4de274832491d7635cf86f46fb13f62816cba09aa66f1"
+    },
+    {
+      "path": "evidence/engineering-052/revised048-reload20/waiters/007/waiter-source.py",
+      "group": "engineering-052",
+      "bytes": 24785,
+      "sha256": "2ce1525514d71f0c18c4de274832491d7635cf86f46fb13f62816cba09aa66f1"
+    },
+    {
+      "path": "evidence/engineering-052/revised048-reload20/waiters/008/waiter-source.py",
+      "group": "engineering-052",
+      "bytes": 24785,
+      "sha256": "2ce1525514d71f0c18c4de274832491d7635cf86f46fb13f62816cba09aa66f1"
+    },
+    {
+      "path": "evidence/engineering-052/revised048-reload20/waiters/009/waiter-source.py",
+      "group": "engineering-052",
+      "bytes": 24785,
+      "sha256": "2ce1525514d71f0c18c4de274832491d7635cf86f46fb13f62816cba09aa66f1"
+    },
+    {
+      "path": "evidence/engineering-052/revised048-reload20/waiters/010/waiter-source.py",
+      "group": "engineering-052",
+      "bytes": 24785,
+      "sha256": "2ce1525514d71f0c18c4de274832491d7635cf86f46fb13f62816cba09aa66f1"
+    },
+    {
+      "path": "evidence/engineering-052/revised048-reload20/waiters/011/waiter-source.py",
+      "group": "engineering-052",
+      "bytes": 24785,
+      "sha256": "2ce1525514d71f0c18c4de274832491d7635cf86f46fb13f62816cba09aa66f1"
+    },
+    {
+      "path": "evidence/engineering-052/revised048-reload20/waiters/012/waiter-source.py",
+      "group": "engineering-052",
+      "bytes": 24785,
+      "sha256": "2ce1525514d71f0c18c4de274832491d7635cf86f46fb13f62816cba09aa66f1"
+    },
+    {
+      "path": "evidence/engineering-052/revised048-reload20/waiters/013/waiter-source.py",
+      "group": "engineering-052",
+      "bytes": 24785,
+      "sha256": "2ce1525514d71f0c18c4de274832491d7635cf86f46fb13f62816cba09aa66f1"
+    },
+    {
+      "path": "evidence/engineering-052/revised048-reload20/waiters/014/waiter-source.py",
+      "group": "engineering-052",
+      "bytes": 24785,
+      "sha256": "2ce1525514d71f0c18c4de274832491d7635cf86f46fb13f62816cba09aa66f1"
+    },
+    {
+      "path": "evidence/engineering-052/revised048-reload20/waiters/015/waiter-source.py",
+      "group": "engineering-052",
+      "bytes": 24785,
+      "sha256": "2ce1525514d71f0c18c4de274832491d7635cf86f46fb13f62816cba09aa66f1"
+    },
+    {
+      "path": "evidence/engineering-052/revised048-reload20/waiters/016/waiter-source.py",
+      "group": "engineering-052",
+      "bytes": 24785,
+      "sha256": "2ce1525514d71f0c18c4de274832491d7635cf86f46fb13f62816cba09aa66f1"
+    },
+    {
+      "path": "evidence/engineering-052/revised048-reload20/waiters/017/waiter-source.py",
+      "group": "engineering-052",
+      "bytes": 24785,
+      "sha256": "2ce1525514d71f0c18c4de274832491d7635cf86f46fb13f62816cba09aa66f1"
+    },
+    {
+      "path": "evidence/engineering-052/revised048-reload20/waiters/018/waiter-source.py",
+      "group": "engineering-052",
+      "bytes": 24785,
+      "sha256": "2ce1525514d71f0c18c4de274832491d7635cf86f46fb13f62816cba09aa66f1"
+    },
+    {
+      "path": "evidence/engineering-052/revised048-reload20/waiters/019/waiter-source.py",
+      "group": "engineering-052",
+      "bytes": 24785,
+      "sha256": "2ce1525514d71f0c18c4de274832491d7635cf86f46fb13f62816cba09aa66f1"
     }
   ]
 }

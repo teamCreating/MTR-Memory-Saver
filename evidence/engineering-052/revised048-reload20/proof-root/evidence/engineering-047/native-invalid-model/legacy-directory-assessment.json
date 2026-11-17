@@ -1,0 +1,24 @@
+{
+  "timestamp": "2026-11-15T07:40:28.474252+08:00",
+  "status": "static_directory_migration_audit_runtime_not_traced",
+  "source_reference": {
+    "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-047\\native-invalid-model\\assessment.json",
+    "sha256": "7f5ab39b528900363e75f7fabca99fe42cd835a63d3338c50ce7d2d0f08e7c08"
+  },
+  "archives_reverified": 17,
+  "directory_entries_audited": 17,
+  "eligible_json_entries": 2,
+  "model_consumers_audited": 303,
+  "model_consumers_by_kind": {
+    "object": 289,
+    "rail": 14
+  },
+  "unsupported_suffix_candidates": [],
+  "conversion": "Official convertRails/convertObjects use ResourceManagerHelper.readDirectory(rails/eyecandies), which enumerates listResourceStacks. Converter accepts namespace mtrsteamloco and case-sensitive .json suffix. A root model field selects a single declaration with an unchanged filename stem ID; otherwise map entry keys are lowercased with Locale.ENGLISH to become IDs. All observed keys are ASCII and authored IDs are preserved separately. LegacyRailResource/LegacyObjectResource copy model unchanged to native modelResource.",
+  "limits": [
+    "Every observed eligible declaration explicitly provides a string model; no approximation of missing legacy schema defaults is used.",
+    "This audits all directory providers in the same 17 verified source archives, including superseded providers. It does not trace Minecraft resource stack order, registration winners, successful parsing, model rendering, or third-party archives outside this catalogue.",
+    "Supported suffix excludes this factory's unsupported-format branch; textureId absence is recorded without asserting decoded texture validity."
+  ],
+  "script_sha256": "29660c9894782b36c2436c0e96d0a1ccedfd2d56a5c658ca3e95b7cd862bd3e6"
+}

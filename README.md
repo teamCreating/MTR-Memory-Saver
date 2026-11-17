@@ -92,7 +92,10 @@ client, both incorrect-binary rejection checks and small-heap streaming controls
 These results do not establish reload endurance or a performance benefit.
 [Independent frame diagnostics](evidence/engineering-052/frame-source-diagnostics/README.md)
 currently have no valid frame CSV; provider enablement returned access denied.
-Candidate-specific endurance and controlled performance acceptance remain pending.
+The revised NF248 candidate has also passed [twenty consecutive full-pack
+reloads](evidence/engineering-052/revised048-reload20/README.md) in one fresh
+3 GiB JVM, followed by an independent stable window and normal shutdown.
+Controlled performance acceptance remains pending.
 
 Historical guides and measurements are indexed in [HISTORY.md](docs/HISTORY.md)
 and [TECHNICAL.md](TECHNICAL.md). New candidate tests and performance reports have
