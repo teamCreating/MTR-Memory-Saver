@@ -11,10 +11,12 @@ from unittest import mock
 
 import observe_packaged_client as observer
 import reload_before_recorder as recorder
-from log_stream_test_support import fixture_stream
+from minecraft_testkit.fixtures.log_stream import fixture_stream
 
 
-FIXTURE = recorder.ROOT / "evidence/engineering-048/neutral-runtime-02-review/capture-02"
+from minecraft_testkit.samples import sample_directory
+
+FIXTURE = sample_directory("neutral-reload-contract")
 
 
 class NeutralReloadTest(unittest.TestCase):
