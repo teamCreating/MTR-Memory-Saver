@@ -525,3 +525,11 @@ CI从config/targets.json派生Java及官方目标，Linux/Windows构建、Java/n
 按精确解析路径、仓库边界、目标不存在与无reparse检查，用一次PowerShell Move-Item -LiteralPath将本次46文件共1230384bytes移到独立evidence/engineering-050/presentmon-owned049d-capture03。逐文件核对移动前后size/SHA一致，原绝对路径与argv保持原字节，另存来源映射。移动前两个预检分别因PowerShell参数集及字典测量方式失败，均发生在Move-Item之前、未移动或改写payload；修正预检后只实际移动一次。
 
 复核旧presentmon-feasibility147个index-defined payload共5831275bytes全部size/SHA吻合，旧index与HEAD原bytes一致，本次capture子目录已移出；另有3份既存未索引bytecode缓存按root指示原位保留，不删不移、不归因为本次，也不声称旧物理目录每文件均在index。新增compact assessment、README、历史payload核对与独立SHA-index；旧seal和runtime未修改。以A-BenLi06 <ben_li06@outlook.com>作者/提交者限定提交本scope与walkthrough，并按仓库AGENTS自动push当前工作分支。
+
+## 2026-11-17T18:54:29+08:00 (UTC+08:00) — 修复历史脚本目录遗漏与Windows CI退出状态覆盖
+
+52b35b0的push run44067254320真实失败：Ubuntu Tools在minecraft_testkit verify因catalog447项而tracked归档脚本449项立即退出1；差集仅本次probe封存新增native-etw-source.py与pilot-source.py。Windows同样发生verify traceback，但同一pwsh step随后286tests通过，最终native命令成功覆盖前一失败，导致该job误绿；4组官方构建均通过，汇总CI正确因Tools失败而失败。保留旧failed run，不手工重跑或取消。
+
+使用既有minecraft_testkit inventory生成器审阅刷新data/historical-scripts.json，仅增加上述2项路径、group、size和SHA，原447项逐项语义/指纹不变，原证据不修改。build.yml把verify与test拆成独立、各一条native Python命令的step，无continue-on-error；保留双OS与官方目标matrix、CI稳定名称、needs及汇总gate。独立只读review确认Windows首step非零不能再被下一step覆盖，既有release依赖仍拒绝失败。
+
+验证：minecraft_testkit verify实际exit0（449份历史脚本、2组数据集、11份样例）；原入口完整286tests实际exit0、63.489s、OK（原始输出留ignored .cache/ci-052-catalog-step-fix/tests.log）；既存actionlint对build.yml实际exit0。tracked diff严格只有catalog/workflow/walkthrough，Git whitespace通过。live recorder-attempt03/session-start.json SHA7483cc778a7af9bf6d312a301d91e5460e890e1591ba52e3dc1cf1c8a55576bf及其9个runtime/config pins在修改前与全部验证后逐一相同；未改live reader/runtime、旧seal、权限或游戏状态。以A-BenLi06 <ben_li06@outlook.com>作者和提交者一次限定commit，普通push当前codex/standalone，随后只读跟踪新head实际CI终态；本地检查不替代该远端结果或游戏验收。
