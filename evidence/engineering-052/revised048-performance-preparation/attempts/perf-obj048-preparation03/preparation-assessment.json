@@ -1,0 +1,42 @@
+{
+  "preparation_passed": true,
+  "qualification_ran": false,
+  "scheduled_trials_ran": false,
+  "observer_off_calibration_passed": false,
+  "independent_frame_source_qualified": false,
+  "performance_accepted": false,
+  "templates": [
+    {
+      "label": "baseline-plain",
+      "plan_sha256": "cb2303f4ad4da5d2962fbe18e00867e34396c09c2731ab9e459b340cbb0b450b",
+      "companion_sha256": "b9c95bbe79c6c76fe6a0c9af6bdb4f9ed7ce6b007fecdb1c9f543544ce562f02",
+      "jfr": false,
+      "packs": 16,
+      "launch_ran": false
+    },
+    {
+      "label": "baseline-profile",
+      "plan_sha256": "4eb6d70e860d64fb5adb75255c66549f76b83a7a20cfbb618940da2deabb43ab",
+      "companion_sha256": "b9c95bbe79c6c76fe6a0c9af6bdb4f9ed7ce6b007fecdb1c9f543544ce562f02",
+      "jfr": true,
+      "packs": 16,
+      "launch_ran": false
+    },
+    {
+      "label": "candidate-plain",
+      "plan_sha256": "d27e7d048ff33e5e010cf12e5471a26f968a9b83428a9813b72d07a04549c1ef",
+      "companion_sha256": "943b3d455fa3ce9d3ede74bc1a2071ece7bf70b09d9b7f829027347b53a9b588",
+      "jfr": false,
+      "packs": 16,
+      "launch_ran": false
+    },
+    {
+      "label": "candidate-profile",
+      "plan_sha256": "ca716e663cb7071c3215ca80bc552c45e223622ca6df5f78b47faa5d123beb28",
+      "companion_sha256": "943b3d455fa3ce9d3ede74bc1a2071ece7bf70b09d9b7f829027347b53a9b588",
+      "jfr": true,
+      "packs": 16,
+      "launch_ran": false
+    }
+  ]
+}

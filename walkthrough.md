@@ -636,3 +636,9 @@ README新增当前候选实际行为、初版第七次重载OBJ String OOM、修
 engineering-052/input-route-calibration 保存关闭的 full01/full02/full03 诊断会话所选原始收据、reader结束/失败记录、完整平面journal/summary及collector执行/plan/launch元数据。full01是可选HeapDumpOnOutOfMemoryError选项原样回显被冻结扫描器拒绝，非真实OOM；去掉可选参数后用新JVM，未改扫描器/堆限额。full02普通API输入未触发、轮转后缺witness接入失败及新cohort旧未匹配输入造成严格回放不通过均保留；full03过早接入缺文件和系统Python缺launcher依赖不掩盖，后续venv实例独立记录。Alt+Shift后F3+T真实触发已记录，之后full04先确认T打开ChatScreen/Escape回游戏再开始正式20次，未发聊天内容。
 
 所选证据明确不构成完整recorder replay closure：省略record/blob、input-attempt子树、native-log分段依赖和collector大snapshot流；原cache仍在。不用哈希一致冒充运行通过，不计任何20次耐久验收。复制逐文件记录读前后size/mtime并保存实际字节哈希；JFR及第三方二进制未复制。校验选定payload、关闭标记及catalog，README说明边界。当前full04连续前2次ready，第三次处理中；实际性能对照与独立帧源仍未通过。
+
+## 2026-11-18T01:25:55.6704659+08:00 — 准备修订 0.4.8 的四组新性能模板
+
+在此前工程与实际客户端均通过的新产物943b…上，完成NF248 baseline/plain、baseline/profile、candidate/plain、candidate/profile四个新模板的实际prepare，全部exit0，尚未启动qualification或scheduled JVM。baseline仍是原始0.3.0 b9c…及其固定manifest；observer始终1.0.3 1a4e…，16包、原始世界副本、3GiB/512MiB、1280×720匹配，profile启用完整JFR，两模式均不启用NMT。现有性能策略/门槛没有修改。复制旧scenario/camera/route，machine_context替换成当前只读CIM、电源方案和指定后台进程计数快照；不声称后台负载未来恒定。
+
+两次前置prepare缺失sidecar的原始失败分别保留在独立attempt目录；从旧冻结prepared-controls取回baseline与observer原始清单，核对固定SHA后第三次prepare四组成功，不改身份校验。封存脚本/实际命令exit/当前元数据/plan/controls及自有baseline和observer JAR，不复制世界、MTR、依赖、JFR或ETL。明确这些是运行后参考拷贝，准备不冒充实际A/A A/B样本或测量通过。独立帧源/正控制、observer-off、四项新qualification和正式试验/配对分析仍未完成。当前20重载正式cohort连续6次ready，第七次原生返回进入稳定观察；不提前宣称20次通过。

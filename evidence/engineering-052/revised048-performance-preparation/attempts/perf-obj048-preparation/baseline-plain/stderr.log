@@ -1,0 +1,22 @@
+Traceback (most recent call last):
+  File "C:\Users\ben_l\Documents\Coding\resoucepack update\vehicle-memory\tools\packaged_client.py", line 654, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\ben_l\Documents\Coding\resoucepack update\vehicle-memory\tools\packaged_client.py", line 646, in main
+    prepare(args)
+    ~~~~~~~^^^^^^
+  File "C:\Users\ben_l\Documents\Coding\resoucepack update\vehicle-memory\tools\packaged_client.py", line 360, in prepare
+    identity = verified_artifact(args.companion.resolve(), matrix, args.legacy_baseline)
+  File "C:\Users\ben_l\Documents\Coding\resoucepack update\vehicle-memory\tools\packaged_client.py", line 51, in verified_artifact
+    return verify_legacy_identity(path, matrix, legacy_baseline,
+                                  read(ROOT / "config/legacy-baselines.json"), manifest_path)
+  File "C:\Users\ben_l\Documents\Coding\resoucepack update\vehicle-memory\tools\legacy_identity.py", line 28, in verify_legacy_identity
+    if digest(path) != pinned["sha256"] or digest(manifest_path) != pinned["manifest_sha256"]:
+                                           ~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\ben_l\Documents\Coding\resoucepack update\vehicle-memory\tools\legacy_identity.py", line 15, in digest
+    with pathlib.Path(path).open("rb") as stream:
+         ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Python314\Lib\pathlib\__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-perf-049-baseline-plain\\mods\\mtr-memory-sharing-neoforge-v030-nf248.build.json'
