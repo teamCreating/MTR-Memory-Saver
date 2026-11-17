@@ -626,3 +626,7 @@ Pre-commit staged-byte audit first exceeded Windows command-line length (WinErro
 接续既有 frame_diagnostics 草稿，完成独立原始 ETL 重解码/篡改拒绝检查。实际 Windows 诊断01明确拒绝 ets/rf 组合；改为128MiB有界文件与 owned wrapper finally清理，不再声称独立定时到期。诊断02启用提供程序时返回拒绝访问，仍部分创建会话；按先前不存在的唯一名称及实际GUID/handle核对后已停止并确认4201。补充启动失败也查询并清理自有部分会话的逻辑和回归，20项测试实际通过；一次 unittest discover 缺少顶层包参数的导入失败保留在工具返回，改用模块限定名运行，未修改测试掩盖导入问题。
 
 原始两次命令/实际exit/输出、独立清理、离线PresentMon exit0无CSV，以及当前修订源与正式20测试stdout/stderr/exit封存于 engineering-052/frame-source-diagnostics。未复制ETL或提升权限；原intent的当时source哈希与当前运行后source快照明确区分。尚不知道具体被拒绝提供程序；不将采集失败推断为驱动故障或零帧。modern provider子集仍未具备测量资格，已知正渲染控制、observer-off和真实A/A A/B均未完成，无性能收益或发布通过声明。
+
+## 2026-11-18T00:59:35.3922698+08:00 — 更新当前未发布 0.4.8 的公开状态
+
+README新增当前候选实际行为、初版第七次重载OBJ String OOM、修订105工程检查与69实际客户端检查、错误二进制拒绝及独立帧源失败的证据链接。明确尚未具备重载耐久或性能收益结论，保留0.4.7历史身份，不以新检查覆盖旧产物。仅文档改动；检查所链README均存在、git diff check通过。正式full04 JVM65404正在完成第一轮重载的稳定观察，尚无20次通过声明。

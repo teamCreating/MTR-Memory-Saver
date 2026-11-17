@@ -82,6 +82,18 @@ observer 1.0.3 also has an [independently sealed settled window](evidence/engine
 Interaction, reload endurance, route and controlled performance remain pending;
 historical 0.4.6 results retain their original artifact identities.
 
+The unpublished 0.4.8 candidate streams Blockbench, OBJ and material input through
+owned snapshots while retaining native parsing and mesh construction. The first
+Blockbench-only candidate failed its seventh full-pack reload with a synchronous
+OBJ String allocation; its [failed run remains sealed](evidence/engineering-051/streamed051a-reload-oom/README.md).
+The [revised OBJ/MTL candidate](evidence/engineering-051/streamed-obj-input/README.md)
+passes 105 Java tests per official target, 69 checks in each actual packaged
+client, both incorrect-binary rejection checks and small-heap streaming controls.
+These results do not establish reload endurance or a performance benefit.
+[Independent frame diagnostics](evidence/engineering-052/frame-source-diagnostics/README.md)
+currently have no valid frame CSV; provider enablement returned access denied.
+Candidate-specific endurance and controlled performance acceptance remain pending.
+
 Historical guides and measurements are indexed in [HISTORY.md](docs/HISTORY.md)
 and [TECHNICAL.md](TECHNICAL.md). New candidate tests and performance reports have
 separate artifact identities. GPU lifetime and gameplay require runtime acceptance;
