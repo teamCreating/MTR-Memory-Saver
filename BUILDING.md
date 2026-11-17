@@ -37,10 +37,15 @@ updating a dependency requires a matrix change and fresh validation.
 
 ```powershell
 ./gradlew.bat test
-python -m unittest discover -s tools -p 'test_*.py'
+python -m pip install -r requirements-test.txt
+python -m minecraft_testkit verify
+python -m minecraft_testkit test
 ```
 
-Unit tests run without a game instance. Runtime acceptance is separate: it must
+The [Python test kit](tests/README.md) organizes regressions, verified samples and
+the historical script catalog; [Minecraft MCP](docs/MINECRAFT_MCP.md) is a future
+extension plan. Unit tests run without a game instance. Runtime acceptance is
+separate: it must
 identify its input packs, world, target binaries, heap and process, exercise actual
 Mixin application and verify completed reload epochs. Historical instance helpers
 remain available under `tools/legacy/` for reproducing earlier reports.

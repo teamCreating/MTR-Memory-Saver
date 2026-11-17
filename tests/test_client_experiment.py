@@ -13,7 +13,7 @@ from unittest import mock
 
 import client_experiment as client
 import client_experiment_analysis as analysis
-from test_native_diagnostic_review import fixture as diagnostic_fixture, evaluate as evaluate_diagnostics
+from minecraft_testkit.fixtures.diagnostics import fixture as diagnostic_fixture, evaluate as evaluate_diagnostics
 
 
 def policy():
@@ -645,7 +645,7 @@ class RawReplayTests(unittest.TestCase):
 class OwnedProcessLifecycleTests(unittest.TestCase):
     """Mock handles and clock only; no child process is actually launched."""
     def setUp(self):
-        from log_stream_test_support import fixture_stream
+        from minecraft_testkit.fixtures.log_stream import fixture_stream
         factory = mock.patch.object(client.native_log_stream.NativeLogStream, "from_launch", side_effect=fixture_stream)
         factory.start()
         self.addCleanup(factory.stop)

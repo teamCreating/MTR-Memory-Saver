@@ -38,6 +38,11 @@ version-tagged pre-releases and the manual release rehearsal.
 
 ## Maintain and verify
 
+Python regressions and curated historical samples are organized in the
+[test kit](tests/README.md); [tools](tools/README.md) indexes maintained commands
+and archived debug scripts. [Minecraft MCP](docs/MINECRAFT_MCP.md) records the
+planned extension boundary; no MCP server is implemented yet.
+
 Stable code is in `src/main/java/`. Only release-specific ABI/lifecycle files belong
 in `src/targets/official/java/` or `src/targets/v6/java/`; a preset compiles exactly
 one target directory. Feature flags do not assemble a production release.

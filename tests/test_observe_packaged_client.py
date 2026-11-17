@@ -12,7 +12,7 @@ from unittest import mock
 from types import SimpleNamespace
 
 import observe_packaged_client as observer
-from log_stream_test_support import fixture_stream, header
+from minecraft_testkit.fixtures.log_stream import fixture_stream, header
 
 
 class ObservationTest(unittest.TestCase):

@@ -9,7 +9,9 @@ from unittest import mock
 
 import native_log_stream as logs
 
-FIXTURE = Path(__file__).resolve().parents[1] / "evidence/engineering-050/native-log-stream/actual-inputs"
+from minecraft_testkit.samples import sample_directory
+
+FIXTURE = sample_directory("native-log-rollover")
 
 
 class NativeLogStreamTest(unittest.TestCase):

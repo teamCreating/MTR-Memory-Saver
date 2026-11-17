@@ -57,7 +57,9 @@ jobs:
       - name: Record runner path context
         run: python -c "import platform,tempfile,pathlib; p=tempfile.gettempdir(); print(platform.platform()); print('temp='+p); print('resolved='+str(pathlib.Path(p).resolve()))"
       - name: Test verification and release tools
-        run: python -m unittest discover -s tools -p 'test_*.py' -v
+        run: |
+          python -m minecraft_testkit verify
+          python -m minecraft_testkit test
 
   official:
     name: Build (${{ matrix.os }}, ${{ matrix.target }})

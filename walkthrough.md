@@ -499,3 +499,13 @@ CI从config/targets.json派生Java及官方目标，Linux/Windows构建、Java/n
 服务端再次回读main-protection27437423与immutable-release-tags27437424均active且bypass_actors为空。main实际protected=true，要求PR、讨论解决、线性历史、最新main基线的GitHubActions15368/CI检查，禁止删除与非快进；人工批准数0适配单维护者。v*标签禁止删除与非快进，Actions默认token只读且不能自行批准PR。版本化JSON与服务端实际规则一致。
 
 远端rebase后的main内容与原工作分支相同；正常merge其祖先关系回当前codex/standalone，保留原本地提交及作者身份，附上本次验证记录后立即自动push该工作分支。未修改父仓库、产品源码、版本、在用客户端或原始证据；既有未跟踪JUnit binary目录保留。作者和提交者使用A-BenLi06 <ben_li06@outlook.com>。
+
+## 2026-11-17T16:31:38+08:00 (UTC+08:00) — 整理Python测试包、历史脚本索引与Minecraft MCP扩展边界
+
+将14个当前Python回归模块由tools迁至独立tests包，保留原用例与拒绝边界；共用日志流/诊断合成构造器抽取至minecraft_testkit/fixtures。新增仓库内开发测试包的test/list/verify/inventory命令，测试在独立解释器中设置旧工具的导入路径、按tests完整包名发现用例，零匹配返回失败。tools/test_suite.py使用标准unittest load_tests钩子兼容旧的全量discover命令，并验证两入口用例ID完全相同；旧文件名精确筛选改用新入口。包暂不独立pip分发。
+
+447份evidence内的历史驱动、审计和冻结Python源码保留原位置与原字节，以reference-only清单记录工程批次、路径、字节数和SHA256；索引和验证不导入、不执行这些脚本。从原证据逐字节选取两组11份小样例共190723bytes，样例清单保留原路径、哈希与历史范围，测试实际改用这些经校验的样例。副本和原件均核验，未知/缺失/损坏成员拒绝；完整历史proof依赖仍在原封存树，两份历史JAR不再复制。现有20个顶层运行工具源码与改动前SHA一致，原始证据未修改，在用游戏、reader、世界和进程均未操作。
+
+新增tests/tools/data分层说明及docs/MINECRAFT_MCP.md，标注未来从只读资源和离线分析、显式实例观察会话再到实际控制的扩展顺序。保留实例身份、来源、版本能力、任务句柄/真实终态和真实事件完成约束，将MTR专属契约与通用Minecraft能力分离。本批不实现MCP server/传输/游戏控制，不新增SDK、端口或后台服务；旧记录与合成序列不能冒充新的游戏操作。CI和当前文档改用统一verify+test入口，历史构建示例保留并注明旧布局。
+
+验证：本地最终286项Python测试全部通过（25.866s），含新增6项样例来源/篡改/路径边界、索引漂移与不执行历史源码、零匹配拒绝、旧新入口等价测试。447份脚本、2组11份样例来源校验通过；workflow actionlint、相对文档链接和Git whitespace检查通过。保留原Windows平台资格限制与原游戏验收范围；本地286通过不授予实际重载、路线、性能或完整游戏exit通过。提交使用A-BenLi06 <ben_li06@outlook.com>，按AGENTS约定立即自动push当前工作分支，远端CI另核实际终态。

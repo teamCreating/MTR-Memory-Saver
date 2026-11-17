@@ -263,7 +263,7 @@ microbenchmark results do not supply any of these missing qualifications.
 Validate the tools without launching a game:
 
 ```powershell
-.venv/Scripts/python.exe -m unittest discover -s tools -p test_client_experiment.py -v
+.venv/Scripts/python.exe -m minecraft_testkit test --pattern test_client_experiment.py
 ```
 
 Successful planning or one qualified group exits zero. Unqualified evidence,
