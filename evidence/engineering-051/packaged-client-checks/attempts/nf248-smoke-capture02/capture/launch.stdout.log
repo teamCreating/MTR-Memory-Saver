@@ -1,0 +1,127 @@
+[1.070s][info][jfr,startup] Started recording 1.
+[1.070s][info][jfr,startup] 
+[1.070s][info][jfr,startup] Use jcmd 44444 JFR.dump name=acceptance to copy recording data to file.
+[20:00:35.504] [main/INFO] [Launcher/MODLAUNCHER]: ModLauncher running: args [--username, VehicleTest, --version, neoforge-21.1.248, --gameDir, C:\Users\ben_l\Documents\Coding\resoucepack update\vehicle-memory\.cache\acceptance\official-nf248-streamed-051-smoke, --assetsDir, C:\Users\ben_l\Documents\Coding\resoucepack update\vehicle-memory\.cache\acceptance\official-nf248-streamed-051-smoke\assets, --assetIndex, 17, --uuid, 312a59e5-2af3-48ce-a9d8-db46ffc2ef43, --accessToken, ❄❄❄❄❄❄❄❄, --clientId, ${clientid}, --xuid, ${auth_xuid}, --userType, msa, --versionType, release, --width, 1280, --height, 720, --fml.neoForgeVersion, 21.1.248, --fml.fmlVersion, 4.0.43, --fml.mcVersion, 1.21.1, --fml.neoFormVersion, 20240808.144430, --launchTarget, forgeclient, --disableMultiplayer] 
+[20:00:35.513] [main/INFO] [Launcher/MODLAUNCHER]: JVM identified as Eclipse Adoptium OpenJDK 64-Bit Server VM 21.0.11+10-LTS 
+[20:00:35.517] [main/INFO] [Launcher/MODLAUNCHER]: ModLauncher 11.0.5+main.901c6ea8 starting: java version 21.0.11 by Eclipse Adoptium; OS Windows 10 arch amd64 version 10.0 
+[20:00:35.784] [main/INFO] [loading.ImmediateWindowHandler/]: Loading ImmediateWindowProvider fmlearlywindow 
+[20:00:36.201] [main/INFO] [EARLYDISPLAY/]: Trying GL version 4.6 
+[20:00:36.436] [main/INFO] [EARLYDISPLAY/]: Requested GL version 4.6 got version 4.6 
+[20:00:36.978] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:/C:/Users/ben_l/Documents/Coding/resoucepack%20update/vehicle-memory/.cache/acceptance/official-nf248-streamed-051-smoke/libraries/net/fabricmc/sponge-mixin/0.15.2+mixin.0.8.7/sponge-mixin-0.15.2+mixin.0.8.7.jar%23121!/ Service=ModLauncher Env=CLIENT 
+[20:00:37.313] [pool-2-thread-1/INFO] [EARLYDISPLAY/]: GL info: Intel(R) HD Graphics P530 GL version 4.6.0 - Build 31.0.101.2111, Intel 
+[20:00:38.344] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "client-1.21.1-20240808.144430-srg.jar" [locator: production client provider +net.neoforged:neoforge:21.1.248:client] 
+[20:00:38.409] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "neoforge-21.1.248-universal.jar" [locator: PathBasedLocator[name=neoforge, paths=[C:\Users\ben_l\Documents\Coding\resoucepack update\vehicle-memory\.cache\acceptance\official-nf248-streamed-051-smoke\libraries\net\neoforged\neoforge\21.1.248\neoforge-21.1.248-universal.jar]], reader: mod manifest] 
+[20:00:38.424] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "mtr-memory-saver-official-nf248-0.4.8-acceptance-probe.jar" [locator: {mods folder locator at C:\Users\ben_l\Documents\Coding\resoucepack update\vehicle-memory\.cache\acceptance\official-nf248-streamed-051-smoke\mods}, reader: mod manifest] 
+[20:00:38.449] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "mtr-memory-saver-official-nf248-0.4.8.jar" [locator: {mods folder locator at C:\Users\ben_l\Documents\Coding\resoucepack update\vehicle-memory\.cache\acceptance\official-nf248-streamed-051-smoke\mods}, reader: mod manifest] 
+[20:00:38.480] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "MTR-neoforge-4.1.0-beta.2+1.21.1.jar" [locator: {mods folder locator at C:\Users\ben_l\Documents\Coding\resoucepack update\vehicle-memory\.cache\acceptance\official-nf248-streamed-051-smoke\mods}, reader: mod manifest] 
+[20:00:38.788] [main/INFO] [loading.moddiscovery.locators.JarInJarDependencyLocator/]: Found 2 dependencies adding them to mods collection 
+[20:00:38.788] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found gamelibrary file "mixinextras-neoforge-0.5.3.jar" [parent: neoforge-21.1.248-universal.jar, locator: jarinjar, reader: mod manifest] 
+[20:00:38.788] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found library file "net.neoforged.neoforge-coremods-21.1.248.jar" [parent: neoforge-21.1.248-universal.jar, locator: jarinjar, reader: mod manifest] 
+[20:00:38.790] [main/INFO] [loading.moddiscovery.ModDiscoverer/]: 
+     Mod List:
+		Name Version (Mod Id)
+
+		Minecraft 1.21.1 (minecraft)
+		Minecraft Transit Railway 4.1.0-beta.2 (mtr)
+		MTR Memory Acceptance Probe 0.4.8 (vehicle_performance_probe)
+		MTR Memory Saver 0.4.8 (mtr_memory_sharing)
+		NeoForge 21.1.248 (neoforge) 
+[20:00:40.043] [main/INFO] [mixin/]: Compatibility level set to JAVA_21 
+[20:00:40.068] [main/INFO] [LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeclient' with arguments [--version, neoforge-21.1.248, --gameDir, C:\Users\ben_l\Documents\Coding\resoucepack update\vehicle-memory\.cache\acceptance\official-nf248-streamed-051-smoke, --assetsDir, C:\Users\ben_l\Documents\Coding\resoucepack update\vehicle-memory\.cache\acceptance\official-nf248-streamed-051-smoke\assets, --uuid, 312a59e5-2af3-48ce-a9d8-db46ffc2ef43, --username, VehicleTest, --assetIndex, 17, --accessToken, ❄❄❄❄❄❄❄❄, --clientId, ${clientid}, --xuid, ${auth_xuid}, --userType, msa, --versionType, release, --width, 1280, --height, 720, --disableMultiplayer] 
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+[20:00:44] [Datafixer Bootstrap/INFO] [mojang/DataFixerBuilder]: 229 Datafixer optimizations took 808 milliseconds
+[20:00:44] [pool-9-thread-1/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.3).
+[20:00:53] [Render thread/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/C:/Users/ben_l/Documents/Coding/resoucepack%20update/vehicle-memory/.cache/acceptance/official-nf248-streamed-051-smoke/libraries/net/minecraft/client/1.21.1-20240808.144430/client-1.21.1-20240808.144430-srg.jar%23191!/assets/.mcassetsroot' uses unexpected schema
+[20:00:53] [Render thread/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/C:/Users/ben_l/Documents/Coding/resoucepack%20update/vehicle-memory/.cache/acceptance/official-nf248-streamed-051-smoke/libraries/net/minecraft/client/1.21.1-20240808.144430/client-1.21.1-20240808.144430-srg.jar%23191!/data/.mcassetsroot' uses unexpected schema
+[20:00:53] [Render thread/INFO] [mojang/YggdrasilAuthenticationService]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[20:00:53] [Render thread/INFO] [minecraft/Minecraft]: Setting user: VehicleTest
+[20:00:53] [Render thread/INFO] [minecraft/Minecraft]: Backend library: LWJGL version 3.3.3+5
+[20:00:54] [modloading-worker-0/INFO] [ne.ne.ne.co.NeoForgeMod/NEOFORGE-MOD]: NeoForge mod loading, version 21.1.248, for MC 1.21.1
+[20:00:54] [Download-2/ERROR] [minecraft/Minecraft]: Failed to fetch user properties
+com.mojang.authlib.exceptions.InvalidCredentialsException: Status: 401
+	at MC-BOOTSTRAP/authlib@6.0.54/com.mojang.authlib.exceptions.MinecraftClientHttpException.toAuthenticationException(MinecraftClientHttpException.java:59) ~[authlib-6.0.54.jar%23147!/:?] {}
+	at MC-BOOTSTRAP/authlib@6.0.54/com.mojang.authlib.yggdrasil.YggdrasilUserApiService.fetchProperties(YggdrasilUserApiService.java:150) ~[authlib-6.0.54.jar%23147!/:?] {}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.client.Minecraft.lambda$new$2(Minecraft.java:431) ~[client-1.21.1-20240808.144430-srg.jar%23191!/:?] {re:classloading,pl:runtimedistcleaner:A}
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1768) ~[?:?] {}
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[?:?] {}
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[?:?] {}
+	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?] {}
+Caused by: com.mojang.authlib.exceptions.MinecraftClientHttpException: Status: 401
+	at MC-BOOTSTRAP/authlib@6.0.54/com.mojang.authlib.minecraft.client.MinecraftClient.readInputStream(MinecraftClient.java:100) ~[authlib-6.0.54.jar%23147!/:?] {}
+	at MC-BOOTSTRAP/authlib@6.0.54/com.mojang.authlib.minecraft.client.MinecraftClient.get(MinecraftClient.java:57) ~[authlib-6.0.54.jar%23147!/:?] {}
+	at MC-BOOTSTRAP/authlib@6.0.54/com.mojang.authlib.yggdrasil.YggdrasilUserApiService.fetchProperties(YggdrasilUserApiService.java:121) ~[authlib-6.0.54.jar%23147!/:?] {}
+	... 5 more
+[20:00:54] [modloading-worker-0/INFO] [MinecraftTransitRailway/]: Starting Minecraft with arguments:
+-Xms512M
+-Xmx3072M
+-Dmtr.memory.acceptance=true
+-Dmtr.memory.acceptance.exit=true
+-XX:NativeMemoryTracking=summary
+-XX:StartFlightRecording=name=acceptance,settings=profile,disk=true,maxsize=0,dumponexit=true,filename=acceptance.jfr
+-Xlog:gc*,safepoint:file=acceptance-gc.log:time,uptime,level,tags:filecount=0
+-XX:HeapDumpPath=MojangTricksIntelDriversForPerformance_javaw.exe_minecraft.exe.heapdump
+-Djava.library.path=C:\Users\ben_l\Documents\Coding\resoucepack update\vehicle-memory\.cache\acceptance\official-nf248-streamed-051-smoke\versions\neoforge-21.1.248\natives
+-Djna.tmpdir=C:\Users\ben_l\Documents\Coding\resoucepack update\vehicle-memory\.cache\acceptance\official-nf248-streamed-051-smoke\versions\neoforge-21.1.248\natives
+-Dorg.lwjgl.system.SharedLibraryExtractPath=C:\Users\ben_l\Documents\Coding\resoucepack update\vehicle-memory\.cache\acceptance\official-nf248-streamed-051-smoke\versions\neoforge-21.1.248\natives
+-Dio.netty.native.workdir=C:\Users\ben_l\Documents\Coding\resoucepack update\vehicle-memory\.cache\acceptance\official-nf248-streamed-051-smoke\versions\neoforge-21.1.248\natives
+-Dminecraft.launcher.brand=minecraft-launcher-lib
+-Dminecraft.launcher.version=8.0
+-Djava.net.preferIPv6Addresses=system
+-DignoreList=client-extra,neoforge-21.1.248.jar
+-DlibraryDirectory=C:\Users\ben_l\Documents\Coding\resoucepack update\vehicle-memory\.cache\acceptance\official-nf248-streamed-051-smoke\libraries
+--module-path=C:\Users\ben_l\Documents\Coding\resoucepack update\vehicle-memory\.cache\acceptance\official-nf248-streamed-051-smoke\libraries/cpw/mods/bootstraplauncher/2.0.2/bootstraplauncher-2.0.2.jar;C:\Users\ben_l\Documents\Coding\resoucepack update\vehicle-memory\.cache\acceptance\official-nf248-streamed-051-smoke\libraries/cpw/mods/securejarhandler/3.0.8/securejarhandler-3.0.8.jar;C:\Users\ben_l\Documents\Coding\resoucepack update\vehicle-memory\.cache\acceptance\official-nf248-streamed-051-smoke\libraries/org/ow2/asm/asm-commons/9.10.1/asm-commons-9.10.1.jar;C:\Users\ben_l\Documents\Coding\resoucepack update\vehicle-memory\.cache\acceptance\official-nf248-streamed-051-smoke\libraries/org/ow2/asm/asm-util/9.10.1/asm-util-9.10.1.jar;C:\Users\ben_l\Documents\Coding\resoucepack update\vehicle-memory\.cache\acceptance\official-nf248-streamed-051-smoke\libraries/org/ow2/asm/asm-analysis/9.10.1/asm-analysis-9.10.1.jar;C:\Users\ben_l\Documents\Coding\resoucepack update\vehicle-memory\.cache\acceptance\official-nf248-streamed-051-smoke\libraries/org/ow2/asm/asm-tree/9.10.1/asm-tree-9.10.1.jar;C:\Users\ben_l\Documents\Coding\resoucepack update\vehicle-memory\.cache\acceptance\official-nf248-streamed-051-smoke\libraries/org/ow2/asm/asm/9.10.1/asm-9.10.1.jar;C:\Users\ben_l\Documents\Coding\resoucepack update\vehicle-memory\.cache\acceptance\official-nf248-streamed-051-smoke\libraries/net/neoforged/JarJarFileSystems/0.4.1/JarJarFileSystems-0.4.1.jar
+--add-modules=ALL-MODULE-PATH
+--add-opens=java.base/java.util.jar=cpw.mods.securejarhandler
+--add-opens=java.base/java.lang.invoke=cpw.mods.securejarhandler
+--add-exports=java.base/sun.security.util=cpw.mods.securejarhandler
+--add-exports=jdk.naming.dns/com.sun.jndi.dns=java.naming
+[20:00:54] [modloading-worker-0/INFO] [MinecraftTransitRailway/]: :  __  __     _                                                __    _     
+[20:00:54] [modloading-worker-0/INFO] [MinecraftTransitRailway/]: : |  \/  |   (_)    _ _      ___     __       _ _   __ _      / _|  | |_   
+[20:00:54] [modloading-worker-0/INFO] [MinecraftTransitRailway/]: : | |\/| |   | |   | ' \    / -_)   / _|     | '_| / _` |    |  _|  |  _|  
+[20:00:54] [modloading-worker-0/INFO] [MinecraftTransitRailway/]: : |_|__|_|  _|_|_  |_||_|   \___|   \__|_   _|_|_  \__,_|   _|_|_   _\__|  
+[20:00:54] [modloading-worker-0/INFO] [MinecraftTransitRailway/]: : _|"""""|_|"""""|_|"""""|_|"""""|_|"""""|_|"""""|_|"""""|_|"""""|_|"""""| 
+[20:00:54] [modloading-worker-0/INFO] [MinecraftTransitRailway/]: : "`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-' 
+[20:00:54] [modloading-worker-0/INFO] [MinecraftTransitRailway/]: :   _____                                     _      _                     
+[20:00:54] [modloading-worker-0/INFO] [MinecraftTransitRailway/]: :  |_   _|    _ _   __ _    _ _      ___     (_)    | |_                   
+[20:00:54] [modloading-worker-0/INFO] [MinecraftTransitRailway/]: :    | |     | '_| / _` |  | ' \    (_-<     | |    |  _|                  
+[20:00:54] [modloading-worker-0/INFO] [MinecraftTransitRailway/]: :   _|_|_   _|_|_  \__,_|  |_||_|   /__/_   _|_|_   _\__|                  
+[20:00:54] [modloading-worker-0/INFO] [MinecraftTransitRailway/]: : _|"""""|_|"""""|_|"""""|_|"""""|_|"""""|_|"""""|_|"""""|                 
+[20:00:54] [modloading-worker-0/INFO] [MinecraftTransitRailway/]: : "`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'                 
+[20:00:54] [modloading-worker-0/INFO] [MinecraftTransitRailway/]: :    ___              _       _                      _  _                  
+[20:00:54] [modloading-worker-0/INFO] [MinecraftTransitRailway/]: :   | _ \   __ _     (_)     | |   __ __ __ __ _    | || |                 
+[20:00:54] [modloading-worker-0/INFO] [MinecraftTransitRailway/]: :   |   /  / _` |    | |     | |   \ V  V // _` |    \_, |                 
+[20:00:54] [modloading-worker-0/INFO] [MinecraftTransitRailway/]: :   |_|_\  \__,_|   _|_|_   _|_|_   \_/\_/ \__,_|   _|__/                  
+[20:00:54] [modloading-worker-0/INFO] [MinecraftTransitRailway/]: : _|"""""|_|"""""|_|"""""|_|"""""|_|"""""|_|"""""|_| """"|                 
+[20:00:54] [modloading-worker-0/INFO] [MinecraftTransitRailway/]: : "`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-' (4.1.0-beta.2+1.21.4) 
+[20:00:54] [modloading-worker-0/INFO] [MinecraftTransitRailway/]: :                                                                          
+[20:00:55] [modloading-worker-0/INFO] [MinecraftTransitRailway/]: Registering Minecraft Transit Railway blocks
+[20:00:55] [modloading-worker-0/INFO] [MinecraftTransitRailway/]: Registering Minecraft Transit Railway items
+[20:00:55] [modloading-worker-0/INFO] [MinecraftTransitRailway/]: Registering Minecraft Transit Railway block entity types
+[20:00:55] [modloading-worker-0/INFO] [MinecraftTransitRailway/]: Registering Minecraft Transit Railway creative mode tabs
+[20:00:55] [modloading-worker-0/INFO] [MinecraftTransitRailway/]: Registering Minecraft Transit Railway sound events
+[20:00:55] [modloading-worker-0/INFO] [MinecraftTransitRailway/]: Registering Minecraft Transit Railway data component types
+[20:00:55] [modloading-worker-0/INFO] [MinecraftTransitRailway/]: Registering Minecraft Transit Railway key bindings
+[20:01:00] [Render thread/INFO] [minecraft/ReloadableResourceManager]: Reloading ResourceManager: vanilla, mod_resources, mod/vehicle_performance_probe,mtr_memory_loader_probe,mtr_packaged_client_observer, mod/mtr, mod/mtr_memory_sharing, mod/neoforge
+[20:01:00] [Render thread/INFO] [minecraft/Minecraft]: Stopping!
+[20:01:00] [Render thread/ERROR] [minecraft/Minecraft]: Shutdown failure!
+java.util.ConcurrentModificationException: null
+	at java.base/java.util.HashMap.forEach(HashMap.java:1432) ~[?:?] {}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.client.renderer.texture.TextureManager.close(TextureManager.java:173) ~[client-1.21.1-20240808.144430-srg.jar%23191!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.client.Minecraft.close(Minecraft.java:1122) ~[client-1.21.1-20240808.144430-srg.jar%23191!/:?] {re:classloading,pl:runtimedistcleaner:A}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.client.Minecraft.destroy(Minecraft.java:1094) ~[client-1.21.1-20240808.144430-srg.jar%23191!/:?] {re:classloading,pl:runtimedistcleaner:A}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.client.main.Main.main(Main.java:236) ~[client-1.21.1-20240808.144430-srg.jar%23191!/:?] {re:classloading,pl:runtimedistcleaner:A}
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?] {}
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[?:?] {}
+	at MC-BOOTSTRAP/fml_loader@4.0.43/net.neoforged.fml.loading.targets.CommonLaunchHandler.runTarget(CommonLaunchHandler.java:136) ~[loader-4.0.43.jar%23107!/:4.0] {}
+	at MC-BOOTSTRAP/fml_loader@4.0.43/net.neoforged.fml.loading.targets.CommonLaunchHandler.clientService(CommonLaunchHandler.java:124) ~[loader-4.0.43.jar%23107!/:4.0] {}
+	at MC-BOOTSTRAP/fml_loader@4.0.43/net.neoforged.fml.loading.targets.CommonClientLaunchHandler.runService(CommonClientLaunchHandler.java:32) ~[loader-4.0.43.jar%23107!/:4.0] {}
+	at MC-BOOTSTRAP/fml_loader@4.0.43/net.neoforged.fml.loading.targets.CommonLaunchHandler.lambda$launchService$4(CommonLaunchHandler.java:118) ~[loader-4.0.43.jar%23107!/:4.0] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.LaunchServiceHandlerDecorator.launch(LaunchServiceHandlerDecorator.java:30) [modlauncher-11.0.5.jar%23112!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:53) [modlauncher-11.0.5.jar%23112!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:71) [modlauncher-11.0.5.jar%23112!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.Launcher.run(Launcher.java:103) [modlauncher-11.0.5.jar%23112!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.Launcher.main(Launcher.java:74) [modlauncher-11.0.5.jar%23112!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:26) [modlauncher-11.0.5.jar%23112!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:23) [modlauncher-11.0.5.jar%23112!/:?] {}
+	at cpw.mods.bootstraplauncher@2.0.2/cpw.mods.bootstraplauncher.BootstrapLauncher.run(BootstrapLauncher.java:210) [bootstraplauncher-2.0.2.jar:?] {}
+	at cpw.mods.bootstraplauncher@2.0.2/cpw.mods.bootstraplauncher.BootstrapLauncher.main(BootstrapLauncher.java:69) [bootstraplauncher-2.0.2.jar:?] {}
