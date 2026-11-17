@@ -148,7 +148,7 @@ class NeutralReloadTest(unittest.TestCase):
 
     def test_neutral_startup_consumes_real_contract_without_module_observer(self):
         with tempfile.TemporaryDirectory() as temporary:
-            root = Path(temporary)
+            root = Path(temporary).resolve()
             plan = {**self.plan, "instance": str(root)}
             for name in ("packaged-client-plan.json", "packaged-client-launch.json"):
                 (root / name).write_bytes((FIXTURE / name).read_bytes())
