@@ -1,0 +1,686 @@
+﻿2026-11-17T12:56:52.6388525Z Current runner version: '2.338.2'
+2026-11-17T12:56:52.6412467Z ##[group]Runner Image Provisioner
+2026-11-17T12:56:52.6413208Z Hosted Compute Agent
+2026-11-17T12:56:52.6413772Z Version: 20261103.629
+2026-11-17T12:56:52.6414392Z Commit: 15dbd9ccb5dbf34fae002b6ed1a2670f52df37bc
+2026-11-17T12:56:52.6415008Z Build Date: 2026-11-03T17:26:59Z
+2026-11-17T12:56:52.6415593Z Worker ID: {6762ead6-2cd8-4b12-8d01-c87990cfb2be}
+2026-11-17T12:56:52.6416185Z Region: westus3
+2026-11-17T12:56:52.6416638Z Cloud: Azure
+2026-11-17T12:56:52.6417096Z ##[endgroup]
+2026-11-17T12:56:52.6418326Z ##[group]Operating System
+2026-11-17T12:56:52.6418880Z Microsoft Windows Server 2022
+2026-11-17T12:56:52.6419406Z 10.0.20348
+2026-11-17T12:56:52.6419826Z Datacenter
+2026-11-17T12:56:52.6420273Z ##[endgroup]
+2026-11-17T12:56:52.6420711Z ##[group]Runner Image
+2026-11-17T12:56:52.6421196Z Image: windows-2022
+2026-11-17T12:56:52.6421678Z Version: 20261112.366.7
+2026-11-17T12:56:52.6423581Z Included Software: https://github.com/actions/runner-images/blob/win22/20261112.366/images/windows/Windows2022-Readme.md
+2026-11-17T12:56:52.6424940Z Image Release: https://github.com/actions/runner-images/releases/tag/win22%2F20261112.366
+2026-11-17T12:56:52.6425753Z ##[endgroup]
+2026-11-17T12:56:52.6426721Z ##[group]GITHUB_TOKEN Permissions
+2026-11-17T12:56:52.6428466Z Contents: read
+2026-11-17T12:56:52.6428935Z Metadata: read
+2026-11-17T12:56:52.6429406Z ##[endgroup]
+2026-11-17T12:56:52.6431361Z Secret source: Actions
+2026-11-17T12:56:52.6432125Z Cache mode: write
+2026-11-17T12:56:52.6432766Z Prepare workflow directory
+2026-11-17T12:56:52.6789432Z Prepare all required actions
+2026-11-17T12:56:52.6836046Z Getting action download info
+2026-11-17T12:56:53.0210285Z Download action repository 'actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1' (SHA:3d3c42e5aac5ba805825da76410c181273ba90b1)
+2026-11-17T12:56:53.1291135Z Download action repository 'actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0' (SHA:6d4fd22b20465ccc0f7354476588e8df7c9ca0e0)
+2026-11-17T12:56:53.3998918Z Complete job name: Tools (windows-2022)
+2026-11-17T12:56:53.5674496Z ##[group]Run git config --global core.longpaths true
+2026-11-17T12:56:53.5676003Z [36;1mgit config --global core.longpaths true[0m
+2026-11-17T12:56:53.5796374Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-11-17T12:56:53.5797543Z env:
+2026-11-17T12:56:53.5798022Z   PYTHONUTF8: 1
+2026-11-17T12:56:53.5798516Z ##[endgroup]
+2026-11-17T12:56:54.4091441Z ##[group]Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+2026-11-17T12:56:54.4092978Z with:
+2026-11-17T12:56:54.4093787Z   persist-credentials: false
+2026-11-17T12:56:54.4094840Z   repository: teamCreating/MTR-Memory-Saver
+2026-11-17T12:56:54.4102739Z   token: ***
+2026-11-17T12:56:54.4103588Z   ssh-strict: true
+2026-11-17T12:56:54.4104393Z   ssh-user: git
+2026-11-17T12:56:54.4105164Z   clean: true
+2026-11-17T12:56:54.4105987Z   sparse-checkout-cone-mode: true
+2026-11-17T12:56:54.4106958Z   fetch-depth: 1
+2026-11-17T12:56:54.4107788Z   fetch-tags: false
+2026-11-17T12:56:54.4108588Z   show-progress: true
+2026-11-17T12:56:54.4109388Z   lfs: false
+2026-11-17T12:56:54.4110141Z   submodules: false
+2026-11-17T12:56:54.4110970Z   set-safe-directory: true
+2026-11-17T12:56:54.4111907Z   allow-unsafe-pr-checkout: false
+2026-11-17T12:56:54.4112840Z env:
+2026-11-17T12:56:54.4113540Z   PYTHONUTF8: 1
+2026-11-17T12:56:54.4114303Z ##[endgroup]
+2026-11-17T12:56:54.5580647Z Syncing repository: teamCreating/MTR-Memory-Saver
+2026-11-17T12:56:54.5583347Z ##[group]Getting Git version info
+2026-11-17T12:56:54.5584664Z Working directory is 'D:\a\MTR-Memory-Saver\MTR-Memory-Saver'
+2026-11-17T12:56:54.6469137Z [command]"C:\Program Files\Git\bin\git.exe" version
+2026-11-17T12:56:54.6760448Z git version 2.56.1.windows.1
+2026-11-17T12:56:54.6798614Z ##[endgroup]
+2026-11-17T12:56:54.6807186Z Copying 'C:\Users\runneradmin\.gitconfig' to 'D:\a\_temp\4383fabd-6fe3-4090-a30d-29b4b71c40c8\.gitconfig'
+2026-11-17T12:56:54.6827864Z Temporarily overriding HOME='D:\a\_temp\4383fabd-6fe3-4090-a30d-29b4b71c40c8' before making global git config changes
+2026-11-17T12:56:54.6830212Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-17T12:56:54.6837891Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory D:\a\MTR-Memory-Saver\MTR-Memory-Saver
+2026-11-17T12:56:54.7125367Z Deleting the contents of 'D:\a\MTR-Memory-Saver\MTR-Memory-Saver'
+2026-11-17T12:56:54.7129329Z ##[group]Determining repository object format
+2026-11-17T12:56:54.7131165Z ##[endgroup]
+2026-11-17T12:56:54.7132948Z ##[group]Initializing the repository
+2026-11-17T12:56:54.7140461Z [command]"C:\Program Files\Git\bin\git.exe" init D:\a\MTR-Memory-Saver\MTR-Memory-Saver
+2026-11-17T12:56:54.8082655Z Initialized empty Git repository in D:/a/MTR-Memory-Saver/MTR-Memory-Saver/.git/
+2026-11-17T12:56:54.8122346Z [command]"C:\Program Files\Git\bin\git.exe" remote add origin https://github.com/teamCreating/MTR-Memory-Saver
+2026-11-17T12:56:54.8706630Z ##[endgroup]
+2026-11-17T12:56:54.8708018Z ##[group]Disabling automatic garbage collection
+2026-11-17T12:56:54.8713922Z [command]"C:\Program Files\Git\bin\git.exe" config --local gc.auto 0
+2026-11-17T12:56:54.9004905Z ##[endgroup]
+2026-11-17T12:56:54.9006163Z ##[group]Setting up auth
+2026-11-17T12:56:54.9007106Z Removing SSH command configuration
+2026-11-17T12:56:54.9015250Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2026-11-17T12:56:54.9311745Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2026-11-17T12:56:56.3014801Z Removing HTTP extra header
+2026-11-17T12:56:56.3024895Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-17T12:56:56.3324960Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2026-11-17T12:56:56.7742602Z Removing includeIf entries pointing to credentials config files
+2026-11-17T12:56:56.7754948Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-17T12:56:56.8049768Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2026-11-17T12:56:57.2768087Z [command]"C:\Program Files\Git\bin\git.exe" config --file D:\a\_temp\git-credentials-dd30cef5-407a-423c-aa77-66a0e1c8d62b.config http.https://github.com/.extraheader "AUTHORIZATION: basic ***"
+2026-11-17T12:56:57.3088076Z [command]"C:\Program Files\Git\bin\git.exe" config --local includeIf.gitdir:D:/a/MTR-Memory-Saver/MTR-Memory-Saver/.git.path D:\a\_temp\git-credentials-dd30cef5-407a-423c-aa77-66a0e1c8d62b.config
+2026-11-17T12:56:57.3387937Z [command]"C:\Program Files\Git\bin\git.exe" config --local includeIf.gitdir:D:/a/MTR-Memory-Saver/MTR-Memory-Saver/.git/worktrees/*.path D:\a\_temp\git-credentials-dd30cef5-407a-423c-aa77-66a0e1c8d62b.config
+2026-11-17T12:56:57.3812023Z [command]"C:\Program Files\Git\bin\git.exe" config --local includeIf.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-dd30cef5-407a-423c-aa77-66a0e1c8d62b.config
+2026-11-17T12:56:57.4177262Z [command]"C:\Program Files\Git\bin\git.exe" config --local includeIf.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-dd30cef5-407a-423c-aa77-66a0e1c8d62b.config
+2026-11-17T12:56:57.4477432Z ##[endgroup]
+2026-11-17T12:56:57.4477850Z ##[group]Fetching the repository
+2026-11-17T12:56:57.4489591Z [command]"C:\Program Files\Git\bin\git.exe" -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +e5799dceb325e1201e07c278ec16374c7cd59c69:refs/remotes/origin/codex/standalone
+2026-11-17T12:57:03.6231108Z From https://github.com/teamCreating/MTR-Memory-Saver
+2026-11-17T12:57:03.6231973Z  * [new ref]         e5799dceb325e1201e07c278ec16374c7cd59c69 -> origin/codex/standalone
+2026-11-17T12:57:03.6273998Z [command]"C:\Program Files\Git\bin\git.exe" branch --list --remote origin/codex/standalone
+2026-11-17T12:57:03.6654393Z   origin/codex/standalone
+2026-11-17T12:57:03.6693507Z [command]"C:\Program Files\Git\bin\git.exe" rev-parse refs/remotes/origin/codex/standalone
+2026-11-17T12:57:03.6966026Z e5799dceb325e1201e07c278ec16374c7cd59c69
+2026-11-17T12:57:03.6994951Z ##[endgroup]
+2026-11-17T12:57:03.6995342Z ##[group]Determining the checkout info
+2026-11-17T12:57:03.6995939Z ##[endgroup]
+2026-11-17T12:57:03.7004749Z [command]"C:\Program Files\Git\bin\git.exe" sparse-checkout disable
+2026-11-17T12:57:03.7433558Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset-all extensions.worktreeConfig
+2026-11-17T12:57:03.7726088Z ##[group]Checking out the ref
+2026-11-17T12:57:03.7734320Z [command]"C:\Program Files\Git\bin\git.exe" checkout --progress --force -B codex/standalone refs/remotes/origin/codex/standalone
+2026-11-17T12:57:04.8849375Z Updating files:  22% (1407/6371)
+2026-11-17T12:57:04.9190749Z Updating files:  23% (1466/6371)
+2026-11-17T12:57:04.9339582Z Updating files:  24% (1530/6371)
+2026-11-17T12:57:05.3104771Z Updating files:  25% (1593/6371)
+2026-11-17T12:57:05.3211419Z Updating files:  26% (1657/6371)
+2026-11-17T12:57:05.3523380Z Updating files:  27% (1721/6371)
+2026-11-17T12:57:05.3788257Z Updating files:  28% (1784/6371)
+2026-11-17T12:57:05.3912555Z Updating files:  29% (1848/6371)
+2026-11-17T12:57:05.8715575Z Updating files:  30% (1912/6371)
+2026-11-17T12:57:05.9669240Z Updating files:  30% (1930/6371)
+2026-11-17T12:57:05.9757354Z Updating files:  31% (1976/6371)
+2026-11-17T12:57:05.9866364Z Updating files:  32% (2039/6371)
+2026-11-17T12:57:05.9959359Z Updating files:  33% (2103/6371)
+2026-11-17T12:57:06.0066266Z Updating files:  34% (2167/6371)
+2026-11-17T12:57:06.0191654Z Updating files:  35% (2230/6371)
+2026-11-17T12:57:06.0298176Z Updating files:  36% (2294/6371)
+2026-11-17T12:57:06.0404172Z Updating files:  37% (2358/6371)
+2026-11-17T12:57:06.0584348Z Updating files:  38% (2421/6371)
+2026-11-17T12:57:06.0811109Z Updating files:  39% (2485/6371)
+2026-11-17T12:57:06.0933581Z Updating files:  40% (2549/6371)
+2026-11-17T12:57:06.1191767Z Updating files:  41% (2613/6371)
+2026-11-17T12:57:06.1305601Z Updating files:  42% (2676/6371)
+2026-11-17T12:57:06.1714658Z Updating files:  43% (2740/6371)
+2026-11-17T12:57:06.1912857Z Updating files:  44% (2804/6371)
+2026-11-17T12:57:06.2016787Z Updating files:  45% (2867/6371)
+2026-11-17T12:57:06.2105334Z Updating files:  46% (2931/6371)
+2026-11-17T12:57:06.2204767Z Updating files:  47% (2995/6371)
+2026-11-17T12:57:06.2336363Z Updating files:  48% (3059/6371)
+2026-11-17T12:57:06.2446813Z Updating files:  49% (3122/6371)
+2026-11-17T12:57:06.2574296Z Updating files:  50% (3186/6371)
+2026-11-17T12:57:06.2679958Z Updating files:  51% (3250/6371)
+2026-11-17T12:57:06.2802525Z Updating files:  52% (3313/6371)
+2026-11-17T12:57:06.2920190Z Updating files:  53% (3377/6371)
+2026-11-17T12:57:06.3265359Z Updating files:  54% (3441/6371)
+2026-11-17T12:57:06.3386584Z Updating files:  55% (3505/6371)
+2026-11-17T12:57:06.3647901Z Updating files:  56% (3568/6371)
+2026-11-17T12:57:06.3849601Z Updating files:  57% (3632/6371)
+2026-11-17T12:57:06.3969326Z Updating files:  58% (3696/6371)
+2026-11-17T12:57:06.4083966Z Updating files:  59% (3759/6371)
+2026-11-17T12:57:06.4242566Z Updating files:  60% (3823/6371)
+2026-11-17T12:57:06.4432286Z Updating files:  61% (3887/6371)
+2026-11-17T12:57:06.4560000Z Updating files:  62% (3951/6371)
+2026-11-17T12:57:06.4756431Z Updating files:  63% (4014/6371)
+2026-11-17T12:57:06.4866162Z Updating files:  64% (4078/6371)
+2026-11-17T12:57:06.5025538Z Updating files:  65% (4142/6371)
+2026-11-17T12:57:06.5265765Z Updating files:  66% (4205/6371)
+2026-11-17T12:57:06.5367155Z Updating files:  67% (4269/6371)
+2026-11-17T12:57:06.5524983Z Updating files:  68% (4333/6371)
+2026-11-17T12:57:06.5776464Z Updating files:  69% (4396/6371)
+2026-11-17T12:57:06.5964076Z Updating files:  70% (4460/6371)
+2026-11-17T12:57:06.6067497Z Updating files:  71% (4524/6371)
+2026-11-17T12:57:06.6633430Z Updating files:  72% (4588/6371)
+2026-11-17T12:57:06.6752804Z Updating files:  73% (4651/6371)
+2026-11-17T12:57:06.6881190Z Updating files:  74% (4715/6371)
+2026-11-17T12:57:06.7004729Z Updating files:  75% (4779/6371)
+2026-11-17T12:57:06.7139868Z Updating files:  76% (4842/6371)
+2026-11-17T12:57:06.7268489Z Updating files:  77% (4906/6371)
+2026-11-17T12:57:06.7428575Z Updating files:  78% (4970/6371)
+2026-11-17T12:57:06.7543777Z Updating files:  79% (5034/6371)
+2026-11-17T12:57:06.7679483Z Updating files:  80% (5097/6371)
+2026-11-17T12:57:06.7802204Z Updating files:  81% (5161/6371)
+2026-11-17T12:57:06.8012754Z Updating files:  82% (5225/6371)
+2026-11-17T12:57:06.8299430Z Updating files:  83% (5288/6371)
+2026-11-17T12:57:06.8382547Z Updating files:  83% (5339/6371)
+2026-11-17T12:57:06.8695540Z Updating files:  84% (5352/6371)
+2026-11-17T12:57:06.8894049Z Updating files:  85% (5416/6371)
+2026-11-17T12:57:06.9205076Z Updating files:  86% (5480/6371)
+2026-11-17T12:57:06.9475776Z Updating files:  87% (5543/6371)
+2026-11-17T12:57:06.9747895Z Updating files:  88% (5607/6371)
+2026-11-17T12:57:06.9937757Z Updating files:  89% (5671/6371)
+2026-11-17T12:57:07.0176193Z Updating files:  90% (5734/6371)
+2026-11-17T12:57:07.0532052Z Updating files:  91% (5798/6371)
+2026-11-17T12:57:07.0926218Z Updating files:  92% (5862/6371)
+2026-11-17T12:57:07.1031233Z Updating files:  93% (5926/6371)
+2026-11-17T12:57:07.1128463Z Updating files:  94% (5989/6371)
+2026-11-17T12:57:07.1331735Z Updating files:  95% (6053/6371)
+2026-11-17T12:57:07.1525888Z Updating files:  96% (6117/6371)
+2026-11-17T12:57:07.1636631Z Updating files:  97% (6180/6371)
+2026-11-17T12:57:07.1750548Z Updating files:  98% (6244/6371)
+2026-11-17T12:57:07.1878116Z Updating files:  99% (6308/6371)
+2026-11-17T12:57:07.1878594Z Updating files: 100% (6371/6371)
+2026-11-17T12:57:07.1878968Z Updating files: 100% (6371/6371), done.
+2026-11-17T12:57:07.2110279Z Switched to a new branch 'codex/standalone'
+2026-11-17T12:57:07.2128613Z branch 'codex/standalone' set up to track 'origin/codex/standalone'.
+2026-11-17T12:57:07.2345705Z ##[endgroup]
+2026-11-17T12:57:07.2783940Z [command]"C:\Program Files\Git\bin\git.exe" log -1 --format=%H
+2026-11-17T12:57:07.3090706Z e5799dceb325e1201e07c278ec16374c7cd59c69
+2026-11-17T12:57:07.3127631Z ##[group]Removing auth
+2026-11-17T12:57:07.3127943Z Removing SSH command configuration
+2026-11-17T12:57:07.3135880Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2026-11-17T12:57:07.3435823Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2026-11-17T12:57:07.8244693Z Removing HTTP extra header
+2026-11-17T12:57:07.8253680Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-17T12:57:07.8555774Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2026-11-17T12:57:08.3558495Z Removing includeIf entries pointing to credentials config files
+2026-11-17T12:57:08.3565930Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-17T12:57:08.3829575Z includeif.gitdir:D:/a/MTR-Memory-Saver/MTR-Memory-Saver/.git.path
+2026-11-17T12:57:08.3830323Z includeif.gitdir:D:/a/MTR-Memory-Saver/MTR-Memory-Saver/.git/worktrees/*.path
+2026-11-17T12:57:08.3830984Z includeif.gitdir:/github/workspace/.git.path
+2026-11-17T12:57:08.3831327Z includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-11-17T12:57:08.3867325Z [command]"C:\Program Files\Git\bin\git.exe" config --local --get-all includeif.gitdir:D:/a/MTR-Memory-Saver/MTR-Memory-Saver/.git.path
+2026-11-17T12:57:08.4131828Z D:\a\_temp\git-credentials-dd30cef5-407a-423c-aa77-66a0e1c8d62b.config
+2026-11-17T12:57:08.4170859Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset includeif.gitdir:D:/a/MTR-Memory-Saver/MTR-Memory-Saver/.git.path D\:\\a\\_temp\\git\-credentials\-dd30cef5\-407a\-423c\-aa77\-66a0e1c8d62b\.config
+2026-11-17T12:57:08.4483044Z [command]"C:\Program Files\Git\bin\git.exe" config --local --get-all includeif.gitdir:D:/a/MTR-Memory-Saver/MTR-Memory-Saver/.git/worktrees/*.path
+2026-11-17T12:57:08.4747079Z D:\a\_temp\git-credentials-dd30cef5-407a-423c-aa77-66a0e1c8d62b.config
+2026-11-17T12:57:08.4795310Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset includeif.gitdir:D:/a/MTR-Memory-Saver/MTR-Memory-Saver/.git/worktrees/*.path D\:\\a\\_temp\\git\-credentials\-dd30cef5\-407a\-423c\-aa77\-66a0e1c8d62b\.config
+2026-11-17T12:57:08.5104735Z [command]"C:\Program Files\Git\bin\git.exe" config --local --get-all includeif.gitdir:/github/workspace/.git.path
+2026-11-17T12:57:08.5363697Z /github/runner_temp/git-credentials-dd30cef5-407a-423c-aa77-66a0e1c8d62b.config
+2026-11-17T12:57:08.5397496Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset includeif.gitdir:/github/workspace/.git.path \/github\/runner_temp\/git\-credentials\-dd30cef5\-407a\-423c\-aa77\-66a0e1c8d62b\.config
+2026-11-17T12:57:08.5697210Z [command]"C:\Program Files\Git\bin\git.exe" config --local --get-all includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-11-17T12:57:08.5960646Z /github/runner_temp/git-credentials-dd30cef5-407a-423c-aa77-66a0e1c8d62b.config
+2026-11-17T12:57:08.5998501Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset includeif.gitdir:/github/workspace/.git/worktrees/*.path \/github\/runner_temp\/git\-credentials\-dd30cef5\-407a\-423c\-aa77\-66a0e1c8d62b\.config
+2026-11-17T12:57:08.6304070Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2026-11-17T12:57:09.0906791Z Removing credentials config 'D:\a\_temp\git-credentials-dd30cef5-407a-423c-aa77-66a0e1c8d62b.config'
+2026-11-17T12:57:09.0917109Z ##[endgroup]
+2026-11-17T12:57:09.1230020Z ##[group]Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
+2026-11-17T12:57:09.1230482Z with:
+2026-11-17T12:57:09.1230682Z   python-version: 3.12
+2026-11-17T12:57:09.1230898Z   cache: pip
+2026-11-17T12:57:09.1231140Z   cache-dependency-path: requirements-test.txt
+2026-11-17T12:57:09.1231438Z   check-latest: false
+2026-11-17T12:57:09.1233806Z   token: ***
+2026-11-17T12:57:09.1234119Z   mirror: https://raw.githubusercontent.com/actions/python-versions/main
+2026-11-17T12:57:09.1234529Z   update-environment: true
+2026-11-17T12:57:09.1234763Z   allow-prereleases: false
+2026-11-17T12:57:09.1234984Z   freethreaded: false
+2026-11-17T12:57:09.1235190Z env:
+2026-11-17T12:57:09.1235373Z   PYTHONUTF8: 1
+2026-11-17T12:57:09.1235575Z ##[endgroup]
+2026-11-17T12:57:09.2606621Z ##[group]Installed versions
+2026-11-17T12:57:09.2774946Z Successfully set up CPython (3.12.10)
+2026-11-17T12:57:09.2775629Z ##[endgroup]
+2026-11-17T12:57:11.9396155Z Cache hit for: setup-python-Windows-x64-python-3.12.10-pip-eb125f43ae256faca29b51f626c3a430b90ab08679d86e1f9bc1ac1ad63b29c6
+2026-11-17T12:57:12.6848894Z Received 1070933 of 1070933 (100.0%), 2.0 MBs/sec
+2026-11-17T12:57:12.6850733Z Cache Size: ~1 MB (1070933 B)
+2026-11-17T12:57:12.6883145Z [command]"C:\Program Files\Git\usr\bin\tar.exe" -xf D:/a/_temp/35eefa34-f792-4ac7-b660-3cffe8ae9144/cache.tzst -P -C D:/a/MTR-Memory-Saver/MTR-Memory-Saver --force-local --use-compress-program "zstd -d"
+2026-11-17T12:57:12.8528585Z Cache restored successfully
+2026-11-17T12:57:12.8536579Z Cache restored from key: setup-python-Windows-x64-python-3.12.10-pip-eb125f43ae256faca29b51f626c3a430b90ab08679d86e1f9bc1ac1ad63b29c6
+2026-11-17T12:57:12.8774765Z ##[group]Run python -m pip install --disable-pip-version-check --only-binary=:all: -r requirements-test.txt
+2026-11-17T12:57:12.8776873Z [36;1mpython -m pip install --disable-pip-version-check --only-binary=:all: -r requirements-test.txt[0m
+2026-11-17T12:57:12.8847712Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-11-17T12:57:12.8848062Z env:
+2026-11-17T12:57:12.8848251Z   PYTHONUTF8: 1
+2026-11-17T12:57:12.8848582Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.12.10\x64
+2026-11-17T12:57:12.8849667Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.12.10\x64/lib/pkgconfig
+2026-11-17T12:57:12.8850529Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.12.10\x64
+2026-11-17T12:57:12.8850948Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.12.10\x64
+2026-11-17T12:57:12.8851387Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.12.10\x64
+2026-11-17T12:57:12.8851707Z ##[endgroup]
+2026-11-17T12:57:15.4006858Z Collecting minecraft-launcher-lib==8.0 (from -r requirements-test.txt (line 2))
+2026-11-17T12:57:15.4028723Z   Using cached minecraft_launcher_lib-8.0-py3-none-any.whl.metadata (5.1 kB)
+2026-11-17T12:57:15.4278514Z Collecting requests==2.34.2 (from -r requirements-test.txt (line 3))
+2026-11-17T12:57:15.4297994Z   Using cached requests-2.34.2-py3-none-any.whl.metadata (4.8 kB)
+2026-11-17T12:57:15.4497856Z Collecting certifi==2026.10.23 (from -r requirements-test.txt (line 4))
+2026-11-17T12:57:15.4517196Z   Using cached certifi-2026.10.23-py3-none-any.whl.metadata (2.5 kB)
+2026-11-17T12:57:15.5691082Z Collecting charset-normalizer==3.5.2 (from -r requirements-test.txt (line 5))
+2026-11-17T12:57:15.5711120Z   Using cached charset_normalizer-3.5.2-cp312-cp312-win_amd64.whl.metadata (47 kB)
+2026-11-17T12:57:15.5912895Z Collecting idna==3.20 (from -r requirements-test.txt (line 6))
+2026-11-17T12:57:15.5932128Z   Using cached idna-3.20-py3-none-any.whl.metadata (7.2 kB)
+2026-11-17T12:57:15.6252111Z Collecting urllib3==2.8.0 (from -r requirements-test.txt (line 7))
+2026-11-17T12:57:15.6272066Z   Using cached urllib3-2.8.0-py3-none-any.whl.metadata (7.4 kB)
+2026-11-17T12:57:15.6354557Z Using cached minecraft_launcher_lib-8.0-py3-none-any.whl (61 kB)
+2026-11-17T12:57:15.6369281Z Using cached requests-2.34.2-py3-none-any.whl (73 kB)
+2026-11-17T12:57:15.6400276Z Using cached charset_normalizer-3.5.2-cp312-cp312-win_amd64.whl (207 kB)
+2026-11-17T12:57:15.6417168Z Using cached idna-3.20-py3-none-any.whl (69 kB)
+2026-11-17T12:57:15.6433603Z Using cached urllib3-2.8.0-py3-none-any.whl (135 kB)
+2026-11-17T12:57:15.6450197Z Using cached certifi-2026.10.23-py3-none-any.whl (135 kB)
+2026-11-17T12:57:15.9444306Z Installing collected packages: urllib3, idna, charset-normalizer, certifi, requests, minecraft-launcher-lib
+2026-11-17T12:57:16.5187309Z 
+2026-11-17T12:57:16.5204873Z Successfully installed certifi-2026.10.23 charset-normalizer-3.5.2 idna-3.20 minecraft-launcher-lib-8.0 requests-2.34.2 urllib3-2.8.0
+2026-11-17T12:57:16.6739543Z ##[group]Run python -c "import platform,tempfile,pathlib; p=tempfile.gettempdir(); print(platform.platform()); print('temp='+p); print('resolved='+str(pathlib.Path(p).resolve()))"
+2026-11-17T12:57:16.6740832Z [36;1mpython -c "import platform,tempfile,pathlib; p=tempfile.gettempdir(); print(platform.platform()); print('temp='+p); print('resolved='+str(pathlib.Path(p).resolve()))"[0m
+2026-11-17T12:57:16.6780918Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-11-17T12:57:16.6781330Z env:
+2026-11-17T12:57:16.6781548Z   PYTHONUTF8: 1
+2026-11-17T12:57:16.6781866Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.12.10\x64
+2026-11-17T12:57:16.6782327Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.12.10\x64/lib/pkgconfig
+2026-11-17T12:57:16.6782940Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.12.10\x64
+2026-11-17T12:57:16.6783353Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.12.10\x64
+2026-11-17T12:57:16.6783821Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.12.10\x64
+2026-11-17T12:57:16.6784148Z ##[endgroup]
+2026-11-17T12:57:16.9719065Z Windows-2022Server-10.0.20348-SP0
+2026-11-17T12:57:16.9719432Z temp=C:\Users\RUNNER~1\AppData\Local\Temp
+2026-11-17T12:57:16.9719764Z resolved=C:\Users\runneradmin\AppData\Local\Temp
+2026-11-17T12:57:17.0691945Z ##[group]Run python -m minecraft_testkit verify
+2026-11-17T12:57:17.0692391Z [36;1mpython -m minecraft_testkit verify[0m
+2026-11-17T12:57:17.0729030Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-11-17T12:57:17.0729381Z env:
+2026-11-17T12:57:17.0729582Z   PYTHONUTF8: 1
+2026-11-17T12:57:17.0729888Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.12.10\x64
+2026-11-17T12:57:17.0730350Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.12.10\x64/lib/pkgconfig
+2026-11-17T12:57:17.0730817Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.12.10\x64
+2026-11-17T12:57:17.0731220Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.12.10\x64
+2026-11-17T12:57:17.0731630Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.12.10\x64
+2026-11-17T12:57:17.0731950Z ##[endgroup]
+2026-11-17T12:57:17.5690152Z {
+2026-11-17T12:57:17.5690799Z   "historical_scripts": 484,
+2026-11-17T12:57:17.5691328Z   "datasets": 2,
+2026-11-17T12:57:17.5691673Z   "files": 11
+2026-11-17T12:57:17.5691906Z }
+2026-11-17T12:57:17.6733277Z ##[group]Run python -m minecraft_testkit test
+2026-11-17T12:57:17.6733782Z [36;1mpython -m minecraft_testkit test[0m
+2026-11-17T12:57:17.6770034Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-11-17T12:57:17.6770399Z env:
+2026-11-17T12:57:17.6770610Z   PYTHONUTF8: 1
+2026-11-17T12:57:17.6770913Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.12.10\x64
+2026-11-17T12:57:17.6771396Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.12.10\x64/lib/pkgconfig
+2026-11-17T12:57:17.6771870Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.12.10\x64
+2026-11-17T12:57:17.6772285Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.12.10\x64
+2026-11-17T12:57:17.6772712Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.12.10\x64
+2026-11-17T12:57:17.6773041Z ##[endgroup]
+2026-11-17T12:57:18.7212980Z test_complete_bundles_pass_and_missing_target_or_changed_zip_fails (tests.test_ci.ReleaseTest.test_complete_bundles_pass_and_missing_target_or_changed_zip_fails) ... ok
+2026-11-17T12:57:18.7240090Z test_metadata_uses_current_official_matrix_and_property_version (tests.test_ci.ReleaseTest.test_metadata_uses_current_official_matrix_and_property_version) ... ok
+2026-11-17T12:57:18.7325444Z test_rehashed_bundle_cannot_hide_wrong_version_or_jar (tests.test_ci.ReleaseTest.test_rehashed_bundle_cannot_hide_wrong_version_or_jar) ... ok
+2026-11-17T12:57:19.2536144Z test_tag_and_dispatch_guard_including_real_off_main_commit (tests.test_ci.ReleaseTest.test_tag_and_dispatch_guard_including_real_off_main_commit) ... ok
+2026-11-17T12:57:19.2569121Z test_unexpected_files_and_empty_release_fail (tests.test_ci.ReleaseTest.test_unexpected_files_and_empty_release_fail) ... ok
+2026-11-17T12:57:19.2861520Z test_actual_helper_path_publishes_only_verified_export (tests.test_client_experiment.ExportHelperTests.test_actual_helper_path_publishes_only_verified_export) ... ok
+2026-11-17T12:57:19.2883739Z test_independent_binary_parser_rejects_failed_or_changed_input (tests.test_client_experiment.ExportHelperTests.test_independent_binary_parser_rejects_failed_or_changed_input) ... ok
+2026-11-17T12:57:19.3041507Z test_invalid_or_failed_summary_preserves_partial_bytes_without_publishing (tests.test_client_experiment.ExportHelperTests.test_invalid_or_failed_summary_preserves_partial_bytes_without_publishing) ... ok
+2026-11-17T12:57:19.3203191Z test_resealed_copies_and_edited_parse_digests_still_require_raw_reparse (tests.test_client_experiment.ExportHelperTests.test_resealed_copies_and_edited_parse_digests_still_require_raw_reparse) ... ok
+2026-11-17T12:57:19.3382358Z test_sealed_binary_replacement_cannot_reuse_old_parsed_json (tests.test_client_experiment.ExportHelperTests.test_sealed_binary_replacement_cannot_reuse_old_parsed_json) ... ok
+2026-11-17T12:57:19.3428623Z test_zero_exit_without_recording_is_not_verified (tests.test_client_experiment.ExportHelperTests.test_zero_exit_without_recording_is_not_verified) ... ok
+2026-11-17T12:57:19.4541956Z test_actual_windows_must_fit_trial_and_experiment_receipts (tests.test_client_experiment.IndependentDecisionTests.test_actual_windows_must_fit_trial_and_experiment_receipts) ... ok
+2026-11-17T12:57:19.4900486Z test_complete_independent_aa_ab_and_instrumentation_gates_pass (tests.test_client_experiment.IndependentDecisionTests.test_complete_independent_aa_ab_and_instrumentation_gates_pass) ... ok
+2026-11-17T12:57:19.5685899Z test_distinct_jvms_with_overlapping_or_reversed_windows_are_not_replicates (tests.test_client_experiment.IndependentDecisionTests.test_distinct_jvms_with_overlapping_or_reversed_windows_are_not_replicates) ... ok
+2026-11-17T12:57:19.6038103Z test_edited_summary_cannot_move_old_raw_process_into_a_new_window (tests.test_client_experiment.IndependentDecisionTests.test_edited_summary_cannot_move_old_raw_process_into_a_new_window) ... ok
+2026-11-17T12:57:19.6393640Z test_failure_of_aa_equivalence_prevents_ab_acceptance (tests.test_client_experiment.IndependentDecisionTests.test_failure_of_aa_equivalence_prevents_ab_acceptance) ... ok
+2026-11-17T12:57:19.6775923Z test_instrumentation_equivalence_is_a_required_gate (tests.test_client_experiment.IndependentDecisionTests.test_instrumentation_equivalence_is_a_required_gate) ... ok
+2026-11-17T12:57:19.8583025Z test_missing_failed_duplicate_order_and_reused_processes_fail_denominator (tests.test_client_experiment.IndependentDecisionTests.test_missing_failed_duplicate_order_and_reused_processes_fail_denominator) ... ok
+2026-11-17T12:57:19.8942384Z test_qualification_from_another_mode_cannot_be_borrowed (tests.test_client_experiment.IndependentDecisionTests.test_qualification_from_another_mode_cannot_be_borrowed) ... ok
+2026-11-17T12:57:19.9450857Z test_qualifier_process_cannot_be_reused_even_with_timezone_reformatting (tests.test_client_experiment.IndependentDecisionTests.test_qualifier_process_cannot_be_reused_even_with_timezone_reformatting) ... ok
+2026-11-17T12:57:19.9452553Z test_zero_reference_has_no_percent_ratio_but_absolute_remains_valid (tests.test_client_experiment.IndependentDecisionTests.test_zero_reference_has_no_percent_ratio_but_absolute_remains_valid) ... ok
+2026-11-17T12:57:19.9453722Z test_conservative_summary_coverage_and_unreadable_input (tests.test_client_experiment.JfrTests.test_conservative_summary_coverage_and_unreadable_input) ... ok
+2026-11-17T12:57:19.9474501Z test_frame_gap_or_outside_world_fails (tests.test_client_experiment.JfrTests.test_frame_gap_or_outside_world_fails) ... ok
+2026-11-17T12:57:19.9485516Z test_full_gc_duration_uses_matching_gc_id (tests.test_client_experiment.JfrTests.test_full_gc_duration_uses_matching_gc_id) ... ok
+2026-11-17T12:57:19.9516206Z test_full_gc_without_pause_or_duration_is_unavailable_and_failed (tests.test_client_experiment.JfrTests.test_full_gc_without_pause_or_duration_is_unavailable_and_failed) ... ok
+2026-11-17T12:57:19.9553496Z test_orphan_pause_duplicate_gc_and_boundary_crossing_fail (tests.test_client_experiment.JfrTests.test_orphan_pause_duplicate_gc_and_boundary_crossing_fail) ... ok
+2026-11-17T12:57:19.9583075Z test_truncated_recording_start_end_or_missing_frames_fails (tests.test_client_experiment.JfrTests.test_truncated_recording_start_end_or_missing_frames_fails) ... ok
+2026-11-17T12:57:19.9616084Z test_frozen_world_camera_route_and_motion_are_observed (tests.test_client_experiment.ObservationTests.test_frozen_world_camera_route_and_motion_are_observed) ... ok
+2026-11-17T12:57:19.9617458Z test_log_prefix_proof_rejects_missing_startup_truncation_and_rewrites (tests.test_client_experiment.ObservationTests.test_log_prefix_proof_rejects_missing_startup_truncation_and_rewrites) ... ok
+2026-11-17T12:57:19.9635350Z test_missing_heap_or_os_observation_cannot_be_zero_filled (tests.test_client_experiment.ObservationTests.test_missing_heap_or_os_observation_cannot_be_zero_filled) ... ok
+2026-11-17T12:57:19.9644850Z test_native_return_without_settled_anchor_cannot_pass (tests.test_client_experiment.ObservationTests.test_native_return_without_settled_anchor_cannot_pass) ... ok
+2026-11-17T12:57:19.9657210Z test_other_errors_are_preserved_separately_for_contextual_review (tests.test_client_experiment.ObservationTests.test_other_errors_are_preserved_separately_for_contextual_review) ... ok
+2026-11-17T12:57:19.9666681Z test_plain_extra_instrumentation_is_not_ignored (tests.test_client_experiment.ObservationTests.test_plain_extra_instrumentation_is_not_ignored) ... ok
+2026-11-17T12:57:19.9676133Z test_plain_has_independent_metrics_and_profile_metrics_unavailable (tests.test_client_experiment.ObservationTests.test_plain_has_independent_metrics_and_profile_metrics_unavailable) ... ok
+2026-11-17T12:57:19.9686380Z test_profile_without_gc_has_observed_zero_counts (tests.test_client_experiment.ObservationTests.test_profile_without_gc_has_observed_zero_counts) ... ok
+2026-11-17T12:57:19.9749810Z test_registration_identity_and_unsettled_work_fail (tests.test_client_experiment.ObservationTests.test_registration_identity_and_unsettled_work_fail) ... ok
+2026-11-17T12:57:19.9774092Z test_stale_duplicate_or_missing_sample_fails_coverage (tests.test_client_experiment.ObservationTests.test_stale_duplicate_or_missing_sample_fails_coverage) ... ok
+2026-11-17T12:57:19.9790157Z test_unpaired_epoch_and_unplanned_reload_fail (tests.test_client_experiment.ObservationTests.test_unpaired_epoch_and_unplanned_reload_fail) ... ok
+2026-11-17T12:57:19.9839107Z test_unreviewed_native_errors_and_invalid_models_prevent_qualification (tests.test_client_experiment.ObservationTests.test_unreviewed_native_errors_and_invalid_models_prevent_qualification) ... ok
+2026-11-17T12:57:19.9863794Z test_window_duration_and_cleanup_are_required (tests.test_client_experiment.ObservationTests.test_window_duration_and_cleanup_are_required) ... ok
+2026-11-17T12:57:20.1196066Z test_failed_profile_export_preserves_live_handle_and_stops_trial (tests.test_client_experiment.OwnedProcessLifecycleTests.test_failed_profile_export_preserves_live_handle_and_stops_trial) ... ok
+2026-11-17T12:57:20.1978216Z test_interrupt_preserves_verified_partial_before_cleanup (tests.test_client_experiment.OwnedProcessLifecycleTests.test_interrupt_preserves_verified_partial_before_cleanup) ... ok
+2026-11-17T12:57:20.2773875Z test_interrupt_with_failed_partial_export_never_terminates (tests.test_client_experiment.OwnedProcessLifecycleTests.test_interrupt_with_failed_partial_export_never_terminates) ... ok
+2026-11-17T12:57:20.4053397Z test_normal_profile_exports_before_actual_cleanup (tests.test_client_experiment.OwnedProcessLifecycleTests.test_normal_profile_exports_before_actual_cleanup) ... ok
+2026-11-17T12:57:20.4056250Z test_aa_must_cover_each_mode_and_unit (tests.test_client_experiment.PolicyAndScheduleTests.test_aa_must_cover_each_mode_and_unit) ... ok
+2026-11-17T12:57:20.4061059Z test_default_is_48_balanced_independent_jvms (tests.test_client_experiment.PolicyAndScheduleTests.test_default_is_48_balanced_independent_jvms) ... ok
+2026-11-17T12:57:20.4064793Z test_invalid_finite_and_duplicate_budgets_fail (tests.test_client_experiment.PolicyAndScheduleTests.test_invalid_finite_and_duplicate_budgets_fail) ... ok
+2026-11-17T12:57:20.4067229Z test_plain_cannot_claim_jfr_endpoints (tests.test_client_experiment.PolicyAndScheduleTests.test_plain_cannot_claim_jfr_endpoints) ... ok
+2026-11-17T12:57:20.4071059Z test_rejects_unbalanced_or_insufficient_pairs (tests.test_client_experiment.PolicyAndScheduleTests.test_rejects_unbalanced_or_insufficient_pairs) ... ok
+2026-11-17T12:57:20.4074860Z test_seed_changes_order_without_changing_design (tests.test_client_experiment.PolicyAndScheduleTests.test_seed_changes_order_without_changing_design) ... ok
+2026-11-17T12:57:20.4106771Z test_missing_baseline_preparation_preserves_failed_attempt_and_does_not_launch (tests.test_client_experiment.PreparationBoundaryTests.test_missing_baseline_preparation_preserves_failed_attempt_and_does_not_launch) ... ok
+2026-11-17T12:57:20.4146989Z test_missing_qualification_preserves_failure_without_substituting_baseline (tests.test_client_experiment.PreparationBoundaryTests.test_missing_qualification_preserves_failure_without_substituting_baseline) ... ok
+2026-11-17T12:57:20.4148365Z test_mode_controls_remove_only_frozen_profiling_additions (tests.test_client_experiment.PreparationBoundaryTests.test_mode_controls_remove_only_frozen_profiling_additions) ... ok
+2026-11-17T12:57:20.4182226Z test_raw_evidence_changed_or_escaped_attempt_fails (tests.test_client_experiment.PreparationBoundaryTests.test_raw_evidence_changed_or_escaped_attempt_fails) ... ok
+2026-11-17T12:57:20.4250952Z test_raw_inventory_cannot_omit_duplicate_or_ignore_added_evidence (tests.test_client_experiment.PreparationBoundaryTests.test_raw_inventory_cannot_omit_duplicate_or_ignore_added_evidence) ... ok
+2026-11-17T12:57:20.4252598Z test_scenario_rejects_undeclared_or_invalid_camera_route_context (tests.test_client_experiment.PreparationBoundaryTests.test_scenario_rejects_undeclared_or_invalid_camera_route_context) ... ok
+2026-11-17T12:57:20.4307325Z test_source_change_during_capture_cannot_receive_a_new_current_qualification (tests.test_client_experiment.PreparationBoundaryTests.test_source_change_during_capture_cannot_receive_a_new_current_qualification) ... ok
+2026-11-17T12:57:20.4602732Z test_complete_qualification_copied_as_trial_is_rejected_by_actual_root (tests.test_client_experiment.RawReplayTests.test_complete_qualification_copied_as_trial_is_rejected_by_actual_root) ... ok
+2026-11-17T12:57:20.4770217Z test_missing_final_native_snapshot_keeps_raw_native_errors_visible (tests.test_client_experiment.RawReplayTests.test_missing_final_native_snapshot_keeps_raw_native_errors_visible) ... ok
+2026-11-17T12:57:20.4962633Z test_qualifier_scope_and_original_created_time_cannot_be_summary_edited (tests.test_client_experiment.RawReplayTests.test_qualifier_scope_and_original_created_time_cannot_be_summary_edited) ... ok
+2026-11-17T12:57:20.6205232Z test_raw_integrity_failure_revokes_instrumented_acceptance_flag (tests.test_client_experiment.RawReplayTests.test_raw_integrity_failure_revokes_instrumented_acceptance_flag) ... ok
+2026-11-17T12:57:20.6682575Z test_unfinished_or_transplanted_raw_diagnostic_jsonl_cannot_reuse_saved_review (tests.test_client_experiment.RawReplayTests.test_unfinished_or_transplanted_raw_diagnostic_jsonl_cannot_reuse_saved_review) ... ok
+2026-11-17T12:57:20.6728855Z test_marker_launch_mismatch_is_rejected (tests.test_memory_build_classpath.ActiveClientPatchTests.test_marker_launch_mismatch_is_rejected) ... ok
+2026-11-17T12:57:20.6772881Z test_missing_active_patch_does_not_fall_back (tests.test_memory_build_classpath.ActiveClientPatchTests.test_missing_active_patch_does_not_fall_back) ... ok
+2026-11-17T12:57:20.6824810Z test_selects_active_patch_with_another_version_cached (tests.test_memory_build_classpath.ActiveClientPatchTests.test_selects_active_patch_with_another_version_cached) ... ok
+2026-11-17T12:57:20.6868153Z test_wrong_client_patch_is_rejected (tests.test_memory_build_classpath.ActiveClientPatchTests.test_wrong_client_patch_is_rejected) ... ok
+2026-11-17T12:57:20.8970588Z test_archive_inventory_never_executes_scripts_and_detects_drift (tests.test_minecraft_testkit.TestkitTest.test_archive_inventory_never_executes_scripts_and_detects_drift) ... warning: in the working copy of 'evidence/example/new.py', LF will be replaced by CRLF the next time Git touches it
+2026-11-17T12:57:20.9399654Z ok
+2026-11-17T12:57:20.9595868Z test_corrupt_or_unmanifested_sample_is_rejected (tests.test_minecraft_testkit.TestkitTest.test_corrupt_or_unmanifested_sample_is_rejected) ... ok
+2026-11-17T12:57:20.9694745Z test_curated_samples_match_their_original_sources (tests.test_minecraft_testkit.TestkitTest.test_curated_samples_match_their_original_sources) ... ok
+2026-11-17T12:57:21.1038091Z test_empty_test_selection_fails_instead_of_reporting_success (tests.test_minecraft_testkit.TestkitTest.test_empty_test_selection_fails_instead_of_reporting_success) ... ok
+2026-11-17T12:57:21.1380681Z test_legacy_full_discovery_contains_the_same_test_ids (tests.test_minecraft_testkit.TestkitTest.test_legacy_full_discovery_contains_the_same_test_ids) ... FAIL
+2026-11-17T12:57:21.1388163Z test_resource_paths_cannot_escape_the_data_root (tests.test_minecraft_testkit.TestkitTest.test_resource_paths_cannot_escape_the_data_root) ... ok
+2026-11-17T12:57:21.1406041Z test_complete_trace_classifies_only_known_live_default_and_keeps_raw_line (tests.test_native_diagnostic_review.NativeDiagnosticReviewTests.test_complete_trace_classifies_only_known_live_default_and_keeps_raw_line) ... ok
+2026-11-17T12:57:21.1424336Z test_extra_missing_newline_or_other_texture_log_diagnostics_fail_closed (tests.test_native_diagnostic_review.NativeDiagnosticReviewTests.test_extra_missing_newline_or_other_texture_log_diagnostics_fail_closed) ... ok
+2026-11-17T12:57:21.1440114Z test_final_counter_and_snapshot_gaps_cannot_be_silently_accepted (tests.test_native_diagnostic_review.NativeDiagnosticReviewTests.test_final_counter_and_snapshot_gaps_cannot_be_silently_accepted) ... ok
+2026-11-17T12:57:21.1486826Z test_missing_extra_reordered_unfinished_or_transplanted_events_fail_closed (tests.test_native_diagnostic_review.NativeDiagnosticReviewTests.test_missing_extra_reordered_unfinished_or_transplanted_events_fail_closed) ... ok
+2026-11-17T12:57:21.1489259Z test_other_native_errors_and_non_native_errors_are_not_masked (tests.test_native_diagnostic_review.NativeDiagnosticReviewTests.test_other_native_errors_and_non_native_errors_are_not_masked) ... ok
+2026-11-17T12:57:21.1498547Z test_review_cannot_broaden_to_other_models_or_targets (tests.test_native_diagnostic_review.NativeDiagnosticReviewTests.test_review_cannot_broaden_to_other_models_or_targets) ... ok
+2026-11-17T12:57:21.1515858Z test_wrong_factory_arguments_descriptor_callsite_or_return_stays_unreviewed (tests.test_native_diagnostic_review.NativeDiagnosticReviewTests.test_wrong_factory_arguments_descriptor_callsite_or_return_stays_unreviewed) ... ok
+2026-11-17T12:57:21.1889839Z test_calendar_dates_without_events_are_not_assumed_to_be_missing_archives (tests.test_native_log_stream.NativeLogStreamTest.test_calendar_dates_without_events_are_not_assumed_to_be_missing_archives) ... ok
+2026-11-17T12:57:21.2764893Z test_changed_or_deleted_retired_segment_and_truncated_active_prefix_fail (tests.test_native_log_stream.NativeLogStreamTest.test_changed_or_deleted_retired_segment_and_truncated_active_prefix_fail) ... ok
+2026-11-17T12:57:21.2780231Z test_crc_corruption_truncation_and_concatenated_gzip_are_rejected (tests.test_native_log_stream.NativeLogStreamTest.test_crc_corruption_truncation_and_concatenated_gzip_are_rejected) ... ok
+2026-11-17T12:57:21.3152270Z test_fresh_logger_absence_is_explicit_and_does_not_establish_an_anchor (tests.test_native_log_stream.NativeLogStreamTest.test_fresh_logger_absence_is_explicit_and_does_not_establish_an_anchor) ... ok
+2026-11-17T12:57:21.3530068Z test_fresh_start_and_append_keep_every_raw_byte_and_prefix (tests.test_native_log_stream.NativeLogStreamTest.test_fresh_start_and_append_keep_every_raw_byte_and_prefix) ... ok
+2026-11-17T12:57:21.4000484Z test_incomplete_compression_is_bounded_and_permission_failure_is_not_retried (tests.test_native_log_stream.NativeLogStreamTest.test_incomplete_compression_is_bounded_and_permission_failure_is_not_retried) ... ok
+2026-11-17T12:57:21.4348162Z test_midnight_rollover_preserves_anchor_and_records_original_gzip_and_latest (tests.test_native_log_stream.NativeLogStreamTest.test_midnight_rollover_preserves_anchor_and_records_original_gzip_and_latest) ... ok
+2026-11-17T12:57:21.4830480Z test_min_reindex_tracks_file_identity_instead_of_pinning_the_old_name (tests.test_native_log_stream.NativeLogStreamTest.test_min_reindex_tracks_file_identity_instead_of_pinning_the_old_name) ... ok
+2026-11-17T12:57:21.4844610Z test_reader_and_profile_are_frozen_by_both_consumers_and_experiment (tests.test_native_log_stream.NativeLogStreamTest.test_reader_and_profile_are_frozen_by_both_consumers_and_experiment) ... ok
+2026-11-17T12:57:21.4860987Z test_real_gzip_contains_the_earlier_independent_startup_prefix (tests.test_native_log_stream.NativeLogStreamTest.test_real_gzip_contains_the_earlier_independent_startup_prefix) ... ok
+2026-11-17T12:57:21.5335277Z test_release_copy_truncate_reindex_preserves_content_when_file_id_changes (tests.test_native_log_stream.NativeLogStreamTest.test_release_copy_truncate_reindex_preserves_content_when_file_id_changes) ... ok
+2026-11-17T12:57:21.5788758Z test_rotation_during_an_owned_read_restarts_only_the_bounded_snapshot (tests.test_native_log_stream.NativeLogStreamTest.test_rotation_during_an_owned_read_restarts_only_the_bounded_snapshot) ... ok
+2026-11-17T12:57:21.6485560Z test_unexplained_active_replacement_and_duplicate_retired_payload_fail (tests.test_native_log_stream.NativeLogStreamTest.test_unexplained_active_replacement_and_duplicate_retired_payload_fail) ... ok
+2026-11-17T12:57:21.6978125Z test_unreviewed_encoding_and_invalid_archive_date_are_rejected (tests.test_native_log_stream.NativeLogStreamTest.test_unreviewed_encoding_and_invalid_archive_date_are_rejected) ... ok
+2026-11-17T12:57:21.7712276Z test_unwitnessed_midrun_attach_foreign_startup_and_sequence_gap_fail (tests.test_native_log_stream.NativeLogStreamTest.test_unwitnessed_midrun_attach_foreign_startup_and_sequence_gap_fail) ... ok
+2026-11-17T12:57:21.7714705Z test_changed_native_arguments_or_caller_rejected (tests.test_native_model_trace.NativeTraceTests.test_changed_native_arguments_or_caller_rejected) ... ok
+2026-11-17T12:57:21.7718306Z test_extra_log_or_missing_return_rejected (tests.test_native_model_trace.NativeTraceTests.test_extra_log_or_missing_return_rejected) ... ok
+2026-11-17T12:57:21.7719649Z test_generated_call_is_attributed_without_general_acceptance (tests.test_native_model_trace.NativeTraceTests.test_generated_call_is_attributed_without_general_acceptance) ... ok
+2026-11-17T12:57:21.7722416Z test_other_constructor_or_nonempty_model_remains_unattributed (tests.test_native_model_trace.NativeTraceTests.test_other_constructor_or_nonempty_model_remains_unattributed) ... ok
+2026-11-17T12:57:21.7723841Z test_raw_diagnostic_failure_and_wrong_identifier_rejected (tests.test_native_model_trace.NativeTraceTests.test_raw_diagnostic_failure_and_wrong_identifier_rejected) ... ok
+2026-11-17T12:57:21.7730017Z test_wrong_process_target_sequence_or_observation_error_rejected (tests.test_native_model_trace.NativeTraceTests.test_wrong_process_target_sequence_or_observation_error_rejected) ... ok
+2026-11-17T12:57:21.8163552Z test_changed_before_prefix_foreign_epoch_and_missing_native_call_fail (tests.test_neutral_reload_adapter.NeutralReloadTest.test_changed_before_prefix_foreign_epoch_and_missing_native_call_fail) ... ok
+2026-11-17T12:57:21.8409070Z test_creator_only_cycle_and_paused_or_straddling_snapshot_do_not_pass (tests.test_neutral_reload_adapter.NeutralReloadTest.test_creator_only_cycle_and_paused_or_straddling_snapshot_do_not_pass) ... ok
+2026-11-17T12:57:21.8455938Z test_neutral_snapshot_uses_native_fields_without_fabricating_module_zeros (tests.test_neutral_reload_adapter.NeutralReloadTest.test_neutral_snapshot_uses_native_fields_without_fabricating_module_zeros) ... ok
+2026-11-17T12:57:21.9330103Z {"status": "settled", "passed": true, "samples": 2, "summary": "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\tmpkluil0q2\\observed\\summary.json"}
+2026-11-17T12:57:21.9374776Z test_neutral_startup_consumes_real_contract_without_module_observer (tests.test_neutral_reload_adapter.NeutralReloadTest.test_neutral_startup_consumes_real_contract_without_module_observer) ... ok
+2026-11-17T12:57:21.9399160Z test_only_reviewed_metadata_versions_and_capabilities_are_accepted (tests.test_neutral_reload_adapter.NeutralReloadTest.test_only_reviewed_metadata_versions_and_capabilities_are_accepted) ... ok
+2026-11-17T12:57:21.9418869Z test_repaired_snapshot_preserves_actual_version_and_unavailable_module_fields (tests.test_neutral_reload_adapter.NeutralReloadTest.test_repaired_snapshot_preserves_actual_version_and_unavailable_module_fields) ... ok
+2026-11-17T12:57:22.0329065Z test_twenty_generated_native_contracts_need_no_companion_log_or_fields (tests.test_neutral_reload_adapter.NeutralReloadTest.test_twenty_generated_native_contracts_need_no_companion_log_or_fields) ... ok
+2026-11-17T12:57:22.0331779Z test_no_requested_channels_start_no_worker (tests.test_observe_packaged_client.AuxiliarySamplerTest.test_no_requested_channels_start_no_worker) ... ok
+2026-11-17T12:57:22.0728065Z test_real_started_worker_reference_survives_start_keyboard_interrupt (tests.test_observe_packaged_client.AuxiliarySamplerTest.test_real_started_worker_reference_survives_start_keyboard_interrupt) ... ok
+2026-11-17T12:57:22.0760374Z test_single_worker_retains_ownership_until_completion_is_consumed (tests.test_observe_packaged_client.AuxiliarySamplerTest.test_single_worker_retains_ownership_until_completion_is_consumed) ... ok
+2026-11-17T12:57:22.1201673Z test_unconfirmed_worker_entry_cannot_be_reported_stopped (tests.test_observe_packaged_client.AuxiliarySamplerTest.test_unconfirmed_worker_entry_cannot_be_reported_stopped) ... ok
+2026-11-17T12:57:22.2296315Z test_worker_start_failure_remains_a_recorded_failed_request (tests.test_observe_packaged_client.AuxiliarySamplerTest.test_worker_start_failure_remains_a_recorded_failed_request) ... ok
+2026-11-17T12:57:22.2300522Z test_complete_process_gpu_counters_pass_and_query_only_this_pid (tests.test_observe_packaged_client.AuxiliaryTest.test_complete_process_gpu_counters_pass_and_query_only_this_pid) ... ok
+2026-11-17T12:57:22.2303231Z test_gpu_query_failure_retains_stdout_stderr_and_exit_status (tests.test_observe_packaged_client.AuxiliaryTest.test_gpu_query_failure_retains_stdout_stderr_and_exit_status) ... ok
+2026-11-17T12:57:22.2304714Z test_gpu_query_scopes_wildcard_instances_and_preserves_counter_names (tests.test_observe_packaged_client.AuxiliaryTest.test_gpu_query_scopes_wildcard_instances_and_preserves_counter_names) ... ok
+2026-11-17T12:57:22.2313195Z test_missing_or_invalid_gpu_counter_still_fails (tests.test_observe_packaged_client.AuxiliaryTest.test_missing_or_invalid_gpu_counter_still_fails) ... ok
+2026-11-17T12:57:22.2727686Z {"status": "interrupted", "passed": false, "samples": 0, "summary": "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\tmpagavg2bc\\realtime-307437000000\\summary.json"}
+2026-11-17T12:57:22.2760957Z test_actual_worker_start_then_interrupt_preserves_real_terminal_result (tests.test_observe_packaged_client.ObservationTest.test_actual_worker_start_then_interrupt_preserves_real_terminal_result) ... ok
+2026-11-17T12:57:22.4091154Z {"status": "stopped", "passed": false, "samples": 5, "summary": "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\tmp1hvmguas\\realtime-307484000000\\summary.json"}
+2026-11-17T12:57:22.4130247Z test_background_auxiliary_keeps_sampling_while_provider_is_blocked (tests.test_observe_packaged_client.ObservationTest.test_background_auxiliary_keeps_sampling_while_provider_is_blocked) ... ok
+2026-11-17T12:57:22.7515997Z {"status": "duration_complete", "passed": false, "samples": 33, "summary": "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\tmp6qagjt94\\realtime-307609000000\\summary.json"}
+2026-11-17T12:57:23.0826336Z {"status": "duration_complete", "passed": false, "samples": 16, "summary": "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\tmp6qagjt94\\realtime-307937000000\\summary.json"}
+2026-11-17T12:57:23.4273079Z {"status": "duration_complete", "passed": false, "samples": 16, "summary": "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\tmp6qagjt94\\realtime-308281000000\\summary.json"}
+2026-11-17T12:57:23.4346694Z test_background_auxiliary_missing_failed_or_exception_result_still_rejects (tests.test_observe_packaged_client.ObservationTest.test_background_auxiliary_missing_failed_or_exception_result_still_rejects) ... ok
+2026-11-17T12:57:23.4931552Z {"status": "duration_complete", "passed": false, "samples": 13, "summary": "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\tmpqcyv3hjf\\route-observation\\summary.json"}
+2026-11-17T12:57:23.4965150Z test_changing_vehicle_ids_without_progress_cannot_pass_route (tests.test_observe_packaged_client.ObservationTest.test_changing_vehicle_ids_without_progress_cannot_pass_route) ... ok
+2026-11-17T12:57:23.4984869Z test_current_game_screen_does_not_hide_pause (tests.test_observe_packaged_client.ObservationTest.test_current_game_screen_does_not_hide_pause) ... ok
+2026-11-17T12:57:23.5005031Z test_current_native_and_vehicle_observations_are_verified (tests.test_observe_packaged_client.ObservationTest.test_current_native_and_vehicle_observations_are_verified) ... ok
+2026-11-17T12:57:23.5025104Z test_declaration_and_unique_id_count_units_are_independent (tests.test_observe_packaged_client.ObservationTest.test_declaration_and_unique_id_count_units_are_independent) ... ok
+2026-11-17T12:57:23.5395935Z {"status": "stopped", "passed": false, "samples": 0, "summary": "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\tmpmtwcc3b8\\reloads-observation\\summary.json"}
+2026-11-17T12:57:23.5433013Z test_explicit_stop_cannot_award_reload_acceptance (tests.test_observe_packaged_client.ObservationTest.test_explicit_stop_cannot_award_reload_acceptance) ... ok
+2026-11-17T12:57:23.5462481Z test_external_input_receipt_preserves_original_and_rejects_duplicate_confirmation (tests.test_observe_packaged_client.ObservationTest.test_external_input_receipt_preserves_original_and_rejects_duplicate_confirmation) ... ok
+2026-11-17T12:57:23.5550217Z {"status": "preflight_failed", "passed": false, "summary": "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\tmp208cm2f4\\failed-preflight\\summary.json"}
+2026-11-17T12:57:23.5565258Z test_failed_preflight_preserves_failure_instead_of_missing_run (tests.test_observe_packaged_client.ObservationTest.test_failed_preflight_preserves_failure_instead_of_missing_run) ... ok
+2026-11-17T12:57:23.5585227Z test_full_twenty_reload_gate_cross_checks_input_log_and_settled_epochs (tests.test_observe_packaged_client.ObservationTest.test_full_twenty_reload_gate_cross_checks_input_log_and_settled_epochs) ... ok
+2026-11-17T12:57:23.6764069Z {"status": "interrupted", "passed": false, "samples": 4, "summary": "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\tmpdwboz1o_\\realtime-308750000000\\summary.json"}
+2026-11-17T12:57:23.6796780Z test_interrupted_main_sampling_preserves_accepted_auxiliary_result (tests.test_observe_packaged_client.ObservationTest.test_interrupted_main_sampling_preserves_accepted_auxiliary_result) ... ok
+2026-11-17T12:57:23.7409661Z {"status": "interrupted", "passed": false, "samples": 1, "summary": "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\tmpodenolno\\realtime-308875000000\\summary.json"}
+2026-11-17T12:57:23.7441610Z test_interruption_after_completion_poll_preserves_unaccounted_result (tests.test_observe_packaged_client.ObservationTest.test_interruption_after_completion_poll_preserves_unaccounted_result) ... ok
+2026-11-17T12:57:23.7883585Z {"status": "interrupted", "passed": false, "samples": 0, "summary": "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\tmp1__r0bu1\\realtime-308937000000\\summary.json"}
+2026-11-17T12:57:23.7915987Z test_interruption_after_submission_preserves_request_and_attempt_count (tests.test_observe_packaged_client.ObservationTest.test_interruption_after_submission_preserves_request_and_attempt_count) ... ok
+2026-11-17T12:57:23.8300448Z {"status": "interrupted", "passed": false, "samples": 0, "summary": "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\tmp8pdb9vem\\route-observation\\summary.json"}
+2026-11-17T12:57:23.8334413Z test_interruption_preserves_raw_evidence_and_cannot_pass (tests.test_observe_packaged_client.ObservationTest.test_interruption_preserves_raw_evidence_and_cannot_pass) ... ok
+2026-11-17T12:57:23.8353818Z test_missing_explicit_paused_state_cannot_pass (tests.test_observe_packaged_client.ObservationTest.test_missing_explicit_paused_state_cannot_pass) ... ok
+2026-11-17T12:57:23.8382361Z test_missing_or_nonzero_native_ownership_cannot_settle (tests.test_observe_packaged_client.ObservationTest.test_missing_or_nonzero_native_ownership_cannot_settle) ... ok
+2026-11-17T12:57:23.8390705Z test_missing_return_and_foreign_process_events_do_not_count (tests.test_observe_packaged_client.ObservationTest.test_missing_return_and_foreign_process_events_do_not_count) ... ok
+2026-11-17T12:57:23.8398710Z test_missing_sequence_breaks_consecutive_reload_proof (tests.test_observe_packaged_client.ObservationTest.test_missing_sequence_breaks_consecutive_reload_proof) ... ok
+2026-11-17T12:57:23.8466693Z test_modified_frozen_input_or_plan_is_rejected (tests.test_observe_packaged_client.ObservationTest.test_modified_frozen_input_or_plan_is_rejected) ... ok
+2026-11-17T12:57:23.8484640Z test_native_creator_reload_cycles_cannot_pass_full_resource_gate (tests.test_observe_packaged_client.ObservationTest.test_native_creator_reload_cycles_cannot_pass_full_resource_gate) ... ok
+2026-11-17T12:57:23.8493982Z test_native_decode_error_rejects_full_reload_even_with_zero_work_counters (tests.test_observe_packaged_client.ObservationTest.test_native_decode_error_rejects_full_reload_even_with_zero_work_counters) ... ok
+2026-11-17T12:57:23.8899119Z {"status": "settled", "passed": false, "samples": 2, "summary": "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\tmp20yikd2z\\startup-observation\\summary.json"}
+2026-11-17T12:57:23.8932444Z test_native_decode_error_rejects_settlement_even_with_zero_counters (tests.test_observe_packaged_client.ObservationTest.test_native_decode_error_rejects_settlement_even_with_zero_counters) ... ok
+2026-11-17T12:57:23.9333054Z {"status": "settled", "passed": false, "samples": 2, "summary": "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\tmpcg01j73l\\startup-observation\\summary.json"}
+2026-11-17T12:57:23.9365505Z test_native_identity_source_change_rejects_settlement (tests.test_observe_packaged_client.ObservationTest.test_native_identity_source_change_rejects_settlement) ... ok
+2026-11-17T12:57:23.9758462Z {"status": "settled", "passed": false, "samples": 2, "summary": "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\tmp1s91cr9h\\startup-observation\\summary.json"}
+2026-11-17T12:57:23.9790080Z test_native_log_source_change_rejects_settlement (tests.test_observe_packaged_client.ObservationTest.test_native_log_source_change_rejects_settlement) ... ok
+2026-11-17T12:57:23.9799866Z test_nonfinite_or_nonpositive_intervals_are_rejected (tests.test_observe_packaged_client.ObservationTest.test_nonfinite_or_nonpositive_intervals_are_rejected) ... ok
+2026-11-17T12:57:23.9819166Z test_old_vehicle_snapshot_cannot_be_combined_with_current_counters (tests.test_observe_packaged_client.ObservationTest.test_old_vehicle_snapshot_cannot_be_combined_with_current_counters) ... ok
+2026-11-17T12:57:24.0420410Z {"status": "duration_complete", "passed": false, "samples": 13, "summary": "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\tmpvorb973t\\route-observation\\summary.json"}
+2026-11-17T12:57:24.0452843Z test_only_early_motion_cannot_pass_full_route_duration (tests.test_observe_packaged_client.ObservationTest.test_only_early_motion_cannot_pass_full_route_duration) ... ok
+2026-11-17T12:57:24.0471615Z test_other_process_state_cannot_pass (tests.test_observe_packaged_client.ObservationTest.test_other_process_state_cannot_pass) ... ok
+2026-11-17T12:57:24.4340299Z {"status": "duration_complete", "passed": false, "samples": 16, "summary": "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\tmpmtwoyd0i\\realtime-309250000000\\summary.json"}
+2026-11-17T12:57:24.4373952Z test_pending_auxiliary_shutdown_is_bounded_and_cannot_claim_cleanup_or_pass (tests.test_observe_packaged_client.ObservationTest.test_pending_auxiliary_shutdown_is_bounded_and_cannot_claim_cleanup_or_pass) ... ok
+2026-11-17T12:57:24.4393664Z test_process_creation_and_exact_argument_identity_are_required (tests.test_observe_packaged_client.ObservationTest.test_process_creation_and_exact_argument_identity_are_required) ... ok
+2026-11-17T12:57:24.4786243Z {"status": "observation_failed", "passed": false, "samples": 0, "summary": "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\tmpjexe4r46\\route-observation\\summary.json"}
+2026-11-17T12:57:24.4821530Z test_receipt_write_failure_preserves_request_payload_and_cleanup (tests.test_observe_packaged_client.ObservationTest.test_receipt_write_failure_preserves_request_payload_and_cleanup) ... ok
+2026-11-17T12:57:24.4832018Z test_registration_log_polling_alone_cannot_be_twenty_reloads (tests.test_observe_packaged_client.ObservationTest.test_registration_log_polling_alone_cannot_be_twenty_reloads) ... ok
+2026-11-17T12:57:24.4849956Z test_reload_in_flight_prevents_premature_settlement (tests.test_observe_packaged_client.ObservationTest.test_reload_in_flight_prevents_premature_settlement) ... ok
+2026-11-17T12:57:24.4858997Z test_repeating_one_reload_twenty_times_cannot_pass (tests.test_observe_packaged_client.ObservationTest.test_repeating_one_reload_twenty_times_cannot_pass) ... ok
+2026-11-17T12:57:24.4869266Z test_return_without_settlement_before_next_reload_fails (tests.test_observe_packaged_client.ObservationTest.test_return_without_settlement_before_next_reload_fails) ... ok
+2026-11-17T12:57:24.5439672Z {"status": "duration_complete", "passed": true, "samples": 13, "summary": "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\tmptkt7hcgs\\route-observation\\summary.json"}
+2026-11-17T12:57:24.5482140Z test_route_uses_observed_monotonic_window_and_motion_with_all_valid_states (tests.test_observe_packaged_client.ObservationTest.test_route_uses_observed_monotonic_window_and_motion_with_all_valid_states) ... ok
+2026-11-17T12:57:24.5506134Z test_schema_one_retains_historical_observation_compatibility (tests.test_observe_packaged_client.ObservationTest.test_schema_one_retains_historical_observation_compatibility) ... ok
+2026-11-17T12:57:24.5560386Z test_schema_two_requires_complete_text_workspace (tests.test_observe_packaged_client.ObservationTest.test_schema_two_requires_complete_text_workspace) ... ok
+2026-11-17T12:57:24.5612240Z test_schema_two_text_workspace_budget_bounds_are_checked (tests.test_observe_packaged_client.ObservationTest.test_schema_two_text_workspace_budget_bounds_are_checked) ... ok
+2026-11-17T12:57:24.5705301Z test_schema_two_text_workspace_counters_are_integers (tests.test_observe_packaged_client.ObservationTest.test_schema_two_text_workspace_counters_are_integers) ... ok
+2026-11-17T12:57:24.5729693Z test_schema_two_text_workspace_must_release_used_and_waiting (tests.test_observe_packaged_client.ObservationTest.test_schema_two_text_workspace_must_release_used_and_waiting) ... ok
+2026-11-17T12:57:24.6292359Z {"status": "duration_complete", "passed": true, "samples": 13, "summary": "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\tmp2ssk11zc\\realtime-309765000000\\summary.json"}
+2026-11-17T12:57:24.6330961Z test_shutdown_completion_is_explicit_and_does_not_extend_route_window (tests.test_observe_packaged_client.ObservationTest.test_shutdown_completion_is_explicit_and_does_not_extend_route_window) ... ok
+2026-11-17T12:57:24.6940243Z {"status": "duration_complete", "passed": true, "samples": 13, "summary": "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\tmpdowswn_g\\route-observation\\summary.json"}
+2026-11-17T12:57:24.6983196Z test_source_identity_is_captured_before_sampling_and_later_change_is_explicit (tests.test_observe_packaged_client.ObservationTest.test_source_identity_is_captured_before_sampling_and_later_change_is_explicit) ... ok
+2026-11-17T12:57:24.7013309Z test_stale_repeated_and_future_observations_cannot_pass (tests.test_observe_packaged_client.ObservationTest.test_stale_repeated_and_future_observations_cannot_pass) ... ok
+2026-11-17T12:57:24.7536943Z {"status": "stopped", "passed": false, "samples": 1, "summary": "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\tmpxvj7uotj\\reloads-observation\\summary.json"}
+2026-11-17T12:57:24.7585811Z test_stop_arriving_during_reload_evaluation_precedes_success (tests.test_observe_packaged_client.ObservationTest.test_stop_arriving_during_reload_evaluation_precedes_success) ... ok
+2026-11-17T12:57:24.7992989Z {"status": "stopped", "passed": false, "samples": 0, "summary": "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\tmpux_wnmna\\startup-observation\\summary.json"}
+2026-11-17T12:57:24.8035618Z test_stop_before_first_startup_sample_preserves_request_and_empty_window (tests.test_observe_packaged_client.ObservationTest.test_stop_before_first_startup_sample_preserves_request_and_empty_window) ... ok
+2026-11-17T12:57:24.8059235Z test_stop_capture_never_overwrites_an_existing_receipt_payload (tests.test_observe_packaged_client.ObservationTest.test_stop_capture_never_overwrites_an_existing_receipt_payload) ... ok
+2026-11-17T12:57:24.8478924Z {"status": "stopped", "passed": false, "samples": 1, "summary": "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\tmpgig09p2d\\route-observation\\summary.json"}
+2026-11-17T12:57:24.8521173Z test_stop_during_long_sampling_wait_does_not_wait_or_invent_another_sample (tests.test_observe_packaged_client.ObservationTest.test_stop_during_long_sampling_wait_does_not_wait_or_invent_another_sample) ... ok
+2026-11-17T12:57:24.8971351Z {"status": "stopped", "passed": false, "samples": 1, "summary": "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\tmpuzdti_61\\route-observation\\summary.json"}
+2026-11-17T12:57:24.9011663Z test_stop_preserves_native_failure_and_changed_source_evidence (tests.test_observe_packaged_client.ObservationTest.test_stop_preserves_native_failure_and_changed_source_evidence) ... ok
+2026-11-17T12:57:24.9408624Z {"status": "stopped", "passed": false, "samples": 2, "summary": "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\tmpckhpqr5f\\startup-observation\\summary.json"}
+2026-11-17T12:57:24.9447938Z test_stop_received_during_sample_precedes_startup_success (tests.test_observe_packaged_client.ObservationTest.test_stop_received_during_sample_precedes_startup_success) ... ok
+2026-11-17T12:57:24.9818875Z {"status": "observation_failed", "passed": false, "samples": 0, "summary": "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\tmpfg6v0qvn\\route-observation\\summary.json"}
+2026-11-17T12:57:24.9848641Z test_stop_request_read_failure_is_an_observation_failure (tests.test_observe_packaged_client.ObservationTest.test_stop_request_read_failure_is_an_observation_failure) ... ok
+2026-11-17T12:57:24.9861203Z test_twenty_distinct_settled_reloads_exclude_initial_startup (tests.test_observe_packaged_client.ObservationTest.test_twenty_distinct_settled_reloads_exclude_initial_startup) ... ok
+2026-11-17T12:57:24.9870367Z test_unconfirmed_or_stale_input_cannot_count_as_full_reload (tests.test_observe_packaged_client.ObservationTest.test_unconfirmed_or_stale_input_cannot_count_as_full_reload) ... ok
+2026-11-17T12:57:24.9881146Z test_wait_control_permission_error_is_not_treated_as_absence (tests.test_observe_packaged_client.ObservationTest.test_wait_control_permission_error_is_not_treated_as_absence) ... ok
+2026-11-17T12:57:24.9882470Z test_distributed_same_id_motion_passes_each_window (tests.test_observe_packaged_client.RouteWindowsTest.test_distributed_same_id_motion_passes_each_window) ... ok
+2026-11-17T12:57:24.9884485Z test_invalid_or_duplicate_trajectory_is_ineligible (tests.test_observe_packaged_client.RouteWindowsTest.test_invalid_or_duplicate_trajectory_is_ineligible) ... ok
+2026-11-17T12:57:24.9885517Z test_missing_middle_window_cannot_pass (tests.test_observe_packaged_client.RouteWindowsTest.test_missing_middle_window_cannot_pass) ... ok
+2026-11-17T12:57:24.9886987Z test_motion_without_window_edge_coverage_cannot_pass (tests.test_observe_packaged_client.RouteWindowsTest.test_motion_without_window_edge_coverage_cannot_pass) ... ok
+2026-11-17T12:57:24.9890063Z test_no_motion_is_paired_across_window_boundary (tests.test_observe_packaged_client.RouteWindowsTest.test_no_motion_is_paired_across_window_boundary) ... ok
+2026-11-17T12:57:24.9892322Z test_only_early_motion_fails_later_windows (tests.test_observe_packaged_client.RouteWindowsTest.test_only_early_motion_fails_later_windows) ... ok
+2026-11-17T12:57:24.9897271Z test_sampling_gap_or_unverified_state_breaks_window_coverage (tests.test_observe_packaged_client.RouteWindowsTest.test_sampling_gap_or_unverified_state_breaks_window_coverage) ... ok
+2026-11-17T12:57:24.9899518Z test_vehicle_id_replacement_does_not_establish_motion (tests.test_observe_packaged_client.RouteWindowsTest.test_vehicle_id_replacement_does_not_establish_motion) ... ok
+2026-11-17T12:57:24.9901810Z test_window_policy_rejects_single_or_invalid_windows (tests.test_observe_packaged_client.RouteWindowsTest.test_window_policy_rejects_single_or_invalid_windows) ... ok
+2026-11-17T12:57:24.9904137Z test_complete_generated_command_rejects_late_control_overrides_and_response_files (tests.test_packaged_client.ExtraJvmControlsTest.test_complete_generated_command_rejects_late_control_overrides_and_response_files) ... ok
+2026-11-17T12:57:24.9906709Z test_control_aliases_response_files_and_launcher_inputs_are_rejected (tests.test_packaged_client.ExtraJvmControlsTest.test_control_aliases_response_files_and_launcher_inputs_are_rejected) ... ok
+2026-11-17T12:57:24.9909020Z test_scheduler_and_extra_arguments_remain_individual_list_entries (tests.test_packaged_client.ExtraJvmControlsTest.test_scheduler_and_extra_arguments_remain_individual_list_entries) ... ok
+2026-11-17T12:57:24.9911384Z test_jfr_retains_full_history_without_size_or_age_trimming (tests.test_packaged_client.InstrumentationConfigurationTest.test_jfr_retains_full_history_without_size_or_age_trimming) ... ok
+2026-11-17T12:57:24.9913536Z test_native_tracking_requires_a_frozen_explicit_mode (tests.test_packaged_client.InstrumentationConfigurationTest.test_native_tracking_requires_a_frozen_explicit_mode) ... ok
+2026-11-17T12:57:24.9915650Z test_old_or_bounded_jfr_plans_cannot_inherit_full_history_retention (tests.test_packaged_client.InstrumentationConfigurationTest.test_old_or_bounded_jfr_plans_cannot_inherit_full_history_retention) ... ok
+2026-11-17T12:57:24.9917971Z test_uninstrumented_control_has_no_flight_recording_argument (tests.test_packaged_client.InstrumentationConfigurationTest.test_uninstrumented_control_has_no_flight_recording_argument) ... ok
+2026-11-17T12:57:24.9960045Z test_changed_jar_and_original_manifest_are_rejected (tests.test_packaged_client.LegacyArtifactTest.test_changed_jar_and_original_manifest_are_rejected) ... ok
+2026-11-17T12:57:25.0006337Z test_legacy_adapter_rejects_modern_metadata_even_with_a_catalogue_entry (tests.test_packaged_client.LegacyArtifactTest.test_legacy_adapter_rejects_modern_metadata_even_with_a_catalogue_entry) ... ok
+2026-11-17T12:57:25.0333493Z test_metadata_dependency_and_java_contracts_are_interpreted_after_fingerprinting (tests.test_packaged_client.LegacyArtifactTest.test_metadata_dependency_and_java_contracts_are_interpreted_after_fingerprinting) ... ok
+2026-11-17T12:57:25.0365036Z test_original_audited_artifacts_are_accepted_without_any_byte_changes (tests.test_packaged_client.LegacyArtifactTest.test_original_audited_artifacts_are_accepted_without_any_byte_changes) ... ok
+2026-11-17T12:57:25.0375304Z test_unlisted_wrong_loader_and_wrong_matrix_are_rejected (tests.test_packaged_client.LegacyArtifactTest.test_unlisted_wrong_loader_and_wrong_matrix_are_rejected) ... ok
+2026-11-17T12:57:25.0395379Z test_accepts_consistent_packaged_identity (tests.test_packaged_client.PackagedArtifactTest.test_accepts_consistent_packaged_identity) ... ok
+2026-11-17T12:57:25.0424730Z test_optional_embedded_java_and_variant_must_agree_with_matrix (tests.test_packaged_client.PackagedArtifactTest.test_optional_embedded_java_and_variant_must_agree_with_matrix) ... ok
+2026-11-17T12:57:25.0444661Z test_rejects_changed_jar_bytes (tests.test_packaged_client.PackagedArtifactTest.test_rejects_changed_jar_bytes) ... ok
+2026-11-17T12:57:25.0464512Z test_rejects_embedded_manifest_disagreement (tests.test_packaged_client.PackagedArtifactTest.test_rejects_embedded_manifest_disagreement) ... ok
+2026-11-17T12:57:25.0484119Z test_rejects_self_consistent_wrong_mtr_identity (tests.test_packaged_client.PackagedArtifactTest.test_rejects_self_consistent_wrong_mtr_identity) ... ok
+2026-11-17T12:57:25.0503526Z test_rejects_unrequested_variant (tests.test_packaged_client.PackagedArtifactTest.test_rejects_unrequested_variant) ... ok
+2026-11-17T12:57:25.0533269Z test_rejects_wrong_minecraft_or_java_even_with_matching_hash (tests.test_packaged_client.PackagedArtifactTest.test_rejects_wrong_minecraft_or_java_even_with_matching_hash) ... ok
+2026-11-17T12:57:25.1223789Z test_absent_configuration_directory_presence_is_frozen (tests.test_packaged_client.PerformancePreparationTest.test_absent_configuration_directory_presence_is_frozen) ... ok
+2026-11-17T12:57:25.2582766Z test_changed_added_removed_library_and_config_inputs_are_rejected (tests.test_packaged_client.PerformancePreparationTest.test_changed_added_removed_library_and_config_inputs_are_rejected) ... ok
+2026-11-17T12:57:25.3867888Z test_environment_and_incomplete_jvm_source_controls_are_rejected (tests.test_packaged_client.PerformancePreparationTest.test_environment_and_incomplete_jvm_source_controls_are_rejected) ... ok
+2026-11-17T12:57:25.4914328Z test_frozen_workload_bytes_and_launcher_command_cannot_change (tests.test_packaged_client.PerformancePreparationTest.test_frozen_workload_bytes_and_launcher_command_cannot_change) ... ok
+2026-11-17T12:57:25.5730642Z test_full_preparation_freezes_complete_closure_and_launch_returns_actual_child (tests.test_packaged_client.PerformancePreparationTest.test_full_preparation_freezes_complete_closure_and_launch_returns_actual_child) ... ok
+2026-11-17T12:57:25.6196508Z test_historical_plan_fields_and_windows_world_paths_still_launch_normally (tests.test_packaged_client.PerformancePreparationTest.test_historical_plan_fields_and_windows_world_paths_still_launch_normally) ... ok
+2026-11-17T12:57:25.7011794Z test_launch_publication_failure_reaps_the_real_owned_child_and_keeps_actual_exit (tests.test_packaged_client.PerformancePreparationTest.test_launch_publication_failure_reaps_the_real_owned_child_and_keeps_actual_exit) ... ok
+2026-11-17T12:57:25.7313403Z test_legacy_product_probe_smoke_fault_and_binary_controls_are_rejected_before_copy (tests.test_packaged_client.PerformancePreparationTest.test_legacy_product_probe_smoke_fault_and_binary_controls_are_rejected_before_copy) ... ok
+2026-11-17T12:57:25.8019523Z test_live_diagnostic_capability_requires_complete_supported_embedded_contract (tests.test_packaged_client.PerformancePreparationTest.test_live_diagnostic_capability_requires_complete_supported_embedded_contract) ... ok
+2026-11-17T12:57:25.8281633Z test_missing_or_multiple_neutral_probes_fail_before_copying (tests.test_packaged_client.PerformancePreparationTest.test_missing_or_multiple_neutral_probes_fail_before_copying) ... ok
+2026-11-17T12:57:25.8973242Z test_neutral_observer_rejects_changed_binary_wrong_target_and_fabricated_capability (tests.test_packaged_client.PerformancePreparationTest.test_neutral_observer_rejects_changed_binary_wrong_target_and_fabricated_capability) ... ok
+2026-11-17T12:57:25.9879718Z test_nonperformance_preparation_remains_compatible (tests.test_packaged_client.PerformancePreparationTest.test_nonperformance_preparation_remains_compatible) ... ok
+2026-11-17T12:57:26.0554129Z test_old_plans_cannot_qualify_as_performance_preparation (tests.test_packaged_client.PerformancePreparationTest.test_old_plans_cannot_qualify_as_performance_preparation) ... ok
+2026-11-17T12:57:26.6500889Z test_real_public_launcher_command_is_frozen_and_loader_heap_overrides_are_rejected (tests.test_packaged_client.PerformancePreparationTest.test_real_public_launcher_command_is_frozen_and_loader_heap_overrides_are_rejected) ... ok
+2026-11-17T12:57:26.7684982Z test_runtime_modules_native_jvm_and_configuration_mutations_are_rejected (tests.test_packaged_client.PerformancePreparationTest.test_runtime_modules_native_jvm_and_configuration_mutations_are_rejected) ... ok
+2026-11-17T12:57:26.8927587Z test_same_contents_different_instance_roots_remain_comparable (tests.test_packaged_client.PerformancePreparationTest.test_same_contents_different_instance_roots_remain_comparable) ... ok
+2026-11-17T12:57:26.9593402Z test_treatment_identity_is_excluded_but_other_content_settings_and_order_are_included (tests.test_packaged_client.PerformancePreparationTest.test_treatment_identity_is_excluded_but_other_content_settings_and_order_are_included) ... ok
+2026-11-17T12:57:27.0383406Z test_unconfirmed_cleanup_retains_pid_and_cannot_report_a_successful_exit (tests.test_packaged_client.PerformancePreparationTest.test_unconfirmed_cleanup_retains_pid_and_cannot_report_a_successful_exit) ... ok
+2026-11-17T12:57:27.1104736Z test_world_options_pack_and_unlisted_mod_mutations_are_rejected (tests.test_packaged_client.PerformancePreparationTest.test_world_options_pack_and_unlisted_mod_mutations_are_rejected) ... ok
+2026-11-17T12:57:27.1513064Z test_retains_real_zero_and_nonzero_exits (tests.test_packaged_client.ProcessExitObservationTest.test_retains_real_zero_and_nonzero_exits) ... ok
+2026-11-17T12:57:27.6727053Z test_timeout_leaves_the_actual_child_running (tests.test_packaged_client.ProcessExitObservationTest.test_timeout_leaves_the_actual_child_running) ... ok
+2026-11-17T12:57:27.6729704Z test_frames_exclude_pause_menu_and_cross_window_interval (tests.test_performance_analysis.PerformanceAnalysisTests.test_frames_exclude_pause_menu_and_cross_window_interval) ... ok
+2026-11-17T12:57:27.6732773Z test_gc_top_level_pauses_do_not_double_count_children (tests.test_performance_analysis.PerformanceAnalysisTests.test_gc_top_level_pauses_do_not_double_count_children) ... ok
+2026-11-17T12:57:27.6735225Z test_invalid_windows_and_frame_intervals_cannot_create_fps (tests.test_performance_analysis.PerformanceAnalysisTests.test_invalid_windows_and_frame_intervals_cannot_create_fps) ... ok
+2026-11-17T12:57:27.6736796Z test_iso_duration_units (tests.test_performance_analysis.PerformanceAnalysisTests.test_iso_duration_units) ... ok
+2026-11-17T12:57:27.6737952Z test_quantiles_and_empty_window (tests.test_performance_analysis.PerformanceAnalysisTests.test_quantiles_and_empty_window) ... ok
+2026-11-17T12:57:27.6739477Z test_spans_crossing_both_window_edges_are_explicitly_excluded (tests.test_performance_analysis.PerformanceAnalysisTests.test_spans_crossing_both_window_edges_are_explicitly_excluded) ... ok
+2026-11-17T12:57:27.6748375Z test_completion_timestamp_is_read_only_after_writer_closed (tests.test_reload_before_recorder.ReaderOwnershipTest.test_completion_timestamp_is_read_only_after_writer_closed) ... ok
+2026-11-17T12:57:27.6751642Z test_prefix_read_exception_closes_owned_reader (tests.test_reload_before_recorder.ReaderOwnershipTest.test_prefix_read_exception_closes_owned_reader) ... ok
+2026-11-17T12:57:27.7884801Z test_actual_process_exit_during_capture_is_terminal (tests.test_reload_before_recorder.RecorderTest.test_actual_process_exit_during_capture_is_terminal) ... ok
+2026-11-17T12:57:27.9611878Z test_confirm_uses_existing_api_and_retains_actual_failed_input (tests.test_reload_before_recorder.RecorderTest.test_confirm_uses_existing_api_and_retains_actual_failed_input) ... ok
+2026-11-17T12:57:28.1299857Z test_coordinated_ledger_and_result_change_cannot_replace_sealed_before (tests.test_reload_before_recorder.RecorderTest.test_coordinated_ledger_and_result_change_cannot_replace_sealed_before) ... ok
+2026-11-17T12:57:28.3161566Z test_duplicate_source_reads_are_preserved_but_content_blobs_are_not_duplicated (tests.test_reload_before_recorder.RecorderTest.test_duplicate_source_reads_are_preserved_but_content_blobs_are_not_duplicated) ... ok
+2026-11-17T12:57:28.4516023Z test_equal_publication_times_are_ambiguous (tests.test_reload_before_recorder.RecorderTest.test_equal_publication_times_are_ambiguous) ... ok
+2026-11-17T12:57:28.5490054Z test_failed_initialization_closes_the_owned_process (tests.test_reload_before_recorder.RecorderTest.test_failed_initialization_closes_the_owned_process) ... ok
+2026-11-17T12:57:28.7140635Z test_future_external_confirmation_is_preserved_as_rejected (tests.test_reload_before_recorder.RecorderTest.test_future_external_confirmation_is_preserved_as_rejected) ... ok
+2026-11-17T12:57:29.0884289Z test_game_screen_pause_counts_identity_and_native_pending_reject_before (tests.test_reload_before_recorder.RecorderTest.test_game_screen_pause_counts_identity_and_native_pending_reject_before) ... ok
+2026-11-17T12:57:29.1271743Z test_genuine_read_failure_is_not_retried_or_published (tests.test_reload_before_recorder.RecorderTest.test_genuine_read_failure_is_not_retried_or_published) ... ok
+2026-11-17T12:57:29.2546328Z test_interrupted_or_locked_confirmation_remains_an_explicit_ledger_failure (tests.test_reload_before_recorder.RecorderTest.test_interrupted_or_locked_confirmation_remains_an_explicit_ledger_failure) ... ok
+2026-11-17T12:57:29.4399728Z test_later_ineligible_observation_prevents_fallback_to_prior_good_snapshot (tests.test_reload_before_recorder.RecorderTest.test_later_ineligible_observation_prevents_fallback_to_prior_good_snapshot) ... ok
+2026-11-17T12:57:29.5991083Z test_log_truncation_cannot_become_a_new_valid_prefix (tests.test_reload_before_recorder.RecorderTest.test_log_truncation_cannot_become_a_new_valid_prefix) ... ok
+2026-11-17T12:57:29.7231836Z test_missing_or_reordered_journal_records_fail_closed (tests.test_reload_before_recorder.RecorderTest.test_missing_or_reordered_journal_records_fail_closed) ... ok
+2026-11-17T12:57:29.8300105Z test_native_callback_advancement_is_preserved_as_ineligible (tests.test_reload_before_recorder.RecorderTest.test_native_callback_advancement_is_preserved_as_ineligible) ... ok
+2026-11-17T12:57:29.9875213Z test_omitted_attempt_cannot_be_hidden_from_full_chain_reader (tests.test_reload_before_recorder.RecorderTest.test_omitted_attempt_cannot_be_hidden_from_full_chain_reader) ... ok
+2026-11-17T12:57:30.2256442Z test_one_publication_cannot_be_reused_for_multiple_inputs (tests.test_reload_before_recorder.RecorderTest.test_one_publication_cannot_be_reused_for_multiple_inputs) ... ok
+2026-11-17T12:57:30.4195210Z test_publication_after_input_does_not_replace_real_before_evidence (tests.test_reload_before_recorder.RecorderTest.test_publication_after_input_does_not_replace_real_before_evidence) ... ok
+2026-11-17T12:57:30.5455413Z test_real_contract_fixture_publishes_only_after_both_owned_writers_close (tests.test_reload_before_recorder.RecorderTest.test_real_contract_fixture_publishes_only_after_both_owned_writers_close) ... ok
+2026-11-17T12:57:30.6816554Z test_receipt_write_failure_retains_payload_and_never_publishes (tests.test_reload_before_recorder.RecorderTest.test_receipt_write_failure_retains_payload_and_never_publishes) ... ok
+2026-11-17T12:57:30.7194807Z test_review_contract_is_frozen_and_change_stops_before_reading_snapshot (tests.test_reload_before_recorder.RecorderTest.test_review_contract_is_frozen_and_change_stops_before_reading_snapshot) ... ok
+2026-11-17T12:57:30.9028910Z test_selection_chooses_unique_nearest_completed_publication (tests.test_reload_before_recorder.RecorderTest.test_selection_chooses_unique_nearest_completed_publication) ... ok
+2026-11-17T12:57:31.0226000Z test_selection_rejects_stale_snapshot_even_if_receipt_is_new (tests.test_reload_before_recorder.RecorderTest.test_selection_rejects_stale_snapshot_even_if_receipt_is_new) ... ok
+2026-11-17T12:57:31.1884759Z test_stale_attempt_is_included_as_rejected_not_removed_from_input_stream (tests.test_reload_before_recorder.RecorderTest.test_stale_attempt_is_included_as_rejected_not_removed_from_input_stream) ... ok
+2026-11-17T12:57:31.3222202Z test_stale_snapshot_is_retained_ineligible_without_publication (tests.test_reload_before_recorder.RecorderTest.test_stale_snapshot_is_retained_ineligible_without_publication) ... ok
+2026-11-17T12:57:31.4442562Z test_tampered_payload_and_publication_receipt_are_rejected (tests.test_reload_before_recorder.RecorderTest.test_tampered_payload_and_publication_receipt_are_rejected) ... ok
+2026-11-17T12:57:31.5765005Z test_tampered_raw_blob_fails_integrity (tests.test_reload_before_recorder.RecorderTest.test_tampered_raw_blob_fails_integrity) ... ok
+2026-11-17T12:57:31.5778311Z test_aa_drift_cannot_be_called_equivalent (tests.test_source_experiment.SourceExperimentTests.test_aa_drift_cannot_be_called_equivalent) ... ok
+2026-11-17T12:57:31.5779531Z test_absolute_and_paired_relative_statistics (tests.test_source_experiment.SourceExperimentTests.test_absolute_and_paired_relative_statistics) ... ok
+2026-11-17T12:57:31.6154492Z test_audit_rejects_tampered_log_and_mutated_plan (tests.test_source_experiment.SourceExperimentTests.test_audit_rejects_tampered_log_and_mutated_plan) ... ok
+2026-11-17T12:57:31.6183332Z test_environment_cannot_silently_inject_jvm_settings (tests.test_source_experiment.SourceExperimentTests.test_environment_cannot_silently_inject_jvm_settings) ... ok
+2026-11-17T12:57:31.6195685Z test_exclusive_save_preserves_existing_evidence (tests.test_source_experiment.SourceExperimentTests.test_exclusive_save_preserves_existing_evidence) ... ok
+2026-11-17T12:57:31.6251666Z Measuring 001-ab-plain-b
+2026-11-17T12:57:31.6276219Z Measuring 001-ab-plain-a
+2026-11-17T12:57:31.6299930Z Measuring 001-ab-profile-b
+2026-11-17T12:57:31.6324252Z Measuring 001-ab-profile-a
+2026-11-17T12:57:31.6348822Z Measuring 001-aa-profile-b
+2026-11-17T12:57:31.6374597Z Measuring 001-aa-profile-a
+2026-11-17T12:57:31.6399648Z Measuring 001-aa-plain-a
+2026-11-17T12:57:31.6425412Z Measuring 001-aa-plain-b
+2026-11-17T12:57:31.6460637Z {"status": "invalid", "gates": {}, "report": "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\tmpmt_ihai2\\analysis.json"}
+2026-11-17T12:57:31.6492337Z test_failed_jvms_are_all_preserved_and_cannot_be_rerun (tests.test_source_experiment.SourceExperimentTests.test_failed_jvms_are_all_preserved_and_cannot_be_rerun) ... ok
+2026-11-17T12:57:31.6532245Z test_independent_utf8_input_oracle_and_relative_paths (tests.test_source_experiment.SourceExperimentTests.test_independent_utf8_input_oracle_and_relative_paths) ... ok
+2026-11-17T12:57:31.6539432Z test_interval_uses_independent_pairs_not_queries (tests.test_source_experiment.SourceExperimentTests.test_interval_uses_independent_pairs_not_queries) ... ok
+2026-11-17T12:57:31.6550339Z test_known_improvement_with_stable_controls_passes (tests.test_source_experiment.SourceExperimentTests.test_known_improvement_with_stable_controls_passes) ... ok
+2026-11-17T12:57:31.6572272Z test_missing_failed_duplicate_and_reordered_runs_are_invalid (tests.test_source_experiment.SourceExperimentTests.test_missing_failed_duplicate_and_reordered_runs_are_invalid) ... ok
+2026-11-17T12:57:31.6608201Z test_nonfinite_heap_controls_and_windows_rejected (tests.test_source_experiment.SourceExperimentTests.test_nonfinite_heap_controls_and_windows_rejected) ... ok
+2026-11-17T12:57:31.6609501Z test_only_artifact_version_may_differ_in_target_controls (tests.test_source_experiment.SourceExperimentTests.test_only_artifact_version_may_differ_in_target_controls) ... ok
+2026-11-17T12:57:31.6615108Z test_policy_rejects_unknown_missing_and_posthoc_shortcuts (tests.test_source_experiment.SourceExperimentTests.test_policy_rejects_unknown_missing_and_posthoc_shortcuts) ... ok
+2026-11-17T12:57:31.6619352Z test_schedule_balances_order_within_every_stratum (tests.test_source_experiment.SourceExperimentTests.test_schedule_balances_order_within_every_stratum) ... ok
+2026-11-17T12:57:31.6631642Z test_shared_wrong_answer_and_wrong_warmup_rejected (tests.test_source_experiment.SourceExperimentTests.test_shared_wrong_answer_and_wrong_warmup_rejected) ... ok
+2026-11-17T12:57:31.6641660Z test_timing_regression_blocks_allocation_gain (tests.test_source_experiment.SourceExperimentTests.test_timing_regression_blocks_allocation_gain) ... ok
+2026-11-17T12:57:31.6642781Z test_zero_reference_is_not_an_infinite_or_zero_improvement (tests.test_source_experiment.SourceExperimentTests.test_zero_reference_is_not_an_infinite_or_zero_improvement) ... ok
+2026-11-17T12:57:31.6712748Z test_exact_unicode_and_long_command_and_expected_buffer_growth (tests.test_windows_process_identity.CommandBufferTest.test_exact_unicode_and_long_command_and_expected_buffer_growth) ... ok
+2026-11-17T12:57:31.6717111Z test_native_statuses_sizes_and_unstable_growth_fail_closed (tests.test_windows_process_identity.CommandBufferTest.test_native_statuses_sizes_and_unstable_growth_fail_closed) ... ok
+2026-11-17T12:57:31.6718778Z test_only_qualified_os_and_same_native_amd64_bitness_are_accepted (tests.test_windows_process_identity.CommandBufferTest.test_only_qualified_os_and_same_native_amd64_bitness_are_accepted) ... ok
+2026-11-17T12:57:31.6722251Z test_truncated_odd_null_and_out_of_bounds_unicode_are_rejected_before_dereference (tests.test_windows_process_identity.CommandBufferTest.test_truncated_odd_null_and_out_of_bounds_unicode_are_rejected_before_dereference) ... ok
+2026-11-17T12:57:31.6725554Z test_all_queries_share_one_handle_and_creation_and_liveness_bracket_the_capture (tests.test_windows_process_identity.IdentitySequenceTest.test_all_queries_share_one_handle_and_creation_and_liveness_bracket_the_capture) ... ok
+2026-11-17T12:57:31.6730971Z test_image_buffer_growth_is_bounded_and_preserves_the_exact_path (tests.test_windows_process_identity.IdentitySequenceTest.test_image_buffer_growth_is_bounded_and_preserves_the_exact_path) ... ok
+2026-11-17T12:57:31.6736521Z test_real_win32_error_results_and_recorded_exit_time_are_not_accepted (tests.test_windows_process_identity.IdentitySequenceTest.test_real_win32_error_results_and_recorded_exit_time_are_not_accepted) ... ok
+2026-11-17T12:57:31.6739333Z test_actual_child_exit_between_native_size_and_data_queries_is_rejected (tests.test_windows_process_identity.OwnedChildTest.test_actual_child_exit_between_native_size_and_data_queries_is_rejected) ... skipped 'Native identity queries are qualified only on Windows 10 build 19045, native AMD64 caller and target.'
+2026-11-17T12:57:31.6750483Z test_actual_same_handle_identity_matches_full_child_argv_without_a_subprocess_query (tests.test_windows_process_identity.OwnedChildTest.test_actual_same_handle_identity_matches_full_child_argv_without_a_subprocess_query) ... skipped 'Native identity queries are qualified only on Windows 10 build 19045, native AMD64 caller and target.'
+2026-11-17T12:57:31.6823865Z test_constructor_closes_its_handle_on_every_identity_failure (tests.test_windows_process_identity.ProcessOwnershipTest.test_constructor_closes_its_handle_on_every_identity_failure) ... ok
+2026-11-17T12:57:31.6825524Z test_every_dependent_tool_freezes_the_native_identity_source (tests.test_windows_process_identity.ProcessOwnershipTest.test_every_dependent_tool_freezes_the_native_identity_source) ... ok
+2026-11-17T12:57:31.6842627Z test_missing_snapshot_preserves_the_real_filesystem_error (tests.test_windows_snapshot_io.WindowsSnapshotSharingTests.test_missing_snapshot_preserves_the_real_filesystem_error) ... ok
+2026-11-17T12:57:31.6858405Z test_ordinary_python_reader_reproduces_denied_atomic_replacement (tests.test_windows_snapshot_io.WindowsSnapshotSharingTests.test_ordinary_python_reader_reproduces_denied_atomic_replacement) ... ok
+2026-11-17T12:57:31.6896331Z test_shared_reader_allows_replacefile_and_preserves_one_file_version (tests.test_windows_snapshot_io.WindowsSnapshotSharingTests.test_shared_reader_allows_replacefile_and_preserves_one_file_version) ... ok
+2026-11-17T12:57:31.6910925Z test_shared_reader_still_exposes_movefileex_overwrite_limitation (tests.test_windows_snapshot_io.WindowsSnapshotSharingTests.test_shared_reader_still_exposes_movefileex_overwrite_limitation) ... ok
+2026-11-17T12:57:31.6912139Z 
+2026-11-17T12:57:31.6912357Z ======================================================================
+2026-11-17T12:57:31.6913350Z FAIL: test_legacy_full_discovery_contains_the_same_test_ids (tests.test_minecraft_testkit.TestkitTest.test_legacy_full_discovery_contains_the_same_test_ids)
+2026-11-17T12:57:31.6914375Z ----------------------------------------------------------------------
+2026-11-17T12:57:31.6914885Z Traceback (most recent call last):
+2026-11-17T12:57:31.6920624Z   File "D:\a\MTR-Memory-Saver\MTR-Memory-Saver\tests\test_minecraft_testkit.py", line 79, in test_legacy_full_discovery_contains_the_same_test_ids
+2026-11-17T12:57:31.6921578Z     self.assertEqual(sorted(ids(legacy)), sorted(ids(current)))
+2026-11-17T12:57:31.6922309Z AssertionError: Lists differ: ['test_wait_reload_ready.WaitReloadReadyTest.te[34295 chars]ion'] != ['tests.test_ci.ReleaseTest.test_complete_bundl[32554 chars]ion']
+2026-11-17T12:57:31.6922880Z 
+2026-11-17T12:57:31.6922994Z First differing element 0:
+2026-11-17T12:57:31.6923324Z 'test_wait_reload_ready.WaitReloadReadyTest.te[61 chars]tion'
+2026-11-17T12:57:31.6923732Z 'tests.test_ci.ReleaseTest.test_complete_bundl[43 chars]ails'
+2026-11-17T12:57:31.6923983Z 
+2026-11-17T12:57:31.6924097Z First list contains 16 additional elements.
+2026-11-17T12:57:31.6924397Z First extra element 286:
+2026-11-17T12:57:31.6924883Z 'tests.test_source_experiment.SourceExperimentTests.test_zero_reference_is_not_an_infinite_or_zero_improvement'
+2026-11-17T12:57:31.6925312Z 
+2026-11-17T12:57:31.6925484Z Diff is 35362 characters long. Set self.maxDiff to None to see it.
+2026-11-17T12:57:31.6925745Z 
+2026-11-17T12:57:31.6925904Z ----------------------------------------------------------------------
+2026-11-17T12:57:31.6926236Z Ran 286 tests in 12.982s
+2026-11-17T12:57:31.6926380Z 
+2026-11-17T12:57:31.6926492Z FAILED (failures=1, skipped=2)
+2026-11-17T12:57:31.8093626Z ##[error]Process completed with exit code 1.
+2026-11-17T12:57:31.8293606Z Post job cleanup.
+2026-11-17T12:57:32.0119056Z [command]"C:\Program Files\Git\bin\git.exe" version
+2026-11-17T12:57:32.0396009Z git version 2.56.1.windows.1
+2026-11-17T12:57:32.0446219Z Copying 'C:\Users\runneradmin\.gitconfig' to 'D:\a\_temp\6d3a9113-6924-402a-82e1-bd12e0d5a712\.gitconfig'
+2026-11-17T12:57:32.0467187Z Temporarily overriding HOME='D:\a\_temp\6d3a9113-6924-402a-82e1-bd12e0d5a712' before making global git config changes
+2026-11-17T12:57:32.0468020Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-17T12:57:32.0477112Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory D:\a\MTR-Memory-Saver\MTR-Memory-Saver
+2026-11-17T12:57:32.0775952Z Removing SSH command configuration
+2026-11-17T12:57:32.0786612Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2026-11-17T12:57:32.1086721Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2026-11-17T12:57:32.5893669Z Removing HTTP extra header
+2026-11-17T12:57:32.5903764Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-17T12:57:32.6261838Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2026-11-17T12:57:33.0893971Z Removing includeIf entries pointing to credentials config files
+2026-11-17T12:57:33.0904648Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-17T12:57:33.1210167Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2026-11-17T12:57:33.6059718Z Cleaning up orphan processes

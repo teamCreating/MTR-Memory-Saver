@@ -14,6 +14,7 @@
 | `test_packaged_client` / `test_memory_build_classpath` | 发布身份、启动参数、历史构建输入 |
 | `test_observe_packaged_client` / `test_neutral_reload_adapter` / `test_reload_before_recorder` | 观察、重载证据链与录制器契约 |
 | `test_native_log_stream` / `test_native_diagnostic_review` / `test_native_model_trace` | 滚动日志与原生诊断归因 |
+| `test_wait_reload_ready` | 原生日志错误提前失败、冻结生产者重放、基线与连续稳定窗口、截止时间和句柄关闭 |
 | `test_windows_process_identity` / `test_windows_snapshot_io` | Windows 原生身份和文件共享语义 |
 | `test_client_experiment` / `test_source_experiment` / `test_performance_analysis` | 实验设计、重放、性能分析规则 |
 | `test_ci` / `test_minecraft_testkit` | 发布守卫、脚本索引与样例完整性 |
