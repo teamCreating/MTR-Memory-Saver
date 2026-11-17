@@ -1,0 +1,22 @@
+Exception in thread "main" java.lang.OutOfMemoryError: Java heap space
+	at java.base/jdk.internal.misc.Unsafe.allocateUninitializedArray0(Unsafe.java:1387)
+	at java.base/jdk.internal.misc.Unsafe.allocateUninitializedArray(Unsafe.java:1380)
+	at java.base/java.lang.StringConcatHelper.newArray(StringConcatHelper.java:511)
+	at java.base/java.lang.String.join(String.java:3504)
+	at java.base/java.lang.String.join(String.java:3570)
+	at site.benli06.SegmentedResourceText.read(SegmentedResourceText.java:47)
+	at site.benli06.StreamingObjInputAudit.main(StreamingObjInputAudit.java:45)
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':streamingObjInputAudit'.
+> Process 'command 'C:\Users\ben_l\Saved Games\Yuuniverse 1.20.1 Shenyang\porting-output\work\tools\jdk21\jdk-21.0.11+10\bin\java.exe'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 29s

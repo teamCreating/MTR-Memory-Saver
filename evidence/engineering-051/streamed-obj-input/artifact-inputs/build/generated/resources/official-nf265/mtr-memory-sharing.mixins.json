@@ -1,0 +1,30 @@
+{
+    "required": true,
+    "minVersion": "0.8",
+    "package": "site.benli06.mixin",
+    "plugin": "site.benli06.CompatibilityPlugin",
+    "compatibilityLevel": "JAVA_21",
+    "client": [
+        "ModelLoaderAccess",
+        "ModelLoaderCompletionMixin",
+        "BlockbenchParseExecutorMixin",
+        "VehicleModelFactoryMixin",
+        "ResourceReloadMixin",
+        "PackedModelGroupMixin",
+        "DisplayPartAccess",
+        "DisplaySelectionMixin",
+        "SourceLifetimeMixin",
+        "VehicleJsonCacheMixin",
+        "VehicleJsonEpochMixin",
+        "CompressedResourceTextMixin",
+        "SegmentedResourceTextMixin",
+        "VertexColorMixin",
+        "ResourceTextReadMixin",
+        "ObjModelInputMixin",
+        "ObjVehicleFactoryMixin",
+        "ObjSourceLifetimeMixin"
+    ],
+    "injectors": {
+        "defaultRequire": 1
+    }
+}

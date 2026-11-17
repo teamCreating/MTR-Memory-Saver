@@ -1,0 +1,27 @@
+{
+    "kind": "acceptance-probe",
+    "version": "0.4.8",
+    "target": "official-nf248",
+    "mtrSha256": "ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa",
+    "neoForge": "21.1.248",
+    "artifact": "mtr-memory-saver-official-nf248-0.4.8-acceptance-probe.jar",
+    "sha256": "f1f146182af9401f94d340c701c6fe33cfa2c7f24f903028a64dd7a519fab05b",
+    "companionArtifact": "mtr-memory-saver-official-nf248-0.4.8.jar",
+    "companionSha256": "943b3d455fa3ce9d3ede74bc1a2071ece7bf70b09d9b7f829027347b53a9b588",
+    "inputs": {
+        "build.gradle": "aaa988c229807964a0a11c7933b1ef0c27d1597c0f73bd23d4e467f56fa76344",
+        "build/generated/probe/official-nf248/META-INF/neoforge.mods.toml": "fbc4849dff1bc8ea9fc3139564d8c496bc72b9d613b6c6a3c2777b78b785a77f",
+        "build/generated/probe/official-nf248/mtr-memory-acceptance.mixins.json": "6f3902ce015947632aa52db5a2c0cd6dc4af7b8e9eff1636b747cdaddf09996a",
+        "config/targets.json": "4f3ae6a5cfdd5c3fbe580e187a7ba1044561275e33ed9ec03fbc89401dec9b66",
+        "tools/probes/common/java/site/benli06/probe/LoaderLifecycleProbe.java": "efeb3c36c7c2689f01d90728ada20cdff9c13dcb0ce148ba18330d6b590628cf",
+        "tools/probes/common/java/site/benli06/probe/NativeParserPause.java": "54dc2943615f8d432f668d115be32a2359543e570e3d54c793ee9608065a6010",
+        "tools/probes/common/java/site/benli06/probe/NativeResourceReadFixture.java": "97a7ec8dcb2e30a25cf929a538b44e9d0fb40c4590a026638cc80ca3ca0106e2",
+        "tools/probes/common/java/site/benli06/probe/PackagedClientObservation.java": "56dc0b5ab935bcb7f60b39978e1274207adedb698af65a695ecd84567b94c1c8",
+        "tools/probes/common/java/site/benli06/probe/PerformanceProbe.java": "993026a9ceebb6525a82f785f7396969b5ff04523abada7251cd72539a3bc425",
+        "tools/probes/common/java/site/benli06/probe/mixin/NativeParserPauseMixin.java": "9bd240c0c9fa6302199239c3fab2cba0af4a43c0bf91c0199e1af92e1167e7b3",
+        "tools/probes/common/java/site/benli06/probe/mixin/NativeResourceReadFixtureMixin.java": "0ab012660992305e9080fb2da763fbedd5afd966d0bed05e62ac3752d32b614c",
+        "tools/probes/common/java/site/benli06/probe/mixin/ResourceEpochObservationMixin.java": "3462c80f81676d83980483ea94e5916bf358dbb381619caa8699decc8f65f14c",
+        "tools/probes/io/java/dev/abenli/probeio/AtomicSnapshot.java": "167b2df6238169a6dad2ce27ec0849b12ea5dd041442829179df5b5277d81cae",
+        "tools/probes/official/java/site/benli06/probe/ObjInputProbe.java": "c6021a4e659ce6643e7fee0625a446d5321892a4ba2c86e88f057d087696e495"
+    }
+}

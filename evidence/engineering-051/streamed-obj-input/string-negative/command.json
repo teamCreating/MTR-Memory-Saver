@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "gradlew.bat",
+    "--no-daemon",
+    "-Ptarget=official-nf248",
+    "streamingObjInputAudit",
+    "-PobjAuditMode=string",
+    "-PobjAuditDirectory=C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\streamed-obj048-validation\\04-string-negative\\text"
+  ],
+  "started_at": "2026-11-17T15:07:03.348942+00:00",
+  "scope": "One full-String negative allocation control; no JUnit test task or game launched",
+  "exit_code": 1,
+  "ended_at": "2026-11-17T15:07:33.356492+00:00",
+  "source_unchanged": true
+}

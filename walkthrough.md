@@ -614,3 +614,9 @@ Pre-commit staged-byte audit first exceeded Windows command-line length (WinErro
 两官方目标 test/verifyRelease/probeJar/probeManifest 与两项 64 MiB allocation controls 均真实 exit0，各105 tests/0失败/0跳过，源前后 changed=[]。40 MiB OBJ fixture 的 native parser/digest/cleanup 正控制成功；同输入/堆/fixture限额下整 String 负对照真实 exit1，在 String.join OOM，原 stdout/stderr/exit 保留。fixture显式限额不是生产默认堆保证。首轮定向46项中一项材质 oracle 漏用原路径 resolver，原失败 source/XML 已保留；修正对照后6/6和两套完整105通过。
 
 新 NF248 JAR943b3d455fa3ce9d3ede74bc1a2071ece7bf70b09d9b7f829027347b53a9b588；NF265 JAR134770acd53ec81325993604e8441d213d9ea1be990adb3bc2877b0cb7cc17dd。两实际新 JVM57308/62672 各24 lifecycle+18 resource+27 OBJ布尔检查全true、正常exit0；含真实网格发布、OBJ/MTL不开String、close/size/读故障、同键修正重试、flip分离、epoch重读、unknown/declined合同及退休late owner/ticket关闭。错误 MTR 指纹 JVM44564/67416 均在注册前fatal exit1。对应封存前原始数据在 .cache/acceptance/streamed-obj048-validation 与 streamed-obj048-client-validation；JVM exit与collector wrapper exit分开读取。完整16包的新JVM69764已经启动，尚未获得20连续重载通过；性能对照/observer-off/独立帧源仍未完成。当前发布门槛仅用户指定1/2/5/6，交互回归与2小时路线不计入本次release门槛。
+
+## 2026-11-18T00:33:32.1977925+08:00 — 封存 OBJ/MTL 修订的工程与真实客户端证据
+
+将 a632149 的修订产物、源文件前后指纹、105/105×2 工程检查、64 MiB 原生流式正控制与 String.join OOM 负控制、首轮材质 oracle 失败及修正记录，以及四个已结束的实际客户端检查封存到 evidence/engineering-051/streamed-obj-input。NF248/NF265 各69项实际布尔检查通过并正常退出；两项错误二进制检查均在注册前拒绝并退出1。四份 JFR 的真实 summary exit0 和哈希元数据保存，未复制 JFR、世界、MTR 或第三方依赖。Runner 源拷贝是运行后参考，未冒称预冻结收据。
+
+独立 sealed-only verify.py 实际验证508个payload；四个自有候选/probe JAR显式纳入Git，索引另计。历史脚本目录524→528，保留既有记录，minecraft_testkit verify实际通过。当前16包3GiB新JVM35348仍在进行真实重载，旧无效按键及含HeapDump选项的误报会话不计数。本次封存不代表20次重载或性能门槛通过；仅用户指定1/2/5/6范围。
