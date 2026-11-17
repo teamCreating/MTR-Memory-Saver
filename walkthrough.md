@@ -489,3 +489,13 @@ CI从config/targets.json派生Java及官方目标，Linux/Windows构建、Java/n
 后续远端Linux工具测试和四个官方构建均成功；Windows只剩test_background_auxiliary_keeps_sampling_while_provider_is_blocked失败。runner上下文已证明TEMP为RUNNER~1短名、resolve为runneradmin，前批路径修正已消除其余路径失败。对剩余用例注入每次等待后60ms受控调度延迟，重现相同code1：9/9采样有效、NMT结果实际交付、唯一失败distributed_route_windows_unverified。该并发用例把0.6秒分成3个200ms路线窗口，对机器调度有无关要求。
 
 仅修改测试夹具：仍要求后台阻塞期间主循环推进4次，收到实际completed事件才写stop-request；5秒仅作看门狗，不授予路线成功。断言stopped/passedfalse、完整采样有效、唯一预期未完成路线原因、原事件链和NMT计数、worker已退出。生产时长/采样/路线覆盖/错误规则未变。相同60ms延迟下修正用例通过，实际5/5采样有效且结果交付；完整本地工具套件再次检查。原CI与受控失败保留，不通过重试筛绿。
+
+## 2026-11-17T15:12:45+08:00 (UTC+08:00) — 远端保护与CI/CD闭环验证
+
+修复PR #1（https://github.com/teamCreating/MTR-Memory-Saver/pull/1）实际经历CI失败阻止合入、修复后全部通过，再以正常rebase合入受保护main；没有管理员绕过。main实际提交407463507c900256598844d86708661d505b8424，合入后Build and test run44036022867全部8个job成功（https://github.com/teamCreating/MTR-Memory-Saver/actions/runs/44036022867）。本地最后完整280项Python工具测试通过（22.499s），远端Linux/Windows工具与四组官方目标构建均通过；Windows Server仍保留其真实平台资格边界。
+
+从同一main提交手动触发Release run44036028821（https://github.com/teamCreating/MTR-Memory-Saver/actions/runs/44036028821），10个验证/构建/资产job成功，publish按演练条件跳过。实际资产守卫报告verified_targets为official-nf248和official-nf265；发布包、构建清单和SHA链核验通过。演练后远端tags=0、releases=0，没有创建版本标签或发布候选，也没有授予游戏重载、路线或性能验收。
+
+服务端再次回读main-protection27437423与immutable-release-tags27437424均active且bypass_actors为空。main实际protected=true，要求PR、讨论解决、线性历史、最新main基线的GitHubActions15368/CI检查，禁止删除与非快进；人工批准数0适配单维护者。v*标签禁止删除与非快进，Actions默认token只读且不能自行批准PR。版本化JSON与服务端实际规则一致。
+
+远端rebase后的main内容与原工作分支相同；正常merge其祖先关系回当前codex/standalone，保留原本地提交及作者身份，附上本次验证记录后立即自动push该工作分支。未修改父仓库、产品源码、版本、在用客户端或原始证据；既有未跟踪JUnit binary目录保留。作者和提交者使用A-BenLi06 <ben_li06@outlook.com>。
