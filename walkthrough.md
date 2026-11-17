@@ -482,3 +482,10 @@ CI从config/targets.json派生Java及官方目标，Linux/Windows构建、Java/n
 仅将两份config/legacy-baselines.json已审核的原始JAR纳入精确.gitignore例外，原SHA分别b9c95bbe79c6c76fe6a0c9af6bdb4f9ed7ce6b007fecdb1c9f543544ce562f02、eb21c0062f7944a7d2c015cb2eee5a1d24c11be4af2286bbbbfa4625d6cd2d54，原manifest指纹同时校验。新增requirements-test.txt固定已有launcher8.0和依赖，CI安装wheel并打印runner路径上下文；两处观察器测试夹具resolve临时根，保持生产reader严格前缀校验不变。未改在用JVM、生产模块或runtime reader源码。
 
 本地Windows10全量280项Python测试通过（24.288s），workflow lint通过。main-protection27437423与immutable-release-tags27437424已经服务端active回读，bypass_actors为空、CI绑定GitHubActions15368；仓库默认token只读且不可自行批准PR。此次提交按新AGENTS约定立即push工作分支，后续通过受保护main的正常PR/CI合入。
+
+
+## 2026-11-17T14:59:51+08:00 (UTC+08:00) — 以完成事件界定并发夹具
+
+后续远端Linux工具测试和四个官方构建均成功；Windows只剩test_background_auxiliary_keeps_sampling_while_provider_is_blocked失败。runner上下文已证明TEMP为RUNNER~1短名、resolve为runneradmin，前批路径修正已消除其余路径失败。对剩余用例注入每次等待后60ms受控调度延迟，重现相同code1：9/9采样有效、NMT结果实际交付、唯一失败distributed_route_windows_unverified。该并发用例把0.6秒分成3个200ms路线窗口，对机器调度有无关要求。
+
+仅修改测试夹具：仍要求后台阻塞期间主循环推进4次，收到实际completed事件才写stop-request；5秒仅作看门狗，不授予路线成功。断言stopped/passedfalse、完整采样有效、唯一预期未完成路线原因、原事件链和NMT计数、worker已退出。生产时长/采样/路线覆盖/错误规则未变。相同60ms延迟下修正用例通过，实际5/5采样有效且结果交付；完整本地工具套件再次检查。原CI与受控失败保留，不通过重试筛绿。
