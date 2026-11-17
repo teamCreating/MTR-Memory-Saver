@@ -5,8 +5,10 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Path;
 import java.util.List;
+import org.apache.commons.io.input.ReaderInputStream;
 
 /** Immutable decoded input and its old String.getBytes(UTF_8) content identity. */
 public final class ResourceTextSnapshot implements AutoCloseable {
@@ -69,5 +71,10 @@ public final class ResourceTextSnapshot implements AutoCloseable {
     public long length() { return length; }
     public String digest() { return digest; }
     public Reader reader() throws IOException { return snapshot.reader(length, admission); }
+    /** Preserves String.getBytes(UTF_8), including replacement, with bounded buffers. */
+    public InputStream utf8Stream() throws IOException { return utf8Stream(reader()); }
+    static InputStream utf8Stream(Reader reader) {
+        return new ReaderInputStream(reader, StandardCharsets.UTF_8, 8192);
+    }
     @Override public void close() throws IOException { snapshot.close(); }
 }

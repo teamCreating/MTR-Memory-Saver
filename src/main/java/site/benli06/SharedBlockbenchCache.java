@@ -115,7 +115,7 @@ public final class SharedBlockbenchCache {
         MTR.LOGGER.info("MTR memory sharing: {} requests, {} path hits, {} unique parses, {} failures, {} pending, {} outstanding, {} queued",
                 stats.requests(), stats.pathHits(), stats.uniqueParses(), stats.failures(), stats.pending(), stats.outstanding(), stats.queued());
         var inputs = SnapshotResourceProvider.statistics();
-        MTR.LOGGER.info("MTR Blockbench native snapshot capability: {} attempts, {} captures, {} String fallbacks, {} failures, {} decoded UTF-16 units",
+        MTR.LOGGER.info("MTR native resource snapshot capability: {} attempts, {} captures, {} String fallbacks, {} failures, {} decoded UTF-16 units",
                 inputs.attempts(), inputs.captures(), inputs.stringFallbacks(), inputs.failures(), inputs.decodedCodeUnits());
     }
     private static String digest(String raw) { return ResourceTextDigest.sha256(raw); }

@@ -58,13 +58,12 @@ sourceSets {
         resources.srcDir(layout.buildDirectory.dir("generated/resources/${targetName}"))
     }
     test {
-        java.srcDirs = ['src/test/java', 'tools/acceptance/java']
+        java.srcDirs = ['src/test/java', "src/test/${target.variant}/java", 'tools/acceptance/java']
         compileClasspath += sourceSets.main.compileClasspath
         runtimeClasspath += sourceSets.main.compileClasspath
     }
     probe {
-        java.srcDirs = ['tools/probes/common/java', 'tools/probes/io/java']
-        if (target.variant == 'v6') java.srcDir('tools/probes/v6/java')
+        java.srcDirs = ['tools/probes/common/java', 'tools/probes/io/java', "tools/probes/${target.variant}/java"]
         compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
         resources.srcDir(layout.buildDirectory.dir("generated/probe/${targetName}"))
     }
@@ -213,6 +212,18 @@ tasks.register('streamingBlockbenchInputAudit', JavaExec) {
     args providers.gradleProperty('streamingAuditDirectory').getOrElse('build/acceptance/streaming-blockbench'),
             providers.gradleProperty('streamingAuditMode').getOrElse('snapshot'),
             providers.gradleProperty('streamingAuditWhitespace').getOrElse((40L * 1024 * 1024).toString())
+}
+if (target.variant == 'official') {
+    tasks.register('streamingObjInputAudit', JavaExec) {
+        dependsOn tasks.named('testClasses')
+        classpath = sourceSets.test.runtimeClasspath
+        mainClass = 'site.benli06.StreamingObjInputAudit'
+        javaLauncher = javaToolchains.launcherFor { languageVersion = JavaLanguageVersion.of(matrix.java as int) }
+        maxHeapSize = '64m'
+        args providers.gradleProperty('objAuditDirectory').getOrElse('build/acceptance/streaming-obj'),
+                providers.gradleProperty('objAuditMode').getOrElse('snapshot'),
+                providers.gradleProperty('objAuditComments').getOrElse((40L * 1024 * 1024).toString())
+    }
 }
 
 if (acceptanceProbe) {

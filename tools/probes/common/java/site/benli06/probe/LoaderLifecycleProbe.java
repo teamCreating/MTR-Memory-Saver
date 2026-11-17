@@ -42,7 +42,15 @@ public final class LoaderLifecycleProbe {
             boolean faults = request.has("faults") && request.get("faults").getAsBoolean();
             JsonObject strictChecks = new JsonObject(), strictObservations = new JsonObject();
             if (faults) { report.add("strict_resource_checks", strictChecks); report.add("strict_resource_observations", strictObservations); }
-            audit(checks, faults, strictChecks, strictObservations); report.addProperty("passed", true);
+            audit(checks, faults, strictChecks, strictObservations);
+            try (var input = getClass().getClassLoader().getResourceAsStream("mtr-memory-target.json")) {
+                var target = org.mtr.libraries.com.google.gson.JsonParser.parseReader(new java.io.InputStreamReader(input, java.nio.charset.StandardCharsets.UTF_8)).getAsJsonObject();
+                if (target.get("variant").getAsString().equals("official")) {
+                    JsonObject objChecks = new JsonObject(); report.add("obj_input_checks", objChecks);
+                    Class.forName("site.benli06.probe.ObjInputProbe").getMethod("audit", JsonObject.class).invoke(null, objChecks);
+                }
+            }
+            report.addProperty("passed", true);
         } catch (Throwable error) {
             report.addProperty("passed", false); report.addProperty("error", error.toString());
             java.io.StringWriter trace = new java.io.StringWriter(); error.printStackTrace(new java.io.PrintWriter(trace));
