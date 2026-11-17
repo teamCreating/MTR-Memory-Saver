@@ -1,0 +1,12 @@
+{
+  "recorded_at": "2026-11-17T14:44:30.833582+00:00",
+  "finding": "Original archived FrozenProducer constructor calls Path.resolve on recorded instance, so earlier replay scope strings saying no original-instance access were too broad: metadata resolution could occur. No original payload/JFR/process read was invoked.",
+  "affected_replays": [
+    "replay-01",
+    "replay-02",
+    "replay-03-final"
+  ],
+  "fix": "New verifier SealedProducer initializer retains original frozen source/context/metadata/plan/launch pin checks but compares recorded instance with PureWindowsPath only. Archived2ce source and all captured data remain unchanged. Existing frozen import/read-only replay methods are reused; no global monkeypatch of pathlib or process functions.",
+  "original_receipts_preserved": true,
+  "catalog_before_fix": 523
+}

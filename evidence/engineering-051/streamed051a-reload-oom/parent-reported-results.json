@@ -1,0 +1,42 @@
+{
+  "recorded_at": "2026-11-17T14:33:07.608352+00:00",
+  "provenance": "Parent-reported actual tool/CUA-history results; no original tool return receipts were saved. This file is a transcription, not reconstructed raw output.",
+  "tools": [
+    {
+      "role": "consumer",
+      "session": 84998,
+      "actual_tool_exit": 1,
+      "reported_output": {
+        "status": "stopped",
+        "passed": false,
+        "samples": 1392
+      }
+    },
+    {
+      "role": "recorder",
+      "session": 48395,
+      "actual_tool_exit": 0,
+      "reported_output": ""
+    },
+    {
+      "role": "seventh_waiter_wrapper",
+      "session": 77410,
+      "actual_tool_exit": 1,
+      "disk_child_returned_exit_code": 2,
+      "boundary": "Wrapper terminal1 is distinct from the saved waiter execution.returned_exit_code2 and source exception."
+    },
+    {
+      "role": "diagnostic_collector",
+      "session": 34640,
+      "actual_tool_exit": 0,
+      "reported_jvm_exit_code": 0
+    }
+  ],
+  "normal_close": {
+    "input_receipt": "capture-01/ui/normal-close-after-oom.json",
+    "method": "CUA AltF4 after failure, reported actual normal exit",
+    "issued_at": "2026-11-17T14:26:10.955Z",
+    "does_not_cancel_oom_or_grant_acceptance": true
+  },
+  "input_scope": "Seven real F3+t inputs retained. No eighth commanded input. Epoch9 is automatic recovery/fallback, not an externally commanded successful reload."
+}

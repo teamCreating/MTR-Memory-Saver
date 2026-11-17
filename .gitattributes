@@ -13,3 +13,6 @@ evidence/engineering-050/native-log-stream/**/*.bin binary
 evidence/engineering-050/owned049d-reload-attempt01/**/*.bin binary
 # Preserve the complete OOM-prefix/input blobs without whitespace normalization.
 evidence/engineering-050/owned049d-reload-attempt03-oom/**/*.bin binary
+
+# Preserve literal failed 051a reload native/stop blobs.
+evidence/engineering-051/streamed051a-reload-oom/**/*.bin binary

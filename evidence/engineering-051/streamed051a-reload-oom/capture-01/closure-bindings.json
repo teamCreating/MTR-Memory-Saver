@@ -1,0 +1,192 @@
+{
+  "retained_record_numbers": [
+    5038,
+    5244,
+    5290,
+    5490,
+    5500,
+    5703,
+    5726,
+    5929,
+    5944,
+    6146,
+    6160,
+    6357,
+    6370,
+    6540
+  ],
+  "before_record_numbers": [
+    5038,
+    5290,
+    5500,
+    5726,
+    5944,
+    6160,
+    6370
+  ],
+  "histories": [
+    {
+      "number": 1,
+      "result": "waiters/001/result.json",
+      "execution": "waiters/001/execution.json",
+      "record_number": 5244,
+      "prefixes": [
+        {
+          "payload": "observer/samples.jsonl",
+          "bytes": 9651996,
+          "sha256": "6b3b1230e03aa9dd4444bbd61dd7229564dae4addce9bd1d0028bfe1902b16f5",
+          "provenance": "Exact terminal-file prefix checked against original waiter owned-read receipt."
+        },
+        {
+          "payload": "recorder/journal.jsonl",
+          "bytes": 4576548,
+          "sha256": "0a3794f4942ef0cb5cd3f7f20329a28f40016c364c0e5b4473b6be4d20adbe23",
+          "provenance": "Exact terminal-file prefix checked against original waiter owned-read receipt."
+        },
+        {
+          "payload": "recorder/inputs.jsonl",
+          "bytes": 9659,
+          "sha256": "42dadbb71c08ea3d2f14c2e39991ba31c0b4f644be97f544392baebe5d65c769",
+          "provenance": "Derived exact first-N terminal ledger rows; not an original owned-read receipt. Original attempts and next-input timestamp separately bind its historical scope."
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "result": "waiters/002/result.json",
+      "execution": "waiters/002/execution.json",
+      "record_number": 5490,
+      "prefixes": [
+        {
+          "payload": "observer/samples.jsonl",
+          "bytes": 10133026,
+          "sha256": "ac940b5bbfc8773e3e6b8078699c4979b035daa8757a723e09334e9693a8e861",
+          "provenance": "Exact terminal-file prefix checked against original waiter owned-read receipt."
+        },
+        {
+          "payload": "recorder/journal.jsonl",
+          "bytes": 4812589,
+          "sha256": "ee80442f50f2d6d7d8d7c317b3094d9b5675c16c9c87cc9efbbb2e7e19f24e48",
+          "provenance": "Exact terminal-file prefix checked against original waiter owned-read receipt."
+        },
+        {
+          "payload": "recorder/inputs.jsonl",
+          "bytes": 19357,
+          "sha256": "be147d195802cda86946b80218e8b85e9fbeffcb9dfa07c9b47c32b2bcfb8e8b",
+          "provenance": "Derived exact first-N terminal ledger rows; not an original owned-read receipt. Original attempts and next-input timestamp separately bind its historical scope."
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "result": "waiters/003/result.json",
+      "execution": "waiters/003/execution.json",
+      "record_number": 5703,
+      "prefixes": [
+        {
+          "payload": "observer/samples.jsonl",
+          "bytes": 10544481,
+          "sha256": "4aec6c9b9734d35b824c85f60e3c710bf98b93dc78059a62a8010af840cee6e8",
+          "provenance": "Exact terminal-file prefix checked against original waiter owned-read receipt."
+        },
+        {
+          "payload": "recorder/journal.jsonl",
+          "bytes": 5019165,
+          "sha256": "a74d57fcddb6e09d774196947dd5e9547bd69448d343cd32bd2b90607a20484b",
+          "provenance": "Exact terminal-file prefix checked against original waiter owned-read receipt."
+        },
+        {
+          "payload": "recorder/inputs.jsonl",
+          "bytes": 29025,
+          "sha256": "0ba9095e7ff6a2e1d7c85ff1530995c3e95eb816aebede081c314daba7f57ec9",
+          "provenance": "Derived exact first-N terminal ledger rows; not an original owned-read receipt. Original attempts and next-input timestamp separately bind its historical scope."
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "result": "waiters/004/result.json",
+      "execution": "waiters/004/execution.json",
+      "record_number": 5929,
+      "prefixes": [
+        {
+          "payload": "observer/samples.jsonl",
+          "bytes": 10993187,
+          "sha256": "d1988a81a68c146feb9b23264aa66b3c138635af58fd286b1bd8fe859e4e5825",
+          "provenance": "Exact terminal-file prefix checked against original waiter owned-read receipt."
+        },
+        {
+          "payload": "recorder/journal.jsonl",
+          "bytes": 5237949,
+          "sha256": "2818d0e80d53663409c52dd8a8452fa87ac241db5d340eefc57e8cfaa90d39c9",
+          "provenance": "Exact terminal-file prefix checked against original waiter owned-read receipt."
+        },
+        {
+          "payload": "recorder/inputs.jsonl",
+          "bytes": 38821,
+          "sha256": "de048a11bc1126db6ba7e326b1ad4cb0a43eb7190f6aad0617e494835b892d54",
+          "provenance": "Derived exact first-N terminal ledger rows; not an original owned-read receipt. Original attempts and next-input timestamp separately bind its historical scope."
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "result": "waiters/005/result.json",
+      "execution": "waiters/005/execution.json",
+      "record_number": 6146,
+      "prefixes": [
+        {
+          "payload": "observer/samples.jsonl",
+          "bytes": 11410334,
+          "sha256": "a870406b4ca4264b2412ff16a3d702f8fc62b1a316b4db3e81e927db5354f564",
+          "provenance": "Exact terminal-file prefix checked against original waiter owned-read receipt."
+        },
+        {
+          "payload": "recorder/journal.jsonl",
+          "bytes": 5448511,
+          "sha256": "b4f8912805eaeb438795b3f4459d83d81abca75e7795305e36b8f44dee968230",
+          "provenance": "Exact terminal-file prefix checked against original waiter owned-read receipt."
+        },
+        {
+          "payload": "recorder/inputs.jsonl",
+          "bytes": 48489,
+          "sha256": "cfc9a4a94103a2e1d53cdaab6284e574e4d56a86272fcc33ff373dde0396b40b",
+          "provenance": "Derived exact first-N terminal ledger rows; not an original owned-read receipt. Original attempts and next-input timestamp separately bind its historical scope."
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "result": "waiters/006/result.json",
+      "execution": "waiters/006/execution.json",
+      "record_number": 6357,
+      "prefixes": [
+        {
+          "payload": "observer/samples.jsonl",
+          "bytes": 11812727,
+          "sha256": "a62afc78b62138b24e490926e8c5bd1a1cc8e86403b96b4dac18e24c6af257ab",
+          "provenance": "Exact terminal-file prefix checked against original waiter owned-read receipt."
+        },
+        {
+          "payload": "recorder/journal.jsonl",
+          "bytes": 5654069,
+          "sha256": "acbff73c9f2792c84bf1b12b73051773c629b8642b4f9df366879a2c2a5f57b9",
+          "provenance": "Exact terminal-file prefix checked against original waiter owned-read receipt."
+        },
+        {
+          "payload": "recorder/inputs.jsonl",
+          "bytes": 58151,
+          "sha256": "283e9a8981929745f39d2a789577a0bfef9e1e04a84cc744e1e50c7988132ab8",
+          "provenance": "Derived exact first-N terminal ledger rows; not an original owned-read receipt. Original attempts and next-input timestamp separately bind its historical scope."
+        }
+      ]
+    }
+  ],
+  "last_ineligible_record_number": 6540,
+  "last_ineligible_native_log": {
+    "receipt": "captures/00006540.json",
+    "receipt_sha256": "eab13c39f5f89c150125deca342ef796673735394124141343f8656f16ef15d6"
+  },
+  "original_rr_captures": 6540,
+  "scope": "Seven actual inputs; final whole-prefix rejected. Six earlier waiter scopes remain separate exact native/consumer prefixes."
+}

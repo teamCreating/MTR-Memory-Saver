@@ -1,0 +1,100 @@
+{
+  "verified_at": "2026-11-17T14:40:53.464001+00:00",
+  "integrity_passed": true,
+  "session_accepted": false,
+  "payloads": 285,
+  "inputs": 7,
+  "samples": 1392,
+  "verified_samples": 1168,
+  "final_strict_verified_reload_count": 0,
+  "final_longest_verified_reload_run": 0,
+  "retained_records": [
+    5038,
+    5244,
+    5290,
+    5490,
+    5500,
+    5703,
+    5726,
+    5929,
+    5944,
+    6146,
+    6160,
+    6357,
+    6370,
+    6540
+  ],
+  "histories": [
+    {
+      "verified_count": 1,
+      "strict_replay_exact": true,
+      "stability": {
+        "samples": 14,
+        "consumer_seconds": 64.99705160001758,
+        "native_seconds": 64.593092
+      }
+    },
+    {
+      "verified_count": 2,
+      "strict_replay_exact": true,
+      "stability": {
+        "samples": 14,
+        "consumer_seconds": 64.99989249999635,
+        "native_seconds": 64.7959661
+      }
+    },
+    {
+      "verified_count": 3,
+      "strict_replay_exact": true,
+      "stability": {
+        "samples": 15,
+        "consumer_seconds": 69.99937160004629,
+        "native_seconds": 69.5544675
+      }
+    },
+    {
+      "verified_count": 4,
+      "strict_replay_exact": true,
+      "stability": {
+        "samples": 14,
+        "consumer_seconds": 64.99897559999954,
+        "native_seconds": 64.5926666
+      }
+    },
+    {
+      "verified_count": 5,
+      "strict_replay_exact": true,
+      "stability": {
+        "samples": 14,
+        "consumer_seconds": 64.99953319999622,
+        "native_seconds": 64.8102852
+      }
+    },
+    {
+      "verified_count": 6,
+      "strict_replay_exact": true,
+      "stability": {
+        "samples": 13,
+        "consumer_seconds": 60.00205700000515,
+        "native_seconds": 60.2415625
+      }
+    }
+  ],
+  "epoch8_return_present": false,
+  "fallback9_accepted": false,
+  "fallback_registration": [
+    422,
+    423
+  ],
+  "oom_stack_log_lines": [
+    521,
+    556,
+    592,
+    623
+  ],
+  "original_product_inputs": 48,
+  "normal_jvm_exit_code": 0,
+  "export01_recorded_sha256": "a139b1e4f70d2061c952cde175241237f974751cd781dc1859d1304cbe8ec628",
+  "jfr_or_collector_snapshots_read_copied_or_rehashed": false,
+  "scope": "Failed-session integrity and exact historical-prefix replay only; no twenty-reload/performance/route acceptance."
+}

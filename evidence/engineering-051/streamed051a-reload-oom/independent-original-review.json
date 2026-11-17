@@ -1,0 +1,25 @@
+{
+  "recorded_at": "2026-11-17T14:33:07.610236+00:00",
+  "provenance": "Independent agent-reported read-only original replay; this is not a raw terminal receipt.",
+  "agent": "/root/consumer_review/verify_attempt_seal",
+  "checks": 26,
+  "passed": 26,
+  "reported_evaluation_exit": 0,
+  "reload_evidence_exact_summary_match": true,
+  "native_diagnostics_exact_summary_match": true,
+  "final_verified_reload_count": 0,
+  "samples": 1392,
+  "verified_samples": 1168,
+  "inputs": 7,
+  "journal_rows": 13083,
+  "captures": 6540,
+  "published": 5540,
+  "ineligible": 1000,
+  "oom_log_lines": [
+    521,
+    556,
+    592,
+    623
+  ],
+  "boundary": "These four log/stack occurrences are not asserted to be four independent OOM events or the unique root cause. No processAPI/wait/game/JFR/collector snapshots accessed."
+}
