@@ -308,7 +308,7 @@ class ObservationTest(unittest.TestCase):
         self.assertIn("distributed_route_windows_unverified", summary["observed_failures"])
 
     def run_realtime_auxiliary(self, provider, on_sample=None, shutdown_seconds=0.5, before_shutdown=None, duration=0.6,
-            after_request=None, after_poll=None):
+            after_request=None, after_poll=None, stop_after_auxiliary=False):
         now = dt.datetime.now(dt.timezone.utc).isoformat()
         self.launch["timestamp"] = now
         self.write(self.root / "packaged-client-plan.json", self.plan)
@@ -347,6 +347,8 @@ class ObservationTest(unittest.TestCase):
                 result = super().poll()
                 if after_poll:
                     after_poll(result)
+                if stop_after_auxiliary and any(event["phase"] == "completed" for event in result):
+                    (output / "stop-request").write_bytes(b"Concurrency fixture observed auxiliary completion.\n")
                 return result
             def close(self, timeout):
                 if before_shutdown:
@@ -381,12 +383,22 @@ class ObservationTest(unittest.TestCase):
                 if len(samples_while_blocked) == 4:
                     release.set()
         try:
-            code, summary, output, _, _ = self.run_realtime_auxiliary(provider, sampled)
+            # This case tests concurrent progress and delivery, not the ability
+            # of a real scheduler to cover three 200 ms route windows. Stop on
+            # observed completion; duration is only a watchdog. Route coverage
+            # and its strict timing policy have separate deterministic tests.
+            code, summary, output, _, _ = self.run_realtime_auxiliary(
+                provider, sampled, duration=5, stop_after_auxiliary=True)
         finally:
             release.set()
         self.assertEqual(len(samples_while_blocked), 4)
-        self.assertEqual(code, 0)
-        self.assertTrue(summary["passed"])
+        self.assertEqual(code, 1, summary)
+        self.assertEqual(summary["status"], "stopped", summary)
+        self.assertFalse(summary["passed"])
+        self.assertIsNone(summary["error"])
+        self.assertIsNone(summary["native_log_completion_error"])
+        self.assertEqual(summary["observed_failures"], ["distributed_route_windows_unverified"])
+        self.assertTrue(summary["auxiliary_shutdown"]["worker_stopped"])
         self.assertEqual(summary["auxiliary_attempted_samples"]["nmt"], 1)
         self.assertEqual(summary["auxiliary_available_samples"]["nmt"], 1)
         events = [json.loads(line) for line in (output / "auxiliary-events.jsonl").read_text(encoding="utf-8").splitlines()]
@@ -394,6 +406,7 @@ class ObservationTest(unittest.TestCase):
         self.assertEqual(len({event["request_id"] for event in events}), 1)
         self.assertEqual(events[-1]["result"]["nmt"]["committed_bytes"], 20)
         samples = [json.loads(line) for line in (output / "samples.jsonl").read_text(encoding="utf-8").splitlines()]
+        self.assertTrue(all(sample["observation"]["verified"] for sample in samples))
         self.assertTrue(any(sample.get("auxiliary_in_flight_request_id") for sample in samples))
         self.assertTrue(any(any(event["phase"] == "completed" for event in sample.get("auxiliary_events", [])) for sample in samples))
         self.assertEqual(summary["auxiliary_events_sha256"], observer.digest(output / "auxiliary-events.jsonl"))
