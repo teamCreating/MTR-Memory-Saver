@@ -630,3 +630,9 @@ Pre-commit staged-byte audit first exceeded Windows command-line length (WinErro
 ## 2026-11-18T00:59:35.3922698+08:00 — 更新当前未发布 0.4.8 的公开状态
 
 README新增当前候选实际行为、初版第七次重载OBJ String OOM、修订105工程检查与69实际客户端检查、错误二进制拒绝及独立帧源失败的证据链接。明确尚未具备重载耐久或性能收益结论，保留0.4.7历史身份，不以新检查覆盖旧产物。仅文档改动；检查所链README均存在、git diff check通过。正式full04 JVM65404正在完成第一轮重载的稳定观察，尚无20次通过声明。
+
+## 2026-11-18T01:07:52.3041561+08:00 — 保留未获通过的按键校准与采集接入结果
+
+engineering-052/input-route-calibration 保存关闭的 full01/full02/full03 诊断会话所选原始收据、reader结束/失败记录、完整平面journal/summary及collector执行/plan/launch元数据。full01是可选HeapDumpOnOutOfMemoryError选项原样回显被冻结扫描器拒绝，非真实OOM；去掉可选参数后用新JVM，未改扫描器/堆限额。full02普通API输入未触发、轮转后缺witness接入失败及新cohort旧未匹配输入造成严格回放不通过均保留；full03过早接入缺文件和系统Python缺launcher依赖不掩盖，后续venv实例独立记录。Alt+Shift后F3+T真实触发已记录，之后full04先确认T打开ChatScreen/Escape回游戏再开始正式20次，未发聊天内容。
+
+所选证据明确不构成完整recorder replay closure：省略record/blob、input-attempt子树、native-log分段依赖和collector大snapshot流；原cache仍在。不用哈希一致冒充运行通过，不计任何20次耐久验收。复制逐文件记录读前后size/mtime并保存实际字节哈希；JFR及第三方二进制未复制。校验选定payload、关闭标记及catalog，README说明边界。当前full04连续前2次ready，第三次处理中；实际性能对照与独立帧源仍未通过。

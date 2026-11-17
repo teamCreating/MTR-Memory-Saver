@@ -1,0 +1,13 @@
+{
+  "schema": 1,
+  "accepted_observer_versions": ["1.0.2", "1.0.3"],
+  "metadata": {
+    "schema_version": 1,
+    "probe_kind": "official-native-observer",
+    "diagnostics_schema": 1
+  },
+  "required_capabilities": [
+    "native_pending", "registration_counts", "native_epochs", "native_model_diagnostics",
+    "heap", "world", "train_state", "cache_state"
+  ]
+}
