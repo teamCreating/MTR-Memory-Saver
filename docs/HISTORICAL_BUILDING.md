@@ -1,4 +1,6 @@
 > Historical 0.3.x document; see the current [project entry](../README.md).
+> The current Python suite runs with `python -m minecraft_testkit test`; see
+> [tests](../tests/README.md). Commands below preserve the historical layout.
 
 # Build MTR Memory Saver
 

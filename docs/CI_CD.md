@@ -11,6 +11,7 @@ main 经 PR 合入；自动 push 更新工作分支。提交作者和 walkthroug
 `build.yml` 在分支 push、指向 main 的 PR、merge group、手动运行或发布流程调用时执行：
 
 - Linux、Windows Server 2022 分别运行 Python 工具测试。
+- 统一入口 `python -m minecraft_testkit verify` 校验历史脚本索引和样例来源，再由 `python -m minecraft_testkit test` 运行 `tests/` 回归；历史冻结脚本不会被批量执行。
 - 从目标矩阵选出官方目标，在 Linux、Windows 分别构建、运行 Java 和独立观察器测试、校验发行包。
 - Linux 生成官方目标 ZIP、构建身份清单和 ZIP SHA-256，作为14天保留的 Actions artifacts；各平台保留测试报告，包括失败报告。
 - 固定名称 CI 汇总全部任务。任何失败、取消或跳过的必需任务都会使检查失败。

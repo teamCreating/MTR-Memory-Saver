@@ -1,0 +1,85 @@
+{
+  "schema": 1,
+  "datasets": [
+    {
+      "name": "native-log-rollover",
+      "kind": "historical-capture",
+      "scope": "Original gzip/startup-prefix bytes for rollover parsing only; no new startup or reload acceptance.",
+      "files": [
+        {
+          "path": "2026-11-16-1.log.gz",
+          "source": "evidence/engineering-050/native-log-stream/actual-inputs/2026-11-16-1.log.gz",
+          "bytes": 6598,
+          "sha256": "ec0a93fbf5765cd76a22687ef34bd29a19bf9f1c8a01f79c72fd9e2526670cc0"
+        },
+        {
+          "path": "startup-prefix.log",
+          "source": "evidence/engineering-050/native-log-stream/actual-inputs/startup-prefix.log",
+          "bytes": 27952,
+          "sha256": "24cd40679c7b6c2041eefd6f04e249c48fcbc8dc52de50df9bbb7a29dcef0501"
+        }
+      ]
+    },
+    {
+      "name": "neutral-reload-contract",
+      "kind": "historical-capture",
+      "scope": "Historical observer 1.0.2 startup/diagnostic input. Generated repetitions are controls, not actual reloads.",
+      "files": [
+        {
+          "path": "final-snapshot.json",
+          "source": "evidence/engineering-048/neutral-runtime-02-review/capture-02/final-snapshot.json",
+          "bytes": 6625,
+          "sha256": "4e782283404dedafa20326b9e4ce479bed92331209da81ebd51750281f64446f"
+        },
+        {
+          "path": "process.json",
+          "source": "evidence/engineering-048/neutral-runtime-02-review/capture-02/process.json",
+          "bytes": 25682,
+          "sha256": "cdb45dac53d03f566b0e786b8c6e6257a6741264e7ee8c577effb4e321a8c768"
+        },
+        {
+          "path": "observer-target.json",
+          "source": "evidence/engineering-048/neutral-runtime-02-review/capture-02/observer-target.json",
+          "bytes": 694,
+          "sha256": "2f5d4e4c02641b9f7cfae1951dc7a8b377a8b32d8470a9b6e19ccd5356c6b9a5"
+        },
+        {
+          "path": "packaged-client-plan.json",
+          "source": "evidence/engineering-048/neutral-runtime-02-review/capture-02/packaged-client-plan.json",
+          "bytes": 42332,
+          "sha256": "fcfaeca7f5cebba270c63e941135422bb84571cdbeda3ad8c3f7827441697fa1"
+        },
+        {
+          "path": "packaged-client-launch.json",
+          "source": "evidence/engineering-048/neutral-runtime-02-review/capture-02/packaged-client-launch.json",
+          "bytes": 26545,
+          "sha256": "a4ef484a63d3d8142ab14bf3c6d90baf797769ebfbc951052537aee6fa5622ce"
+        },
+        {
+          "path": "game-probe/native-resource-epochs.jsonl",
+          "source": "evidence/engineering-048/neutral-runtime-02-review/capture-02/game-probe/native-resource-epochs.jsonl",
+          "bytes": 1787,
+          "sha256": "1032319d0496b249b9438ceba135ec9b252b51d3334dddc0ebc77c08fc9352cc"
+        },
+        {
+          "path": "game-probe/native-invalid-model.jsonl",
+          "source": "evidence/engineering-048/neutral-runtime-02-review/capture-02/game-probe/native-invalid-model.jsonl",
+          "bytes": 22050,
+          "sha256": "b8f2b0654058636026f80fd3e5bbb8ab39f98c8bb28f3b65cfd081951b763eae"
+        },
+        {
+          "path": "logs/latest.log",
+          "source": "evidence/engineering-048/neutral-runtime-02-review/capture-02/logs/latest.log",
+          "bytes": 28130,
+          "sha256": "0e92cae86bf3077c7d5d9afe876e4c2ca43c990b5c0e881788cd8e453ff1af79"
+        },
+        {
+          "path": "sources/config/native-diagnostic-review.json",
+          "source": "evidence/engineering-048/neutral-runtime-02-review/capture-02/sources/config/native-diagnostic-review.json",
+          "bytes": 2328,
+          "sha256": "4d91b89a3600d44a9ec132b7dd58fb61d46d34ae63f9148716f24c9c144f745c"
+        }
+      ]
+    }
+  ]
+}

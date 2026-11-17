@@ -7,10 +7,12 @@ import unittest
 from unittest import mock
 
 import reload_before_recorder as tool
-from log_stream_test_support import fixture_stream
+from minecraft_testkit.fixtures.log_stream import fixture_stream
 
 
-FIXTURE = Path(__file__).resolve().parent.parent / "evidence/engineering-048/neutral-runtime-02-review/capture-02"
+from minecraft_testkit.samples import sample_directory
+
+FIXTURE = sample_directory("neutral-reload-contract")
 
 
 class Process:
