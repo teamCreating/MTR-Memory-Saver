@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="site.benli06.GenerationWorkCacheTest" tests="27" skipped="0" failures="1" errors="0" timestamp="2026-11-17T11:54:10.345Z" hostname="DESKTOP-885HHP9" time="1.423">
+  <properties/>
+  <testcase name="aliasCloseFailureCannotBorrowSuccessOrCancelTheContentOwner()" classname="site.benli06.GenerationWorkCacheTest" time="0.031"/>
+  <testcase name="failedContentOwnerTerminatesPendingAliasesAndBothPathsCanRetry()" classname="site.benli06.GenerationWorkCacheTest" time="0.012"/>
+  <testcase name="cancellationAndLateRegistrationCompletionReleaseEverything()" classname="site.benli06.GenerationWorkCacheTest" time="0.007"/>
+  <testcase name="cancelingOwnerCancelsAliasesButRetainsRunningTicketUntilExit()" classname="site.benli06.GenerationWorkCacheTest" time="0.011"/>
+  <testcase name="cancelingAliasPreservesOwnerAndSiblingAndLateRegistrationReleasesKeys()" classname="site.benli06.GenerationWorkCacheTest" time="0.011"/>
+  <testcase name="reloadRejectsCallerStillWaitingForDescriptorAdmission()" classname="site.benli06.GenerationWorkCacheTest" time="0.016"/>
+  <testcase name="cancellationAndTimeoutPreserveLateOwnerCloseFailureOnTheOriginalTerminalCause()" classname="site.benli06.GenerationWorkCacheTest" time="0.266"/>
+  <testcase name="aliasReleasesItsPreparedWorkspaceBeforeWaitingForTheOwner()" classname="site.benli06.GenerationWorkCacheTest" time="0.011"/>
+  <testcase name="providerIdentityAndTextureArePartOfFastKey()" classname="site.benli06.GenerationWorkCacheTest" time="0.004"/>
+  <testcase name="retirementPreservesLateParseFailureAndItsSuppressedCloseFailure()" classname="site.benli06.GenerationWorkCacheTest" time="0.009"/>
+  <testcase name="preparedOwnerClosesExactlyOnceBeforeSuccessIsObservable()" classname="site.benli06.GenerationWorkCacheTest" time="0.006"/>
+  <testcase name="retirementFromOwnerCloseCannotPublishTheParsedValueIntoTheNewEpoch()" classname="site.benli06.GenerationWorkCacheTest" time="0.011"/>
+  <testcase name="cancellationAndTimeoutRetainRunningTicketsUntilOwnerCloseActuallyFinishes()" classname="site.benli06.GenerationWorkCacheTest" time="0.276"/>
+  <testcase name="timeoutIsTerminalButCannotReleaseStillRunningNativeMemory()" classname="site.benli06.GenerationWorkCacheTest" time="0.264"/>
+  <testcase name="closeFailureCannotPublishAnOtherwiseSuccessfulValueAndAllowsRetry()" classname="site.benli06.GenerationWorkCacheTest" time="0.004"/>
+  <testcase name="lateFailuresCannotAttachTheTerminalCauseBackOntoItselfOrDuplicateItsCleanupBranch()" classname="site.benli06.GenerationWorkCacheTest" time="0.019"/>
+  <testcase name="parseFailureKeepsTheOwnerCloseFailureSuppressedBeforePublication()" classname="site.benli06.GenerationWorkCacheTest" time="0.006"/>
+  <testcase name="retiredEntryKeepsLateFailureBeforeCancellationAndBeforeInternalTerminalCallbackRuns()" classname="site.benli06.GenerationWorkCacheTest" time="0.022">
+    <failure message="org.opentest4j.AssertionFailedError: expected: &lt;true&gt; but was: &lt;false&gt;" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: expected: &lt;true&gt; but was: &lt;false&gt;
+	at app//org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at app//org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at app//org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+	at app//org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+	at app//org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:31)
+	at app//org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:183)
+	at app//site.benli06.GenerationWorkCacheTest.retiredEntryKeepsLateFailureBeforeCancellationAndBeforeInternalTerminalCallbackRuns(GenerationWorkCacheTest.java:433)
+	at java.base@21.0.11/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base@21.0.11/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base@21.0.11/java.util.ArrayList.forEach(ArrayList.java:1596)
+</failure>
+  </testcase>
+  <testcase name="pathHitSkipsPreparationAndContentAliasesParseOnce()" classname="site.benli06.GenerationWorkCacheTest" time="0.005"/>
+  <testcase name="recursiveSaturatedAdmissionFailsInsteadOfBlockingWorker()" classname="site.benli06.GenerationWorkCacheTest" time="0.007"/>
+  <testcase name="reloadCancelsQueuedAndRunningWorkAndCannotPublishIntoNewEpoch()" classname="site.benli06.GenerationWorkCacheTest" time="0.008"/>
+  <testcase name="readAndParseFailureAllowRetryAndCleanTickets()" classname="site.benli06.GenerationWorkCacheTest" time="0.006"/>
+  <testcase name="interruptedDescriptorWaitPreservesInterruptAndCannotRead()" classname="site.benli06.GenerationWorkCacheTest" time="0.018"/>
+  <testcase name="retirementWhilePreparingClosesTheTransferredOwnerWithoutCallingLoad()" classname="site.benli06.GenerationWorkCacheTest" time="0.012"/>
+  <testcase name="queueBackpressureDoesNotReadQueuedInputs()" classname="site.benli06.GenerationWorkCacheTest" time="0.105"/>
+  <testcase name="admissionHookFailureReturnsSlot()" classname="site.benli06.GenerationWorkCacheTest" time="0.012"/>
+  <testcase name="oneThousandEpochsMixingSuccessFailureAndRetirementDoNotAccumulate()" classname="site.benli06.GenerationWorkCacheTest" time="0.227"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

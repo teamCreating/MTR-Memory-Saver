@@ -1,0 +1,16 @@
+{
+  "argv": [
+    "gradlew.bat",
+    "--no-daemon",
+    "-Ptarget=official-nf248",
+    "streamingBlockbenchInputAudit",
+    "-PstreamingAuditMode=string",
+    "-PstreamingAuditDirectory=C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\streaming048-validation\\03-string-negative-control\\snapshot"
+  ],
+  "cwd": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory",
+  "started_at": "2026-11-17T11:40:25.504009+00:00",
+  "JAVA_HOME": "C:\\Users\\ben_l\\Saved Games\\Yuuniverse 1.20.1 Shenyang\\porting-output\\work\\tools\\jdk21\\jdk-21.0.11+10",
+  "control": "Legacy complete String materialization with the exact same generated input, 64MiB heap, explicit fixture limits. Preserve actual failure unchanged; not an ordinary client acceptance.",
+  "exit_code": 1,
+  "ended_at": "2026-11-17T11:40:54.225217+00:00"
+}

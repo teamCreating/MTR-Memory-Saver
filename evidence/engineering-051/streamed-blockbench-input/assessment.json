@@ -1,0 +1,121 @@
+{
+  "schema_version": 1,
+  "sealed_at": "2026-11-17T20:19:54+08:00",
+  "version": "0.4.8",
+  "status": "engineering_checks_passed_runtime_not_accepted",
+  "final_runs": {
+    "06": {
+      "target": "official-nf248",
+      "exit_code": 0,
+      "tests": {
+        "tests": 99,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "source_changed": [],
+      "artifacts": {
+        "mtr-memory-saver-official-nf248-0.4.8-acceptance-probe.build.json": {
+          "size": 2405,
+          "sha256": "7a7eb970350f54321577deb9b20fa473c855329264f2acf3c72764950c06a27a"
+        },
+        "mtr-memory-saver-official-nf248-0.4.8-acceptance-probe.jar": {
+          "size": 37737,
+          "sha256": "ad5e9cccf272559c62dcf35f9fbe237e2bd1c6f896cb06bfb692e604d5e4c79a"
+        },
+        "mtr-memory-saver-official-nf248-0.4.8.build.json": {
+          "size": 6796,
+          "sha256": "bf0d8ee78f0b2525c81c86db2d4381776873464f3126aa4ad91e5ed9286b5584"
+        },
+        "mtr-memory-saver-official-nf248-0.4.8.jar": {
+          "size": 332795,
+          "sha256": "34c0b27780f7a3d4d5f29845f98a655f22cae0b1eeca1a4a95ab86b60921b0c1"
+        }
+      }
+    },
+    "07": {
+      "target": "official-nf265",
+      "exit_code": 0,
+      "tests": {
+        "tests": 99,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "source_changed": [],
+      "artifacts": {
+        "mtr-memory-saver-official-nf265-0.4.8-acceptance-probe.build.json": {
+          "size": 2405,
+          "sha256": "1c3e1dc470fcbf968913881cc69458de1f0ca292ae6a528ebf9c4f3e577ee24f"
+        },
+        "mtr-memory-saver-official-nf265-0.4.8-acceptance-probe.jar": {
+          "size": 37737,
+          "sha256": "ad5e9cccf272559c62dcf35f9fbe237e2bd1c6f896cb06bfb692e604d5e4c79a"
+        },
+        "mtr-memory-saver-official-nf265-0.4.8.build.json": {
+          "size": 6796,
+          "sha256": "9e3ecfa82d8c5a42890ebd89427c43d7f96b83fde48ab83a6391589e0b2d155f"
+        },
+        "mtr-memory-saver-official-nf265-0.4.8.jar": {
+          "size": 332796,
+          "sha256": "89720d30c76b4f5dfc6a71a398bb67c3138cf4f8f4e0afd0dbb062753552e735"
+        }
+      }
+    }
+  },
+  "native_provider_contract": {
+    "mtr_sha256": "ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa",
+    "default_provider_sites": 5,
+    "asm_contract_passed_both_official_targets": true,
+    "actual_mixin_weaving_claimed": false
+  },
+  "retained_failures": [
+    {
+      "run": "03",
+      "exit_code": 1,
+      "type": "OutOfMemoryError at complete String.join",
+      "scope": "64MiB fixture, explicit decoded length/workspace limits; not a client acceptance"
+    },
+    {
+      "run": "04",
+      "exit_code": 1,
+      "tests": 99,
+      "failures": 1,
+      "type": "test used current pending > 0 after beginReload installed a new empty epoch",
+      "production_change_for_correction": false,
+      "old_manifest_matches_new_jar": false
+    }
+  ],
+  "allocation_control": {
+    "heap_bytes": 67108864,
+    "decoded_units": 41943042,
+    "digest": "5b0390cb3134dc6f7b26634b704c8d62833d07a887ae0fd0b446cf384ef03053",
+    "snapshot_exit_code": 0,
+    "complete_string_exit_code": 1,
+    "limits": "explicit fixture overrides, not production defaults",
+    "native_schema_equal": true,
+    "settled": true
+  },
+  "runtime_acceptance": {
+    "accepted": false,
+    "scope": "Runtime checks and performance are separate evidence; these engineering results do not award game acceptance.",
+    "release_work_remaining_elsewhere": [
+      "NF248/NF265 actual 24 lifecycle + 18 strict resource checks and wrong-binary rejection",
+      "fresh all-16-pack 20 reloads",
+      "A/B, A/A and observer-overhead controls",
+      "CI and release documentation"
+    ],
+    "outside_release_scope": [
+      "interaction coverage",
+      "two-hour route"
+    ]
+  },
+  "limitations": [
+    "Streaming removes the module-owned complete Blockbench input String, not the native Gson DOM/model heap.",
+    "Unknown providers retain get/String fallback; native DEBUG retains its local-file path.",
+    "Capability counters cover explicit wrappers, not arbitrary unknown providers; in-progress AtomicLong snapshots are not instantaneous conservation equations.",
+    "Early runs 01/02 predate the final late-error handling/counters; run02 source snapshot records one changed test file that was not copied.",
+    "Run04 built a JAR before test failure but did not execute buildManifest/verifyRelease; copied stale manifest is explicitly ineligible.",
+    "Standalone allocation audit stderr retains a Log4j missing-provider diagnostic; it is not a game run."
+  ]
+}

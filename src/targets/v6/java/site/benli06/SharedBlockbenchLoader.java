@@ -12,9 +12,11 @@ public final class SharedBlockbenchLoader extends ModelLoaderBase implements Dis
     private Set<String> displayNames;
     private boolean closed;
     private volatile Throwable failure;
+    private final String resourceId;
 
-    SharedBlockbenchLoader(ResourceLocation texture, CompletableFuture<ModelLoaderBase> source) {
+    SharedBlockbenchLoader(ResourceLocation texture, CompletableFuture<ModelLoaderBase> source, String resourceId) {
         super(texture, VertexFormat.Mode.QUADS);
+        this.resourceId = resourceId;
         source.whenComplete((loaded, error) -> {
             synchronized (this) {
                 if (closed) return;
@@ -34,7 +36,7 @@ public final class SharedBlockbenchLoader extends ModelLoaderBase implements Dis
     private void failed(Throwable error) {
         failure = error;
         if (!(error instanceof java.util.concurrent.CancellationException))
-            org.mtr.MTR.LOGGER.error("Shared Blockbench loader failed", error);
+            org.mtr.MTR.LOGGER.error("Shared Blockbench loader failed for {}", resourceId, error);
     }
     public Throwable failure() { return failure; }
 

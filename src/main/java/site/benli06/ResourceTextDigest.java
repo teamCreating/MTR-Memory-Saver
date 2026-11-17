@@ -1,5 +1,7 @@
 package site.benli06;
 
+import java.io.IOException;
+import java.io.Reader;
 import java.nio.ByteBuffer;
 import java.nio.CharBuffer;
 import java.nio.charset.CoderResult;
@@ -49,6 +51,41 @@ public final class ResourceTextDigest {
                     update(digest, output, result);
                 } while (result.isOverflow());
                 if (finished) break;
+            }
+            do {
+                result = encoder.flush(output);
+                update(digest, output, result);
+            } while (result.isOverflow());
+            return HexFormat.of().formatHex(digest.digest());
+        } catch (NoSuchAlgorithmException error) {
+            throw new IllegalStateException("SHA-256 is unavailable", error);
+        }
+    }
+
+    /** Same replacement and cross-buffer surrogate semantics, without materializing text. */
+    public static String sha256(Reader reader) throws IOException {
+        try {
+            MessageDigest digest = MessageDigest.getInstance("SHA-256");
+            var encoder = StandardCharsets.UTF_8.newEncoder()
+                    .onMalformedInput(CodingErrorAction.REPLACE)
+                    .onUnmappableCharacter(CodingErrorAction.REPLACE);
+            CharBuffer input = CharBuffer.allocate(SMALL_TEXT_UNITS);
+            input.limit(0);
+            ByteBuffer output = ByteBuffer.allocate(BUFFER_BYTES);
+            CoderResult result;
+            while (true) {
+                if (Thread.currentThread().isInterrupted()) throw new java.util.concurrent.CancellationException("Resource digest interrupted");
+                input.compact();
+                int count = reader.read(input.array(), input.position(), input.remaining());
+                if (count > 0) input.position(input.position() + count);
+                input.flip();
+                boolean finished = count < 0;
+                do {
+                    result = encoder.encode(input, output, finished);
+                    update(digest, output, result);
+                } while (result.isOverflow());
+                if (finished) break;
+                if (count == 0) Thread.yield();
             }
             do {
                 result = encoder.flush(output);

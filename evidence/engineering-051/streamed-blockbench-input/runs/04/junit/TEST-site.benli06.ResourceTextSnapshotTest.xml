@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="site.benli06.ResourceTextSnapshotTest" tests="13" skipped="0" failures="0" errors="0" timestamp="2026-11-17T11:54:18.044Z" hostname="DESKTOP-885HHP9" time="0.44">
+  <properties/>
+  <testcase name="sourceCountersKeepLateOldProviderCompletionsInTheirOriginalEpoch()" classname="site.benli06.ResourceTextSnapshotTest" time="0.048"/>
+  <testcase name="readerDigestMatchesOldStringBytesAcrossEverySurrogateBoundary()" classname="site.benli06.ResourceTextSnapshotTest" time="0.025"/>
+  <testcase name="unknownAndDecliningProvidersKeepTheirActualGetContract()" classname="site.benli06.ResourceTextSnapshotTest" time="0.019"/>
+  <testcase name="sourceMutationAfterCaptureCannotChangeDigestOrParsedInput()" classname="site.benli06.ResourceTextSnapshotTest" time="0.009"/>
+  <testcase name="boundedReaderPreservesReplacementSupplementaryTextAndOriginalDigest()" classname="site.benli06.ResourceTextSnapshotTest" time="0.093"/>
+  <testcase name="explicitCapabilityAvoidsGetAndKeepsTheSameContentKey()" classname="site.benli06.ResourceTextSnapshotTest" time="0.012"/>
+  <testcase name="snapshotShortIoPreservesBytesAndOwnerCloseErrorIsNotSuccess()" classname="site.benli06.ResourceTextSnapshotTest" time="0.132"/>
+  <testcase name="zeroProgressReadsAndWritesStillObserveRetirementAndDeleteTheirOwner()" classname="site.benli06.ResourceTextSnapshotTest" time="0.017"/>
+  <testcase name="snapshotWriteErrorKeepsItsOriginalCauseAndSuppressedCloseError()" classname="site.benli06.ResourceTextSnapshotTest" time="0.011"/>
+  <testcase name="ownedSnapshotHandlesShortIoAndPropagatesCreateWriteReadRewindCloseErrors()" classname="site.benli06.ResourceTextSnapshotTest" time="0.026"/>
+  <testcase name="closingAnOldReaderTwiceCannotReleaseTheCurrentReaderGuard()" classname="site.benli06.ResourceTextSnapshotTest" time="0.009"/>
+  <testcase name="captureFailureLimitCancellationAndSourceCloseFailureCannotLeakOwner()" classname="site.benli06.ResourceTextSnapshotTest" time="0.02"/>
+  <testcase name="readerAndStringKeepNativeBlockbenchSchemaAndMalformedInputFailures()" classname="site.benli06.ResourceTextSnapshotTest" time="0.007"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

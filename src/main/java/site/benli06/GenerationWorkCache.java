@@ -1,9 +1,12 @@
 package site.benli06;
 
 import java.time.Duration;
+import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.IdentityHashMap;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ArrayBlockingQueue;
@@ -23,7 +26,10 @@ import java.util.function.Supplier;
 
 /** Bounded descriptor queue, two-level single-flight lookup and atomic generation retirement. */
 public final class GenerationWorkCache<K, C, V> implements AutoCloseable {
-    public record Prepared<C, V>(C contentKey, Callable<V> load) {}
+    /** The admitted worker closes an optional source owner before publishing its result. */
+    public record Prepared<C, V>(C contentKey, Callable<V> load, AutoCloseable owner) {
+        public Prepared(C contentKey, Callable<V> load) { this(contentKey, load, null); }
+    }
     public record Statistics(long requests, long pathHits, long uniqueParses, long failures,
                              int paths, int contents, int pending, int outstanding, int queued) {}
     private final class Epoch {
@@ -143,32 +149,81 @@ public final class GenerationWorkCache<K, C, V> implements AutoCloseable {
             if (entry.ready.isDone()) return;
             Prepared<C, V> prepared = prepare.get();
             CompletableFuture<V> alias;
-            synchronized (lock) {
-                if (entry.epoch.retired || entry.ready.isDone()) return;
-                entry.content = prepared.contentKey();
-                Entry existing = entry.epoch.contents.get(entry.content);
-                alias = existing == null ? null : existing.ready;
+            V parsed = null;
+            try (var owner = prepared.owner()) {
+                synchronized (lock) {
+                    if (entry.epoch.retired || entry.ready.isDone()) return;
+                    entry.content = prepared.contentKey();
+                    Entry existing = entry.epoch.contents.get(entry.content);
+                    alias = existing == null ? null : existing.ready;
+                    if (alias == null) {
+                        entry.contentOwner = true;
+                        entry.epoch.contents.put(entry.content, entry); entry.epoch.parses++;
+                    }
+                }
                 if (alias == null) {
-                    entry.contentOwner = true;
-                    entry.epoch.contents.put(entry.content, entry); entry.epoch.parses++;
+                    parsed = prepared.load().call();
+                    if (parsed == null) throw new IllegalStateException("Shared model parser returned no result");
                 }
             }
+            // Release source/workspace ownership before subscribing to another result,
+            // even when that future is already complete and invokes this callback inline.
             if (alias != null) {
                 alias.whenComplete((value, error) -> publish(entry, value, error));
                 return; // Never wait for another parser while holding a read scope/worker.
             }
-            V value = prepared.load().call();
-            if (value == null) throw new IllegalStateException("Shared model parser returned no result");
-            publish(entry, value, null);
+            publish(entry, parsed, null);
         } catch (Throwable error) { publish(entry, null, error); }
         finally { inWorker.remove(); }
     }
     private void publish(Entry entry, V value, Throwable error) {
         synchronized (lock) {
-            if (entry.epoch.retired || entry.ready.isDone()) return;
+            if (entry.epoch.retired || entry.ready.isDone()) {
+                if (error != null) preserveLateFailure(entry, error);
+                return;
+            }
             if (error == null) entry.ready.complete(value);
             else entry.ready.completeExceptionally(error);
         }
+    }
+    private void preserveLateFailure(Entry entry, Throwable late) {
+        // Retirement precedes cancellation outside the lock. This callback also covers
+        // that still-pending interval without waiting or changing the original outcome.
+        entry.ready.whenComplete((value, primary) -> {
+            if (primary == null) return;
+            synchronized (lock) {
+                Set<Throwable> seen = Collections.newSetFromMap(new IdentityHashMap<>());
+                var pending = new ArrayDeque<Throwable>();
+                pending.add(late);
+                while (!pending.isEmpty()) {
+                    Throwable candidate = pending.removeFirst();
+                    if (candidate == primary || !seen.add(candidate)) continue;
+                    if (references(candidate, primary)) {
+                        // A wrapper around the terminal error cannot be attached back
+                        // onto it. Preserve only its independent cleanup/error branches.
+                        addChildren(candidate, pending);
+                    } else if (!references(primary, candidate)) {
+                        primary.addSuppressed(candidate);
+                    }
+                }
+            }
+        });
+    }
+    private static boolean references(Throwable root, Throwable target) {
+        Set<Throwable> seen = Collections.newSetFromMap(new IdentityHashMap<>());
+        var pending = new ArrayDeque<Throwable>();
+        pending.add(root);
+        while (!pending.isEmpty()) {
+            Throwable current = pending.removeFirst();
+            if (current == target) return true;
+            if (seen.add(current)) addChildren(current, pending);
+        }
+        return false;
+    }
+    private static void addChildren(Throwable error, ArrayDeque<Throwable> pending) {
+        Throwable cause = error.getCause();
+        if (cause != null) pending.addLast(cause);
+        Collections.addAll(pending, error.getSuppressed());
     }
     private void terminal(Entry entry, Throwable error) {
         synchronized (lock) {

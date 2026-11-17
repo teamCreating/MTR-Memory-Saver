@@ -1,0 +1,73 @@
+package site.benli06;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.nio.charset.Charset;
+import java.nio.file.Path;
+import java.util.List;
+
+/** Immutable decoded input and its old String.getBytes(UTF_8) content identity. */
+public final class ResourceTextSnapshot implements AutoCloseable {
+    private final Utf16TextSnapshot snapshot;
+    private final ReadAdmission admission;
+    private final long length;
+    private final String digest;
+
+    private ResourceTextSnapshot(Utf16TextSnapshot snapshot, ReadAdmission admission, long length, String digest) {
+        this.snapshot = snapshot; this.admission = admission; this.length = length; this.digest = digest;
+    }
+
+    /** The caller retains ownership of input; the returned snapshot owns its channel. */
+    public static ResourceTextSnapshot capture(InputStream input, Charset charset, ReadAdmission admission) throws IOException {
+        return capture(input, charset, admission, null);
+    }
+
+    /** Close the source before transferring snapshot ownership, including a source-close failure. */
+    public static ResourceTextSnapshot open(StrictResourceText.StreamOpener source, Charset charset, ReadAdmission admission) throws IOException {
+        return open(source, charset, admission, null);
+    }
+
+    static ResourceTextSnapshot open(StrictResourceText.StreamOpener source, Charset charset, ReadAdmission admission, Path directory) throws IOException {
+        ResourceTextSnapshot result = null;
+        try (var scope = admission.open()) {
+            try (InputStream input = source.open()) { result = capture(input, charset, admission, directory); }
+            return result;
+        } catch (Throwable error) {
+            if (result != null) {
+                try { result.close(); }
+                catch (Throwable cleanup) { if (cleanup != error) error.addSuppressed(cleanup); }
+            }
+            throw error;
+        }
+    }
+
+    static ResourceTextSnapshot capture(InputStream input, Charset charset, ReadAdmission admission, Path directory) throws IOException {
+        Utf16TextSnapshot snapshot = new Utf16TextSnapshot(directory);
+        try (var scope = admission.open()) {
+            snapshot.begin(List.of(), admission);
+            Reader reader = new InputStreamReader(input, charset == null ? Charset.defaultCharset() : charset);
+            char[] chars = new char[8192];
+            long length = 0;
+            for (int count; (count = reader.read(chars)) != -1;) {
+                length += count;
+                admission.checkLength(length);
+                if (count != 0) snapshot.write(chars, count, admission);
+            }
+            admission.checkLength(length);
+            String digest;
+            try (Reader decoded = snapshot.reader(length, admission)) { digest = ResourceTextDigest.sha256(decoded); }
+            return new ResourceTextSnapshot(snapshot, admission, length, digest);
+        } catch (Throwable error) {
+            try { snapshot.close(); }
+            catch (Throwable cleanup) { if (cleanup != error) error.addSuppressed(cleanup); }
+            throw error;
+        }
+    }
+
+    public long length() { return length; }
+    public String digest() { return digest; }
+    public Reader reader() throws IOException { return snapshot.reader(length, admission); }
+    @Override public void close() throws IOException { snapshot.close(); }
+}

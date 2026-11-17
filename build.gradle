@@ -204,6 +204,16 @@ tasks.named('test') {
     maxHeapSize = '768m'
     testLogging { events 'failed', 'skipped'; exceptionFormat 'full' }
 }
+tasks.register('streamingBlockbenchInputAudit', JavaExec) {
+    dependsOn tasks.named('testClasses')
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = 'site.benli06.StreamingBlockbenchInputAudit'
+    javaLauncher = javaToolchains.launcherFor { languageVersion = JavaLanguageVersion.of(matrix.java as int) }
+    maxHeapSize = '64m'
+    args providers.gradleProperty('streamingAuditDirectory').getOrElse('build/acceptance/streaming-blockbench'),
+            providers.gradleProperty('streamingAuditMode').getOrElse('snapshot'),
+            providers.gradleProperty('streamingAuditWhitespace').getOrElse((40L * 1024 * 1024).toString())
+}
 
 if (acceptanceProbe) {
     probeIds.each { id -> neoForge.mods.register(id) { sourceSet sourceSets.probe } }
@@ -388,6 +398,25 @@ tasks.register('probeJar', Jar) {
     archiveClassifier = 'acceptance-probe'
     from(sourceSets.probe.output)
     from('LICENSE')
+}
+tasks.register('probeManifest') {
+    dependsOn tasks.named('probeJar'), tasks.named('buildManifest')
+    inputs.files(sourceSets.probe.allSource, file('config/targets.json'), file('build.gradle'))
+    inputs.property('target', targetName)
+    inputs.property('version', project.version.toString())
+    def destination = layout.buildDirectory.file("libs/${base.archivesName.get()}-${version}-acceptance-probe.build.json")
+    outputs.file(destination)
+    doLast {
+        File probeFile = tasks.probeJar.archiveFile.get().asFile
+        File companionFile = tasks.jar.archiveFile.get().asFile
+        def hashes = [:]
+        (sourceSets.probe.allSource.files + file('config/targets.json') + file('build.gradle')).findAll { it.isFile() }
+                .sort { it.path }.each { hashes[relativePath(it).replace('\\', '/')] = sha256(it) }
+        destination.get().asFile.setText(JsonOutput.prettyPrint(JsonOutput.toJson([
+                kind: 'acceptance-probe', version: project.version.toString(), target: targetName,
+                mtrSha256: mtr.sha256, neoForge: target.neoForge, artifact: probeFile.name, sha256: sha256(probeFile),
+                companionArtifact: companionFile.name, companionSha256: sha256(companionFile), inputs: hashes])) + '\n', 'UTF-8')
+    }
 }
 
 tasks.register('auditModels', JavaExec) {
