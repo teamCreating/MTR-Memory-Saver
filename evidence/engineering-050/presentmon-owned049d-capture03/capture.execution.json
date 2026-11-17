@@ -1,0 +1,63 @@
+{
+  "argv": [
+    "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\presentmon-upstream-050\\PresentMon-2.6.0-x64.exe",
+    "--process_id",
+    "45784",
+    "--session_name",
+    "mtr-present-feasibility-39dfa8a222e14453854719088ab1e6d1",
+    "--output_file",
+    "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-feasibility\\owned049d-capture-03\\presents.csv",
+    "--timed",
+    "25",
+    "--terminate_after_timed",
+    "--qpc_time",
+    "--no_console_stats",
+    "--no_track_input",
+    "--no_track_gpu"
+  ],
+  "cwd": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-feasibility\\owned049d-capture-03",
+  "started": "2026-11-17T10:27:36.201836+00:00",
+  "start_clock": {
+    "utc_between_qpc_reads": "2026-11-17T10:27:36.202010+00:00",
+    "qpc_before": 4297875307862,
+    "qpc_after": 4297875308024,
+    "frequency_hz": 10000000,
+    "pair_span_seconds": 1.62e-05
+  },
+  "owner_pid": 64408,
+  "runner_sha256": "67220fd37a03e4c0e57c371525c3fbe8a2c953732fb38bb1853586446b1f51a7",
+  "session_name": "mtr-present-feasibility-39dfa8a222e14453854719088ab1e6d1",
+  "helper_pid": 69616,
+  "actual_owned_helper": {
+    "pid": 69616,
+    "executable": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\presentmon-upstream-050\\PresentMon-2.6.0-x64.exe",
+    "image_query_omitted_for_exited_process": false,
+    "created": "2026-11-17T10:27:36.204992+00:00",
+    "exit_time": null,
+    "kernel_100ns": 0,
+    "user_100ns": 0,
+    "source": "actual_owned_Popen_handle"
+  },
+  "exit_code": 0,
+  "ended": "2026-11-17T10:28:02.029468+00:00",
+  "end_clock": {
+    "utc_between_qpc_reads": "2026-11-17T10:28:02.030097+00:00",
+    "qpc_before": 4298133588632,
+    "qpc_after": 4298133589005,
+    "frequency_hz": 10000000,
+    "pair_span_seconds": 3.73e-05
+  },
+  "helper_exited": true,
+  "actual_owned_helper_after": {
+    "pid": 69616,
+    "executable": null,
+    "image_query_omitted_for_exited_process": true,
+    "created": "2026-11-17T10:27:36.204992+00:00",
+    "exit_time": "2026-11-17T10:28:02.011032+00:00",
+    "kernel_100ns": 2031250,
+    "user_100ns": 2187500,
+    "source": "actual_owned_Popen_handle"
+  },
+  "stdout_sha256": "a9130f7ca0a9bf20318a0122cdf0d1189d2a1ffbb038a45a6bfaf514bf9c5931",
+  "stderr_sha256": "7bd31a7082b233def4721f421372e6e4916d7f224979ef56a577daecf669f100"
+}

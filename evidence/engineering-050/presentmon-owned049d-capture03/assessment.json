@@ -1,0 +1,161 @@
+{
+  "schema": 1,
+  "assessed_at": "2026-11-17T10:40:01.137019+00:00",
+  "scope": "One authorized 25-second external present-source availability probe after the first independently verified reload; not a quiet benchmark, calibration, comparison, or gameplay acceptance.",
+  "data_source_available": false,
+  "calibration_passed": false,
+  "performance_passed": false,
+  "failure": "No CSV was created in the exact requested output directory; no nonzero target data rows or actual CSV schema can be verified.",
+  "root_cause": null,
+  "root_cause_status": "Unattributed. Successful trace start/stop and a generic privilege warning do not establish why no target CSV was produced.",
+  "requested_duration_seconds": 25,
+  "argv": [
+    "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\presentmon-upstream-050\\PresentMon-2.6.0-x64.exe",
+    "--process_id",
+    "45784",
+    "--session_name",
+    "mtr-present-feasibility-39dfa8a222e14453854719088ab1e6d1",
+    "--output_file",
+    "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-feasibility\\owned049d-capture-03\\presents.csv",
+    "--timed",
+    "25",
+    "--terminate_after_timed",
+    "--qpc_time",
+    "--no_console_stats",
+    "--no_track_input",
+    "--no_track_gpu"
+  ],
+  "original_capture_cwd": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-feasibility\\owned049d-capture-03",
+  "current_payload_directory": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-owned049d-capture03",
+  "helper": {
+    "owner_pid": 64408,
+    "helper_pid": 69616,
+    "created": "2026-11-17T10:27:36.204992+00:00",
+    "exit_time": "2026-11-17T10:28:02.011032+00:00",
+    "actual_wait_exit_code": 0,
+    "actual_wait_receipt": "capture-exit.json",
+    "receipt_sha256": "c14fc7468f78c6957c81a340578e3848efd6737f1a2e8b5921a05ee873f80d45",
+    "helper_exited": true,
+    "timeout": false,
+    "owned_handle_source": "actual_owned_Popen_handle",
+    "exit_receipt_persisted_before_post_exit_metadata": true,
+    "post_exit_image_query_omitted": true,
+    "cleanup_branch_executed": false
+  },
+  "clock": {
+    "started": "2026-11-17T10:27:36.201836+00:00",
+    "ended": "2026-11-17T10:28:02.029468+00:00",
+    "start_clock": {
+      "utc_between_qpc_reads": "2026-11-17T10:27:36.202010+00:00",
+      "qpc_before": 4297875307862,
+      "qpc_after": 4297875308024,
+      "frequency_hz": 10000000,
+      "pair_span_seconds": 1.62e-05
+    },
+    "end_clock": {
+      "utc_between_qpc_reads": "2026-11-17T10:28:02.030097+00:00",
+      "qpc_before": 4298133588632,
+      "qpc_after": 4298133589005,
+      "frequency_hz": 10000000,
+      "pair_span_seconds": 3.73e-05
+    },
+    "csv_qpc_values": null
+  },
+  "target": {
+    "pid": 45784,
+    "created": "2026-11-17T03:15:53.5383010Z",
+    "executable": "C:\\Users\\ben_l\\Saved Games\\Yuuniverse 1.20.1 Shenyang\\porting-output\\work\\tools\\jdk21\\jdk-21.0.11+10\\bin\\java.exe",
+    "before_after_identity_equal": true,
+    "command_sha256": "6ef415b361f5b4f6946135c3933167dfb0557d6eb7b1928364020864b236e4e6",
+    "source_receipts": [
+      "target-before.json",
+      "target-after.json",
+      "packaged-client-plan.json",
+      "packaged-client-launch.json"
+    ]
+  },
+  "etw": {
+    "session_name": "mtr-present-feasibility-39dfa8a222e14453854719088ab1e6d1",
+    "during_query": {
+      "observed_at": "2026-11-17T10:27:44.073489+00:00",
+      "session_name": "mtr-present-feasibility-39dfa8a222e14453854719088ab1e6d1",
+      "operation": "ControlTraceW_EVENT_TRACE_CONTROL_QUERY",
+      "status": 0,
+      "properties_size": 120,
+      "wnode_size": 48,
+      "counters": {
+        "EventsLost": 0,
+        "LogBuffersLost": 0,
+        "RealTimeBuffersLost": 0,
+        "NumberOfBuffers": 256,
+        "FreeBuffers": 248,
+        "BuffersWritten": 70
+      }
+    },
+    "after_query": {
+      "observed_at": "2026-11-17T10:28:02.325629+00:00",
+      "session_name": "mtr-present-feasibility-39dfa8a222e14453854719088ab1e6d1",
+      "operation": "ControlTraceW_EVENT_TRACE_CONTROL_QUERY",
+      "status": 4201,
+      "properties_size": 120,
+      "wnode_size": 48,
+      "counters": null
+    },
+    "own_session_gone_at_after_query": true,
+    "lost_counter_scope": "Counters are one query point only, not a full-window lost-event guarantee or a count of target presents.",
+    "global_listing_receipts": [
+      {
+        "file": "sessions-before.execution.json",
+        "exit_code": 0
+      },
+      {
+        "file": "sessions-after.execution.json",
+        "exit_code": 2147946600
+      }
+    ],
+    "global_session_unchanged_claim": false,
+    "other_sessions_or_services_modified_by_pilot": false
+  },
+  "csv": {
+    "files": [],
+    "exists": false,
+    "actual_schema": null,
+    "data_row_count": null,
+    "process_ids": null,
+    "qpc_range": null,
+    "missing_metric_values": null,
+    "nonzero_target_data_rows_verified": false
+  },
+  "streams": {
+    "stdout": {
+      "path": "capture.stdout.log",
+      "bytes": 82,
+      "sha256": "a9130f7ca0a9bf20318a0122cdf0d1189d2a1ffbb038a45a6bfaf514bf9c5931"
+    },
+    "stderr": {
+      "path": "capture.stderr.log",
+      "bytes": 608,
+      "sha256": "7bd31a7082b233def4721f421372e6e4916d7f224979ef56a577daecf669f100"
+    }
+  },
+  "binary": {
+    "path": "PresentMon-2.6.0-x64.exe",
+    "sha256": "b2a706bc6ad475749e3b7e3409263aa1e6906d45bdcf993f6dbc0f660188f1af",
+    "signature_status": "Valid",
+    "help_and_download_dependencies": "../presentmon-feasibility/upstream-help-01 and ../presentmon-feasibility/upstream-download-01; historical payloads were read only."
+  },
+  "limitations": [
+    "No CSV means no empirical header, target presents, frame timing, PID-row checks, QPC-row checks, or missing-value audit.",
+    "Present timings would not replace native render-loop metrics, process CPU utilization, GC, heap, or OS memory.",
+    "The first two failures remain unchanged; this exit0 does not reconstruct the missing return code from the earlier upstream trial.",
+    "Restoring the window is context, not a proven explanation for either the old failures or this result."
+  ],
+  "relocation": {
+    "receipt": "relocation-receipt.json",
+    "capture_payload_count": 46,
+    "capture_payload_bytes": 1230384,
+    "all_before_after_sizes_and_sha256_equal": true,
+    "embedded_absolute_paths_preserved": true
+  },
+  "historical_payload_verification": "historical-payload-verification.json"
+}

@@ -517,3 +517,11 @@ CI从config/targets.json派生Java及官方目标，Linux/Windows构建、Java/n
 仅在该测试增加SamplingClock合成采样时钟，UTC和monotonic同源、按明确采样deadline推进；使用3秒逻辑时长和0.25秒步进覆盖原三个窗口。真实后台线程通过started/release事件同步，采样窗口冻结后才释放并完成，保留真实join与原终态事件/时间边界断言，新增elapsed精确等于3和路线窗口passed断言。生产观察器、路线覆盖规则与关闭超时未改；合成逻辑时间不冒充实际运行时长。首次合成夹具的UTC与采样边界不足在本地暴露并修正，没有放宽生产校验。
 
 相同每次等待后120ms真实延迟下，修正用例实际13份采样、3个窗口通过、结果仅出现在终态、elapsed逻辑3秒，真实测试耗时1.605s；观察器73项回归通过（4.857s），最终完整286项通过（24.576s）。447份原历史脚本与11份样例再次校验通过；原始失败记录保留，本批不授予任何新的实际游戏验收。改动与思路随本提交记录，使用用户身份并立即自动push工作分支。
+
+## 2026-11-17T18:40:02+08:00 (UTC+08:00) — 封存049d第三次PresentMon可用性探测
+
+首轮重载已独立verified并稳定后，仅执行一次官方PresentMon2.6.0、exact PID45784与创建时间绑定的25秒可用性探测。真实owned helper69616 wait exit0且无timeout，退出时间10:28:02.011032Z；独占ETW session结束后QUERY返回4201，目标JVM身份前后一致。仍未生成CSV，实际schema、非零目标数据行及QPC/缺失值均不可验证，data_source_available=false；不授予calibration、performance或玩法通过，也不从通用权限警告归因。lost counters为0仅对应一次查询点，BuffersWritten70不能冒充目标present数量。
+
+按精确解析路径、仓库边界、目标不存在与无reparse检查，用一次PowerShell Move-Item -LiteralPath将本次46文件共1230384bytes移到独立evidence/engineering-050/presentmon-owned049d-capture03。逐文件核对移动前后size/SHA一致，原绝对路径与argv保持原字节，另存来源映射。移动前两个预检分别因PowerShell参数集及字典测量方式失败，均发生在Move-Item之前、未移动或改写payload；修正预检后只实际移动一次。
+
+复核旧presentmon-feasibility147个index-defined payload共5831275bytes全部size/SHA吻合，旧index与HEAD原bytes一致，本次capture子目录已移出；另有3份既存未索引bytecode缓存按root指示原位保留，不删不移、不归因为本次，也不声称旧物理目录每文件均在index。新增compact assessment、README、历史payload核对与独立SHA-index；旧seal和runtime未修改。以A-BenLi06 <ben_li06@outlook.com>作者/提交者限定提交本scope与walkthrough，并按仓库AGENTS自动push当前工作分支。

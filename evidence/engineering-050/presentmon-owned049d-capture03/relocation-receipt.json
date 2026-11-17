@@ -1,0 +1,444 @@
+{
+  "schema": 1,
+  "scope": "post_capture_directory_relocation_only",
+  "started_utc": "2026-11-17T10:38:03.1224692+00:00",
+  "ended_utc": "2026-11-17T10:38:03.2803529+00:00",
+  "repository": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory",
+  "original_absolute_directory": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-feasibility\\owned049d-capture-03",
+  "current_absolute_directory": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-owned049d-capture03",
+  "operation": "Move-Item -LiteralPath <original_absolute_directory> -Destination <current_absolute_directory> -ErrorAction Stop",
+  "single_powershell_move": true,
+  "exact_paths_checked": true,
+  "paths_within_repository": true,
+  "existing_ancestors_and_source_tree_have_no_reparse_points": true,
+  "target_absent_before": true,
+  "source_absent_after": true,
+  "payload_count": 46,
+  "payload_bytes": 1230384,
+  "all_size_sha256_equal_before_after": true,
+  "original_payload_bytes_and_embedded_absolute_paths_unchanged": true,
+  "historical_index_sha256_before": "688ac68e4aa7c13da749c18a0768e641243177eca2f2c849ff87fa760a53ae79",
+  "historical_index_sha256_after": "688ac68e4aa7c13da749c18a0768e641243177eca2f2c849ff87fa760a53ae79",
+  "historical_index_unchanged": true,
+  "known_preexisting_unindexed_files_not_modified": [
+    "__pycache__/native_etw.cpython-314.pyc",
+    "__pycache__/pilot.cpython-314.pyc",
+    "upstream-capture-02/__pycache__/native-etw-source.cpython-314.pyc"
+  ],
+  "files": [
+    {
+      "relative_path": "binary-and-token.execution.json",
+      "original_absolute_path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-feasibility\\owned049d-capture-03\\binary-and-token.execution.json",
+      "current_absolute_path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-owned049d-capture03\\binary-and-token.execution.json",
+      "before_bytes": 2255,
+      "before_sha256": "2839f096dd2a912a09354f0dd90a566b18037069b0090ed1efc3dcbd7e7d132e",
+      "after_bytes": 2255,
+      "after_sha256": "2839f096dd2a912a09354f0dd90a566b18037069b0090ed1efc3dcbd7e7d132e"
+    },
+    {
+      "relative_path": "binary-and-token.json",
+      "original_absolute_path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-feasibility\\owned049d-capture-03\\binary-and-token.json",
+      "current_absolute_path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-owned049d-capture03\\binary-and-token.json",
+      "before_bytes": 549,
+      "before_sha256": "c08ab8611aa8ad881b4765b6ea979b13e8a1acdecb7adb7d9fb43880bd935efe",
+      "after_bytes": 549,
+      "after_sha256": "c08ab8611aa8ad881b4765b6ea979b13e8a1acdecb7adb7d9fb43880bd935efe"
+    },
+    {
+      "relative_path": "binary-and-token.stderr.log",
+      "original_absolute_path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-feasibility\\owned049d-capture-03\\binary-and-token.stderr.log",
+      "current_absolute_path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-owned049d-capture03\\binary-and-token.stderr.log",
+      "before_bytes": 0,
+      "before_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "after_bytes": 0,
+      "after_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative_path": "binary-and-token.stdout.log",
+      "original_absolute_path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-feasibility\\owned049d-capture-03\\binary-and-token.stdout.log",
+      "current_absolute_path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-owned049d-capture03\\binary-and-token.stdout.log",
+      "before_bytes": 481,
+      "before_sha256": "fc8c9bca3e5e720fd72bb5c13ad133772703afc2fff64f006a1242cc5f9383fd",
+      "after_bytes": 481,
+      "after_sha256": "fc8c9bca3e5e720fd72bb5c13ad133772703afc2fff64f006a1242cc5f9383fd"
+    },
+    {
+      "relative_path": "capture-exit.json",
+      "original_absolute_path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-feasibility\\owned049d-capture-03\\capture-exit.json",
+      "current_absolute_path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-owned049d-capture03\\capture-exit.json",
+      "before_bytes": 1988,
+      "before_sha256": "c14fc7468f78c6957c81a340578e3848efd6737f1a2e8b5921a05ee873f80d45",
+      "after_bytes": 1988,
+      "after_sha256": "c14fc7468f78c6957c81a340578e3848efd6737f1a2e8b5921a05ee873f80d45"
+    },
+    {
+      "relative_path": "capture-intent.json",
+      "original_absolute_path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-feasibility\\owned049d-capture-03\\capture-intent.json",
+      "current_absolute_path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-owned049d-capture03\\capture-intent.json",
+      "before_bytes": 26543,
+      "before_sha256": "736ffe628960bceac613a2bfc8e55b98883faa1fcadac98e963529bbcadd5612",
+      "after_bytes": 26543,
+      "after_sha256": "736ffe628960bceac613a2bfc8e55b98883faa1fcadac98e963529bbcadd5612"
+    },
+    {
+      "relative_path": "capture-start.json",
+      "original_absolute_path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-feasibility\\owned049d-capture-03\\capture-start.json",
+      "current_absolute_path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-owned049d-capture03\\capture-start.json",
+      "before_bytes": 1682,
+      "before_sha256": "0354419ce8b32c9a3808e3818381547e861fc1929fd5592812ee27712ab7ad1c",
+      "after_bytes": 1682,
+      "after_sha256": "0354419ce8b32c9a3808e3818381547e861fc1929fd5592812ee27712ab7ad1c"
+    },
+    {
+      "relative_path": "capture.execution.json",
+      "original_absolute_path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-feasibility\\owned049d-capture-03\\capture.execution.json",
+      "current_absolute_path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-owned049d-capture03\\capture.execution.json",
+      "before_bytes": 2496,
+      "before_sha256": "ae2b648f961f130ac6b60d6063f7788de7a2379217ce65257cb93c5da82df59c",
+      "after_bytes": 2496,
+      "after_sha256": "ae2b648f961f130ac6b60d6063f7788de7a2379217ce65257cb93c5da82df59c"
+    },
+    {
+      "relative_path": "capture.stderr.log",
+      "original_absolute_path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-feasibility\\owned049d-capture-03\\capture.stderr.log",
+      "current_absolute_path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-owned049d-capture03\\capture.stderr.log",
+      "before_bytes": 608,
+      "before_sha256": "7bd31a7082b233def4721f421372e6e4916d7f224979ef56a577daecf669f100",
+      "after_bytes": 608,
+      "after_sha256": "7bd31a7082b233def4721f421372e6e4916d7f224979ef56a577daecf669f100"
+    },
+    {
+      "relative_path": "capture.stdout.log",
+      "original_absolute_path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-feasibility\\owned049d-capture-03\\capture.stdout.log",
+      "current_absolute_path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-owned049d-capture03\\capture.stdout.log",
+      "before_bytes": 82,
+      "before_sha256": "a9130f7ca0a9bf20318a0122cdf0d1189d2a1ffbb038a45a6bfaf514bf9c5931",
+      "after_bytes": 82,
+      "after_sha256": "a9130f7ca0a9bf20318a0122cdf0d1189d2a1ffbb038a45a6bfaf514bf9c5931"
+    },
+    {
+      "relative_path": "download.execution.json",
+      "original_absolute_path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-feasibility\\owned049d-capture-03\\download.execution.json",
+      "current_absolute_path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-owned049d-capture03\\download.execution.json",
+      "before_bytes": 3186,
+      "before_sha256": "171feba651664d2e69f1152faf46d62c4b084cf27a1389139b10ea58182a55ed",
+      "after_bytes": 3186,
+      "after_sha256": "171feba651664d2e69f1152faf46d62c4b084cf27a1389139b10ea58182a55ed"
+    },
+    {
+      "relative_path": "execution.json",
+      "original_absolute_path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-feasibility\\owned049d-capture-03\\execution.json",
+      "current_absolute_path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-owned049d-capture03\\execution.json",
+      "before_bytes": 1011,
+      "before_sha256": "3dfd35d49915fbf76bb18774ad55d33d4598b864588ebed88e8dc79f1e69cfd8",
+      "after_bytes": 1011,
+      "after_sha256": "3dfd35d49915fbf76bb18774ad55d33d4598b864588ebed88e8dc79f1e69cfd8"
+    },
+    {
+      "relative_path": "help-review.json",
+      "original_absolute_path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-feasibility\\owned049d-capture-03\\help-review.json",
+      "current_absolute_path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-owned049d-capture03\\help-review.json",
+      "before_bytes": 722,
+      "before_sha256": "de6e72a9ac328d46190f0695dea999b334fabdbcbf12c8d39773e29dadab9096",
+      "after_bytes": 722,
+      "after_sha256": "de6e72a9ac328d46190f0695dea999b334fabdbcbf12c8d39773e29dadab9096"
+    },
+    {
+      "relative_path": "native-etw-source.py",
+      "original_absolute_path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-feasibility\\owned049d-capture-03\\native-etw-source.py",
+      "current_absolute_path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-owned049d-capture03\\native-etw-source.py",
+      "before_bytes": 3511,
+      "before_sha256": "d238f5c69d0e7c83eb0e4434795de19a6b5ea71a7fb1264289b4c421081e087d",
+      "after_bytes": 3511,
+      "after_sha256": "d238f5c69d0e7c83eb0e4434795de19a6b5ea71a7fb1264289b4c421081e087d"
+    },
+    {
+      "relative_path": "native-session-query-after.json",
+      "original_absolute_path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-feasibility\\owned049d-capture-03\\native-session-query-after.json",
+      "current_absolute_path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-owned049d-capture03\\native-session-query-after.json",
+      "before_bytes": 276,
+      "before_sha256": "15e1f7d15062ff5a00449d12a9ad5d5d79a6647dbed6865d2c596f9b1b56df4d",
+      "after_bytes": 276,
+      "after_sha256": "15e1f7d15062ff5a00449d12a9ad5d5d79a6647dbed6865d2c596f9b1b56df4d"
+    },
+    {
+      "relative_path": "native-session-query-during.json",
+      "original_absolute_path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-feasibility\\owned049d-capture-03\\native-session-query-during.json",
+      "current_absolute_path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-owned049d-capture03\\native-session-query-during.json",
+      "before_bytes": 427,
+      "before_sha256": "1be9d6e5b014922192840f4cb310d41ee663c4c74355b5d8243ffa32cec13347",
+      "after_bytes": 427,
+      "after_sha256": "1be9d6e5b014922192840f4cb310d41ee663c4c74355b5d8243ffa32cec13347"
+    },
+    {
+      "relative_path": "owned-helper.execution.json",
+      "original_absolute_path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-feasibility\\owned049d-capture-03\\owned-helper.execution.json",
+      "current_absolute_path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-owned049d-capture03\\owned-helper.execution.json",
+      "before_bytes": 1596,
+      "before_sha256": "0fa7949bfa9278bd722c4f7a220abd742987cf90476bb3dca1acdead9e6ae20c",
+      "after_bytes": 1596,
+      "after_sha256": "0fa7949bfa9278bd722c4f7a220abd742987cf90476bb3dca1acdead9e6ae20c"
+    },
+    {
+      "relative_path": "owned-helper.stderr.log",
+      "original_absolute_path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-feasibility\\owned049d-capture-03\\owned-helper.stderr.log",
+      "current_absolute_path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-owned049d-capture03\\owned-helper.stderr.log",
+      "before_bytes": 0,
+      "before_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "after_bytes": 0,
+      "after_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative_path": "owned-helper.stdout.log",
+      "original_absolute_path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-feasibility\\owned049d-capture-03\\owned-helper.stdout.log",
+      "current_absolute_path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-owned049d-capture03\\owned-helper.stdout.log",
+      "before_bytes": 891,
+      "before_sha256": "05114f6451c36fb041bf792353ba2447b30f5cadb4bf80594bd70fc208b03d94",
+      "after_bytes": 891,
+      "after_sha256": "05114f6451c36fb041bf792353ba2447b30f5cadb4bf80594bd70fc208b03d94"
+    },
+    {
+      "relative_path": "packaged-client-launch.json",
+      "original_absolute_path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-feasibility\\owned049d-capture-03\\packaged-client-launch.json",
+      "current_absolute_path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-owned049d-capture03\\packaged-client-launch.json",
+      "before_bytes": 26219,
+      "before_sha256": "699bbcb9879b139edb838f7fde49211c240539ed97d2dd802f4e29da86819375",
+      "after_bytes": 26219,
+      "after_sha256": "699bbcb9879b139edb838f7fde49211c240539ed97d2dd802f4e29da86819375"
+    },
+    {
+      "relative_path": "packaged-client-plan.json",
+      "original_absolute_path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-feasibility\\owned049d-capture-03\\packaged-client-plan.json",
+      "current_absolute_path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-owned049d-capture03\\packaged-client-plan.json",
+      "before_bytes": 42325,
+      "before_sha256": "3fe5eed2b2fe1ec52919f3bd6615d90dbf9761c7c9f7fdc32226a68816aa22f4",
+      "after_bytes": 42325,
+      "after_sha256": "3fe5eed2b2fe1ec52919f3bd6615d90dbf9761c7c9f7fdc32226a68816aa22f4"
+    },
+    {
+      "relative_path": "pilot-source.py",
+      "original_absolute_path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-feasibility\\owned049d-capture-03\\pilot-source.py",
+      "current_absolute_path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-owned049d-capture03\\pilot-source.py",
+      "before_bytes": 15196,
+      "before_sha256": "67220fd37a03e4c0e57c371525c3fbe8a2c953732fb38bb1853586446b1f51a7",
+      "after_bytes": 15196,
+      "after_sha256": "67220fd37a03e4c0e57c371525c3fbe8a2c953732fb38bb1853586446b1f51a7"
+    },
+    {
+      "relative_path": "PresentMon-2.6.0-x64.exe",
+      "original_absolute_path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-feasibility\\owned049d-capture-03\\PresentMon-2.6.0-x64.exe",
+      "current_absolute_path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-owned049d-capture03\\PresentMon-2.6.0-x64.exe",
+      "before_bytes": 980320,
+      "before_sha256": "b2a706bc6ad475749e3b7e3409263aa1e6906d45bdcf993f6dbc0f660188f1af",
+      "after_bytes": 980320,
+      "after_sha256": "b2a706bc6ad475749e3b7e3409263aa1e6906d45bdcf993f6dbc0f660188f1af"
+    },
+    {
+      "relative_path": "sessions-after.execution.json",
+      "original_absolute_path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-feasibility\\owned049d-capture-03\\sessions-after.execution.json",
+      "current_absolute_path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-owned049d-capture03\\sessions-after.execution.json",
+      "before_bytes": 1268,
+      "before_sha256": "0fec39fa3164cbd2184e143fcdff7c3127b4a8adefe2d4165ab3a764cb1a740f",
+      "after_bytes": 1268,
+      "after_sha256": "0fec39fa3164cbd2184e143fcdff7c3127b4a8adefe2d4165ab3a764cb1a740f"
+    },
+    {
+      "relative_path": "sessions-after.stderr.log",
+      "original_absolute_path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-feasibility\\owned049d-capture-03\\sessions-after.stderr.log",
+      "current_absolute_path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-owned049d-capture03\\sessions-after.stderr.log",
+      "before_bytes": 0,
+      "before_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "after_bytes": 0,
+      "after_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative_path": "sessions-after.stdout.log",
+      "original_absolute_path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-feasibility\\owned049d-capture-03\\sessions-after.stdout.log",
+      "current_absolute_path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-owned049d-capture03\\sessions-after.stdout.log",
+      "before_bytes": 217,
+      "before_sha256": "ccd6806f4f348c379a967cc0c1d8f7861afe6aeac38d3749bb5510bd2d95939e",
+      "after_bytes": 217,
+      "after_sha256": "ccd6806f4f348c379a967cc0c1d8f7861afe6aeac38d3749bb5510bd2d95939e"
+    },
+    {
+      "relative_path": "sessions-before.execution.json",
+      "original_absolute_path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-feasibility\\owned049d-capture-03\\sessions-before.execution.json",
+      "current_absolute_path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-owned049d-capture03\\sessions-before.execution.json",
+      "before_bytes": 1258,
+      "before_sha256": "cfb97b368c3b01e37c913c40fe42a3b0eff11961d952ae672e71874072685c3a",
+      "after_bytes": 1258,
+      "after_sha256": "cfb97b368c3b01e37c913c40fe42a3b0eff11961d952ae672e71874072685c3a"
+    },
+    {
+      "relative_path": "sessions-before.stderr.log",
+      "original_absolute_path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-feasibility\\owned049d-capture-03\\sessions-before.stderr.log",
+      "current_absolute_path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-owned049d-capture03\\sessions-before.stderr.log",
+      "before_bytes": 0,
+      "before_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "after_bytes": 0,
+      "after_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative_path": "sessions-before.stdout.log",
+      "original_absolute_path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-feasibility\\owned049d-capture-03\\sessions-before.stdout.log",
+      "current_absolute_path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-owned049d-capture03\\sessions-before.stdout.log",
+      "before_bytes": 2670,
+      "before_sha256": "161e8f87f2fbbcdd098d4b7fb7aa918f0556393e07ce38e73e9387fd561a06fd",
+      "after_bytes": 2670,
+      "after_sha256": "161e8f87f2fbbcdd098d4b7fb7aa918f0556393e07ce38e73e9387fd561a06fd"
+    },
+    {
+      "relative_path": "target-after.execution.json",
+      "original_absolute_path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-feasibility\\owned049d-capture-03\\target-after.execution.json",
+      "current_absolute_path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-owned049d-capture03\\target-after.execution.json",
+      "before_bytes": 1685,
+      "before_sha256": "3f736dde942ce3a713057384b32ea06a95a3c5a15d470491199478eecc6a3820",
+      "after_bytes": 1685,
+      "after_sha256": "3f736dde942ce3a713057384b32ea06a95a3c5a15d470491199478eecc6a3820"
+    },
+    {
+      "relative_path": "target-after.json",
+      "original_absolute_path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-feasibility\\owned049d-capture-03\\target-after.json",
+      "current_absolute_path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-owned049d-capture03\\target-after.json",
+      "before_bytes": 25443,
+      "before_sha256": "2499304727bdbe9d7914b50faa975d9585992be95f15ec90857bc639a8606396",
+      "after_bytes": 25443,
+      "after_sha256": "2499304727bdbe9d7914b50faa975d9585992be95f15ec90857bc639a8606396"
+    },
+    {
+      "relative_path": "target-after.stderr.log",
+      "original_absolute_path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-feasibility\\owned049d-capture-03\\target-after.stderr.log",
+      "current_absolute_path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-owned049d-capture03\\target-after.stderr.log",
+      "before_bytes": 0,
+      "before_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "after_bytes": 0,
+      "after_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative_path": "target-after.stdout.log",
+      "original_absolute_path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-feasibility\\owned049d-capture-03\\target-after.stdout.log",
+      "current_absolute_path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-owned049d-capture03\\target-after.stdout.log",
+      "before_bytes": 25454,
+      "before_sha256": "60b39209f8708eb00f5d25f6858e419e1ac1b44e28b4c77a259fd6c65386ffe7",
+      "after_bytes": 25454,
+      "after_sha256": "60b39209f8708eb00f5d25f6858e419e1ac1b44e28b4c77a259fd6c65386ffe7"
+    },
+    {
+      "relative_path": "target-before.execution.json",
+      "original_absolute_path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-feasibility\\owned049d-capture-03\\target-before.execution.json",
+      "current_absolute_path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-owned049d-capture03\\target-before.execution.json",
+      "before_bytes": 1686,
+      "before_sha256": "9ed803c1ca8c41d83841e2af4caf6671d632d5cae48558b42b019232b8a604d8",
+      "after_bytes": 1686,
+      "after_sha256": "9ed803c1ca8c41d83841e2af4caf6671d632d5cae48558b42b019232b8a604d8"
+    },
+    {
+      "relative_path": "target-before.json",
+      "original_absolute_path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-feasibility\\owned049d-capture-03\\target-before.json",
+      "current_absolute_path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-owned049d-capture03\\target-before.json",
+      "before_bytes": 25443,
+      "before_sha256": "3011d1c4781e2caa55a96df5cae1c052182d172a7a962ceef6f14a1518d9c365",
+      "after_bytes": 25443,
+      "after_sha256": "3011d1c4781e2caa55a96df5cae1c052182d172a7a962ceef6f14a1518d9c365"
+    },
+    {
+      "relative_path": "target-before.stderr.log",
+      "original_absolute_path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-feasibility\\owned049d-capture-03\\target-before.stderr.log",
+      "current_absolute_path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-owned049d-capture03\\target-before.stderr.log",
+      "before_bytes": 0,
+      "before_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "after_bytes": 0,
+      "after_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative_path": "target-before.stdout.log",
+      "original_absolute_path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-feasibility\\owned049d-capture-03\\target-before.stdout.log",
+      "current_absolute_path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-owned049d-capture03\\target-before.stdout.log",
+      "before_bytes": 25454,
+      "before_sha256": "9e470d78fe8227517293cb9b54a3372fec18a9cf777eee0472077be05996efb1",
+      "after_bytes": 25454,
+      "after_sha256": "9e470d78fe8227517293cb9b54a3372fec18a9cf777eee0472077be05996efb1"
+    },
+    {
+      "relative_path": "unique-session-after.execution.json",
+      "original_absolute_path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-feasibility\\owned049d-capture-03\\unique-session-after.execution.json",
+      "current_absolute_path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-owned049d-capture03\\unique-session-after.execution.json",
+      "before_bytes": 1332,
+      "before_sha256": "38484a2c17b722c4a23a439e5620c33a4252cdc2b0c73f7e513cf0b6de91197e",
+      "after_bytes": 1332,
+      "after_sha256": "38484a2c17b722c4a23a439e5620c33a4252cdc2b0c73f7e513cf0b6de91197e"
+    },
+    {
+      "relative_path": "unique-session-after.stderr.log",
+      "original_absolute_path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-feasibility\\owned049d-capture-03\\unique-session-after.stderr.log",
+      "current_absolute_path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-owned049d-capture03\\unique-session-after.stderr.log",
+      "before_bytes": 0,
+      "before_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "after_bytes": 0,
+      "after_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative_path": "unique-session-after.stdout.log",
+      "original_absolute_path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-feasibility\\owned049d-capture-03\\unique-session-after.stdout.log",
+      "current_absolute_path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-owned049d-capture03\\unique-session-after.stdout.log",
+      "before_bytes": 31,
+      "before_sha256": "0c05c62516eff52db23fe5eea75586308b51ca61e4fee0202608ec8a80704672",
+      "after_bytes": 31,
+      "after_sha256": "0c05c62516eff52db23fe5eea75586308b51ca61e4fee0202608ec8a80704672"
+    },
+    {
+      "relative_path": "unique-session-before.execution.json",
+      "original_absolute_path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-feasibility\\owned049d-capture-03\\unique-session-before.execution.json",
+      "current_absolute_path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-owned049d-capture03\\unique-session-before.execution.json",
+      "before_bytes": 1331,
+      "before_sha256": "5b1cc521aed061b5bb89ed4d5fb2dc00d381d625ee350fa4fce75cbaa65382b3",
+      "after_bytes": 1331,
+      "after_sha256": "5b1cc521aed061b5bb89ed4d5fb2dc00d381d625ee350fa4fce75cbaa65382b3"
+    },
+    {
+      "relative_path": "unique-session-before.stderr.log",
+      "original_absolute_path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-feasibility\\owned049d-capture-03\\unique-session-before.stderr.log",
+      "current_absolute_path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-owned049d-capture03\\unique-session-before.stderr.log",
+      "before_bytes": 0,
+      "before_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "after_bytes": 0,
+      "after_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative_path": "unique-session-before.stdout.log",
+      "original_absolute_path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-feasibility\\owned049d-capture-03\\unique-session-before.stdout.log",
+      "current_absolute_path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-owned049d-capture03\\unique-session-before.stdout.log",
+      "before_bytes": 31,
+      "before_sha256": "0c05c62516eff52db23fe5eea75586308b51ca61e4fee0202608ec8a80704672",
+      "after_bytes": 31,
+      "after_sha256": "0c05c62516eff52db23fe5eea75586308b51ca61e4fee0202608ec8a80704672"
+    },
+    {
+      "relative_path": "unique-session-during.execution.json",
+      "original_absolute_path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-feasibility\\owned049d-capture-03\\unique-session-during.execution.json",
+      "current_absolute_path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-owned049d-capture03\\unique-session-during.execution.json",
+      "before_bytes": 1323,
+      "before_sha256": "d661cf535fcfcff8ce01a3b15adca917e18f5b3ed33ed5a4c8f0bf396c8add17",
+      "after_bytes": 1323,
+      "after_sha256": "d661cf535fcfcff8ce01a3b15adca917e18f5b3ed33ed5a4c8f0bf396c8add17"
+    },
+    {
+      "relative_path": "unique-session-during.stderr.log",
+      "original_absolute_path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-feasibility\\owned049d-capture-03\\unique-session-during.stderr.log",
+      "current_absolute_path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-owned049d-capture03\\unique-session-during.stderr.log",
+      "before_bytes": 0,
+      "before_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "after_bytes": 0,
+      "after_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative_path": "unique-session-during.stdout.log",
+      "original_absolute_path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-feasibility\\owned049d-capture-03\\unique-session-during.stdout.log",
+      "current_absolute_path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-owned049d-capture03\\unique-session-during.stdout.log",
+      "before_bytes": 3394,
+      "before_sha256": "705cc2fbaf656fb69d1550db491e6d1b756d6ac751103320852a2671ba74fb46",
+      "after_bytes": 3394,
+      "after_sha256": "705cc2fbaf656fb69d1550db491e6d1b756d6ac751103320852a2671ba74fb46"
+    }
+  ]
+}

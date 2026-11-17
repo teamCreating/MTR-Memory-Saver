@@ -1,0 +1,35 @@
+{
+  "argv": [
+    "pwsh",
+    "-NoProfile",
+    "-Command",
+    "[Console]::OutputEncoding=[System.Text.UTF8Encoding]::new($false); $pmFile=Get-Item -LiteralPath 'C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\presentmon-upstream-050\\PresentMon-2.6.0-x64.exe'; $pmSignature=Get-AuthenticodeSignature -LiteralPath $pmFile.FullName; $pmPrincipal=[Security.Principal.WindowsPrincipal]::new([Security.Principal.WindowsIdentity]::GetCurrent()); @{observed_at=[DateTimeOffset]::UtcNow.ToString('o'); path=$pmFile.FullName; bytes=$pmFile.Length; file_version=$pmFile.VersionInfo.FileVersion; product_version=$pmFile.VersionInfo.ProductVersion; company=$pmFile.VersionInfo.CompanyName; signature_status=$pmSignature.Status.ToString(); signer=$pmSignature.SignerCertificate.Subject; administrator=$pmPrincipal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator); performance_log_users=$pmPrincipal.IsInRole([Security.Principal.SecurityIdentifier]::new('S-1-5-32-559'))} | ConvertTo-Json -Depth 4"
+  ],
+  "cwd": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-feasibility\\owned049d-capture-03",
+  "started": "2026-11-17T10:27:27.241259+00:00",
+  "start_clock": {
+    "utc_between_qpc_reads": "2026-11-17T10:27:27.241180+00:00",
+    "qpc_before": 4297785699411,
+    "qpc_after": 4297785699973,
+    "frequency_hz": 10000000,
+    "pair_span_seconds": 5.62e-05
+  },
+  "owner": {
+    "pid": 64408,
+    "script": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-feasibility\\pilot.py",
+    "source_sha256": "67220fd37a03e4c0e57c371525c3fbe8a2c953732fb38bb1853586446b1f51a7"
+  },
+  "helper_pid": 65068,
+  "exit_code": 0,
+  "ended": "2026-11-17T10:27:31.087435+00:00",
+  "end_clock": {
+    "utc_between_qpc_reads": "2026-11-17T10:27:31.087693+00:00",
+    "qpc_before": 4297824164685,
+    "qpc_after": 4297824164794,
+    "frequency_hz": 10000000,
+    "pair_span_seconds": 1.09e-05
+  },
+  "helper_exited": true,
+  "stdout_sha256": "fc8c9bca3e5e720fd72bb5c13ad133772703afc2fff64f006a1242cc5f9383fd",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}
