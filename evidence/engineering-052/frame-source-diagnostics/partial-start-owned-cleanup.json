@@ -1,0 +1,24 @@
+{
+  "stop": {
+    "observed_at": "2026-11-17T16:42:33.552005+00:00",
+    "session_name": "mtr-frame-diagnostic-dfd2af58-fe92-476a-bca9-fcf8ec20ed82",
+    "status": 0,
+    "operation": "owned_session_stop",
+    "counters": {
+      "EventsLost": 0,
+      "LogBuffersLost": 0,
+      "RealTimeBuffersLost": 0,
+      "BuffersWritten": 10380
+    },
+    "guid": "5d13dcf2-b71d-438e-8178-61d39c1cb13c",
+    "trace_handle": 37
+  },
+  "after": {
+    "observed_at": "2026-11-17T16:42:33.552505+00:00",
+    "session_name": "mtr-frame-diagnostic-dfd2af58-fe92-476a-bca9-fcf8ec20ed82",
+    "status": 4201,
+    "operation": "session_query",
+    "counters": null
+  },
+  "reason": "Partial owned start: logman exited access denied after creating the unique previously absent session"
+}

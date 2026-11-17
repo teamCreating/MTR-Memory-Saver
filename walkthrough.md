@@ -620,3 +620,9 @@ Pre-commit staged-byte audit first exceeded Windows command-line length (WinErro
 将 a632149 的修订产物、源文件前后指纹、105/105×2 工程检查、64 MiB 原生流式正控制与 String.join OOM 负控制、首轮材质 oracle 失败及修正记录，以及四个已结束的实际客户端检查封存到 evidence/engineering-051/streamed-obj-input。NF248/NF265 各69项实际布尔检查通过并正常退出；两项错误二进制检查均在注册前拒绝并退出1。四份 JFR 的真实 summary exit0 和哈希元数据保存，未复制 JFR、世界、MTR 或第三方依赖。Runner 源拷贝是运行后参考，未冒称预冻结收据。
 
 独立 sealed-only verify.py 实际验证508个payload；四个自有候选/probe JAR显式纳入Git，索引另计。历史脚本目录524→528，保留既有记录，minecraft_testkit verify实际通过。当前16包3GiB新JVM35348仍在进行真实重载，旧无效按键及含HeapDump选项的误报会话不计数。本次封存不代表20次重载或性能门槛通过；仅用户指定1/2/5/6范围。
+
+## 2026-11-18T00:53:24.6019194+08:00 — 独立帧数据诊断与部分启动清理
+
+接续既有 frame_diagnostics 草稿，完成独立原始 ETL 重解码/篡改拒绝检查。实际 Windows 诊断01明确拒绝 ets/rf 组合；改为128MiB有界文件与 owned wrapper finally清理，不再声称独立定时到期。诊断02启用提供程序时返回拒绝访问，仍部分创建会话；按先前不存在的唯一名称及实际GUID/handle核对后已停止并确认4201。补充启动失败也查询并清理自有部分会话的逻辑和回归，20项测试实际通过；一次 unittest discover 缺少顶层包参数的导入失败保留在工具返回，改用模块限定名运行，未修改测试掩盖导入问题。
+
+原始两次命令/实际exit/输出、独立清理、离线PresentMon exit0无CSV，以及当前修订源与正式20测试stdout/stderr/exit封存于 engineering-052/frame-source-diagnostics。未复制ETL或提升权限；原intent的当时source哈希与当前运行后source快照明确区分。尚不知道具体被拒绝提供程序；不将采集失败推断为驱动故障或零帧。modern provider子集仍未具备测量资格，已知正渲染控制、observer-off和真实A/A A/B均未完成，无性能收益或发布通过声明。

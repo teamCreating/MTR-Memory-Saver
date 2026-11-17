@@ -1,0 +1,29 @@
+{
+  "argv": [
+    "C:\\Windows\\System32\\logman.exe",
+    "create",
+    "trace",
+    "mtr-frame-diagnostic-dfd2af58-fe92-476a-bca9-fcf8ec20ed82",
+    "-ets",
+    "-pf",
+    "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\frame-obj048-etw02\\providers.txt",
+    "-o",
+    "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\frame-obj048-etw02\\raw.etl",
+    "-f",
+    "bin",
+    "-ct",
+    "perf",
+    "-max",
+    "128"
+  ],
+  "cwd": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\frame-obj048-etw02",
+  "started": "2026-11-17T16:42:04.422583+00:00",
+  "owner_pid": 70308,
+  "timeout_seconds": 45,
+  "executable": {
+    "path": "C:\\Windows\\System32\\logman.exe",
+    "bytes": 120320,
+    "sha256": "5caaab1e6bed1ea511166432a8e8a03bccc058162e7d19019793e262535fb204"
+  },
+  "helper_pid": 20680
+}
