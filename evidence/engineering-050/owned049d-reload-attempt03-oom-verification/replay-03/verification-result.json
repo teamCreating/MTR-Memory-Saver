@@ -1,0 +1,56 @@
+{
+  "verified_at": "2026-11-17T11:28:02.781005+00:00",
+  "passed": true,
+  "payloads": 225,
+  "index_sha256": "945b19b123de263865bfa5b9a16ff6b1736d87e5080406e397042b5bf64b64c1",
+  "inputs": 4,
+  "epoch_rows": 10,
+  "samples": 531,
+  "verified_samples": 376,
+  "journal_rows": 4967,
+  "retained_recorder_records": [
+    161,
+    349,
+    1079,
+    1294,
+    1534,
+    1869,
+    1894,
+    2482
+  ],
+  "final_verified_reload_count": 0,
+  "historical_prefix_replays": [
+    {
+      "verified_count": 1,
+      "samples": 117,
+      "log_bytes": 39674,
+      "replay_exact": true
+    },
+    {
+      "verified_count": 2,
+      "samples": 263,
+      "log_bytes": 49677,
+      "replay_exact": true
+    },
+    {
+      "verified_count": 3,
+      "samples": 392,
+      "log_bytes": 59517,
+      "replay_exact": true
+    }
+  ],
+  "final_whole_prefix_replay_exact": true,
+  "final_log_bytes": 77281,
+  "oom_exception_lines": [
+    366,
+    396
+  ],
+  "last_ineligible_errors": [
+    "Unreviewed native diagnostics remain in the actual log prefix."
+  ],
+  "original_waiter_deadline_preserved": true,
+  "post_oom_jfr_manifest_sha256": "af4301d4c6af06a7b527ab56d6ff5214fa1c6be80e2ed6d10b3c0ff5eb50447a",
+  "original_java_inputs_verified": 35,
+  "jfr_binary_copied_or_rehashed": false,
+  "scope": "Sealed failure integrity/replay only. The final four-input session is unaccepted; historical three-prefix results do not grant whole-session, route, performance, JFR coverage or game-exit acceptance."
+}

@@ -1,0 +1,34 @@
+{
+  "recorded_at": "2026-11-17T11:18:34.059882+00:00",
+  "provenance_kind": "parent_reported_tool_history",
+  "raw_terminal_tool_receipts_supplied": false,
+  "reported_by": "/root",
+  "terminal_results": [
+    {
+      "exec_session": 45730,
+      "role": "reload consumer03",
+      "exit_code": 1,
+      "status": "stopped",
+      "passed": false,
+      "samples": 531
+    },
+    {
+      "exec_session": 14218,
+      "role": "reload recorder03",
+      "exit_code": 0
+    },
+    {
+      "exec_session": 13570,
+      "role": "wait expected sequence5",
+      "exit_code": 1,
+      "status": "deadline_elapsed"
+    }
+  ],
+  "guard_rejections": {
+    "reported_no_actual_input": true,
+    "raw_tool_receipts_supplied": false,
+    "source_note": "capture-01/ui/controller-change-v2.json",
+    "limits": "The original on-disk controller change note is retained. No failed-key receipt is invented and no additional reload input is inferred."
+  },
+  "limits": "Terminal return values are attributed parent reports; the frozen native/reader summaries, stop receipts and waiter execution/stdout are independent disk evidence. No current game liveness or final game exit is granted."
+}

@@ -11,3 +11,5 @@ evidence/engineering-045/**/*.javap.txt -whitespace
 evidence/engineering-050/native-log-stream/**/*.bin binary
 # Preserve the selected failed-reload input and native-log blobs verbatim.
 evidence/engineering-050/owned049d-reload-attempt01/**/*.bin binary
+# Preserve the complete OOM-prefix/input blobs without whitespace normalization.
+evidence/engineering-050/owned049d-reload-attempt03-oom/**/*.bin binary

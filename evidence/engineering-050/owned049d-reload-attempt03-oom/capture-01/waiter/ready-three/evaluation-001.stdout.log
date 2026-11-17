@@ -1,0 +1,73 @@
+{
+  "evaluated_at": "2026-11-17T10:51:40.977262+00:00",
+  "program_sha256": "8107303eea520c20ae52d54f7477ba432067bab739c1d832e57c09c88b111ac7",
+  "frozen_import_root": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\owned-049d-reload-recorder-attempt03\\sources",
+  "selected_published_record": "3eae8c4a-1c65-47f3-a8a5-44f6d846c9a4:1869",
+  "samples": 392,
+  "eligible_samples": 276,
+  "baseline_sequence": 1,
+  "first_verified_consumer_timestamp": "2026-11-17T10:19:03.571955+00:00",
+  "reloads": [
+    {
+      "event_id": "3eae8c4a-1c65-47f3-a8a5-44f6d846c9a4:161",
+      "input_issued_at": "2026-11-17T10:19:09.386Z",
+      "verified": true,
+      "failures": [],
+      "sequence": 2,
+      "head": "2026-11-17T10:19:33.892859700Z",
+      "returned": "2026-11-17T10:22:17.555637400Z",
+      "return_monotonic_nanos": 429468884640600,
+      "settled": "2026-11-17T10:22:28.258411800Z",
+      "settled_state_sha256": "f94563d4b2ebe7147f37688d1f687e6c1b5c3f282b565426008a1ee9189a0b24",
+      "settled_capture_started_monotonic_nanos": 429479586549400,
+      "declared_vehicle_count": 1092
+    },
+    {
+      "event_id": "3eae8c4a-1c65-47f3-a8a5-44f6d846c9a4:1079",
+      "input_issued_at": "2026-11-17T10:36:36.409Z",
+      "verified": true,
+      "failures": [],
+      "sequence": 3,
+      "head": "2026-11-17T10:36:55.780468700Z",
+      "returned": "2026-11-17T10:39:48.603455500Z",
+      "return_monotonic_nanos": 430519931710300,
+      "settled": "2026-11-17T10:40:03.226699800Z",
+      "settled_state_sha256": "233030839bbf9c544203d571eac1611c204966d6b2400b7f5ca22823e1f49018",
+      "settled_capture_started_monotonic_nanos": 430534553300800,
+      "declared_vehicle_count": 1092
+    },
+    {
+      "event_id": "3eae8c4a-1c65-47f3-a8a5-44f6d846c9a4:1534",
+      "input_issued_at": "2026-11-17T10:45:19.005Z",
+      "verified": true,
+      "failures": [],
+      "sequence": 4,
+      "head": "2026-11-17T10:45:35.929283600Z",
+      "returned": "2026-11-17T10:48:17.763776400Z",
+      "return_monotonic_nanos": 431029090901000,
+      "settled": "2026-11-17T10:48:27.872223500Z",
+      "settled_state_sha256": "661bdd4c76837febf12d1de31cbcc6cfd1521e813b6557a399bd9bbbdb5d3d39",
+      "settled_capture_started_monotonic_nanos": 431039198647200,
+      "declared_vehicle_count": 1092
+    }
+  ],
+  "verified_reload_count": 3,
+  "longest_verified_reload_run": 3,
+  "native_attribution_passed": true,
+  "native_attribution_errors": [],
+  "unreviewed_native": [],
+  "last_completed_sequence": 4,
+  "latest_sample_timestamp": "2026-11-17T10:51:38.569976+00:00",
+  "latest_sample_verified": true,
+  "trailing_same_sequence_settled_samples": 39,
+  "trailing_consumer_stable_seconds": 189.9993440999533,
+  "trailing_native_monotonic_seconds": 189.8476421,
+  "stable_duration_sampling_policy": {
+    "declared_interval": 5.0,
+    "declared_freshness_seconds": 15.0,
+    "maximum_gap_seconds": 20.0,
+    "inclusive_interval_credit": 0
+  },
+  "scope": "Interim replay of existing attempt03. The producer filters verified epoch observations; all original samples remain untouched. No new reader, input, UI, runtime change or final acceptance. Final consumer summary/sealed audit remains authoritative."
+}
+Result: C:\Users\ben_l\Documents\Coding\resoucepack update\vehicle-memory\.cache\acceptance\owned-049d-reload-progress03\wait-20261117T105138251245Z-seq4\evaluation-001.json
