@@ -8,4 +8,7 @@ __pycache__/
 *.class
 *.jar
 !gradle/wrapper/gradle-wrapper.jar
+# Audited, hash-pinned legacy inputs consumed by the clean-checkout tests.
+!dist/compatibility/neoforge-21.1.248/mtr-memory-sharing-neoforge-v030-nf248.jar
+!dist/releases/mtr-memory-sharing-neoforge-v030.jar
 *.tmp

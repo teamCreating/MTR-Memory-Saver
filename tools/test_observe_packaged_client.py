@@ -22,7 +22,7 @@ class ObservationTest(unittest.TestCase):
         stream_factory = mock.patch.object(observer.native_log_stream.NativeLogStream, "from_launch", side_effect=fixture_stream)
         stream_factory.start()
         self.addCleanup(stream_factory.stop)
-        self.root = pathlib.Path(self.temporary.name)
+        self.root = pathlib.Path(self.temporary.name).resolve()
         self.now = dt.datetime(2026, 11, 15, 1, 0, tzinfo=dt.timezone.utc)
         self.launch = {"pid": 999, "timestamp": self.now.isoformat(), "command": [str(self.root / "java.exe"), "-Xmx3g"]}
         self.plan = {"instance": str(self.root), "java": str(self.root / "java.exe"), "mods": [], "packs": []}

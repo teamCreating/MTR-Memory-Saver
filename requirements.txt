@@ -1,2 +1,3 @@
-# The Gradle development build and current Python verification tools need no
-# third-party Python packages. Artwork and historical fixtures are optional.
+# The Gradle development build needs no third-party Python packages.
+# The complete verification-tool tests use requirements-test.txt for the real
+# public launcher-command adapter. Artwork dependencies remain optional.

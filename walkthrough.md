@@ -473,3 +473,12 @@ CI从config/targets.json派生Java及官方目标，Linux/Windows构建、Java/n
 新增AGENTS.md明确每次commit后自动push当前工作分支及真实作者身份，main走PR/CI。main与不可变版本标签规则JSON随仓库管理，无管理员bypass；main要求最新基线CI、PR、讨论解决、线性历史，禁止force/delete，当前人工审批数0以适配单维护者。新增CI/CD文档并沿用独立仓库的Computer Use恢复约定。
 
 本地验证：5项发布守卫测试通过（包含真实非main提交拒绝、版本不一致、损坏/缺失发布包与JAR指纹）；11项Windows身份测试通过；官方actionlint1.7.12下载SHA校验与workflow lint通过。远端CI与CD演练将在初始同步后按实际结果核查，游戏验收未由本批CI配置授予。
+
+
+## 2026-11-17T14:47:03+08:00 (UTC+08:00) — 修复干净CI检出的测试输入
+
+初轮远端run44031548489四个官方Linux/Windows releaseBundle+neutral probe构建全部成功，Python工具套件暴露真实输入缺失：两份原0.3.0 JAR受通用*.jar忽略，真实launcher命令夹具依赖未声明；Windows规范实例路径与短路径临时目录生成的日志头不一致。保留初轮失败日志，没有降低测试阈值或删除失败用例。
+
+仅将两份config/legacy-baselines.json已审核的原始JAR纳入精确.gitignore例外，原SHA分别b9c95bbe79c6c76fe6a0c9af6bdb4f9ed7ce6b007fecdb1c9f543544ce562f02、eb21c0062f7944a7d2c015cb2eee5a1d24c11be4af2286bbbbfa4625d6cd2d54，原manifest指纹同时校验。新增requirements-test.txt固定已有launcher8.0和依赖，CI安装wheel并打印runner路径上下文；两处观察器测试夹具resolve临时根，保持生产reader严格前缀校验不变。未改在用JVM、生产模块或runtime reader源码。
+
+本地Windows10全量280项Python测试通过（24.288s），workflow lint通过。main-protection27437423与immutable-release-tags27437424已经服务端active回读，bypass_actors为空、CI绑定GitHubActions15368；仓库默认token只读且不可自行批准PR。此次提交按新AGENTS约定立即push工作分支，后续通过受保护main的正常PR/CI合入。

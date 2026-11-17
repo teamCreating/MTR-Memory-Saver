@@ -17,6 +17,8 @@ main 经 PR 合入；自动 push 更新工作分支。提交作者和 walkthroug
 
 Windows runner 在 checkout 前启用其临时环境的 Git 长路径支持。实际原生进程身份读取仅在其已限定的平台运行；Windows Server CI 不继承 Windows 10 build19045 的运行资格，也不替代游戏验收。
 
+完整工具测试安装 `requirements-test.txt` 的固定依赖，并使用仓库内两份已按 `config/legacy-baselines.json` 校验的原始0.3.0 JAR。它们是历史身份适配的测试输入，不属于当前发行产物。临时目录夹具先解析成真实路径，再生成日志头，避免 Windows 短路径别名破坏同实例校验。
+
 ## main 保护
 
 版本化配置位于 `.github/main-ruleset.json`：
