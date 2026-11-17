@@ -33,6 +33,8 @@ when used in a hosted repository.
 
 See [BUILDING.md](BUILDING.md) for reproducibility and offline/custom inputs,
 [installation](docs/INSTALL.md) for deployment/rollback, and [LICENSE](LICENSE).
+The [CI/CD guide](docs/CI_CD.md) describes branch checks, protected-main changes,
+version-tagged pre-releases and the manual release rehearsal.
 
 ## Maintain and verify
 

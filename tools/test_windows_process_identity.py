@@ -223,6 +223,21 @@ class ProcessOwnershipTest(unittest.TestCase):
 
 @unittest.skipUnless(os.name == "nt", "Actual qualified Windows child")
 class OwnedChildTest(unittest.TestCase):
+    def setUp(self):
+        # Hosted Windows Server runners are not the qualified live-reader OS.
+        # Query failures still fail; only the provider's explicit platform
+        # rejection skips these actual-child cases. ABI/unit tests run normally.
+        api = identity.NativeApi()
+        version = identity.OSVersion()
+        version.size = ctypes.sizeof(version)
+        self.assertEqual(api.version_query(ctypes.byref(version)) & 0xffffffff, 0)
+        architecture = api.architecture(api.kernel.GetCurrentProcess())
+        try:
+            identity.supported_platform((version.major, version.minor, version.build),
+                                        ctypes.sizeof(ctypes.c_void_p), architecture, architecture)
+        except identity.NativeIdentityError as error:
+            self.skipTest(str(error))
+
     def start_child(self, name):
         temporary = tempfile.TemporaryDirectory()
         self.addCleanup(temporary.cleanup)

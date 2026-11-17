@@ -462,3 +462,14 @@ Included only the separate recovery's 15 small original JSON/command-output rece
 当前JFR只封存collector execution的读取时checkpoint、export request以及实际dump/summary原stdout/stderr；manifest记载二者exit0、readable，并绑定sha256 dbbc078206c95ed4f52edde51b6d193fcf347fe525bac0263c6ee88e3bf9c936。JFR binary不入Git，本批未独立rehash/replay，未把observing checkpoint或JFR summary当成当前liveness/完整game exit/完整事件覆盖。consumer工具session85049 exit1、recorder86808 exit0与两次WGC timeout无所提供的落盘原回执，明确记录为parent-reported tool history，未重造raw receipt。
 
 独立project-venv子进程只读导入本闭包冻结源码，验证895行journal、selected before/log/stop完整性，并将原failed reload及diagnostic结果与summary精确重放，实际exit0。外部5payload回执位于 owned049d-reload-attempt01-verification；seal index SHA256 d400701cce99014f3d5ac734e35af9334935d1c9ee56699f78819626ea97e716。通过的是失败边界完整性，不授予20reload、input delivery、route、performance、portable JFR或游戏exit验收。只为本证据树的原始.bin添加binary属性，保留所有原始字节。
+
+
+## 2026-11-17T14:28:12+08:00 (UTC+08:00) — GitHub 对接、CI/CD 与 main 保护
+
+对接 teamCreating/MTR-Memory-Saver，保留本地完整历史与远端初始MIT提交。远端初始许可证另存 LICENSE.repository，原产品LICENSE SHA256保持6492b753609d47712db23912e68093e602c3992ff1c8c3f6d777341dab3d4826，未修改产品源码、版本或在用客户端。GitHub认证通过本仓库的gh凭据助手，未存明文token；仅本地Git启用长路径。
+
+CI从config/targets.json派生Java及官方目标，Linux/Windows构建、Java/neutral probe与Python工具测试、固定CI汇总门槛、测试报告和ZIP+SHA256产物。Actual qualified Windows child仅在生产平台限定通过时执行；API查询异常仍失败，未扩大Windows Server资格。发布标签必须等于v+modVersion且提交属于main，复用完整CI、核对包/JAR清单与校验和后才创建pre-release；手动Release只演练、不发版。Actions均按实际官方tag解引用的完整SHA锁定，最低GITHUB_TOKEN权限。
+
+新增AGENTS.md明确每次commit后自动push当前工作分支及真实作者身份，main走PR/CI。main与不可变版本标签规则JSON随仓库管理，无管理员bypass；main要求最新基线CI、PR、讨论解决、线性历史，禁止force/delete，当前人工审批数0以适配单维护者。新增CI/CD文档并沿用独立仓库的Computer Use恢复约定。
+
+本地验证：5项发布守卫测试通过（包含真实非main提交拒绝、版本不一致、损坏/缺失发布包与JAR指纹）；11项Windows身份测试通过；官方actionlint1.7.12下载SHA校验与workflow lint通过。远端CI与CD演练将在初始同步后按实际结果核查，游戏验收未由本批CI配置授予。

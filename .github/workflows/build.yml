@@ -1,34 +1,118 @@
 name: Build and test
+
 on:
   push:
+    branches: ['**']
   pull_request:
+    branches: [main]
+  merge_group:
   workflow_dispatch:
+  workflow_call:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.event_name }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
-  experiment-tools:
-    runs-on: ubuntu-latest
+  metadata:
+    runs-on: ubuntu-24.04
+    outputs:
+      java: ${{ steps.config.outputs.java }}
+      matrix: ${{ steps.config.outputs.matrix }}
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - id: config
+        run: python3 tools/ci.py matrix >> "$GITHUB_OUTPUT"
+
+  experiment-tools:
+    name: Tools (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-24.04, windows-2022]
+    env:
+      PYTHONUTF8: '1'
+    steps:
+      - name: Enable long Git paths on the disposable Windows runner
+        if: runner.os == 'Windows'
+        run: git config --global core.longpaths true
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
         with:
           python-version: '3.12'
-      - run: python -m unittest discover -s tools -p 'test_*.py'
+      - name: Test verification and release tools
+        run: python -m unittest discover -s tools -p 'test_*.py' -v
+
   official:
-    runs-on: ubuntu-latest
+    name: Build (${{ matrix.os }}, ${{ matrix.target }})
+    needs: metadata
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 35
     strategy:
-      matrix:
-        target: [official-nf248, official-nf265]
+      fail-fast: false
+      matrix: ${{ fromJSON(needs.metadata.outputs.matrix) }}
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-java@v4
+      - name: Enable long Git paths on the disposable Windows runner
+        if: runner.os == 'Windows'
+        run: git config --global core.longpaths true
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-java@d1374f8ac74474200d16ef8ecee22c7ae7a51880 # v6.3.0
         with:
           distribution: temurin
-          java-version: '21'
-      - uses: gradle/actions/setup-gradle@v4
-      - run: ./gradlew releaseBundle -Ptarget=${{ matrix.target }} --console=plain
-      - uses: actions/upload-artifact@v4
+          java-version: ${{ needs.metadata.outputs.java }}
+      - uses: gradle/actions/setup-gradle@8da46b539cd8fe6ab27ca75128919a18d757604c # v6.4.1
+      - name: Build, test and verify official artifacts (Linux)
+        if: runner.os != 'Windows'
+        run: ./gradlew releaseBundle verifyNeutralProbe -Ptarget=${{ matrix.target }} --console=plain --stacktrace
+      - name: Build, test and verify official artifacts (Windows)
+        if: runner.os == 'Windows'
+        run: ./gradlew.bat releaseBundle verifyNeutralProbe -Ptarget=${{ matrix.target }} --console=plain --stacktrace
+      - name: Create bundle checksums
+        if: runner.os == 'Linux'
+        run: python3 tools/ci.py checksums build/releases
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        if: runner.os == 'Linux'
         with:
-          name: mtr-memory-saver-${{ matrix.target }}
+          name: release-${{ matrix.target }}
           path: |
             build/releases/*.zip
-            build/reports/tests/**
+            build/releases/*.sha256
           if-no-files-found: error
+          retention-days: 14
+      - name: Preserve test reports, including failures
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: tests-${{ matrix.os }}-${{ matrix.target }}
+          path: |
+            build/reports/tests/
+            build/test-results/
+          if-no-files-found: warn
+          retention-days: 14
+
+  ci:
+    name: CI
+    if: always()
+    needs: [metadata, experiment-tools, official]
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Require every matrix job to succeed
+        env:
+          METADATA: ${{ needs.metadata.result }}
+          TOOLS: ${{ needs.experiment-tools.result }}
+          OFFICIAL: ${{ needs.official.result }}
+        run: |
+          test "$METADATA" = success
+          test "$TOOLS" = success
+          test "$OFFICIAL" = success
