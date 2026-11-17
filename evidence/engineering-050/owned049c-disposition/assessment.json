@@ -1,0 +1,36 @@
+{
+  "scope": "old049c_retrospective_unknown_disposition",
+  "observed_at": "2026-11-17T03:48:35.8367218+00:00",
+  "pid": 18796,
+  "pid_and_collector_absent_at_query": true,
+  "original_collector_status": "observing",
+  "last_native_observed": "2026-11-16T20:47:38.711729500Z",
+  "last_captured_at": "2026-11-16T20:47:38.822207+00:00",
+  "last_state": {
+    "paused": true,
+    "screen": "net.minecraft.client.gui.screens.PauseScreen",
+    "resource_epochs": {
+      "started": 1,
+      "completed": 1,
+      "in_flight": 0,
+      "max_nesting": 1,
+      "last_completed_sequence": 1
+    },
+    "observation_errors": 0
+  },
+  "exit_code": null,
+  "exit_time": null,
+  "termination_cause": "unknown",
+  "normal_exit_verified": false,
+  "original_acceptance_jfr_bytes": 0,
+  "early_export_sha_matches_original_receipt": true,
+  "early_export_ended": "2026-11-16T15:52:47.608580+00:00",
+  "integrity_checks_passed": true,
+  "limits": [
+    "Only the final three original collector records are portable; the complete snapshot stream and both JFR paths are nonportable references.",
+    "The early JFR dump/summary receipts do not cover final termination; no later exit status is reconstructed.",
+    "Separate terminal recovery receipts are included under jfr-recovery; its 22 chunks and assembled JFR are nonportable, summary fails, and no first/last event or normal exit is inferred.",
+    "No new system-log search, game input, process stop, runtime/world/pack/source mutation, or inspection of 049d was performed."
+  ],
+  "jfr_recovery_small_receipts": "jfr-recovery/summary.json"
+}

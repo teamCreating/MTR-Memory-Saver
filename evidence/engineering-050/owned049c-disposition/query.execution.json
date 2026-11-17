@@ -1,0 +1,16 @@
+{
+  "started": "2026-11-17T03:48:33.650056+00:00",
+  "argv": [
+    "pwsh",
+    "-NoProfile",
+    "-Command",
+    "[Console]::OutputEncoding=[System.Text.UTF8Encoding]::new($false); $oldProcess=@(Get-CimInstance Win32_Process -Filter 'ProcessId = 18796' -ErrorAction Stop | Select-Object ProcessId,CreationDate,ExecutablePath,CommandLine); $oldCollector=@(Get-CimInstance Win32_Process -Filter \"Name = 'python.exe'\" -ErrorAction Stop | Where-Object {$_.CommandLine -match 'capture_diagnostic_client.py' -and $_.CommandLine -match 'capture-owned-049c'} | Select-Object ProcessId,CreationDate,ExecutablePath,CommandLine); @{observed_at=[DateTimeOffset]::UtcNow.ToString('o'); pid=18796; matching_processes=$oldProcess; matching_collectors=$oldCollector} | ConvertTo-Json -Depth 5"
+  ],
+  "owner_pid": 53392,
+  "scope": "old049c_identity_only_no_system_log_search",
+  "helper_pid": 51636,
+  "completed": "2026-11-17T03:48:36.017609+00:00",
+  "exit_code": 0,
+  "stdout_sha256": "5b4ee9faa8dc85bad06dc193e02ea5c21ef75549a10e139e31f5694b27464581",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}
