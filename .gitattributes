@@ -9,3 +9,5 @@ evidence/engineering-042/*-crash.txt -whitespace
 evidence/engineering-045/**/*.javap.txt -whitespace
 # Original rolling-log witness/segment blobs are fingerprinted raw bytes.
 evidence/engineering-050/native-log-stream/**/*.bin binary
+# Preserve the selected failed-reload input and native-log blobs verbatim.
+evidence/engineering-050/owned049d-reload-attempt01/**/*.bin binary

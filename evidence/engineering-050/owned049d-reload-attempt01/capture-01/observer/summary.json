@@ -1,0 +1,722 @@
+{
+  "started": "2026-11-17T03:19:31.536436+00:00",
+  "ended": "2026-11-17T03:27:08.611972+00:00",
+  "elapsed_seconds": 457.0740280000027,
+  "status": "stopped",
+  "passed": false,
+  "stop_request": {
+    "request_path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\owned-049d-reload-observation-attempt01\\stop-request",
+    "captured_path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\owned-049d-reload-observation-attempt01\\stop-request-captured.bin",
+    "bytes": 228,
+    "sha256": "19daf2aa870f0f62f57ccdecfa871f8940c72737054797d43f980e0518ee361e",
+    "capture_started_at": "2026-11-17T03:27:08.606564+00:00",
+    "observed_at": "2026-11-17T03:27:08.606815+00:00",
+    "observed_elapsed_seconds": 457.0688587000477,
+    "captured_file_closed_at": "2026-11-17T03:27:08.608536+00:00",
+    "receipt_path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\owned-049d-reload-observation-attempt01\\stop-request-receipt.json",
+    "receipt_sha256": "15caf78a98be1d928c28c811df7d43769d2748e8d7068b0f5655a7b9e8c1c96c"
+  },
+  "error": null,
+  "mode": "reloads",
+  "instance": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d",
+  "plan_sha256": "3fe5eed2b2fe1ec52919f3bd6615d90dbf9761c7c9f7fdc32226a68816aa22f4",
+  "launch_sha256": "699bbcb9879b139edb838f7fde49211c240539ed97d2dd802f4e29da86819375",
+  "process_identity": {
+    "pid": 45784,
+    "executable": "C:\\Users\\ben_l\\Saved Games\\Yuuniverse 1.20.1 Shenyang\\porting-output\\work\\tools\\jdk21\\jdk-21.0.11+10\\bin\\java.exe",
+    "command": "\"C:\\Users\\ben_l\\Saved Games\\Yuuniverse 1.20.1 Shenyang\\porting-output\\work\\tools\\jdk21\\jdk-21.0.11+10\\bin\\java.exe\" -Xms512M -Xmx3072M -Dmtr.memory.acceptance=true -XX:StartFlightRecording=name=acceptance,settings=profile,disk=true,maxsize=0,dumponexit=true,filename=acceptance.jfr -Xlog:gc*,safepoint:file=acceptance-gc.log:time,uptime,level,tags:filecount=0 -XX:HeapDumpPath=MojangTricksIntelDriversForPerformance_javaw.exe_minecraft.exe.heapdump \"-Djava.library.path=C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\versions\\neoforge-21.1.248\\natives\" \"-Djna.tmpdir=C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\versions\\neoforge-21.1.248\\natives\" \"-Dorg.lwjgl.system.SharedLibraryExtractPath=C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\versions\\neoforge-21.1.248\\natives\" \"-Dio.netty.native.workdir=C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\versions\\neoforge-21.1.248\\natives\" -Dminecraft.launcher.brand=minecraft-launcher-lib -Dminecraft.launcher.version=8.0 -cp \"C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\net\\neoforged\\fancymodloader\\earlydisplay\\4.0.43\\earlydisplay-4.0.43.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\net\\neoforged\\fancymodloader\\loader\\4.0.43\\loader-4.0.43.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\net\\neoforged\\accesstransformers\\at-modlauncher\\10.0.1\\at-modlauncher-10.0.1.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\net\\neoforged\\accesstransformers\\10.0.1\\accesstransformers-10.0.1.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\net\\neoforged\\bus\\8.0.5\\bus-8.0.5.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\net\\neoforged\\coremods\\7.0.3\\coremods-7.0.3.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\cpw\\mods\\modlauncher\\11.0.5\\modlauncher-11.0.5.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\net\\neoforged\\mergetool\\2.0.0\\mergetool-2.0.0-api.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\com\\electronwill\\night-config\\toml\\3.8.3\\toml-3.8.3.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\com\\electronwill\\night-config\\core\\3.8.3\\core-3.8.3.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\net\\neoforged\\JarJarSelector\\0.4.1\\JarJarSelector-0.4.1.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\net\\neoforged\\JarJarMetadata\\0.4.1\\JarJarMetadata-0.4.1.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\org\\apache\\maven\\maven-artifact\\3.8.5\\maven-artifact-3.8.5.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\net\\jodah\\typetools\\0.6.3\\typetools-0.6.3.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\net\\minecrell\\terminalconsoleappender\\1.3.0\\terminalconsoleappender-1.3.0.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\net\\fabricmc\\sponge-mixin\\0.15.2+mixin.0.8.7\\sponge-mixin-0.15.2+mixin.0.8.7.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\org\\openjdk\\nashorn\\nashorn-core\\15.4\\nashorn-core-15.4.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\org\\apache\\commons\\commons-lang3\\3.14.0\\commons-lang3-3.14.0.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\cpw\\mods\\bootstraplauncher\\2.0.2\\bootstraplauncher-2.0.2.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\cpw\\mods\\securejarhandler\\3.0.8\\securejarhandler-3.0.8.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\org\\ow2\\asm\\asm-commons\\9.10.1\\asm-commons-9.10.1.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\org\\ow2\\asm\\asm-util\\9.10.1\\asm-util-9.10.1.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\org\\ow2\\asm\\asm-analysis\\9.10.1\\asm-analysis-9.10.1.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\org\\ow2\\asm\\asm-tree\\9.10.1\\asm-tree-9.10.1.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\org\\ow2\\asm\\asm\\9.10.1\\asm-9.10.1.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\net\\neoforged\\JarJarFileSystems\\0.4.1\\JarJarFileSystems-0.4.1.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\net\\sf\\jopt-simple\\jopt-simple\\5.0.4\\jopt-simple-5.0.4.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\org\\slf4j\\slf4j-api\\2.0.9\\slf4j-api-2.0.9.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\org\\antlr\\antlr4-runtime\\4.13.1\\antlr4-runtime-4.13.1.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\com\\mojang\\logging\\1.2.7\\logging-1.2.7.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\org\\apache\\logging\\log4j\\log4j-slf4j2-impl\\2.22.1\\log4j-slf4j2-impl-2.22.1.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\org\\apache\\logging\\log4j\\log4j-core\\2.22.1\\log4j-core-2.22.1.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\org\\apache\\logging\\log4j\\log4j-api\\2.22.1\\log4j-api-2.22.1.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\org\\jline\\jline-reader\\3.20.0\\jline-reader-3.20.0.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\org\\jline\\jline-terminal\\3.20.0\\jline-terminal-3.20.0.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\commons-io\\commons-io\\2.15.1\\commons-io-2.15.1.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\net\\minecraftforge\\srgutils\\0.4.15\\srgutils-0.4.15.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\com\\google\\guava\\guava\\32.1.2-jre\\guava-32.1.2-jre.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\com\\google\\guava\\failureaccess\\1.0.1\\failureaccess-1.0.1.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\com\\google\\guava\\listenablefuture\\9999.0-empty-to-avoid-conflict-with-guava\\listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\com\\google\\code\\findbugs\\jsr305\\3.0.2\\jsr305-3.0.2.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\org\\checkerframework\\checker-qual\\3.33.0\\checker-qual-3.33.0.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\com\\google\\errorprone\\error_prone_annotations\\2.18.0\\error_prone_annotations-2.18.0.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\com\\google\\j2objc\\j2objc-annotations\\2.8\\j2objc-annotations-2.8.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\com\\google\\code\\gson\\gson\\2.10.1\\gson-2.10.1.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\org\\codehaus\\plexus\\plexus-utils\\3.3.0\\plexus-utils-3.3.0.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\com\\machinezoo\\noexception\\noexception\\1.7.1\\noexception-1.7.1.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\com\\github\\oshi\\oshi-core\\6.4.10\\oshi-core-6.4.10.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\com\\ibm\\icu\\icu4j\\73.2\\icu4j-73.2.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\com\\mojang\\authlib\\6.0.54\\authlib-6.0.54.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\com\\mojang\\blocklist\\1.0.10\\blocklist-1.0.10.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\com\\mojang\\brigadier\\1.3.10\\brigadier-1.3.10.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\com\\mojang\\datafixerupper\\8.0.16\\datafixerupper-8.0.16.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\com\\mojang\\patchy\\2.2.10\\patchy-2.2.10.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\com\\mojang\\text2speech\\1.17.9\\text2speech-1.17.9.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\commons-codec\\commons-codec\\1.16.0\\commons-codec-1.16.0.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\commons-logging\\commons-logging\\1.2\\commons-logging-1.2.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\io\\netty\\netty-buffer\\4.1.97.Final\\netty-buffer-4.1.97.Final.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\io\\netty\\netty-codec\\4.1.97.Final\\netty-codec-4.1.97.Final.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\io\\netty\\netty-common\\4.1.97.Final\\netty-common-4.1.97.Final.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\io\\netty\\netty-handler\\4.1.97.Final\\netty-handler-4.1.97.Final.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\io\\netty\\netty-resolver\\4.1.97.Final\\netty-resolver-4.1.97.Final.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\io\\netty\\netty-transport-classes-epoll\\4.1.97.Final\\netty-transport-classes-epoll-4.1.97.Final.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\io\\netty\\netty-transport-native-unix-common\\4.1.97.Final\\netty-transport-native-unix-common-4.1.97.Final.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\io\\netty\\netty-transport\\4.1.97.Final\\netty-transport-4.1.97.Final.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\it\\unimi\\dsi\\fastutil\\8.5.12\\fastutil-8.5.12.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\net\\java\\dev\\jna\\jna-platform\\5.14.0\\jna-platform-5.14.0.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\net\\java\\dev\\jna\\jna\\5.14.0\\jna-5.14.0.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\org\\apache\\commons\\commons-compress\\1.26.0\\commons-compress-1.26.0.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\org\\apache\\httpcomponents\\httpclient\\4.5.13\\httpclient-4.5.13.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\org\\apache\\httpcomponents\\httpcore\\4.4.16\\httpcore-4.4.16.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\org\\jcraft\\jorbis\\0.0.17\\jorbis-0.0.17.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\org\\joml\\joml\\1.10.5\\joml-1.10.5.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\org\\lwjgl\\lwjgl-freetype\\3.3.3\\lwjgl-freetype-3.3.3.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\org\\lwjgl\\lwjgl-freetype\\3.3.3\\lwjgl-freetype-3.3.3-natives-windows.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\org\\lwjgl\\lwjgl-freetype\\3.3.3\\lwjgl-freetype-3.3.3-natives-windows-arm64.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\org\\lwjgl\\lwjgl-freetype\\3.3.3\\lwjgl-freetype-3.3.3-natives-windows-x86.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\org\\lwjgl\\lwjgl-glfw\\3.3.3\\lwjgl-glfw-3.3.3.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\org\\lwjgl\\lwjgl-glfw\\3.3.3\\lwjgl-glfw-3.3.3-natives-windows.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\org\\lwjgl\\lwjgl-glfw\\3.3.3\\lwjgl-glfw-3.3.3-natives-windows-arm64.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\org\\lwjgl\\lwjgl-glfw\\3.3.3\\lwjgl-glfw-3.3.3-natives-windows-x86.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\org\\lwjgl\\lwjgl-jemalloc\\3.3.3\\lwjgl-jemalloc-3.3.3.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\org\\lwjgl\\lwjgl-jemalloc\\3.3.3\\lwjgl-jemalloc-3.3.3-natives-windows.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\org\\lwjgl\\lwjgl-jemalloc\\3.3.3\\lwjgl-jemalloc-3.3.3-natives-windows-arm64.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\org\\lwjgl\\lwjgl-jemalloc\\3.3.3\\lwjgl-jemalloc-3.3.3-natives-windows-x86.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\org\\lwjgl\\lwjgl-openal\\3.3.3\\lwjgl-openal-3.3.3.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\org\\lwjgl\\lwjgl-openal\\3.3.3\\lwjgl-openal-3.3.3-natives-windows.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\org\\lwjgl\\lwjgl-openal\\3.3.3\\lwjgl-openal-3.3.3-natives-windows-arm64.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\org\\lwjgl\\lwjgl-openal\\3.3.3\\lwjgl-openal-3.3.3-natives-windows-x86.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\org\\lwjgl\\lwjgl-opengl\\3.3.3\\lwjgl-opengl-3.3.3.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\org\\lwjgl\\lwjgl-opengl\\3.3.3\\lwjgl-opengl-3.3.3-natives-windows.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\org\\lwjgl\\lwjgl-opengl\\3.3.3\\lwjgl-opengl-3.3.3-natives-windows-arm64.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\org\\lwjgl\\lwjgl-opengl\\3.3.3\\lwjgl-opengl-3.3.3-natives-windows-x86.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\org\\lwjgl\\lwjgl-stb\\3.3.3\\lwjgl-stb-3.3.3.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\org\\lwjgl\\lwjgl-stb\\3.3.3\\lwjgl-stb-3.3.3-natives-windows.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\org\\lwjgl\\lwjgl-stb\\3.3.3\\lwjgl-stb-3.3.3-natives-windows-arm64.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\org\\lwjgl\\lwjgl-stb\\3.3.3\\lwjgl-stb-3.3.3-natives-windows-x86.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\org\\lwjgl\\lwjgl-tinyfd\\3.3.3\\lwjgl-tinyfd-3.3.3.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\org\\lwjgl\\lwjgl-tinyfd\\3.3.3\\lwjgl-tinyfd-3.3.3-natives-windows.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\org\\lwjgl\\lwjgl-tinyfd\\3.3.3\\lwjgl-tinyfd-3.3.3-natives-windows-arm64.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\org\\lwjgl\\lwjgl-tinyfd\\3.3.3\\lwjgl-tinyfd-3.3.3-natives-windows-x86.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\org\\lwjgl\\lwjgl\\3.3.3\\lwjgl-3.3.3.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\org\\lwjgl\\lwjgl\\3.3.3\\lwjgl-3.3.3-natives-windows.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\org\\lwjgl\\lwjgl\\3.3.3\\lwjgl-3.3.3-natives-windows-arm64.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\org\\lwjgl\\lwjgl\\3.3.3\\lwjgl-3.3.3-natives-windows-x86.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\\org\\lz4\\lz4-java\\1.8.0\\lz4-java-1.8.0.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\versions\\neoforge-21.1.248\\neoforge-21.1.248.jar\" -Djava.net.preferIPv6Addresses=system -DignoreList=client-extra,neoforge-21.1.248.jar \"-DlibraryDirectory=C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries\" -p \"C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries/cpw/mods/bootstraplauncher/2.0.2/bootstraplauncher-2.0.2.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries/cpw/mods/securejarhandler/3.0.8/securejarhandler-3.0.8.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries/org/ow2/asm/asm-commons/9.10.1/asm-commons-9.10.1.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries/org/ow2/asm/asm-util/9.10.1/asm-util-9.10.1.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries/org/ow2/asm/asm-analysis/9.10.1/asm-analysis-9.10.1.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries/org/ow2/asm/asm-tree/9.10.1/asm-tree-9.10.1.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries/org/ow2/asm/asm/9.10.1/asm-9.10.1.jar;C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\libraries/net/neoforged/JarJarFileSystems/0.4.1/JarJarFileSystems-0.4.1.jar\" --add-modules ALL-MODULE-PATH --add-opens java.base/java.util.jar=cpw.mods.securejarhandler --add-opens java.base/java.lang.invoke=cpw.mods.securejarhandler --add-exports java.base/sun.security.util=cpw.mods.securejarhandler --add-exports jdk.naming.dns/com.sun.jndi.dns=java.naming cpw.mods.bootstraplauncher.BootstrapLauncher --username VehicleTest --version neoforge-21.1.248 --gameDir \"C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\" --assetsDir \"C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-owned-049d\\assets\" --assetIndex 17 --uuid 312a59e5-2af3-48ce-a9d8-db46ffc2ef43 --accessToken 0 --clientId ${clientid} --xuid ${auth_xuid} --userType msa --versionType release --width 1280 --height 720 --quickPlaySingleplayer \"Vehicle Acceptance 1_21_1\" --fml.neoForgeVersion 21.1.248 --fml.fmlVersion 4.0.43 --fml.mcVersion 1.21.1 --fml.neoFormVersion 20240808.144430 --launchTarget forgeclient --disableMultiplayer",
+    "created": "2026-11-17T03:15:53.538301+00:00",
+    "identity_query": {
+      "windows": [
+        10,
+        0,
+        19045
+      ],
+      "caller_architecture": [
+        0,
+        34404
+      ],
+      "target_architecture": [
+        0,
+        34404
+      ],
+      "command_line_information_class": 60
+    }
+  },
+  "process_created": "2026-11-17T03:15:53.538301+00:00",
+  "policy": {
+    "duration": 7200.0,
+    "interval": 5.0,
+    "freshness_seconds": 15,
+    "stable_seconds": 60.0,
+    "expected_count": 1091,
+    "expected_declarations": 1092,
+    "require_world": true,
+    "unpaused": true,
+    "required_zero_counters": [
+      "native_pending",
+      "resource_in_flight"
+    ],
+    "require_reloads": 20,
+    "gpu_counter_paths": [],
+    "nmt": false,
+    "auxiliary_interval": 60,
+    "auxiliary_maximum_in_flight": 1,
+    "auxiliary_shutdown_seconds": 45,
+    "route_windows": null,
+    "sampling_cadence": "future phase-aligned deadlines; missed slots are skipped without catch-up",
+    "stop_request": {
+      "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\owned-049d-reload-observation-attempt01\\stop-request",
+      "kind": "file_presence",
+      "poll_interval_seconds": 0.25
+    },
+    "gpu_query_paths": [],
+    "route_window_policy_sha256": null
+  },
+  "route_window_evidence": null,
+  "sample_count": 92,
+  "verified_sample_count": 92,
+  "missing_observation_fields": [],
+  "observed_failures": [
+    "retained_neutral_reload_attempt_unverified"
+  ],
+  "sampled_peaks_bytes": {
+    "working_set": 4743839744,
+    "private_usage": 4926951424,
+    "heap_used": 3049817680
+  },
+  "observed_vehicle_motion": false,
+  "observed_game_time_advanced": true,
+  "auxiliary_available_samples": {
+    "gpu": 0,
+    "nmt": 0
+  },
+  "auxiliary_attempted_samples": {
+    "gpu": 0,
+    "nmt": 0
+  },
+  "auxiliary_sampled_peaks": {},
+  "verified_reload_count": 0,
+  "longest_verified_reload_run": 0,
+  "reload_evidence": [
+    {
+      "event": {
+        "attempt_id": "0c409025-8f21-4b85-8b22-78fba7653ad0",
+        "attempt_submitted_at": "2026-11-17T03:20:11.448518+00:00",
+        "before": {
+          "cache_state": {
+            "available": true,
+            "resources": [
+              {
+                "entries": [
+                  {
+                    "car_key": 0,
+                    "doorways": [
+                      {
+                        "max_x": -1.0,
+                        "max_y": 0.9375,
+                        "max_z": 0.90625,
+                        "min_x": -1.706230640411377,
+                        "min_y": 0.9375,
+                        "min_z": -0.90625
+                      },
+                      {
+                        "max_x": -1.0,
+                        "max_y": 0.9375,
+                        "max_z": -4.09375,
+                        "min_x": -1.706230640411377,
+                        "min_y": 0.9375,
+                        "min_z": -5.90625
+                      },
+                      {
+                        "max_x": -1.0,
+                        "max_y": 0.9375,
+                        "max_z": -9.09375,
+                        "min_x": -1.706230640411377,
+                        "min_y": 0.9375,
+                        "min_z": -10.90625
+                      },
+                      {
+                        "max_x": -1.0,
+                        "max_y": 0.9375,
+                        "max_z": 5.90625,
+                        "min_x": -1.706230640411377,
+                        "min_y": 0.9375,
+                        "min_z": 4.09375
+                      },
+                      {
+                        "max_x": -1.0,
+                        "max_y": 0.9375,
+                        "max_z": 10.90625,
+                        "min_x": -1.706230640411377,
+                        "min_y": 0.9375,
+                        "min_z": 9.09375
+                      },
+                      {
+                        "max_x": 1.706230640411377,
+                        "max_y": 0.9375,
+                        "max_z": 0.90625,
+                        "min_x": 1.0,
+                        "min_y": 0.9375,
+                        "min_z": -0.90625
+                      },
+                      {
+                        "max_x": 1.706230640411377,
+                        "max_y": 0.9375,
+                        "max_z": 5.90625,
+                        "min_x": 1.0,
+                        "min_y": 0.9375,
+                        "min_z": 4.09375
+                      },
+                      {
+                        "max_x": 1.706230640411377,
+                        "max_y": 0.9375,
+                        "max_z": 10.90625,
+                        "min_x": 1.0,
+                        "min_y": 0.9375,
+                        "min_z": 9.09375
+                      },
+                      {
+                        "max_x": 1.706230640411377,
+                        "max_y": 0.9375,
+                        "max_z": -4.09375,
+                        "min_x": 1.0,
+                        "min_y": 0.9375,
+                        "min_z": -5.90625
+                      },
+                      {
+                        "max_x": 1.706230640411377,
+                        "max_y": 0.9375,
+                        "max_z": -9.09375,
+                        "min_x": 1.0,
+                        "min_y": 0.9375,
+                        "min_z": -10.90625
+                      }
+                    ],
+                    "floors": [
+                      {
+                        "max_x": 1.2999999523162842,
+                        "max_y": 0.9375,
+                        "max_z": -5.900000095367432,
+                        "min_x": -1.2999999523162842,
+                        "min_y": 0.9375,
+                        "min_z": -13.600000381469727
+                      },
+                      {
+                        "max_x": 1.2999999523162842,
+                        "max_y": 0.9375,
+                        "max_z": -0.8999999761581421,
+                        "min_x": -1.2999999523162842,
+                        "min_y": 0.9375,
+                        "min_z": -5.800000190734863
+                      },
+                      {
+                        "max_x": 1.2999999523162842,
+                        "max_y": 0.9375,
+                        "max_z": 4.099999904632568,
+                        "min_x": -1.2999999523162842,
+                        "min_y": 0.9375,
+                        "min_z": -0.800000011920929
+                      },
+                      {
+                        "max_x": 1.2999999523162842,
+                        "max_y": 0.9375,
+                        "max_z": 9.100000381469727,
+                        "min_x": -1.2999999523162842,
+                        "min_y": 0.9375,
+                        "min_z": 4.199999809265137
+                      },
+                      {
+                        "max_x": 1.2999999523162842,
+                        "max_y": 0.9375,
+                        "max_z": 12.100000381469727,
+                        "min_x": -1.2999999523162842,
+                        "min_y": 0.9375,
+                        "min_z": 9.199999809265137
+                      }
+                    ],
+                    "total_cars_key": 0
+                  }
+                ],
+                "registered": true,
+                "resource_id": "mtr_custom_train_dc01_update_cab_1_native_7ea57bf708e8",
+                "transport_mode": "TRAIN"
+              },
+              {
+                "entries": [
+                  {
+                    "car_key": 0,
+                    "doorways": [
+                      {
+                        "max_x": -1.0,
+                        "max_y": 0.9375,
+                        "max_z": 0.90625,
+                        "min_x": -1.706230640411377,
+                        "min_y": 0.9375,
+                        "min_z": -0.90625
+                      },
+                      {
+                        "max_x": -1.0,
+                        "max_y": 0.9375,
+                        "max_z": -4.09375,
+                        "min_x": -1.706230640411377,
+                        "min_y": 0.9375,
+                        "min_z": -5.90625
+                      },
+                      {
+                        "max_x": -1.0,
+                        "max_y": 0.9375,
+                        "max_z": -9.09375,
+                        "min_x": -1.706230640411377,
+                        "min_y": 0.9375,
+                        "min_z": -10.90625
+                      },
+                      {
+                        "max_x": -1.0,
+                        "max_y": 0.9375,
+                        "max_z": 5.90625,
+                        "min_x": -1.706230640411377,
+                        "min_y": 0.9375,
+                        "min_z": 4.09375
+                      },
+                      {
+                        "max_x": -1.0,
+                        "max_y": 0.9375,
+                        "max_z": 10.90625,
+                        "min_x": -1.706230640411377,
+                        "min_y": 0.9375,
+                        "min_z": 9.09375
+                      },
+                      {
+                        "max_x": 1.706230640411377,
+                        "max_y": 0.9375,
+                        "max_z": 0.90625,
+                        "min_x": 1.0,
+                        "min_y": 0.9375,
+                        "min_z": -0.90625
+                      },
+                      {
+                        "max_x": 1.706230640411377,
+                        "max_y": 0.9375,
+                        "max_z": 5.90625,
+                        "min_x": 1.0,
+                        "min_y": 0.9375,
+                        "min_z": 4.09375
+                      },
+                      {
+                        "max_x": 1.706230640411377,
+                        "max_y": 0.9375,
+                        "max_z": 10.90625,
+                        "min_x": 1.0,
+                        "min_y": 0.9375,
+                        "min_z": 9.09375
+                      },
+                      {
+                        "max_x": 1.706230640411377,
+                        "max_y": 0.9375,
+                        "max_z": -4.09375,
+                        "min_x": 1.0,
+                        "min_y": 0.9375,
+                        "min_z": -5.90625
+                      },
+                      {
+                        "max_x": 1.706230640411377,
+                        "max_y": 0.9375,
+                        "max_z": -9.09375,
+                        "min_x": 1.0,
+                        "min_y": 0.9375,
+                        "min_z": -10.90625
+                      }
+                    ],
+                    "floors": [
+                      {
+                        "max_x": 1.2999999523162842,
+                        "max_y": 0.9375,
+                        "max_z": -10.899999618530273,
+                        "min_x": -1.2999999523162842,
+                        "min_y": 0.9375,
+                        "min_z": -12.100000381469727
+                      },
+                      {
+                        "max_x": 1.2999999523162842,
+                        "max_y": 0.9375,
+                        "max_z": -5.900000095367432,
+                        "min_x": -1.2999999523162842,
+                        "min_y": 0.9375,
+                        "min_z": -10.800000190734863
+                      },
+                      {
+                        "max_x": 1.2999999523162842,
+                        "max_y": 0.9375,
+                        "max_z": -0.8999999761581421,
+                        "min_x": -1.2999999523162842,
+                        "min_y": 0.9375,
+                        "min_z": -5.800000190734863
+                      },
+                      {
+                        "max_x": 1.2999999523162842,
+                        "max_y": 0.9375,
+                        "max_z": 4.099999904632568,
+                        "min_x": -1.2999999523162842,
+                        "min_y": 0.9375,
+                        "min_z": -0.800000011920929
+                      },
+                      {
+                        "max_x": 1.2999999523162842,
+                        "max_y": 0.9375,
+                        "max_z": 9.100000381469727,
+                        "min_x": -1.2999999523162842,
+                        "min_y": 0.9375,
+                        "min_z": 4.199999809265137
+                      },
+                      {
+                        "max_x": 1.2999999523162842,
+                        "max_y": 0.9375,
+                        "max_z": 13.600000381469727,
+                        "min_x": -1.2999999523162842,
+                        "min_y": 0.9375,
+                        "min_z": 9.199999809265137
+                      }
+                    ],
+                    "total_cars_key": 0
+                  }
+                ],
+                "registered": true,
+                "resource_id": "mtr_custom_train_dc01_update_cab_2_native_7b8391aef2c8",
+                "transport_mode": "TRAIN"
+              }
+            ]
+          },
+          "capabilities": {
+            "active_read_permits": false,
+            "cache_state": true,
+            "frame_jfr": true,
+            "heap": true,
+            "module_counters": false,
+            "native_epochs": true,
+            "native_model_diagnostics": true,
+            "native_pending": true,
+            "registration_counts": true,
+            "server_tick_jfr": true,
+            "text_workspace": false,
+            "train_state": true,
+            "world": true
+          },
+          "capture_started_at": "2026-11-17T03:19:56.010232500Z",
+          "capture_started_monotonic_nanos": 404127414278200,
+          "game_time": 1771007,
+          "heap": {
+            "committed_bytes": 3221225472,
+            "max_bytes": 3221225472,
+            "used_bytes": 2496518208
+          },
+          "in_world": true,
+          "monotonic_nanos": 404127414839600,
+          "mouse_grabbed": true,
+          "native_model_diagnostics": {
+            "completed": 1,
+            "in_flight": 0,
+            "observation_errors": 0,
+            "started": 1
+          },
+          "native_pending": 0,
+          "native_settled": true,
+          "observation_errors": 0,
+          "observed_at": "2026-11-17T03:19:56.010232500Z",
+          "paused": false,
+          "pid": 45784,
+          "probe_kind": "official-native-observer",
+          "process": {
+            "executable": "C:\\Users\\ben_l\\Saved Games\\Yuuniverse 1.20.1 Shenyang\\porting-output\\work\\tools\\jdk21\\jdk-21.0.11+10\\bin\\java.exe",
+            "java_runtime_version": "21.0.11+10-LTS",
+            "java_vendor": "Eclipse Adoptium",
+            "java_version": "21.0.11",
+            "pid": 45784,
+            "start_instant": "2026-11-17T03:15:53.538Z"
+          },
+          "process_created": "2026-11-17T03:15:53.538Z",
+          "registered_count": 1091,
+          "registered_declarations": 1092,
+          "resource_epochs": {
+            "completed": 1,
+            "in_flight": 0,
+            "last_completed_sequence": 1,
+            "max_nesting": 1,
+            "started": 1
+          },
+          "schema_version": 1,
+          "screen": null,
+          "target": {
+            "diagnostics_path": "game-probe/native-invalid-model.jsonl",
+            "diagnostics_schema": 1,
+            "epochs_path": "game-probe/native-resource-epochs.jsonl",
+            "frame_event": "mtrtest.ClientFrame",
+            "java": 21,
+            "minecraft": "1.21.1",
+            "mod_id": "mtr_native_observer",
+            "mtrSha256": "ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa",
+            "mtrVersion": "4.1.0-beta.2",
+            "neoForge": "21.1.248",
+            "observer_version": "1.0.3",
+            "probe_kind": "official-native-observer",
+            "schema_version": 1,
+            "server_tick_event": "mtrtest.ServerTick",
+            "snapshot_path": "game-probe/native-observer.json",
+            "target": "official-nf248",
+            "variant": "official"
+          },
+          "timestamp": "2026-11-17T03:19:56.010232500Z",
+          "train_state": {
+            "available": true,
+            "vehicles": [
+              {
+                "car_resources": [
+                  "mtr_custom_train_dc01_update_cab_1_native_7ea57bf708e8",
+                  "mtr_custom_train_dc01_update_cab_2_native_7b8391aef2c8"
+                ],
+                "door_value": 0.0,
+                "id": 4521539960226719750,
+                "platform_id": 165694310607733568,
+                "rail_progress": 65.0,
+                "reversed": false,
+                "route_id": 0,
+                "route_name": "",
+                "speed": 0.0,
+                "station_id": -6814147209257674688,
+                "station_name": "Vehicle Acceptance B",
+                "transport_mode": "TRAIN"
+              }
+            ]
+          },
+          "window_active": true,
+          "world": {
+            "dimension": "minecraft:overworld",
+            "game_time": 1771007,
+            "player": {
+              "pitch": 0.0,
+              "x": 38.5,
+              "y": 4.0,
+              "yaw": -180.0,
+              "z": 15.5
+            }
+          }
+        },
+        "before_record_sha256": "f66c04a641576c2174457858995521027868988b419a4c0e484015c3c21bdb08",
+        "before_state_sha256": "d78f73c2f90d2a17c6476eca4b6c71dae928e0a16e8e465baebae1db3568abaf",
+        "capture_completed_at": "2026-11-17T03:19:56.830759+00:00",
+        "capture_completed_monotonic_ns": 404128234675300,
+        "capture_started_at": "2026-11-17T03:19:56.773916+00:00",
+        "capture_started_monotonic_ns": 404128177843400,
+        "diagnostics_sha256": "9b9be47b16d8aa0165b2e5a5fa5d505389c9ece08cafc9e568a88dde2bf33d9b",
+        "epochs_sha256": "9c6dcfecd22206d7f464a95fed5c6b9166f681b3138408ad4c7f08fcf04ab6b1",
+        "event_id": "9739397e-20bd-4d41-8086-287df03055cf:44",
+        "external_receipt_sha256": "f7ca7e2ad67db8cd9846897a06a493682235694981f50e8a62166a34bdb0d4e4",
+        "input": {
+          "before_snapshot_sha256": "d78f73c2f90d2a17c6476eca4b6c71dae928e0a16e8e465baebae1db3568abaf",
+          "confirmed_at": "2026-11-17T03:19:58.130Z",
+          "issued_at": "2026-11-17T03:19:56.912Z",
+          "key": "F3+t",
+          "method": "native_f3_t",
+          "pid": 45784,
+          "provider": "computer-use @oai/sky",
+          "succeeded": true,
+          "window": {
+            "app": "process:C:\\Users\\ben_l\\Saved Games\\Yuuniverse 1.20.1 Shenyang\\porting-output\\work\\tools\\jdk21\\jdk-21.0.11+10\\bin\\java.exe",
+            "id": 5374598,
+            "title": "Minecraft NeoForge* 1.21.1 - Singleplayer"
+          }
+        },
+        "launch_sha256": "699bbcb9879b139edb838f7fde49211c240539ed97d2dd802f4e29da86819375",
+        "log_offset": 27396,
+        "log_prefix_sha256": "1c8a412683ecb7f7833401e442ca8be138e647615ab4e8c470140c9a5f490d15",
+        "method": "native_f3_t",
+        "native_log_stream": {
+          "anchor_sha256": "1c8a412683ecb7f7833401e442ca8be138e647615ab4e8c470140c9a5f490d15",
+          "context_sha256": "a865781dcada3ba0d8e10e3f0b838b7b842ae5e1ac023f7c45cdc4a00d6127ee",
+          "receipt": "captures/00000044.json",
+          "receipt_sha256": "cb16f9cb806934900eda18aa7ebdd4e2dd6f98848566aa0714cf2e21888c6f64",
+          "root": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\owned-049d-reload-recorder-attempt01\\native-log"
+        },
+        "pid": 45784,
+        "plan_sha256": "3fe5eed2b2fe1ec52919f3bd6615d90dbf9761c7c9f7fdc32226a68816aa22f4",
+        "process_created": "2026-11-17T03:15:53.538301+00:00",
+        "publication": {
+          "journal_sequence": 90,
+          "journal_sha256": "50d3ef0388ce0d68dcf3f66ea0d151b03ca1527b67f32698192cd224f37be4ff",
+          "receipt_closed_at": "2026-11-17T03:19:56.856048+00:00",
+          "receipt_sha256": "cd15929279dc8943dfcf71cfcc5622dd14e6c4ec0f71866a32d66d333bb6627e"
+        },
+        "raw_files": {
+          "client-log-prefix.log": "blobs/1c8a412683ecb7f7833401e442ca8be138e647615ab4e8c470140c9a5f490d15.bin",
+          "diagnostics-after.jsonl": "blobs/9b9be47b16d8aa0165b2e5a5fa5d505389c9ece08cafc9e568a88dde2bf33d9b.bin",
+          "diagnostics-before.jsonl": "blobs/9b9be47b16d8aa0165b2e5a5fa5d505389c9ece08cafc9e568a88dde2bf33d9b.bin",
+          "epochs-after.jsonl": "blobs/9c6dcfecd22206d7f464a95fed5c6b9166f681b3138408ad4c7f08fcf04ab6b1.bin",
+          "epochs-before.jsonl": "blobs/9c6dcfecd22206d7f464a95fed5c6b9166f681b3138408ad4c7f08fcf04ab6b1.bin",
+          "native-snapshot.json": "blobs/d78f73c2f90d2a17c6476eca4b6c71dae928e0a16e8e465baebae1db3568abaf.bin"
+        },
+        "record_status": "selected",
+        "schema_version": 1,
+        "session_start_sha256": "fc016f1d35f89f17bef3a0f5c0ae6a84868ae7d0a708b48830e71dd17d868635",
+        "timestamp": "2026-11-17T03:19:56.830759+00:00"
+      },
+      "verified": false,
+      "failures": [
+        "Reload event offset is outside new, distinct log evidence.",
+        "The input has no verified full resource/registration log completion.",
+        "Input did not cause the immediately following unique native epoch."
+      ],
+      "scope": "full_resource_manager_native_f3_t"
+    }
+  ],
+  "auxiliary_shutdown": {
+    "worker_stopped": true,
+    "uncompleted_request_ids": [],
+    "worker_entry_confirmed": false,
+    "worker_exit_confirmed": false,
+    "worker_exit_pending_request_ids": [],
+    "worker_startup_state": "not_requested",
+    "worker_startup_error": null,
+    "requests": [],
+    "closed_at": "2026-11-17T03:27:08.612063+00:00",
+    "closed_elapsed_seconds": 457.07410610001534,
+    "in_flight_request_id_at_sampling_end": null
+  },
+  "terminal_auxiliary_events": [],
+  "auxiliary_events_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "auxiliary_count_unit": "accepted auxiliary requests",
+  "auxiliary_peaks_scope": "Available results from accepted auxiliary requests, including explicitly marked post-window completions.",
+  "samples_sha256": "61a41085caaf94d8e5d96fcdd54d8978122ed58f816555d9cdfe3c07908e7d17",
+  "source_sha256": "dcb3645b951f53280dcf394e97a48c3481d6a9cfc4099a388afaa395242f6624",
+  "current_source_sha256": "dcb3645b951f53280dcf394e97a48c3481d6a9cfc4099a388afaa395242f6624",
+  "source_changed_during_observation": false,
+  "neutral_source_sha256": {
+    "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\tools\\windows_process_identity.py": "f29dbd8f21f7eea1b0c8bad0a5d0f9cc9657739d53758192c98af0d80fa6cac3",
+    "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\tools\\client_experiment_analysis.py": "0669d421d09a47664cf9207f559f247983f76a666a1cfe8487c7d02d4c5a7d6e",
+    "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\tools\\native_diagnostic_review.py": "39807f2f3b8173097d30d7fef7499e8bac419f72ff6abd1faf91b014c097e45d",
+    "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\tools\\reload_before_recorder.py": "ace15f67d6e86968c75766d98360aadb3db7c69fab196c3e4fd655ad1f16c65b",
+    "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\config\\native-diagnostic-review.json": "4d91b89a3600d44a9ec132b7dd58fb61d46d34ae63f9148716f24c9c144f745c",
+    "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\config\\native-observer-consumer.json": "fae895c646ff796473bdc2c83a1b1c4abfc518bb75c0ec3bcf10a476a5750e62"
+  },
+  "neutral_sources_changed": [],
+  "neutral_observer_target": {
+    "schema_version": 1,
+    "probe_kind": "official-native-observer",
+    "observer_version": "1.0.3",
+    "mod_id": "mtr_native_observer",
+    "target": "official-nf248",
+    "variant": "official",
+    "minecraft": "1.21.1",
+    "java": 21,
+    "neoForge": "21.1.248",
+    "mtrVersion": "4.1.0-beta.2",
+    "mtrSha256": "ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa",
+    "frame_event": "mtrtest.ClientFrame",
+    "server_tick_event": "mtrtest.ServerTick",
+    "snapshot_path": "game-probe/native-observer.json",
+    "epochs_path": "game-probe/native-resource-epochs.jsonl",
+    "diagnostics_path": "game-probe/native-invalid-model.jsonl",
+    "diagnostics_schema": 1
+  },
+  "snapshot_io_source_sha256": "6967cd6efee7a673e5df72700ea8de26e2e92c02d4614306bcb106fa527b02e1",
+  "current_snapshot_io_source_sha256": "6967cd6efee7a673e5df72700ea8de26e2e92c02d4614306bcb106fa527b02e1",
+  "process_identity_source_sha256": "f29dbd8f21f7eea1b0c8bad0a5d0f9cc9657739d53758192c98af0d80fa6cac3",
+  "current_process_identity_source_sha256": "f29dbd8f21f7eea1b0c8bad0a5d0f9cc9657739d53758192c98af0d80fa6cac3",
+  "native_log_stream": {
+    "root": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\owned-049d-reload-observation-attempt01\\native-log",
+    "context_sha256": "9055ec773a1e8beaa6a6d9e1ac86e5a6bd60911bd5b7eb82f4ca4794fa857262",
+    "anchor_sha256": "1c8a412683ecb7f7833401e442ca8be138e647615ab4e8c470140c9a5f490d15",
+    "receipt": "captures/00000093.json",
+    "receipt_sha256": "0b1bc06154a370ba5d518d2bb14cc7140964c6699bc9976ee2886b039669cdfd"
+  },
+  "native_log_completion_error": null,
+  "native_log_source_sha256": {
+    "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\tools\\native_log_stream.py": "380f8df01cba5dbde8e53681a70bc0e12a5ae1672d5745049d769a3860d95fbf",
+    "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\config\\native-log-reader.json": "cf6eba86559facf3ad22b84e1193ea5377e760e5e7ab80ea85b60fb540a0cae1"
+  },
+  "native_log_sources_changed": [],
+  "log_sha256_at_completion": "1c8a412683ecb7f7833401e442ca8be138e647615ab4e8c470140c9a5f490d15",
+  "native_diagnostics": {
+    "scanned": true,
+    "unreviewed_native": [],
+    "other_errors_requiring_contextual_review": [
+      {
+        "line": 36,
+        "text": "[1711月2026 11:16:19.541] [Download-2/ERROR] [net.minecraft.client.Minecraft/]: Failed to fetch user properties"
+      }
+    ],
+    "reviewed_native": [
+      {
+        "line": 117,
+        "text": "[1711月2026 11:16:34.901] [Render thread/ERROR] [MinecraftTransitRailway/]: [mtr:textures/block/transparent.png] Invalid model!",
+        "classification": "official_generated_default_rail",
+        "call_id": 1,
+        "epoch_id": 1
+      }
+    ],
+    "native_attribution": {
+      "passed": true,
+      "review_id": "official-generated-default-rail",
+      "errors": [],
+      "calls": [
+        {
+          "call_id": 1,
+          "epoch_id": 1,
+          "before_sequence": 2,
+          "return_sequence": 3,
+          "thread_id": 1,
+          "thread": "Render thread",
+          "started_at": "2026-11-17T03:16:34.896392100Z",
+          "returned_at": "2026-11-17T03:16:34.919393700Z",
+          "native_call_chain": [
+            {
+              "class": "org.mtr.resource.VehicleModel",
+              "method": "getModelLoaderBase",
+              "descriptor": "(Ljava/lang/String;Ljava/lang/String;Lorg/mtr/resource/ResourceProvider;Z)Lorg/mtr/model/ModelLoaderBase;",
+              "line": 200,
+              "bytecode_index": 220
+            },
+            {
+              "class": "org.mtr.resource.RailResource",
+              "method": "<init>",
+              "descriptor": "(Ljava/lang/String;Ljava/lang/String;Lorg/mtr/resource/ResourceProvider;)V",
+              "line": 35,
+              "bytecode_index": 36
+            },
+            {
+              "class": "org.mtr.client.CustomResourceLoader",
+              "method": "reload",
+              "descriptor": "()V",
+              "line": 121,
+              "bytecode_index": 148
+            }
+          ],
+          "model_resource": "",
+          "texture_resource": "",
+          "returned_loader_class": "org.mtr.model.BlockbenchModelLoader",
+          "log": {
+            "line": 117,
+            "text": "[1711月2026 11:16:34.901] [Render thread/ERROR] [MinecraftTransitRailway/]: [mtr:textures/block/transparent.png] Invalid model!"
+          }
+        }
+      ],
+      "scope": "Live known official-default diagnostic attribution; rendering and performance impact remain separate",
+      "captured_events": 3,
+      "completed_epochs": 1
+    }
+  },
+  "native_registration_declaration_counts": [
+    1092
+  ],
+  "reload_events_sha256": null,
+  "native_epoch_events_sha256": "9c6dcfecd22206d7f464a95fed5c6b9166f681b3138408ad4c7f08fcf04ab6b1",
+  "baseline_completed_epoch_sequence": 1,
+  "limits": [
+    "Sampled peaks may miss brief peaks. Missing or stale state cannot pass settlement or route observation.",
+    "Route evidence requires every sampled state to be fresh, in-game, explicitly unpaused and settled, plus same-ID railProgress displacement in every frozen time window. It does not establish doors, arrivals, visual rendering or unsampled continuity.",
+    "Reload counts require distinct real log starts/registration/work completion and externally recorded native input, not repeated polling.",
+    "NMT includes Java heap and does not account for all driver/third-party native allocations. OS private usage minus heap is not reported as native memory.",
+    "GPU counters are driver/OS observations. Frame and GC distributions require the separate raw JFR/GC analysis.",
+    "Auxiliary results belong to their request start/completion interval. Terminal results do not extend the actual game observation window.",
+    "Native Windows identity verification, sampling and optional jcmd/PowerShell GPU queries add instrumentation overhead; pair matching controls."
+  ]
+}

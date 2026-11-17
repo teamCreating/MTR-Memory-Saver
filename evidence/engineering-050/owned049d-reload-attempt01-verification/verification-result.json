@@ -1,0 +1,21 @@
+{
+  "verified_at": "2026-11-17T03:51:57.999437+00:00",
+  "passed": true,
+  "payloads": 95,
+  "index_sha256": "d400701cce99014f3d5ac734e35af9334935d1c9ee56699f78819626ea97e716",
+  "pid": 45784,
+  "samples": 92,
+  "journal_rows": 895,
+  "copied_recorder_records": [
+    "00000044"
+  ],
+  "log_bytes": 27396,
+  "log_unchanged_after_input": true,
+  "verified_reloads": 0,
+  "failed_reload_replay_exact": true,
+  "diagnostic_replay_exact": true,
+  "stop_receipt_verified": true,
+  "jfr_exporter_manifest_sha256": "dbbc078206c95ed4f52edde51b6d193fcf347fe525bac0263c6ee88e3bf9c936",
+  "jfr_binary_copied_or_rehashed_by_this_verifier": false,
+  "scope": "Sealed-only failure-boundary verification. Passing this verifier does not pass the failed reload, input delivery, route, performance, full JFR replay or game exit."
+}

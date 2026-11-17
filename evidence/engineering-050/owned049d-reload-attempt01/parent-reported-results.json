@@ -1,0 +1,31 @@
+{
+  "recorded_at": "2026-11-17T03:51:38.720958+00:00",
+  "provenance_kind": "parent_reported_tool_history",
+  "raw_tool_receipt_supplied_in_selected_inputs": false,
+  "reported_by": "/root",
+  "reported_terminal_results": [
+    {
+      "exec_session": 85049,
+      "role": "reload consumer",
+      "exit_code": 1,
+      "reported_summary_status": "stopped",
+      "reported_passed": false,
+      "reported_samples": 92
+    },
+    {
+      "exec_session": 86808,
+      "role": "reload before recorder",
+      "exit_code": 0
+    }
+  ],
+  "reported_capture_failures": [
+    {
+      "provider": "WGC screenshot capture",
+      "attempts": 2,
+      "result": "timeout",
+      "raw_receipt_supplied": false
+    }
+  ],
+  "jfr_expected_sha256": "dbbc078206c95ed4f52edde51b6d193fcf347fe525bac0263c6ee88e3bf9c936",
+  "limits": "This is an attributed report, not a reconstructed original receipt. Disk summaries/journals/stop receipts are separately preserved and independently replayed. The JFR fingerprint is compared with the captured actual exporter manifest; its binary is not copied or independently rehashed in this seal."
+}
