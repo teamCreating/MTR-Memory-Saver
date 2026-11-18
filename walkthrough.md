@@ -666,3 +666,12 @@ engineering-052/release-decision明确当前packaged和NF248 reload20范围通�
 重放命令显式增加 --v1_metrics，匹配严格TimeInQPC/MsBetweenPresents解析契约，避免默认指标模式不匹配；不增加列别名或放宽门槛。相关20测试实际通过。engineering-053/frame-permission-differential封存所选原始日志/命令/上下文/源及独立测试exit；ETL、partial XML、class及swap流只保存原cache指纹，不冒称完整重放闭包。现有候选Java/ZIP字节未改。
 
 用户授权先解决权限后发布；发起一次65秒正控制/25秒原生PresentMon的短时管理员对照，不修改权限组或安全设置。Start-Process RunAs 实际返回“操作已被用户取消”，脚本未启动，无管理员token/帧结果；请求结果仍待用户回复，不自动重复UAC。性能独立帧资格、observer-off、A/A A/B及开销未通过，0.4.8不打tag、不发布。
+
+## 2026-11-18T12:26:55.2810580+08:00 — 接入用户指定的 spark 测量模组，保留严格身份冻结
+
+用户要求改用spark模组测试。已从官方Modrinth项目元数据选择适配1.21.1/NeoForge的1.10.124（v5qtqRQi），下载3642581bytes，实际SHA-512与发布记录一致，SHA-256为647e8a81afbe414dba1df4ba15fd06c5d32d4cb544e68828405e8e074c2e16db。第三方JAR只保存在ignored cache，不放入发行包。
+
+packaged_client新增通用、可重复的--measurement-mod参数，将显式测量JAR复制并冻结为measurement角色；performance校验仍要求唯一MTR/companion/observer，额外JAR必须与声明逐项一致，comparison_controls保留全部测量身份，不能靠增加角色绕过未声明文件。Windows文件名冲突改为casefold比较。新增缺失、覆盖核心文件、身份移除/替换拒绝测试，现有三模组计划保持兼容。文档明确新模组需要重新准备/资格，Spark采样权重不替代显示/JFR帧耗时，关闭隐式后台采样并保存本地profile。未改Java产品或收益门槛。
+
+首个旧模板资格在启动JVM前实际失败：缺少显式-XX:+UseG1GC；原attempt保留qual053-baseline-plain01，不修改记录或计作正式样本，后续重新准备而不放宽检查。此前管理员诊断已通过系统安装的PowerShell7成功取得elevated=true；25秒PresentMon仍exit0无CSV，证明提升权限不足以解决缺帧。提交侧采集及官方1.9.2离线解码同样无CSV；一次旧版误用-no_console_stats被拒绝，改为其实际-no_top选项后exit0仍无CSV。普通权限事件ID过滤的25秒DxgKrnl诊断实际成功、零loss，原始QPC可读，仅是提交间隔，不称为显示帧通过。用户转向spark后，未完成的独立driver-present工具草稿移回ignored cache，不加入运行工具或发布范围。原始诊断cache均保留，正式Spark游戏采样尚未开始。
+验证：packaged_client 43项、client_experiment 57项测试实际exit0；git diff --check通过。
