@@ -685,3 +685,13 @@ packaged_client新增通用、可重复的--measurement-mod参数，将显式测
 初次技能解析器把players=-1当巨大无符号数，单位也不应将metadata interval4000当4000ms。新增独立SparkProfileExport.java，仅使用审计JAR的公开生成protobuf解码与getter，不访问私有字段、不运行Minecraft/插件初始化；保留有符号整数、opaque ByteString用显式Base64。第一次导出因ByteString未处理而失败，原exit/stderr/class保留；加入该类型后JDK --release17编译/内建自检及两份实际SDK导出均exit0。Python分析器按显式timeWindows及扁平直接children_refs计算权重，精确线程匹配，无缺失线程回退；验证引用、根/线程权重、一致时间轴并保留负残差诊断。新增6项测试实际通过。不是CPU elapsed/frame time：4ms渲染采样主要是ReadAdmission parking与纹理上传；100ms短采样含MTR原生drawElements，解析线程100%采样在等待。高宿主CPU负荷及4ms数据中小量负残差同样保留，不计算性能收益。
 
 两份profile保存后正常AltF4，实际自有JVMwait exit0，collector工具返回exit0（后者为parent-tool-reported，不伪装原始Popen收据），窗口确认消失；62,017,654bytes JFR实际summary exit0且前后hash一致，4个安装JAR在关闭后均hash匹配launch plan。engineering-053/spark-pilot封存140个选定payload/35,736,801bytes、全采样/epoch/log/GC/safepoint、官方导出与6次分析实际收据、源和测试。明确不发布原Spark/JFR、完整解码机器配置、第三方JAR/资源包/世界/依赖/F2图；只记原文件指纹，选定封存不是完整raw replay闭包。最初错误解析的原始输出也保留并标为不用于正确指标。全部选定hash、6实际分析exit、JVMwait与JFRsummary独立校验通过。Java产品字节未改；正式四组资格、48个A/A/A/B试验、observer-off与低开销校准仍未完成，0.4.8不打tag、不发布。
+
+## 2026-11-18T14:35:51.5646433+08:00 — 完成 12-JVM 实用配对性能验证与 Spark 协调工具链准备
+
+未修改任何产品 Java 字节、目标矩阵、构建配置或既有 48-trial 协议政策（config/client-experiment.json）。按用户确认方案，补充 12-JVM 实用配对验证与 Spark 100 ms 本地采样自动化工具链：
+
+1. 完善 	ools/spark_client_sampler.py（配合 config/client-samplers.json）：移除冗余导入并显式使用 uuid，兼容 Windows mArgs 脱敏路径及外置测试目录校验，可选导出 MTR-memory-parse 热点报告（0.3.0 基线不强制该线程名），并新增 erify_idle 验证 plain 对照未触发任何 Spark 采样文件或启动日志。
+2. 调整 	ools/client_experiment_analysis.py 与 	ools/client_experiment.py：保留 scene_ready 与稳态窗口对目标路线 oute_ids 及最小位移的严格要求，仅在 ssess_observation 连续样本区间启用 llow_turnaround=True 以兼容存档约 140 s 单趟行程后的原生折返段 oute_id=0（全零行程与无关非零路线仍拒绝）；clone_prepared 对只读不可变子目录（ssets、libraries、ersions、esourcepacks、mods、.prepared-controls）优先硬链接克隆以节省 C 盘空间，可变目录与顶层配置独立深拷贝。
+3. 新增 	ools/spark_operator.py、config/client-practical-verification.json 与 	ools/practical_client_verification.py：独立窗口协调器按 gent.md 约定核实进程创建身份与 
+ative-observer.json 后切换美式英语键盘布局发送 /sparkc，具备基于 logs/latest.log 的幂等恢复与中断重试；12-JVM 日程覆盖 A/B plain、A/B profile+Spark 100 ms、A/A plain 噪声对照及 2-mod probe_off 校准。
+4. 新增 	ests/test_spark_client_sampler.py 与 	ests/test_practical_client_verification.py；运行 .venv/Scripts/python.exe -m minecraft_testkit verify（636 historical scripts, 2 datasets, 11 files）及全量 .venv/Scripts/python.exe -m minecraft_testkit test，347 项测试全部通过（exit 0）。当前仅工具链与单测就绪，实际 12-JVM 客户端测量尚未开始。

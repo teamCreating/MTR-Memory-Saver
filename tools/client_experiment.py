@@ -458,6 +458,14 @@ def verify_plan(path, plan):
         raise ValueError("Frozen qualifier JVM identities differ from independently audited raw qualification processes.")
 
 
+def _link_or_copy(source, destination):
+    try:
+        os.link(source, destination)
+    except OSError:
+        shutil.copy2(source, destination)
+    return destination
+
+
 def clone_prepared(descriptor, destination):
     template = Path(descriptor["instance"])
     plan = read(template / "packaged-client-plan.json")
@@ -465,9 +473,19 @@ def clone_prepared(descriptor, destination):
         raise ValueError("Prepared templates must never have launched; qualification uses a separate clone.")
     if (template / "logs").exists():
         raise ValueError("Prepared templates cannot contain prior client logs.")
-    # Copy the complete template, including its frozen context and launcher files.
-    # Existing directories are never reused, removed or reset.
-    shutil.copytree(template, destination)
+    # Hardlink immutable input trees when same-volume NTFS permits, while keeping
+    # mutable world/config/settings independent. Existing directories are never reused.
+    readonly_dirs = {"assets", "libraries", "versions", "resourcepacks", "mods", ".prepared-controls"}
+    destination.mkdir(parents=True, exist_ok=False)
+    for entry in template.iterdir():
+        target = destination / entry.name
+        if entry.is_dir():
+            if entry.name in readonly_dirs:
+                shutil.copytree(entry, target, copy_function=_link_or_copy)
+            else:
+                shutil.copytree(entry, target)
+        else:
+            shutil.copy2(entry, target)
     plan["instance"] = str(destination.resolve())
     save(destination / "packaged-client-plan.json", plan)
     marker = read(destination / "vehicle-test-instance.json")

@@ -1,0 +1,54 @@
+{
+  "schema": 1,
+  "scope": "official_practical_paired_verification",
+  "target": "official-nf248",
+  "description": "User-approved 12-JVM practical paired verification for 0.4.8 (distinct from the 48-trial 95% sign-test protocol in config/client-experiment.json).",
+  "startup_timeout_seconds": 900,
+  "warmup_seconds": 60,
+  "measurement_seconds": 180,
+  "sample_interval_seconds": 2,
+  "maximum_sample_gap_seconds": 5,
+  "snapshot_freshness_seconds": 5,
+  "jfr_boundary_tolerance_seconds": 1,
+  "probe_off_post_load_warmup_seconds": 300,
+  "probe_off_steady_seconds": 180,
+  "spark_sampler_id": "spark-client-1.10.124",
+  "spark_interval_microseconds": 100000,
+  "spark_duration_seconds": 300,
+  "budgets": {
+    "primary_steady_private_percent": -10,
+    "guardrails": {
+      "loading_percent": 5,
+      "steady_heap_percent": 5,
+      "frame_p99_percent": 5,
+      "gc_pause_total_ms": 50,
+      "full_gc_count": 0,
+      "full_gc_pause_max_ms": 0
+    },
+    "aa_equivalence": {
+      "steady_private_percent": 5,
+      "loading_percent": 15,
+      "steady_heap_percent": 5
+    },
+    "instrumentation_equivalence": {
+      "steady_private_percent": 10,
+      "loading_percent": 15,
+      "steady_heap_percent": 10
+    },
+    "observer_off_overhead_percent": 10
+  },
+  "schedule": [
+    {"id": "01-ab-plain-baseline", "pair": 1, "comparison": "ab", "role": "baseline", "mode": "plain", "spark": false},
+    {"id": "01-ab-plain-candidate", "pair": 1, "comparison": "ab", "role": "candidate", "mode": "plain", "spark": false},
+    {"id": "02-ba-plain-candidate", "pair": 2, "comparison": "ab", "role": "candidate", "mode": "plain", "spark": false},
+    {"id": "02-ba-plain-baseline", "pair": 2, "comparison": "ab", "role": "baseline", "mode": "plain", "spark": false},
+    {"id": "03-ab-profile-baseline", "pair": 3, "comparison": "ab", "role": "baseline", "mode": "profile", "spark": true},
+    {"id": "03-ab-profile-candidate", "pair": 3, "comparison": "ab", "role": "candidate", "mode": "profile", "spark": true},
+    {"id": "04-ba-profile-candidate", "pair": 4, "comparison": "ab", "role": "candidate", "mode": "profile", "spark": true},
+    {"id": "04-ba-profile-baseline", "pair": 4, "comparison": "ab", "role": "baseline", "mode": "profile", "spark": true},
+    {"id": "05-aa-plain-a", "pair": 5, "comparison": "aa", "role": "baseline", "mode": "plain", "spark": false},
+    {"id": "05-aa-plain-b", "pair": 5, "comparison": "aa", "role": "baseline", "mode": "plain", "spark": false},
+    {"id": "06-probe-off-01", "pair": 6, "comparison": "probe_off", "role": "candidate", "mode": "probe_off", "spark": false},
+    {"id": "06-probe-off-02", "pair": 6, "comparison": "probe_off", "role": "candidate", "mode": "probe_off", "spark": false}
+  ]
+}
