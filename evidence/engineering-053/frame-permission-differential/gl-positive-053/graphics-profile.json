@@ -1,0 +1,53 @@
+{
+  "schema": 1,
+  "name": "graphics-events-with-native-process-handle",
+  "scope": "Availability diagnostic: graphics providers plus held native process handle identity; Kernel-Process unavailable; not a qualified measurement profile",
+  "presentmon_version": "2.6.0",
+  "presentmon_sha256": "b2a706bc6ad475749e3b7e3409263aa1e6906d45bdcf993f6dbc0f660188f1af",
+  "profile_qualified_for_measurement": false,
+  "clock": "perf",
+  "maximum_etl_megabytes": 128,
+  "providers": [
+    {
+      "name": "Microsoft-Windows-DxgKrnl",
+      "guid": "802ec45a-1e99-4b83-9920-87c98277ba9d",
+      "keywords": "0x1",
+      "level": 4,
+      "source": "https://github.com/GameTechDev/PresentMon/blob/v2.6.0/PresentData/ETW/Microsoft_Windows_DxgKrnl.h"
+    },
+    {
+      "name": "Microsoft-Windows-Dwm-Core",
+      "guid": "9e9bba3c-2e38-40cb-99f4-9e8281425164",
+      "keywords": "0x1",
+      "level": 5,
+      "source": "https://github.com/GameTechDev/PresentMon/blob/v2.6.0/PresentData/ETW/Microsoft_Windows_Dwm_Core.h"
+    },
+    {
+      "name": "Microsoft-Windows-Win32k",
+      "guid": "8c416c79-d49b-4f01-a467-e56d3aa8234c",
+      "keywords": "0x1000",
+      "level": 4,
+      "source": "https://github.com/GameTechDev/PresentMon/blob/v2.6.0/PresentData/ETW/Microsoft_Windows_Win32k.h"
+    },
+    {
+      "name": "Microsoft-Windows-DXGI",
+      "guid": "ca11c036-0102-4a2d-a6ad-f03cfed5d3c9",
+      "keywords": "0x8000000000000002",
+      "level": 5,
+      "source": "https://github.com/GameTechDev/PresentMon/blob/v2.6.0/PresentData/ETW/Microsoft_Windows_DXGI.h"
+    },
+    {
+      "name": "Microsoft-Windows-D3D9",
+      "guid": "783aca0a-790e-4d7f-8451-aa850511c6b9",
+      "keywords": "0x8000000000000002",
+      "level": 5,
+      "source": "https://github.com/GameTechDev/PresentMon/blob/v2.6.0/PresentData/ETW/Microsoft_Windows_D3D9.h"
+    }
+  ],
+  "sources": [
+    "https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/logman-create-trace",
+    "https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/tracerpt",
+    "https://github.com/GameTechDev/PresentMon/blob/v2.6.0/PresentData/PresentMonTraceSession.cpp"
+  ],
+  "process_identity_source": "held_native_process_handle_before_after"
+}

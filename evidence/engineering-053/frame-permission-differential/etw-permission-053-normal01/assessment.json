@@ -1,0 +1,42 @@
+{
+  "providers": [
+    {
+      "provider": "Microsoft-Windows-DxgKrnl",
+      "enable_exit": 0,
+      "cleanup_absent": true,
+      "errors": []
+    },
+    {
+      "provider": "Microsoft-Windows-Dwm-Core",
+      "enable_exit": 0,
+      "cleanup_absent": true,
+      "errors": []
+    },
+    {
+      "provider": "Microsoft-Windows-Win32k",
+      "enable_exit": 0,
+      "cleanup_absent": true,
+      "errors": []
+    },
+    {
+      "provider": "Microsoft-Windows-DXGI",
+      "enable_exit": 0,
+      "cleanup_absent": true,
+      "errors": []
+    },
+    {
+      "provider": "Microsoft-Windows-D3D9",
+      "enable_exit": 0,
+      "cleanup_absent": true,
+      "errors": []
+    },
+    {
+      "provider": "Microsoft-Windows-Kernel-Process",
+      "enable_exit": 2147942405,
+      "cleanup_absent": true,
+      "errors": []
+    }
+  ],
+  "all_enabled": false,
+  "all_owned_sessions_closed": true
+}

@@ -55,7 +55,7 @@ def commands(folder, binary, session, pid, duration, profile, system32):
         "headers": [str(system32 / "tracerpt.exe"), str(folder / "raw.etl"), "-o", str(folder / "headers.xml"), "-of", "XML",
                     "-summary", str(folder / "tracerpt-summary.txt")],
         "replay": [str(binary), "--etl_file", str(folder / "raw.etl"), "--process_id", str(pid), "--output_file", str(folder / "presents.csv"),
-                   "--qpc_time", "--no_console_stats", "--no_track_input", "--no_track_gpu"],
+                   "--v1_metrics", "--qpc_time", "--no_console_stats", "--no_track_input", "--no_track_gpu"],
     }
 
 

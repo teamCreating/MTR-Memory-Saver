@@ -22,6 +22,10 @@ redecodes the original ETL with the pinned decoders and compares derivations.
 Without this independent replay, saved CSV data cannot establish availability.
 Synthetic tests establish validation behavior, not Windows provider availability.
 
+Replay explicitly requests `--v1_metrics --qpc_time`: the strict parser requires
+`TimeInQPC` and `MsBetweenPresents`. The 2.6 default metrics use a different
+clock/metric contract. No default or v2 column is silently renamed to v1.
+
 The pinned modern-provider subset is **not qualified for measurement**. Native
 render-loop JFR durations, present intervals and OS CPU counters retain separate
 meanings. A known positive rendering control, full-window loss checks and
@@ -32,7 +36,14 @@ creating a session. After correcting that incompatibility, logman returned
 access denied after partially creating the unique session. Its recorded GUID
 and handle were checked and the session was stopped; a subsequent query returned
 4201 (absent). Offline PresentMon exited zero and produced no CSV. The exact
-denied provider and the earlier PresentMon failures' causes remain unclassified.
+denied provider was subsequently isolated to Kernel-Process: each of the five
+modern graphics providers enabled successfully without elevation and its own
+session was closed. A graphics-only 25-second trace recorded target-process
+DxgKrnl headers with zero reported session loss, but offline PresentMon still
+produced no CSV, including without PID filtering and with explicit v1 metrics.
+The upstream native live capture of the owned WGL positive control also exited
+zero without any CSV. These observations do not establish the cause of the
+missing completed present records or qualify the graphics-only subset.
 
 References: [Microsoft logman trace options](https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/logman-create-trace),
 [PresentMon v2.6.0 trace implementation](https://github.com/GameTechDev/PresentMon/blob/v2.6.0/PresentData/PresentMonTraceSession.cpp).

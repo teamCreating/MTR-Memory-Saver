@@ -658,3 +658,11 @@ engineering-052/revised048-reload20保留全部20个input-attempt原始目录/�
 README更新本候选NF248耐久结论，.gitattributes为本次原始.bin设置binary标识；验证/回放脚本只是外部证据工具，未改Java产品字节或运行时判定。最终两目标包重建verifyRelease/releaseBundle与checksums/verify-assets均实际exit0，JAR仍943b…/1347…；ZIP分别3a148b0d9edf4f560063a74d843cd665e457dbe64ee204638e0609ed40a0bd61与deba49402c82c33be2d0cc9caea7adbbbd2247733e7a626de76591702062d718。首次final wrapper错把独立生成安装指南当源码README，build子进程exit0后不正确的文本假设assert失败；原runner/Gradle收据与明确parent-reported wrapper错误保留，不冒充原始wait日志。修正为逐字节比对实际bundleReadme/SUPPORT任务输出并保留JAR/scope严格校验，第二wrapper两目标通过，没有改产品指南掩盖检查错误。
 
 engineering-052/release-decision明确当前packaged和NF248 reload20范围通过，四个性能模板仅准备、A/A及A/B正式样本均0，observer-off/独立帧源/观测开销未验收。ETW实际拒绝访问且本会话暂不能取得提升权限的执行；不改权限/安全设置，不将JFR渲染循环当独立呈现帧，不把缺失数据记为零，不量化性能收益。既有管理员诊断命令绑定的JVM已正常退出，已另记retired说明，原命令未篡改且身份检查会fail closed。当前用户限定1/2/5/6，未增加交互与两小时路线门槛；第5项未完成，所以0.4.8保持候选/不创建tag或发布。最后提交推送后核查该HEAD的实际CI及包指纹，结果在交付回复链接原始CI，不产生自引用提交哈希。只暂存本次三组封存、README/属性/catalog/walkthrough，既有无关binary目录与旧未跟踪JFR草稿不纳入。
+
+## 2026-11-18T12:01:36.6509880+08:00 — 定位 ETW 提供程序权限并显式匹配 v1 帧契约
+
+普通 token 对六个提供程序逐项启用并以自有 GUID/handle 清理：五个图形提供程序实际 exit0，仅 Kernel-Process 返回2147942405，全部会话最终4201。两个自有 WGL 正控制分别完成24833/25491 swap calls，技术上下文是 Intel HD Graphics P530；WGC 超时，未声称画面目视通过。graphics-only 25秒原始 ETL 启停成功、终态三类loss均0，tracerpt45秒超时保留partial XML；Get-WinEvent另计目标3262个Present_Info及3262个PresentHistoryDetailed_Start头，不将其当作completed frame。三次离线解码（含取消PID过滤/显式v1）及一次上游原生live采集均exit0无任何CSV，保留失败，不归咎驱动、不用swap markers/JFR循环替代呈现帧。
+
+重放命令显式增加 --v1_metrics，匹配严格TimeInQPC/MsBetweenPresents解析契约，避免默认指标模式不匹配；不增加列别名或放宽门槛。相关20测试实际通过。engineering-053/frame-permission-differential封存所选原始日志/命令/上下文/源及独立测试exit；ETL、partial XML、class及swap流只保存原cache指纹，不冒称完整重放闭包。现有候选Java/ZIP字节未改。
+
+用户授权先解决权限后发布；发起一次65秒正控制/25秒原生PresentMon的短时管理员对照，不修改权限组或安全设置。Start-Process RunAs 实际返回“操作已被用户取消”，脚本未启动，无管理员token/帧结果；请求结果仍待用户回复，不自动重复UAC。性能独立帧资格、observer-off、A/A A/B及开销未通过，0.4.8不打tag、不发布。

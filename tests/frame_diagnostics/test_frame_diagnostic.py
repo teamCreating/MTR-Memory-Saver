@@ -173,6 +173,8 @@ class FrameDiagnosticTest(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "Performance"): diagnostic.load_profile(p)
         plan = diagnostic.commands(Path("cache"), Path("PresentMon.exe"), "owned", 42, 25, diagnostic.load_profile(), Path("system32"))
         self.assertIn("--etl_file", plan["replay"])
+        self.assertIn("--v1_metrics", plan["replay"])
+        self.assertNotIn("--v2_metrics", plan["replay"])
         self.assertNotIn("--stop_existing_session", plan["replay"])
         self.assertNotIn("--restart_as_admin", plan["replay"])
         self.assertNotIn("-lr", plan["headers"])

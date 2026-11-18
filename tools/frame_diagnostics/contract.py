@@ -76,7 +76,7 @@ def text_bytes(raw):
 
 
 def inspect_csv(path, target, window, maximum_gap_seconds=5, maximum_bytes=32 * 1024 * 1024):
-    """Validate the pinned 2.6 default/QPC schema without translating metric names."""
+    """Validate the pinned 2.6 explicit v1/QPC schema without metric aliases."""
     frequency = validate_window(window)
     identity(target)
     require(type(maximum_gap_seconds) in (int, float) and math.isfinite(maximum_gap_seconds) and maximum_gap_seconds > 0, "Invalid coverage-gap budget")
