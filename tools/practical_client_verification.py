@@ -38,6 +38,7 @@ DEFAULT_TEMPLATE_PREFIX = "official-nf248-spark048-"
 DEFAULT_PROBE_OFF_TEMPLATE = ROOT / ".cache/acceptance/official-nf248-probeoff048-template"
 CANDIDATE_048_NF248_SHA = "943b3d455fa3ce9d3ede74bc1a2071ece7bf70b09d9b7f829027347b53a9b588"
 PROBE_OFF_SCOPE = "official_practical_probe_off_trial"
+TRIAL_INVENTORY_EXCLUSIONS = ("trial-summary.json",)
 READONLY_CLONE_DIRS = {"assets", "libraries", "versions", "resourcepacks", "mods", ".prepared-controls"}
 DEFAULT_RAIL_ERROR_RE = re.compile(
     r"^\[[^\]\r\n]+\]\s+\[Render thread/ERROR\]\s+\[MinecraftTransitRailway/\]:\s+"
@@ -715,7 +716,7 @@ def assess_probe_off_observation(evidence, policy, log_text):
 
 
 def trial_raw_files(trial_dir):
-    return [item for item in exp.raw_files(trial_dir) if item["relative_path"] != "trial-summary.json"]
+    return exp.raw_files(trial_dir, excluded_root_files=TRIAL_INVENTORY_EXCLUSIONS)
 
 
 def resolve_templates(templates_root, prefix, probe_off_template, base_policy):
@@ -746,10 +747,7 @@ def audit_single_trial(trial_dir, spec, descriptors, sampler_spec, policy, base_
     summary = read(trial_dir / "trial-summary.json")
     if summary.get("spec") != spec:
         raise ValueError(f"Trial spec mismatch in {trial_dir}")
-    exp.verify_raw_files(trial_dir, summary.get("files", []))
-    # Also ensure raw_files excluding trial-summary.json matches exactly.
-    if summary.get("files") != trial_raw_files(trial_dir):
-        raise ValueError(f"Raw inventory mismatch in {trial_dir}")
+    exp.verify_raw_files(trial_dir, summary.get("files", []), excluded_root_files=TRIAL_INVENTORY_EXCLUSIONS)
     if spec["mode"] == "probe_off":
         evidence = read(trial_dir / "observation.json")
         prepared = read(trial_dir / "prepared-plan.json")

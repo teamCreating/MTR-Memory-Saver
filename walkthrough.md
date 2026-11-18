@@ -695,3 +695,9 @@ packaged_client新增通用、可重复的--measurement-mod参数，将显式测
 3. 新增 	ools/spark_operator.py、config/client-practical-verification.json 与 	ools/practical_client_verification.py：独立窗口协调器按 gent.md 约定核实进程创建身份与 
 ative-observer.json 后切换美式英语键盘布局发送 /sparkc，具备基于 logs/latest.log 的幂等恢复与中断重试；12-JVM 日程覆盖 A/B plain、A/B profile+Spark 100 ms、A/A plain 噪声对照及 2-mod probe_off 校准。
 4. 新增 	ests/test_spark_client_sampler.py 与 	ests/test_practical_client_verification.py；运行 .venv/Scripts/python.exe -m minecraft_testkit verify（636 historical scripts, 2 datasets, 11 files）及全量 .venv/Scripts/python.exe -m minecraft_testkit test，347 项测试全部通过（exit 0）。当前仅工具链与单测就绪，实际 12-JVM 客户端测量尚未开始。
+
+## 2026-11-18T22:30:18.6963311+08:00 — 修复 0.4.8 配对验证证据清单复核
+
+实用配对采集先生成哈希清单，再将清单写入 trial-summary.json。独立复核此前却要求同一清单包含这份收据自身，导致 12 项一律失败。让采集与复核共用根目录收据排除项，继续逐文件核对字节和 SHA-256。新增回归测试验证根收据可排除、同名的嵌套证据仍纳入清单、改写采样文件会被拒绝。
+
+用修正后的审计重放实际 practical-run01，7 项原始记录通过，其中包含 5 个 plain JVM 和 2 个 probe-off JVM。其余为 1 次基线未在时限内达到目标场景，以及 4 次 Spark 窗口协调失败。原采集产物原样保留，重放输出独立写入 .cache/acceptance/spark-054/practical-run01-replay01.json。目录验证通过，348 项 Python 测试通过。

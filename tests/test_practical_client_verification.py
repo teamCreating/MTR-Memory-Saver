@@ -67,6 +67,22 @@ class TurnaroundRouteAndHardlinkCloneTests(unittest.TestCase):
 
 
 class PracticalVerificationTests(unittest.TestCase):
+    def test_trial_inventory_excludes_its_receipt_and_rejects_changed_evidence(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            sample = root / "samples.jsonl"
+            sample.write_bytes(b"sample")
+            nested = root / "native-log"
+            nested.mkdir()
+            (nested / "trial-summary.json").write_bytes(b"nested evidence")
+            files = pcv.trial_raw_files(root)
+            (root / "trial-summary.json").write_text(json.dumps({"files": files}), encoding="utf-8")
+            self.assertEqual(len(files), 2)
+            exp.verify_raw_files(root, files, excluded_root_files=pcv.TRIAL_INVENTORY_EXCLUSIONS)
+            sample.write_bytes(b"edited")
+            with self.assertRaisesRegex(ValueError, "Raw evidence changed"):
+                exp.verify_raw_files(root, files, excluded_root_files=pcv.TRIAL_INVENTORY_EXCLUSIONS)
+
     def _probe_off_fixture(self, root, *, extra_error=None):
         created = dt.datetime(2026, 11, 18, 6, 0, 0, tzinfo=dt.timezone.utc)
         stamp = lambda s: (created + dt.timedelta(seconds=s)).isoformat()

@@ -255,18 +255,19 @@ def verify_descriptor(descriptor, policy):
         raise ValueError("Current prepared artifact/context no longer matches frozen qualification.")
 
 
-def raw_files(root):
+def raw_files(root, *, excluded_root_files=()):
     return [{"relative_path": path.relative_to(root).as_posix(), "sha256": digest(path), "bytes": path.stat().st_size}
             for path in sorted(root.rglob("*")) if path.is_file() and path.name not in ("qualification.json", "result.json")
-            and not path.relative_to(root).parts[0] == "instance"]
+            and path.relative_to(root).parts[0] != "instance"
+            and not (path.parent == root and path.name in excluded_root_files)]
 
 
-def verify_raw_files(root, items):
+def verify_raw_files(root, items, *, excluded_root_files=()):
     for item in items:
         path = (root / item["relative_path"]).resolve(strict=True)
         if root.resolve() not in path.parents or digest(path) != item["sha256"] or path.stat().st_size != item["bytes"]:
             raise ValueError("Raw evidence changed or escaped attempt directory: " + item["relative_path"])
-    if items != raw_files(root):
+    if items != raw_files(root, excluded_root_files=excluded_root_files):
         raise ValueError("Raw evidence inventory is incomplete, duplicated or changed.")
 
 
