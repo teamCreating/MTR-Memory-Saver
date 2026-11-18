@@ -1,0 +1,14 @@
+{
+  "schema": 1,
+  "action": "qualify",
+  "started_at": "2026-11-18T04:20:27.558152+00:00",
+  "status": "failed",
+  "arguments": {
+    "prepared_plan": ".cache\\acceptance\\official-nf248-perf-obj048-baseline-plain\\packaged-client-plan.json",
+    "role": "baseline",
+    "instrumentation": "plain",
+    "policy": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\config\\client-experiment.json"
+  },
+  "error": "ValueError: This GC protocol requires a frozen explicit G1 collector in both modes.",
+  "finished_at": "2026-11-18T04:20:58.091601+00:00"
+}

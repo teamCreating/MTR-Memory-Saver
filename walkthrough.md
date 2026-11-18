@@ -675,3 +675,13 @@ packaged_client新增通用、可重复的--measurement-mod参数，将显式测
 
 首个旧模板资格在启动JVM前实际失败：缺少显式-XX:+UseG1GC；原attempt保留qual053-baseline-plain01，不修改记录或计作正式样本，后续重新准备而不放宽检查。此前管理员诊断已通过系统安装的PowerShell7成功取得elevated=true；25秒PresentMon仍exit0无CSV，证明提升权限不足以解决缺帧。提交侧采集及官方1.9.2离线解码同样无CSV；一次旧版误用-no_console_stats被拒绝，改为其实际-no_top选项后exit0仍无CSV。普通权限事件ID过滤的25秒DxgKrnl诊断实际成功、零loss，原始QPC可读，仅是提交间隔，不称为显示帧通过。用户转向spark后，未完成的独立driver-present工具草稿移回ignored cache，不加入运行工具或发布范围。原始诊断cache均保留，正式Spark游戏采样尚未开始。
 验证：packaged_client 43项、client_experiment 57项测试实际exit0；git diff --check通过。
+
+## 2026-11-18T13:28:19.7674974+08:00 — 完成 spark 本地试采与官方 SDK 重放，保持性能发布门槛
+
+按用户要求使用spark：独立NF248试采JVM74984（2026-11-18T04:34:24.160750+00:00）实际加载0.4.8 943b…、observer1.0.3、spark1.10.124、完整16包、Xms512M/Xmx3072M、显式G1和完整JFR，关闭隐式Spark后台采样。实际原生epoch1启动返回、一次CUA F3+T对应epoch2于04:45:27.671843300Z开始、04:56:59.147986800Z返回，耗时691.4761435秒。此轮没有完整严格输入收据闭包，不加入之前独立20重载验收计数。最初截图暂未见列车，后续F2实际看到完整车型；独立采样历史确实观察到既定route1634058583976595067和变化rail_progress，未把初始route0当有效路线或放宽场景要求。
+
+第一份4ms全线程Java采样实际启动/停止并本地保存；日志显示大量4–8ms及更长ThreadDump safepoint与world-statistics超时。Windows不支持该JAR的async引擎，Java引擎有safepoint偏差；这轮明显干扰，不当作A/B收益或低开销资格。随后100ms全线程、timeout30、save-to-file真实自动停止并保存第二份文件。通过当前JAR SamplerModule字节码确认start参数将本地保存标志交给超时回调；不是猜测新版文档契约。两份profile未上传Spark服务，原始文件与完整机器/配置解码结果保留ignored cache。
+
+初次技能解析器把players=-1当巨大无符号数，单位也不应将metadata interval4000当4000ms。新增独立SparkProfileExport.java，仅使用审计JAR的公开生成protobuf解码与getter，不访问私有字段、不运行Minecraft/插件初始化；保留有符号整数、opaque ByteString用显式Base64。第一次导出因ByteString未处理而失败，原exit/stderr/class保留；加入该类型后JDK --release17编译/内建自检及两份实际SDK导出均exit0。Python分析器按显式timeWindows及扁平直接children_refs计算权重，精确线程匹配，无缺失线程回退；验证引用、根/线程权重、一致时间轴并保留负残差诊断。新增6项测试实际通过。不是CPU elapsed/frame time：4ms渲染采样主要是ReadAdmission parking与纹理上传；100ms短采样含MTR原生drawElements，解析线程100%采样在等待。高宿主CPU负荷及4ms数据中小量负残差同样保留，不计算性能收益。
+
+两份profile保存后正常AltF4，实际自有JVMwait exit0，collector工具返回exit0（后者为parent-tool-reported，不伪装原始Popen收据），窗口确认消失；62,017,654bytes JFR实际summary exit0且前后hash一致，4个安装JAR在关闭后均hash匹配launch plan。engineering-053/spark-pilot封存140个选定payload/35,736,801bytes、全采样/epoch/log/GC/safepoint、官方导出与6次分析实际收据、源和测试。明确不发布原Spark/JFR、完整解码机器配置、第三方JAR/资源包/世界/依赖/F2图；只记原文件指纹，选定封存不是完整raw replay闭包。最初错误解析的原始输出也保留并标为不用于正确指标。全部选定hash、6实际分析exit、JVMwait与JFRsummary独立校验通过。Java产品字节未改；正式四组资格、48个A/A/A/B试验、observer-off与低开销校准仍未完成，0.4.8不打tag、不发布。
