@@ -95,7 +95,11 @@ currently have no valid frame CSV; provider enablement returned access denied.
 The revised NF248 candidate has also passed [twenty consecutive full-pack
 reloads](evidence/engineering-052/revised048-reload20/README.md) in one fresh
 3 GiB JVM, followed by an independent stable window and normal shutdown.
-Controlled performance acceptance remains pending.
+The [practical Spark comparison](evidence/engineering-054/practical-spark/README.md)
+completed twelve independently qualified NF248 JVM observations. Plain steady
+private memory fell by a median 0.28%, missing the 10% reduction target, while
+resource loading rose by 9.84%, exceeding the 5% guardrail. Performance acceptance
+failed and the 0.4.8 release remains held.
 
 Historical guides and measurements are indexed in [HISTORY.md](docs/HISTORY.md)
 and [TECHNICAL.md](TECHNICAL.md). New candidate tests and performance reports have

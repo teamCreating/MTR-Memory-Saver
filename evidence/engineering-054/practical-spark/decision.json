@@ -1,0 +1,216 @@
+{
+  "recorded_at": "2026-11-19T11:37:23.163075+00:00",
+  "version": "0.4.8",
+  "target": "official-nf248",
+  "measurement_completed": true,
+  "qualified_trials": 12,
+  "performance_accepted": false,
+  "release_status": "held",
+  "release_accepted": false,
+  "reason": "Plain private-memory reduction misses the 10 percent target and loading exceeds the 5 percent guardrail.",
+  "budget_comparison_rule": "Each pair must meet its bound. Equivalence uses absolute percent change. Probe-off bound is applied to steady private memory.",
+  "checks": [
+    {
+      "comparison": "ab_plain",
+      "metric": "steady_private_bytes",
+      "unit": "percent",
+      "values": [
+        -0.2964060763245624,
+        -0.26763659244835036
+      ],
+      "limit": -10,
+      "absolute_magnitude": false,
+      "passed": false
+    },
+    {
+      "comparison": "ab_plain",
+      "metric": "loading_ms",
+      "unit": "percent",
+      "values": [
+        9.400844446591172,
+        10.279098563372413
+      ],
+      "limit": 5,
+      "absolute_magnitude": false,
+      "passed": false
+    },
+    {
+      "comparison": "ab_plain",
+      "metric": "steady_heap_bytes",
+      "unit": "percent",
+      "values": [
+        4.662354123187762,
+        1.549877146583234
+      ],
+      "limit": 5,
+      "absolute_magnitude": false,
+      "passed": true
+    },
+    {
+      "comparison": "ab_profile_spark",
+      "metric": "frame_p99_ms",
+      "unit": "percent",
+      "values": [
+        -5.54772750783894,
+        1.1543406262050526
+      ],
+      "limit": 5,
+      "absolute_magnitude": false,
+      "passed": true
+    },
+    {
+      "comparison": "ab_profile_spark",
+      "metric": "gc_pause_total_ms",
+      "unit": "absolute",
+      "values": [
+        -2.082943,
+        -7.738894000000002
+      ],
+      "limit": 50,
+      "absolute_magnitude": false,
+      "passed": true
+    },
+    {
+      "comparison": "ab_profile_spark",
+      "metric": "full_gc_count",
+      "unit": "absolute",
+      "values": [
+        0,
+        0
+      ],
+      "limit": 0,
+      "absolute_magnitude": false,
+      "passed": true
+    },
+    {
+      "comparison": "ab_profile_spark",
+      "metric": "full_gc_pause_max_ms",
+      "unit": "absolute",
+      "values": [
+        0,
+        0
+      ],
+      "limit": 0,
+      "absolute_magnitude": false,
+      "passed": true
+    },
+    {
+      "comparison": "aa_plain_noise",
+      "metric": "steady_private_bytes",
+      "unit": "percent",
+      "values": [
+        -0.41522838411133245
+      ],
+      "limit": 5,
+      "absolute_magnitude": true,
+      "passed": true
+    },
+    {
+      "comparison": "jfr_and_spark_overhead_baseline",
+      "metric": "steady_private_bytes",
+      "unit": "percent",
+      "values": [
+        1.2925997731107808
+      ],
+      "limit": 10,
+      "absolute_magnitude": true,
+      "passed": true
+    },
+    {
+      "comparison": "jfr_and_spark_overhead_candidate",
+      "metric": "steady_private_bytes",
+      "unit": "percent",
+      "values": [
+        1.5248112649557388
+      ],
+      "limit": 10,
+      "absolute_magnitude": true,
+      "passed": true
+    },
+    {
+      "comparison": "aa_plain_noise",
+      "metric": "loading_ms",
+      "unit": "percent",
+      "values": [
+        5.792847530607581
+      ],
+      "limit": 15,
+      "absolute_magnitude": true,
+      "passed": true
+    },
+    {
+      "comparison": "jfr_and_spark_overhead_baseline",
+      "metric": "loading_ms",
+      "unit": "percent",
+      "values": [
+        -7.108713362140017
+      ],
+      "limit": 15,
+      "absolute_magnitude": true,
+      "passed": true
+    },
+    {
+      "comparison": "jfr_and_spark_overhead_candidate",
+      "metric": "loading_ms",
+      "unit": "percent",
+      "values": [
+        -4.484093391652221
+      ],
+      "limit": 15,
+      "absolute_magnitude": true,
+      "passed": true
+    },
+    {
+      "comparison": "aa_plain_noise",
+      "metric": "steady_heap_bytes",
+      "unit": "percent",
+      "values": [
+        4.812127409704403
+      ],
+      "limit": 5,
+      "absolute_magnitude": true,
+      "passed": true
+    },
+    {
+      "comparison": "jfr_and_spark_overhead_baseline",
+      "metric": "steady_heap_bytes",
+      "unit": "percent",
+      "values": [
+        1.7651693714885175
+      ],
+      "limit": 10,
+      "absolute_magnitude": true,
+      "passed": true
+    },
+    {
+      "comparison": "jfr_and_spark_overhead_candidate",
+      "metric": "steady_heap_bytes",
+      "unit": "percent",
+      "values": [
+        -1.8813148905196808
+      ],
+      "limit": 10,
+      "absolute_magnitude": true,
+      "passed": true
+    },
+    {
+      "comparison": "observer_and_idle_spark_overhead",
+      "metric": "steady_private_bytes",
+      "unit": "percent",
+      "values": [
+        -0.3104038635986184
+      ],
+      "limit": 10,
+      "absolute_magnitude": true,
+      "passed": true
+    }
+  ],
+  "limits": [
+    "Two AB/BA pairs per mode and one AA pair provide practical observations.",
+    "Replacement pairs ran later than original pairs. The 48-trial statistical protocol remains incomplete.",
+    "JFR frame spans measure the native render loop. Independent displayed-frame qualification remains unavailable.",
+    "Spark Java engine execution weights include waits and have safepoint bias.",
+    "All selected JVMs were terminated by the existing collector after measurement and report exit 1. Normal save-and-close is untested here.",
+    "NF265 performance was not measured in this round."
+  ]
+}

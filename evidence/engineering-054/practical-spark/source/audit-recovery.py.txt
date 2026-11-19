@@ -1,0 +1,124 @@
+"""Recheck the selected completed pairs from original and recovery runs."""
+from itertools import combinations
+from pathlib import Path
+import statistics
+import sys
+
+import practical_client_verification as pcv
+
+parent = Path(__file__).resolve().parent
+original = parent / "practical-run01"
+retries = parent / "retry-pairs01"
+policy = pcv.load_policy()
+base_policy = pcv.read(pcv.DEFAULT_EXP_POLICY)
+plan = pcv.read(original / "plan.json")
+execution_start = pcv.read(original / "execution-start.json")
+if plan["policy"] != policy:
+    raise ValueError("Original practical verification policy changed.")
+descriptors, spark_spec, probe_template = pcv.resolve_templates(
+    pcv.DEFAULT_TEMPLATES_ROOT, pcv.DEFAULT_TEMPLATE_PREFIX,
+    pcv.DEFAULT_PROBE_OFF_TEMPLATE, base_policy,
+)
+if (plan["sampler_spec"] != spark_spec or plan["probe_off_template"] != probe_template
+        or any(plan["templates"][key]["prepared_plan"] != item["prepared_plan"]
+               or plan["templates"][key]["qualification_key"] != item["qualification_key"]
+               for key, item in descriptors.items())):
+    raise ValueError("Recovery inputs differ from the originals.")
+
+trials = {}
+windows = {}
+errors = []
+for spec in policy["schedule"]:
+    trial = spec["id"]
+    if trial == "03-ab-profile-baseline":
+        root = parent / "profile-recovery01"
+    elif spec["pair"] in (1, 3, 4):
+        root = retries / trial
+    else:
+        root = original / trial
+    summary_path = root / "trial-summary.json"
+    try:
+        item = pcv.audit_single_trial(
+            root, spec, descriptors, spark_spec, policy, base_policy, execution_start["started_at"]
+        )
+        result = item["result"]
+        if not result["passed"]:
+            raise ValueError("Saved trial failed its qualification.")
+        evidence = item["evidence"]
+        windows[trial] = (
+            pcv.instant(evidence["run_start"]["started_at"]),
+            pcv.instant(evidence["run_finish"]["finished_at"]),
+        )
+        process = evidence["process"]
+        trials[trial] = {
+            "mode": spec["mode"],
+            "role": spec["role"],
+            "process": {"pid": process["pid"], "created": process["created"]},
+            "windows": evidence["windows"],
+            "execution_started_at": windows[trial][0].isoformat(),
+            "execution_finished_at": windows[trial][1].isoformat(),
+            "cleanup": {"exited": evidence["cleanup"]["exited"], "exit_code": evidence["cleanup"].get("exit_code")},
+            "metrics": result["metrics"],
+            "spark": pcv.spark_thread_summary(item["spark"]),
+            "spark_raw_sha256": item["spark"]["profile"]["sha256"] if item["spark"] else None,
+            "trial_summary_sha256": pcv.digest(summary_path),
+            "capture": root.relative_to(parent).as_posix(),
+        }
+    except (OSError, ValueError, KeyError) as error:
+        errors.append(f"{trial}: {type(error).__name__}: {error}")
+        print(errors[-1], flush=True)
+
+keys = [pcv.analysis.process_key(item["process"]) for item in trials.values()]
+if len(set(keys)) != len(keys):
+    errors.append("Selected trials reuse a JVM creation identity.")
+for (left, (ls, le)), (right, (rs, re)) in combinations(windows.items(), 2):
+    if max(ls, rs) < min(le, re):
+        errors.append(f"Execution windows overlap: {left}, {right}")
+for first, second in zip(policy["schedule"][::2], policy["schedule"][1::2]):
+    if first["pair"] != second["pair"]:
+        raise ValueError("Schedule no longer has adjacent two-arm pairs.")
+    if first["id"] in windows and second["id"] in windows and windows[first["id"]][1] > windows[second["id"]][0]:
+        errors.append(f"Execution order reversed within pair {first['pair']}.")
+
+def compare(pairs, metrics):
+    ready = [(trials[a]["metrics"], trials[b]["metrics"]) for a, b in pairs if a in trials and b in trials]
+    return pcv.compare_arms(ready, metrics) if ready else {}
+
+def group_mean(names, metrics):
+    return {metric: statistics.mean(trials[name]["metrics"][metric] for name in names) for metric in metrics}
+
+plain_pairs = [(f"{label}-plain-baseline", f"{label}-plain-candidate") for label in ("01-ab", "02-ba")]
+profile_pairs = [(f"{label}-profile-baseline", f"{label}-profile-candidate") for label in ("03-ab", "04-ba")]
+common = ("steady_private_bytes", "steady_working_set_bytes", "steady_heap_bytes", "loading_ms",
+          "startup_peak_working_set_bytes", "startup_peak_heap_bytes")
+profile_metrics = ("frame_p99_ms", "frame_max_ms", "gc_count", "gc_pause_total_ms", "gc_pause_max_ms",
+                   "full_gc_count", "full_gc_pause_max_ms")
+probe_comparable = ("steady_private_bytes", "steady_working_set_bytes", "startup_peak_working_set_bytes", "loading_ms")
+comparisons = {
+    "ab_plain": compare(plain_pairs, common),
+    "ab_profile_spark": compare(profile_pairs, common + profile_metrics),
+    "aa_plain_noise": compare([("05-aa-plain-a", "05-aa-plain-b")], common),
+}
+all_passed = len(trials) == len(policy["schedule"]) and not errors
+if all_passed:
+    for index, role in enumerate(("baseline", "candidate")):
+        means = [group_mean([p[index] for p in pairs], common) for pairs in (plain_pairs, profile_pairs)]
+        comparisons[f"jfr_and_spark_overhead_{role}"] = pcv.compare_arms([tuple(means)], common)
+    off = group_mean(("06-probe-off-01", "06-probe-off-02"), probe_comparable)
+    on = group_mean([p[1] for p in plain_pairs], probe_comparable)
+    comparisons["observer_and_idle_spark_overhead"] = pcv.compare_arms([(off, on)], probe_comparable)
+
+pcv.save(parent / sys.argv[1], {
+    "scope": "0.4.8 practical paired Spark verification recovery",
+    "audited_at": pcv.now(),
+    "original_plan_sha256": pcv.digest(original / "plan.json"),
+    "policy_sha256": pcv.digest(pcv.DEFAULT_POLICY),
+    "all_12_trials_qualified": all_passed,
+    "qualified_trials": len(trials),
+    "full_48_trial_protocol_satisfied": False,
+    "execution_scope": "Preserves AB/BA order inside each pair. Replacement pairs were executed later than original pairs.",
+    "errors": errors,
+    "budgets": policy["budgets"],
+    "comparisons": comparisons,
+    "trials": trials,
+}, exclusive=True)

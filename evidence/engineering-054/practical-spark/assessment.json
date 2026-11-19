@@ -1,0 +1,2587 @@
+{
+  "scope": "0.4.8 practical paired Spark verification recovery",
+  "audited_at": "2026-11-19T11:32:51.093192+00:00",
+  "original_plan_sha256": "aa0e82e97101755e7a3e3f4556c6e1e0c37cb1c448e23a214567dd3a453e7cb0",
+  "policy_sha256": "da6910bfc782385179ccb5d947bd9b5851261a69c597b0d391b6028e7af03812",
+  "all_12_trials_qualified": true,
+  "qualified_trials": 12,
+  "full_48_trial_protocol_satisfied": false,
+  "execution_scope": "Preserves AB/BA order inside each pair. Replacement pairs were executed later than original pairs.",
+  "errors": [],
+  "budgets": {
+    "primary_steady_private_percent": -10,
+    "guardrails": {
+      "loading_percent": 5,
+      "steady_heap_percent": 5,
+      "frame_p99_percent": 5,
+      "gc_pause_total_ms": 50,
+      "full_gc_count": 0,
+      "full_gc_pause_max_ms": 0
+    },
+    "aa_equivalence": {
+      "steady_private_percent": 5,
+      "loading_percent": 15,
+      "steady_heap_percent": 5
+    },
+    "instrumentation_equivalence": {
+      "steady_private_percent": 10,
+      "loading_percent": 15,
+      "steady_heap_percent": 10
+    },
+    "observer_off_overhead_percent": 10
+  },
+  "comparisons": {
+    "ab_plain": {
+      "steady_private_bytes": {
+        "available": true,
+        "pairs": 2,
+        "baseline_values": [
+          4797915136.0,
+          4817039360.0
+        ],
+        "candidate_values": [
+          4783693824.0,
+          4804147200.0
+        ],
+        "absolute_deltas": [
+          -14221312.0,
+          -12892160.0
+        ],
+        "percent_deltas": [
+          -0.2964060763245624,
+          -0.26763659244835036
+        ],
+        "median_absolute_delta": -13556736.0,
+        "median_percent_delta": -0.2820213343864564,
+        "min_percent_delta": -0.2964060763245624,
+        "max_percent_delta": -0.26763659244835036
+      },
+      "steady_working_set_bytes": {
+        "available": true,
+        "pairs": 2,
+        "baseline_values": [
+          4589056000.0,
+          4625543168.0
+        ],
+        "candidate_values": [
+          4560054272.0,
+          4629923840.0
+        ],
+        "absolute_deltas": [
+          -29001728.0,
+          4380672.0
+        ],
+        "percent_deltas": [
+          -0.6319759009260295,
+          0.09470610998305595
+        ],
+        "median_absolute_delta": -12310528.0,
+        "median_percent_delta": -0.2686348954714868,
+        "min_percent_delta": -0.6319759009260295,
+        "max_percent_delta": 0.09470610998305595
+      },
+      "steady_heap_bytes": {
+        "available": true,
+        "pairs": 2,
+        "baseline_values": [
+          2358329228.0,
+          2439463288.0
+        ],
+        "candidate_values": [
+          2468282888.0,
+          2477271972.0
+        ],
+        "absolute_deltas": [
+          109953660.0,
+          37808684.0
+        ],
+        "percent_deltas": [
+          4.662354123187762,
+          1.549877146583234
+        ],
+        "median_absolute_delta": 73881172.0,
+        "median_percent_delta": 3.106115634885498,
+        "min_percent_delta": 1.549877146583234,
+        "max_percent_delta": 4.662354123187762
+      },
+      "loading_ms": {
+        "available": true,
+        "pairs": 2,
+        "baseline_values": [
+          128091.227,
+          154236.91
+        ],
+        "candidate_values": [
+          140132.884,
+          170091.074
+        ],
+        "absolute_deltas": [
+          12041.656999999992,
+          15854.16399999999
+        ],
+        "percent_deltas": [
+          9.400844446591172,
+          10.279098563372413
+        ],
+        "median_absolute_delta": 13947.91049999999,
+        "median_percent_delta": 9.839971504981794,
+        "min_percent_delta": 9.400844446591172,
+        "max_percent_delta": 10.279098563372413
+      },
+      "startup_peak_working_set_bytes": {
+        "available": true,
+        "pairs": 2,
+        "baseline_values": [
+          4338909184,
+          4345634816
+        ],
+        "candidate_values": [
+          4319965184,
+          4313047040
+        ],
+        "absolute_deltas": [
+          -18944000,
+          -32587776
+        ],
+        "percent_deltas": [
+          -0.4366074328049363,
+          -0.7498967902230702
+        ],
+        "median_absolute_delta": -25765888.0,
+        "median_percent_delta": -0.5932521115140033,
+        "min_percent_delta": -0.7498967902230702,
+        "max_percent_delta": -0.4366074328049363
+      },
+      "startup_peak_heap_bytes": {
+        "available": true,
+        "pairs": 2,
+        "baseline_values": [
+          2438494704,
+          2988687832
+        ],
+        "candidate_values": [
+          2233508144,
+          2977335152
+        ],
+        "absolute_deltas": [
+          -204986560,
+          -11352680
+        ],
+        "percent_deltas": [
+          -8.406274562079187,
+          -0.37985499450449156
+        ],
+        "median_absolute_delta": -108169620.0,
+        "median_percent_delta": -4.393064778291839,
+        "min_percent_delta": -8.406274562079187,
+        "max_percent_delta": -0.37985499450449156
+      }
+    },
+    "ab_profile_spark": {
+      "steady_private_bytes": {
+        "available": true,
+        "pairs": 2,
+        "baseline_values": [
+          4860332032.0,
+          4878905344
+        ],
+        "candidate_values": [
+          4857176064,
+          4876861440
+        ],
+        "absolute_deltas": [
+          -3155968.0,
+          -2043904
+        ],
+        "percent_deltas": [
+          -0.06493317697682244,
+          -0.041892675833798965
+        ],
+        "median_absolute_delta": -2599936.0,
+        "median_percent_delta": -0.0534129264053107,
+        "min_percent_delta": -0.06493317697682244,
+        "max_percent_delta": -0.041892675833798965
+      },
+      "steady_working_set_bytes": {
+        "available": true,
+        "pairs": 2,
+        "baseline_values": [
+          4648849408.0,
+          4657881088
+        ],
+        "candidate_values": [
+          4649807872,
+          4655845376
+        ],
+        "absolute_deltas": [
+          958464.0,
+          -2035712
+        ],
+        "percent_deltas": [
+          0.020617230542052667,
+          -0.043704679478495656
+        ],
+        "median_absolute_delta": -538624.0,
+        "median_percent_delta": -0.011543724468221495,
+        "min_percent_delta": -0.043704679478495656,
+        "max_percent_delta": 0.020617230542052667
+      },
+      "steady_heap_bytes": {
+        "available": true,
+        "pairs": 2,
+        "baseline_values": [
+          2447518608.0,
+          2434963072
+        ],
+        "candidate_values": [
+          2434109744,
+          2418403656
+        ],
+        "absolute_deltas": [
+          -13408864.0,
+          -16559416
+        ],
+        "percent_deltas": [
+          -0.5478554465805363,
+          -0.6800684655311251
+        ],
+        "median_absolute_delta": -14984140.0,
+        "median_percent_delta": -0.6139619560558307,
+        "min_percent_delta": -0.6800684655311251,
+        "max_percent_delta": -0.5478554465805363
+      },
+      "loading_ms": {
+        "available": true,
+        "pairs": 2,
+        "baseline_values": [
+          136155.329,
+          126102.90999999999
+        ],
+        "candidate_values": [
+          152163.253,
+          144149.973
+        ],
+        "absolute_deltas": [
+          16007.923999999999,
+          18047.06300000001
+        ],
+        "percent_deltas": [
+          11.757104270226538,
+          14.311377112550394
+        ],
+        "median_absolute_delta": 17027.493500000004,
+        "median_percent_delta": 13.034240691388465,
+        "min_percent_delta": 11.757104270226538,
+        "max_percent_delta": 14.311377112550394
+      },
+      "startup_peak_working_set_bytes": {
+        "available": true,
+        "pairs": 2,
+        "baseline_values": [
+          4357304320,
+          4386488320
+        ],
+        "candidate_values": [
+          4331638784,
+          4381347840
+        ],
+        "absolute_deltas": [
+          -25665536,
+          -5140480
+        ],
+        "percent_deltas": [
+          -0.5890232610606394,
+          -0.11718895902588233
+        ],
+        "median_absolute_delta": -15403008.0,
+        "median_percent_delta": -0.35310611004326087,
+        "min_percent_delta": -0.5890232610606394,
+        "max_percent_delta": -0.11718895902588233
+      },
+      "startup_peak_heap_bytes": {
+        "available": true,
+        "pairs": 2,
+        "baseline_values": [
+          2798738376,
+          2770917728
+        ],
+        "candidate_values": [
+          2876967936,
+          2831896064
+        ],
+        "absolute_deltas": [
+          78229560,
+          60978336
+        ],
+        "percent_deltas": [
+          2.7951723058804445,
+          2.2006548727093733
+        ],
+        "median_absolute_delta": 69603948.0,
+        "median_percent_delta": 2.497913589294909,
+        "min_percent_delta": 2.2006548727093733,
+        "max_percent_delta": 2.7951723058804445
+      },
+      "frame_p99_ms": {
+        "available": true,
+        "pairs": 2,
+        "baseline_values": [
+          28.0331,
+          26.681899
+        ],
+        "candidate_values": [
+          26.4779,
+          26.989899
+        ],
+        "absolute_deltas": [
+          -1.5551999999999992,
+          0.30799999999999983
+        ],
+        "percent_deltas": [
+          -5.54772750783894,
+          1.1543406262050526
+        ],
+        "median_absolute_delta": -0.6235999999999997,
+        "median_percent_delta": -2.1966934408169436,
+        "min_percent_delta": -5.54772750783894,
+        "max_percent_delta": 1.1543406262050526
+      },
+      "frame_max_ms": {
+        "available": true,
+        "pairs": 2,
+        "baseline_values": [
+          144.0027,
+          45.8985
+        ],
+        "candidate_values": [
+          44.18,
+          45.9062
+        ],
+        "absolute_deltas": [
+          -99.8227,
+          0.007699999999999818
+        ],
+        "percent_deltas": [
+          -69.32001969407517,
+          0.016776147368657846
+        ],
+        "median_absolute_delta": -49.9075,
+        "median_percent_delta": -34.651621773353256,
+        "min_percent_delta": -69.32001969407517,
+        "max_percent_delta": 0.016776147368657846
+      },
+      "gc_count": {
+        "available": true,
+        "pairs": 2,
+        "baseline_values": [
+          12,
+          13
+        ],
+        "candidate_values": [
+          12,
+          12
+        ],
+        "absolute_deltas": [
+          0,
+          -1
+        ],
+        "percent_deltas": [
+          0.0,
+          -7.692307692307687
+        ],
+        "median_absolute_delta": -0.5,
+        "median_percent_delta": -3.8461538461538436,
+        "min_percent_delta": -7.692307692307687,
+        "max_percent_delta": 0.0
+      },
+      "gc_pause_total_ms": {
+        "available": true,
+        "pairs": 2,
+        "baseline_values": [
+          90.404494,
+          94.494372
+        ],
+        "candidate_values": [
+          88.321551,
+          86.755478
+        ],
+        "absolute_deltas": [
+          -2.082943,
+          -7.738894000000002
+        ],
+        "percent_deltas": [
+          -2.3040259480905934,
+          -8.189793567811643
+        ],
+        "median_absolute_delta": -4.910918500000001,
+        "median_percent_delta": -5.246909757951118,
+        "min_percent_delta": -8.189793567811643,
+        "max_percent_delta": -2.3040259480905934
+      },
+      "gc_pause_max_ms": {
+        "available": true,
+        "pairs": 2,
+        "baseline_values": [
+          11.900805,
+          11.223931
+        ],
+        "candidate_values": [
+          11.644499000000001,
+          11.385912
+        ],
+        "absolute_deltas": [
+          -0.2563059999999986,
+          0.16198099999999904
+        ],
+        "percent_deltas": [
+          -2.153686242233177,
+          1.4431753010598403
+        ],
+        "median_absolute_delta": -0.047162499999999774,
+        "median_percent_delta": -0.3552554705866684,
+        "min_percent_delta": -2.153686242233177,
+        "max_percent_delta": 1.4431753010598403
+      },
+      "full_gc_count": {
+        "available": true,
+        "pairs": 2,
+        "baseline_values": [
+          0,
+          0
+        ],
+        "candidate_values": [
+          0,
+          0
+        ],
+        "absolute_deltas": [
+          0,
+          0
+        ],
+        "percent_deltas": null,
+        "median_absolute_delta": 0.0,
+        "median_percent_delta": null,
+        "min_percent_delta": null,
+        "max_percent_delta": null
+      },
+      "full_gc_pause_max_ms": {
+        "available": true,
+        "pairs": 2,
+        "baseline_values": [
+          0,
+          0
+        ],
+        "candidate_values": [
+          0,
+          0
+        ],
+        "absolute_deltas": [
+          0,
+          0
+        ],
+        "percent_deltas": null,
+        "median_absolute_delta": 0.0,
+        "median_percent_delta": null,
+        "min_percent_delta": null,
+        "max_percent_delta": null
+      }
+    },
+    "aa_plain_noise": {
+      "steady_private_bytes": {
+        "available": true,
+        "pairs": 1,
+        "baseline_values": [
+          4818784256
+        ],
+        "candidate_values": [
+          4798775296
+        ],
+        "absolute_deltas": [
+          -20008960
+        ],
+        "percent_deltas": [
+          -0.41522838411133245
+        ],
+        "median_absolute_delta": -20008960,
+        "median_percent_delta": -0.41522838411133245,
+        "min_percent_delta": -0.41522838411133245,
+        "max_percent_delta": -0.41522838411133245
+      },
+      "steady_working_set_bytes": {
+        "available": true,
+        "pairs": 1,
+        "baseline_values": [
+          4653694976
+        ],
+        "candidate_values": [
+          4627349504
+        ],
+        "absolute_deltas": [
+          -26345472
+        ],
+        "percent_deltas": [
+          -0.566119441344326
+        ],
+        "median_absolute_delta": -26345472,
+        "median_percent_delta": -0.566119441344326,
+        "min_percent_delta": -0.566119441344326,
+        "max_percent_delta": -0.566119441344326
+      },
+      "steady_heap_bytes": {
+        "available": true,
+        "pairs": 1,
+        "baseline_values": [
+          2358393416
+        ],
+        "candidate_values": [
+          2471882312
+        ],
+        "absolute_deltas": [
+          113488896
+        ],
+        "percent_deltas": [
+          4.812127409704403
+        ],
+        "median_absolute_delta": 113488896,
+        "median_percent_delta": 4.812127409704403,
+        "min_percent_delta": 4.812127409704403,
+        "max_percent_delta": 4.812127409704403
+      },
+      "loading_ms": {
+        "available": true,
+        "pairs": 1,
+        "baseline_values": [
+          142094.729
+        ],
+        "candidate_values": [
+          150326.06000000003
+        ],
+        "absolute_deltas": [
+          8231.331000000035
+        ],
+        "percent_deltas": [
+          5.792847530607581
+        ],
+        "median_absolute_delta": 8231.331000000035,
+        "median_percent_delta": 5.792847530607581,
+        "min_percent_delta": 5.792847530607581,
+        "max_percent_delta": 5.792847530607581
+      },
+      "startup_peak_working_set_bytes": {
+        "available": true,
+        "pairs": 1,
+        "baseline_values": [
+          4342648832
+        ],
+        "candidate_values": [
+          4304904192
+        ],
+        "absolute_deltas": [
+          -37744640
+        ],
+        "percent_deltas": [
+          -0.8691616904841215
+        ],
+        "median_absolute_delta": -37744640,
+        "median_percent_delta": -0.8691616904841215,
+        "min_percent_delta": -0.8691616904841215,
+        "max_percent_delta": -0.8691616904841215
+      },
+      "startup_peak_heap_bytes": {
+        "available": true,
+        "pairs": 1,
+        "baseline_values": [
+          2434434560
+        ],
+        "candidate_values": [
+          2959295080
+        ],
+        "absolute_deltas": [
+          524860520
+        ],
+        "percent_deltas": [
+          21.559853307373356
+        ],
+        "median_absolute_delta": 524860520,
+        "median_percent_delta": 21.559853307373356,
+        "min_percent_delta": 21.559853307373356,
+        "max_percent_delta": 21.559853307373356
+      }
+    },
+    "jfr_and_spark_overhead_baseline": {
+      "steady_private_bytes": {
+        "available": true,
+        "pairs": 1,
+        "baseline_values": [
+          4807477248.0
+        ],
+        "candidate_values": [
+          4869618688.0
+        ],
+        "absolute_deltas": [
+          62141440.0
+        ],
+        "percent_deltas": [
+          1.2925997731107808
+        ],
+        "median_absolute_delta": 62141440.0,
+        "median_percent_delta": 1.2925997731107808,
+        "min_percent_delta": 1.2925997731107808,
+        "max_percent_delta": 1.2925997731107808
+      },
+      "steady_working_set_bytes": {
+        "available": true,
+        "pairs": 1,
+        "baseline_values": [
+          4607299584.0
+        ],
+        "candidate_values": [
+          4653365248.0
+        ],
+        "absolute_deltas": [
+          46065664.0
+        ],
+        "percent_deltas": [
+          0.9998408647003298
+        ],
+        "median_absolute_delta": 46065664.0,
+        "median_percent_delta": 0.9998408647003298,
+        "min_percent_delta": 0.9998408647003298,
+        "max_percent_delta": 0.9998408647003298
+      },
+      "steady_heap_bytes": {
+        "available": true,
+        "pairs": 1,
+        "baseline_values": [
+          2398896258.0
+        ],
+        "candidate_values": [
+          2441240840.0
+        ],
+        "absolute_deltas": [
+          42344582.0
+        ],
+        "percent_deltas": [
+          1.7651693714885175
+        ],
+        "median_absolute_delta": 42344582.0,
+        "median_percent_delta": 1.7651693714885175,
+        "min_percent_delta": 1.7651693714885175,
+        "max_percent_delta": 1.7651693714885175
+      },
+      "loading_ms": {
+        "available": true,
+        "pairs": 1,
+        "baseline_values": [
+          141164.0685
+        ],
+        "candidate_values": [
+          131129.1195
+        ],
+        "absolute_deltas": [
+          -10034.948999999993
+        ],
+        "percent_deltas": [
+          -7.108713362140017
+        ],
+        "median_absolute_delta": -10034.948999999993,
+        "median_percent_delta": -7.108713362140017,
+        "min_percent_delta": -7.108713362140017,
+        "max_percent_delta": -7.108713362140017
+      },
+      "startup_peak_working_set_bytes": {
+        "available": true,
+        "pairs": 1,
+        "baseline_values": [
+          4342272000
+        ],
+        "candidate_values": [
+          4371896320
+        ],
+        "absolute_deltas": [
+          29624320
+        ],
+        "percent_deltas": [
+          0.682230869001299
+        ],
+        "median_absolute_delta": 29624320,
+        "median_percent_delta": 0.682230869001299,
+        "min_percent_delta": 0.682230869001299,
+        "max_percent_delta": 0.682230869001299
+      },
+      "startup_peak_heap_bytes": {
+        "available": true,
+        "pairs": 1,
+        "baseline_values": [
+          2713591268
+        ],
+        "candidate_values": [
+          2784828052
+        ],
+        "absolute_deltas": [
+          71236784
+        ],
+        "percent_deltas": [
+          2.625184744661402
+        ],
+        "median_absolute_delta": 71236784,
+        "median_percent_delta": 2.625184744661402,
+        "min_percent_delta": 2.625184744661402,
+        "max_percent_delta": 2.625184744661402
+      }
+    },
+    "jfr_and_spark_overhead_candidate": {
+      "steady_private_bytes": {
+        "available": true,
+        "pairs": 1,
+        "baseline_values": [
+          4793920512.0
+        ],
+        "candidate_values": [
+          4867018752
+        ],
+        "absolute_deltas": [
+          73098240.0
+        ],
+        "percent_deltas": [
+          1.5248112649557388
+        ],
+        "median_absolute_delta": 73098240.0,
+        "median_percent_delta": 1.5248112649557388,
+        "min_percent_delta": 1.5248112649557388,
+        "max_percent_delta": 1.5248112649557388
+      },
+      "steady_working_set_bytes": {
+        "available": true,
+        "pairs": 1,
+        "baseline_values": [
+          4594989056.0
+        ],
+        "candidate_values": [
+          4652826624
+        ],
+        "absolute_deltas": [
+          57837568.0
+        ],
+        "percent_deltas": [
+          1.2587095920169267
+        ],
+        "median_absolute_delta": 57837568.0,
+        "median_percent_delta": 1.2587095920169267,
+        "min_percent_delta": 1.2587095920169267,
+        "max_percent_delta": 1.2587095920169267
+      },
+      "steady_heap_bytes": {
+        "available": true,
+        "pairs": 1,
+        "baseline_values": [
+          2472777430.0
+        ],
+        "candidate_values": [
+          2426256700
+        ],
+        "absolute_deltas": [
+          -46520730.0
+        ],
+        "percent_deltas": [
+          -1.8813148905196808
+        ],
+        "median_absolute_delta": -46520730.0,
+        "median_percent_delta": -1.8813148905196808,
+        "min_percent_delta": -1.8813148905196808,
+        "max_percent_delta": -1.8813148905196808
+      },
+      "loading_ms": {
+        "available": true,
+        "pairs": 1,
+        "baseline_values": [
+          155111.979
+        ],
+        "candidate_values": [
+          148156.613
+        ],
+        "absolute_deltas": [
+          -6955.36599999998
+        ],
+        "percent_deltas": [
+          -4.484093391652221
+        ],
+        "median_absolute_delta": -6955.36599999998,
+        "median_percent_delta": -4.484093391652221,
+        "min_percent_delta": -4.484093391652221,
+        "max_percent_delta": -4.484093391652221
+      },
+      "startup_peak_working_set_bytes": {
+        "available": true,
+        "pairs": 1,
+        "baseline_values": [
+          4316506112
+        ],
+        "candidate_values": [
+          4356493312
+        ],
+        "absolute_deltas": [
+          39987200
+        ],
+        "percent_deltas": [
+          0.9263788574012333
+        ],
+        "median_absolute_delta": 39987200,
+        "median_percent_delta": 0.9263788574012333,
+        "min_percent_delta": 0.9263788574012333,
+        "max_percent_delta": 0.9263788574012333
+      },
+      "startup_peak_heap_bytes": {
+        "available": true,
+        "pairs": 1,
+        "baseline_values": [
+          2605421648
+        ],
+        "candidate_values": [
+          2854432000
+        ],
+        "absolute_deltas": [
+          249010352
+        ],
+        "percent_deltas": [
+          9.557391687105543
+        ],
+        "median_absolute_delta": 249010352,
+        "median_percent_delta": 9.557391687105543,
+        "min_percent_delta": 9.557391687105543,
+        "max_percent_delta": 9.557391687105543
+      }
+    },
+    "observer_and_idle_spark_overhead": {
+      "steady_private_bytes": {
+        "available": true,
+        "pairs": 1,
+        "baseline_values": [
+          4808847360
+        ],
+        "candidate_values": [
+          4793920512.0
+        ],
+        "absolute_deltas": [
+          -14926848.0
+        ],
+        "percent_deltas": [
+          -0.3104038635986184
+        ],
+        "median_absolute_delta": -14926848.0,
+        "median_percent_delta": -0.3104038635986184,
+        "min_percent_delta": -0.3104038635986184,
+        "max_percent_delta": -0.3104038635986184
+      },
+      "steady_working_set_bytes": {
+        "available": true,
+        "pairs": 1,
+        "baseline_values": [
+          4614594560
+        ],
+        "candidate_values": [
+          4594989056.0
+        ],
+        "absolute_deltas": [
+          -19605504.0
+        ],
+        "percent_deltas": [
+          -0.42485864673666995
+        ],
+        "median_absolute_delta": -19605504.0,
+        "median_percent_delta": -0.42485864673666995,
+        "min_percent_delta": -0.42485864673666995,
+        "max_percent_delta": -0.42485864673666995
+      },
+      "startup_peak_working_set_bytes": {
+        "available": true,
+        "pairs": 1,
+        "baseline_values": [
+          4154384384
+        ],
+        "candidate_values": [
+          4316506112
+        ],
+        "absolute_deltas": [
+          162121728
+        ],
+        "percent_deltas": [
+          3.9024248363822123
+        ],
+        "median_absolute_delta": 162121728,
+        "median_percent_delta": 3.9024248363822123,
+        "min_percent_delta": 3.9024248363822123,
+        "max_percent_delta": 3.9024248363822123
+      },
+      "loading_ms": {
+        "available": true,
+        "pairs": 1,
+        "baseline_values": [
+          199173.60249999998
+        ],
+        "candidate_values": [
+          155111.979
+        ],
+        "absolute_deltas": [
+          -44061.62349999999
+        ],
+        "percent_deltas": [
+          -22.122220488530854
+        ],
+        "median_absolute_delta": -44061.62349999999,
+        "median_percent_delta": -22.122220488530854,
+        "min_percent_delta": -22.122220488530854,
+        "max_percent_delta": -22.122220488530854
+      }
+    }
+  },
+  "trials": {
+    "01-ab-plain-baseline": {
+      "mode": "plain",
+      "role": "baseline",
+      "process": {
+        "pid": 74208,
+        "created": "2026-11-18T15:21:48.681467+00:00"
+      },
+      "windows": {
+        "startup": {
+          "start": "2026-11-18T15:21:48.681467+00:00",
+          "end": "2026-11-18T15:23:56.772694+00:00"
+        },
+        "scene_load": {
+          "start": "2026-11-18T15:23:56.772694+00:00",
+          "end": "2026-11-18T15:27:48.772192+00:00"
+        },
+        "warmup": {
+          "start": "2026-11-18T15:27:48.772192+00:00",
+          "end": "2026-11-18T15:28:48.772192+00:00"
+        },
+        "steady": {
+          "start": "2026-11-18T15:28:48.772192+00:00",
+          "end": "2026-11-18T15:31:48.772192+00:00"
+        }
+      },
+      "execution_started_at": "2026-11-18T15:20:47.231169+00:00",
+      "execution_finished_at": "2026-11-18T15:31:49.665621+00:00",
+      "cleanup": {
+        "exited": true,
+        "exit_code": 1
+      },
+      "metrics": {
+        "gc_pause_max_ms": null,
+        "gc_count": null,
+        "steady_private_bytes": 4797915136.0,
+        "frame_max_ms": null,
+        "steady_working_set_bytes": 4589056000.0,
+        "loading_ms": 128091.227,
+        "steady_heap_bytes": 2358329228.0,
+        "gc_pause_total_ms": null,
+        "startup_peak_working_set_bytes": 4338909184,
+        "full_gc_pause_max_ms": null,
+        "frame_p99_ms": null,
+        "startup_peak_heap_bytes": 2438494704,
+        "full_gc_count": null
+      },
+      "spark": null,
+      "spark_raw_sha256": null,
+      "trial_summary_sha256": "28b280556dcde8874d7418be594c00c02a19e7dae5e0ea73afc4f2378acec271",
+      "capture": "retry-pairs01/01-ab-plain-baseline"
+    },
+    "01-ab-plain-candidate": {
+      "mode": "plain",
+      "role": "candidate",
+      "process": {
+        "pid": 57112,
+        "created": "2026-11-18T15:34:11.548858+00:00"
+      },
+      "windows": {
+        "startup": {
+          "start": "2026-11-18T15:34:11.548858+00:00",
+          "end": "2026-11-18T15:36:31.681742+00:00"
+        },
+        "scene_load": {
+          "start": "2026-11-18T15:36:31.681742+00:00",
+          "end": "2026-11-18T15:40:25.639549+00:00"
+        },
+        "warmup": {
+          "start": "2026-11-18T15:40:25.639549+00:00",
+          "end": "2026-11-18T15:41:25.639549+00:00"
+        },
+        "steady": {
+          "start": "2026-11-18T15:41:25.639549+00:00",
+          "end": "2026-11-18T15:44:25.639549+00:00"
+        }
+      },
+      "execution_started_at": "2026-11-18T15:33:14.880710+00:00",
+      "execution_finished_at": "2026-11-18T15:44:26.449481+00:00",
+      "cleanup": {
+        "exited": true,
+        "exit_code": 1
+      },
+      "metrics": {
+        "gc_pause_max_ms": null,
+        "gc_count": null,
+        "steady_private_bytes": 4783693824.0,
+        "frame_max_ms": null,
+        "steady_working_set_bytes": 4560054272.0,
+        "loading_ms": 140132.884,
+        "steady_heap_bytes": 2468282888.0,
+        "gc_pause_total_ms": null,
+        "startup_peak_working_set_bytes": 4319965184,
+        "full_gc_pause_max_ms": null,
+        "frame_p99_ms": null,
+        "startup_peak_heap_bytes": 2233508144,
+        "full_gc_count": null
+      },
+      "spark": null,
+      "spark_raw_sha256": null,
+      "trial_summary_sha256": "41ba8203c59a774e389b4b131a4f8c8c441632089571b415f3ec89154439319a",
+      "capture": "retry-pairs01/01-ab-plain-candidate"
+    },
+    "02-ba-plain-candidate": {
+      "mode": "plain",
+      "role": "candidate",
+      "process": {
+        "pid": 30432,
+        "created": "2026-11-18T07:07:53.707845+00:00"
+      },
+      "windows": {
+        "startup": {
+          "start": "2026-11-18T07:07:53.707845+00:00",
+          "end": "2026-11-18T07:10:43.798919+00:00"
+        },
+        "scene_load": {
+          "start": "2026-11-18T07:10:43.798919+00:00",
+          "end": "2026-11-18T07:14:35.791870+00:00"
+        },
+        "warmup": {
+          "start": "2026-11-18T07:14:35.791870+00:00",
+          "end": "2026-11-18T07:15:35.791870+00:00"
+        },
+        "steady": {
+          "start": "2026-11-18T07:15:35.791870+00:00",
+          "end": "2026-11-18T07:18:35.791870+00:00"
+        }
+      },
+      "execution_started_at": "2026-11-18T07:06:50.835956+00:00",
+      "execution_finished_at": "2026-11-18T07:18:37.163532+00:00",
+      "cleanup": {
+        "exited": true,
+        "exit_code": 1
+      },
+      "metrics": {
+        "gc_pause_max_ms": null,
+        "gc_count": null,
+        "steady_private_bytes": 4804147200.0,
+        "frame_max_ms": null,
+        "steady_working_set_bytes": 4629923840.0,
+        "loading_ms": 170091.074,
+        "steady_heap_bytes": 2477271972.0,
+        "gc_pause_total_ms": null,
+        "startup_peak_working_set_bytes": 4313047040,
+        "full_gc_pause_max_ms": null,
+        "frame_p99_ms": null,
+        "startup_peak_heap_bytes": 2977335152,
+        "full_gc_count": null
+      },
+      "spark": null,
+      "spark_raw_sha256": null,
+      "trial_summary_sha256": "77abb736eb81e5b324b602bb6066b2d074a37f1978ea0cba907e52663e9f62e8",
+      "capture": "practical-run01/02-ba-plain-candidate"
+    },
+    "02-ba-plain-baseline": {
+      "mode": "plain",
+      "role": "baseline",
+      "process": {
+        "pid": 36436,
+        "created": "2026-11-18T07:19:49.272612+00:00"
+      },
+      "windows": {
+        "startup": {
+          "start": "2026-11-18T07:19:49.272612+00:00",
+          "end": "2026-11-18T07:22:23.509522+00:00"
+        },
+        "scene_load": {
+          "start": "2026-11-18T07:22:23.509522+00:00",
+          "end": "2026-11-18T07:26:15.361433+00:00"
+        },
+        "warmup": {
+          "start": "2026-11-18T07:26:15.361433+00:00",
+          "end": "2026-11-18T07:27:15.361433+00:00"
+        },
+        "steady": {
+          "start": "2026-11-18T07:27:15.361433+00:00",
+          "end": "2026-11-18T07:30:15.361433+00:00"
+        }
+      },
+      "execution_started_at": "2026-11-18T07:18:39.542244+00:00",
+      "execution_finished_at": "2026-11-18T07:30:16.069395+00:00",
+      "cleanup": {
+        "exited": true,
+        "exit_code": 1
+      },
+      "metrics": {
+        "gc_pause_max_ms": null,
+        "gc_count": null,
+        "steady_private_bytes": 4817039360.0,
+        "frame_max_ms": null,
+        "steady_working_set_bytes": 4625543168.0,
+        "loading_ms": 154236.91,
+        "steady_heap_bytes": 2439463288.0,
+        "gc_pause_total_ms": null,
+        "startup_peak_working_set_bytes": 4345634816,
+        "full_gc_pause_max_ms": null,
+        "frame_p99_ms": null,
+        "startup_peak_heap_bytes": 2988687832,
+        "full_gc_count": null
+      },
+      "spark": null,
+      "spark_raw_sha256": null,
+      "trial_summary_sha256": "8efbba2d6307508f2bb740026cd8b5527368c09c54a666c04ba05b877280e54c",
+      "capture": "practical-run01/02-ba-plain-baseline"
+    },
+    "03-ab-profile-baseline": {
+      "mode": "profile",
+      "role": "baseline",
+      "process": {
+        "pid": 20864,
+        "created": "2026-11-18T14:23:39.542010+00:00"
+      },
+      "windows": {
+        "startup": {
+          "start": "2026-11-18T14:23:39.542010+00:00",
+          "end": "2026-11-18T14:25:55.697339+00:00"
+        },
+        "scene_load": {
+          "start": "2026-11-18T14:25:55.697339+00:00",
+          "end": "2026-11-18T14:29:51.639306+00:00"
+        },
+        "warmup": {
+          "start": "2026-11-18T14:29:51.639306+00:00",
+          "end": "2026-11-18T14:30:51.639306+00:00"
+        },
+        "steady": {
+          "start": "2026-11-18T14:30:51.639306+00:00",
+          "end": "2026-11-18T14:33:51.639306+00:00"
+        }
+      },
+      "execution_started_at": "2026-11-18T14:22:32.393906+00:00",
+      "execution_finished_at": "2026-11-18T14:34:54.235741+00:00",
+      "cleanup": {
+        "exited": true,
+        "exit_code": 1
+      },
+      "metrics": {
+        "gc_pause_max_ms": 11.900805,
+        "gc_count": 12,
+        "steady_private_bytes": 4860332032.0,
+        "frame_max_ms": 144.0027,
+        "steady_working_set_bytes": 4648849408.0,
+        "loading_ms": 136155.329,
+        "steady_heap_bytes": 2447518608.0,
+        "gc_pause_total_ms": 90.404494,
+        "startup_peak_working_set_bytes": 4357304320,
+        "full_gc_pause_max_ms": 0,
+        "frame_p99_ms": 28.0331,
+        "startup_peak_heap_bytes": 2798738376,
+        "full_gc_count": 0
+      },
+      "spark": {
+        "Render thread": {
+          "root_sample_weight": 300000.0,
+          "metadata_duration_ms": 300736,
+          "interval_ms": 100.0,
+          "negative_residual_count": 0,
+          "top_self": [
+            {
+              "class": "org.lwjgl.system.JNI",
+              "method": "invokeV",
+              "self_percent": 41.83
+            },
+            {
+              "class": "org.lwjgl.opengl.GL11C",
+              "method": "nglTexSubImage2D",
+              "self_percent": 12.27
+            },
+            {
+              "class": "org.lwjgl.opengl.GL11C",
+              "method": "nglTexSubImage2D",
+              "self_percent": 6.0
+            },
+            {
+              "class": "org.lwjgl.opengl.GL11C",
+              "method": "nglDrawElements",
+              "self_percent": 3.03
+            },
+            {
+              "class": "net.minecraft.world.level.LevelReader",
+              "method": "getNoiseBiome",
+              "self_percent": 2.57
+            },
+            {
+              "class": "org.lwjgl.system.JNI",
+              "method": "invokePV",
+              "self_percent": 1.97
+            },
+            {
+              "class": "org.lwjgl.opengl.GL11C",
+              "method": "nglDrawElements",
+              "self_percent": 1.37
+            },
+            {
+              "class": "org.lwjgl.opengl.GL11C",
+              "method": "glClear",
+              "self_percent": 0.83
+            }
+          ],
+          "top_inclusive": [
+            {
+              "class": "net.minecraft.client.Minecraft",
+              "method": "run",
+              "inclusive_percent": 100.0
+            },
+            {
+              "class": "net.minecraft.client.main.Main",
+              "method": "main",
+              "inclusive_percent": 100.0
+            },
+            {
+              "class": "java.lang.invoke.LambdaForm$DMH/0x0000019601002400",
+              "method": "invokeStatic",
+              "inclusive_percent": 100.0
+            },
+            {
+              "class": "java.lang.invoke.LambdaForm$MH/0x00000196013f3400",
+              "method": "invoke",
+              "inclusive_percent": 100.0
+            },
+            {
+              "class": "java.lang.invoke.Invokers$Holder",
+              "method": "invokeExact_MT",
+              "inclusive_percent": 100.0
+            },
+            {
+              "class": "jdk.internal.reflect.DirectMethodHandleAccessor",
+              "method": "invokeImpl",
+              "inclusive_percent": 100.0
+            },
+            {
+              "class": "jdk.internal.reflect.DirectMethodHandleAccessor",
+              "method": "invoke",
+              "inclusive_percent": 100.0
+            },
+            {
+              "class": "java.lang.reflect.Method",
+              "method": "invoke",
+              "inclusive_percent": 100.0
+            }
+          ],
+          "source_self_weights": [
+            {
+              "source": "<unattributed>",
+              "self_sample_weight": 291700.0,
+              "percent": 97.23333333333333
+            },
+            {
+              "source": "mtr",
+              "self_sample_weight": 8100.0,
+              "percent": 2.7
+            },
+            {
+              "source": "neoforge",
+              "self_sample_weight": 200.0,
+              "percent": 0.06666666666666667
+            },
+            {
+              "source": "mtr_native_observer",
+              "self_sample_weight": 0,
+              "percent": 0.0
+            },
+            {
+              "source": "spark",
+              "self_sample_weight": 0,
+              "percent": 0.0
+            }
+          ]
+        },
+        "Server thread": {
+          "root_sample_weight": 300000.0,
+          "metadata_duration_ms": 300736,
+          "interval_ms": 100.0,
+          "negative_residual_count": 0,
+          "top_self": [
+            {
+              "class": "jdk.internal.misc.Unsafe",
+              "method": "park",
+              "self_percent": 95.1
+            },
+            {
+              "class": "java.lang.Thread",
+              "method": "yield0",
+              "self_percent": 3.63
+            },
+            {
+              "class": "net.minecraft.server.level.DistanceManager",
+              "method": "runAllUpdates",
+              "self_percent": 0.5
+            },
+            {
+              "class": "net.minecraft.server.level.ThreadedLevelLightEngine",
+              "method": "tryScheduleUpdate",
+              "self_percent": 0.37
+            },
+            {
+              "class": "org.lwjgl.system.JNI",
+              "method": "invokeD",
+              "self_percent": 0.13
+            },
+            {
+              "class": "net.minecraft.server.MinecraftServer",
+              "method": "pollTaskInternal",
+              "self_percent": 0.13
+            },
+            {
+              "class": "com.google.common.collect.RegularImmutableMap",
+              "method": "get",
+              "self_percent": 0.03
+            },
+            {
+              "class": "java.util.Collections$SetFromMap",
+              "method": "remove",
+              "self_percent": 0.03
+            }
+          ],
+          "top_inclusive": [
+            {
+              "class": "net.minecraft.util.thread.BlockableEventLoop",
+              "method": "managedBlock",
+              "inclusive_percent": 100.0
+            },
+            {
+              "class": "net.minecraft.server.MinecraftServer",
+              "method": "managedBlock",
+              "inclusive_percent": 100.0
+            },
+            {
+              "class": "net.minecraft.server.MinecraftServer",
+              "method": "waitUntilNextTick",
+              "inclusive_percent": 100.0
+            },
+            {
+              "class": "net.minecraft.server.MinecraftServer",
+              "method": "runServer",
+              "inclusive_percent": 100.0
+            },
+            {
+              "class": "net.minecraft.server.MinecraftServer",
+              "method": "lambda$spin$2",
+              "inclusive_percent": 100.0
+            },
+            {
+              "class": "net.minecraft.server.MinecraftServer$$Lambda/0x0000019602365bf8",
+              "method": "run",
+              "inclusive_percent": 100.0
+            },
+            {
+              "class": "java.lang.Thread",
+              "method": "runWith",
+              "inclusive_percent": 100.0
+            },
+            {
+              "class": "java.lang.Thread",
+              "method": "run",
+              "inclusive_percent": 100.0
+            }
+          ],
+          "source_self_weights": [
+            {
+              "source": "<unattributed>",
+              "self_sample_weight": 300000.0,
+              "percent": 100.0
+            }
+          ]
+        }
+      },
+      "spark_raw_sha256": "f6ce676aa45cfa406eac36a9419556acc2240d14f0bdad02ebd25f53f5505a2e",
+      "trial_summary_sha256": "3002f52d40d51939bd7b6edef823f02af9f79507701b28e5211b43385c1037aa",
+      "capture": "profile-recovery01"
+    },
+    "03-ab-profile-candidate": {
+      "mode": "profile",
+      "role": "candidate",
+      "process": {
+        "pid": 64304,
+        "created": "2026-11-18T14:39:53.863850+00:00"
+      },
+      "windows": {
+        "startup": {
+          "start": "2026-11-18T14:39:53.863850+00:00",
+          "end": "2026-11-18T14:42:26.027103+00:00"
+        },
+        "scene_load": {
+          "start": "2026-11-18T14:42:26.027103+00:00",
+          "end": "2026-11-18T14:46:21.960377+00:00"
+        },
+        "warmup": {
+          "start": "2026-11-18T14:46:21.960377+00:00",
+          "end": "2026-11-18T14:47:21.960377+00:00"
+        },
+        "steady": {
+          "start": "2026-11-18T14:47:21.960377+00:00",
+          "end": "2026-11-18T14:50:21.960377+00:00"
+        }
+      },
+      "execution_started_at": "2026-11-18T14:38:50.236402+00:00",
+      "execution_finished_at": "2026-11-18T14:51:24.501605+00:00",
+      "cleanup": {
+        "exited": true,
+        "exit_code": 1
+      },
+      "metrics": {
+        "gc_pause_max_ms": 11.644499000000001,
+        "gc_count": 12,
+        "steady_private_bytes": 4857176064,
+        "frame_max_ms": 44.18,
+        "steady_working_set_bytes": 4649807872,
+        "loading_ms": 152163.253,
+        "steady_heap_bytes": 2434109744,
+        "gc_pause_total_ms": 88.321551,
+        "startup_peak_working_set_bytes": 4331638784,
+        "full_gc_pause_max_ms": 0,
+        "frame_p99_ms": 26.4779,
+        "startup_peak_heap_bytes": 2876967936,
+        "full_gc_count": 0
+      },
+      "spark": {
+        "Render thread": {
+          "root_sample_weight": 300000.0,
+          "metadata_duration_ms": 300656,
+          "interval_ms": 100.0,
+          "negative_residual_count": 0,
+          "top_self": [
+            {
+              "class": "org.lwjgl.system.JNI",
+              "method": "invokeV",
+              "self_percent": 50.23
+            },
+            {
+              "class": "org.lwjgl.opengl.GL11C",
+              "method": "nglDrawElements",
+              "self_percent": 7.0
+            },
+            {
+              "class": "org.lwjgl.system.JNI",
+              "method": "invokePV",
+              "self_percent": 4.27
+            },
+            {
+              "class": "org.lwjgl.opengl.GL20C",
+              "method": "nglUniform4fv",
+              "self_percent": 1.43
+            },
+            {
+              "class": "org.lwjgl.opengl.GL20C",
+              "method": "nglUniformMatrix4fv",
+              "self_percent": 1.2
+            },
+            {
+              "class": "org.joml.Matrix4f",
+              "method": "rotate",
+              "self_percent": 1.13
+            },
+            {
+              "class": "org.lwjgl.opengl.GL15C",
+              "method": "nglBufferData",
+              "self_percent": 1.0
+            },
+            {
+              "class": "org.joml.Matrix4f",
+              "method": "translate",
+              "self_percent": 0.97
+            }
+          ],
+          "top_inclusive": [
+            {
+              "class": "net.minecraft.client.Minecraft",
+              "method": "run",
+              "inclusive_percent": 100.0
+            },
+            {
+              "class": "net.minecraft.client.main.Main",
+              "method": "main",
+              "inclusive_percent": 100.0
+            },
+            {
+              "class": "java.lang.invoke.LambdaForm$DMH/0x0000023c9e002400",
+              "method": "invokeStatic",
+              "inclusive_percent": 100.0
+            },
+            {
+              "class": "java.lang.invoke.LambdaForm$MH/0x0000023c9e3f1400",
+              "method": "invoke",
+              "inclusive_percent": 100.0
+            },
+            {
+              "class": "java.lang.invoke.Invokers$Holder",
+              "method": "invokeExact_MT",
+              "inclusive_percent": 100.0
+            },
+            {
+              "class": "jdk.internal.reflect.DirectMethodHandleAccessor",
+              "method": "invokeImpl",
+              "inclusive_percent": 100.0
+            },
+            {
+              "class": "jdk.internal.reflect.DirectMethodHandleAccessor",
+              "method": "invoke",
+              "inclusive_percent": 100.0
+            },
+            {
+              "class": "java.lang.reflect.Method",
+              "method": "invoke",
+              "inclusive_percent": 100.0
+            }
+          ],
+          "source_self_weights": [
+            {
+              "source": "<unattributed>",
+              "self_sample_weight": 291500.0,
+              "percent": 97.16666666666667
+            },
+            {
+              "source": "mtr",
+              "self_sample_weight": 8100.0,
+              "percent": 2.7
+            },
+            {
+              "source": "neoforge",
+              "self_sample_weight": 400.0,
+              "percent": 0.13333333333333333
+            },
+            {
+              "source": "mtr_native_observer",
+              "self_sample_weight": 0,
+              "percent": 0.0
+            }
+          ]
+        },
+        "Server thread": {
+          "root_sample_weight": 300000.0,
+          "metadata_duration_ms": 300656,
+          "interval_ms": 100.0,
+          "negative_residual_count": 0,
+          "top_self": [
+            {
+              "class": "jdk.internal.misc.Unsafe",
+              "method": "park",
+              "self_percent": 95.43
+            },
+            {
+              "class": "java.lang.Thread",
+              "method": "yield0",
+              "self_percent": 3.13
+            },
+            {
+              "class": "net.minecraft.server.level.DistanceManager$FixedPlayerDistanceChunkTracker",
+              "method": "runAllUpdates",
+              "self_percent": 0.4
+            },
+            {
+              "class": "org.lwjgl.system.JNI",
+              "method": "invokeD",
+              "self_percent": 0.37
+            },
+            {
+              "class": "net.minecraft.server.level.ServerChunkCache$MainThreadExecutor",
+              "method": "pollTask",
+              "self_percent": 0.2
+            },
+            {
+              "class": "net.minecraft.server.MinecraftServer",
+              "method": "pollTaskInternal",
+              "self_percent": 0.17
+            },
+            {
+              "class": "net.minecraft.server.level.DistanceManager",
+              "method": "runAllUpdates",
+              "self_percent": 0.13
+            },
+            {
+              "class": "org.lwjgl.system.JNI",
+              "method": "invokeD",
+              "self_percent": 0.1
+            }
+          ],
+          "top_inclusive": [
+            {
+              "class": "net.minecraft.util.thread.BlockableEventLoop",
+              "method": "managedBlock",
+              "inclusive_percent": 100.0
+            },
+            {
+              "class": "net.minecraft.server.MinecraftServer",
+              "method": "managedBlock",
+              "inclusive_percent": 100.0
+            },
+            {
+              "class": "net.minecraft.server.MinecraftServer",
+              "method": "waitUntilNextTick",
+              "inclusive_percent": 100.0
+            },
+            {
+              "class": "net.minecraft.server.MinecraftServer",
+              "method": "runServer",
+              "inclusive_percent": 100.0
+            },
+            {
+              "class": "net.minecraft.server.MinecraftServer",
+              "method": "lambda$spin$2",
+              "inclusive_percent": 100.0
+            },
+            {
+              "class": "net.minecraft.server.MinecraftServer$$Lambda/0x0000023c9f3ba4e0",
+              "method": "run",
+              "inclusive_percent": 100.0
+            },
+            {
+              "class": "java.lang.Thread",
+              "method": "runWith",
+              "inclusive_percent": 100.0
+            },
+            {
+              "class": "java.lang.Thread",
+              "method": "run",
+              "inclusive_percent": 100.0
+            }
+          ],
+          "source_self_weights": [
+            {
+              "source": "<unattributed>",
+              "self_sample_weight": 300000.0,
+              "percent": 100.0
+            }
+          ]
+        },
+        "MTR-memory-parse": {
+          "root_sample_weight": 1200000.0,
+          "metadata_duration_ms": 300656,
+          "interval_ms": 100.0,
+          "negative_residual_count": 0,
+          "top_self": [
+            {
+              "class": "jdk.internal.misc.Unsafe",
+              "method": "park",
+              "self_percent": 100.0
+            },
+            {
+              "class": "java.util.concurrent.locks.LockSupport",
+              "method": "park",
+              "self_percent": 0.0
+            },
+            {
+              "class": "java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionNode",
+              "method": "block",
+              "self_percent": 0.0
+            },
+            {
+              "class": "java.util.concurrent.ForkJoinPool",
+              "method": "unmanagedBlock",
+              "self_percent": 0.0
+            },
+            {
+              "class": "java.util.concurrent.ForkJoinPool",
+              "method": "managedBlock",
+              "self_percent": 0.0
+            },
+            {
+              "class": "java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject",
+              "method": "await",
+              "self_percent": 0.0
+            },
+            {
+              "class": "java.util.concurrent.ArrayBlockingQueue",
+              "method": "take",
+              "self_percent": 0.0
+            },
+            {
+              "class": "java.util.concurrent.ThreadPoolExecutor",
+              "method": "getTask",
+              "self_percent": 0.0
+            }
+          ],
+          "top_inclusive": [
+            {
+              "class": "jdk.internal.misc.Unsafe",
+              "method": "park",
+              "inclusive_percent": 100.0
+            },
+            {
+              "class": "java.util.concurrent.locks.LockSupport",
+              "method": "park",
+              "inclusive_percent": 100.0
+            },
+            {
+              "class": "java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionNode",
+              "method": "block",
+              "inclusive_percent": 100.0
+            },
+            {
+              "class": "java.util.concurrent.ForkJoinPool",
+              "method": "unmanagedBlock",
+              "inclusive_percent": 100.0
+            },
+            {
+              "class": "java.util.concurrent.ForkJoinPool",
+              "method": "managedBlock",
+              "inclusive_percent": 100.0
+            },
+            {
+              "class": "java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject",
+              "method": "await",
+              "inclusive_percent": 100.0
+            },
+            {
+              "class": "java.util.concurrent.ArrayBlockingQueue",
+              "method": "take",
+              "inclusive_percent": 100.0
+            },
+            {
+              "class": "java.util.concurrent.ThreadPoolExecutor",
+              "method": "getTask",
+              "inclusive_percent": 100.0
+            }
+          ],
+          "source_self_weights": [
+            {
+              "source": "<unattributed>",
+              "self_sample_weight": 1200000.0,
+              "percent": 100.0
+            }
+          ]
+        }
+      },
+      "spark_raw_sha256": "234778106b1f46184be438e69dcd1f0d6bc6938bd2cf0afa062127c1d32fe549",
+      "trial_summary_sha256": "8db1bd20a305cc22234fc69336fbc2d843bdc4d63397312d82868604a699f0fb",
+      "capture": "retry-pairs01/03-ab-profile-candidate"
+    },
+    "04-ba-profile-candidate": {
+      "mode": "profile",
+      "role": "candidate",
+      "process": {
+        "pid": 65132,
+        "created": "2026-11-18T14:54:02.789467+00:00"
+      },
+      "windows": {
+        "startup": {
+          "start": "2026-11-18T14:54:02.789467+00:00",
+          "end": "2026-11-18T14:56:26.939440+00:00"
+        },
+        "scene_load": {
+          "start": "2026-11-18T14:56:26.939440+00:00",
+          "end": "2026-11-18T15:00:22.898222+00:00"
+        },
+        "warmup": {
+          "start": "2026-11-18T15:00:22.898222+00:00",
+          "end": "2026-11-18T15:01:22.898222+00:00"
+        },
+        "steady": {
+          "start": "2026-11-18T15:01:22.898222+00:00",
+          "end": "2026-11-18T15:04:22.898222+00:00"
+        }
+      },
+      "execution_started_at": "2026-11-18T14:53:02.838857+00:00",
+      "execution_finished_at": "2026-11-18T15:05:25.488606+00:00",
+      "cleanup": {
+        "exited": true,
+        "exit_code": 1
+      },
+      "metrics": {
+        "gc_pause_max_ms": 11.385912,
+        "gc_count": 12,
+        "steady_private_bytes": 4876861440,
+        "frame_max_ms": 45.9062,
+        "steady_working_set_bytes": 4655845376,
+        "loading_ms": 144149.973,
+        "steady_heap_bytes": 2418403656,
+        "gc_pause_total_ms": 86.755478,
+        "startup_peak_working_set_bytes": 4381347840,
+        "full_gc_pause_max_ms": 0,
+        "frame_p99_ms": 26.989899,
+        "startup_peak_heap_bytes": 2831896064,
+        "full_gc_count": 0
+      },
+      "spark": {
+        "Render thread": {
+          "root_sample_weight": 300000.0,
+          "metadata_duration_ms": 300684,
+          "interval_ms": 100.0,
+          "negative_residual_count": 0,
+          "top_self": [
+            {
+              "class": "org.lwjgl.system.JNI",
+              "method": "invokeV",
+              "self_percent": 66.07
+            },
+            {
+              "class": "org.lwjgl.opengl.GL11C",
+              "method": "nglDrawElements",
+              "self_percent": 4.13
+            },
+            {
+              "class": "org.lwjgl.system.JNI",
+              "method": "invokePV",
+              "self_percent": 3.83
+            },
+            {
+              "class": "org.lwjgl.opengl.GL11C",
+              "method": "nglDrawElements",
+              "self_percent": 1.0
+            },
+            {
+              "class": "org.lwjgl.opengl.GL20C",
+              "method": "nglGetUniformLocation",
+              "self_percent": 0.83
+            },
+            {
+              "class": "org.lwjgl.opengl.GL11C",
+              "method": "glClear",
+              "self_percent": 0.8
+            },
+            {
+              "class": "org.lwjgl.system.JNI",
+              "method": "invokeV",
+              "self_percent": 0.8
+            },
+            {
+              "class": "org.lwjgl.opengl.GL20C",
+              "method": "nglUniform4fv",
+              "self_percent": 0.67
+            }
+          ],
+          "top_inclusive": [
+            {
+              "class": "net.minecraft.client.Minecraft",
+              "method": "run",
+              "inclusive_percent": 100.0
+            },
+            {
+              "class": "net.minecraft.client.main.Main",
+              "method": "main",
+              "inclusive_percent": 100.0
+            },
+            {
+              "class": "java.lang.invoke.LambdaForm$DMH/0x000001d925002400",
+              "method": "invokeStatic",
+              "inclusive_percent": 100.0
+            },
+            {
+              "class": "java.lang.invoke.LambdaForm$MH/0x000001d9253f1400",
+              "method": "invoke",
+              "inclusive_percent": 100.0
+            },
+            {
+              "class": "java.lang.invoke.Invokers$Holder",
+              "method": "invokeExact_MT",
+              "inclusive_percent": 100.0
+            },
+            {
+              "class": "jdk.internal.reflect.DirectMethodHandleAccessor",
+              "method": "invokeImpl",
+              "inclusive_percent": 100.0
+            },
+            {
+              "class": "jdk.internal.reflect.DirectMethodHandleAccessor",
+              "method": "invoke",
+              "inclusive_percent": 100.0
+            },
+            {
+              "class": "java.lang.reflect.Method",
+              "method": "invoke",
+              "inclusive_percent": 100.0
+            }
+          ],
+          "source_self_weights": [
+            {
+              "source": "<unattributed>",
+              "self_sample_weight": 293900.0,
+              "percent": 97.96666666666667
+            },
+            {
+              "source": "mtr",
+              "self_sample_weight": 5700.0,
+              "percent": 1.9
+            },
+            {
+              "source": "neoforge",
+              "self_sample_weight": 400.0,
+              "percent": 0.13333333333333333
+            },
+            {
+              "source": "mtr_native_observer",
+              "self_sample_weight": 0,
+              "percent": 0.0
+            }
+          ]
+        },
+        "Server thread": {
+          "root_sample_weight": 300000.0,
+          "metadata_duration_ms": 300684,
+          "interval_ms": 100.0,
+          "negative_residual_count": 0,
+          "top_self": [
+            {
+              "class": "jdk.internal.misc.Unsafe",
+              "method": "park",
+              "self_percent": 95.67
+            },
+            {
+              "class": "java.lang.Thread",
+              "method": "yield0",
+              "self_percent": 3.17
+            },
+            {
+              "class": "net.minecraft.server.level.DistanceManager",
+              "method": "runAllUpdates",
+              "self_percent": 0.53
+            },
+            {
+              "class": "net.minecraft.server.level.ServerChunkCache$MainThreadExecutor",
+              "method": "pollTask",
+              "self_percent": 0.23
+            },
+            {
+              "class": "org.lwjgl.system.JNI",
+              "method": "invokeD",
+              "self_percent": 0.2
+            },
+            {
+              "class": "org.lwjgl.system.JNI",
+              "method": "invokeD",
+              "self_percent": 0.03
+            },
+            {
+              "class": "net.minecraft.server.MinecraftServer",
+              "method": "pollTaskInternal",
+              "self_percent": 0.03
+            },
+            {
+              "class": "net.minecraft.util.thread.BlockableEventLoop",
+              "method": "managedBlock",
+              "self_percent": 0.03
+            }
+          ],
+          "top_inclusive": [
+            {
+              "class": "net.minecraft.server.MinecraftServer",
+              "method": "runServer",
+              "inclusive_percent": 100.0
+            },
+            {
+              "class": "net.minecraft.server.MinecraftServer",
+              "method": "lambda$spin$2",
+              "inclusive_percent": 100.0
+            },
+            {
+              "class": "net.minecraft.server.MinecraftServer$$Lambda/0x000001d926399e30",
+              "method": "run",
+              "inclusive_percent": 100.0
+            },
+            {
+              "class": "java.lang.Thread",
+              "method": "runWith",
+              "inclusive_percent": 100.0
+            },
+            {
+              "class": "java.lang.Thread",
+              "method": "run",
+              "inclusive_percent": 100.0
+            },
+            {
+              "class": "net.minecraft.util.thread.BlockableEventLoop",
+              "method": "managedBlock",
+              "inclusive_percent": 99.9
+            },
+            {
+              "class": "net.minecraft.server.MinecraftServer",
+              "method": "managedBlock",
+              "inclusive_percent": 99.9
+            },
+            {
+              "class": "net.minecraft.server.MinecraftServer",
+              "method": "waitUntilNextTick",
+              "inclusive_percent": 99.9
+            }
+          ],
+          "source_self_weights": [
+            {
+              "source": "<unattributed>",
+              "self_sample_weight": 300000.0,
+              "percent": 100.0
+            },
+            {
+              "source": "neoforge",
+              "self_sample_weight": 0,
+              "percent": 0.0
+            }
+          ]
+        },
+        "MTR-memory-parse": {
+          "root_sample_weight": 1200000.0,
+          "metadata_duration_ms": 300684,
+          "interval_ms": 100.0,
+          "negative_residual_count": 0,
+          "top_self": [
+            {
+              "class": "jdk.internal.misc.Unsafe",
+              "method": "park",
+              "self_percent": 100.0
+            },
+            {
+              "class": "java.util.concurrent.locks.LockSupport",
+              "method": "park",
+              "self_percent": 0.0
+            },
+            {
+              "class": "java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionNode",
+              "method": "block",
+              "self_percent": 0.0
+            },
+            {
+              "class": "java.util.concurrent.ForkJoinPool",
+              "method": "unmanagedBlock",
+              "self_percent": 0.0
+            },
+            {
+              "class": "java.util.concurrent.ForkJoinPool",
+              "method": "managedBlock",
+              "self_percent": 0.0
+            },
+            {
+              "class": "java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject",
+              "method": "await",
+              "self_percent": 0.0
+            },
+            {
+              "class": "java.util.concurrent.ArrayBlockingQueue",
+              "method": "take",
+              "self_percent": 0.0
+            },
+            {
+              "class": "java.util.concurrent.ThreadPoolExecutor",
+              "method": "getTask",
+              "self_percent": 0.0
+            }
+          ],
+          "top_inclusive": [
+            {
+              "class": "jdk.internal.misc.Unsafe",
+              "method": "park",
+              "inclusive_percent": 100.0
+            },
+            {
+              "class": "java.util.concurrent.locks.LockSupport",
+              "method": "park",
+              "inclusive_percent": 100.0
+            },
+            {
+              "class": "java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionNode",
+              "method": "block",
+              "inclusive_percent": 100.0
+            },
+            {
+              "class": "java.util.concurrent.ForkJoinPool",
+              "method": "unmanagedBlock",
+              "inclusive_percent": 100.0
+            },
+            {
+              "class": "java.util.concurrent.ForkJoinPool",
+              "method": "managedBlock",
+              "inclusive_percent": 100.0
+            },
+            {
+              "class": "java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject",
+              "method": "await",
+              "inclusive_percent": 100.0
+            },
+            {
+              "class": "java.util.concurrent.ArrayBlockingQueue",
+              "method": "take",
+              "inclusive_percent": 100.0
+            },
+            {
+              "class": "java.util.concurrent.ThreadPoolExecutor",
+              "method": "getTask",
+              "inclusive_percent": 100.0
+            }
+          ],
+          "source_self_weights": [
+            {
+              "source": "<unattributed>",
+              "self_sample_weight": 1200000.0,
+              "percent": 100.0
+            }
+          ]
+        }
+      },
+      "spark_raw_sha256": "9d1e0d7f068946ab956efb4b1c27f6f89305b31a35738a946699220f9d00f1bd",
+      "trial_summary_sha256": "ba3bf014e421f918c7e267955bbcba0f7e5abd50c13ec84425cf347c0e5a2919",
+      "capture": "retry-pairs01/04-ba-profile-candidate"
+    },
+    "04-ba-profile-baseline": {
+      "mode": "profile",
+      "role": "baseline",
+      "process": {
+        "pid": 476,
+        "created": "2026-11-18T15:08:04.255149+00:00"
+      },
+      "windows": {
+        "startup": {
+          "start": "2026-11-18T15:08:04.255149+00:00",
+          "end": "2026-11-18T15:10:10.358059+00:00"
+        },
+        "scene_load": {
+          "start": "2026-11-18T15:10:10.358059+00:00",
+          "end": "2026-11-18T15:14:06.355587+00:00"
+        },
+        "warmup": {
+          "start": "2026-11-18T15:14:06.355587+00:00",
+          "end": "2026-11-18T15:15:06.355587+00:00"
+        },
+        "steady": {
+          "start": "2026-11-18T15:15:06.355587+00:00",
+          "end": "2026-11-18T15:18:06.355587+00:00"
+        }
+      },
+      "execution_started_at": "2026-11-18T15:07:03.705991+00:00",
+      "execution_finished_at": "2026-11-18T15:19:09.191818+00:00",
+      "cleanup": {
+        "exited": true,
+        "exit_code": 1
+      },
+      "metrics": {
+        "gc_pause_max_ms": 11.223931,
+        "gc_count": 13,
+        "steady_private_bytes": 4878905344,
+        "frame_max_ms": 45.8985,
+        "steady_working_set_bytes": 4657881088,
+        "loading_ms": 126102.90999999999,
+        "steady_heap_bytes": 2434963072,
+        "gc_pause_total_ms": 94.494372,
+        "startup_peak_working_set_bytes": 4386488320,
+        "full_gc_pause_max_ms": 0,
+        "frame_p99_ms": 26.681899,
+        "startup_peak_heap_bytes": 2770917728,
+        "full_gc_count": 0
+      },
+      "spark": {
+        "Render thread": {
+          "root_sample_weight": 300000.0,
+          "metadata_duration_ms": 300699,
+          "interval_ms": 100.0,
+          "negative_residual_count": 0,
+          "top_self": [
+            {
+              "class": "org.lwjgl.system.JNI",
+              "method": "invokeV",
+              "self_percent": 65.33
+            },
+            {
+              "class": "org.lwjgl.system.JNI",
+              "method": "invokePV",
+              "self_percent": 5.23
+            },
+            {
+              "class": "org.lwjgl.opengl.GL11C",
+              "method": "nglDrawElements",
+              "self_percent": 4.6
+            },
+            {
+              "class": "org.lwjgl.opengl.GL11C",
+              "method": "nglDrawElements",
+              "self_percent": 1.03
+            },
+            {
+              "class": "org.lwjgl.system.JNI",
+              "method": "invokeV",
+              "self_percent": 0.87
+            },
+            {
+              "class": "org.lwjgl.opengl.GL11C",
+              "method": "glClear",
+              "self_percent": 0.87
+            },
+            {
+              "class": "org.lwjgl.opengl.GL20C",
+              "method": "nglUniformMatrix4fv",
+              "self_percent": 0.77
+            },
+            {
+              "class": "org.joml.Matrix4f",
+              "method": "translate",
+              "self_percent": 0.73
+            }
+          ],
+          "top_inclusive": [
+            {
+              "class": "net.minecraft.client.Minecraft",
+              "method": "run",
+              "inclusive_percent": 100.0
+            },
+            {
+              "class": "net.minecraft.client.main.Main",
+              "method": "main",
+              "inclusive_percent": 100.0
+            },
+            {
+              "class": "java.lang.invoke.LambdaForm$DMH/0x000001ca2d002400",
+              "method": "invokeStatic",
+              "inclusive_percent": 100.0
+            },
+            {
+              "class": "java.lang.invoke.LambdaForm$MH/0x000001ca2d3f3400",
+              "method": "invoke",
+              "inclusive_percent": 100.0
+            },
+            {
+              "class": "java.lang.invoke.Invokers$Holder",
+              "method": "invokeExact_MT",
+              "inclusive_percent": 100.0
+            },
+            {
+              "class": "jdk.internal.reflect.DirectMethodHandleAccessor",
+              "method": "invokeImpl",
+              "inclusive_percent": 100.0
+            },
+            {
+              "class": "jdk.internal.reflect.DirectMethodHandleAccessor",
+              "method": "invoke",
+              "inclusive_percent": 100.0
+            },
+            {
+              "class": "java.lang.reflect.Method",
+              "method": "invoke",
+              "inclusive_percent": 100.0
+            }
+          ],
+          "source_self_weights": [
+            {
+              "source": "<unattributed>",
+              "self_sample_weight": 292000.0,
+              "percent": 97.33333333333333
+            },
+            {
+              "source": "mtr",
+              "self_sample_weight": 7800.0,
+              "percent": 2.6
+            },
+            {
+              "source": "mtr_native_observer",
+              "self_sample_weight": 100.0,
+              "percent": 0.03333333333333333
+            },
+            {
+              "source": "neoforge",
+              "self_sample_weight": 100.0,
+              "percent": 0.03333333333333333
+            }
+          ]
+        },
+        "Server thread": {
+          "root_sample_weight": 300000.0,
+          "metadata_duration_ms": 300699,
+          "interval_ms": 100.0,
+          "negative_residual_count": 0,
+          "top_self": [
+            {
+              "class": "jdk.internal.misc.Unsafe",
+              "method": "park",
+              "self_percent": 94.5
+            },
+            {
+              "class": "java.lang.Thread",
+              "method": "yield0",
+              "self_percent": 3.23
+            },
+            {
+              "class": "net.minecraft.server.level.DistanceManager$FixedPlayerDistanceChunkTracker",
+              "method": "runAllUpdates",
+              "self_percent": 0.67
+            },
+            {
+              "class": "net.minecraft.server.level.ThreadedLevelLightEngine",
+              "method": "tryScheduleUpdate",
+              "self_percent": 0.53
+            },
+            {
+              "class": "org.lwjgl.system.JNI",
+              "method": "invokeD",
+              "self_percent": 0.23
+            },
+            {
+              "class": "net.minecraft.server.MinecraftServer",
+              "method": "pollTaskInternal",
+              "self_percent": 0.23
+            },
+            {
+              "class": "org.lwjgl.system.JNI",
+              "method": "invokeD",
+              "self_percent": 0.17
+            },
+            {
+              "class": "net.minecraft.util.thread.BlockableEventLoop",
+              "method": "managedBlock",
+              "self_percent": 0.17
+            }
+          ],
+          "top_inclusive": [
+            {
+              "class": "net.minecraft.server.MinecraftServer",
+              "method": "runServer",
+              "inclusive_percent": 100.0
+            },
+            {
+              "class": "net.minecraft.server.MinecraftServer",
+              "method": "lambda$spin$2",
+              "inclusive_percent": 100.0
+            },
+            {
+              "class": "net.minecraft.server.MinecraftServer$$Lambda/0x000001ca2e33e740",
+              "method": "run",
+              "inclusive_percent": 100.0
+            },
+            {
+              "class": "java.lang.Thread",
+              "method": "runWith",
+              "inclusive_percent": 100.0
+            },
+            {
+              "class": "java.lang.Thread",
+              "method": "run",
+              "inclusive_percent": 100.0
+            },
+            {
+              "class": "net.minecraft.util.thread.BlockableEventLoop",
+              "method": "managedBlock",
+              "inclusive_percent": 99.97
+            },
+            {
+              "class": "net.minecraft.server.MinecraftServer",
+              "method": "managedBlock",
+              "inclusive_percent": 99.97
+            },
+            {
+              "class": "net.minecraft.server.MinecraftServer",
+              "method": "waitUntilNextTick",
+              "inclusive_percent": 99.97
+            }
+          ],
+          "source_self_weights": [
+            {
+              "source": "<unattributed>",
+              "self_sample_weight": 300000.0,
+              "percent": 100.0
+            }
+          ]
+        }
+      },
+      "spark_raw_sha256": "45c132d767e8577f95054cd97573d987028bac3022e69827e4e66884d676748c",
+      "trial_summary_sha256": "e5a854044ab4cbcd7be79451665a20f42211bf4f074af281cb0c96f822be4d31",
+      "capture": "retry-pairs01/04-ba-profile-baseline"
+    },
+    "05-aa-plain-a": {
+      "mode": "plain",
+      "role": "baseline",
+      "process": {
+        "pid": 36452,
+        "created": "2026-11-18T08:10:47.199903+00:00"
+      },
+      "windows": {
+        "startup": {
+          "start": "2026-11-18T08:10:47.199903+00:00",
+          "end": "2026-11-18T08:13:09.294632+00:00"
+        },
+        "scene_load": {
+          "start": "2026-11-18T08:13:09.294632+00:00",
+          "end": "2026-11-18T08:17:01.290436+00:00"
+        },
+        "warmup": {
+          "start": "2026-11-18T08:17:01.290436+00:00",
+          "end": "2026-11-18T08:18:01.290436+00:00"
+        },
+        "steady": {
+          "start": "2026-11-18T08:18:01.290436+00:00",
+          "end": "2026-11-18T08:21:01.290436+00:00"
+        }
+      },
+      "execution_started_at": "2026-11-18T08:09:43.610999+00:00",
+      "execution_finished_at": "2026-11-18T08:21:01.962546+00:00",
+      "cleanup": {
+        "exited": true,
+        "exit_code": 1
+      },
+      "metrics": {
+        "gc_pause_max_ms": null,
+        "gc_count": null,
+        "steady_private_bytes": 4818784256,
+        "frame_max_ms": null,
+        "steady_working_set_bytes": 4653694976,
+        "loading_ms": 142094.729,
+        "steady_heap_bytes": 2358393416,
+        "gc_pause_total_ms": null,
+        "startup_peak_working_set_bytes": 4342648832,
+        "full_gc_pause_max_ms": null,
+        "frame_p99_ms": null,
+        "startup_peak_heap_bytes": 2434434560,
+        "full_gc_count": null
+      },
+      "spark": null,
+      "spark_raw_sha256": null,
+      "trial_summary_sha256": "43a301d4f299bd2f1dfddc2635cfe8a0b343a2a3fece655422c43c07b7a7ef2f",
+      "capture": "practical-run01/05-aa-plain-a"
+    },
+    "05-aa-plain-b": {
+      "mode": "plain",
+      "role": "baseline",
+      "process": {
+        "pid": 39032,
+        "created": "2026-11-18T08:22:06.981104+00:00"
+      },
+      "windows": {
+        "startup": {
+          "start": "2026-11-18T08:22:06.981104+00:00",
+          "end": "2026-11-18T08:24:37.307164+00:00"
+        },
+        "scene_load": {
+          "start": "2026-11-18T08:24:37.307164+00:00",
+          "end": "2026-11-18T08:28:29.082665+00:00"
+        },
+        "warmup": {
+          "start": "2026-11-18T08:28:29.082665+00:00",
+          "end": "2026-11-18T08:29:29.082665+00:00"
+        },
+        "steady": {
+          "start": "2026-11-18T08:29:29.082665+00:00",
+          "end": "2026-11-18T08:32:29.082665+00:00"
+        }
+      },
+      "execution_started_at": "2026-11-18T08:21:04.183971+00:00",
+      "execution_finished_at": "2026-11-18T08:32:31.612433+00:00",
+      "cleanup": {
+        "exited": true,
+        "exit_code": 1
+      },
+      "metrics": {
+        "gc_pause_max_ms": null,
+        "gc_count": null,
+        "steady_private_bytes": 4798775296,
+        "frame_max_ms": null,
+        "steady_working_set_bytes": 4627349504,
+        "loading_ms": 150326.06000000003,
+        "steady_heap_bytes": 2471882312,
+        "gc_pause_total_ms": null,
+        "startup_peak_working_set_bytes": 4304904192,
+        "full_gc_pause_max_ms": null,
+        "frame_p99_ms": null,
+        "startup_peak_heap_bytes": 2959295080,
+        "full_gc_count": null
+      },
+      "spark": null,
+      "spark_raw_sha256": null,
+      "trial_summary_sha256": "d81b639f21563349db5fa82018269d64e0839102f5b2b1c8d560e16fdc6b0dc4",
+      "capture": "practical-run01/05-aa-plain-b"
+    },
+    "06-probe-off-01": {
+      "mode": "probe_off",
+      "role": "candidate",
+      "process": {
+        "pid": 58176,
+        "created": "2026-11-18T08:33:03.209013+00:00"
+      },
+      "windows": {
+        "startup": {
+          "start": "2026-11-18T08:33:03.209013+00:00",
+          "end": "2026-11-18T08:36:31.395193+00:00"
+        },
+        "warmup": {
+          "start": "2026-11-18T08:36:31.395193+00:00",
+          "end": "2026-11-18T08:41:31.395193+00:00"
+        },
+        "steady": {
+          "start": "2026-11-18T08:41:31.395193+00:00",
+          "end": "2026-11-18T08:44:31.395193+00:00"
+        }
+      },
+      "execution_started_at": "2026-11-18T08:32:34.497934+00:00",
+      "execution_finished_at": "2026-11-18T08:44:32.186406+00:00",
+      "cleanup": {
+        "exited": true,
+        "exit_code": 1
+      },
+      "metrics": {
+        "gc_pause_max_ms": null,
+        "gc_count": null,
+        "steady_private_bytes": 4816470016,
+        "frame_max_ms": null,
+        "steady_working_set_bytes": 4643749888,
+        "loading_ms": 208186.18,
+        "steady_heap_bytes": null,
+        "gc_pause_total_ms": null,
+        "startup_peak_working_set_bytes": 4150960128,
+        "full_gc_pause_max_ms": null,
+        "frame_p99_ms": null,
+        "startup_peak_heap_bytes": null,
+        "full_gc_count": null
+      },
+      "spark": null,
+      "spark_raw_sha256": null,
+      "trial_summary_sha256": "79b58ed4c685efe6c0a6839e31709c52a1007a5ba980638794ed1f9eae498d4b",
+      "capture": "practical-run01/06-probe-off-01"
+    },
+    "06-probe-off-02": {
+      "mode": "probe_off",
+      "role": "candidate",
+      "process": {
+        "pid": 1640,
+        "created": "2026-11-18T08:45:04.442603+00:00"
+      },
+      "windows": {
+        "startup": {
+          "start": "2026-11-18T08:45:04.442603+00:00",
+          "end": "2026-11-18T08:48:14.603628+00:00"
+        },
+        "warmup": {
+          "start": "2026-11-18T08:48:14.603628+00:00",
+          "end": "2026-11-18T08:53:14.603628+00:00"
+        },
+        "steady": {
+          "start": "2026-11-18T08:53:14.603628+00:00",
+          "end": "2026-11-18T08:56:14.603628+00:00"
+        }
+      },
+      "execution_started_at": "2026-11-18T08:44:36.472030+00:00",
+      "execution_finished_at": "2026-11-18T08:56:15.375084+00:00",
+      "cleanup": {
+        "exited": true,
+        "exit_code": 1
+      },
+      "metrics": {
+        "gc_pause_max_ms": null,
+        "gc_count": null,
+        "steady_private_bytes": 4801224704,
+        "frame_max_ms": null,
+        "steady_working_set_bytes": 4585439232,
+        "loading_ms": 190161.025,
+        "steady_heap_bytes": null,
+        "gc_pause_total_ms": null,
+        "startup_peak_working_set_bytes": 4157808640,
+        "full_gc_pause_max_ms": null,
+        "frame_p99_ms": null,
+        "startup_peak_heap_bytes": null,
+        "full_gc_count": null
+      },
+      "spark": null,
+      "spark_raw_sha256": null,
+      "trial_summary_sha256": "99fa25cda0e2af9b36208ed849760b37345305c93828930070bc4a394ed443dd",
+      "capture": "practical-run01/06-probe-off-02"
+    }
+  }
+}

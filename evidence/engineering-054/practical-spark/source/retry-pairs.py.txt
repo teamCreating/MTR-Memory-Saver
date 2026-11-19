@@ -1,0 +1,44 @@
+"""Local retry of incomplete pairs from practical-run01."""
+from pathlib import Path
+import sys
+
+import practical_client_verification as pcv
+
+parent = Path(__file__).resolve().parent
+policy = pcv.load_policy()
+base_policy = pcv.read(pcv.DEFAULT_EXP_POLICY)
+descriptors, sampler_spec, _ = pcv.resolve_templates(
+    pcv.DEFAULT_TEMPLATES_ROOT, pcv.DEFAULT_TEMPLATE_PREFIX,
+    pcv.DEFAULT_PROBE_OFF_TEMPLATE, base_policy,
+)
+
+def seal(root, spec, result):
+    pcv.save(root / "trial-summary.json", {
+        "schema": 1, "spec": spec, "status": "complete" if result["passed"] else "failed",
+        "result": result, "files": pcv.trial_raw_files(root),
+    }, exclusive=True)
+    if result["passed"]:
+        pcv.audit_single_trial(root, spec, descriptors, sampler_spec, policy, base_policy, None)
+
+mode, identifier = sys.argv[1:]
+spec = next(item for item in policy["schedule"] if item["id"] == identifier)
+if mode == "seal-baseline":
+    root = parent / "profile-recovery01"
+    seal(root, spec, pcv.read(root / "result.json"))
+    raise SystemExit()
+
+root = (parent / mode / spec["id"]).resolve()
+descriptor = descriptors[f"{spec['role']}_{spec['mode']}"]
+if spec["mode"] == "profile":
+    evidence, result, _ = pcv.collect_profile_spark_trial(
+        descriptor, base_policy, sampler_spec, root, trial_spec=spec,
+    )
+else:
+    evidence, result = pcv.exp.collect_trial(descriptor, base_policy, root, trial_spec=spec)
+    idle = pcv.sampler.verify_idle(root / "instance", sampler_spec)
+    pcv.save(root / "spark-idle.json", idle, exclusive=True)
+seal(root, spec, result)
+print(result, flush=True)
+if evidence.get("cleanup", {}).get("exited") is not True:
+    raise SystemExit(3)
+raise SystemExit(0 if result["passed"] else 2)

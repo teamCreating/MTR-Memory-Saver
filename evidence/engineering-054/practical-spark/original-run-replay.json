@@ -1,0 +1,328 @@
+{
+  "schema": 1,
+  "scope": "official_practical_paired_verification",
+  "audited_at": "2026-11-18T14:25:36.840946+00:00",
+  "full_48_trial_protocol_satisfied": false,
+  "scheduled_trials": 12,
+  "passed_trials": 7,
+  "unique_jvms": 7,
+  "all_trials_passed": false,
+  "errors": [
+    "Audit error in 01-ab-plain-baseline: ValueError: Invalid raw execution window: Missing/invalid raw execution receipts or actual process timestamps.",
+    "Audit error in 03-ab-profile-baseline: ValueError: Invalid raw execution window: Missing/invalid raw execution receipts or actual process timestamps.",
+    "Audit error in 03-ab-profile-candidate: ValueError: Invalid raw execution window: Missing/invalid raw execution receipts or actual process timestamps.",
+    "Audit error in 04-ba-profile-candidate: ValueError: Invalid raw execution window: Missing/invalid raw execution receipts or actual process timestamps.",
+    "Audit error in 04-ba-profile-baseline: ValueError: Invalid raw execution window: Missing/invalid raw execution receipts or actual process timestamps."
+  ],
+  "budgets": {
+    "primary_steady_private_percent": -10,
+    "guardrails": {
+      "loading_percent": 5,
+      "steady_heap_percent": 5,
+      "frame_p99_percent": 5,
+      "gc_pause_total_ms": 50,
+      "full_gc_count": 0,
+      "full_gc_pause_max_ms": 0
+    },
+    "aa_equivalence": {
+      "steady_private_percent": 5,
+      "loading_percent": 15,
+      "steady_heap_percent": 5
+    },
+    "instrumentation_equivalence": {
+      "steady_private_percent": 10,
+      "loading_percent": 15,
+      "steady_heap_percent": 10
+    },
+    "observer_off_overhead_percent": 10
+  },
+  "comparisons": {},
+  "trials": {
+    "01-ab-plain-candidate": {
+      "passed": true,
+      "errors": [],
+      "metrics": {
+        "frame_max_ms": null,
+        "startup_peak_heap_bytes": 2597110232,
+        "gc_count": null,
+        "full_gc_pause_max_ms": null,
+        "gc_pause_max_ms": null,
+        "frame_p99_ms": null,
+        "loading_ms": 164361.825,
+        "full_gc_count": null,
+        "startup_peak_working_set_bytes": 4312539136,
+        "steady_heap_bytes": 2413469032.0,
+        "gc_pause_total_ms": null,
+        "steady_private_bytes": 4808056832.0,
+        "steady_working_set_bytes": 4637988864.0
+      },
+      "process": {
+        "pid": 64180,
+        "created": "2026-11-18T06:56:11.928726+00:00"
+      },
+      "windows": {
+        "startup": {
+          "start": "2026-11-18T06:56:11.928726+00:00",
+          "end": "2026-11-18T06:58:56.290551+00:00"
+        },
+        "scene_load": {
+          "start": "2026-11-18T06:58:56.290551+00:00",
+          "end": "2026-11-18T07:02:48.014292+00:00"
+        },
+        "warmup": {
+          "start": "2026-11-18T07:02:48.014292+00:00",
+          "end": "2026-11-18T07:03:48.014292+00:00"
+        },
+        "steady": {
+          "start": "2026-11-18T07:03:48.014292+00:00",
+          "end": "2026-11-18T07:06:48.014292+00:00"
+        }
+      },
+      "spark": null
+    },
+    "02-ba-plain-candidate": {
+      "passed": true,
+      "errors": [],
+      "metrics": {
+        "frame_max_ms": null,
+        "startup_peak_heap_bytes": 2977335152,
+        "gc_count": null,
+        "full_gc_pause_max_ms": null,
+        "gc_pause_max_ms": null,
+        "frame_p99_ms": null,
+        "loading_ms": 170091.074,
+        "full_gc_count": null,
+        "startup_peak_working_set_bytes": 4313047040,
+        "steady_heap_bytes": 2477271972.0,
+        "gc_pause_total_ms": null,
+        "steady_private_bytes": 4804147200.0,
+        "steady_working_set_bytes": 4629923840.0
+      },
+      "process": {
+        "pid": 30432,
+        "created": "2026-11-18T07:07:53.707845+00:00"
+      },
+      "windows": {
+        "startup": {
+          "start": "2026-11-18T07:07:53.707845+00:00",
+          "end": "2026-11-18T07:10:43.798919+00:00"
+        },
+        "scene_load": {
+          "start": "2026-11-18T07:10:43.798919+00:00",
+          "end": "2026-11-18T07:14:35.791870+00:00"
+        },
+        "warmup": {
+          "start": "2026-11-18T07:14:35.791870+00:00",
+          "end": "2026-11-18T07:15:35.791870+00:00"
+        },
+        "steady": {
+          "start": "2026-11-18T07:15:35.791870+00:00",
+          "end": "2026-11-18T07:18:35.791870+00:00"
+        }
+      },
+      "spark": null
+    },
+    "02-ba-plain-baseline": {
+      "passed": true,
+      "errors": [],
+      "metrics": {
+        "frame_max_ms": null,
+        "startup_peak_heap_bytes": 2988687832,
+        "gc_count": null,
+        "full_gc_pause_max_ms": null,
+        "gc_pause_max_ms": null,
+        "frame_p99_ms": null,
+        "loading_ms": 154236.91,
+        "full_gc_count": null,
+        "startup_peak_working_set_bytes": 4345634816,
+        "steady_heap_bytes": 2439463288.0,
+        "gc_pause_total_ms": null,
+        "steady_private_bytes": 4817039360.0,
+        "steady_working_set_bytes": 4625543168.0
+      },
+      "process": {
+        "pid": 36436,
+        "created": "2026-11-18T07:19:49.272612+00:00"
+      },
+      "windows": {
+        "startup": {
+          "start": "2026-11-18T07:19:49.272612+00:00",
+          "end": "2026-11-18T07:22:23.509522+00:00"
+        },
+        "scene_load": {
+          "start": "2026-11-18T07:22:23.509522+00:00",
+          "end": "2026-11-18T07:26:15.361433+00:00"
+        },
+        "warmup": {
+          "start": "2026-11-18T07:26:15.361433+00:00",
+          "end": "2026-11-18T07:27:15.361433+00:00"
+        },
+        "steady": {
+          "start": "2026-11-18T07:27:15.361433+00:00",
+          "end": "2026-11-18T07:30:15.361433+00:00"
+        }
+      },
+      "spark": null
+    },
+    "05-aa-plain-a": {
+      "passed": true,
+      "errors": [],
+      "metrics": {
+        "frame_max_ms": null,
+        "startup_peak_heap_bytes": 2434434560,
+        "gc_count": null,
+        "full_gc_pause_max_ms": null,
+        "gc_pause_max_ms": null,
+        "frame_p99_ms": null,
+        "loading_ms": 142094.729,
+        "full_gc_count": null,
+        "startup_peak_working_set_bytes": 4342648832,
+        "steady_heap_bytes": 2358393416,
+        "gc_pause_total_ms": null,
+        "steady_private_bytes": 4818784256,
+        "steady_working_set_bytes": 4653694976
+      },
+      "process": {
+        "pid": 36452,
+        "created": "2026-11-18T08:10:47.199903+00:00"
+      },
+      "windows": {
+        "startup": {
+          "start": "2026-11-18T08:10:47.199903+00:00",
+          "end": "2026-11-18T08:13:09.294632+00:00"
+        },
+        "scene_load": {
+          "start": "2026-11-18T08:13:09.294632+00:00",
+          "end": "2026-11-18T08:17:01.290436+00:00"
+        },
+        "warmup": {
+          "start": "2026-11-18T08:17:01.290436+00:00",
+          "end": "2026-11-18T08:18:01.290436+00:00"
+        },
+        "steady": {
+          "start": "2026-11-18T08:18:01.290436+00:00",
+          "end": "2026-11-18T08:21:01.290436+00:00"
+        }
+      },
+      "spark": null
+    },
+    "05-aa-plain-b": {
+      "passed": true,
+      "errors": [],
+      "metrics": {
+        "frame_max_ms": null,
+        "startup_peak_heap_bytes": 2959295080,
+        "gc_count": null,
+        "full_gc_pause_max_ms": null,
+        "gc_pause_max_ms": null,
+        "frame_p99_ms": null,
+        "loading_ms": 150326.06000000003,
+        "full_gc_count": null,
+        "startup_peak_working_set_bytes": 4304904192,
+        "steady_heap_bytes": 2471882312,
+        "gc_pause_total_ms": null,
+        "steady_private_bytes": 4798775296,
+        "steady_working_set_bytes": 4627349504
+      },
+      "process": {
+        "pid": 39032,
+        "created": "2026-11-18T08:22:06.981104+00:00"
+      },
+      "windows": {
+        "startup": {
+          "start": "2026-11-18T08:22:06.981104+00:00",
+          "end": "2026-11-18T08:24:37.307164+00:00"
+        },
+        "scene_load": {
+          "start": "2026-11-18T08:24:37.307164+00:00",
+          "end": "2026-11-18T08:28:29.082665+00:00"
+        },
+        "warmup": {
+          "start": "2026-11-18T08:28:29.082665+00:00",
+          "end": "2026-11-18T08:29:29.082665+00:00"
+        },
+        "steady": {
+          "start": "2026-11-18T08:29:29.082665+00:00",
+          "end": "2026-11-18T08:32:29.082665+00:00"
+        }
+      },
+      "spark": null
+    },
+    "06-probe-off-01": {
+      "passed": true,
+      "errors": [],
+      "metrics": {
+        "frame_max_ms": null,
+        "startup_peak_heap_bytes": null,
+        "gc_count": null,
+        "full_gc_pause_max_ms": null,
+        "gc_pause_max_ms": null,
+        "frame_p99_ms": null,
+        "loading_ms": 208186.18,
+        "full_gc_count": null,
+        "startup_peak_working_set_bytes": 4150960128,
+        "steady_heap_bytes": null,
+        "gc_pause_total_ms": null,
+        "steady_private_bytes": 4816470016,
+        "steady_working_set_bytes": 4643749888
+      },
+      "process": {
+        "pid": 58176,
+        "created": "2026-11-18T08:33:03.209013+00:00"
+      },
+      "windows": {
+        "startup": {
+          "start": "2026-11-18T08:33:03.209013+00:00",
+          "end": "2026-11-18T08:36:31.395193+00:00"
+        },
+        "warmup": {
+          "start": "2026-11-18T08:36:31.395193+00:00",
+          "end": "2026-11-18T08:41:31.395193+00:00"
+        },
+        "steady": {
+          "start": "2026-11-18T08:41:31.395193+00:00",
+          "end": "2026-11-18T08:44:31.395193+00:00"
+        }
+      },
+      "spark": null
+    },
+    "06-probe-off-02": {
+      "passed": true,
+      "errors": [],
+      "metrics": {
+        "frame_max_ms": null,
+        "startup_peak_heap_bytes": null,
+        "gc_count": null,
+        "full_gc_pause_max_ms": null,
+        "gc_pause_max_ms": null,
+        "frame_p99_ms": null,
+        "loading_ms": 190161.025,
+        "full_gc_count": null,
+        "startup_peak_working_set_bytes": 4157808640,
+        "steady_heap_bytes": null,
+        "gc_pause_total_ms": null,
+        "steady_private_bytes": 4801224704,
+        "steady_working_set_bytes": 4585439232
+      },
+      "process": {
+        "pid": 1640,
+        "created": "2026-11-18T08:45:04.442603+00:00"
+      },
+      "windows": {
+        "startup": {
+          "start": "2026-11-18T08:45:04.442603+00:00",
+          "end": "2026-11-18T08:48:14.603628+00:00"
+        },
+        "warmup": {
+          "start": "2026-11-18T08:48:14.603628+00:00",
+          "end": "2026-11-18T08:53:14.603628+00:00"
+        },
+        "steady": {
+          "start": "2026-11-18T08:53:14.603628+00:00",
+          "end": "2026-11-18T08:56:14.603628+00:00"
+        }
+      },
+      "spark": null
+    }
+  }
+}
