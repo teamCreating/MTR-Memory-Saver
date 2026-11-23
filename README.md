@@ -106,6 +106,12 @@ differences remain descriptive observations with inconclusive causal attribution
 Removing either complete plain pair leaves a 9.40–10.28% loading increase and
 a 0.27–0.30% private-memory reduction.
 
+The subsequent [snapshot digest optimization](evidence/engineering-055/snapshot-digest/README.md)
+eliminates the snapshot read pass used to compute its content hash. The revised
+candidate passes 106 Java tests, small-heap streaming controls and 69 packaged
+checks with all sixteen packs on NeoForge 21.1.265, followed by native stop and
+an owned JVM exit code of zero. Full-client performance acceptance remains pending.
+
 Historical guides and measurements are indexed in [HISTORY.md](docs/HISTORY.md)
 and [TECHNICAL.md](TECHNICAL.md). New candidate tests and performance reports have
 separate artifact identities. GPU lifetime and gameplay require runtime acceptance;

@@ -1,0 +1,47 @@
+{
+  "target": "official-nf265",
+  "pairs": 6,
+  "omitted": 0,
+  "metrics": {
+    "thread_cpu_ns": {
+      "percent_deltas": [
+        -19.72477064220184,
+        -16.58767772511849,
+        -20.45454545454546,
+        -16.58767772511849,
+        -23.01255230125523,
+        -18.75
+      ],
+      "median_percent_delta": -19.23738532110092
+    },
+    "elapsed_ns": {
+      "percent_deltas": [
+        -20.94128489951136,
+        -16.97354060448253,
+        -20.63564352011268,
+        -16.13933864564723,
+        -23.110175207826376,
+        -18.10705433853139
+      ],
+      "median_percent_delta": -19.371348929322036
+    }
+  },
+  "scope": "Single-input snapshot microbenchmark",
+  "full_client_performance_accepted": false,
+  "jar_payload_changes": {
+    "added": [
+      "site/benli06/ResourceTextSnapshot$1.class"
+    ],
+    "removed": [],
+    "changed": [
+      "site/benli06/ResourceTextSnapshot.class",
+      "site/benli06/Utf16TextSnapshot$1.class",
+      "site/benli06/Utf16TextSnapshot.class"
+    ]
+  },
+  "limits": [
+    "Single real input and one benchmark thread, includes capture/hash/readback. No AA calibration.",
+    "Other user workloads continued. The agent-owned NF265 game had exited before the benchmark started.",
+    "These CPU and elapsed changes do not establish whole-client performance or retained-memory gains."
+  ]
+}

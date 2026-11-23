@@ -26,6 +26,24 @@ import org.mtr.resource.ResourceProvider;
 class ResourceTextSnapshotTest {
     @TempDir Path directory;
 
+    @Test void captureHashesWithoutReadingSnapshotAndPreservesNonzeroCharOffsets() throws Exception {
+        var filesystem = new SnapshotFaultFileSystem(SnapshotFaultFileSystem.Fault.NONE);
+        var admission = new ReadAdmission(1, 30000);
+        String text = "x".repeat(4095) + "\ud83d\ude86" + "y".repeat(8191) + "\ud83d\ude86";
+        try (var snapshot = ResourceTextSnapshot.capture(new ByteArrayInputStream(text.getBytes(StandardCharsets.UTF_8)),
+                StandardCharsets.UTF_8, admission, filesystem.wrap(directory))) {
+            assertEquals(0, filesystem.restorationReads);
+            assertEquals(ResourceTextDigest.sha256(text), snapshot.digest());
+            try (var reader = snapshot.reader()) {
+                var restored = new java.io.StringWriter();
+                reader.transferTo(restored);
+                assertEquals(text, restored.toString());
+            }
+            assertTrue(filesystem.restorationReads > 0);
+        }
+        clean(admission);
+    }
+
     @Test void boundedReaderPreservesReplacementSupplementaryTextAndOriginalDigest() throws Exception {
         for (String text : new String[]{"", "a".repeat(19000), "\u03b1".repeat(8191) + "\ud83d\ude86" + "\u0000\u4e2d".repeat(4000)}) {
             for (var charset : new java.nio.charset.Charset[]{StandardCharsets.UTF_8, StandardCharsets.UTF_16LE}) {
@@ -159,8 +177,13 @@ class ResourceTextSnapshotTest {
                 SnapshotFaultFileSystem.Fault.UNSUPPORTED}) {
             var filesystem = new SnapshotFaultFileSystem(fault);
             var admission = new ReadAdmission(1, 20000);
-            assertThrows(Exception.class, () -> ResourceTextSnapshot.capture(new ByteArrayInputStream("\u03b1".repeat(15000).getBytes(StandardCharsets.UTF_8)),
-                    StandardCharsets.UTF_8, admission, filesystem.wrap(directory)));
+            assertThrows(Exception.class, () -> {
+                try (var snapshot = ResourceTextSnapshot.capture(new ByteArrayInputStream("\u03b1".repeat(15000).getBytes(StandardCharsets.UTF_8)),
+                        StandardCharsets.UTF_8, admission, filesystem.wrap(directory));
+                     var reader = snapshot.reader()) {
+                    ResourceTextDigest.sha256(reader);
+                }
+            });
             clean(admission);
         }
     }
@@ -203,8 +226,13 @@ class ResourceTextSnapshotTest {
             filesystem.onZeroProgress = () -> retired.set(true);
             var admission = new ReadAdmission(1, 1000);
             try (var scope = admission.open(retired::get)) {
-                assertThrows(CancellationException.class, () -> ResourceTextSnapshot.capture(new ByteArrayInputStream("{}".getBytes(StandardCharsets.UTF_8)),
-                        StandardCharsets.UTF_8, admission, filesystem.wrap(directory)));
+                assertThrows(CancellationException.class, () -> {
+                    try (var snapshot = ResourceTextSnapshot.capture(new ByteArrayInputStream("{}".getBytes(StandardCharsets.UTF_8)),
+                            StandardCharsets.UTF_8, admission, filesystem.wrap(directory));
+                         var reader = snapshot.reader()) {
+                        ResourceTextDigest.sha256(reader);
+                    }
+                });
             }
             assertEquals(1, filesystem.closeCalls); clean(admission);
         }

@@ -54,11 +54,16 @@ final class Utf16TextSnapshot implements AutoCloseable {
     }
 
     void write(char[] chars, int count, ReadAdmission admission) throws IOException {
+        write(chars, 0, count, admission);
+    }
+
+    void write(char[] chars, int start, int count, ReadAdmission admission) throws IOException {
+        Objects.checkFromIndexSize(start, count, chars.length);
         for (int offset = 0; offset < count;) {
             admission.checkLength(0);
             int units = Math.min(bytes.length / 2, count - offset);
             for (int i = 0; i < units; i++) {
-                char c = chars[offset + i]; bytes[2 * i] = (byte) (c >>> 8); bytes[2 * i + 1] = (byte) c;
+                char c = chars[start + offset + i]; bytes[2 * i] = (byte) (c >>> 8); bytes[2 * i + 1] = (byte) c;
             }
             buffer.clear().limit(2 * units);
             while (buffer.hasRemaining()) {

@@ -719,3 +719,13 @@ plain 私有内存两对分别 -0.296%/-0.268%，中位 -0.282%（约12.93MiB）
 新增可配置client-outlier-analysis工具与策略，按mode/role分组、两处理使用相同inclusive Tukey IQR规则，一臂被标记则成对剔除，保留完整/筛选结果、边界、剔除身份和样本量。默认六次同组测量与1.5倍IQR是本次工程选择，可配置，不增加发布门槛；零IQR记录未决。禁止用当前稀少样本硬套剔除，本轮每组两次而自动剔除0对。逐一移除整对的敏感性显示plain加载仍+9.401%或+10.279%，私有内存-0.296%或-0.268%；profile对应+11.757%或+14.311%。原有10%内存收益仍未建立，报告并行负载不确定性不自动授予发布资格。
 
 新增四项测试覆盖稀疏/单对、双臂对称剔除、整体处理偏移不被误判为异常、无效值/未通过资格拒绝。全量352项Python测试通过，目录/样例验证通过，独立重算与原封存SHA全部复核通过。更新README链接并新增有输入指纹的敏感性assessment/说明。本次不重跑游戏，未修改产品或原始验收产物。
+
+## 2026-11-23T20:47:33.0978749+08:00 — 合并摘要计算与快照写入，完成 NF265 定向验证
+
+用户授权继续优化，并将后续本机验证限定为NeoForge21.1.265，已记录于AGENTS。发现ResourceTextSnapshot先写完整UTF16临时文件、再读回计算UTF8摘要、解析再读，新增FilterReader在同次解码流读取中同时写入snapshot并计算原String UTF8摘要，移除摘要读回一遍。Utf16TextSnapshot增加有界offset写入以正确处理encoder携带的跨块高代理项，保留磁盘所有权、取消、长度及有限缓冲。回归实际检查capture阶段0读回、原文/摘要相同；读/rewind/取消注入改为验证实际reader消费位置。
+
+前段已完成两目标各106项Java测试及64MiB堆Blockbench/OBJ流式控制。用户新限定后仅执行NF265 probe构建、16包native运行与6对真实模型source诊断。NF265 candidate SHA256 920c1f833b6f173c7443ff5956493b779acfeceb293fa640817a459985db3f5b，独立JVM21632注册1092项、651次Blockbench、974次OBJ，24+18+27实际组件检查均true，native stop及owned wait exit0。此前NF248记录保留其原scope与缺少最终owned退出码限制，不再重跑。
+
+NF265旧134770…与新920c1f…对同一65,255,687-byte真实bbmodel进行6对AB/BA、每JVM3预热+3测量，全部12份exit0且独立Python摘要匹配，无剔除；benchmark当前线程CPU中位-19.237%、elapsed中位-19.371%。此轮agent自有游戏已退出再测，用户后台任务继续；单输入捕获/摘要/读回微基准无AA，不授予整机加载、稳态内存或完整性能通过。初轮248元数据诊断含游戏重叠，保留范围与原始数据。NF265 JAR仅3个class变化并新增capture reader class，其余payload相同。
+
+封存engineering-055/snapshot-digest源、日志、逐进程诊断、冻结plan、实际client身份/请求/结果/exit、ZIP payload与总SHA。全部归档CRC、字节数和SHA复核通过，目录/样例验证及diff check通过。未发布，修订binary的重载耐久、完整性能与游戏交互仍未验收。本次保留0.4.8未发布候选版本，旧已封存JAR未改。

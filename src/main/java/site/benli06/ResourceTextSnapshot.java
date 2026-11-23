@@ -1,6 +1,7 @@
 package site.benli06;
 
 import java.io.IOException;
+import java.io.FilterReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
@@ -49,18 +50,24 @@ public final class ResourceTextSnapshot implements AutoCloseable {
         Utf16TextSnapshot snapshot = new Utf16TextSnapshot(directory);
         try (var scope = admission.open()) {
             snapshot.begin(List.of(), admission);
-            Reader reader = new InputStreamReader(input, charset == null ? Charset.defaultCharset() : charset);
-            char[] chars = new char[8192];
-            long length = 0;
-            for (int count; (count = reader.read(chars)) != -1;) {
-                length += count;
-                admission.checkLength(length);
-                if (count != 0) snapshot.write(chars, count, admission);
-            }
-            admission.checkLength(length);
-            String digest;
-            try (Reader decoded = snapshot.reader(length, admission)) { digest = ResourceTextDigest.sha256(decoded); }
-            return new ResourceTextSnapshot(snapshot, admission, length, digest);
+            var decoded = new InputStreamReader(input, charset == null ? Charset.defaultCharset() : charset);
+            // The digest consumes the decoded stream while the same characters are
+            // captured. The caller continues to own the source stream.
+            var captured = new FilterReader(decoded) {
+                private long length;
+                @Override public int read(char[] chars, int offset, int count) throws IOException {
+                    int read = super.read(chars, offset, count);
+                    if (read > 0) {
+                        length += read;
+                        admission.checkLength(length);
+                        snapshot.write(chars, offset, read, admission);
+                    }
+                    return read;
+                }
+            };
+            String digest = ResourceTextDigest.sha256(captured);
+            admission.checkLength(captured.length);
+            return new ResourceTextSnapshot(snapshot, admission, captured.length, digest);
         } catch (Throwable error) {
             try { snapshot.close(); }
             catch (Throwable cleanup) { if (cleanup != error) error.addSuppressed(cleanup); }
