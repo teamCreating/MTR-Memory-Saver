@@ -737,3 +737,8 @@ NF265旧134770…与新920c1f…对同一65,255,687-byte真实bbmodel进行6对A
 新920c1f…候选完成两次fresh packaged JVM：faults38188实际exit0，24+18+27检查全true、workspace归零；mismatch60548实际exit1且原日志证明指纹guard在车辆注册前拒绝。两份实际JFR均summary exit0并验hash。封存engineering-056/nf265-packaged，delivery-evidence的265项绑定新JAR和新assessment。NF265 releaseBundle与verifyNeutralProbe构建通过，修正此前bundleSupport旧绑定失败；248旧记录保留，新发布CI仅265。
 
 另启独立world实例71724进行完整16包真实重载验证。初recorder在native snapshot尚未存在时失败，原记录保留，已停止对应consumer并在快照出现后重开独立目录。首次输入被中文IME接走，F3调试画面及无新epoch原样保留；切换当前窗口输入模式后实际F3+T已触发新的资源重载。尚未把输入API成功计作重载通过，耐久结果待后续独立封存。当前提交只完成打包修复与组件身份绑定，不授予性能或重载通过。
+
+## 2026-11-23T22:01:12.6182010+08:00 — 同步受保护 main 的已压缩历史
+
+PR #4 因 main 已经 squash 合入历史测试整理而显示冲突。合并 origin/main，逐项比较四个冲突文件；保留本分支后续 Windows CI 分步失败传播修复、更新后的历史脚本目录、reload waiter 测试说明和全部 walkthrough，main 的测试整理已包含在现有分支。未修改运行中观察器、产品源码或冻结验收规则。执行历史索引校验和完整工具回归后形成合并提交，并按约定自动 push。
+
