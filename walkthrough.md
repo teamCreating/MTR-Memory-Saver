@@ -729,3 +729,11 @@ plain 私有内存两对分别 -0.296%/-0.268%，中位 -0.282%（约12.93MiB）
 NF265旧134770…与新920c1f…对同一65,255,687-byte真实bbmodel进行6对AB/BA、每JVM3预热+3测量，全部12份exit0且独立Python摘要匹配，无剔除；benchmark当前线程CPU中位-19.237%、elapsed中位-19.371%。此轮agent自有游戏已退出再测，用户后台任务继续；单输入捕获/摘要/读回微基准无AA，不授予整机加载、稳态内存或完整性能通过。初轮248元数据诊断含游戏重叠，保留范围与原始数据。NF265 JAR仅3个class变化并新增capture reader class，其余payload相同。
 
 封存engineering-055/snapshot-digest源、日志、逐进程诊断、冻结plan、实际client身份/请求/结果/exit、ZIP payload与总SHA。全部归档CRC、字节数和SHA复核通过，目录/样例验证及diff check通过。未发布，修订binary的重载耐久、完整性能与游戏交互仍未验收。本次保留0.4.8未发布候选版本，旧已封存JAR未改。
+
+## 2026-11-23T21:14:51.7548559+08:00 — 修复 NF265 发布范围与新产物交付绑定
+
+用户明确授权继续验证并发布。按此前仅265要求，targets增加显式releaseTargets=[official-nf265]并将默认目标设为265，保留历史可显式构建目标。CI矩阵与资产检查共用这一合法官方目标选择，拒绝空/重复/非官方/未知项，兼容旧配置缺省行为。新增两项测试，全量354项Python测试通过。
+
+新920c1f…候选完成两次fresh packaged JVM：faults38188实际exit0，24+18+27检查全true、workspace归零；mismatch60548实际exit1且原日志证明指纹guard在车辆注册前拒绝。两份实际JFR均summary exit0并验hash。封存engineering-056/nf265-packaged，delivery-evidence的265项绑定新JAR和新assessment。NF265 releaseBundle与verifyNeutralProbe构建通过，修正此前bundleSupport旧绑定失败；248旧记录保留，新发布CI仅265。
+
+另启独立world实例71724进行完整16包真实重载验证。初recorder在native snapshot尚未存在时失败，原记录保留，已停止对应consumer并在快照出现后重开独立目录。首次输入被中文IME接走，F3调试画面及无新epoch原样保留；切换当前窗口输入模式后实际F3+T已触发新的资源重载。尚未把输入API成功计作重载通过，耐久结果待后续独立封存。当前提交只完成打包修复与组件身份绑定，不授予性能或重载通过。

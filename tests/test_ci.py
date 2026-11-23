@@ -47,11 +47,25 @@ class ReleaseTest(unittest.TestCase):
     def test_metadata_uses_current_official_matrix_and_property_version(self):
         matrix, version, targets = ci.configuration(self.root)
         self.assertEqual(version, "0.8.1")
-        self.assertEqual(set(targets), {k for k, v in matrix["targets"].items() if v["variant"] == "official"})
+        self.assertEqual(targets, sorted(matrix["releaseTargets"]))
         self.assertTrue(all(matrix["targets"][t]["variant"] != "v6" for t in targets))
         (self.root / "gradle.properties").write_text("modVersion=1.0.0\n", encoding="utf-8")
         with self.assertRaises(ValueError):
             ci.configuration(self.root)
+
+    def test_explicit_release_scope_rejects_unknown_duplicate_and_nonofficial_targets(self):
+        for selection in ([], ["unknown"], ["v6-nf265"], ["official-nf265", "official-nf265"]):
+            self.matrix["releaseTargets"] = selection
+            (self.root / "config/targets.json").write_text(json.dumps(self.matrix), encoding="utf-8")
+            with self.assertRaises(ValueError):
+                ci.configuration(self.root)
+
+    def test_absent_release_selection_preserves_all_official_targets(self):
+        self.matrix.pop("releaseTargets", None)
+        (self.root / "config/targets.json").write_text(json.dumps(self.matrix), encoding="utf-8")
+        self.assertEqual(set(ci.configuration(self.root)[2]), {
+            name for name, target in self.matrix["targets"].items() if target["variant"] == "official"
+        })
 
     def test_tag_and_dispatch_guard_including_real_off_main_commit(self):
         self.initialize_git()
