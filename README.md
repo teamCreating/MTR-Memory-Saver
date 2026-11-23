@@ -100,6 +100,11 @@ completed twelve independently qualified NF248 JVM observations. Plain steady
 private memory fell by a median 0.28%, missing the 10% reduction target, while
 resource loading rose by 9.84%, exceeding the 5% guardrail. Performance acceptance
 failed and the 0.4.8 release remains held.
+The subsequent [outlier sensitivity analysis](evidence/engineering-054/outlier-sensitivity/README.md)
+accounts for the user's report of concurrent host workloads. Wall-clock loading
+differences remain descriptive observations with inconclusive causal attribution.
+Removing either complete plain pair leaves a 9.40–10.28% loading increase and
+a 0.27–0.30% private-memory reduction.
 
 Historical guides and measurements are indexed in [HISTORY.md](docs/HISTORY.md)
 and [TECHNICAL.md](TECHNICAL.md). New candidate tests and performance reports have
