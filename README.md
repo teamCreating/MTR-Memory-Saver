@@ -21,15 +21,15 @@ or copied patched-client JAR is required for a development build.
 ./gradlew.bat releaseBundle
 ```
 
-The default is `official-nf248`. Gradle resolves the game/NeoForge toolchain and the
+The default and current release target is `official-nf265`. Gradle resolves the game/NeoForge toolchain and the
 hash-pinned official MTR dependency. Custom v6 must be supplied explicitly. All
 releases remain `0.x.x`; `gradle.properties` is the version authority.
 
 JARs and their identity manifests are produced in `build/libs/`. Release ZIPs in
-`build/releases/` include the JAR, manifest, license and installation guide. No
-public download has been published from this local repository. The included CI
-workflow builds official target bundles and makes them available as workflow artifacts
-when used in a hosted repository.
+`build/releases/` include the JAR, manifest, license and installation guide.
+Versioned development pre-releases are distributed through
+[GitHub Releases](https://github.com/teamCreating/MTR-Memory-Saver/releases).
+The CI workflow also retains verified target bundles as workflow artifacts.
 
 See [BUILDING.md](BUILDING.md) for reproducibility and offline/custom inputs,
 [installation](docs/INSTALL.md) for deployment/rollback, and [LICENSE](LICENSE).
@@ -82,7 +82,7 @@ observer 1.0.3 also has an [independently sealed settled window](evidence/engine
 Interaction, reload endurance, route and controlled performance remain pending;
 historical 0.4.6 results retain their original artifact identities.
 
-The unpublished 0.4.8 candidate streams Blockbench, OBJ and material input through
+The 0.4.8 development candidate streams Blockbench, OBJ and material input through
 owned snapshots while retaining native parsing and mesh construction. The first
 Blockbench-only candidate failed its seventh full-pack reload with a synchronous
 OBJ String allocation; its [failed run remains sealed](evidence/engineering-051/streamed051a-reload-oom/README.md).
@@ -99,7 +99,7 @@ The [practical Spark comparison](evidence/engineering-054/practical-spark/README
 completed twelve independently qualified NF248 JVM observations. Plain steady
 private memory fell by a median 0.28%, missing the 10% reduction target, while
 resource loading rose by 9.84%, exceeding the 5% guardrail. Performance acceptance
-failed and the 0.4.8 release remains held.
+failed and the release was held at that stage.
 The subsequent [outlier sensitivity analysis](evidence/engineering-054/outlier-sensitivity/README.md)
 accounts for the user's report of concurrent host workloads. Wall-clock loading
 differences remain descriptive observations with inconclusive causal attribution.
@@ -111,6 +111,13 @@ eliminates the snapshot read pass used to compute its content hash. The revised
 candidate passes 106 Java tests, small-heap streaming controls and 69 packaged
 checks with all sixteen packs on NeoForge 21.1.265, followed by native stop and
 an owned JVM exit code of zero. Full-client performance acceptance remains pending.
+
+The exact optimized NF265 candidate now passes [twenty consecutive full-pack
+reloads](evidence/engineering-056/nf265-reload20/README.md), nineteen intermediate
+stable checks, a separate final stable observation and normal JVM shutdown.
+The [0.4.8 release decision](evidence/engineering-056/release-decision/README.md)
+permits a scoped development pre-release for NeoForge 21.1.265. Whole-client
+performance, every vehicle interaction and a two-hour route remain unqualified.
 
 Historical guides and measurements are indexed in [HISTORY.md](docs/HISTORY.md)
 and [TECHNICAL.md](TECHNICAL.md). New candidate tests and performance reports have

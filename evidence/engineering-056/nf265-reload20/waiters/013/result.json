@@ -1,0 +1,921 @@
+{
+  "status": "ready",
+  "expected_sequence": 15,
+  "native_sequence": 15,
+  "native_pending": 0,
+  "in_flight": 0,
+  "native_observed_at": "2026-11-23T14:22:38.449039200Z",
+  "read_receipts": [
+    {
+      "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\release048-nf265\\endurance\\game-probe\\native-observer.json",
+      "started_at": "2026-11-23T14:22:39.261443+00:00",
+      "completed_at": "2026-11-23T14:22:39.262198+00:00",
+      "bytes": 6617,
+      "sha256": "e640f6c3b1c3e9b4731b4c75e16c1db21971d6067c4511f6c954c80636844f2a"
+    },
+    {
+      "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\release048-nf265\\endurance\\game-probe\\native-resource-epochs.jsonl",
+      "started_at": "2026-11-23T14:22:39.262621+00:00",
+      "completed_at": "2026-11-23T14:22:39.263419+00:00",
+      "bytes": 26929,
+      "sha256": "88eef088bb6ebaaa127616a1927355e3b3fd1ed28ede12b715efad94d797301a"
+    },
+    {
+      "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\release048-nf265\\consumer03\\samples.jsonl",
+      "started_at": "2026-11-23T14:22:39.265301+00:00",
+      "completed_at": "2026-11-23T14:22:39.273787+00:00",
+      "bytes": 6867889,
+      "sha256": "5e130e44c09581c94164ea35a6af605912e235bd5f05171db33d0e88164ec5e3"
+    },
+    {
+      "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\release048-nf265\\recorder03\\journal.jsonl",
+      "started_at": "2026-11-23T14:22:39.602611+00:00",
+      "completed_at": "2026-11-23T14:22:39.605181+00:00",
+      "bytes": 1759042,
+      "sha256": "3dc2461f043023600e55c89160f5c8024e6a5e91ee1a9d890f6553ea1c2253b0"
+    },
+    {
+      "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\release048-nf265\\recorder03\\records\\00001829\\raw-evidence.jsonl",
+      "started_at": "2026-11-23T14:22:39.838505+00:00",
+      "completed_at": "2026-11-23T14:22:39.839079+00:00",
+      "bytes": 1537,
+      "sha256": "fc4b3c989be120947974fe5532b5b595accfd6bb8308fb20a841a014b800f996"
+    },
+    {
+      "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\release048-nf265\\recorder03\\blobs\\88eef088bb6ebaaa127616a1927355e3b3fd1ed28ede12b715efad94d797301a.bin",
+      "started_at": "2026-11-23T14:22:39.841444+00:00",
+      "completed_at": "2026-11-23T14:22:39.842167+00:00",
+      "bytes": 26929,
+      "sha256": "88eef088bb6ebaaa127616a1927355e3b3fd1ed28ede12b715efad94d797301a"
+    },
+    {
+      "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\release048-nf265\\recorder03\\blobs\\da47cdfe22fc192ce662441d1074766b048b9307f5e1f4aeddf2ea391b81ed79.bin",
+      "started_at": "2026-11-23T14:22:39.844140+00:00",
+      "completed_at": "2026-11-23T14:22:39.845090+00:00",
+      "bytes": 275883,
+      "sha256": "da47cdfe22fc192ce662441d1074766b048b9307f5e1f4aeddf2ea391b81ed79"
+    },
+    {
+      "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\release048-nf265\\recorder03\\blobs\\e4693fc50ee1b502dcfd274682c1ed7b09dc3bfe10357892ac9d7647e799d572.bin",
+      "started_at": "2026-11-23T14:22:39.849190+00:00",
+      "completed_at": "2026-11-23T14:22:39.849738+00:00",
+      "bytes": 6611,
+      "sha256": "e4693fc50ee1b502dcfd274682c1ed7b09dc3bfe10357892ac9d7647e799d572"
+    },
+    {
+      "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\release048-nf265\\recorder03\\blobs\\8b3e01de32ddd039ad1695af04e90bf126eb22ec8db9ce568c4936d99cd0c211.bin",
+      "started_at": "2026-11-23T14:22:39.851866+00:00",
+      "completed_at": "2026-11-23T14:22:39.852625+00:00",
+      "bytes": 171288,
+      "sha256": "8b3e01de32ddd039ad1695af04e90bf126eb22ec8db9ce568c4936d99cd0c211"
+    },
+    {
+      "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\release048-nf265\\recorder03\\blobs\\88eef088bb6ebaaa127616a1927355e3b3fd1ed28ede12b715efad94d797301a.bin",
+      "started_at": "2026-11-23T14:22:39.856878+00:00",
+      "completed_at": "2026-11-23T14:22:39.857488+00:00",
+      "bytes": 26929,
+      "sha256": "88eef088bb6ebaaa127616a1927355e3b3fd1ed28ede12b715efad94d797301a"
+    },
+    {
+      "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\release048-nf265\\recorder03\\blobs\\da47cdfe22fc192ce662441d1074766b048b9307f5e1f4aeddf2ea391b81ed79.bin",
+      "started_at": "2026-11-23T14:22:39.861144+00:00",
+      "completed_at": "2026-11-23T14:22:39.862133+00:00",
+      "bytes": 275883,
+      "sha256": "da47cdfe22fc192ce662441d1074766b048b9307f5e1f4aeddf2ea391b81ed79"
+    },
+    {
+      "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\release048-nf265\\recorder03\\records\\00001829\\receipt.json",
+      "started_at": "2026-11-23T14:22:39.866103+00:00",
+      "completed_at": "2026-11-23T14:22:39.866547+00:00",
+      "bytes": 505,
+      "sha256": "cc1cb1a1a0309f4ff95ee4702277f995d2745f8fbe5eed4cf5e07acb97e2c429"
+    },
+    {
+      "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\release048-nf265\\recorder03\\records\\00001829\\before.json",
+      "started_at": "2026-11-23T14:22:39.868995+00:00",
+      "completed_at": "2026-11-23T14:22:39.869953+00:00",
+      "bytes": 8732,
+      "sha256": "56160b2333b3776ef966e7e6b642907483e2d27c5a5eb1ac9b56e8a09a7023ac"
+    }
+  ],
+  "returned_at": "2026-11-23T14:21:14.583889200Z",
+  "capture_kind": "published",
+  "capture_record_id": "d847d55c-ccd3-4fd4-bc89-9bad9c88f5f0:1829",
+  "log_sha256": "8b3e01de32ddd039ad1695af04e90bf126eb22ec8db9ce568c4936d99cd0c211",
+  "native_diagnostics": {
+    "scanned": true,
+    "unreviewed_native": [],
+    "other_errors_requiring_contextual_review": [
+      {
+        "line": 85,
+        "text": "[2311月2026 21:08:36.792] [Download-2/ERROR] [net.minecraft.client.Minecraft/]: Failed to fetch user properties"
+      }
+    ],
+    "reviewed_native": [
+      {
+        "line": 117,
+        "text": "[2311月2026 21:08:48.544] [Render thread/ERROR] [MinecraftTransitRailway/]: [mtr:textures/block/transparent.png] Invalid model!",
+        "classification": "official_generated_default_rail",
+        "call_id": 1,
+        "epoch_id": 1
+      },
+      {
+        "line": 194,
+        "text": "[2311月2026 21:14:11.408] [Render thread/ERROR] [MinecraftTransitRailway/]: [mtr:textures/block/transparent.png] Invalid model!",
+        "classification": "official_generated_default_rail",
+        "call_id": 2,
+        "epoch_id": 2
+      },
+      {
+        "line": 248,
+        "text": "[2311月2026 21:19:38.985] [Render thread/ERROR] [MinecraftTransitRailway/]: [mtr:textures/block/transparent.png] Invalid model!",
+        "classification": "official_generated_default_rail",
+        "call_id": 3,
+        "epoch_id": 3
+      },
+      {
+        "line": 302,
+        "text": "[2311月2026 21:24:24.413] [Render thread/ERROR] [MinecraftTransitRailway/]: [mtr:textures/block/transparent.png] Invalid model!",
+        "classification": "official_generated_default_rail",
+        "call_id": 4,
+        "epoch_id": 4
+      },
+      {
+        "line": 356,
+        "text": "[2311月2026 21:28:54.183] [Render thread/ERROR] [MinecraftTransitRailway/]: [mtr:textures/block/transparent.png] Invalid model!",
+        "classification": "official_generated_default_rail",
+        "call_id": 5,
+        "epoch_id": 5
+      },
+      {
+        "line": 410,
+        "text": "[2311月2026 21:33:34.497] [Render thread/ERROR] [MinecraftTransitRailway/]: [mtr:textures/block/transparent.png] Invalid model!",
+        "classification": "official_generated_default_rail",
+        "call_id": 6,
+        "epoch_id": 6
+      },
+      {
+        "line": 464,
+        "text": "[2311月2026 21:38:16.646] [Render thread/ERROR] [MinecraftTransitRailway/]: [mtr:textures/block/transparent.png] Invalid model!",
+        "classification": "official_generated_default_rail",
+        "call_id": 7,
+        "epoch_id": 7
+      },
+      {
+        "line": 518,
+        "text": "[2311月2026 21:43:30.436] [Render thread/ERROR] [MinecraftTransitRailway/]: [mtr:textures/block/transparent.png] Invalid model!",
+        "classification": "official_generated_default_rail",
+        "call_id": 8,
+        "epoch_id": 8
+      },
+      {
+        "line": 572,
+        "text": "[2311月2026 21:48:36.736] [Render thread/ERROR] [MinecraftTransitRailway/]: [mtr:textures/block/transparent.png] Invalid model!",
+        "classification": "official_generated_default_rail",
+        "call_id": 9,
+        "epoch_id": 9
+      },
+      {
+        "line": 626,
+        "text": "[2311月2026 21:53:21.722] [Render thread/ERROR] [MinecraftTransitRailway/]: [mtr:textures/block/transparent.png] Invalid model!",
+        "classification": "official_generated_default_rail",
+        "call_id": 10,
+        "epoch_id": 10
+      },
+      {
+        "line": 680,
+        "text": "[2311月2026 21:59:03.042] [Render thread/ERROR] [MinecraftTransitRailway/]: [mtr:textures/block/transparent.png] Invalid model!",
+        "classification": "official_generated_default_rail",
+        "call_id": 11,
+        "epoch_id": 11
+      },
+      {
+        "line": 734,
+        "text": "[2311月2026 22:03:57.910] [Render thread/ERROR] [MinecraftTransitRailway/]: [mtr:textures/block/transparent.png] Invalid model!",
+        "classification": "official_generated_default_rail",
+        "call_id": 12,
+        "epoch_id": 12
+      },
+      {
+        "line": 788,
+        "text": "[2311月2026 22:08:59.245] [Render thread/ERROR] [MinecraftTransitRailway/]: [mtr:textures/block/transparent.png] Invalid model!",
+        "classification": "official_generated_default_rail",
+        "call_id": 13,
+        "epoch_id": 13
+      },
+      {
+        "line": 842,
+        "text": "[2311月2026 22:13:45.497] [Render thread/ERROR] [MinecraftTransitRailway/]: [mtr:textures/block/transparent.png] Invalid model!",
+        "classification": "official_generated_default_rail",
+        "call_id": 14,
+        "epoch_id": 14
+      },
+      {
+        "line": 896,
+        "text": "[2311月2026 22:18:36.436] [Render thread/ERROR] [MinecraftTransitRailway/]: [mtr:textures/block/transparent.png] Invalid model!",
+        "classification": "official_generated_default_rail",
+        "call_id": 15,
+        "epoch_id": 15
+      }
+    ],
+    "native_attribution": {
+      "passed": true,
+      "review_id": "official-generated-default-rail",
+      "errors": [],
+      "calls": [
+        {
+          "call_id": 1,
+          "epoch_id": 1,
+          "before_sequence": 2,
+          "return_sequence": 3,
+          "thread_id": 1,
+          "thread": "Render thread",
+          "started_at": "2026-11-23T13:08:48.539851900Z",
+          "returned_at": "2026-11-23T13:08:48.561849400Z",
+          "native_call_chain": [
+            {
+              "class": "org.mtr.resource.VehicleModel",
+              "method": "getModelLoaderBase",
+              "descriptor": "(Ljava/lang/String;Ljava/lang/String;Lorg/mtr/resource/ResourceProvider;Z)Lorg/mtr/model/ModelLoaderBase;",
+              "line": 200,
+              "bytecode_index": 258
+            },
+            {
+              "class": "org.mtr.resource.RailResource",
+              "method": "<init>",
+              "descriptor": "(Ljava/lang/String;Ljava/lang/String;Lorg/mtr/resource/ResourceProvider;)V",
+              "line": 35,
+              "bytecode_index": 36
+            },
+            {
+              "class": "org.mtr.client.CustomResourceLoader",
+              "method": "reload",
+              "descriptor": "()V",
+              "line": 121,
+              "bytecode_index": 159
+            }
+          ],
+          "model_resource": "",
+          "texture_resource": "",
+          "returned_loader_class": "org.mtr.model.BlockbenchModelLoader",
+          "log": {
+            "line": 117,
+            "text": "[2311月2026 21:08:48.544] [Render thread/ERROR] [MinecraftTransitRailway/]: [mtr:textures/block/transparent.png] Invalid model!"
+          }
+        },
+        {
+          "call_id": 2,
+          "epoch_id": 2,
+          "before_sequence": 4,
+          "return_sequence": 5,
+          "thread_id": 1,
+          "thread": "Render thread",
+          "started_at": "2026-11-23T13:14:11.404339900Z",
+          "returned_at": "2026-11-23T13:14:11.409377900Z",
+          "native_call_chain": [
+            {
+              "class": "org.mtr.resource.VehicleModel",
+              "method": "getModelLoaderBase",
+              "descriptor": "(Ljava/lang/String;Ljava/lang/String;Lorg/mtr/resource/ResourceProvider;Z)Lorg/mtr/model/ModelLoaderBase;",
+              "line": 200,
+              "bytecode_index": 258
+            },
+            {
+              "class": "org.mtr.resource.RailResource",
+              "method": "<init>",
+              "descriptor": "(Ljava/lang/String;Ljava/lang/String;Lorg/mtr/resource/ResourceProvider;)V",
+              "line": 35,
+              "bytecode_index": 36
+            },
+            {
+              "class": "org.mtr.client.CustomResourceLoader",
+              "method": "reload",
+              "descriptor": "()V",
+              "line": 121,
+              "bytecode_index": 159
+            }
+          ],
+          "model_resource": "",
+          "texture_resource": "",
+          "returned_loader_class": "org.mtr.model.BlockbenchModelLoader",
+          "log": {
+            "line": 194,
+            "text": "[2311月2026 21:14:11.408] [Render thread/ERROR] [MinecraftTransitRailway/]: [mtr:textures/block/transparent.png] Invalid model!"
+          }
+        },
+        {
+          "call_id": 3,
+          "epoch_id": 3,
+          "before_sequence": 6,
+          "return_sequence": 7,
+          "thread_id": 1,
+          "thread": "Render thread",
+          "started_at": "2026-11-23T13:19:38.983421800Z",
+          "returned_at": "2026-11-23T13:19:38.986424800Z",
+          "native_call_chain": [
+            {
+              "class": "org.mtr.resource.VehicleModel",
+              "method": "getModelLoaderBase",
+              "descriptor": "(Ljava/lang/String;Ljava/lang/String;Lorg/mtr/resource/ResourceProvider;Z)Lorg/mtr/model/ModelLoaderBase;",
+              "line": 200,
+              "bytecode_index": 258
+            },
+            {
+              "class": "org.mtr.resource.RailResource",
+              "method": "<init>",
+              "descriptor": "(Ljava/lang/String;Ljava/lang/String;Lorg/mtr/resource/ResourceProvider;)V",
+              "line": 35,
+              "bytecode_index": 36
+            },
+            {
+              "class": "org.mtr.client.CustomResourceLoader",
+              "method": "reload",
+              "descriptor": "()V",
+              "line": 121,
+              "bytecode_index": 159
+            }
+          ],
+          "model_resource": "",
+          "texture_resource": "",
+          "returned_loader_class": "org.mtr.model.BlockbenchModelLoader",
+          "log": {
+            "line": 248,
+            "text": "[2311月2026 21:19:38.985] [Render thread/ERROR] [MinecraftTransitRailway/]: [mtr:textures/block/transparent.png] Invalid model!"
+          }
+        },
+        {
+          "call_id": 4,
+          "epoch_id": 4,
+          "before_sequence": 8,
+          "return_sequence": 9,
+          "thread_id": 1,
+          "thread": "Render thread",
+          "started_at": "2026-11-23T13:24:24.410120800Z",
+          "returned_at": "2026-11-23T13:24:24.414125700Z",
+          "native_call_chain": [
+            {
+              "class": "org.mtr.resource.VehicleModel",
+              "method": "getModelLoaderBase",
+              "descriptor": "(Ljava/lang/String;Ljava/lang/String;Lorg/mtr/resource/ResourceProvider;Z)Lorg/mtr/model/ModelLoaderBase;",
+              "line": 200,
+              "bytecode_index": 258
+            },
+            {
+              "class": "org.mtr.resource.RailResource",
+              "method": "<init>",
+              "descriptor": "(Ljava/lang/String;Ljava/lang/String;Lorg/mtr/resource/ResourceProvider;)V",
+              "line": 35,
+              "bytecode_index": 36
+            },
+            {
+              "class": "org.mtr.client.CustomResourceLoader",
+              "method": "reload",
+              "descriptor": "()V",
+              "line": 121,
+              "bytecode_index": 159
+            }
+          ],
+          "model_resource": "",
+          "texture_resource": "",
+          "returned_loader_class": "org.mtr.model.BlockbenchModelLoader",
+          "log": {
+            "line": 302,
+            "text": "[2311月2026 21:24:24.413] [Render thread/ERROR] [MinecraftTransitRailway/]: [mtr:textures/block/transparent.png] Invalid model!"
+          }
+        },
+        {
+          "call_id": 5,
+          "epoch_id": 5,
+          "before_sequence": 10,
+          "return_sequence": 11,
+          "thread_id": 1,
+          "thread": "Render thread",
+          "started_at": "2026-11-23T13:28:54.179215400Z",
+          "returned_at": "2026-11-23T13:28:54.184225300Z",
+          "native_call_chain": [
+            {
+              "class": "org.mtr.resource.VehicleModel",
+              "method": "getModelLoaderBase",
+              "descriptor": "(Ljava/lang/String;Ljava/lang/String;Lorg/mtr/resource/ResourceProvider;Z)Lorg/mtr/model/ModelLoaderBase;",
+              "line": 200,
+              "bytecode_index": 258
+            },
+            {
+              "class": "org.mtr.resource.RailResource",
+              "method": "<init>",
+              "descriptor": "(Ljava/lang/String;Ljava/lang/String;Lorg/mtr/resource/ResourceProvider;)V",
+              "line": 35,
+              "bytecode_index": 36
+            },
+            {
+              "class": "org.mtr.client.CustomResourceLoader",
+              "method": "reload",
+              "descriptor": "()V",
+              "line": 121,
+              "bytecode_index": 159
+            }
+          ],
+          "model_resource": "",
+          "texture_resource": "",
+          "returned_loader_class": "org.mtr.model.BlockbenchModelLoader",
+          "log": {
+            "line": 356,
+            "text": "[2311月2026 21:28:54.183] [Render thread/ERROR] [MinecraftTransitRailway/]: [mtr:textures/block/transparent.png] Invalid model!"
+          }
+        },
+        {
+          "call_id": 6,
+          "epoch_id": 6,
+          "before_sequence": 12,
+          "return_sequence": 13,
+          "thread_id": 1,
+          "thread": "Render thread",
+          "started_at": "2026-11-23T13:33:34.494757400Z",
+          "returned_at": "2026-11-23T13:33:34.497758100Z",
+          "native_call_chain": [
+            {
+              "class": "org.mtr.resource.VehicleModel",
+              "method": "getModelLoaderBase",
+              "descriptor": "(Ljava/lang/String;Ljava/lang/String;Lorg/mtr/resource/ResourceProvider;Z)Lorg/mtr/model/ModelLoaderBase;",
+              "line": 200,
+              "bytecode_index": 258
+            },
+            {
+              "class": "org.mtr.resource.RailResource",
+              "method": "<init>",
+              "descriptor": "(Ljava/lang/String;Ljava/lang/String;Lorg/mtr/resource/ResourceProvider;)V",
+              "line": 35,
+              "bytecode_index": 36
+            },
+            {
+              "class": "org.mtr.client.CustomResourceLoader",
+              "method": "reload",
+              "descriptor": "()V",
+              "line": 121,
+              "bytecode_index": 159
+            }
+          ],
+          "model_resource": "",
+          "texture_resource": "",
+          "returned_loader_class": "org.mtr.model.BlockbenchModelLoader",
+          "log": {
+            "line": 410,
+            "text": "[2311月2026 21:33:34.497] [Render thread/ERROR] [MinecraftTransitRailway/]: [mtr:textures/block/transparent.png] Invalid model!"
+          }
+        },
+        {
+          "call_id": 7,
+          "epoch_id": 7,
+          "before_sequence": 14,
+          "return_sequence": 15,
+          "thread_id": 1,
+          "thread": "Render thread",
+          "started_at": "2026-11-23T13:38:16.643563400Z",
+          "returned_at": "2026-11-23T13:38:16.646570400Z",
+          "native_call_chain": [
+            {
+              "class": "org.mtr.resource.VehicleModel",
+              "method": "getModelLoaderBase",
+              "descriptor": "(Ljava/lang/String;Ljava/lang/String;Lorg/mtr/resource/ResourceProvider;Z)Lorg/mtr/model/ModelLoaderBase;",
+              "line": 200,
+              "bytecode_index": 258
+            },
+            {
+              "class": "org.mtr.resource.RailResource",
+              "method": "<init>",
+              "descriptor": "(Ljava/lang/String;Ljava/lang/String;Lorg/mtr/resource/ResourceProvider;)V",
+              "line": 35,
+              "bytecode_index": 36
+            },
+            {
+              "class": "org.mtr.client.CustomResourceLoader",
+              "method": "reload",
+              "descriptor": "()V",
+              "line": 121,
+              "bytecode_index": 159
+            }
+          ],
+          "model_resource": "",
+          "texture_resource": "",
+          "returned_loader_class": "org.mtr.model.BlockbenchModelLoader",
+          "log": {
+            "line": 464,
+            "text": "[2311月2026 21:38:16.646] [Render thread/ERROR] [MinecraftTransitRailway/]: [mtr:textures/block/transparent.png] Invalid model!"
+          }
+        },
+        {
+          "call_id": 8,
+          "epoch_id": 8,
+          "before_sequence": 16,
+          "return_sequence": 17,
+          "thread_id": 1,
+          "thread": "Render thread",
+          "started_at": "2026-11-23T13:43:30.433370400Z",
+          "returned_at": "2026-11-23T13:43:30.436355900Z",
+          "native_call_chain": [
+            {
+              "class": "org.mtr.resource.VehicleModel",
+              "method": "getModelLoaderBase",
+              "descriptor": "(Ljava/lang/String;Ljava/lang/String;Lorg/mtr/resource/ResourceProvider;Z)Lorg/mtr/model/ModelLoaderBase;",
+              "line": 200,
+              "bytecode_index": 258
+            },
+            {
+              "class": "org.mtr.resource.RailResource",
+              "method": "<init>",
+              "descriptor": "(Ljava/lang/String;Ljava/lang/String;Lorg/mtr/resource/ResourceProvider;)V",
+              "line": 35,
+              "bytecode_index": 36
+            },
+            {
+              "class": "org.mtr.client.CustomResourceLoader",
+              "method": "reload",
+              "descriptor": "()V",
+              "line": 121,
+              "bytecode_index": 159
+            }
+          ],
+          "model_resource": "",
+          "texture_resource": "",
+          "returned_loader_class": "org.mtr.model.BlockbenchModelLoader",
+          "log": {
+            "line": 518,
+            "text": "[2311月2026 21:43:30.436] [Render thread/ERROR] [MinecraftTransitRailway/]: [mtr:textures/block/transparent.png] Invalid model!"
+          }
+        },
+        {
+          "call_id": 9,
+          "epoch_id": 9,
+          "before_sequence": 18,
+          "return_sequence": 19,
+          "thread_id": 1,
+          "thread": "Render thread",
+          "started_at": "2026-11-23T13:48:36.735705100Z",
+          "returned_at": "2026-11-23T13:48:36.737672100Z",
+          "native_call_chain": [
+            {
+              "class": "org.mtr.resource.VehicleModel",
+              "method": "getModelLoaderBase",
+              "descriptor": "(Ljava/lang/String;Ljava/lang/String;Lorg/mtr/resource/ResourceProvider;Z)Lorg/mtr/model/ModelLoaderBase;",
+              "line": 200,
+              "bytecode_index": 258
+            },
+            {
+              "class": "org.mtr.resource.RailResource",
+              "method": "<init>",
+              "descriptor": "(Ljava/lang/String;Ljava/lang/String;Lorg/mtr/resource/ResourceProvider;)V",
+              "line": 35,
+              "bytecode_index": 36
+            },
+            {
+              "class": "org.mtr.client.CustomResourceLoader",
+              "method": "reload",
+              "descriptor": "()V",
+              "line": 121,
+              "bytecode_index": 159
+            }
+          ],
+          "model_resource": "",
+          "texture_resource": "",
+          "returned_loader_class": "org.mtr.model.BlockbenchModelLoader",
+          "log": {
+            "line": 572,
+            "text": "[2311月2026 21:48:36.736] [Render thread/ERROR] [MinecraftTransitRailway/]: [mtr:textures/block/transparent.png] Invalid model!"
+          }
+        },
+        {
+          "call_id": 10,
+          "epoch_id": 10,
+          "before_sequence": 20,
+          "return_sequence": 21,
+          "thread_id": 1,
+          "thread": "Render thread",
+          "started_at": "2026-11-23T13:53:21.720336500Z",
+          "returned_at": "2026-11-23T13:53:21.723326800Z",
+          "native_call_chain": [
+            {
+              "class": "org.mtr.resource.VehicleModel",
+              "method": "getModelLoaderBase",
+              "descriptor": "(Ljava/lang/String;Ljava/lang/String;Lorg/mtr/resource/ResourceProvider;Z)Lorg/mtr/model/ModelLoaderBase;",
+              "line": 200,
+              "bytecode_index": 258
+            },
+            {
+              "class": "org.mtr.resource.RailResource",
+              "method": "<init>",
+              "descriptor": "(Ljava/lang/String;Ljava/lang/String;Lorg/mtr/resource/ResourceProvider;)V",
+              "line": 35,
+              "bytecode_index": 36
+            },
+            {
+              "class": "org.mtr.client.CustomResourceLoader",
+              "method": "reload",
+              "descriptor": "()V",
+              "line": 121,
+              "bytecode_index": 159
+            }
+          ],
+          "model_resource": "",
+          "texture_resource": "",
+          "returned_loader_class": "org.mtr.model.BlockbenchModelLoader",
+          "log": {
+            "line": 626,
+            "text": "[2311月2026 21:53:21.722] [Render thread/ERROR] [MinecraftTransitRailway/]: [mtr:textures/block/transparent.png] Invalid model!"
+          }
+        },
+        {
+          "call_id": 11,
+          "epoch_id": 11,
+          "before_sequence": 22,
+          "return_sequence": 23,
+          "thread_id": 1,
+          "thread": "Render thread",
+          "started_at": "2026-11-23T13:59:03.040705100Z",
+          "returned_at": "2026-11-23T13:59:03.043710600Z",
+          "native_call_chain": [
+            {
+              "class": "org.mtr.resource.VehicleModel",
+              "method": "getModelLoaderBase",
+              "descriptor": "(Ljava/lang/String;Ljava/lang/String;Lorg/mtr/resource/ResourceProvider;Z)Lorg/mtr/model/ModelLoaderBase;",
+              "line": 200,
+              "bytecode_index": 258
+            },
+            {
+              "class": "org.mtr.resource.RailResource",
+              "method": "<init>",
+              "descriptor": "(Ljava/lang/String;Ljava/lang/String;Lorg/mtr/resource/ResourceProvider;)V",
+              "line": 35,
+              "bytecode_index": 36
+            },
+            {
+              "class": "org.mtr.client.CustomResourceLoader",
+              "method": "reload",
+              "descriptor": "()V",
+              "line": 121,
+              "bytecode_index": 159
+            }
+          ],
+          "model_resource": "",
+          "texture_resource": "",
+          "returned_loader_class": "org.mtr.model.BlockbenchModelLoader",
+          "log": {
+            "line": 680,
+            "text": "[2311月2026 21:59:03.042] [Render thread/ERROR] [MinecraftTransitRailway/]: [mtr:textures/block/transparent.png] Invalid model!"
+          }
+        },
+        {
+          "call_id": 12,
+          "epoch_id": 12,
+          "before_sequence": 24,
+          "return_sequence": 25,
+          "thread_id": 1,
+          "thread": "Render thread",
+          "started_at": "2026-11-23T14:03:57.907802100Z",
+          "returned_at": "2026-11-23T14:03:57.910791800Z",
+          "native_call_chain": [
+            {
+              "class": "org.mtr.resource.VehicleModel",
+              "method": "getModelLoaderBase",
+              "descriptor": "(Ljava/lang/String;Ljava/lang/String;Lorg/mtr/resource/ResourceProvider;Z)Lorg/mtr/model/ModelLoaderBase;",
+              "line": 200,
+              "bytecode_index": 258
+            },
+            {
+              "class": "org.mtr.resource.RailResource",
+              "method": "<init>",
+              "descriptor": "(Ljava/lang/String;Ljava/lang/String;Lorg/mtr/resource/ResourceProvider;)V",
+              "line": 35,
+              "bytecode_index": 36
+            },
+            {
+              "class": "org.mtr.client.CustomResourceLoader",
+              "method": "reload",
+              "descriptor": "()V",
+              "line": 121,
+              "bytecode_index": 159
+            }
+          ],
+          "model_resource": "",
+          "texture_resource": "",
+          "returned_loader_class": "org.mtr.model.BlockbenchModelLoader",
+          "log": {
+            "line": 734,
+            "text": "[2311月2026 22:03:57.910] [Render thread/ERROR] [MinecraftTransitRailway/]: [mtr:textures/block/transparent.png] Invalid model!"
+          }
+        },
+        {
+          "call_id": 13,
+          "epoch_id": 13,
+          "before_sequence": 26,
+          "return_sequence": 27,
+          "thread_id": 1,
+          "thread": "Render thread",
+          "started_at": "2026-11-23T14:08:59.243622900Z",
+          "returned_at": "2026-11-23T14:08:59.246615400Z",
+          "native_call_chain": [
+            {
+              "class": "org.mtr.resource.VehicleModel",
+              "method": "getModelLoaderBase",
+              "descriptor": "(Ljava/lang/String;Ljava/lang/String;Lorg/mtr/resource/ResourceProvider;Z)Lorg/mtr/model/ModelLoaderBase;",
+              "line": 200,
+              "bytecode_index": 258
+            },
+            {
+              "class": "org.mtr.resource.RailResource",
+              "method": "<init>",
+              "descriptor": "(Ljava/lang/String;Ljava/lang/String;Lorg/mtr/resource/ResourceProvider;)V",
+              "line": 35,
+              "bytecode_index": 36
+            },
+            {
+              "class": "org.mtr.client.CustomResourceLoader",
+              "method": "reload",
+              "descriptor": "()V",
+              "line": 121,
+              "bytecode_index": 159
+            }
+          ],
+          "model_resource": "",
+          "texture_resource": "",
+          "returned_loader_class": "org.mtr.model.BlockbenchModelLoader",
+          "log": {
+            "line": 788,
+            "text": "[2311月2026 22:08:59.245] [Render thread/ERROR] [MinecraftTransitRailway/]: [mtr:textures/block/transparent.png] Invalid model!"
+          }
+        },
+        {
+          "call_id": 14,
+          "epoch_id": 14,
+          "before_sequence": 28,
+          "return_sequence": 29,
+          "thread_id": 1,
+          "thread": "Render thread",
+          "started_at": "2026-11-23T14:13:45.494531900Z",
+          "returned_at": "2026-11-23T14:13:45.497090600Z",
+          "native_call_chain": [
+            {
+              "class": "org.mtr.resource.VehicleModel",
+              "method": "getModelLoaderBase",
+              "descriptor": "(Ljava/lang/String;Ljava/lang/String;Lorg/mtr/resource/ResourceProvider;Z)Lorg/mtr/model/ModelLoaderBase;",
+              "line": 200,
+              "bytecode_index": 258
+            },
+            {
+              "class": "org.mtr.resource.RailResource",
+              "method": "<init>",
+              "descriptor": "(Ljava/lang/String;Ljava/lang/String;Lorg/mtr/resource/ResourceProvider;)V",
+              "line": 35,
+              "bytecode_index": 36
+            },
+            {
+              "class": "org.mtr.client.CustomResourceLoader",
+              "method": "reload",
+              "descriptor": "()V",
+              "line": 121,
+              "bytecode_index": 159
+            }
+          ],
+          "model_resource": "",
+          "texture_resource": "",
+          "returned_loader_class": "org.mtr.model.BlockbenchModelLoader",
+          "log": {
+            "line": 842,
+            "text": "[2311月2026 22:13:45.497] [Render thread/ERROR] [MinecraftTransitRailway/]: [mtr:textures/block/transparent.png] Invalid model!"
+          }
+        },
+        {
+          "call_id": 15,
+          "epoch_id": 15,
+          "before_sequence": 30,
+          "return_sequence": 31,
+          "thread_id": 1,
+          "thread": "Render thread",
+          "started_at": "2026-11-23T14:18:36.434578900Z",
+          "returned_at": "2026-11-23T14:18:36.437583200Z",
+          "native_call_chain": [
+            {
+              "class": "org.mtr.resource.VehicleModel",
+              "method": "getModelLoaderBase",
+              "descriptor": "(Ljava/lang/String;Ljava/lang/String;Lorg/mtr/resource/ResourceProvider;Z)Lorg/mtr/model/ModelLoaderBase;",
+              "line": 200,
+              "bytecode_index": 258
+            },
+            {
+              "class": "org.mtr.resource.RailResource",
+              "method": "<init>",
+              "descriptor": "(Ljava/lang/String;Ljava/lang/String;Lorg/mtr/resource/ResourceProvider;)V",
+              "line": 35,
+              "bytecode_index": 36
+            },
+            {
+              "class": "org.mtr.client.CustomResourceLoader",
+              "method": "reload",
+              "descriptor": "()V",
+              "line": 121,
+              "bytecode_index": 159
+            }
+          ],
+          "model_resource": "",
+          "texture_resource": "",
+          "returned_loader_class": "org.mtr.model.BlockbenchModelLoader",
+          "log": {
+            "line": 896,
+            "text": "[2311月2026 22:18:36.436] [Render thread/ERROR] [MinecraftTransitRailway/]: [mtr:textures/block/transparent.png] Invalid model!"
+          }
+        }
+      ],
+      "scope": "Live known official-default diagnostic attribution; rendering and performance impact remain separate",
+      "captured_events": 31,
+      "completed_epochs": 15
+    }
+  },
+  "baseline_sequence": 2,
+  "verified_reload_count": 13,
+  "longest_verified_reload_run": 13,
+  "reloads": [
+    {
+      "event_id": "d847d55c-ccd3-4fd4-bc89-9bad9c88f5f0:52",
+      "sequence": 3,
+      "verified": true,
+      "failures": []
+    },
+    {
+      "event_id": "d847d55c-ccd3-4fd4-bc89-9bad9c88f5f0:190",
+      "sequence": 4,
+      "verified": true,
+      "failures": []
+    },
+    {
+      "event_id": "d847d55c-ccd3-4fd4-bc89-9bad9c88f5f0:317",
+      "sequence": 5,
+      "verified": true,
+      "failures": []
+    },
+    {
+      "event_id": "d847d55c-ccd3-4fd4-bc89-9bad9c88f5f0:451",
+      "sequence": 6,
+      "verified": true,
+      "failures": []
+    },
+    {
+      "event_id": "d847d55c-ccd3-4fd4-bc89-9bad9c88f5f0:585",
+      "sequence": 7,
+      "verified": true,
+      "failures": []
+    },
+    {
+      "event_id": "d847d55c-ccd3-4fd4-bc89-9bad9c88f5f0:733",
+      "sequence": 8,
+      "verified": true,
+      "failures": []
+    },
+    {
+      "event_id": "d847d55c-ccd3-4fd4-bc89-9bad9c88f5f0:876",
+      "sequence": 9,
+      "verified": true,
+      "failures": []
+    },
+    {
+      "event_id": "d847d55c-ccd3-4fd4-bc89-9bad9c88f5f0:1010",
+      "sequence": 10,
+      "verified": true,
+      "failures": []
+    },
+    {
+      "event_id": "d847d55c-ccd3-4fd4-bc89-9bad9c88f5f0:1169",
+      "sequence": 11,
+      "verified": true,
+      "failures": []
+    },
+    {
+      "event_id": "d847d55c-ccd3-4fd4-bc89-9bad9c88f5f0:1305",
+      "sequence": 12,
+      "verified": true,
+      "failures": []
+    },
+    {
+      "event_id": "d847d55c-ccd3-4fd4-bc89-9bad9c88f5f0:1445",
+      "sequence": 13,
+      "verified": true,
+      "failures": []
+    },
+    {
+      "event_id": "d847d55c-ccd3-4fd4-bc89-9bad9c88f5f0:1576",
+      "sequence": 14,
+      "verified": true,
+      "failures": []
+    },
+    {
+      "event_id": "d847d55c-ccd3-4fd4-bc89-9bad9c88f5f0:1711",
+      "sequence": 15,
+      "verified": true,
+      "failures": []
+    }
+  ],
+  "stability": {
+    "samples": 15,
+    "consumer_seconds": 69.9996400999371,
+    "native_seconds": 69.9155686
+  },
+  "waiting_for": "measured_stable_spans"
+}

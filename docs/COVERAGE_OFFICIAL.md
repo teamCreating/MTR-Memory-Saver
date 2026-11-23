@@ -3,9 +3,19 @@
 Scope: Memory Saver 0.4.7 candidate and separately identified historical 0.4.6
 evidence with official MTR 4.1.0-beta.2, Minecraft 1.21.1,
 Java 21 and the two explicit NeoForge targets. New v6 validation is paused.
-Updated: 2026-11-17 (UTC+08:00).
+Updated: 2026-11-23 (UTC+08:00).
 
-The default candidate is now **0.4.7**. Both official targets pass 73 Java tests,
+Current 0.4.8 delivery selects **official-nf265 only**. The exact optimized JAR
+passes 106 Java regressions, 69 packaged checks and wrong-binary rejection.
+Its [twenty-reload proof](../evidence/engineering-056/nf265-reload20/README.md)
+reproduces twenty consecutive real full-pack reloads, nineteen intermediate
+stable windows, a separate final observation and normal exit. Whole-client
+performance, exhaustive vehicle interactions and a two-hour route remain pending;
+the [release decision](../evidence/engineering-056/release-decision/README.md)
+permits scoped development pre-release delivery. Historical evidence below keeps
+its original version and scope.
+
+Both official 0.4.7 targets pass 73 Java tests,
 four actual abrupt-exit cleanup checks across writing and workspace waiting, and
 four 3 GiB large-OBJ checks across targets and CompactStrings modes. The exact
 0.4.6 negative controls retain spill files under the same abrupt-exit harness.

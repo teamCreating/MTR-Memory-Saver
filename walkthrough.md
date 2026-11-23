@@ -742,3 +742,14 @@ NF265旧134770…与新920c1f…对同一65,255,687-byte真实bbmodel进行6对A
 
 PR #4 因 main 已经 squash 合入历史测试整理而显示冲突。合并 origin/main，逐项比较四个冲突文件；保留本分支后续 Windows CI 分步失败传播修复、更新后的历史脚本目录、reload waiter 测试说明和全部 walkthrough，main 的测试整理已包含在现有分支。未修改运行中观察器、产品源码或冻结验收规则。执行历史索引校验和完整工具回归后形成合并提交，并按约定自动 push。
 
+
+## 2026-11-23T23:08:07.1009065+08:00 — 完成 NF265 20 次连续重载并准备 0.4.8 预发布
+
+精确候选 920c1f833b6f173c7443ff5956493b779acfeceb293fa640817a459985db3f5b 在 NeoForge21.1.265、官方MTR beta.2、全16包、3072/512MiB、G1、observer1.0.3 的同一真实 JVM71724 完成连续epoch3–22共20轮，baseline2属于先前输入校准。主consumer1199样本中482有效、717加载期无效/过期样本全部保留，status reloads_verified、passed true、最长连续20。19个原ready双时钟稳定60秒；独立post20十四样本全通过，重放65.0032075/64.7949559秒。recorder2836次正常停止关闭句柄，原生AltF4保存退出，parent-owned实际wait exit0。最终19个mods/packs匹配原plan，213901766bytes完整JFR实际summary exit0，SHA e04b321266d981eda7bf9b5ddba1e1112133dd512e90aa2ed7a6b3433db51eb7。没有OOM和未归因模型错误，官方空rail诊断逐次归因，账户属性网络错误原样保留。
+
+engineering-056/nf265-reload20保留40个选定record闭包、所有literal input-attempt及journal、consumer流、19个ready、终态和冻结reader；607个payload逐项hash后 canonical离线重放实际成功。初始化缺文件与IME首键未触发的旧cohort另存98份选定原件zip，明确该初步失败选集不构成完整回放、不计入20。未改产品Java、运行时规则或旧失败证据。README/BUILDING/验收与support刷新为0.4.8且默认NF265，248仅历史源构建。原整客户端性能门槛仍未通过，本次按用户继续验证发布授权作有范围说明的development pre-release；不宣称全局性能收益、全部玩法或两小时路线通过。
+
+682份历史脚本和11样例校验、354工具测试全通过（51.005s）；NF265 releaseBundle/verifyNeutralProbe成功。仅选择NF265的新鲜发行资产目录经checksums及verify-assets通过，包内JAR逐字节等于真实游戏候选，observer/probe均未包含。最终提交推送后等待PR必需CI，再经保护main合入和v0.4.8标签工作流发布，不绕过检查。
+
+封存提交前 Git whitespace 校验识别 .bin 中的原始MTR日志ASCII横幅尾空格；沿用既有证据目录规则将新056路径的.bin标为binary，完整保留原始字节与hash，未清理或重写日志。
+

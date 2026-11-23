@@ -13,7 +13,9 @@ wrapper verifies the distribution checksum. On Windows use PowerShell 7 and
 ```
 
 `config/targets.json` determines the official/v6 source directory, exact MTR SHA-256,
-exact NeoForge version, metadata and Mixin set. The default is `official-nf248`.
+exact NeoForge version, metadata and Mixin set. The default is `official-nf265`.
+`releaseTargets` selects the targets built and published by CI; 0.4.8 selects
+only `official-nf265`. Historical presets remain explicit build options.
 `gradle.properties` contains the sole current version, which must stay `0.x.x`.
 The ModDevGradle plugin generates development game dependencies in its own cache;
 it does not read a vehicle-test-instance marker or any launcher-private Python API.
@@ -24,7 +26,7 @@ configured public source and always needs an explicit audited JAR. Gradle itself
 also needs cached dependencies when run offline (`--offline`).
 
 The optional Python entry point `python tools/build_vehicle_memory_mod.py --target
-official-nf248` forwards to Gradle. Its historical instance/feature path requires
+official-nf265` forwards to Gradle. Its historical instance/feature path requires
 `--legacy` and is not a stable release build.
 
 ## Outputs and verification

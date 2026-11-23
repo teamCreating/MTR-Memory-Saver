@@ -1,0 +1,22 @@
+{
+  "started_at": "2026-11-23T13:28:44.646478+00:00",
+  "completed_at": "2026-11-23T13:32:47.660292+00:00",
+  "argv": [
+    "tools/wait_reload_ready.py",
+    "--recorder",
+    ".cache/acceptance/release048-nf265/recorder03",
+    "--consumer",
+    ".cache/acceptance/release048-nf265/consumer03",
+    "--output",
+    ".cache/acceptance/release048-nf265/ready-005",
+    "--expected-sequence",
+    "5",
+    "--deadline-seconds",
+    "420"
+  ],
+  "source_sha256": "2ce1525514d71f0c18c4de274832491d7635cf86f46fb13f62816cba09aa66f1",
+  "current_source_sha256": "2ce1525514d71f0c18c4de274832491d7635cf86f46fb13f62816cba09aa66f1",
+  "returned_exit_code": 0,
+  "stdout_sha256": "b6767a1e3e2fb87bbe1be96989a7bd61ebc6ace356d87d4446fae9328671688d",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

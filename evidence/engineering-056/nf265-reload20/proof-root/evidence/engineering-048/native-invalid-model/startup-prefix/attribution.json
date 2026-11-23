@@ -1,0 +1,83 @@
+{
+  "scope": "Captured invalid-model attribution only; no other error, rendering, performance, or gameplay acceptance",
+  "pid": 51876,
+  "process_started_at": "2026-11-16T05:40:37.224Z",
+  "target": {
+    "schema_version": 1,
+    "target": "official-nf248",
+    "variant": "official",
+    "minecraft": "1.21.1",
+    "java": 21,
+    "neoForge": "21.1.248",
+    "mtrSha256": "ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa",
+    "output": "game-probe/native-invalid-model.jsonl"
+  },
+  "captured_events": 3,
+  "invalid_factory_calls": 1,
+  "all_captured_invalid_calls_attributed": true,
+  "calls": [
+    {
+      "before_sequence": 2,
+      "return_sequence": 3,
+      "thread_id": 1,
+      "timestamp": "2026-11-16T05:41:12.093506600Z",
+      "classification": "official_generated_default_rail",
+      "model_resource": "",
+      "texture_resource": "",
+      "native_call_chain": [
+        {
+          "class": "org.mtr.resource.VehicleModel",
+          "method": "getModelLoaderBase"
+        },
+        {
+          "class": "org.mtr.resource.RailResource",
+          "method": "<init>"
+        },
+        {
+          "class": "org.mtr.client.CustomResourceLoader",
+          "method": "reload"
+        }
+      ],
+      "returned_loader_class": "org.mtr.model.BlockbenchModelLoader",
+      "log": {
+        "line": 119,
+        "text": "[1611月2026 13:41:12.096] [Render thread/ERROR] [MinecraftTransitRailway/]: [mtr:textures/block/transparent.png] Invalid model!",
+        "texture_identifier": "mtr:textures/block/transparent.png"
+      }
+    }
+  ],
+  "limitations": [
+    "A live snapshot only covers its captured prefix; later log events remain outside this report.",
+    "Native empty fallback work still occurs. This observation does not measure its cost.",
+    "Historical untraced occurrences are not retroactively attributed.",
+    "World rail styles and actual rendering/interaction require separate evidence."
+  ],
+  "timestamp": "2026-11-16T13:46:34.714445+08:00",
+  "inputs": {
+    "trace": {
+      "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-048\\native-invalid-model\\startup-prefix\\game-probe\\native-invalid-model.jsonl",
+      "sha256": "ce00b0c4e8421be601606129893948ed616208e54409085813c070d7f88ed57b"
+    },
+    "log": {
+      "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-048\\native-invalid-model\\startup-prefix\\logs\\latest.log",
+      "sha256": "393abf7b87cd856e4b4e8cff504e6926e35f163de5c9358546b12807a5419635"
+    },
+    "plan": {
+      "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-048\\native-invalid-model\\startup-prefix\\packaged-client-plan.json",
+      "sha256": "fd02a07fbdbfe87ad8005877da2c3fe14ba43fe1c7b8204e8b74db592270d72e"
+    },
+    "launch": {
+      "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-048\\native-invalid-model\\startup-prefix\\packaged-client-launch.json",
+      "sha256": "f3df157ddd0ead12240e2fd98dc0b357bb1423165857010ab2f75caa5460bc8c"
+    },
+    "probe": {
+      "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-048\\native-invalid-model\\startup-prefix\\mods\\mtr-model-trace-official-nf248-1.0.0.jar",
+      "sha256": "95aa3ac2d140ead4bca42a7625c497fdceeca7cc09acd72dc960065fae5ebea4"
+    },
+    "native_snapshot": {
+      "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-048\\native-invalid-model\\startup-prefix\\game-probe\\native-observer.json",
+      "sha256": "02d5aa3e5779108806aeac1d033b7b344bbc9dd0a783b4e72ad8f273bf9603f8"
+    }
+  },
+  "analyzer_sha256": "5eee02bb9ef4f6c097cfeca175978f6591ac06f112c7a45575e6a6295c91b791"
+}
