@@ -1,0 +1,27 @@
+{
+  "started_at": "2026-11-17T12:37:17.348003+00:00",
+  "completed_at": "2026-11-17T12:37:22.400955+00:00",
+  "elapsed_seconds": 5.05292260000715,
+  "argv": [
+    "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.venv\\Scripts\\python.exe",
+    "-X",
+    "utf8",
+    "-m",
+    "unittest",
+    "-v",
+    "test_wait_reload_ready"
+  ],
+  "cwd": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\tools",
+  "exit_code": 0,
+  "source_sha256_before": {
+    "tools/wait_reload_ready.py": "5aecbb6bf25ff469709d4ef86f777983559a553ec0ea784013747fa4272517db",
+    "tools/test_wait_reload_ready.py": "4bb3bc4c7ad18ac84b307a88f94fa211870cfb2df7b9948699fa17cf4ec6a55e"
+  },
+  "source_sha256_after": {
+    "tools/wait_reload_ready.py": "5aecbb6bf25ff469709d4ef86f777983559a553ec0ea784013747fa4272517db",
+    "tools/test_wait_reload_ready.py": "4bb3bc4c7ad18ac84b307a88f94fa211870cfb2df7b9948699fa17cf4ec6a55e"
+  },
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stderr_sha256": "908bb5ae21e184de57bd8770ff31001d9774bbb51534ae0a0bbeecff36226535",
+  "scope": "Offline final waiter controls including actual OOM/no-publication and deterministic deadline/API-init ownership boundaries; no game/reader/UI/native process query."
+}

@@ -1,0 +1,96 @@
+from pathlib import Path
+import hashlib
+import json
+import shutil
+import zipfile
+import sys
+
+sys.path.insert(0, str(Path("tools").resolve()))
+import practical_client_verification as p
+
+cache = Path(".cache/acceptance/spark-054").resolve()
+dest = Path("evidence/engineering-054/practical-spark").resolve()
+dest.mkdir(parents=True, exist_ok=False)
+audit = p.read(cache / "practical-recovery-audit01.json")
+assert audit["all_12_trials_qualified"] and not audit["errors"] and audit["qualified_trials"] == 12
+def write(name, data):
+    p.save(dest / name, data, exclusive=True)
+
+shutil.copyfile(cache / "practical-recovery-audit01.json", dest / "assessment.json")
+shutil.copyfile(cache / "practical-run01-replay01.json", dest / "original-run-replay.json")
+source = dest / "source"
+source.mkdir()
+for src in ("tools/practical_client_verification.py", "tools/client_experiment.py", "tools/spark_client_sampler.py", "tools/spark_operator.py", "tools/spark_profile_analysis.py", "tools/SparkProfileExport.java", "config/client-practical-verification.json", "config/client-samplers.json", "config/client-experiment.json"):
+    path = Path(src)
+    shutil.copyfile(path, source / (path.name + ".txt"))
+for name in ("audit-recovery.py", "retry-pairs.py"):
+    shutil.copyfile(cache / name, source / (name + ".txt"))
+
+archives = []
+omitted = []
+attempts = sorted((cache / "practical-run01").glob("*/trial-summary.json"))
+attempts += [cache / "profile-recovery01/trial-summary.json"]
+attempts += sorted((cache / "retry-pairs01").glob("*/trial-summary.json"))
+for summary in attempts:
+    trial = summary.parent
+    relative = trial.relative_to(cache).as_posix()
+    items = p.trial_raw_files(trial)
+    p.exp.verify_raw_files(trial, p.read(summary)["files"], excluded_root_files=p.TRIAL_INVENTORY_EXCLUSIONS)
+    name = relative.replace("/", "--") + ".zip"
+    kept = []
+    with zipfile.ZipFile(dest / name, "x", compression=zipfile.ZIP_DEFLATED, compresslevel=9) as archive:
+        for item in items + [{"relative_path": "trial-summary.json", "sha256": p.digest(summary), "bytes": summary.stat().st_size}]:
+            path = trial / item["relative_path"]
+            if (path.suffix in (".jfr", ".class", ".sparkprofile") or item["relative_path"] == "spark/decode/export.stdout.log"):
+                omitted.append({"capture": relative, **item, "reason": "Original recording or full decoded configuration retained in local ignored cache"})
+                continue
+            archive.write(path, item["relative_path"])
+            kept.append(item)
+    with zipfile.ZipFile(dest / name) as archive:
+        assert archive.testzip() is None
+        assert sorted(archive.namelist()) == sorted(item["relative_path"] for item in kept)
+        for item in kept:
+            raw = archive.read(item["relative_path"])
+            assert len(raw) == item["bytes"] and hashlib.sha256(raw).hexdigest() == item["sha256"]
+    archives.append({"capture": relative, "archive": name, "sha256": p.digest(dest / name), "bytes": (dest / name).stat().st_size, "payloads": kept})
+    print(relative, len(kept), flush=True)
+write("captures.json", {"scope": "Selected immutable payloads with archive roundtrip hash verification", "attempts": archives})
+write("local-recordings.json", {"scope": "Local fingerprints. Full raw JFR/Spark replay requires the retained cache recordings.", "files": omitted})
+policy = audit["budgets"]
+comparisons = audit["comparisons"]
+checks = []
+def gate(group, metric, limit, *, absolute=False, delta="percent"):
+    comp = comparisons[group][metric]
+    values = comp["absolute_deltas" if delta == "absolute" else "percent_deltas"]
+    checks.append({"comparison": group, "metric": metric, "unit": delta,
+                   "values": values, "limit": limit, "absolute_magnitude": absolute,
+                   "passed": all((abs(value) if absolute else value) <= limit for value in values)})
+gate("ab_plain", "steady_private_bytes", policy["primary_steady_private_percent"])
+for key, metric in (("loading_percent", "loading_ms"), ("steady_heap_percent", "steady_heap_bytes")):
+    gate("ab_plain", metric, policy["guardrails"][key])
+gate("ab_profile_spark", "frame_p99_ms", policy["guardrails"]["frame_p99_percent"])
+for metric, key in (("gc_pause_total_ms", "gc_pause_total_ms"), ("full_gc_count", "full_gc_count"), ("full_gc_pause_max_ms", "full_gc_pause_max_ms")):
+    gate("ab_profile_spark", metric, policy["guardrails"][key], delta="absolute")
+for metric, key in (("steady_private_bytes", "steady_private_percent"), ("loading_ms", "loading_percent"), ("steady_heap_bytes", "steady_heap_percent")):
+    gate("aa_plain_noise", metric, policy["aa_equivalence"][key], absolute=True)
+    for role in ("baseline", "candidate"):
+        gate("jfr_and_spark_overhead_" + role, metric, policy["instrumentation_equivalence"][key], absolute=True)
+gate("observer_and_idle_spark_overhead", "steady_private_bytes", policy["observer_off_overhead_percent"], absolute=True)
+write("decision.json", {
+    "recorded_at": p.now(), "version": "0.4.8", "target": "official-nf248",
+    "measurement_completed": True, "qualified_trials": 12,
+    "performance_accepted": all(check["passed"] for check in checks),
+    "release_status": "held", "release_accepted": False,
+    "reason": "Plain private-memory reduction misses the 10 percent target and loading exceeds the 5 percent guardrail.",
+    "budget_comparison_rule": "Each pair must meet its bound. Equivalence uses absolute percent change. Probe-off bound is applied to steady private memory.",
+    "checks": checks,
+    "limits": [
+        "Two AB/BA pairs per mode and one AA pair provide practical observations.",
+        "Replacement pairs ran later than original pairs. The 48-trial statistical protocol remains incomplete.",
+        "JFR frame spans measure the native render loop. Independent displayed-frame qualification remains unavailable.",
+        "Spark Java engine execution weights include waits and have safepoint bias.",
+        "All selected JVMs were terminated by the existing collector after measurement and report exit 1. Normal save-and-close is untested here.",
+        "NF265 performance was not measured in this round.",
+    ],
+})
+print("sealed", len(archives), "attempts", flush=True)

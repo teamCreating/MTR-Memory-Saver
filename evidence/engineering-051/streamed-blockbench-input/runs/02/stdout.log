@@ -1,0 +1,34 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.14.3/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+
+> Configure project :
+Creating Minecraft artifacts without recompilation.
+
+> Task :createMinecraftArtifacts UP-TO-DATE
+> Task :prepareMtr
+> Task :compileJava UP-TO-DATE
+> Task :generateMetadata
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+> Task :jarJar NO-SOURCE
+> Task :jar
+> Task :compileTestJava
+> Task :processTestResources NO-SOURCE
+> Task :testClasses
+> Task :test
+> Task :buildManifest
+> Task :verifyRelease
+
+> Task :streamingBlockbenchInputAudit
+{"mode":"snapshot","max_heap_bytes":67108864,"decoded_units":41943042,"explicit_fixture_workspace_bytes":167772168,"digest":"5b0390cb3134dc6f7b26634b704c8d62833d07a887ae0fd0b446cf384ef03053","native_schema_equal":true,"settled":true}
+
+[Incubating] Problems report is available at: file:///C:/Users/ben_l/Documents/Coding/resoucepack%20update/vehicle-memory/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.14.3/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 54s
+11 actionable tasks: 8 executed, 3 up-to-date

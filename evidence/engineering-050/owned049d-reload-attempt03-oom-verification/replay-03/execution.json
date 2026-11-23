@@ -1,0 +1,19 @@
+{
+  "started_at": "2026-11-17T11:27:59.564892+00:00",
+  "completed_at": "2026-11-17T11:28:02.889071+00:00",
+  "elapsed_seconds": 3.3241452999645844,
+  "argv": [
+    "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.venv\\Scripts\\python.exe",
+    "-X",
+    "utf8",
+    "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\owned049d-reload-attempt03-oom\\verify_sealed.py",
+    "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\owned049d-reload-attempt03-oom-verification\\replay-03\\verification-result.json"
+  ],
+  "exit_code": 0,
+  "verifier_sha256_before": "03fb689dfe7654216e7837a162a025da9c6b8c4d8064255de4cd92c15d6819fb",
+  "verifier_sha256_after": "03fb689dfe7654216e7837a162a025da9c6b8c4d8064255de4cd92c15d6819fb",
+  "seal_index_sha256": "945b19b123de263865bfa5b9a16ff6b1736d87e5080406e397042b5bf64b64c1",
+  "stdout_sha256": "882a1b6b95fb3eed4d5c75a5f922fb8e3f922ca7a367450665d94874a50c1f84",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "scope": "Final sealed-only replay including exact parent-frozen 0.4.7 Java input bytes. No changing live Java, live process/log, growing snapshot, JFR binary or runtime change."
+}

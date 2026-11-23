@@ -1,0 +1,538 @@
+[2311月2026 21:06:32.601] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--username, VehicleTest, --version, neoforge-21.1.265, --gameDir, C:\Users\ben_l\Documents\Coding\resoucepack update\vehicle-memory\.cache\acceptance\release048-nf265\faults, --assetsDir, C:\Users\ben_l\Documents\Coding\resoucepack update\vehicle-memory\.cache\acceptance\release048-nf265\faults\assets, --assetIndex, 17, --uuid, ef3a7c5e-04de-4b74-a199-8b4af6110db3, --accessToken, ❄❄❄❄❄❄❄❄, --clientId, ${clientid}, --xuid, ${auth_xuid}, --userType, msa, --versionType, release, --width, 1280, --height, 720, --fml.neoForgeVersion, 21.1.265, --fml.fmlVersion, 4.0.45, --fml.mcVersion, 1.21.1, --fml.neoFormVersion, 20240808.144430, --launchTarget, forgeclient, --disableMultiplayer]
+[2311月2026 21:06:32.605] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: JVM identified as Eclipse Adoptium OpenJDK 64-Bit Server VM 21.0.11+10-LTS
+[2311月2026 21:06:32.606] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 11.0.5+main.901c6ea8 starting: java version 21.0.11 by Eclipse Adoptium; OS Windows 10 arch amd64 version 10.0
+[2311月2026 21:06:32.804] [main/INFO] [net.neoforged.fml.loading.ImmediateWindowHandler/]: Loading ImmediateWindowProvider fmlearlywindow
+[2311月2026 21:06:32.990] [main/INFO] [EARLYDISPLAY/]: Trying GL version 4.6
+[2311月2026 21:06:33.096] [main/INFO] [EARLYDISPLAY/]: Requested GL version 4.6 got version 4.6
+[2311月2026 21:06:33.385] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:/C:/Users/ben_l/Documents/Coding/resoucepack%20update/vehicle-memory/.cache/acceptance/release048-nf265/faults/libraries/net/fabricmc/sponge-mixin/0.16.4+mixin.0.8.7/sponge-mixin-0.16.4+mixin.0.8.7.jar%23121!/ Service=ModLauncher Env=CLIENT
+[2311月2026 21:06:33.506] [pool-2-thread-1/INFO] [EARLYDISPLAY/]: GL info: Intel(R) HD Graphics P530 GL version 4.6.0 - Build 31.0.101.2111, Intel
+[2311月2026 21:06:34.071] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "client-1.21.1-20240808.144430-srg.jar" [locator: production client provider +net.neoforged:neoforge:21.1.265:client]
+[2311月2026 21:06:34.104] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "neoforge-21.1.265-universal.jar" [locator: PathBasedLocator[name=neoforge, paths=[C:\Users\ben_l\Documents\Coding\resoucepack update\vehicle-memory\.cache\acceptance\release048-nf265\faults\libraries\net\neoforged\neoforge\21.1.265\neoforge-21.1.265-universal.jar]], reader: mod manifest]
+[2311月2026 21:06:34.117] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "candidate.jar" [locator: {mods folder locator at C:\Users\ben_l\Documents\Coding\resoucepack update\vehicle-memory\.cache\acceptance\release048-nf265\faults\mods}, reader: mod manifest]
+[2311月2026 21:06:34.132] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "MTR-neoforge-4.1.0-beta.2+1.21.1.jar" [locator: {mods folder locator at C:\Users\ben_l\Documents\Coding\resoucepack update\vehicle-memory\.cache\acceptance\release048-nf265\faults\mods}, reader: mod manifest]
+[2311月2026 21:06:34.140] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "probe.jar" [locator: {mods folder locator at C:\Users\ben_l\Documents\Coding\resoucepack update\vehicle-memory\.cache\acceptance\release048-nf265\faults\mods}, reader: mod manifest]
+[2311月2026 21:06:34.302] [main/INFO] [net.neoforged.fml.loading.moddiscovery.locators.JarInJarDependencyLocator/]: Found 2 dependencies adding them to mods collection
+[2311月2026 21:06:34.302] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found gamelibrary file "mixinextras-neoforge-0.5.5.jar" [parent: neoforge-21.1.265-universal.jar, locator: jarinjar, reader: mod manifest]
+[2311月2026 21:06:34.302] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found library file "net.neoforged.neoforge-coremods-21.1.265.jar" [parent: neoforge-21.1.265-universal.jar, locator: jarinjar, reader: mod manifest]
+[2311月2026 21:06:34.304] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/]: 
+     Mod List:
+		Name Version (Mod Id)
+
+		Minecraft 1.21.1 (minecraft)
+		Minecraft Transit Railway 4.1.0-beta.2 (mtr)
+		MTR Memory Acceptance Probe 0.4.8 (vehicle_performance_probe)
+		MTR Memory Saver 0.4.8 (mtr_memory_sharing)
+		NeoForge 21.1.265 (neoforge)
+[2311月2026 21:06:34.962] [main/INFO] [mixin/]: Compatibility level set to JAVA_21
+[2311月2026 21:06:34.979] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeclient' with arguments [--version, neoforge-21.1.265, --gameDir, C:\Users\ben_l\Documents\Coding\resoucepack update\vehicle-memory\.cache\acceptance\release048-nf265\faults, --assetsDir, C:\Users\ben_l\Documents\Coding\resoucepack update\vehicle-memory\.cache\acceptance\release048-nf265\faults\assets, --uuid, ef3a7c5e-04de-4b74-a199-8b4af6110db3, --username, VehicleTest, --assetIndex, 17, --accessToken, ❄❄❄❄❄❄❄❄, --clientId, ${clientid}, --xuid, ${auth_xuid}, --userType, msa, --versionType, release, --width, 1280, --height, 720, --disableMultiplayer]
+[2311月2026 21:06:38.043] [Datafixer Bootstrap/INFO] [com.mojang.datafixers.DataFixerBuilder/]: 229 Datafixer optimizations took 411 milliseconds
+[2311月2026 21:06:38.249] [pool-9-thread-1/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.5).
+[2311月2026 21:06:44.244] [Render thread/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/ben_l/Documents/Coding/resoucepack%20update/vehicle-memory/.cache/acceptance/release048-nf265/faults/libraries/net/minecraft/client/1.21.1-20240808.144430/client-1.21.1-20240808.144430-srg.jar%23191!/assets/.mcassetsroot' uses unexpected schema
+[2311月2026 21:06:44.245] [Render thread/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/ben_l/Documents/Coding/resoucepack%20update/vehicle-memory/.cache/acceptance/release048-nf265/faults/libraries/net/minecraft/client/1.21.1-20240808.144430/client-1.21.1-20240808.144430-srg.jar%23191!/data/.mcassetsroot' uses unexpected schema
+[2311月2026 21:06:44.291] [Render thread/INFO] [com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService/]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[2311月2026 21:06:44.308] [Render thread/INFO] [net.minecraft.client.Minecraft/]: Setting user: VehicleTest
+[2311月2026 21:06:44.479] [Render thread/INFO] [net.minecraft.client.Minecraft/]: Backend library: LWJGL version 3.3.3+5
+[2311月2026 21:06:44.908] [modloading-worker-0/INFO] [net.neoforged.neoforge.common.NeoForgeMod/NEOFORGE-MOD]: NeoForge mod loading, version 21.1.265, for MC 1.21.1
+[2311月2026 21:06:45.183] [modloading-worker-0/INFO] [MinecraftTransitRailway/]: Starting Minecraft with arguments:
+-Xms512M
+-Xmx3072M
+-Dmtr.memory.acceptance=true
+-Dmtr.memory.acceptance.exit=true
+-XX:StartFlightRecording=name=acceptance,settings=profile,disk=true,maxsize=0,dumponexit=true,filename=acceptance.jfr
+-Xlog:gc*,safepoint:file=acceptance-gc.log:time,uptime,level,tags:filecount=0
+-XX:+UseG1GC
+-XX:HeapDumpPath=MojangTricksIntelDriversForPerformance_javaw.exe_minecraft.exe.heapdump
+-Djava.library.path=C:\Users\ben_l\Documents\Coding\resoucepack update\vehicle-memory\.cache\acceptance\release048-nf265\faults\versions\neoforge-21.1.265\natives
+-Djna.tmpdir=C:\Users\ben_l\Documents\Coding\resoucepack update\vehicle-memory\.cache\acceptance\release048-nf265\faults\versions\neoforge-21.1.265\natives
+-Dorg.lwjgl.system.SharedLibraryExtractPath=C:\Users\ben_l\Documents\Coding\resoucepack update\vehicle-memory\.cache\acceptance\release048-nf265\faults\versions\neoforge-21.1.265\natives
+-Dio.netty.native.workdir=C:\Users\ben_l\Documents\Coding\resoucepack update\vehicle-memory\.cache\acceptance\release048-nf265\faults\versions\neoforge-21.1.265\natives
+-Dminecraft.launcher.brand=minecraft-launcher-lib
+-Dminecraft.launcher.version=8.0
+-Djava.net.preferIPv6Addresses=system
+-DignoreList=client-extra,neoforge-21.1.265.jar
+-DlibraryDirectory=C:\Users\ben_l\Documents\Coding\resoucepack update\vehicle-memory\.cache\acceptance\release048-nf265\faults\libraries
+--module-path=C:\Users\ben_l\Documents\Coding\resoucepack update\vehicle-memory\.cache\acceptance\release048-nf265\faults\libraries/cpw/mods/bootstraplauncher/2.0.2/bootstraplauncher-2.0.2.jar;C:\Users\ben_l\Documents\Coding\resoucepack update\vehicle-memory\.cache\acceptance\release048-nf265\faults\libraries/cpw/mods/securejarhandler/3.0.8/securejarhandler-3.0.8.jar;C:\Users\ben_l\Documents\Coding\resoucepack update\vehicle-memory\.cache\acceptance\release048-nf265\faults\libraries/org/ow2/asm/asm-commons/9.10.1/asm-commons-9.10.1.jar;C:\Users\ben_l\Documents\Coding\resoucepack update\vehicle-memory\.cache\acceptance\release048-nf265\faults\libraries/org/ow2/asm/asm-util/9.10.1/asm-util-9.10.1.jar;C:\Users\ben_l\Documents\Coding\resoucepack update\vehicle-memory\.cache\acceptance\release048-nf265\faults\libraries/org/ow2/asm/asm-analysis/9.10.1/asm-analysis-9.10.1.jar;C:\Users\ben_l\Documents\Coding\resoucepack update\vehicle-memory\.cache\acceptance\release048-nf265\faults\libraries/org/ow2/asm/asm-tree/9.10.1/asm-tree-9.10.1.jar;C:\Users\ben_l\Documents\Coding\resoucepack update\vehicle-memory\.cache\acceptance\release048-nf265\faults\libraries/org/ow2/asm/asm/9.10.1/asm-9.10.1.jar;C:\Users\ben_l\Documents\Coding\resoucepack update\vehicle-memory\.cache\acceptance\release048-nf265\faults\libraries/net/neoforged/JarJarFileSystems/0.4.1/JarJarFileSystems-0.4.1.jar
+--add-modules=ALL-MODULE-PATH
+--add-opens=java.base/java.util.jar=cpw.mods.securejarhandler
+--add-opens=java.base/java.lang.invoke=cpw.mods.securejarhandler
+--add-exports=java.base/sun.security.util=cpw.mods.securejarhandler
+--add-exports=jdk.naming.dns/com.sun.jndi.dns=java.naming
+[2311月2026 21:06:45.185] [modloading-worker-0/INFO] [MinecraftTransitRailway/]: :  __  __     _                                                __    _     
+[2311月2026 21:06:45.186] [modloading-worker-0/INFO] [MinecraftTransitRailway/]: : |  \/  |   (_)    _ _      ___     __       _ _   __ _      / _|  | |_   
+[2311月2026 21:06:45.186] [modloading-worker-0/INFO] [MinecraftTransitRailway/]: : | |\/| |   | |   | ' \    / -_)   / _|     | '_| / _` |    |  _|  |  _|  
+[2311月2026 21:06:45.186] [modloading-worker-0/INFO] [MinecraftTransitRailway/]: : |_|__|_|  _|_|_  |_||_|   \___|   \__|_   _|_|_  \__,_|   _|_|_   _\__|  
+[2311月2026 21:06:45.186] [modloading-worker-0/INFO] [MinecraftTransitRailway/]: : _|"""""|_|"""""|_|"""""|_|"""""|_|"""""|_|"""""|_|"""""|_|"""""|_|"""""| 
+[2311月2026 21:06:45.186] [modloading-worker-0/INFO] [MinecraftTransitRailway/]: : "`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-' 
+[2311月2026 21:06:45.186] [modloading-worker-0/INFO] [MinecraftTransitRailway/]: :   _____                                     _      _                     
+[2311月2026 21:06:45.187] [modloading-worker-0/INFO] [MinecraftTransitRailway/]: :  |_   _|    _ _   __ _    _ _      ___     (_)    | |_                   
+[2311月2026 21:06:45.187] [modloading-worker-0/INFO] [MinecraftTransitRailway/]: :    | |     | '_| / _` |  | ' \    (_-<     | |    |  _|                  
+[2311月2026 21:06:45.187] [modloading-worker-0/INFO] [MinecraftTransitRailway/]: :   _|_|_   _|_|_  \__,_|  |_||_|   /__/_   _|_|_   _\__|                  
+[2311月2026 21:06:45.187] [modloading-worker-0/INFO] [MinecraftTransitRailway/]: : _|"""""|_|"""""|_|"""""|_|"""""|_|"""""|_|"""""|_|"""""|                 
+[2311月2026 21:06:45.187] [modloading-worker-0/INFO] [MinecraftTransitRailway/]: : "`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'                 
+[2311月2026 21:06:45.188] [modloading-worker-0/INFO] [MinecraftTransitRailway/]: :    ___              _       _                      _  _                  
+[2311月2026 21:06:45.188] [modloading-worker-0/INFO] [MinecraftTransitRailway/]: :   | _ \   __ _     (_)     | |   __ __ __ __ _    | || |                 
+[2311月2026 21:06:45.188] [modloading-worker-0/INFO] [MinecraftTransitRailway/]: :   |   /  / _` |    | |     | |   \ V  V // _` |    \_, |                 
+[2311月2026 21:06:45.188] [modloading-worker-0/INFO] [MinecraftTransitRailway/]: :   |_|_\  \__,_|   _|_|_   _|_|_   \_/\_/ \__,_|   _|__/                  
+[2311月2026 21:06:45.188] [modloading-worker-0/INFO] [MinecraftTransitRailway/]: : _|"""""|_|"""""|_|"""""|_|"""""|_|"""""|_|"""""|_| """"|                 
+[2311月2026 21:06:45.188] [modloading-worker-0/INFO] [MinecraftTransitRailway/]: : "`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-' (4.1.0-beta.2+1.21.4) 
+[2311月2026 21:06:45.189] [modloading-worker-0/INFO] [MinecraftTransitRailway/]: :                                                                          
+[2311月2026 21:06:45.388] [modloading-worker-0/INFO] [MinecraftTransitRailway/]: Registering Minecraft Transit Railway blocks
+[2311月2026 21:06:45.423] [modloading-worker-0/INFO] [MinecraftTransitRailway/]: Registering Minecraft Transit Railway items
+[2311月2026 21:06:45.458] [modloading-worker-0/INFO] [MinecraftTransitRailway/]: Registering Minecraft Transit Railway block entity types
+[2311月2026 21:06:45.458] [modloading-worker-0/INFO] [MinecraftTransitRailway/]: Registering Minecraft Transit Railway creative mode tabs
+[2311月2026 21:06:45.459] [modloading-worker-0/INFO] [MinecraftTransitRailway/]: Registering Minecraft Transit Railway sound events
+[2311月2026 21:06:45.461] [modloading-worker-0/INFO] [MinecraftTransitRailway/]: Registering Minecraft Transit Railway data component types
+[2311月2026 21:06:45.571] [modloading-worker-0/INFO] [MinecraftTransitRailway/]: Registering Minecraft Transit Railway key bindings
+[2311月2026 21:06:45.912] [Download-2/ERROR] [net.minecraft.client.Minecraft/]: Failed to fetch user properties
+com.mojang.authlib.exceptions.InvalidCredentialsException: Status: 401
+	at MC-BOOTSTRAP/authlib@6.0.54/com.mojang.authlib.exceptions.MinecraftClientHttpException.toAuthenticationException(MinecraftClientHttpException.java:59) ~[authlib-6.0.54.jar%23147!/:?]
+	at MC-BOOTSTRAP/authlib@6.0.54/com.mojang.authlib.yggdrasil.YggdrasilUserApiService.fetchProperties(YggdrasilUserApiService.java:150) ~[authlib-6.0.54.jar%23147!/:?]
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.client.Minecraft.lambda$new$2(Minecraft.java:431) ~[client-1.21.1-20240808.144430-srg.jar%23191!/:?]
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1768) ~[?:?]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[?:?]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[?:?]
+	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+Caused by: com.mojang.authlib.exceptions.MinecraftClientHttpException: Status: 401
+	at MC-BOOTSTRAP/authlib@6.0.54/com.mojang.authlib.minecraft.client.MinecraftClient.readInputStream(MinecraftClient.java:100) ~[authlib-6.0.54.jar%23147!/:?]
+	at MC-BOOTSTRAP/authlib@6.0.54/com.mojang.authlib.minecraft.client.MinecraftClient.get(MinecraftClient.java:57) ~[authlib-6.0.54.jar%23147!/:?]
+	at MC-BOOTSTRAP/authlib@6.0.54/com.mojang.authlib.yggdrasil.YggdrasilUserApiService.fetchProperties(YggdrasilUserApiService.java:121) ~[authlib-6.0.54.jar%23147!/:?]
+	... 5 more
+[2311月2026 21:06:49.327] [Render thread/INFO] [net.minecraft.server.packs.resources.ReloadableResourceManager/]: Reloading ResourceManager: vanilla, mod_resources, mod/vehicle_performance_probe,mtr_memory_loader_probe,mtr_packaged_client_observer, mod/mtr, mod/mtr_memory_sharing, mod/neoforge
+[2311月2026 21:06:49.464] [Worker-Main-5/INFO] [net.minecraft.client.gui.font.providers.UnihexProvider/]: Found unifont_all_no_pua-15.1.05.hex, loading
+[2311月2026 21:06:49.960] [Worker-Main-5/INFO] [net.minecraft.client.gui.font.providers.UnihexProvider/]: Found unifont_jp_patch-15.1.05.hex, loading
+[2311月2026 21:06:50.259] [Worker-Main-7/WARN] [net.minecraft.client.sounds.SoundManager/]: File mtr:sounds/minecart/loop.ogg does not exist, cannot add it to event mtr:minecart_loop
+[2311月2026 21:06:50.260] [Worker-Main-7/WARN] [net.minecraft.client.sounds.SoundManager/]: File mtr:sounds/minecart/motor4.ogg does not exist, cannot add it to event mtr:minecart_motor4
+[2311月2026 21:06:50.260] [Worker-Main-7/WARN] [net.minecraft.client.sounds.SoundManager/]: File mtr:sounds/minecart/motor3.ogg does not exist, cannot add it to event mtr:minecart_motor3
+[2311月2026 21:06:50.945] [Worker-Main-1/WARN] [net.minecraft.client.renderer.texture.SpriteLoader/]: Texture mtr:block/psd_door_bottom_right_1 with size 72x36 limits mip level from 4 to 2
+[2311月2026 21:06:53.682] [Render thread/WARN] [net.minecraft.client.sounds.SoundEngine/]: Missing sound for event: minecraft:item.goat_horn.play
+[2311月2026 21:06:53.683] [Render thread/WARN] [net.minecraft.client.sounds.SoundEngine/]: Missing sound for event: minecraft:entity.goat.screaming.horn_break
+[2311月2026 21:06:53.789] [Render thread/INFO] [com.mojang.blaze3d.audio.Library/]: OpenAL initialized on device OpenAL Soft on 扬声器 (Realtek High Definition Audio)
+[2311月2026 21:06:53.790] [Render thread/INFO] [net.minecraft.client.sounds.SoundEngine/SOUNDS]: Sound engine started
+[2311月2026 21:06:54.495] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 4096x2048x4 minecraft:textures/atlas/blocks.png-atlas
+[2311月2026 21:06:56.784] [Render thread/ERROR] [MinecraftTransitRailway/]: [mtr:textures/block/transparent.png] Invalid model!
+[2311月2026 21:07:00.595] [Render thread/INFO] [MinecraftTransitRailway/]: Loaded 423 vehicles and completed door movement validation in 0.0 ms
+[2311月2026 21:07:00.595] [Render thread/INFO] [MinecraftTransitRailway/]: Loaded 135 signs
+[2311月2026 21:07:00.596] [Render thread/INFO] [MinecraftTransitRailway/]: Loaded 3 rails
+[2311月2026 21:07:00.596] [Render thread/INFO] [MinecraftTransitRailway/]: Loaded 1 objects
+[2311月2026 21:07:00.596] [Render thread/INFO] [MinecraftTransitRailway/]: Loaded 1 lifts
+[2311月2026 21:07:00.599] [Render thread/INFO] [MinecraftTransitRailway/]: MTR memory sharing: 2631 requests, 2524 path hits, 107 unique parses, 0 failures, 0 pending, 0 outstanding, 0 queued
+[2311月2026 21:07:00.600] [Render thread/INFO] [MinecraftTransitRailway/]: MTR native resource snapshot capability: 110 attempts, 110 captures, 0 String fallbacks, 0 failures, 10351594 decoded UTF-16 units
+[2311月2026 21:07:00.600] [Render thread/INFO] [MinecraftTransitRailway/]: MTR memory sharing: released 0 cached source-text entries after registration
+[2311月2026 21:07:00.601] [Render thread/INFO] [MinecraftTransitRailway/]: MTR memory sharing: 5262 vehicle JSON requests, 261 unique nonempty inputs
+[2311月2026 21:07:00.601] [Render thread/INFO] [MinecraftTransitRailway/]: MTR compressed text: 271 entries, 259 compressed, 847133 input code units, 186854 packed bytes, 2077 uncompressed code units; cache released
+[2311月2026 21:07:00.601] [Render thread/INFO] [MinecraftTransitRailway/]: MTR resource text budget: 100663296 bytes, 267950 retained weight, 267950 peak admitted weight, 0 evictions
+[2311月2026 21:07:00.601] [Render thread/INFO] [MinecraftTransitRailway/]: MTR resource text activity: 271 reads, 4991 hits, 4115 unpacks, 271 compression attempts, 0 bypasses, 0 failures, 0 pending; 0 active read scopes, peak 2
+[2311月2026 21:07:00.602] [Render thread/INFO] [MinecraftTransitRailway/]: MTR streamed OBJ: 3 requests, 0 path hits, 3 parses, 0 failures, 0 pending, 0 outstanding, 0 queued
+[2311月2026 21:07:00.627] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x256x4 minecraft:textures/atlas/signs.png-atlas
+[2311月2026 21:07:00.727] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x512x4 minecraft:textures/atlas/shield_patterns.png-atlas
+[2311月2026 21:07:00.962] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x512x4 minecraft:textures/atlas/banner_patterns.png-atlas
+[2311月2026 21:07:01.182] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 1024x1024x4 minecraft:textures/atlas/armor_trims.png-atlas
+[2311月2026 21:07:02.012] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 128x64x4 minecraft:textures/atlas/decorated_pot.png-atlas
+[2311月2026 21:07:02.014] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x256x4 minecraft:textures/atlas/chest.png-atlas
+[2311月2026 21:07:02.015] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x256x4 minecraft:textures/atlas/shulker_boxes.png-atlas
+[2311月2026 21:07:02.018] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x256x4 minecraft:textures/atlas/beds.png-atlas
+[2311月2026 21:07:02.239] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x256x0 minecraft:textures/atlas/particles.png-atlas
+[2311月2026 21:07:02.245] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x256x0 minecraft:textures/atlas/paintings.png-atlas
+[2311月2026 21:07:02.247] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x128x0 minecraft:textures/atlas/mob_effects.png-atlas
+[2311月2026 21:07:02.250] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 64x64x0 minecraft:textures/atlas/map_decorations.png-atlas
+[2311月2026 21:07:02.251] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 1024x512x0 minecraft:textures/atlas/gui.png-atlas
+[2311月2026 21:07:02.689] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_translucent_emissive could not find sampler named Sampler2 in the specified shader program.
+[2311月2026 21:07:03.506] [Render thread/INFO] [net.neoforged.neoforge.client.entity.animation.json.AnimationLoader/]: Loaded 0 entity animations
+[2311月2026 21:07:03.704] [MTR-memory-parse/ERROR] [MinecraftTransitRailway/]: Shared Blockbench loader failed for test:model.bbmodel
+java.lang.IllegalStateException: Injected resource failure
+	at TRANSFORMER/vehicle_performance_probe@0.4.8/site.benli06.probe.LoaderLifecycleProbe.lambda$audit$0(LoaderLifecycleProbe.java:85) ~[probe.jar%23195!/:?]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.SharedBlockbenchCache.prepare(SharedBlockbenchCache.java:68) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.SharedBlockbenchCache.lambda$get$0(SharedBlockbenchCache.java:44) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.GenerationWorkCache.execute(GenerationWorkCache.java:150) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.GenerationWorkCache.lambda$get$3(GenerationWorkCache.java:117) ~[candidate.jar%23193!/:0.4.8]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572) ~[?:?]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317) ~[?:?]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.GenerationWorkCache$Work.run(GenerationWorkCache.java:57) ~[candidate.jar%23193!/:0.4.8]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[?:?]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[?:?]
+	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+[2311月2026 21:07:03.717] [MTR-memory-parse/ERROR] [MinecraftTransitRailway/]: Shared Blockbench loader failed for test:model.bbmodel
+java.lang.IllegalStateException: Missing Blockbench resource: test:model.bbmodel
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.SharedBlockbenchCache.prepare(SharedBlockbenchCache.java:69) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.SharedBlockbenchCache.lambda$get$0(SharedBlockbenchCache.java:44) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.GenerationWorkCache.execute(GenerationWorkCache.java:150) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.GenerationWorkCache.lambda$get$3(GenerationWorkCache.java:117) ~[candidate.jar%23193!/:0.4.8]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572) ~[?:?]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317) ~[?:?]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.GenerationWorkCache$Work.run(GenerationWorkCache.java:57) ~[candidate.jar%23193!/:0.4.8]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[?:?]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[?:?]
+	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+[2311月2026 21:07:03.730] [MTR-memory-parse/ERROR] [MinecraftTransitRailway/]: Failed to parse Blockbench model for texture [test:texture.png]
+org.mtr.libraries.com.google.gson.JsonSyntaxException: java.io.EOFException: End of input at line 1 column 2 path $.
+	at TRANSFORMER/mtr@4.1.0-beta.2/org.mtr.libraries.com.google.gson.internal.Streams.parse(Streams.java:58) ~[MTR-neoforge-4.1.0-beta.2+1.21.1.jar%23194!/:?]
+	at TRANSFORMER/mtr@4.1.0-beta.2/org.mtr.libraries.com.google.gson.JsonParser.parseReader(JsonParser.java:144) ~[MTR-neoforge-4.1.0-beta.2+1.21.1.jar%23194!/:?]
+	at TRANSFORMER/mtr@4.1.0-beta.2/org.mtr.libraries.com.google.gson.JsonParser.parseReader(JsonParser.java:110) ~[MTR-neoforge-4.1.0-beta.2+1.21.1.jar%23194!/:?]
+	at TRANSFORMER/mtr@4.1.0-beta.2/org.mtr.libraries.com.google.gson.JsonParser.parseString(JsonParser.java:92) ~[MTR-neoforge-4.1.0-beta.2+1.21.1.jar%23194!/:?]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.SharedBlockbenchCache.parseInput(SharedBlockbenchCache.java:106) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.SharedBlockbenchCache.lambda$prepare$3(SharedBlockbenchCache.java:72) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.SharedBlockbenchCache.lambda$load$5(SharedBlockbenchCache.java:81) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr@4.1.0-beta.2/org.mtr.model.BlockbenchModelLoader.lambda$loadModel$5(BlockbenchModelLoader.java:63) ~[MTR-neoforge-4.1.0-beta.2+1.21.1.jar%23194!/:?]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572) ~[?:?]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317) ~[?:?]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.SharedBlockbenchCache.submitNative(SharedBlockbenchCache.java:93) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr@4.1.0-beta.2/org.mtr.model.BlockbenchModelLoader.redirect$zze000$mtr_memory_sharing$admittedParse(BlockbenchModelLoader.java:516) ~[MTR-neoforge-4.1.0-beta.2+1.21.1.jar%23194!/:?]
+	at TRANSFORMER/mtr@4.1.0-beta.2/org.mtr.model.BlockbenchModelLoader.loadModel(BlockbenchModelLoader.java:61) ~[MTR-neoforge-4.1.0-beta.2+1.21.1.jar%23194!/:?]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.SharedBlockbenchCache.load(SharedBlockbenchCache.java:80) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.SharedBlockbenchCache.lambda$prepare$4(SharedBlockbenchCache.java:72) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.GenerationWorkCache.execute(GenerationWorkCache.java:165) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.GenerationWorkCache.lambda$get$3(GenerationWorkCache.java:117) ~[candidate.jar%23193!/:0.4.8]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572) ~[?:?]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317) ~[?:?]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.GenerationWorkCache$Work.run(GenerationWorkCache.java:57) ~[candidate.jar%23193!/:0.4.8]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[?:?]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[?:?]
+	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+Caused by: java.io.EOFException: End of input at line 1 column 2 path $.
+	at TRANSFORMER/mtr@4.1.0-beta.2/org.mtr.libraries.com.google.gson.stream.JsonReader.nextNonWhitespace(JsonReader.java:1605) ~[MTR-neoforge-4.1.0-beta.2+1.21.1.jar%23194!/:?]
+	at TRANSFORMER/mtr@4.1.0-beta.2/org.mtr.libraries.com.google.gson.stream.JsonReader.doPeek(JsonReader.java:617) ~[MTR-neoforge-4.1.0-beta.2+1.21.1.jar%23194!/:?]
+	at TRANSFORMER/mtr@4.1.0-beta.2/org.mtr.libraries.com.google.gson.stream.JsonReader.hasNext(JsonReader.java:536) ~[MTR-neoforge-4.1.0-beta.2+1.21.1.jar%23194!/:?]
+	at TRANSFORMER/mtr@4.1.0-beta.2/org.mtr.libraries.com.google.gson.internal.bind.JsonElementTypeAdapter.read(JsonElementTypeAdapter.java:95) ~[MTR-neoforge-4.1.0-beta.2+1.21.1.jar%23194!/:?]
+	at TRANSFORMER/mtr@4.1.0-beta.2/org.mtr.libraries.com.google.gson.internal.Streams.parse(Streams.java:48) ~[MTR-neoforge-4.1.0-beta.2+1.21.1.jar%23194!/:?]
+	... 22 more
+[2311月2026 21:07:03.732] [MTR-memory-parse/ERROR] [MinecraftTransitRailway/]: Shared Blockbench loader failed for test:model.bbmodel
+java.lang.IllegalStateException: Native Blockbench parse ended without publication: test:model.bbmodel
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.SharedBlockbenchCache.load(SharedBlockbenchCache.java:84) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.SharedBlockbenchCache.lambda$prepare$4(SharedBlockbenchCache.java:72) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.GenerationWorkCache.execute(GenerationWorkCache.java:165) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.GenerationWorkCache.lambda$get$3(GenerationWorkCache.java:117) ~[candidate.jar%23193!/:0.4.8]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572) ~[?:?]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317) ~[?:?]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.GenerationWorkCache$Work.run(GenerationWorkCache.java:57) ~[candidate.jar%23193!/:0.4.8]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[?:?]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[?:?]
+	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+Caused by: org.mtr.libraries.com.google.gson.JsonSyntaxException: java.io.EOFException: End of input at line 1 column 2 path $.
+	at TRANSFORMER/mtr@4.1.0-beta.2/org.mtr.libraries.com.google.gson.internal.Streams.parse(Streams.java:58) ~[MTR-neoforge-4.1.0-beta.2+1.21.1.jar%23194!/:?]
+	at TRANSFORMER/mtr@4.1.0-beta.2/org.mtr.libraries.com.google.gson.JsonParser.parseReader(JsonParser.java:144) ~[MTR-neoforge-4.1.0-beta.2+1.21.1.jar%23194!/:?]
+	at TRANSFORMER/mtr@4.1.0-beta.2/org.mtr.libraries.com.google.gson.JsonParser.parseReader(JsonParser.java:110) ~[MTR-neoforge-4.1.0-beta.2+1.21.1.jar%23194!/:?]
+	at TRANSFORMER/mtr@4.1.0-beta.2/org.mtr.libraries.com.google.gson.JsonParser.parseString(JsonParser.java:92) ~[MTR-neoforge-4.1.0-beta.2+1.21.1.jar%23194!/:?]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.SharedBlockbenchCache.parseInput(SharedBlockbenchCache.java:106) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.SharedBlockbenchCache.lambda$prepare$3(SharedBlockbenchCache.java:72) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.SharedBlockbenchCache.lambda$load$5(SharedBlockbenchCache.java:81) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr@4.1.0-beta.2/org.mtr.model.BlockbenchModelLoader.lambda$loadModel$5(BlockbenchModelLoader.java:63) ~[MTR-neoforge-4.1.0-beta.2+1.21.1.jar%23194!/:?]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572) ~[?:?]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317) ~[?:?]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.SharedBlockbenchCache.submitNative(SharedBlockbenchCache.java:93) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr@4.1.0-beta.2/org.mtr.model.BlockbenchModelLoader.redirect$zze000$mtr_memory_sharing$admittedParse(BlockbenchModelLoader.java:516) ~[MTR-neoforge-4.1.0-beta.2+1.21.1.jar%23194!/:?]
+	at TRANSFORMER/mtr@4.1.0-beta.2/org.mtr.model.BlockbenchModelLoader.loadModel(BlockbenchModelLoader.java:61) ~[MTR-neoforge-4.1.0-beta.2+1.21.1.jar%23194!/:?]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.SharedBlockbenchCache.load(SharedBlockbenchCache.java:80) ~[candidate.jar%23193!/:0.4.8]
+	... 9 more
+Caused by: java.io.EOFException: End of input at line 1 column 2 path $.
+	at TRANSFORMER/mtr@4.1.0-beta.2/org.mtr.libraries.com.google.gson.stream.JsonReader.nextNonWhitespace(JsonReader.java:1605) ~[MTR-neoforge-4.1.0-beta.2+1.21.1.jar%23194!/:?]
+	at TRANSFORMER/mtr@4.1.0-beta.2/org.mtr.libraries.com.google.gson.stream.JsonReader.doPeek(JsonReader.java:617) ~[MTR-neoforge-4.1.0-beta.2+1.21.1.jar%23194!/:?]
+	at TRANSFORMER/mtr@4.1.0-beta.2/org.mtr.libraries.com.google.gson.stream.JsonReader.hasNext(JsonReader.java:536) ~[MTR-neoforge-4.1.0-beta.2+1.21.1.jar%23194!/:?]
+	at TRANSFORMER/mtr@4.1.0-beta.2/org.mtr.libraries.com.google.gson.internal.bind.JsonElementTypeAdapter.read(JsonElementTypeAdapter.java:95) ~[MTR-neoforge-4.1.0-beta.2+1.21.1.jar%23194!/:?]
+	at TRANSFORMER/mtr@4.1.0-beta.2/org.mtr.libraries.com.google.gson.internal.Streams.parse(Streams.java:48) ~[MTR-neoforge-4.1.0-beta.2+1.21.1.jar%23194!/:?]
+	at TRANSFORMER/mtr@4.1.0-beta.2/org.mtr.libraries.com.google.gson.JsonParser.parseReader(JsonParser.java:144) ~[MTR-neoforge-4.1.0-beta.2+1.21.1.jar%23194!/:?]
+	at TRANSFORMER/mtr@4.1.0-beta.2/org.mtr.libraries.com.google.gson.JsonParser.parseReader(JsonParser.java:110) ~[MTR-neoforge-4.1.0-beta.2+1.21.1.jar%23194!/:?]
+	at TRANSFORMER/mtr@4.1.0-beta.2/org.mtr.libraries.com.google.gson.JsonParser.parseString(JsonParser.java:92) ~[MTR-neoforge-4.1.0-beta.2+1.21.1.jar%23194!/:?]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.SharedBlockbenchCache.parseInput(SharedBlockbenchCache.java:106) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.SharedBlockbenchCache.lambda$prepare$3(SharedBlockbenchCache.java:72) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.SharedBlockbenchCache.lambda$load$5(SharedBlockbenchCache.java:81) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr@4.1.0-beta.2/org.mtr.model.BlockbenchModelLoader.lambda$loadModel$5(BlockbenchModelLoader.java:63) ~[MTR-neoforge-4.1.0-beta.2+1.21.1.jar%23194!/:?]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572) ~[?:?]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317) ~[?:?]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.SharedBlockbenchCache.submitNative(SharedBlockbenchCache.java:93) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr@4.1.0-beta.2/org.mtr.model.BlockbenchModelLoader.redirect$zze000$mtr_memory_sharing$admittedParse(BlockbenchModelLoader.java:516) ~[MTR-neoforge-4.1.0-beta.2+1.21.1.jar%23194!/:?]
+	at TRANSFORMER/mtr@4.1.0-beta.2/org.mtr.model.BlockbenchModelLoader.loadModel(BlockbenchModelLoader.java:61) ~[MTR-neoforge-4.1.0-beta.2+1.21.1.jar%23194!/:?]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.SharedBlockbenchCache.load(SharedBlockbenchCache.java:80) ~[candidate.jar%23193!/:0.4.8]
+	... 9 more
+[2311月2026 21:07:03.741] [MTR-memory-parse/ERROR] [MinecraftTransitRailway/]: Failed to parse Blockbench model for texture [test:texture.png]
+java.lang.IllegalStateException: Not a JSON Object: []
+	at TRANSFORMER/mtr@4.1.0-beta.2/org.mtr.libraries.com.google.gson.JsonElement.getAsJsonObject(JsonElement.java:163) ~[MTR-neoforge-4.1.0-beta.2+1.21.1.jar%23194!/:?]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.SharedBlockbenchCache.parseInput(SharedBlockbenchCache.java:106) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.SharedBlockbenchCache.lambda$prepare$3(SharedBlockbenchCache.java:72) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.SharedBlockbenchCache.lambda$load$5(SharedBlockbenchCache.java:81) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr@4.1.0-beta.2/org.mtr.model.BlockbenchModelLoader.lambda$loadModel$5(BlockbenchModelLoader.java:63) ~[MTR-neoforge-4.1.0-beta.2+1.21.1.jar%23194!/:?]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572) ~[?:?]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317) ~[?:?]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.SharedBlockbenchCache.submitNative(SharedBlockbenchCache.java:93) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr@4.1.0-beta.2/org.mtr.model.BlockbenchModelLoader.redirect$zze000$mtr_memory_sharing$admittedParse(BlockbenchModelLoader.java:516) ~[MTR-neoforge-4.1.0-beta.2+1.21.1.jar%23194!/:?]
+	at TRANSFORMER/mtr@4.1.0-beta.2/org.mtr.model.BlockbenchModelLoader.loadModel(BlockbenchModelLoader.java:61) ~[MTR-neoforge-4.1.0-beta.2+1.21.1.jar%23194!/:?]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.SharedBlockbenchCache.load(SharedBlockbenchCache.java:80) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.SharedBlockbenchCache.lambda$prepare$4(SharedBlockbenchCache.java:72) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.GenerationWorkCache.execute(GenerationWorkCache.java:165) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.GenerationWorkCache.lambda$get$3(GenerationWorkCache.java:117) ~[candidate.jar%23193!/:0.4.8]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572) ~[?:?]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317) ~[?:?]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.GenerationWorkCache$Work.run(GenerationWorkCache.java:57) ~[candidate.jar%23193!/:0.4.8]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[?:?]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[?:?]
+	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+[2311月2026 21:07:03.742] [MTR-memory-parse/ERROR] [MinecraftTransitRailway/]: Shared Blockbench loader failed for test:model.bbmodel
+java.lang.IllegalStateException: Native Blockbench parse ended without publication: test:model.bbmodel
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.SharedBlockbenchCache.load(SharedBlockbenchCache.java:84) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.SharedBlockbenchCache.lambda$prepare$4(SharedBlockbenchCache.java:72) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.GenerationWorkCache.execute(GenerationWorkCache.java:165) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.GenerationWorkCache.lambda$get$3(GenerationWorkCache.java:117) ~[candidate.jar%23193!/:0.4.8]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572) ~[?:?]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317) ~[?:?]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.GenerationWorkCache$Work.run(GenerationWorkCache.java:57) ~[candidate.jar%23193!/:0.4.8]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[?:?]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[?:?]
+	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+Caused by: java.lang.IllegalStateException: Not a JSON Object: []
+	at TRANSFORMER/mtr@4.1.0-beta.2/org.mtr.libraries.com.google.gson.JsonElement.getAsJsonObject(JsonElement.java:163) ~[MTR-neoforge-4.1.0-beta.2+1.21.1.jar%23194!/:?]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.SharedBlockbenchCache.parseInput(SharedBlockbenchCache.java:106) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.SharedBlockbenchCache.lambda$prepare$3(SharedBlockbenchCache.java:72) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.SharedBlockbenchCache.lambda$load$5(SharedBlockbenchCache.java:81) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr@4.1.0-beta.2/org.mtr.model.BlockbenchModelLoader.lambda$loadModel$5(BlockbenchModelLoader.java:63) ~[MTR-neoforge-4.1.0-beta.2+1.21.1.jar%23194!/:?]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572) ~[?:?]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317) ~[?:?]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.SharedBlockbenchCache.submitNative(SharedBlockbenchCache.java:93) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr@4.1.0-beta.2/org.mtr.model.BlockbenchModelLoader.redirect$zze000$mtr_memory_sharing$admittedParse(BlockbenchModelLoader.java:516) ~[MTR-neoforge-4.1.0-beta.2+1.21.1.jar%23194!/:?]
+	at TRANSFORMER/mtr@4.1.0-beta.2/org.mtr.model.BlockbenchModelLoader.loadModel(BlockbenchModelLoader.java:61) ~[MTR-neoforge-4.1.0-beta.2+1.21.1.jar%23194!/:?]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.SharedBlockbenchCache.load(SharedBlockbenchCache.java:80) ~[candidate.jar%23193!/:0.4.8]
+	... 9 more
+[2311月2026 21:07:03.760] [MTR-memory-parse/ERROR] [MinecraftTransitRailway/]: Shared Blockbench loader failed for mtr_memory_acceptance:strict/open_failure_1.bbmodel
+java.io.UncheckedIOException: mtr_memory_acceptance:strict/open_failure_1.bbmodel
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.StrictResourceText.read(StrictResourceText.java:24) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.StrictResourceText.read(StrictResourceText.java:16) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr@4.1.0-beta.2/org.mtr.client.CustomResourceLoader.redirect$zzp000$mtr_memory_sharing$read(CustomResourceLoader.java:3046) ~[MTR-neoforge-4.1.0-beta.2+1.21.1.jar%23194!/:?]
+	at TRANSFORMER/mtr@4.1.0-beta.2/org.mtr.client.CustomResourceLoader.lambda$readResource$22(CustomResourceLoader.java:409) ~[MTR-neoforge-4.1.0-beta.2+1.21.1.jar%23194!/:?]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.BoundedTextCache.get(BoundedTextCache.java:133) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.CompressedResourceTextCache.get(CompressedResourceTextCache.java:10) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr@4.1.0-beta.2/org.mtr.client.CustomResourceLoader.redirect$zzm000$mtr_memory_sharing$read(CustomResourceLoader.java:2519) ~[MTR-neoforge-4.1.0-beta.2+1.21.1.jar%23194!/:?]
+	at TRANSFORMER/mtr@4.1.0-beta.2/org.mtr.client.CustomResourceLoader.readResource(CustomResourceLoader.java:400) ~[MTR-neoforge-4.1.0-beta.2+1.21.1.jar%23194!/:?]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at TRANSFORMER/vehicle_performance_probe@0.4.8/site.benli06.probe.NativeResourceReadFixture.readActual(NativeResourceReadFixture.java:76) ~[probe.jar%23195!/:?]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.SharedBlockbenchCache.prepare(SharedBlockbenchCache.java:68) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.SharedBlockbenchCache.lambda$get$0(SharedBlockbenchCache.java:44) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.GenerationWorkCache.execute(GenerationWorkCache.java:150) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.GenerationWorkCache.lambda$get$3(GenerationWorkCache.java:117) ~[candidate.jar%23193!/:0.4.8]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572) ~[?:?]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317) ~[?:?]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.GenerationWorkCache$Work.run(GenerationWorkCache.java:57) ~[candidate.jar%23193!/:0.4.8]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[?:?]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[?:?]
+	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+Caused by: site.benli06.probe.NativeResourceReadFixture$FaultIOException: mtr_memory_acceptance:strict/open_failure_1.bbmodel: OPEN_FAILURE
+	at TRANSFORMER/vehicle_performance_probe@0.4.8/site.benli06.probe.NativeResourceReadFixture$Fixture.open(NativeResourceReadFixture.java:101) ~[probe.jar%23195!/:?]
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.packs.resources.Resource.open(Resource.java:48) ~[client-1.21.1-20240808.144430-srg.jar%23191!/:?]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.StrictResourceText.read(StrictResourceText.java:21) ~[candidate.jar%23193!/:0.4.8]
+	... 20 more
+[2311月2026 21:07:03.771] [MTR-memory-parse/ERROR] [MinecraftTransitRailway/]: Shared Blockbench loader failed for mtr_memory_acceptance:strict/read_failure_2.bbmodel
+java.io.UncheckedIOException: mtr_memory_acceptance:strict/read_failure_2.bbmodel
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.StrictResourceText.read(StrictResourceText.java:24) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.StrictResourceText.read(StrictResourceText.java:16) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr@4.1.0-beta.2/org.mtr.client.CustomResourceLoader.redirect$zzp000$mtr_memory_sharing$read(CustomResourceLoader.java:3046) ~[MTR-neoforge-4.1.0-beta.2+1.21.1.jar%23194!/:?]
+	at TRANSFORMER/mtr@4.1.0-beta.2/org.mtr.client.CustomResourceLoader.lambda$readResource$22(CustomResourceLoader.java:409) ~[MTR-neoforge-4.1.0-beta.2+1.21.1.jar%23194!/:?]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.BoundedTextCache.get(BoundedTextCache.java:133) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.CompressedResourceTextCache.get(CompressedResourceTextCache.java:10) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr@4.1.0-beta.2/org.mtr.client.CustomResourceLoader.redirect$zzm000$mtr_memory_sharing$read(CustomResourceLoader.java:2519) ~[MTR-neoforge-4.1.0-beta.2+1.21.1.jar%23194!/:?]
+	at TRANSFORMER/mtr@4.1.0-beta.2/org.mtr.client.CustomResourceLoader.readResource(CustomResourceLoader.java:400) ~[MTR-neoforge-4.1.0-beta.2+1.21.1.jar%23194!/:?]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at TRANSFORMER/vehicle_performance_probe@0.4.8/site.benli06.probe.NativeResourceReadFixture.readActual(NativeResourceReadFixture.java:76) ~[probe.jar%23195!/:?]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.SharedBlockbenchCache.prepare(SharedBlockbenchCache.java:68) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.SharedBlockbenchCache.lambda$get$0(SharedBlockbenchCache.java:44) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.GenerationWorkCache.execute(GenerationWorkCache.java:150) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.GenerationWorkCache.lambda$get$3(GenerationWorkCache.java:117) ~[candidate.jar%23193!/:0.4.8]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572) ~[?:?]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317) ~[?:?]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.GenerationWorkCache$Work.run(GenerationWorkCache.java:57) ~[candidate.jar%23193!/:0.4.8]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[?:?]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[?:?]
+	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+Caused by: site.benli06.probe.NativeResourceReadFixture$FaultIOException: mtr_memory_acceptance:strict/read_failure_2.bbmodel: READ_FAILURE
+	at TRANSFORMER/vehicle_performance_probe@0.4.8/site.benli06.probe.NativeResourceReadFixture$Fixture$1.checkReadable(NativeResourceReadFixture.java:128) ~[probe.jar%23195!/:?]
+	at TRANSFORMER/vehicle_performance_probe@0.4.8/site.benli06.probe.NativeResourceReadFixture$Fixture$1.read(NativeResourceReadFixture.java:117) ~[probe.jar%23195!/:?]
+	at java.base/sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:350) ~[?:?]
+	at java.base/sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:393) ~[?:?]
+	at java.base/sun.nio.cs.StreamDecoder.lockedRead(StreamDecoder.java:217) ~[?:?]
+	at java.base/sun.nio.cs.StreamDecoder.read(StreamDecoder.java:171) ~[?:?]
+	at java.base/java.io.InputStreamReader.read(InputStreamReader.java:188) ~[?:?]
+	at java.base/java.io.Reader.read(Reader.java:265) ~[?:?]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.SegmentedResourceText.read(SegmentedResourceText.java:33) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.SegmentedResourceText.read(SegmentedResourceText.java:20) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.StrictResourceText.read(StrictResourceText.java:22) ~[candidate.jar%23193!/:0.4.8]
+	... 20 more
+[2311月2026 21:07:03.784] [MTR-memory-parse/ERROR] [MinecraftTransitRailway/]: Shared Blockbench loader failed for mtr_memory_acceptance:strict/close_failure_3.bbmodel
+java.io.UncheckedIOException: mtr_memory_acceptance:strict/close_failure_3.bbmodel
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.StrictResourceText.read(StrictResourceText.java:24) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.StrictResourceText.read(StrictResourceText.java:16) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr@4.1.0-beta.2/org.mtr.client.CustomResourceLoader.redirect$zzp000$mtr_memory_sharing$read(CustomResourceLoader.java:3046) ~[MTR-neoforge-4.1.0-beta.2+1.21.1.jar%23194!/:?]
+	at TRANSFORMER/mtr@4.1.0-beta.2/org.mtr.client.CustomResourceLoader.lambda$readResource$22(CustomResourceLoader.java:409) ~[MTR-neoforge-4.1.0-beta.2+1.21.1.jar%23194!/:?]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.BoundedTextCache.get(BoundedTextCache.java:133) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.CompressedResourceTextCache.get(CompressedResourceTextCache.java:10) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr@4.1.0-beta.2/org.mtr.client.CustomResourceLoader.redirect$zzm000$mtr_memory_sharing$read(CustomResourceLoader.java:2519) ~[MTR-neoforge-4.1.0-beta.2+1.21.1.jar%23194!/:?]
+	at TRANSFORMER/mtr@4.1.0-beta.2/org.mtr.client.CustomResourceLoader.readResource(CustomResourceLoader.java:400) ~[MTR-neoforge-4.1.0-beta.2+1.21.1.jar%23194!/:?]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at TRANSFORMER/vehicle_performance_probe@0.4.8/site.benli06.probe.NativeResourceReadFixture.readActual(NativeResourceReadFixture.java:76) ~[probe.jar%23195!/:?]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.SharedBlockbenchCache.prepare(SharedBlockbenchCache.java:68) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.SharedBlockbenchCache.lambda$get$0(SharedBlockbenchCache.java:44) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.GenerationWorkCache.execute(GenerationWorkCache.java:150) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.GenerationWorkCache.lambda$get$3(GenerationWorkCache.java:117) ~[candidate.jar%23193!/:0.4.8]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572) ~[?:?]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317) ~[?:?]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.GenerationWorkCache$Work.run(GenerationWorkCache.java:57) ~[candidate.jar%23193!/:0.4.8]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[?:?]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[?:?]
+	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+Caused by: site.benli06.probe.NativeResourceReadFixture$FaultIOException: mtr_memory_acceptance:strict/close_failure_3.bbmodel: CLOSE_FAILURE
+	at TRANSFORMER/vehicle_performance_probe@0.4.8/site.benli06.probe.NativeResourceReadFixture$Fixture$1.close(NativeResourceReadFixture.java:132) ~[probe.jar%23195!/:?]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.StrictResourceText.read(StrictResourceText.java:23) ~[candidate.jar%23193!/:0.4.8]
+	... 20 more
+[2311月2026 21:07:04.670] [MTR-memory-parse/ERROR] [MinecraftTransitRailway/]: Shared Blockbench loader failed for mtr_memory_acceptance:strict/oversized_4.bbmodel
+java.lang.IllegalStateException: Resource text exceeds the configured limit of 201326592 UTF-16 code units
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.ReadAdmission.checkLength(ReadAdmission.java:88) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.SegmentedResourceText.read(SegmentedResourceText.java:35) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.SegmentedResourceText.read(SegmentedResourceText.java:20) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.StrictResourceText.read(StrictResourceText.java:22) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.StrictResourceText.read(StrictResourceText.java:16) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr@4.1.0-beta.2/org.mtr.client.CustomResourceLoader.redirect$zzp000$mtr_memory_sharing$read(CustomResourceLoader.java:3046) ~[MTR-neoforge-4.1.0-beta.2+1.21.1.jar%23194!/:?]
+	at TRANSFORMER/mtr@4.1.0-beta.2/org.mtr.client.CustomResourceLoader.lambda$readResource$22(CustomResourceLoader.java:409) ~[MTR-neoforge-4.1.0-beta.2+1.21.1.jar%23194!/:?]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.BoundedTextCache.get(BoundedTextCache.java:133) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.CompressedResourceTextCache.get(CompressedResourceTextCache.java:10) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr@4.1.0-beta.2/org.mtr.client.CustomResourceLoader.redirect$zzm000$mtr_memory_sharing$read(CustomResourceLoader.java:2519) ~[MTR-neoforge-4.1.0-beta.2+1.21.1.jar%23194!/:?]
+	at TRANSFORMER/mtr@4.1.0-beta.2/org.mtr.client.CustomResourceLoader.readResource(CustomResourceLoader.java:400) ~[MTR-neoforge-4.1.0-beta.2+1.21.1.jar%23194!/:?]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at TRANSFORMER/vehicle_performance_probe@0.4.8/site.benli06.probe.NativeResourceReadFixture.readActual(NativeResourceReadFixture.java:76) ~[probe.jar%23195!/:?]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.SharedBlockbenchCache.prepare(SharedBlockbenchCache.java:68) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.SharedBlockbenchCache.lambda$get$0(SharedBlockbenchCache.java:44) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.GenerationWorkCache.execute(GenerationWorkCache.java:150) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.GenerationWorkCache.lambda$get$3(GenerationWorkCache.java:117) ~[candidate.jar%23193!/:0.4.8]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572) ~[?:?]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317) ~[?:?]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.GenerationWorkCache$Work.run(GenerationWorkCache.java:57) ~[candidate.jar%23193!/:0.4.8]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[?:?]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[?:?]
+	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+[2311月2026 21:07:04.733] [MTR-memory-parse/ERROR] [MinecraftTransitRailway/]: Shared OBJ loader failed for mtr_memory_acceptance:strict/open_failure_10.obj
+java.io.UncheckedIOException: mtr_memory_acceptance:strict/open_failure_10.obj
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.NativeResourceSnapshots.open(NativeResourceSnapshots.java:29) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.SnapshotResourceProvider.snapshot(SnapshotResourceProvider.java:31) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.StreamedObjCache.lambda$get$2(StreamedObjCache.java:37) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.GenerationWorkCache.execute(GenerationWorkCache.java:150) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.GenerationWorkCache.lambda$get$3(GenerationWorkCache.java:117) ~[candidate.jar%23193!/:0.4.8]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572) ~[?:?]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317) ~[?:?]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.GenerationWorkCache$Work.run(GenerationWorkCache.java:57) ~[candidate.jar%23193!/:0.4.8]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[?:?]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[?:?]
+	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+Caused by: site.benli06.probe.NativeResourceReadFixture$FaultIOException: mtr_memory_acceptance:strict/open_failure_10.obj: OPEN_FAILURE
+	at TRANSFORMER/vehicle_performance_probe@0.4.8/site.benli06.probe.NativeResourceReadFixture$Fixture.open(NativeResourceReadFixture.java:101) ~[probe.jar%23195!/:?]
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.packs.resources.Resource.open(Resource.java:48) ~[client-1.21.1-20240808.144430-srg.jar%23191!/:?]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.ResourceTextSnapshot.open(ResourceTextSnapshot.java:38) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.ResourceTextSnapshot.open(ResourceTextSnapshot.java:32) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.NativeResourceSnapshots.open(NativeResourceSnapshots.java:27) ~[candidate.jar%23193!/:0.4.8]
+	... 10 more
+[2311月2026 21:07:04.747] [MTR-memory-parse/ERROR] [MinecraftTransitRailway/]: Shared OBJ loader failed for mtr_memory_acceptance:strict/read_failure_11.obj
+java.io.UncheckedIOException: mtr_memory_acceptance:strict/read_failure_11.obj
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.NativeResourceSnapshots.open(NativeResourceSnapshots.java:29) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.SnapshotResourceProvider.snapshot(SnapshotResourceProvider.java:31) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.StreamedObjCache.lambda$get$2(StreamedObjCache.java:37) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.GenerationWorkCache.execute(GenerationWorkCache.java:150) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.GenerationWorkCache.lambda$get$3(GenerationWorkCache.java:117) ~[candidate.jar%23193!/:0.4.8]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572) ~[?:?]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317) ~[?:?]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.GenerationWorkCache$Work.run(GenerationWorkCache.java:57) ~[candidate.jar%23193!/:0.4.8]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[?:?]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[?:?]
+	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+Caused by: site.benli06.probe.NativeResourceReadFixture$FaultIOException: mtr_memory_acceptance:strict/read_failure_11.obj: READ_FAILURE
+	at TRANSFORMER/vehicle_performance_probe@0.4.8/site.benli06.probe.NativeResourceReadFixture$Fixture$1.checkReadable(NativeResourceReadFixture.java:128) ~[probe.jar%23195!/:?]
+	at TRANSFORMER/vehicle_performance_probe@0.4.8/site.benli06.probe.NativeResourceReadFixture$Fixture$1.read(NativeResourceReadFixture.java:117) ~[probe.jar%23195!/:?]
+	at java.base/sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:350) ~[?:?]
+	at java.base/sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:393) ~[?:?]
+	at java.base/sun.nio.cs.StreamDecoder.lockedRead(StreamDecoder.java:217) ~[?:?]
+	at java.base/sun.nio.cs.StreamDecoder.read(StreamDecoder.java:171) ~[?:?]
+	at java.base/java.io.InputStreamReader.read(InputStreamReader.java:188) ~[?:?]
+	at java.base/java.io.FilterReader.read(FilterReader.java:73) ~[?:?]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.ResourceTextSnapshot$1.read(ResourceTextSnapshot.java:59) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.ResourceTextDigest.sha256(ResourceTextDigest.java:79) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.ResourceTextSnapshot.capture(ResourceTextSnapshot.java:68) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.ResourceTextSnapshot.open(ResourceTextSnapshot.java:38) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.ResourceTextSnapshot.open(ResourceTextSnapshot.java:32) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.NativeResourceSnapshots.open(NativeResourceSnapshots.java:27) ~[candidate.jar%23193!/:0.4.8]
+	... 10 more
+[2311月2026 21:07:04.760] [MTR-memory-parse/ERROR] [MinecraftTransitRailway/]: Shared OBJ loader failed for mtr_memory_acceptance:strict/close_failure_12.obj
+java.io.UncheckedIOException: mtr_memory_acceptance:strict/close_failure_12.obj
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.NativeResourceSnapshots.open(NativeResourceSnapshots.java:29) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.SnapshotResourceProvider.snapshot(SnapshotResourceProvider.java:31) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.StreamedObjCache.lambda$get$2(StreamedObjCache.java:37) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.GenerationWorkCache.execute(GenerationWorkCache.java:150) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.GenerationWorkCache.lambda$get$3(GenerationWorkCache.java:117) ~[candidate.jar%23193!/:0.4.8]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572) ~[?:?]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317) ~[?:?]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.GenerationWorkCache$Work.run(GenerationWorkCache.java:57) ~[candidate.jar%23193!/:0.4.8]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[?:?]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[?:?]
+	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+Caused by: site.benli06.probe.NativeResourceReadFixture$FaultIOException: mtr_memory_acceptance:strict/close_failure_12.obj: CLOSE_FAILURE
+	at TRANSFORMER/vehicle_performance_probe@0.4.8/site.benli06.probe.NativeResourceReadFixture$Fixture$1.close(NativeResourceReadFixture.java:132) ~[probe.jar%23195!/:?]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.ResourceTextSnapshot.open(ResourceTextSnapshot.java:38) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.ResourceTextSnapshot.open(ResourceTextSnapshot.java:32) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.NativeResourceSnapshots.open(NativeResourceSnapshots.java:27) ~[candidate.jar%23193!/:0.4.8]
+	... 10 more
+[2311月2026 21:07:06.077] [MTR-memory-parse/ERROR] [MinecraftTransitRailway/]: Shared OBJ loader failed for mtr_memory_acceptance:strict/oversized_13.obj
+java.lang.IllegalStateException: Resource text exceeds the configured limit of 201326592 UTF-16 code units
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.ReadAdmission.checkLength(ReadAdmission.java:88) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.ResourceTextSnapshot$1.read(ResourceTextSnapshot.java:62) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.ResourceTextDigest.sha256(ResourceTextDigest.java:79) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.ResourceTextSnapshot.capture(ResourceTextSnapshot.java:68) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.ResourceTextSnapshot.open(ResourceTextSnapshot.java:38) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.ResourceTextSnapshot.open(ResourceTextSnapshot.java:32) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.NativeResourceSnapshots.open(NativeResourceSnapshots.java:27) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.SnapshotResourceProvider.snapshot(SnapshotResourceProvider.java:31) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.StreamedObjCache.lambda$get$2(StreamedObjCache.java:37) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.GenerationWorkCache.execute(GenerationWorkCache.java:150) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.GenerationWorkCache.lambda$get$3(GenerationWorkCache.java:117) ~[candidate.jar%23193!/:0.4.8]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572) ~[?:?]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317) ~[?:?]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.GenerationWorkCache$Work.run(GenerationWorkCache.java:57) ~[candidate.jar%23193!/:0.4.8]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[?:?]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[?:?]
+	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+[2311月2026 21:07:06.089] [MTR-memory-parse/ERROR] [MinecraftTransitRailway/]: Shared OBJ loader failed for mtr_memory_acceptance:strict/malformed_obj_14.obj
+java.io.UncheckedIOException: mtr_memory_acceptance:strict/malformed_obj_14.obj
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.StreamedObjCache.load(StreamedObjCache.java:72) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.StreamedObjCache.lambda$get$0(StreamedObjCache.java:42) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.GenerationWorkCache.execute(GenerationWorkCache.java:165) ~[candidate.jar%23193!/:0.4.8]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.GenerationWorkCache.lambda$get$3(GenerationWorkCache.java:117) ~[candidate.jar%23193!/:0.4.8]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572) ~[?:?]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317) ~[?:?]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.GenerationWorkCache$Work.run(GenerationWorkCache.java:57) ~[candidate.jar%23193!/:0.4.8]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[?:?]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[?:?]
+	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+Caused by: java.io.IOException: java.lang.NumberFormatException: For input string: "invalid"
+	at TRANSFORMER/mtr@4.1.0-beta.2/org.mtr.libraries.de.javagl.obj.Utils.parseFloat(Utils.java:85) ~[MTR-neoforge-4.1.0-beta.2+1.21.1.jar%23194!/:?]
+	at TRANSFORMER/mtr@4.1.0-beta.2/org.mtr.libraries.de.javagl.obj.Utils.readFloatTuple(Utils.java:48) ~[MTR-neoforge-4.1.0-beta.2+1.21.1.jar%23194!/:?]
+	at TRANSFORMER/mtr@4.1.0-beta.2/org.mtr.libraries.de.javagl.obj.ObjReader.readImpl(ObjReader.java:177) ~[MTR-neoforge-4.1.0-beta.2+1.21.1.jar%23194!/:?]
+	at TRANSFORMER/mtr@4.1.0-beta.2/org.mtr.libraries.de.javagl.obj.ObjReader.read(ObjReader.java:77) ~[MTR-neoforge-4.1.0-beta.2+1.21.1.jar%23194!/:?]
+	at TRANSFORMER/mtr@4.1.0-beta.2/org.mtr.libraries.de.javagl.obj.ObjReader.read(ObjReader.java:57) ~[MTR-neoforge-4.1.0-beta.2+1.21.1.jar%23194!/:?]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.StreamedObjCache.load(StreamedObjCache.java:63) ~[candidate.jar%23193!/:0.4.8]
+	... 9 more
+Caused by: java.lang.NumberFormatException: For input string: "invalid"
+	at java.base/jdk.internal.math.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2054) ~[?:?]
+	at java.base/jdk.internal.math.FloatingDecimal.parseFloat(FloatingDecimal.java:122) ~[?:?]
+	at java.base/java.lang.Float.parseFloat(Float.java:556) ~[?:?]
+	at TRANSFORMER/mtr@4.1.0-beta.2/org.mtr.libraries.de.javagl.obj.Utils.parseFloat(Utils.java:81) ~[MTR-neoforge-4.1.0-beta.2+1.21.1.jar%23194!/:?]
+	at TRANSFORMER/mtr@4.1.0-beta.2/org.mtr.libraries.de.javagl.obj.Utils.readFloatTuple(Utils.java:48) ~[MTR-neoforge-4.1.0-beta.2+1.21.1.jar%23194!/:?]
+	at TRANSFORMER/mtr@4.1.0-beta.2/org.mtr.libraries.de.javagl.obj.ObjReader.readImpl(ObjReader.java:177) ~[MTR-neoforge-4.1.0-beta.2+1.21.1.jar%23194!/:?]
+	at TRANSFORMER/mtr@4.1.0-beta.2/org.mtr.libraries.de.javagl.obj.ObjReader.read(ObjReader.java:77) ~[MTR-neoforge-4.1.0-beta.2+1.21.1.jar%23194!/:?]
+	at TRANSFORMER/mtr@4.1.0-beta.2/org.mtr.libraries.de.javagl.obj.ObjReader.read(ObjReader.java:57) ~[MTR-neoforge-4.1.0-beta.2+1.21.1.jar%23194!/:?]
+	at TRANSFORMER/mtr_memory_sharing@0.4.8/site.benli06.StreamedObjCache.load(StreamedObjCache.java:63) ~[candidate.jar%23193!/:0.4.8]
+	... 9 more
+[2311月2026 21:07:06.297] [Render thread/INFO] [net.minecraft.client.Minecraft/]: Stopping!
+[2311月2026 21:07:06.397] [IO-Worker-1/INFO] [com.mojang.realmsclient.client.RealmsClient/]: Could not authorize you against Realms server: java.lang.RuntimeException: Failed to parse into SignedJWT: 0
+[2311月2026 21:07:06.398] [IO-Worker-1/ERROR] [com.mojang.realmsclient.RealmsAvailability/]: Couldn't connect to realms
+com.mojang.realmsclient.exception.RealmsServiceException: Realms authentication error with message 'java.lang.RuntimeException: Failed to parse into SignedJWT: 0'
+	at TRANSFORMER/minecraft@1.21.1/com.mojang.realmsclient.client.RealmsClient.execute(RealmsClient.java:447) ~[client-1.21.1-20240808.144430-srg.jar%23191!/:?]
+	at TRANSFORMER/minecraft@1.21.1/com.mojang.realmsclient.client.RealmsClient.clientCompatible(RealmsClient.java:232) ~[client-1.21.1-20240808.144430-srg.jar%23191!/:?]
+	at TRANSFORMER/minecraft@1.21.1/com.mojang.realmsclient.RealmsAvailability.lambda$check$0(RealmsAvailability.java:51) ~[client-1.21.1-20240808.144430-srg.jar%23191!/:?]
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1768) ~[?:?]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[?:?]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[?:?]
+	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]

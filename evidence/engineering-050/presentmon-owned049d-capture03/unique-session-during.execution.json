@@ -1,0 +1,35 @@
+{
+  "argv": [
+    "logman",
+    "query",
+    "mtr-present-feasibility-39dfa8a222e14453854719088ab1e6d1",
+    "-ets"
+  ],
+  "cwd": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-feasibility\\owned049d-capture-03",
+  "started": "2026-11-17T10:27:41.870032+00:00",
+  "start_clock": {
+    "utc_between_qpc_reads": "2026-11-17T10:27:41.869992+00:00",
+    "qpc_before": 4297931987669,
+    "qpc_after": 4297931987991,
+    "frequency_hz": 10000000,
+    "pair_span_seconds": 3.22e-05
+  },
+  "owner": {
+    "pid": 64408,
+    "script": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-feasibility\\pilot.py",
+    "source_sha256": "67220fd37a03e4c0e57c371525c3fbe8a2c953732fb38bb1853586446b1f51a7"
+  },
+  "helper_pid": 57736,
+  "exit_code": 0,
+  "ended": "2026-11-17T10:27:44.062901+00:00",
+  "end_clock": {
+    "utc_between_qpc_reads": "2026-11-17T10:27:44.063573+00:00",
+    "qpc_before": 4297953923506,
+    "qpc_after": 4297953924115,
+    "frequency_hz": 10000000,
+    "pair_span_seconds": 6.09e-05
+  },
+  "helper_exited": true,
+  "stdout_sha256": "705cc2fbaf656fb69d1550db491e6d1b756d6ac751103320852a2671ba74fb46",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

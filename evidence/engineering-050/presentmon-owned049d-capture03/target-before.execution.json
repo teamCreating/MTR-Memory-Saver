@@ -1,0 +1,35 @@
+{
+  "argv": [
+    "pwsh",
+    "-NoProfile",
+    "-Command",
+    "[Console]::OutputEncoding=[System.Text.UTF8Encoding]::new($false); $pmTarget=@(Get-CimInstance Win32_Process -Filter 'ProcessId = 45784' -ErrorAction Stop | ForEach-Object {@{pid=[int]$_.ProcessId; created=$_.CreationDate.ToUniversalTime().ToString('o'); executable=$_.ExecutablePath; command=$_.CommandLine}}); @{observed_at=[DateTimeOffset]::UtcNow.ToString('o'); processes=$pmTarget} | ConvertTo-Json -Depth 5"
+  ],
+  "cwd": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-feasibility\\owned049d-capture-03",
+  "started": "2026-11-17T10:27:31.129632+00:00",
+  "start_clock": {
+    "utc_between_qpc_reads": "2026-11-17T10:27:31.129587+00:00",
+    "qpc_before": 4297824583585,
+    "qpc_after": 4297824583931,
+    "frequency_hz": 10000000,
+    "pair_span_seconds": 3.46e-05
+  },
+  "owner": {
+    "pid": 64408,
+    "script": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-feasibility\\pilot.py",
+    "source_sha256": "67220fd37a03e4c0e57c371525c3fbe8a2c953732fb38bb1853586446b1f51a7"
+  },
+  "helper_pid": 38520,
+  "exit_code": 0,
+  "ended": "2026-11-17T10:27:33.775958+00:00",
+  "end_clock": {
+    "utc_between_qpc_reads": "2026-11-17T10:27:33.776299+00:00",
+    "qpc_before": 4297851050748,
+    "qpc_after": 4297851050880,
+    "frequency_hz": 10000000,
+    "pair_span_seconds": 1.32e-05
+  },
+  "helper_exited": true,
+  "stdout_sha256": "9e470d78fe8227517293cb9b54a3372fec18a9cf777eee0472077be05996efb1",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

@@ -1,0 +1,21 @@
+Traceback (most recent call last):
+  File "C:\Users\ben_l\Documents\Coding\resoucepack update\vehicle-memory\tools\packaged_client.py", line 654, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\ben_l\Documents\Coding\resoucepack update\vehicle-memory\tools\packaged_client.py", line 646, in main
+    prepare(args)
+    ~~~~~~~^^^^^^
+  File "C:\Users\ben_l\Documents\Coding\resoucepack update\vehicle-memory\tools\packaged_client.py", line 375, in prepare
+    observer_identity = verified_observer(args.observer[0], identity, matrix)
+  File "C:\Users\ben_l\Documents\Coding\resoucepack update\vehicle-memory\tools\packaged_client.py", line 148, in verified_observer
+    manifest = read(manifest_path)
+  File "C:\Users\ben_l\Documents\Coding\resoucepack update\vehicle-memory\tools\packaged_client.py", line 33, in read
+    return json.loads(path.read_text(encoding="utf-8-sig"))
+                      ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\pathlib\__init__.py", line 787, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors, newline=newline) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\pathlib\__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-obj048-full02\\mods\\mtr-native-observer-official-nf248-1.0.3.build.json'

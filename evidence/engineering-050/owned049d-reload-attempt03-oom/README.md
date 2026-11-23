@@ -1,0 +1,47 @@
+# Four-input reload attempt03: real OOM, final session unaccepted
+
+This seal preserves the stopped four-input attempt on the original owned049d JVM **45784**, created **2026-11-17 03:15:53.538301 UTC**. The final consumer summary is `stopped`, `passed=false`, `error=null`, **0 verified reloads / longest run 0**. Earlier saved evaluations verified the first one, two and three reloads against their own earlier exact prefixes; none certifies the later whole session. The fourth input is retained.
+
+## Failure and complete boundary
+
+The fourth actual input was issued **10:52:07.877Z**, confirmed **10:52:08.118Z**, from before epoch 4. Native epoch 5 starts at **10:52:24.162328200Z**. The complete final log contains two `Shared Blockbench loader failed` errors at original lines **365 and 395**, local **18:52:50.679 / 18:52:50.778 UTC+08:00**, each followed by `java.lang.OutOfMemoryError: Java heap space` at lines **366 and 396**. Both stacks show array allocation in `String.join` through Memory Saver 0.4.7 `SegmentedResourceText.read:55/28`, `StrictResourceText`, `BoundedTextCache`, `CompressedResourceTextCache`, `SharedBlockbenchCache` and `GenerationWorkCache`. This identifies the observed allocation/stack path, not a proven exclusive root cause.
+
+Epoch 5 returns at **10:55:14.974907300Z** with 1091 distinct IDs, 1092 declarations and zero native pending/in-flight work. Those values do not erase the OOM. The frozen full-prefix diagnostic replay retains all four unreviewed error/exception lines. The ordinary official default-rail attribution still passes for its own known calls; it does not classify or allow these heap exceptions. Final global diagnostic context rejects the first three records as well, while the fourth additionally fails the reload's decoding/parsing diagnostic gate. The final summary's zero accepted count is preserved exactly.
+
+Consumer ran **10:19:03.565627Z–11:03:16.828346Z**, 2653.2592134 seconds, **531 samples / 376 verified samples**. Other recorded sample failures include stale/future native state, nonadvancing state and client pause; none is deleted or rewritten as harmless. All five native epoch HEAD/RETURN pairs, including startup, and the complete 77,281-byte final log/diagnostic stream are retained. The JVM reports running in the saved OS samples; this seal does not infer process death or final game exit from the reload's OOM.
+
+Recorder's full **4,967-row** hash chain contains **2,482 captures**, **1,274 published** and **1,208 ineligible** results. Its last ineligible capture is record **2482**, with the retained reason `Unreviewed native diagnostics remain in the actual log prefix.` The complete raw prefix, native snapshot, before/after callback bytes and original raw-evidence records for that capture are preserved. Reader stop requests, the consumer's original captured stop bytes/receipt and recorder's matching session-end journal SHA/closed-handle fact remain original. Root reported actual terminal results consumer **45730 exit1**, recorder **14218 exit0**, waiter **13570 exit1**; without supplied original tool receipts these are explicitly parent-reported, not reconstructed raw receipts.
+
+## Minimal complete closure
+
+`capture-01/read-receipts.json` records 255 original reads with actual UTC intervals, byte length/SHA, file identity and mtime. Copying rejects source mutation. Runtime/prod Java, the source cache, old seals and live programs were not changed; no reader or UI action was started or stopped by these scripts.
+
+- Preserve all four selected input-attempt directories and receipts, full input ledger and recorder journal; only **eight record payloads** are copied: input-before **161/1079/1534/1894**, historical post-return **349/1294/1869**, and last ineligible **2482**. The other 2,474 record payloads are outside this export; their original journal entries remain retained.
+- Preserve the consumer's complete summary/samples/stop/final log/epoch/diagnostic/input exports and frozen producer modules/configuration/proofs. Native-log blobs/receipts/context/plan/launch are copied only for these required closures.
+- Preserve the first three exact historical evaluation results. Their original sample/journal/ledger prefix lengths and SHA values bind to byte ranges at offset zero in the complete final files. No historical trace is synthesized or filtered. Each replay uses its own original callback/log prefix and its actual earlier final sample timestamp.
+- Preserve evaluator source **8107303eea520c20ae52d54f7477ba432067bab739c1d832e57c09c88b111ac7** and waiter source **90e2f37ed9db5960014fcab5bb8dc83b8e474413d31f10e8a7b25634ec598426**, the waiter's successful third-reload run and original failed fourth-reload wait, with their original source snapshots and stdout/stderr/execution records. These archived operator scripts are reference-only; this verifier never runs their native process checks or waits.
+- Preserve actor v1/v2 source, explicit config, focus-prelude source, change receipt, four input receipts and small related before/effect records. The change note states earlier guard rejections caused no input; where no raw rejected-action tool receipt was supplied, that remains attributed reporting rather than an invented fifth input.
+- Actual installed companion/observer/MTR artifacts were read-only rehashed against the frozen plan: Memory Saver0.4.7 companion `e8b5b40230d0f44c541c12b32c8a30d4c2ea056b8a972335ae10166496837a99`, observer1.0.3 and official MTR4.1.0-beta.2 all match. `installed-fingerprints.json` records timed fingerprints, not copied binaries.
+- After implementation work was authorized separately, all **35 original Java files / 83,065 bytes** were copied from the parent's pre-change, artifact-verified `product-source-047` backup, with its original source receipt and new copy intervals. Every file is independently compared with the old0.4.7 artifact's `inputs` hashes. The changing live Java tree is not used or represented as the old source. These are archived inputs, not a production change.
+
+## Post-OOM JFR reference and waiter gap
+
+The read-timed collector execution checkpoint records readable **diagnostic-02.jfr**, successful actual dump/summary commands, and manifest SHA-256 **`af4301d4c6af06a7b527ab56d6ff5214fa1c6be80e2ed6d10b3c0ff5eb50447a`**. Its export request and original dump/summary stdout/stderr are copied. The JFR binary and growing `native-snapshots.jsonl` are not copied or read by this seal; no portable JFR replay, event coverage or performance claim follows. The collector's `observing` value is a read-time checkpoint, not independent current liveness or a complete-exit fact.
+
+The original waiter reached `deadline_elapsed`, return value1, with no strict evaluation result for target5. Its recorded state had seen RETURN but kept waiting for a post-return eligible consumer/publication pair. OOM made recorder publication remain ineligible, so the strict replay gate was never entered. **That wait was an orchestration defect, not evidence that the reload was merely still parsing or passed.** The failed waiter source and output remain unchanged.
+
+A later, separately reviewed change should check completed diagnostic evidence immediately after an actual RETURN, before waiting for eligible publication. Reuse the existing complete raw log/epoch/diagnostic review and retain its failure result; a closed ineligible capture can provide those bytes. Do not require a successful publication to discover the error that prevents publication, add an OOM text allowance, drop the fourth input, or repeatedly rerun to obtain a pass. A deterministic RETURN-plus-new-native-error/no-new-publication control should verify immediate nonzero failure. This batch only records that recommendation; it does not change the waiter or runtime.
+
+## Independent verification
+
+`sha256-index.json` covers every payload here except itself and bytecode caches. `verify_sealed.py` uses only frozen producer source and payloads. It verifies all input closures, full journal and stop receipts, all five epoch pairs, final whole-prefix failure and last-ineligible reason, and independently replays all three historical prefixes at their original boundaries. It also checks controller/source pins and post-OOM export manifest consistency. Source path rebasing points the frozen neutral-contract reader to the preserved config; its bytes and all policy checks are unchanged.
+
+From the repository root, choose a fresh output:
+
+```powershell
+.\.venv\Scripts\python.exe -X utf8 evidence/engineering-050/owned049d-reload-attempt03-oom/verify_sealed.py .cache/owned049d-oom-recheck.json
+```
+
+Actual subprocess receipts/results reside outside this index in `../owned049d-reload-attempt03-oom-verification`. Passing that evidence check confirms preservation of a failed four-input attempt. It grants no twenty-reload, route, performance, visual or game-exit acceptance. New historical `.py` payloads are registered through the existing `minecraft_testkit inventory` catalog workflow before commit.
+
+The first verifier execution failed at its last waiter-metadata check: it incorrectly indexed an optional `latest_result` key that is absent when no replay was ever invoked. That original verifier source, input index, stdout/stderr and actual exit1 receipt remain in `replay-01`. The verifier now treats absent/None as no result. No runtime source, captured data or original failed run was changed to obtain the subsequent verification result.

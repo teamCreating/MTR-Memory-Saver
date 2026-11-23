@@ -1,0 +1,13 @@
+{
+  "moved_at": "2026-11-17T12:59:38.836058+00:00",
+  "old_path": "tools/test_wait_reload_ready.py",
+  "new_path": "tests/test_wait_reload_ready.py",
+  "bytes": 15896,
+  "sha256": "ca89567299f419ac489c2144813db17bdf443ca625a207fdb7a44ba95c0ecc63",
+  "source_bytes_unchanged": true,
+  "helper_sha256": "2ce1525514d71f0c18c4de274832491d7635cf86f46fb13f62816cba09aa66f1",
+  "failed_run": 44087888297,
+  "failed_commit": "e5799dceb325e1201e07c278ec16374c7cd59c69",
+  "cause": "New tests were in legacy tools instead of formal tests, so existing strict test-ID equivalence found 16 extra legacy tests. Catalog succeeded on both OS.",
+  "raw_log_fetch": "First gh api refused terminal escape sequences; its original stderr retained. Explicit --allow-escape-sequences fetched the completed job logs; raw stdout bytes retained."
+}

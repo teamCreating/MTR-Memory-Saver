@@ -1,0 +1,140 @@
+{
+  "timestamp": "2026-11-15T07:41:37.719140+08:00",
+  "target": "official MTR 4.1.0-beta.2",
+  "archive_sha256": "ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa",
+  "status": "static_default_rail_functional_boundary_not_runtime_validation",
+  "registry_assessment_sha256": "7f5ab39b528900363e75f7fabca99fe42cd835a63d3338c50ce7d2d0f08e7c08",
+  "legacy_directory_assessment_sha256": "e29884a6d6344c0280aee7463fa85e8b14a11a3def5d5dd92b5c66ba93b3ef01",
+  "bytecode_inputs": [
+    {
+      "archive_sha256": "ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa",
+      "entry": "org/mtr/render/RenderRails.class",
+      "entry_sha256": "91af55f7ef03c32a747ffbe3b018143dec9c34afd7b88dc7bad10d9c5739c877",
+      "javap": "org.mtr.render.RenderRails.javap.txt",
+      "javap_sha256": "74317e136bc6e8e8c19ecae45d6240b4dff7773dd964d90dd960e1ecdd6d1910"
+    },
+    {
+      "archive_sha256": "ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa",
+      "entry": "org/mtr/sound/VehicleSoundBase$RunSoundInfo.class",
+      "entry_sha256": "033be319c87bc832c51ff6aac795fc171eee6432223df51ba7d5f926078811f7",
+      "javap": "org.mtr.sound.VehicleSoundBase$RunSoundInfo.javap.txt",
+      "javap_sha256": "b918f78623e4cde99b2727625700727e4fe3c3f19f5326daa27b50d5ca1c8ce5"
+    },
+    {
+      "archive_sha256": "ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa",
+      "entry": "org/mtr/resource/StoredModelResourceBase.class",
+      "entry_sha256": "d899a1bd5fc87e0b715d74fa017ccd10694c84f44a45e2d487c865d3ac6a8499",
+      "javap": "org.mtr.resource.StoredModelResourceBase.javap.txt",
+      "javap_sha256": "a7817744fe4a36cac197d380f4cac01758055e495096046948fbac994a238063"
+    },
+    {
+      "archive_sha256": "ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa",
+      "entry": "org/mtr/model/ModelLoaderBase.class",
+      "entry_sha256": "2a3264b6d7b137ff32e8b5b359386404e5e1c04b7d18c4d23b6e1adbd9475623",
+      "javap": "org.mtr.model.ModelLoaderBase.javap.txt",
+      "javap_sha256": "826b8dab52b06888683f958e228346c4882c46043a04d0aa3afd0b75c90de699"
+    },
+    {
+      "archive_sha256": "ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa",
+      "entry": "org/mtr/model/BlockbenchModelLoader.class",
+      "entry_sha256": "55e512985e2ae4b6d72a3272bb3268c4aa68018011d2d68e057720749c9383b7",
+      "javap": "org.mtr.model.BlockbenchModelLoader.javap.txt",
+      "javap_sha256": "1686d69c6dadf67802f76e0df4305c6b9205b392929a0136425c8de001d13933"
+    },
+    {
+      "archive_sha256": "ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa",
+      "entry": "org/mtr/resource/BlockbenchModel.class",
+      "entry_sha256": "65ae932dd63e5f232f8047d074d4995aa5210b7072b98de9ef872f0c7dabbdc1",
+      "javap": "org.mtr.resource.BlockbenchModel.javap.txt",
+      "javap_sha256": "867807c888e0a5d270149e5655ba26c37e222f404a5b18264f0e6ac2e080e21a"
+    },
+    {
+      "archive_sha256": "ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa",
+      "entry": "org/mtr/legacy/resource/LegacyRailResource.class",
+      "entry_sha256": "b608c40d101f4a725d13eabb7c371996e52a1e396109ef5e17b7ee9a0ea67f22",
+      "javap": "org.mtr.legacy.resource.LegacyRailResource.javap.txt",
+      "javap_sha256": "69fad5d13bde4d0ec56f27ee8f58b24176c69ca30bd5b2a346aaed5426e6a14a"
+    },
+    {
+      "archive_sha256": "ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa",
+      "entry": "org/mtr/legacy/resource/LegacyObjectResource.class",
+      "entry_sha256": "f7b26fe7894b8d158d71c3d62bae1422f039896d98c2fbd50f4c6b1da88e0b68",
+      "javap": "org.mtr.legacy.resource.LegacyObjectResource.javap.txt",
+      "javap_sha256": "919264fe5049bb3c618c03fc6e0bc5b5b177bee78c29fa6ff71833a24b20b34b"
+    },
+    {
+      "archive_sha256": "ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa",
+      "entry": "org/mtr/legacy/resource/LegacySignResource.class",
+      "entry_sha256": "e14966c7a08648372ef60c095dc2b922df1bec5dee65b6c4ce8c8cfe9413bf9c",
+      "javap": "org.mtr.legacy.resource.LegacySignResource.javap.txt",
+      "javap_sha256": "e4f475bea028ae8b18e7a793c9a8b61d961713685efe508cf70a7b90884ac20f"
+    },
+    {
+      "archive_sha256": "ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa",
+      "entry": "org/mtr/resource/ResourceManagerHelper.class",
+      "entry_sha256": "b9278b068a63953623ec90754ea02ffc6706199893df9182856ae2f507025da3",
+      "javap": "org.mtr.resource.ResourceManagerHelper.javap.txt",
+      "javap_sha256": "f4a9f923ae1b7a7e21123c020a95739f335c181a878c41ee776d283bd953d9bf"
+    }
+  ],
+  "exact_default_style": {
+    "method": "org.mtr.render.RenderRails.renderRailStandard",
+    "config_mapping": "Only getDefaultRail3D=true with transportMode=TRAIN maps exact default to default_3d or default_3d_siding. Other styles remain unchanged.",
+    "two_dimensional_branch": "Final style exactly equal to default sets boolean[0] and jumps from bytecode 120 to 152, bypassing getRailById at 149. The later basic rendering path uses supplied RAIL_TEXTURE/RAIL_PREVIEW_TEXTURE rather than this RailResource model.",
+    "evidence_file": "org.mtr.render.RenderRails.javap.txt",
+    "evidence_lines": [
+      426,
+      451,
+      456,
+      468
+    ]
+  },
+  "direction_suffix_boundary": {
+    "styles": [
+      "default_1",
+      "default_2"
+    ],
+    "behavior": "These fail the exact default comparison and enter the custom-model branch. RailResource.getIdWithoutDirection strips _1/_2, allowing lookup of the default resource, followed by RailResource.render. Actual UI selectability, authored world styles, and runtime occurrence remain unverified.",
+    "evidence_files": [
+      "org.mtr.resource.RailResource.javap.txt",
+      "org.mtr.render.RenderRails.javap.txt"
+    ],
+    "strip_method_line": 129,
+    "render_call_line": 1542
+  },
+  "sound_consumer": {
+    "method": "org.mtr.sound.VehicleSoundBase$RunSoundInfo.create",
+    "behavior": "Looks up the first current/previous style and reads RailResource.getSoundIndex. No model factory, optimized model, or model render call occurs in this saved class.",
+    "evidence_file": "org.mtr.sound.VehicleSoundBase$RunSoundInfo.javap.txt",
+    "evidence_lines": [
+      36,
+      66,
+      43,
+      73
+    ]
+  },
+  "fallback_work_boundary": {
+    "behavior": "VehicleModel unsupported-format fallback calls BlockbenchModelLoader.loadModel with an empty-JSON model supplier. Its canLoadModel path calls parseStarted and submits a worker task. shouldPreload=false controls later preload selection; it does not imply no construction or asynchronous parsing work.",
+    "evidence_file": "org.mtr.model.BlockbenchModelLoader.javap.txt",
+    "evidence_lines": [
+      22,
+      24,
+      30
+    ]
+  },
+  "combined_authored_audit": {
+    "verified_archives": 17,
+    "registry_model_consumers": 4200,
+    "legacy_directory_model_consumers": 303,
+    "total_model_consumers": 4503,
+    "unsupported_suffix_candidates": 0,
+    "meaning": "No audited authored registry or directory-migration model field enters the factory's unsupported-format branch. This is suffix attribution, not parsing/rendering/texture validation or runtime registration-count validation."
+  },
+  "independent_review": "rail_branch_review independently checked the generated default call chain, exact-style rendering bypass, direction-suffix counterexample, sound-only consumer, and fallback worker boundary using saved official bytecode. It also independently enumerated all 17 archives, reconstructed the 17 directory entries and 303 model consumers, and confirmed native map-ID lowercasing and unchanged model copying. No client action was part of this review.",
+  "limits": [
+    "The native generated source is statically proven. Individual archived log occurrences have no runtime stack trace; a mod-free baseline was not run here.",
+    "No claim of harmlessness, zero overhead, absence of behavior regressions, or unique runtime source follows from these branches.",
+    "No route, endurance, reload-cycle, or performance pass is claimed. In particular, this evidence does not qualify or reinterpret the separate route03 run."
+  ],
+  "script_sha256": "8b5c192be32c3e5e6dfd629054699e27254020b0b42fa48d996f76ee19c6fefc"
+}

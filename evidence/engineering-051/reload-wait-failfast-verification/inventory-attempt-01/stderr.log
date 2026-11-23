@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 203, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\ben_l\Documents\Coding\resoucepack update\vehicle-memory\minecraft_testkit\__main__.py", line 45, in <module>
+    raise SystemExit(main())
+                     ~~~~^^
+  File "C:\Users\ben_l\Documents\Coding\resoucepack update\vehicle-memory\minecraft_testkit\__main__.py", line 40, in main
+    print(json.dumps(result, ensure_ascii=False, indent=2))
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'gbk' codec can't encode character '\U0001f686' in position 89015: illegal multibyte sequence

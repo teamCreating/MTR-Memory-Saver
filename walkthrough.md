@@ -517,3 +517,239 @@ CI从config/targets.json派生Java及官方目标，Linux/Windows构建、Java/n
 仅在该测试增加SamplingClock合成采样时钟，UTC和monotonic同源、按明确采样deadline推进；使用3秒逻辑时长和0.25秒步进覆盖原三个窗口。真实后台线程通过started/release事件同步，采样窗口冻结后才释放并完成，保留真实join与原终态事件/时间边界断言，新增elapsed精确等于3和路线窗口passed断言。生产观察器、路线覆盖规则与关闭超时未改；合成逻辑时间不冒充实际运行时长。首次合成夹具的UTC与采样边界不足在本地暴露并修正，没有放宽生产校验。
 
 相同每次等待后120ms真实延迟下，修正用例实际13份采样、3个窗口通过、结果仅出现在终态、elapsed逻辑3秒，真实测试耗时1.605s；观察器73项回归通过（4.857s），最终完整286项通过（24.576s）。447份原历史脚本与11份样例再次校验通过；原始失败记录保留，本批不授予任何新的实际游戏验收。改动与思路随本提交记录，使用用户身份并立即自动push工作分支。
+
+## 2026-11-17T18:40:02+08:00 (UTC+08:00) — 封存049d第三次PresentMon可用性探测
+
+首轮重载已独立verified并稳定后，仅执行一次官方PresentMon2.6.0、exact PID45784与创建时间绑定的25秒可用性探测。真实owned helper69616 wait exit0且无timeout，退出时间10:28:02.011032Z；独占ETW session结束后QUERY返回4201，目标JVM身份前后一致。仍未生成CSV，实际schema、非零目标数据行及QPC/缺失值均不可验证，data_source_available=false；不授予calibration、performance或玩法通过，也不从通用权限警告归因。lost counters为0仅对应一次查询点，BuffersWritten70不能冒充目标present数量。
+
+按精确解析路径、仓库边界、目标不存在与无reparse检查，用一次PowerShell Move-Item -LiteralPath将本次46文件共1230384bytes移到独立evidence/engineering-050/presentmon-owned049d-capture03。逐文件核对移动前后size/SHA一致，原绝对路径与argv保持原字节，另存来源映射。移动前两个预检分别因PowerShell参数集及字典测量方式失败，均发生在Move-Item之前、未移动或改写payload；修正预检后只实际移动一次。
+
+复核旧presentmon-feasibility147个index-defined payload共5831275bytes全部size/SHA吻合，旧index与HEAD原bytes一致，本次capture子目录已移出；另有3份既存未索引bytecode缓存按root指示原位保留，不删不移、不归因为本次，也不声称旧物理目录每文件均在index。新增compact assessment、README、历史payload核对与独立SHA-index；旧seal和runtime未修改。以A-BenLi06 <ben_li06@outlook.com>作者/提交者限定提交本scope与walkthrough，并按仓库AGENTS自动push当前工作分支。
+
+## 2026-11-17T18:54:29+08:00 (UTC+08:00) — 修复历史脚本目录遗漏与Windows CI退出状态覆盖
+
+52b35b0的push run44067254320真实失败：Ubuntu Tools在minecraft_testkit verify因catalog447项而tracked归档脚本449项立即退出1；差集仅本次probe封存新增native-etw-source.py与pilot-source.py。Windows同样发生verify traceback，但同一pwsh step随后286tests通过，最终native命令成功覆盖前一失败，导致该job误绿；4组官方构建均通过，汇总CI正确因Tools失败而失败。保留旧failed run，不手工重跑或取消。
+
+使用既有minecraft_testkit inventory生成器审阅刷新data/historical-scripts.json，仅增加上述2项路径、group、size和SHA，原447项逐项语义/指纹不变，原证据不修改。build.yml把verify与test拆成独立、各一条native Python命令的step，无continue-on-error；保留双OS与官方目标matrix、CI稳定名称、needs及汇总gate。独立只读review确认Windows首step非零不能再被下一step覆盖，既有release依赖仍拒绝失败。
+
+验证：minecraft_testkit verify实际exit0（449份历史脚本、2组数据集、11份样例）；原入口完整286tests实际exit0、63.489s、OK（原始输出留ignored .cache/ci-052-catalog-step-fix/tests.log）；既存actionlint对build.yml实际exit0。tracked diff严格只有catalog/workflow/walkthrough，Git whitespace通过。live recorder-attempt03/session-start.json SHA7483cc778a7af9bf6d312a301d91e5460e890e1591ba52e3dc1cf1c8a55576bf及其9个runtime/config pins在修改前与全部验证后逐一相同；未改live reader/runtime、旧seal、权限或游戏状态。以A-BenLi06 <ben_li06@outlook.com>作者和提交者一次限定commit，普通push当前codex/standalone，随后只读跟踪新head实际CI终态；本地检查不替代该远端结果或游戏验收。
+
+
+## 2026-11-17T19:24:14+08:00 (UTC+08:00) — 封存049d第4轮真实OOM与最终未验收边界
+
+新sibling evidence/engineering-050/owned049d-reload-attempt03-oom 保留原049d PID45784/0.4.7的4个实际F3+t输入、5个epoch含startup的10行HEAD/RETURN、完整77281-byte completion log/diagnostics及531个consumer samples（376 verified）。第4输入10:52:07.877Z后，两次MTR-memory-parse『Shared Blockbench loader failed』/Java heap space发生于本机18:52:50.679/778 UTC+08（原log365/366、395/396）；栈为String.join→SegmentedResourceText.read:55/28→StrictResourceText/缓存/GenerationWorkCache，定位观察到的分配路径但不武断认定唯一根因。epoch5 10:55:14.974907300Z RETURN，1091/1092与pending0不能掩盖OOM。最终summary保持stopped/passedfalse/errornull，verified_reload_count与longest均0；前三历史prefix的1/2/3 verified结果仅在各自早期prefix准确，不授予最终全prefix通过。
+
+原运行闭包保留255个read-time原件收据；另从root已封存并按旧artifact.inputs匹配的backup复制35份原0.4.7 Java（83065bytes）、原source-receipt及新copy收据，完全不读取将变化的live Java。最终225payload约14.23MB；仅保留input-before161/1079/1534/1894、历史post349/1294/1869和最后ineligible2482这8个RR records，其余2474 records不复制。完整4967行RR hashjournal保留2482captures/1274published/1208ineligible，最后ineligible原始snapshot、日志、callback前后prefix和NativeLog receipt闭包齐全。保留4input-attempt原件、controller v1/v2、focus helper、修正说明、source810730...与90e2f3...及原waiter deadline失败run。未落盘的terminal回执和无实际输入的guard rejection明确parent-reported，不编造第5输入。consumer45730 exit1、recorder14218 exit0、waiter13570 exit1与磁盘stop/summary边界区分来源。
+
+只读复核actualinstalled产品/observer1.0.3/MTRbeta2 SHA与原plan一致，不重复复制binary。post-OOM diagnostic-02.jfr仅保留readtime collector execution checkpoint、export request及真实dump/summary原stdoutstderr，两命令exit0/readable，manifest SHA af4301d4c6af06a7b527ab56d6ff5214fa1c6be80e2ed6d10b3c0ff5eb50447a；不读取/复制JFRbinary或仍增长native-snapshots，不把observing值当成当前live/完整exit。
+
+sealed-only独立子进程最终exit0，精确重放最终全prefix0 accepted、最后ineligible错误及三个原history范围的verified1/2/3；native/日志/输入/停止hash均验证。初次新verifier在最后可选latest_result缺键处KeyError的exit1、源码、原index及stdoutstderr完整保留，随后仅修正verifier可选字段读取，没有修改原数据或runtime。最终225payload sealed-only子进程exit0，35原Java与artifact.inputs逐一验证；seal index SHA 945b19b123de263865bfa5b9a16ff6b1736d87e5080406e397042b5bf64b64c1，最终verifier SHA 03fb689dfe7654216e7837a162a025da9c6b8c4d8064255de4cd92c15d6819fb。较早187payload成功回执、原verifier与index亦保留。最终catalog inventory新增23个archive.py，449→472且旧449条语义不变；现有verify实际exit0（472scripts/2datasets/11files），原470阶段catalog及回执不覆盖。外部回执在 owned049d-reload-attempt03-oom-verification。
+
+原waiter缺口只写入README建议：实际RETURN后应先审完整新native diagnostics，不能等待本被OOM阻止的eligible publication才发现错误；保留其deadline_elapsed、未作strict replay的原事实，此批不改waiter/810评估器、runtime/prodJava、既有seal或UI。仅本新证据树.bin设置binary保留原字节，不授予20reload/route/performance/JFRcoverage/视觉或完整game exit通过。
+
+
+### 2026-11-17T20:21:07+08:00 — 0.4.8 streamed native Blockbench input and engineering validation
+
+Removed the module-owned complete input String from the audited official default-provider Blockbench path. Five exact native provider arguments now expose an explicit immutable UTF-16 snapshot/Reader capability; the same UTF-8 content identity and native shaded Gson/Blockbench algorithm remain. Unknown providers retain their actual String get contract and native DEBUG retains its local-file fallback. Reused the one CREATE_NEW/READ/WRITE/DELETE_ON_CLOSE channel owner. Prepared resources close before success or alias publication; source-close, parse, cancellation, retirement, timeout and late close errors retain original failures and independent suppressed errors without cause cycles. Added dynamic resource-ID failure context and wrapper-epoch source counters for actual runtime path confirmation. Version is 0.4.8; v6 validation stays paused (only common facade signature compatibility changed).
+
+Final official NF248 and NF265 each passed 99/99 Java tests with no skips, verifyRelease, probeJar/probeManifest and the standalone snapshot allocation audit. Source snapshots match the live frozen files before/after both builds and again at sealing. The same generated 40 MiB whitespace+JSON input under a 64 MiB heap succeeds through the snapshot reader with identical digest/native schema and settled ownership, while one preserved complete-String control exits 1 with OutOfMemoryError at String.join. This uses explicit fixture limits and is not a production-default or game acceptance. A separate 99-test run's one failing retirement assertion is retained: the test inspected new current-epoch pending as though it were the retired epoch. Only that expectation was corrected, retaining the blocked-retirement, old pending future, two closed owners, released admission and original cancellation/suppressed-error checks; production code did not change for that correction. The failed run's stale manifest is explicitly ineligible.
+
+Sealed byte-exact commands, raw outputs, all intermediate/failure records, JUnit XML, source snapshots, final product/probe JARs and manifests in evidence/engineering-051/streamed-blockbench-input (653 payload files, 3,587,600 bytes before the SHA manifest). Final product SHA256: NF248 34c0b27780f7a3d4d5f29845f98a655f22cae0b1eeca1a4a95ab86b60921b0c1; NF265 89720d30c76b4f5dfc6a71a398bb67c3138cf4f8f4e0afd0dbb062753552e735. Old 0.4.7/e8b JAR and its fourth-reload OOM witnesses remain unchanged. No client/UI action was performed by this batch. Packaged 24+18 checks/wrong-binary, fresh full-16-pack twenty reloads, and A/B/A/A/observer overhead remain separate release evidence; interaction and two-hour route coverage are outside the revised release scope. Main runtime/release docs are left to the root task after those actual results.
+
+
+### 2026-11-17T20:29:32+08:00 — Register four frozen 0.4.8 engineering scripts for CI
+
+Actual GitHub run 44082558819 for 6f710838948c641b17dd34adea5874cb85eb44ec completed failure: all four official build jobs succeeded, while both Tools jobs failed at `python -m minecraft_testkit verify` because the historical script closed set omitted the four newly archived runner/sealer files. Registered exactly those four engineering-051 records under the existing reference-only schema, including their actual byte counts and SHA256. The original 472 ordered records are exactly unchanged; none was removed or reclassified. The four immutable archived scripts were not executed.
+
+`python -m minecraft_testkit verify` now passes with 476 scripts and original sample checks; the existing inventory-never-executes/detects-drift control passes. The original failed GitHub run remains unchanged at https://github.com/teamCreating/MTR-Memory-Saver/actions/runs/44082558819 . Only the catalog and this walkthrough change; frozen Java/JARs, observer/source pins, consumer live tools and client processes are untouched. New pushed CI must be checked independently before claiming CI completion.
+
+
+### 2026-11-17T20:55:24+08:00 (UTC+08:00) — Read-only reload waiter diagnostic fail-fast repair
+
+Added the separate generic tools/wait_reload_ready.py with explicit recorder/consumer/fresh-output locations. It imports only matching hash-pinned frozen producer sources, preserves their input/reload/diagnostic semantics, and checks an independently reconstructable closed post-RETURN published or ineligible raw capture before waiting for successful publication. Unreviewed native errors fail immediately at that boundary; an ineligible capture never counts as a verified reload. Ready still requires a verified baseline strictly before first input, all retained inputs verified/consecutive, fresh latest eligible evidence, zero pending/in-flight, settled state and both measured trailing spans at least 60 seconds without cadence credit. Deadline is checked after assessment before granting success; the owned Windows process handle closes even if native API or initial clock setup fails. Output cannot write into the producer or instance directories. This remains interim readiness and does not replace normal final consumer summary/sealed acceptance.
+
+Final source SHA256 2ce1525514d71f0c18c4de274832491d7635cf86f46fb13f62816cba09aa66f1; final 16/16 targeted controls actually pass on Windows/project Python3.14 with zero skips and unchanged source bytes. Real old OOM record2482 replay takes about0.779s and yields diagnostics_failed from the four original unreviewed lines365/366/395/396 before any eligible publication or success replay. Original 90e waiter/810 evaluator remain byte-identical. Full historical Windows producer input-ledger controls remain Windows-only on CI rather than modifying captured Path semantics; real OOM fail-fast and remaining source/raw/deadline controls stay enabled on both OS. Local Linux execution is not claimed.
+
+Preserved the first 9-test run's six fixture errors and corrected only its historical journal cut to the selected retained record; subsequent 12-,15-,16-test actual exit0 receipts and all frozen sources remain. A wrong-working-directory pre-test shell invocation is explicitly agent-reported, not fabricated raw receipt. The catalog's first default-GBK stdout error is also preserved with original stderr and its receipt gap labelled; explicit -X utf8 generation then exits0, adds only eight archive source copies (476→484), retains all old476 records exactly, and existing verify exits0 (484 scripts/2datasets/11files). Main25payload/197479bytes index SHA5b9a20e99cc7b571b9587db388f66de5d21f886fb81a7d1ffc4fad6614d66dec; independent read-only reviewer reports47/47 checks and exact final source/test/OOM match. No live JVM/reader/UI query or input, runtime/prodJava/old frozen evidence change, or game acceptance is attributed to this batch.
+
+
+### 2026-11-17T21:02:16+08:00 (UTC+08:00) — Integrate new waiter tests with the formal discovery contract
+
+The first waiter commit e5799dceb325e1201e07c278ec16374c7cd59c69 was pushed after an initial GitHub TLS EOF (ordinary retry only). Its actual CI44087888297 completed failure: metadata and all four official build jobs succeeded, while both Tools jobs failed the one existing strict legacy/current test-ID equivalence test. New16 tests had been placed in legacy tools/ although tests/ is now the formal suite, so the formal entry ran286 and legacy discovery included16 extra. The earlier targeted16 success did not cover this integration contract. Raw failed job logs and actual completed status are preserved in a new sibling reload-wait-discovery-fix, not written into the closed earlier seal.
+
+Moved the new test module unchanged to tests/test_wait_reload_ready.py and documented its scope with one table row. The existing forwarding hook now discovers the same full formal set; no test gate/exclusion or source hash is relaxed. Production helper stays2ce1525514d71f0c18c4de274832491d7635cf86f46fb13f62816cba09aa66f1; moved test bytes stayca89567299f419ac489c2144813db17bdf443ca625a207fdb7a44ba95c0ecc63. Actual official entry runs302tests/30.885s/exit0/zero skips, including all16 new controls and strict discovery equality; source bytes remain identical before/after. Existing verify exits0 with484scripts/2datasets/11files and catalog bytes unchanged because no new archive.py is introduced. Preserve first log-fetch CLI terminal-escape refusal plus successful explicit raw fetch. No runtime reader/JVM/UI/game input or old frozen source/result was modified. Commit/push this scoped integration repair and independently inspect new CI rather than labelling the original failed run green.
+
+
+### 2026-11-17T22:07:54+08:00 (UTC+08:00) — Seal completed 0.4.8 packaged component checks and wrong-binary rejection
+
+Created the independent sibling evidence/engineering-051/packaged-client-checks from four already-terminal JVMs: NF248 capture03 PID39660 and NF265 PID54748 each actualprocess.wait exit0 with24 lifecycle+18 strict-resource booleans alltrue; NF248 mismatch60744/NF265 mismatch41096 each JVMexit1 with original launch.stderr fingerprint fatal before ResourceManager/memory-sharing registration. Two acceptance probe request/result IDs and audit byte copies agree; installed correct companion/probe hashes match tracked engineering051 runs06/07 final manifests/JARs. Wrong MTR SHA b4a1... differs from auditedff2b..., with no probe/lifecycle result installed for negative controls. Original smoke fault-injection ERROR/WARN logs are kept and do not become an unreviewed-error exemption for full gameplay. Scope is packaged component checks with base resources/no world/no external packs, not the ongoing051a full-catalogue reload chain.
+
+Preserved initial NF248 execution stilllaunching/noPID/noerrortrace and parent-reported missing launcher cause; earlier capture02 JVM44444 exits0 but no lifecycle result, so neither incomplete attempt is accepted or merged into capture03. Disk execution.exit_code is the owned JVM wait result. Frozen collector does not forward childcode: actual wrapper62013/48261/63994/91696 terminal0 results are explicitly parent-reported because no original tool receipt was saved; no reconstructed raw receipt. Wrapper0 never converts a mismatch JVM1 into acceptance.
+
+Copied83 original smallpayloads (1,250,405bytes) with readtime/before-afterstat/SHA receipts, nine frozen Python/two config sources and four product/probe manifests. Exact existing tracked product/probe JAR/source references avoid duplicate binaries; sealed-only verifier rechecks all122 manifestinput fingerprints, including generated/resource ZIP entries. Four actual on-exit JFRs and installed mods were independently hashed while these executions were terminal; no JFR/MTR/dependency/world binary is copied. Saved four original JFRsummary commands exit0/empty stderr with51/52/8/8s durations; smoke each1ClientFrame/0ServerTick is component/recording-readability evidence only. Earlier44444 JFR gets only its readtimehash, no readability/pass claim. Newseal totals90payload/1,353,055bytes; index1f89fa1d00b71316f6009469a4801289b4c64548aa56fdbed179f7f2ee16844c.
+
+Actual isolated sealed-only verifier exit0 with unchanged source/index, no original-instance/process/UI access; verifier SHAeedb32370ee779df589fbe27840b01ad7b00d48c8e545b302141e04167c4f25b. Independent read-only original audit reports114/114 checks matching. Existing inventory registers exactly10 newarchive.py,484→494 with allold484 entries unchanged; existing verify exit0 (494scripts/2datasets/11files). Verification rawstdoutstderr/argv/exit/index saved in sibling packaged-client-checks-verification. Production/runtime/Java/051a sources, ongoing client/collector/readers and old seals remain untouched. Commit with A-BenLi06 author+committer and immediately ordinarypush, then check actual CI terminal independently.
+
+
+### 2026-11-17T22:48:32+08:00 (UTC+08:00) — Seal original0.4.8 seventh reload OOM and automatic fallback failure
+
+Preserved051a PID58036/start12:21:12.641Z as an independent failed sibling, with7 actual F3+t inputs, all immutable confirmation attempts, complete13,083-row RRjournal and1,392consumer samples/1,168verified. Consumer actualtool84998 exits1 withstopped/passedfalse/reload0/longest0; RR48395 exits0 withsession-endstopped/handleclosedtrue/captures6540. Normal stop receipts remain byte/SHA bound. Seventhinput14:19:31.029Z causesepoch8 start14:19:44.029530400Z withoutRETURN. Automatic fallbackepoch9 start14:19:57.859424100Z/return14:20:01.614681300Z has only422IDs/423declarations and cannot count as an eighth commanded or successful full-pack reload. Lastsnapshot native_settledtrue is preserved together withstarted9/completed8/in_flight1; no single field overrides the full evidence.
+
+Full OOM/error/recovery log and nativecallbacks preserve stack occurrences521/556/592/623, observed String.join→original0.4.8 SegmentedResourceText47/20→StrictResourceText→Bounded/CompressedResourceTextCache→CustomResourceLoader.readResource→SnapshotResourceProvider.get26→VehicleModel allocation path. Four stack/log occurrences do not assert four independent OOM events or an exclusive root cause. The missingepoch8 pair makes complete-prefix default-rail attribution fail, so all original unreviewed records remain rather than adding a whitelist. Exact frozen-producer replay reproduces the entire final reload_evidence/native_diagnostics objects and global0accepted. Six earlier ready prefixes independently re-evaluate1–6 with original compact results, owned sample/journal prefixes and both measured60+s spans; they do not grant final acceptance. Seventhwaiter77410 actualtoolwrapper1 is distinct from saved childreturned_exit2/superseded source exception.
+
+Minimal rawrecord scope14 comprises7 before records5038/5290/5500/5726/5944/6160/6370,6 historicalpost5244/5490/5703/5929/6146/6357 andlastineligible6540;6,526 redundantrecordpayloads omitted while every journal event remains. Literal7 attemptjournal-prefix files total35,275,701bytes so unchanged nearest-publication/input_events logic can replay directly; this and complete12.03MBsamples/5.84MBjournal dominate the62.27MB closure. Native-log contexts/anchors/ordered originalsegments and actual referencedreceipts are frozen, without assuming RR numbers equal logcapture numbers. Actorv3/v4/focus/config, seven rawinputreceipts and source2ce152...waiters are kept. Frozen original0.4.8 productJAR/source uses already-trackedruns06 reference and48inputfingerprints, never current liveJava/build; installed product/observer/MTRhashes matchplan, with only the44,068-byte exact observerJAR newlycopied.
+
+After failure root usesAltF4 at14:26:10.955Z; closedcollector34640/ownedJVM actualexit0 is a later real exit and never cancelsOOM. Closedcollector execution/smalllogs/callbacks/finalsinglesnapshot and originalexport01 dump/summary exit0/readablemetadata are copied. RecordedJFR SHAa139b1e4f70d2061c952cde175241237f974751cd781dc1859d1304cbe8ec628; no JFRbinary read/copy/rehash. The43,334,964-byte collector snapshotstream is likewise not read/copied/rehashed; only recordedSHA/size are referenced. Unsaved terminaltoolreturns explicitly parent-reported, not fabricatedrawreceipts.
+
+Finalsealed-only subprocess actuallyexit0 for285payload/62,274,121bytes; indexb19f70f80fc34ddd1ebb1603b842240b88c30deca785fc0e84c8a8282415e32a and verifier5811f105febc04f40cab287aa0e2aba88f4282c7321670dc89bfb6752ab119ff unchanged before/after. Initialnewverifier phasehead/start error exit1/source/index is preserved. Earlier successful audit replays used archivedFrozenProducer.resolve on recordedinstance: this could stat originaldirectory metadata despite no payload/process/JFR read, so originalscopewording is explicitly corrected. Finalnewaudit initializer usesPureWindowsPath only for recordedidentity while preserving alloriginalpins/import/replay checks; no archivedsource/globalpathlibpatch or runtimegatechange. Independentpeer confirms285payload hashes, historicalscope and resolvedmetadata boundary. Existingcatalog adds30archive.py,494→524 with old494entries identical; existingverify actualexit0(524scripts/2datasets/11files), with earlier523 runpreserved. Only newfailure evidence/verification, scoped.bin attribute, catalog andwalkthrough are staged; pausedframe tools and root's newJava fix remain outside this batch. Commit/push underuseridentity, then independentlycheckCI. This is failed-session integrity, no20reload/performance/route acceptance.
+
+Pre-commit staged-byte audit first exceeded Windows command-line length (WinError206) when expanding all long evidence paths; no commit/push ran. Corrected only the git ls-files argument set to exact scope directories, retaining every staged-blob byte comparison. The explicitly agent-reported note is retained, with no payload/runtime change.
+
+## 2026-11-17T23:37:40.0413431+08:00 — 流式读取原生 OBJ/MTL，保留解码与网格语义
+
+051a 第七次重载的真实 OOM 已独立封存于 engineering-051/streamed051a-reload-oom（da63581）；旧 Blockbench 流式改动未覆盖 VehicleModel 的 OBJ String 读取分支。修订仍属于尚未发布的 0.4.8 候选，旧 34c0…/89720… 产物与失败证据保持原字节，不以旧检查代替新产物验收。
+
+新增官方目标的显式 OBJ 快照入口：先排队描述符，在有界 worker/读许可内取得 owned snapshot，以 CommonsIO 2.15.1 的有界 UTF-8 ReaderInputStream 交给原 ObjReader/MtlReader InputStream 入口，保留 OBJ 的 US-ASCII 与 MTL 的默认 charset 解码。网格/材质构建继续调用原生私有方法；路径、纹理、flipV 和原生 MTL Exception 日志后继续的策略有原生对照。未知 provider 保持原生 String 合同，显式 declined capability 保留 String fallback。OBJ/MTL snapshot 在成功发布前关闭，generation retirement 持有 running ticket 至真实 owner 退出；只按 provider/model/texture/flip 路径复用，不按 OBJ digest 跨材质依赖错误合并。未调低生产限额、增大 3 GiB 堆、强制 GC 或简化模型。
+
+两官方目标 test/verifyRelease/probeJar/probeManifest 与两项 64 MiB allocation controls 均真实 exit0，各105 tests/0失败/0跳过，源前后 changed=[]。40 MiB OBJ fixture 的 native parser/digest/cleanup 正控制成功；同输入/堆/fixture限额下整 String 负对照真实 exit1，在 String.join OOM，原 stdout/stderr/exit 保留。fixture显式限额不是生产默认堆保证。首轮定向46项中一项材质 oracle 漏用原路径 resolver，原失败 source/XML 已保留；修正对照后6/6和两套完整105通过。
+
+新 NF248 JAR943b3d455fa3ce9d3ede74bc1a2071ece7bf70b09d9b7f829027347b53a9b588；NF265 JAR134770acd53ec81325993604e8441d213d9ea1be990adb3bc2877b0cb7cc17dd。两实际新 JVM57308/62672 各24 lifecycle+18 resource+27 OBJ布尔检查全true、正常exit0；含真实网格发布、OBJ/MTL不开String、close/size/读故障、同键修正重试、flip分离、epoch重读、unknown/declined合同及退休late owner/ticket关闭。错误 MTR 指纹 JVM44564/67416 均在注册前fatal exit1。对应封存前原始数据在 .cache/acceptance/streamed-obj048-validation 与 streamed-obj048-client-validation；JVM exit与collector wrapper exit分开读取。完整16包的新JVM69764已经启动，尚未获得20连续重载通过；性能对照/observer-off/独立帧源仍未完成。当前发布门槛仅用户指定1/2/5/6，交互回归与2小时路线不计入本次release门槛。
+
+## 2026-11-18T00:33:32.1977925+08:00 — 封存 OBJ/MTL 修订的工程与真实客户端证据
+
+将 a632149 的修订产物、源文件前后指纹、105/105×2 工程检查、64 MiB 原生流式正控制与 String.join OOM 负控制、首轮材质 oracle 失败及修正记录，以及四个已结束的实际客户端检查封存到 evidence/engineering-051/streamed-obj-input。NF248/NF265 各69项实际布尔检查通过并正常退出；两项错误二进制检查均在注册前拒绝并退出1。四份 JFR 的真实 summary exit0 和哈希元数据保存，未复制 JFR、世界、MTR 或第三方依赖。Runner 源拷贝是运行后参考，未冒称预冻结收据。
+
+独立 sealed-only verify.py 实际验证508个payload；四个自有候选/probe JAR显式纳入Git，索引另计。历史脚本目录524→528，保留既有记录，minecraft_testkit verify实际通过。当前16包3GiB新JVM35348仍在进行真实重载，旧无效按键及含HeapDump选项的误报会话不计数。本次封存不代表20次重载或性能门槛通过；仅用户指定1/2/5/6范围。
+
+## 2026-11-18T00:53:24.6019194+08:00 — 独立帧数据诊断与部分启动清理
+
+接续既有 frame_diagnostics 草稿，完成独立原始 ETL 重解码/篡改拒绝检查。实际 Windows 诊断01明确拒绝 ets/rf 组合；改为128MiB有界文件与 owned wrapper finally清理，不再声称独立定时到期。诊断02启用提供程序时返回拒绝访问，仍部分创建会话；按先前不存在的唯一名称及实际GUID/handle核对后已停止并确认4201。补充启动失败也查询并清理自有部分会话的逻辑和回归，20项测试实际通过；一次 unittest discover 缺少顶层包参数的导入失败保留在工具返回，改用模块限定名运行，未修改测试掩盖导入问题。
+
+原始两次命令/实际exit/输出、独立清理、离线PresentMon exit0无CSV，以及当前修订源与正式20测试stdout/stderr/exit封存于 engineering-052/frame-source-diagnostics。未复制ETL或提升权限；原intent的当时source哈希与当前运行后source快照明确区分。尚不知道具体被拒绝提供程序；不将采集失败推断为驱动故障或零帧。modern provider子集仍未具备测量资格，已知正渲染控制、observer-off和真实A/A A/B均未完成，无性能收益或发布通过声明。
+
+## 2026-11-18T00:59:35.3922698+08:00 — 更新当前未发布 0.4.8 的公开状态
+
+README新增当前候选实际行为、初版第七次重载OBJ String OOM、修订105工程检查与69实际客户端检查、错误二进制拒绝及独立帧源失败的证据链接。明确尚未具备重载耐久或性能收益结论，保留0.4.7历史身份，不以新检查覆盖旧产物。仅文档改动；检查所链README均存在、git diff check通过。正式full04 JVM65404正在完成第一轮重载的稳定观察，尚无20次通过声明。
+
+## 2026-11-18T01:07:52.3041561+08:00 — 保留未获通过的按键校准与采集接入结果
+
+engineering-052/input-route-calibration 保存关闭的 full01/full02/full03 诊断会话所选原始收据、reader结束/失败记录、完整平面journal/summary及collector执行/plan/launch元数据。full01是可选HeapDumpOnOutOfMemoryError选项原样回显被冻结扫描器拒绝，非真实OOM；去掉可选参数后用新JVM，未改扫描器/堆限额。full02普通API输入未触发、轮转后缺witness接入失败及新cohort旧未匹配输入造成严格回放不通过均保留；full03过早接入缺文件和系统Python缺launcher依赖不掩盖，后续venv实例独立记录。Alt+Shift后F3+T真实触发已记录，之后full04先确认T打开ChatScreen/Escape回游戏再开始正式20次，未发聊天内容。
+
+所选证据明确不构成完整recorder replay closure：省略record/blob、input-attempt子树、native-log分段依赖和collector大snapshot流；原cache仍在。不用哈希一致冒充运行通过，不计任何20次耐久验收。复制逐文件记录读前后size/mtime并保存实际字节哈希；JFR及第三方二进制未复制。校验选定payload、关闭标记及catalog，README说明边界。当前full04连续前2次ready，第三次处理中；实际性能对照与独立帧源仍未通过。
+
+## 2026-11-18T01:25:55.6704659+08:00 — 准备修订 0.4.8 的四组新性能模板
+
+在此前工程与实际客户端均通过的新产物943b…上，完成NF248 baseline/plain、baseline/profile、candidate/plain、candidate/profile四个新模板的实际prepare，全部exit0，尚未启动qualification或scheduled JVM。baseline仍是原始0.3.0 b9c…及其固定manifest；observer始终1.0.3 1a4e…，16包、原始世界副本、3GiB/512MiB、1280×720匹配，profile启用完整JFR，两模式均不启用NMT。现有性能策略/门槛没有修改。复制旧scenario/camera/route，machine_context替换成当前只读CIM、电源方案和指定后台进程计数快照；不声称后台负载未来恒定。
+
+两次前置prepare缺失sidecar的原始失败分别保留在独立attempt目录；从旧冻结prepared-controls取回baseline与observer原始清单，核对固定SHA后第三次prepare四组成功，不改身份校验。封存脚本/实际命令exit/当前元数据/plan/controls及自有baseline和observer JAR，不复制世界、MTR、依赖、JFR或ETL。明确这些是运行后参考拷贝，准备不冒充实际A/A A/B样本或测量通过。独立帧源/正控制、observer-off、四项新qualification和正式试验/配对分析仍未完成。当前20重载正式cohort连续6次ready，第七次原生返回进入稳定观察；不提前宣称20次通过。
+
+## 2026-11-18T01:52:30.6822079+08:00 — 将四个真实客户端结果绑定到 0.4.8 交付包
+
+新增 revised048-packaged-delivery/derive.py，从 engineering-051/streamed-obj-input 已封存原始字节按索引逐项验hash，独立推导NF248/NF265各faults/mismatch两例。实际Popen终态exit、PID/launch/plan/JFR元数据绑定；正例24+18+27检查全部严格true且workspace归零，负例指纹guard拒绝并无原生车辆注册记录。派生assessment四例passed仅限packaged范围，不是整体游戏/20重载/性能通过。config/delivery-evidence.json追加新0.4.8两目标精确JAR与assessment SHA记录，保留旧0.4.7条目不变。
+
+两目标 verifyRelease/releaseBundle实际exit0；更新包JAR仍分别943b…/1347…，与真实客户端及CI33619ce下载包内JAR逐字节相同。支持文件现在是 verified-packaged-scope，保留验收范围。初次ci.py调用误用了不存在的--directory参数，工具实际返回argparse错误；修正为位置参数后独立checksums/verify-assets stdout/stderr/真实exit0已保存，验证两目标齐全。新增离线verify重推源结果、全payload/zipchecksum/JAR/包内VALIDATION/配置绑定，实际通过22payload/四例。仅交付数据/证据修改，Java字节未变，未将13次中间结果或准备模板写成发布通过。当前正式full04连续13次ready，第14次处理中；独立帧源和实际性能对照仍缺验收。
+
+## 2026-11-18T02:53:48.9914053+08:00 — 完成 NF248 20 次连续重载，封存并保留性能发布门槛
+
+修订0.4.8的943b…候选在全16包、3072MiB最大/512MiB初始堆的新JVM65404（2026-11-18T00:51:14.481+08:00）完成20个真实F3+T输入，唯一连续原生epoch2–21，startup1不计。主consumer自动reloads_verified/exit0，verified_reload_count=longest_run=20，1016完整采样中417有效；加载期间的599个无效/过期采样原样保留，未冒称全程均有效。19个原ready检查各有consumer/native双60秒稳定；主consumer结束后另一startup observer在同JVM epoch21取得14/14有效采样、64.99617919995217/65.4464114秒稳定。RR2458captures正常停止且句柄关闭；正常AltF4后collector及实际JVM均exit0。第20键前active=false保护拒绝发生在pressKey及收据创建之前，重新取得窗口/激活后再发真实20键；该来源明确为parent-reported说明，不伪装实际输入收据。正常关闭第一次被用户输入保护拦下，按工具要求get_window_state后独立命名重试成功，两份normal-close收据均保存。
+
+engineering-052/revised048-reload20保留全部20个input-attempt原始目录/字面journal-prefix、完整journal/main及post20 samples/epochs/diagnostics，40份必要record closure及实际rolling-log receipt/segments。未假定RR/log序号相同，未裁剪失败为成功，旧34c…候选第7次OOM/旧0.4.7失败与此前未计数cohort仍独立保留。只沿用冻结原producer importer与判定算法，新增离线封存验证器以PureWindowsPath比较记录路径，避免查询原实例metadata；不调用进程/wait/JFR API。新constructor对旧失败会话也重放到同样0计数。初版离线验证635payload实际exit0，增加说明和显式16包/堆/19安装文件范围后，最终638payload/58,812,278bytes实际exit0；原始/最终verifier、index、stdout/stderr/argv/真实exit和前后不变证据保存在 sibling revised048-reload20-verification。最终index88420878c32e12dfe18d62d690ee0a2041422cd147e148c1bdf49add361a14ec，verifier6cb46acbde86ac3b0b56bc6d477819f4a5edcb5909c56058ff2a126c7bd2d4a0。记录后的19个安装文件全部hash匹配launch plan；JFR191350424bytes实际summary exit0，SHA1c315f00babdb00b2b85e2bcc3628a1b683e4a296d79773229911d0a9aa32787。JFR大文件、collector大snapshot流、MTR/pack/world/dependencies没有复制；读取/未读取边界写明。全包实例无acceptance fixture/probe JAR，acceptance-enable属性无production源码消费者，未调高生产堆或放宽门槛。
+
+README更新本候选NF248耐久结论，.gitattributes为本次原始.bin设置binary标识；验证/回放脚本只是外部证据工具，未改Java产品字节或运行时判定。最终两目标包重建verifyRelease/releaseBundle与checksums/verify-assets均实际exit0，JAR仍943b…/1347…；ZIP分别3a148b0d9edf4f560063a74d843cd665e457dbe64ee204638e0609ed40a0bd61与deba49402c82c33be2d0cc9caea7adbbbd2247733e7a626de76591702062d718。首次final wrapper错把独立生成安装指南当源码README，build子进程exit0后不正确的文本假设assert失败；原runner/Gradle收据与明确parent-reported wrapper错误保留，不冒充原始wait日志。修正为逐字节比对实际bundleReadme/SUPPORT任务输出并保留JAR/scope严格校验，第二wrapper两目标通过，没有改产品指南掩盖检查错误。
+
+engineering-052/release-decision明确当前packaged和NF248 reload20范围通过，四个性能模板仅准备、A/A及A/B正式样本均0，observer-off/独立帧源/观测开销未验收。ETW实际拒绝访问且本会话暂不能取得提升权限的执行；不改权限/安全设置，不将JFR渲染循环当独立呈现帧，不把缺失数据记为零，不量化性能收益。既有管理员诊断命令绑定的JVM已正常退出，已另记retired说明，原命令未篡改且身份检查会fail closed。当前用户限定1/2/5/6，未增加交互与两小时路线门槛；第5项未完成，所以0.4.8保持候选/不创建tag或发布。最后提交推送后核查该HEAD的实际CI及包指纹，结果在交付回复链接原始CI，不产生自引用提交哈希。只暂存本次三组封存、README/属性/catalog/walkthrough，既有无关binary目录与旧未跟踪JFR草稿不纳入。
+
+## 2026-11-18T12:01:36.6509880+08:00 — 定位 ETW 提供程序权限并显式匹配 v1 帧契约
+
+普通 token 对六个提供程序逐项启用并以自有 GUID/handle 清理：五个图形提供程序实际 exit0，仅 Kernel-Process 返回2147942405，全部会话最终4201。两个自有 WGL 正控制分别完成24833/25491 swap calls，技术上下文是 Intel HD Graphics P530；WGC 超时，未声称画面目视通过。graphics-only 25秒原始 ETL 启停成功、终态三类loss均0，tracerpt45秒超时保留partial XML；Get-WinEvent另计目标3262个Present_Info及3262个PresentHistoryDetailed_Start头，不将其当作completed frame。三次离线解码（含取消PID过滤/显式v1）及一次上游原生live采集均exit0无任何CSV，保留失败，不归咎驱动、不用swap markers/JFR循环替代呈现帧。
+
+重放命令显式增加 --v1_metrics，匹配严格TimeInQPC/MsBetweenPresents解析契约，避免默认指标模式不匹配；不增加列别名或放宽门槛。相关20测试实际通过。engineering-053/frame-permission-differential封存所选原始日志/命令/上下文/源及独立测试exit；ETL、partial XML、class及swap流只保存原cache指纹，不冒称完整重放闭包。现有候选Java/ZIP字节未改。
+
+用户授权先解决权限后发布；发起一次65秒正控制/25秒原生PresentMon的短时管理员对照，不修改权限组或安全设置。Start-Process RunAs 实际返回“操作已被用户取消”，脚本未启动，无管理员token/帧结果；请求结果仍待用户回复，不自动重复UAC。性能独立帧资格、observer-off、A/A A/B及开销未通过，0.4.8不打tag、不发布。
+
+## 2026-11-18T12:26:55.2810580+08:00 — 接入用户指定的 spark 测量模组，保留严格身份冻结
+
+用户要求改用spark模组测试。已从官方Modrinth项目元数据选择适配1.21.1/NeoForge的1.10.124（v5qtqRQi），下载3642581bytes，实际SHA-512与发布记录一致，SHA-256为647e8a81afbe414dba1df4ba15fd06c5d32d4cb544e68828405e8e074c2e16db。第三方JAR只保存在ignored cache，不放入发行包。
+
+packaged_client新增通用、可重复的--measurement-mod参数，将显式测量JAR复制并冻结为measurement角色；performance校验仍要求唯一MTR/companion/observer，额外JAR必须与声明逐项一致，comparison_controls保留全部测量身份，不能靠增加角色绕过未声明文件。Windows文件名冲突改为casefold比较。新增缺失、覆盖核心文件、身份移除/替换拒绝测试，现有三模组计划保持兼容。文档明确新模组需要重新准备/资格，Spark采样权重不替代显示/JFR帧耗时，关闭隐式后台采样并保存本地profile。未改Java产品或收益门槛。
+
+首个旧模板资格在启动JVM前实际失败：缺少显式-XX:+UseG1GC；原attempt保留qual053-baseline-plain01，不修改记录或计作正式样本，后续重新准备而不放宽检查。此前管理员诊断已通过系统安装的PowerShell7成功取得elevated=true；25秒PresentMon仍exit0无CSV，证明提升权限不足以解决缺帧。提交侧采集及官方1.9.2离线解码同样无CSV；一次旧版误用-no_console_stats被拒绝，改为其实际-no_top选项后exit0仍无CSV。普通权限事件ID过滤的25秒DxgKrnl诊断实际成功、零loss，原始QPC可读，仅是提交间隔，不称为显示帧通过。用户转向spark后，未完成的独立driver-present工具草稿移回ignored cache，不加入运行工具或发布范围。原始诊断cache均保留，正式Spark游戏采样尚未开始。
+验证：packaged_client 43项、client_experiment 57项测试实际exit0；git diff --check通过。
+
+## 2026-11-18T13:28:19.7674974+08:00 — 完成 spark 本地试采与官方 SDK 重放，保持性能发布门槛
+
+按用户要求使用spark：独立NF248试采JVM74984（2026-11-18T04:34:24.160750+00:00）实际加载0.4.8 943b…、observer1.0.3、spark1.10.124、完整16包、Xms512M/Xmx3072M、显式G1和完整JFR，关闭隐式Spark后台采样。实际原生epoch1启动返回、一次CUA F3+T对应epoch2于04:45:27.671843300Z开始、04:56:59.147986800Z返回，耗时691.4761435秒。此轮没有完整严格输入收据闭包，不加入之前独立20重载验收计数。最初截图暂未见列车，后续F2实际看到完整车型；独立采样历史确实观察到既定route1634058583976595067和变化rail_progress，未把初始route0当有效路线或放宽场景要求。
+
+第一份4ms全线程Java采样实际启动/停止并本地保存；日志显示大量4–8ms及更长ThreadDump safepoint与world-statistics超时。Windows不支持该JAR的async引擎，Java引擎有safepoint偏差；这轮明显干扰，不当作A/B收益或低开销资格。随后100ms全线程、timeout30、save-to-file真实自动停止并保存第二份文件。通过当前JAR SamplerModule字节码确认start参数将本地保存标志交给超时回调；不是猜测新版文档契约。两份profile未上传Spark服务，原始文件与完整机器/配置解码结果保留ignored cache。
+
+初次技能解析器把players=-1当巨大无符号数，单位也不应将metadata interval4000当4000ms。新增独立SparkProfileExport.java，仅使用审计JAR的公开生成protobuf解码与getter，不访问私有字段、不运行Minecraft/插件初始化；保留有符号整数、opaque ByteString用显式Base64。第一次导出因ByteString未处理而失败，原exit/stderr/class保留；加入该类型后JDK --release17编译/内建自检及两份实际SDK导出均exit0。Python分析器按显式timeWindows及扁平直接children_refs计算权重，精确线程匹配，无缺失线程回退；验证引用、根/线程权重、一致时间轴并保留负残差诊断。新增6项测试实际通过。不是CPU elapsed/frame time：4ms渲染采样主要是ReadAdmission parking与纹理上传；100ms短采样含MTR原生drawElements，解析线程100%采样在等待。高宿主CPU负荷及4ms数据中小量负残差同样保留，不计算性能收益。
+
+两份profile保存后正常AltF4，实际自有JVMwait exit0，collector工具返回exit0（后者为parent-tool-reported，不伪装原始Popen收据），窗口确认消失；62,017,654bytes JFR实际summary exit0且前后hash一致，4个安装JAR在关闭后均hash匹配launch plan。engineering-053/spark-pilot封存140个选定payload/35,736,801bytes、全采样/epoch/log/GC/safepoint、官方导出与6次分析实际收据、源和测试。明确不发布原Spark/JFR、完整解码机器配置、第三方JAR/资源包/世界/依赖/F2图；只记原文件指纹，选定封存不是完整raw replay闭包。最初错误解析的原始输出也保留并标为不用于正确指标。全部选定hash、6实际分析exit、JVMwait与JFRsummary独立校验通过。Java产品字节未改；正式四组资格、48个A/A/A/B试验、observer-off与低开销校准仍未完成，0.4.8不打tag、不发布。
+
+## 2026-11-18T14:35:51.5646433+08:00 — 完成 12-JVM 实用配对性能验证与 Spark 协调工具链准备
+
+未修改任何产品 Java 字节、目标矩阵、构建配置或既有 48-trial 协议政策（config/client-experiment.json）。按用户确认方案，补充 12-JVM 实用配对验证与 Spark 100 ms 本地采样自动化工具链：
+
+1. 完善 	ools/spark_client_sampler.py（配合 config/client-samplers.json）：移除冗余导入并显式使用 uuid，兼容 Windows mArgs 脱敏路径及外置测试目录校验，可选导出 MTR-memory-parse 热点报告（0.3.0 基线不强制该线程名），并新增 erify_idle 验证 plain 对照未触发任何 Spark 采样文件或启动日志。
+2. 调整 	ools/client_experiment_analysis.py 与 	ools/client_experiment.py：保留 scene_ready 与稳态窗口对目标路线 oute_ids 及最小位移的严格要求，仅在 ssess_observation 连续样本区间启用 llow_turnaround=True 以兼容存档约 140 s 单趟行程后的原生折返段 oute_id=0（全零行程与无关非零路线仍拒绝）；clone_prepared 对只读不可变子目录（ssets、libraries、ersions、esourcepacks、mods、.prepared-controls）优先硬链接克隆以节省 C 盘空间，可变目录与顶层配置独立深拷贝。
+3. 新增 	ools/spark_operator.py、config/client-practical-verification.json 与 	ools/practical_client_verification.py：独立窗口协调器按 gent.md 约定核实进程创建身份与 
+ative-observer.json 后切换美式英语键盘布局发送 /sparkc，具备基于 logs/latest.log 的幂等恢复与中断重试；12-JVM 日程覆盖 A/B plain、A/B profile+Spark 100 ms、A/A plain 噪声对照及 2-mod probe_off 校准。
+4. 新增 	ests/test_spark_client_sampler.py 与 	ests/test_practical_client_verification.py；运行 .venv/Scripts/python.exe -m minecraft_testkit verify（636 historical scripts, 2 datasets, 11 files）及全量 .venv/Scripts/python.exe -m minecraft_testkit test，347 项测试全部通过（exit 0）。当前仅工具链与单测就绪，实际 12-JVM 客户端测量尚未开始。
+
+## 2026-11-18T22:30:18.6963311+08:00 — 修复 0.4.8 配对验证证据清单复核
+
+实用配对采集先生成哈希清单，再将清单写入 trial-summary.json。独立复核此前却要求同一清单包含这份收据自身，导致 12 项一律失败。让采集与复核共用根目录收据排除项，继续逐文件核对字节和 SHA-256。新增回归测试验证根收据可排除、同名的嵌套证据仍纳入清单、改写采样文件会被拒绝。
+
+用修正后的审计重放实际 practical-run01，7 项原始记录通过，其中包含 5 个 plain JVM 和 2 个 probe-off JVM。其余为 1 次基线未在时限内达到目标场景，以及 4 次 Spark 窗口协调失败。原采集产物原样保留，重放输出独立写入 .cache/acceptance/spark-054/practical-run01-replay01.json。目录验证通过，348 项 Python 测试通过。
+
+## 2026-11-19T19:46:11.6405304+08:00 — 完成 0.4.8 第 5 项实用 Spark 配对验证并保留性能失败结论
+
+恢复时确认原采集队列已结束、全部相关进程已退出，沿用已完成记录。按原冻结的 official NF248 / 16包 / G1 / Xms512M / Xmx3072M 模板重放十二个选定 JVM，逐项验证文件清单、过程身份、原生样本/日志/窗口、原始 JFR 重读和四个 Spark 原始 profile 的独立 protobuf 解码。12/12 观察资格通过，身份唯一、实际执行窗口无重叠，每对保留 AB/BA 顺序。原 5 个失败尝试及配对重测时替换的一个成功候选一并保留，总计18份尝试。恢复对在原始对之后执行，不声称全局原顺序或48-trial统计协议完成。
+
+plain 私有内存两对分别 -0.296%/-0.268%，中位 -0.282%（约12.93MiB）；加载 +9.401%/+10.279%，中位 +9.840%。两项均未达既定 -10%私有内存、+5%加载门槛。四份300s、100ms Spark采样真实本地保存并通过时间/身份/线程校验；profile 私有内存中位 -0.053%、加载 +13.034%，渲染循环p99两对 -5.548%/+1.154%、稳态均0 Full GC。AA/仪器等价和probe-off私有内存比较在既有预算内。判定按每对上限、等价绝对变化、probe-off仅私有内存口径记录于decision.json。资源/生命周期与20重载历史结论保留其原范围，本轮性能验收失败，0.4.8保持held。
+
+封存engineering-054/practical-spark，包括原始选定payload的18份ZIP、逐文件指纹、独立assessment/decision、工具/配置与恢复脚本源快照。归档解压逐字节hash一致，36个选定文件索引校验通过；原JFR/Spark二进制及完整机器配置解码留在ignored cache并记录指纹，公开选定集不冒称完整binary replay闭包。README链接本轮结果。十二个JVM均由既有采集器完成测量后terminate并exit1，本轮不授予正常保存关闭资格；probe-off缺少live堆/帧/路线信息，独立显示帧和NF265性能仍未覆盖。未修改Java产品或发行JAR。
+
+当前目录/样例验证和差异检查通过；代码修复提交07c137f此前348项Python测试及实际CI通过。本次仅封存结果与文档，不重复游戏或增设新验收要求。
+
+## 2026-11-23T18:43:44.9284097+08:00 — 按并行负载说明补充成对异常值敏感性分析
+
+用户说明宿主同时运行大量其他任务并允许实验排除异常值。检查原采样契约，启动期仅记录客户端内存/缺页/原生状态，没有同时间轴的整机CPU、磁盘和其他进程负载；Spark在加载后才开始，因此无法回溯认定具体一次加载为外部干扰。将当前耗时差异的因果归属记录为受并行负载影响而不确定，保留原始封存数据。
+
+新增可配置client-outlier-analysis工具与策略，按mode/role分组、两处理使用相同inclusive Tukey IQR规则，一臂被标记则成对剔除，保留完整/筛选结果、边界、剔除身份和样本量。默认六次同组测量与1.5倍IQR是本次工程选择，可配置，不增加发布门槛；零IQR记录未决。禁止用当前稀少样本硬套剔除，本轮每组两次而自动剔除0对。逐一移除整对的敏感性显示plain加载仍+9.401%或+10.279%，私有内存-0.296%或-0.268%；profile对应+11.757%或+14.311%。原有10%内存收益仍未建立，报告并行负载不确定性不自动授予发布资格。
+
+新增四项测试覆盖稀疏/单对、双臂对称剔除、整体处理偏移不被误判为异常、无效值/未通过资格拒绝。全量352项Python测试通过，目录/样例验证通过，独立重算与原封存SHA全部复核通过。更新README链接并新增有输入指纹的敏感性assessment/说明。本次不重跑游戏，未修改产品或原始验收产物。
+
+## 2026-11-23T20:47:33.0978749+08:00 — 合并摘要计算与快照写入，完成 NF265 定向验证
+
+用户授权继续优化，并将后续本机验证限定为NeoForge21.1.265，已记录于AGENTS。发现ResourceTextSnapshot先写完整UTF16临时文件、再读回计算UTF8摘要、解析再读，新增FilterReader在同次解码流读取中同时写入snapshot并计算原String UTF8摘要，移除摘要读回一遍。Utf16TextSnapshot增加有界offset写入以正确处理encoder携带的跨块高代理项，保留磁盘所有权、取消、长度及有限缓冲。回归实际检查capture阶段0读回、原文/摘要相同；读/rewind/取消注入改为验证实际reader消费位置。
+
+前段已完成两目标各106项Java测试及64MiB堆Blockbench/OBJ流式控制。用户新限定后仅执行NF265 probe构建、16包native运行与6对真实模型source诊断。NF265 candidate SHA256 920c1f833b6f173c7443ff5956493b779acfeceb293fa640817a459985db3f5b，独立JVM21632注册1092项、651次Blockbench、974次OBJ，24+18+27实际组件检查均true，native stop及owned wait exit0。此前NF248记录保留其原scope与缺少最终owned退出码限制，不再重跑。
+
+NF265旧134770…与新920c1f…对同一65,255,687-byte真实bbmodel进行6对AB/BA、每JVM3预热+3测量，全部12份exit0且独立Python摘要匹配，无剔除；benchmark当前线程CPU中位-19.237%、elapsed中位-19.371%。此轮agent自有游戏已退出再测，用户后台任务继续；单输入捕获/摘要/读回微基准无AA，不授予整机加载、稳态内存或完整性能通过。初轮248元数据诊断含游戏重叠，保留范围与原始数据。NF265 JAR仅3个class变化并新增capture reader class，其余payload相同。
+
+封存engineering-055/snapshot-digest源、日志、逐进程诊断、冻结plan、实际client身份/请求/结果/exit、ZIP payload与总SHA。全部归档CRC、字节数和SHA复核通过，目录/样例验证及diff check通过。未发布，修订binary的重载耐久、完整性能与游戏交互仍未验收。本次保留0.4.8未发布候选版本，旧已封存JAR未改。
+
+## 2026-11-23T21:14:51.7548559+08:00 — 修复 NF265 发布范围与新产物交付绑定
+
+用户明确授权继续验证并发布。按此前仅265要求，targets增加显式releaseTargets=[official-nf265]并将默认目标设为265，保留历史可显式构建目标。CI矩阵与资产检查共用这一合法官方目标选择，拒绝空/重复/非官方/未知项，兼容旧配置缺省行为。新增两项测试，全量354项Python测试通过。
+
+新920c1f…候选完成两次fresh packaged JVM：faults38188实际exit0，24+18+27检查全true、workspace归零；mismatch60548实际exit1且原日志证明指纹guard在车辆注册前拒绝。两份实际JFR均summary exit0并验hash。封存engineering-056/nf265-packaged，delivery-evidence的265项绑定新JAR和新assessment。NF265 releaseBundle与verifyNeutralProbe构建通过，修正此前bundleSupport旧绑定失败；248旧记录保留，新发布CI仅265。
+
+另启独立world实例71724进行完整16包真实重载验证。初recorder在native snapshot尚未存在时失败，原记录保留，已停止对应consumer并在快照出现后重开独立目录。首次输入被中文IME接走，F3调试画面及无新epoch原样保留；切换当前窗口输入模式后实际F3+T已触发新的资源重载。尚未把输入API成功计作重载通过，耐久结果待后续独立封存。当前提交只完成打包修复与组件身份绑定，不授予性能或重载通过。
+
+## 2026-11-23T22:01:12.6182010+08:00 — 同步受保护 main 的已压缩历史
+
+PR #4 因 main 已经 squash 合入历史测试整理而显示冲突。合并 origin/main，逐项比较四个冲突文件；保留本分支后续 Windows CI 分步失败传播修复、更新后的历史脚本目录、reload waiter 测试说明和全部 walkthrough，main 的测试整理已包含在现有分支。未修改运行中观察器、产品源码或冻结验收规则。执行历史索引校验和完整工具回归后形成合并提交，并按约定自动 push。
+
+
+## 2026-11-23T23:08:07.1009065+08:00 — 完成 NF265 20 次连续重载并准备 0.4.8 预发布
+
+精确候选 920c1f833b6f173c7443ff5956493b779acfeceb293fa640817a459985db3f5b 在 NeoForge21.1.265、官方MTR beta.2、全16包、3072/512MiB、G1、observer1.0.3 的同一真实 JVM71724 完成连续epoch3–22共20轮，baseline2属于先前输入校准。主consumer1199样本中482有效、717加载期无效/过期样本全部保留，status reloads_verified、passed true、最长连续20。19个原ready双时钟稳定60秒；独立post20十四样本全通过，重放65.0032075/64.7949559秒。recorder2836次正常停止关闭句柄，原生AltF4保存退出，parent-owned实际wait exit0。最终19个mods/packs匹配原plan，213901766bytes完整JFR实际summary exit0，SHA e04b321266d981eda7bf9b5ddba1e1112133dd512e90aa2ed7a6b3433db51eb7。没有OOM和未归因模型错误，官方空rail诊断逐次归因，账户属性网络错误原样保留。
+
+engineering-056/nf265-reload20保留40个选定record闭包、所有literal input-attempt及journal、consumer流、19个ready、终态和冻结reader；607个payload逐项hash后 canonical离线重放实际成功。初始化缺文件与IME首键未触发的旧cohort另存98份选定原件zip，明确该初步失败选集不构成完整回放、不计入20。未改产品Java、运行时规则或旧失败证据。README/BUILDING/验收与support刷新为0.4.8且默认NF265，248仅历史源构建。原整客户端性能门槛仍未通过，本次按用户继续验证发布授权作有范围说明的development pre-release；不宣称全局性能收益、全部玩法或两小时路线通过。
+
+682份历史脚本和11样例校验、354工具测试全通过（51.005s）；NF265 releaseBundle/verifyNeutralProbe成功。仅选择NF265的新鲜发行资产目录经checksums及verify-assets通过，包内JAR逐字节等于真实游戏候选，observer/probe均未包含。最终提交推送后等待PR必需CI，再经保护main合入和v0.4.8标签工作流发布，不绕过检查。
+
+封存提交前 Git whitespace 校验识别 .bin 中的原始MTR日志ASCII横幅尾空格；沿用既有证据目录规则将新056路径的.bin标为binary，完整保留原始字节与hash，未清理或重写日志。
+

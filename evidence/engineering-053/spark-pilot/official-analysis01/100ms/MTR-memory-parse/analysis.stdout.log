@@ -1,0 +1,495 @@
+{
+  "scope": "Spark execution stack diagnostics; not performance acceptance",
+  "thread": "MTR-memory-parse",
+  "metadata": {
+    "start_utc": "2026-11-18T05:05:40.407000+00:00",
+    "export_end_utc": "2026-11-18T05:06:11.924000+00:00",
+    "metadata_duration_ms": 31517,
+    "interval_microseconds": 100000,
+    "interval_ms": 100.0,
+    "engine": {
+      "name": "JAVA",
+      "number": 0
+    },
+    "mode": {
+      "name": "EXECUTION",
+      "number": 0
+    }
+  },
+  "explicit_time_windows": [
+    29916305,
+    29916306
+  ],
+  "root_sample_weight": 120000.0,
+  "weight_semantics": "Spark execution sample weights; includes waits when capture did not exclude them; not CPU elapsed or frame time",
+  "window_sample_weights": {
+    "29916305": 78400.0,
+    "29916306": 41600.0
+  },
+  "world_statistics_semantics": "Raw signed Spark snapshots; negative counts are unavailable, and load-time warnings/freshness need separate log review",
+  "raw_world_statistics": {
+    "29916305": {
+      "chunks": 313,
+      "cpuProcess": 0.19540658493698265,
+      "cpuSystem": 0.9681442504034349,
+      "duration": 19609,
+      "endTime": 1794978360016,
+      "entities": 8,
+      "msptMax": 1670.9372,
+      "msptMedian": 12.7454,
+      "players": -1,
+      "startTime": 1794978340407,
+      "ticks": 393,
+      "tileEntities": -1,
+      "tps": 19.490710939127894
+    },
+    "29916306": {
+      "chunks": 313,
+      "cpuProcess": 0.19925383069498095,
+      "cpuSystem": 0.9446712625531338,
+      "duration": 10392,
+      "endTime": 1794978370408,
+      "entities": 8,
+      "msptMax": 564.6202,
+      "msptMedian": 12.6069,
+      "players": -1,
+      "startTime": 1794978360016,
+      "ticks": 206,
+      "tileEntities": -1,
+      "tps": 19.971271924474802
+    }
+  },
+  "negative_self_residuals": [],
+  "ranked_inclusive": [
+    {
+      "index": 0,
+      "class": "jdk.internal.misc.Unsafe",
+      "method": "park",
+      "inclusive_sample_weight": 120000.0,
+      "self_sample_weight": 120000.0,
+      "inclusive_percent": 100.0,
+      "self_percent": 100.0,
+      "path": [
+        "java.lang.Thread.run",
+        "java.lang.Thread.runWith",
+        "java.util.concurrent.ThreadPoolExecutor$Worker.run",
+        "java.util.concurrent.ThreadPoolExecutor.runWorker",
+        "java.util.concurrent.ThreadPoolExecutor.getTask",
+        "java.util.concurrent.ArrayBlockingQueue.take",
+        "java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await",
+        "java.util.concurrent.ForkJoinPool.managedBlock",
+        "java.util.concurrent.ForkJoinPool.unmanagedBlock",
+        "java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionNode.block",
+        "java.util.concurrent.locks.LockSupport.park",
+        "jdk.internal.misc.Unsafe.park"
+      ]
+    },
+    {
+      "index": 1,
+      "class": "java.util.concurrent.locks.LockSupport",
+      "method": "park",
+      "inclusive_sample_weight": 120000.0,
+      "self_sample_weight": 0,
+      "inclusive_percent": 100.0,
+      "self_percent": 0.0,
+      "path": [
+        "java.lang.Thread.run",
+        "java.lang.Thread.runWith",
+        "java.util.concurrent.ThreadPoolExecutor$Worker.run",
+        "java.util.concurrent.ThreadPoolExecutor.runWorker",
+        "java.util.concurrent.ThreadPoolExecutor.getTask",
+        "java.util.concurrent.ArrayBlockingQueue.take",
+        "java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await",
+        "java.util.concurrent.ForkJoinPool.managedBlock",
+        "java.util.concurrent.ForkJoinPool.unmanagedBlock",
+        "java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionNode.block",
+        "java.util.concurrent.locks.LockSupport.park"
+      ]
+    },
+    {
+      "index": 2,
+      "class": "java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionNode",
+      "method": "block",
+      "inclusive_sample_weight": 120000.0,
+      "self_sample_weight": 0,
+      "inclusive_percent": 100.0,
+      "self_percent": 0.0,
+      "path": [
+        "java.lang.Thread.run",
+        "java.lang.Thread.runWith",
+        "java.util.concurrent.ThreadPoolExecutor$Worker.run",
+        "java.util.concurrent.ThreadPoolExecutor.runWorker",
+        "java.util.concurrent.ThreadPoolExecutor.getTask",
+        "java.util.concurrent.ArrayBlockingQueue.take",
+        "java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await",
+        "java.util.concurrent.ForkJoinPool.managedBlock",
+        "java.util.concurrent.ForkJoinPool.unmanagedBlock",
+        "java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionNode.block"
+      ]
+    },
+    {
+      "index": 3,
+      "class": "java.util.concurrent.ForkJoinPool",
+      "method": "unmanagedBlock",
+      "inclusive_sample_weight": 120000.0,
+      "self_sample_weight": 0,
+      "inclusive_percent": 100.0,
+      "self_percent": 0.0,
+      "path": [
+        "java.lang.Thread.run",
+        "java.lang.Thread.runWith",
+        "java.util.concurrent.ThreadPoolExecutor$Worker.run",
+        "java.util.concurrent.ThreadPoolExecutor.runWorker",
+        "java.util.concurrent.ThreadPoolExecutor.getTask",
+        "java.util.concurrent.ArrayBlockingQueue.take",
+        "java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await",
+        "java.util.concurrent.ForkJoinPool.managedBlock",
+        "java.util.concurrent.ForkJoinPool.unmanagedBlock"
+      ]
+    },
+    {
+      "index": 4,
+      "class": "java.util.concurrent.ForkJoinPool",
+      "method": "managedBlock",
+      "inclusive_sample_weight": 120000.0,
+      "self_sample_weight": 0,
+      "inclusive_percent": 100.0,
+      "self_percent": 0.0,
+      "path": [
+        "java.lang.Thread.run",
+        "java.lang.Thread.runWith",
+        "java.util.concurrent.ThreadPoolExecutor$Worker.run",
+        "java.util.concurrent.ThreadPoolExecutor.runWorker",
+        "java.util.concurrent.ThreadPoolExecutor.getTask",
+        "java.util.concurrent.ArrayBlockingQueue.take",
+        "java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await",
+        "java.util.concurrent.ForkJoinPool.managedBlock"
+      ]
+    },
+    {
+      "index": 5,
+      "class": "java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject",
+      "method": "await",
+      "inclusive_sample_weight": 120000.0,
+      "self_sample_weight": 0,
+      "inclusive_percent": 100.0,
+      "self_percent": 0.0,
+      "path": [
+        "java.lang.Thread.run",
+        "java.lang.Thread.runWith",
+        "java.util.concurrent.ThreadPoolExecutor$Worker.run",
+        "java.util.concurrent.ThreadPoolExecutor.runWorker",
+        "java.util.concurrent.ThreadPoolExecutor.getTask",
+        "java.util.concurrent.ArrayBlockingQueue.take",
+        "java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await"
+      ]
+    },
+    {
+      "index": 6,
+      "class": "java.util.concurrent.ArrayBlockingQueue",
+      "method": "take",
+      "inclusive_sample_weight": 120000.0,
+      "self_sample_weight": 0,
+      "inclusive_percent": 100.0,
+      "self_percent": 0.0,
+      "path": [
+        "java.lang.Thread.run",
+        "java.lang.Thread.runWith",
+        "java.util.concurrent.ThreadPoolExecutor$Worker.run",
+        "java.util.concurrent.ThreadPoolExecutor.runWorker",
+        "java.util.concurrent.ThreadPoolExecutor.getTask",
+        "java.util.concurrent.ArrayBlockingQueue.take"
+      ]
+    },
+    {
+      "index": 7,
+      "class": "java.util.concurrent.ThreadPoolExecutor",
+      "method": "getTask",
+      "inclusive_sample_weight": 120000.0,
+      "self_sample_weight": 0,
+      "inclusive_percent": 100.0,
+      "self_percent": 0.0,
+      "path": [
+        "java.lang.Thread.run",
+        "java.lang.Thread.runWith",
+        "java.util.concurrent.ThreadPoolExecutor$Worker.run",
+        "java.util.concurrent.ThreadPoolExecutor.runWorker",
+        "java.util.concurrent.ThreadPoolExecutor.getTask"
+      ]
+    },
+    {
+      "index": 8,
+      "class": "java.util.concurrent.ThreadPoolExecutor",
+      "method": "runWorker",
+      "inclusive_sample_weight": 120000.0,
+      "self_sample_weight": 0,
+      "inclusive_percent": 100.0,
+      "self_percent": 0.0,
+      "path": [
+        "java.lang.Thread.run",
+        "java.lang.Thread.runWith",
+        "java.util.concurrent.ThreadPoolExecutor$Worker.run",
+        "java.util.concurrent.ThreadPoolExecutor.runWorker"
+      ]
+    },
+    {
+      "index": 9,
+      "class": "java.util.concurrent.ThreadPoolExecutor$Worker",
+      "method": "run",
+      "inclusive_sample_weight": 120000.0,
+      "self_sample_weight": 0,
+      "inclusive_percent": 100.0,
+      "self_percent": 0.0,
+      "path": [
+        "java.lang.Thread.run",
+        "java.lang.Thread.runWith",
+        "java.util.concurrent.ThreadPoolExecutor$Worker.run"
+      ]
+    },
+    {
+      "index": 10,
+      "class": "java.lang.Thread",
+      "method": "runWith",
+      "inclusive_sample_weight": 120000.0,
+      "self_sample_weight": 0,
+      "inclusive_percent": 100.0,
+      "self_percent": 0.0,
+      "path": [
+        "java.lang.Thread.run",
+        "java.lang.Thread.runWith"
+      ]
+    },
+    {
+      "index": 11,
+      "class": "java.lang.Thread",
+      "method": "run",
+      "inclusive_sample_weight": 120000.0,
+      "self_sample_weight": 0,
+      "inclusive_percent": 100.0,
+      "self_percent": 0.0,
+      "path": [
+        "java.lang.Thread.run"
+      ]
+    }
+  ],
+  "ranked_self": [
+    {
+      "index": 0,
+      "class": "jdk.internal.misc.Unsafe",
+      "method": "park",
+      "inclusive_sample_weight": 120000.0,
+      "self_sample_weight": 120000.0,
+      "inclusive_percent": 100.0,
+      "self_percent": 100.0,
+      "path": [
+        "java.lang.Thread.run",
+        "java.lang.Thread.runWith",
+        "java.util.concurrent.ThreadPoolExecutor$Worker.run",
+        "java.util.concurrent.ThreadPoolExecutor.runWorker",
+        "java.util.concurrent.ThreadPoolExecutor.getTask",
+        "java.util.concurrent.ArrayBlockingQueue.take",
+        "java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await",
+        "java.util.concurrent.ForkJoinPool.managedBlock",
+        "java.util.concurrent.ForkJoinPool.unmanagedBlock",
+        "java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionNode.block",
+        "java.util.concurrent.locks.LockSupport.park",
+        "jdk.internal.misc.Unsafe.park"
+      ]
+    },
+    {
+      "index": 1,
+      "class": "java.util.concurrent.locks.LockSupport",
+      "method": "park",
+      "inclusive_sample_weight": 120000.0,
+      "self_sample_weight": 0,
+      "inclusive_percent": 100.0,
+      "self_percent": 0.0,
+      "path": [
+        "java.lang.Thread.run",
+        "java.lang.Thread.runWith",
+        "java.util.concurrent.ThreadPoolExecutor$Worker.run",
+        "java.util.concurrent.ThreadPoolExecutor.runWorker",
+        "java.util.concurrent.ThreadPoolExecutor.getTask",
+        "java.util.concurrent.ArrayBlockingQueue.take",
+        "java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await",
+        "java.util.concurrent.ForkJoinPool.managedBlock",
+        "java.util.concurrent.ForkJoinPool.unmanagedBlock",
+        "java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionNode.block",
+        "java.util.concurrent.locks.LockSupport.park"
+      ]
+    },
+    {
+      "index": 2,
+      "class": "java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionNode",
+      "method": "block",
+      "inclusive_sample_weight": 120000.0,
+      "self_sample_weight": 0,
+      "inclusive_percent": 100.0,
+      "self_percent": 0.0,
+      "path": [
+        "java.lang.Thread.run",
+        "java.lang.Thread.runWith",
+        "java.util.concurrent.ThreadPoolExecutor$Worker.run",
+        "java.util.concurrent.ThreadPoolExecutor.runWorker",
+        "java.util.concurrent.ThreadPoolExecutor.getTask",
+        "java.util.concurrent.ArrayBlockingQueue.take",
+        "java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await",
+        "java.util.concurrent.ForkJoinPool.managedBlock",
+        "java.util.concurrent.ForkJoinPool.unmanagedBlock",
+        "java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionNode.block"
+      ]
+    },
+    {
+      "index": 3,
+      "class": "java.util.concurrent.ForkJoinPool",
+      "method": "unmanagedBlock",
+      "inclusive_sample_weight": 120000.0,
+      "self_sample_weight": 0,
+      "inclusive_percent": 100.0,
+      "self_percent": 0.0,
+      "path": [
+        "java.lang.Thread.run",
+        "java.lang.Thread.runWith",
+        "java.util.concurrent.ThreadPoolExecutor$Worker.run",
+        "java.util.concurrent.ThreadPoolExecutor.runWorker",
+        "java.util.concurrent.ThreadPoolExecutor.getTask",
+        "java.util.concurrent.ArrayBlockingQueue.take",
+        "java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await",
+        "java.util.concurrent.ForkJoinPool.managedBlock",
+        "java.util.concurrent.ForkJoinPool.unmanagedBlock"
+      ]
+    },
+    {
+      "index": 4,
+      "class": "java.util.concurrent.ForkJoinPool",
+      "method": "managedBlock",
+      "inclusive_sample_weight": 120000.0,
+      "self_sample_weight": 0,
+      "inclusive_percent": 100.0,
+      "self_percent": 0.0,
+      "path": [
+        "java.lang.Thread.run",
+        "java.lang.Thread.runWith",
+        "java.util.concurrent.ThreadPoolExecutor$Worker.run",
+        "java.util.concurrent.ThreadPoolExecutor.runWorker",
+        "java.util.concurrent.ThreadPoolExecutor.getTask",
+        "java.util.concurrent.ArrayBlockingQueue.take",
+        "java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await",
+        "java.util.concurrent.ForkJoinPool.managedBlock"
+      ]
+    },
+    {
+      "index": 5,
+      "class": "java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject",
+      "method": "await",
+      "inclusive_sample_weight": 120000.0,
+      "self_sample_weight": 0,
+      "inclusive_percent": 100.0,
+      "self_percent": 0.0,
+      "path": [
+        "java.lang.Thread.run",
+        "java.lang.Thread.runWith",
+        "java.util.concurrent.ThreadPoolExecutor$Worker.run",
+        "java.util.concurrent.ThreadPoolExecutor.runWorker",
+        "java.util.concurrent.ThreadPoolExecutor.getTask",
+        "java.util.concurrent.ArrayBlockingQueue.take",
+        "java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await"
+      ]
+    },
+    {
+      "index": 6,
+      "class": "java.util.concurrent.ArrayBlockingQueue",
+      "method": "take",
+      "inclusive_sample_weight": 120000.0,
+      "self_sample_weight": 0,
+      "inclusive_percent": 100.0,
+      "self_percent": 0.0,
+      "path": [
+        "java.lang.Thread.run",
+        "java.lang.Thread.runWith",
+        "java.util.concurrent.ThreadPoolExecutor$Worker.run",
+        "java.util.concurrent.ThreadPoolExecutor.runWorker",
+        "java.util.concurrent.ThreadPoolExecutor.getTask",
+        "java.util.concurrent.ArrayBlockingQueue.take"
+      ]
+    },
+    {
+      "index": 7,
+      "class": "java.util.concurrent.ThreadPoolExecutor",
+      "method": "getTask",
+      "inclusive_sample_weight": 120000.0,
+      "self_sample_weight": 0,
+      "inclusive_percent": 100.0,
+      "self_percent": 0.0,
+      "path": [
+        "java.lang.Thread.run",
+        "java.lang.Thread.runWith",
+        "java.util.concurrent.ThreadPoolExecutor$Worker.run",
+        "java.util.concurrent.ThreadPoolExecutor.runWorker",
+        "java.util.concurrent.ThreadPoolExecutor.getTask"
+      ]
+    },
+    {
+      "index": 8,
+      "class": "java.util.concurrent.ThreadPoolExecutor",
+      "method": "runWorker",
+      "inclusive_sample_weight": 120000.0,
+      "self_sample_weight": 0,
+      "inclusive_percent": 100.0,
+      "self_percent": 0.0,
+      "path": [
+        "java.lang.Thread.run",
+        "java.lang.Thread.runWith",
+        "java.util.concurrent.ThreadPoolExecutor$Worker.run",
+        "java.util.concurrent.ThreadPoolExecutor.runWorker"
+      ]
+    },
+    {
+      "index": 9,
+      "class": "java.util.concurrent.ThreadPoolExecutor$Worker",
+      "method": "run",
+      "inclusive_sample_weight": 120000.0,
+      "self_sample_weight": 0,
+      "inclusive_percent": 100.0,
+      "self_percent": 0.0,
+      "path": [
+        "java.lang.Thread.run",
+        "java.lang.Thread.runWith",
+        "java.util.concurrent.ThreadPoolExecutor$Worker.run"
+      ]
+    },
+    {
+      "index": 10,
+      "class": "java.lang.Thread",
+      "method": "runWith",
+      "inclusive_sample_weight": 120000.0,
+      "self_sample_weight": 0,
+      "inclusive_percent": 100.0,
+      "self_percent": 0.0,
+      "path": [
+        "java.lang.Thread.run",
+        "java.lang.Thread.runWith"
+      ]
+    },
+    {
+      "index": 11,
+      "class": "java.lang.Thread",
+      "method": "run",
+      "inclusive_sample_weight": 120000.0,
+      "self_sample_weight": 0,
+      "inclusive_percent": 100.0,
+      "self_percent": 0.0,
+      "path": [
+        "java.lang.Thread.run"
+      ]
+    }
+  ],
+  "source_self_weights": [
+    {
+      "source": "<unattributed>",
+      "self_sample_weight": 120000.0,
+      "percent": 100.0
+    }
+  ],
+  "performance_accepted": false
+}

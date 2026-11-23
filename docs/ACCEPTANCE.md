@@ -1,8 +1,16 @@
 # Acceptance and performance procedure
 
-Updated: 2026-11-17 (UTC+08:00).
+Updated: 2026-11-23 (UTC+08:00).
 
-The default candidate is now **0.4.7**. Both official targets pass 73 Java tests,
+The current **0.4.8 / official-nf265** candidate passes 106 Java regressions,
+69 packaged checks, wrong-binary rejection and [twenty full-pack reloads with
+literal offline replay](../evidence/engineering-056/nf265-reload20/README.md).
+The [release decision](../evidence/engineering-056/release-decision/README.md)
+permits development pre-release delivery with these scopes. Whole-client
+performance, every vehicle interaction and a two-hour route remain pending;
+the full acceptance procedure below is not marked complete by publishing.
+
+Historical 0.4.7 records follow. Both official targets pass 73 Java tests,
 four actual abrupt-exit cleanup checks across writing and workspace waiting, and
 four 3 GiB large-OBJ checks across targets and CompactStrings modes. The exact
 0.4.6 negative controls retain spill files under the same abrupt-exit harness.

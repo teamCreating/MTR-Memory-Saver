@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "passed": true,
+  "cases": [
+    {
+      "target": "official-nf265",
+      "mode": "faults",
+      "pid": 38188,
+      "exit_code": 0,
+      "artifact_sha256": "920c1f833b6f173c7443ff5956493b779acfeceb293fa640817a459985db3f5b",
+      "passed": true,
+      "jfr_sha256": "3cbc29d030709eb0dde85fd9ed21e07ecf49ab576f7f7cccec36d368dcc81ca1",
+      "jfr_summary_exit": 0,
+      "lifecycle_checks": 24,
+      "strict_resource_checks": 18,
+      "obj_input_checks": 27,
+      "settled_workspace": true
+    },
+    {
+      "target": "official-nf265",
+      "mode": "mismatch",
+      "pid": 60548,
+      "exit_code": 1,
+      "artifact_sha256": "920c1f833b6f173c7443ff5956493b779acfeceb293fa640817a459985db3f5b",
+      "passed": true,
+      "jfr_sha256": "e4c68ed774c651ed8748fb41339f6c1a6c41c600fd86665df96299618a734111",
+      "jfr_summary_exit": 0,
+      "rejected_before_registration": true
+    }
+  ],
+  "scope": "Exact NF265 artifact packaged lifecycle, resource and OBJ checks, settled workspace, native stop with owned exit 0, readable JFR and separate wrong-binary rejection. Reload and performance records have their own scope."
+}

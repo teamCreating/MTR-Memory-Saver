@@ -1,0 +1,45 @@
+{
+  "argv": [
+    "C:\\Windows\\System32\\logman.exe",
+    "create",
+    "trace",
+    "mtr-frame-diagnostic-9965299f-d75d-487f-8853-1fff01df2388",
+    "-ets",
+    "-pf",
+    "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\gl-positive-053-etw01\\providers.txt",
+    "-o",
+    "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\gl-positive-053-etw01\\raw.etl",
+    "-f",
+    "bin",
+    "-ct",
+    "perf",
+    "-max",
+    "128"
+  ],
+  "cwd": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\gl-positive-053-etw01",
+  "started": "2026-11-18T03:40:25.170258+00:00",
+  "owner_pid": 43912,
+  "timeout_seconds": 45,
+  "executable": {
+    "path": "C:\\Windows\\System32\\logman.exe",
+    "bytes": 120320,
+    "sha256": "5caaab1e6bed1ea511166432a8e8a03bccc058162e7d19019793e262535fb204"
+  },
+  "helper_pid": 14916,
+  "exit_code": 0,
+  "ended": "2026-11-18T03:40:25.486094+00:00",
+  "helper_exited": true,
+  "stdout": {
+    "bytes": 16,
+    "sha256": "e1dc795f56fda4d803a68423be9e206223fd390982b7ea236f0108861c96d464"
+  },
+  "stderr": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "executable_after": {
+    "path": "C:\\Windows\\System32\\logman.exe",
+    "bytes": 120320,
+    "sha256": "5caaab1e6bed1ea511166432a8e8a03bccc058162e7d19019793e262535fb204"
+  }
+}

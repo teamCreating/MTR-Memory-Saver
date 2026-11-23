@@ -1,0 +1,937 @@
+{
+  "schema": 1,
+  "files": {
+    "collectors/full-nf248/acceptance-gc.log": {
+      "bytes": 549413,
+      "sha256": "719d65f15da2b1b8b7c87eea5f6ac3d0d49c94ae03d2758a73a848da6f35dfc5"
+    },
+    "collectors/full-nf248/execution.json": {
+      "bytes": 1782,
+      "sha256": "781d5b084dbce215a1b05c179d110404e370a2434cbdd74683297419827c8501"
+    },
+    "collectors/full-nf248/launch.stderr.log": {
+      "bytes": 672,
+      "sha256": "84542675a995226bc93feea7af25dc23ad64ed11e4401877949b9fc2f42e2ecd"
+    },
+    "collectors/full-nf248/launch.stdout.log": {
+      "bytes": 26301,
+      "sha256": "db9b26c91c5ce2bc97370033a04a7ae54c4b3db25965c4cd9d98318168967cf2"
+    },
+    "collectors/full-nf248/packaged-client-launch.json": {
+      "bytes": 26747,
+      "sha256": "d0d8e2b895a7757f8d3ccaa1eaab614bf2c42b282b6051d45289cc6b0561f199"
+    },
+    "collectors/full-nf248/packaged-client-plan.json": {
+      "bytes": 43781,
+      "sha256": "0c18f2d3114469cc1c1ecfe01c1899cb54260319cfb059ebc76c28ab420433bd"
+    },
+    "collectors/full-nf248-02/acceptance-gc.log": {
+      "bytes": 1109712,
+      "sha256": "ea1f4190cebde5da48e68cbe4ec8b434942565d8f3ee18062e97dbce93ef59be"
+    },
+    "collectors/full-nf248-02/execution.json": {
+      "bytes": 1782,
+      "sha256": "44ada5ff1435dbbc907409167287c8735119ee7cf8b80c5b0933016165185da2"
+    },
+    "collectors/full-nf248-02/launch.stderr.log": {
+      "bytes": 672,
+      "sha256": "cba789e2324ebabee8858ce7cb2003232a3d241fd2b37d826a794ccf8b3fd4a1"
+    },
+    "collectors/full-nf248-02/launch.stdout.log": {
+      "bytes": 35267,
+      "sha256": "31d92ba75c93bc4f54a6319d3ec84efe8f35ce408a3daddcf8cd24887768606b"
+    },
+    "collectors/full-nf248-02/packaged-client-launch.json": {
+      "bytes": 26667,
+      "sha256": "a818676c0a86a963fb31cd58ee1cd14d4765021dcca4dfedbe529468bea7e040"
+    },
+    "collectors/full-nf248-02/packaged-client-plan.json": {
+      "bytes": 43738,
+      "sha256": "a723f9319150a9c1f8a9727bbab3fed523906d434c21170b132d8a14a3a772e7"
+    },
+    "collectors/full-nf248-03/execution.json": {
+      "bytes": 661,
+      "sha256": "22208ef3c855866a28cba96b3ac541931c6cd59c17e654a5972a6b99cb53eaab"
+    },
+    "collectors/full-nf248-03b/acceptance-gc.log": {
+      "bytes": 758297,
+      "sha256": "f4144924eb305348050a9ab8207b3046259769009535a9e9e5865565bd139c7f"
+    },
+    "collectors/full-nf248-03b/execution.json": {
+      "bytes": 1782,
+      "sha256": "1a81cd152760b164c315452afda4773d0da2e6c36e74ca087dfbb63874748132"
+    },
+    "collectors/full-nf248-03b/launch.stderr.log": {
+      "bytes": 672,
+      "sha256": "f0ebadb2604ff68709224792c1d45c8cbb4fcce8b8fe61f83cf7d3cc160d150c"
+    },
+    "collectors/full-nf248-03b/launch.stdout.log": {
+      "bytes": 34612,
+      "sha256": "b8bfb4fe08ae597f037c5981a5528a27089d266c0e04a8f997b4c4337b1bf742"
+    },
+    "collectors/full-nf248-03b/packaged-client-launch.json": {
+      "bytes": 26667,
+      "sha256": "0401ba55ec984b049748a78f89c8e868916fa4e1023c9a188c0b0c804fa906e2"
+    },
+    "collectors/full-nf248-03b/packaged-client-plan.json": {
+      "bytes": 43738,
+      "sha256": "030087d9673b9d15f1cd6eac3575968025cc2f89040ac4f780f08d17c82567bc"
+    },
+    "copy-receipts.json": {
+      "bytes": 96209,
+      "sha256": "64e91f8913e44e055a6cef6524509690f7669cff0d9a439003b17fda6358f887"
+    },
+    "readers/obj048-full01-reload-observation/auxiliary-events.jsonl": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "readers/obj048-full01-reload-observation/client_experiment_analysis.py": {
+      "bytes": 41656,
+      "sha256": "0669d421d09a47664cf9207f559f247983f76a666a1cfe8487c7d02d4c5a7d6e"
+    },
+    "readers/obj048-full01-reload-observation/external-input-events-at-completion.jsonl": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "readers/obj048-full01-reload-observation/native-diagnostic-events-at-completion.jsonl": {
+      "bytes": 22050,
+      "sha256": "2edf3f7356a35e1391f19c40057b99cad52d9e81bca4bdd2ea4e38d49bc63e6b"
+    },
+    "readers/obj048-full01-reload-observation/native-diagnostic-review.json": {
+      "bytes": 2328,
+      "sha256": "4d91b89a3600d44a9ec132b7dd58fb61d46d34ae63f9148716f24c9c144f745c"
+    },
+    "readers/obj048-full01-reload-observation/native-epoch-events-at-completion.jsonl": {
+      "bytes": 1787,
+      "sha256": "7e2a3389c91369bbfaee8b2b32a1a9cbf8f6a73b33de39c2f0c321a4fa2dbd9b"
+    },
+    "readers/obj048-full01-reload-observation/native-log-at-completion.log": {
+      "bytes": 27926,
+      "sha256": "e0d932df2057dffc754b53b171e9069d3071330a0ad6c1748100f2119da69f6d"
+    },
+    "readers/obj048-full01-reload-observation/native-log-reader.json": {
+      "bytes": 1108,
+      "sha256": "cf6eba86559facf3ad22b84e1193ea5377e760e5e7ab80ea85b60fb540a0cae1"
+    },
+    "readers/obj048-full01-reload-observation/native-observer-consumer.json": {
+      "bytes": 364,
+      "sha256": "fae895c646ff796473bdc2c83a1b1c4abfc518bb75c0ec3bcf10a476a5750e62"
+    },
+    "readers/obj048-full01-reload-observation/native_diagnostic_review.py": {
+      "bytes": 14788,
+      "sha256": "39807f2f3b8173097d30d7fef7499e8bac419f72ff6abd1faf91b014c097e45d"
+    },
+    "readers/obj048-full01-reload-observation/native_log_stream.py": {
+      "bytes": 26565,
+      "sha256": "380f8df01cba5dbde8e53681a70bc0e12a5ae1672d5745049d769a3860d95fbf"
+    },
+    "readers/obj048-full01-reload-observation/observer-source.py": {
+      "bytes": 90825,
+      "sha256": "dcb3645b951f53280dcf394e97a48c3481d6a9cfc4099a388afaa395242f6624"
+    },
+    "readers/obj048-full01-reload-observation/observer-target.json": {
+      "bytes": 679,
+      "sha256": "ad88abd18239df098a877342ee8a8cb21b7e373934a5b22a1d0b1481fd3e868d"
+    },
+    "readers/obj048-full01-reload-observation/reload_before_recorder.py": {
+      "bytes": 30206,
+      "sha256": "ace15f67d6e86968c75766d98360aadb3db7c69fab196c3e4fd655ad1f16c65b"
+    },
+    "readers/obj048-full01-reload-observation/samples.jsonl": {
+      "bytes": 789471,
+      "sha256": "db23009322721a38db1d810760755419d89f48d77bb02f1839541fbf8d43feaf"
+    },
+    "readers/obj048-full01-reload-observation/stop-request": {
+      "bytes": 358,
+      "sha256": "739c7049cdbc67b654c95072c64349d346e84aaeb3409c618a261ff4f1797d8b"
+    },
+    "readers/obj048-full01-reload-observation/stop-request-captured.bin": {
+      "bytes": 358,
+      "sha256": "739c7049cdbc67b654c95072c64349d346e84aaeb3409c618a261ff4f1797d8b"
+    },
+    "readers/obj048-full01-reload-observation/stop-request-receipt.json": {
+      "bytes": 672,
+      "sha256": "ce649bcf5a2082f0a0fefc69ffc8f0f5df43548ca1db411f52c849efa76a887e"
+    },
+    "readers/obj048-full01-reload-observation/summary.json": {
+      "bytes": 37999,
+      "sha256": "873b377efa5c17e8d814d19a42424e91350576af77bc3934813ecafa591bac12"
+    },
+    "readers/obj048-full01-reload-observation/windows_process_identity.py": {
+      "bytes": 8927,
+      "sha256": "f29dbd8f21f7eea1b0c8bad0a5d0f9cc9657739d53758192c98af0d80fa6cac3"
+    },
+    "readers/obj048-full01-reload-observation/windows_snapshot_io.py": {
+      "bytes": 1992,
+      "sha256": "6967cd6efee7a673e5df72700ea8de26e2e92c02d4614306bcb106fa527b02e1"
+    },
+    "readers/obj048-full01-reload-recorder/journal.jsonl": {
+      "bytes": 381609,
+      "sha256": "83ac48df424c1ed7c08ddce3be6b928d4a73351219b9ec369166a223c46d48c2"
+    },
+    "readers/obj048-full01-reload-recorder/native-diagnostic-review.json": {
+      "bytes": 2328,
+      "sha256": "4d91b89a3600d44a9ec132b7dd58fb61d46d34ae63f9148716f24c9c144f745c"
+    },
+    "readers/obj048-full01-reload-recorder/observer-target.json": {
+      "bytes": 694,
+      "sha256": "79d1e3c69bf1d5633a2baf04114c5dd311e30bce6c7ca20eccf31b6934f18137"
+    },
+    "readers/obj048-full01-reload-recorder/packaged-client-launch.json": {
+      "bytes": 26747,
+      "sha256": "d0d8e2b895a7757f8d3ccaa1eaab614bf2c42b282b6051d45289cc6b0561f199"
+    },
+    "readers/obj048-full01-reload-recorder/packaged-client-plan.json": {
+      "bytes": 43781,
+      "sha256": "0c18f2d3114469cc1c1ecfe01c1899cb54260319cfb059ebc76c28ab420433bd"
+    },
+    "readers/obj048-full01-reload-recorder/session-end.json": {
+      "bytes": 195,
+      "sha256": "b790be258c83f26740d9f41cfbc2d9261c22b8848955027ee7becc9655d7e457"
+    },
+    "readers/obj048-full01-reload-recorder/session-start.json": {
+      "bytes": 28898,
+      "sha256": "1826467e899db93026db03088d5b198e4b4ea1860b080e29299c6912eac21367"
+    },
+    "readers/obj048-full01-reload-recorder/stop-request": {
+      "bytes": 358,
+      "sha256": "739c7049cdbc67b654c95072c64349d346e84aaeb3409c618a261ff4f1797d8b"
+    },
+    "readers/obj048-full02-reload-observation/auxiliary-events.jsonl": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "readers/obj048-full02-reload-observation/client_experiment_analysis.py": {
+      "bytes": 41656,
+      "sha256": "0669d421d09a47664cf9207f559f247983f76a666a1cfe8487c7d02d4c5a7d6e"
+    },
+    "readers/obj048-full02-reload-observation/external-input-events-at-completion.jsonl": {
+      "bytes": 9720,
+      "sha256": "89cd986fad1f92f76de86997252a8c25fac316c95b25903a779f6adbcc8c3092"
+    },
+    "readers/obj048-full02-reload-observation/native-diagnostic-events-at-completion.jsonl": {
+      "bytes": 22050,
+      "sha256": "60a5a3f8eb4bba77b3a13eca82d386967648a52752c5016a84ca6bac78ac588d"
+    },
+    "readers/obj048-full02-reload-observation/native-diagnostic-review.json": {
+      "bytes": 2328,
+      "sha256": "4d91b89a3600d44a9ec132b7dd58fb61d46d34ae63f9148716f24c9c144f745c"
+    },
+    "readers/obj048-full02-reload-observation/native-epoch-events-at-completion.jsonl": {
+      "bytes": 1787,
+      "sha256": "2ae474ee637654b87d4d15ce5f3e16b4d6ef3b265b3bf45f07637fa2e1f75aee"
+    },
+    "readers/obj048-full02-reload-observation/native-log-at-completion.log": {
+      "bytes": 28706,
+      "sha256": "835840d85d01ec5b65d630d1932fe6a804825ca37913e6c2a60756130ead5f4e"
+    },
+    "readers/obj048-full02-reload-observation/native-log-reader.json": {
+      "bytes": 1108,
+      "sha256": "cf6eba86559facf3ad22b84e1193ea5377e760e5e7ab80ea85b60fb540a0cae1"
+    },
+    "readers/obj048-full02-reload-observation/native-observer-consumer.json": {
+      "bytes": 364,
+      "sha256": "fae895c646ff796473bdc2c83a1b1c4abfc518bb75c0ec3bcf10a476a5750e62"
+    },
+    "readers/obj048-full02-reload-observation/native_diagnostic_review.py": {
+      "bytes": 14788,
+      "sha256": "39807f2f3b8173097d30d7fef7499e8bac419f72ff6abd1faf91b014c097e45d"
+    },
+    "readers/obj048-full02-reload-observation/native_log_stream.py": {
+      "bytes": 26565,
+      "sha256": "380f8df01cba5dbde8e53681a70bc0e12a5ae1672d5745049d769a3860d95fbf"
+    },
+    "readers/obj048-full02-reload-observation/observer-source.py": {
+      "bytes": 90825,
+      "sha256": "dcb3645b951f53280dcf394e97a48c3481d6a9cfc4099a388afaa395242f6624"
+    },
+    "readers/obj048-full02-reload-observation/observer-target.json": {
+      "bytes": 679,
+      "sha256": "ad88abd18239df098a877342ee8a8cb21b7e373934a5b22a1d0b1481fd3e868d"
+    },
+    "readers/obj048-full02-reload-observation/reload_before_recorder.py": {
+      "bytes": 30206,
+      "sha256": "ace15f67d6e86968c75766d98360aadb3db7c69fab196c3e4fd655ad1f16c65b"
+    },
+    "readers/obj048-full02-reload-observation/samples.jsonl": {
+      "bytes": 2105882,
+      "sha256": "22c4450151aa54693de264d7fcc502fd93e24b0f7bdd2e11840bc7c1f597a84c"
+    },
+    "readers/obj048-full02-reload-observation/stop-request": {
+      "bytes": 387,
+      "sha256": "d6dddc96a62f997573b7f52a97ace8a79f3f2938e1088b74d9f3a2528457348f"
+    },
+    "readers/obj048-full02-reload-observation/stop-request-captured.bin": {
+      "bytes": 387,
+      "sha256": "d6dddc96a62f997573b7f52a97ace8a79f3f2938e1088b74d9f3a2528457348f"
+    },
+    "readers/obj048-full02-reload-observation/stop-request-receipt.json": {
+      "bytes": 672,
+      "sha256": "bfd5ae12496e0e563f3a91123c876816f0e90cae5cf1aab05f80716f9e576ab7"
+    },
+    "readers/obj048-full02-reload-observation/summary.json": {
+      "bytes": 57478,
+      "sha256": "4a3ac270b65fa4f7dbaf8262831cd9e5d51f6c1a73f72c8d30d9f4c696446f6b"
+    },
+    "readers/obj048-full02-reload-observation/windows_process_identity.py": {
+      "bytes": 8927,
+      "sha256": "f29dbd8f21f7eea1b0c8bad0a5d0f9cc9657739d53758192c98af0d80fa6cac3"
+    },
+    "readers/obj048-full02-reload-observation/windows_snapshot_io.py": {
+      "bytes": 1992,
+      "sha256": "6967cd6efee7a673e5df72700ea8de26e2e92c02d4614306bcb106fa527b02e1"
+    },
+    "readers/obj048-full02-reload-observation03/auxiliary-events.jsonl": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "readers/obj048-full02-reload-observation03/client_experiment_analysis.py": {
+      "bytes": 41656,
+      "sha256": "0669d421d09a47664cf9207f559f247983f76a666a1cfe8487c7d02d4c5a7d6e"
+    },
+    "readers/obj048-full02-reload-observation03/external-input-events-at-completion.jsonl": {
+      "bytes": 19454,
+      "sha256": "24fa9bc238306d16d94dc9549c0ea840fe174b59c145b8a89bd0973d3aae4d5a"
+    },
+    "readers/obj048-full02-reload-observation03/native-diagnostic-events-at-completion.jsonl": {
+      "bytes": 40176,
+      "sha256": "8fd7c1a69d8fe60e7182da733e64afbe19d387b7aab4f08f832deea548206ad1"
+    },
+    "readers/obj048-full02-reload-observation03/native-diagnostic-review.json": {
+      "bytes": 2328,
+      "sha256": "4d91b89a3600d44a9ec132b7dd58fb61d46d34ae63f9148716f24c9c144f745c"
+    },
+    "readers/obj048-full02-reload-observation03/native-epoch-events-at-completion.jsonl": {
+      "bytes": 3580,
+      "sha256": "71688d8f7205129741231f9deac577e71bf45e029664e5fe3977efaa17228f58"
+    },
+    "readers/obj048-full02-reload-observation03/native-log-at-completion.log": {
+      "bytes": 38940,
+      "sha256": "207edcfd04776f671a51447e4c020fc9980ec0dd286a83e644d1d38e4237c040"
+    },
+    "readers/obj048-full02-reload-observation03/native-log-reader.json": {
+      "bytes": 1108,
+      "sha256": "cf6eba86559facf3ad22b84e1193ea5377e760e5e7ab80ea85b60fb540a0cae1"
+    },
+    "readers/obj048-full02-reload-observation03/native-observer-consumer.json": {
+      "bytes": 364,
+      "sha256": "fae895c646ff796473bdc2c83a1b1c4abfc518bb75c0ec3bcf10a476a5750e62"
+    },
+    "readers/obj048-full02-reload-observation03/native_diagnostic_review.py": {
+      "bytes": 14788,
+      "sha256": "39807f2f3b8173097d30d7fef7499e8bac419f72ff6abd1faf91b014c097e45d"
+    },
+    "readers/obj048-full02-reload-observation03/native_log_stream.py": {
+      "bytes": 26565,
+      "sha256": "380f8df01cba5dbde8e53681a70bc0e12a5ae1672d5745049d769a3860d95fbf"
+    },
+    "readers/obj048-full02-reload-observation03/observer-source.py": {
+      "bytes": 90825,
+      "sha256": "dcb3645b951f53280dcf394e97a48c3481d6a9cfc4099a388afaa395242f6624"
+    },
+    "readers/obj048-full02-reload-observation03/observer-target.json": {
+      "bytes": 679,
+      "sha256": "ad88abd18239df098a877342ee8a8cb21b7e373934a5b22a1d0b1481fd3e868d"
+    },
+    "readers/obj048-full02-reload-observation03/reload_before_recorder.py": {
+      "bytes": 30206,
+      "sha256": "ace15f67d6e86968c75766d98360aadb3db7c69fab196c3e4fd655ad1f16c65b"
+    },
+    "readers/obj048-full02-reload-observation03/samples.jsonl": {
+      "bytes": 1849458,
+      "sha256": "637f500b3112ad431d44b75ecfe93f2dcc83d147e58a24e72bda4912796dc6e6"
+    },
+    "readers/obj048-full02-reload-observation03/stop-request": {
+      "bytes": 163,
+      "sha256": "0c15797637be4abb25d11c1d192926056c1abeee9756921fb6a1920f610e6287"
+    },
+    "readers/obj048-full02-reload-observation03/stop-request-captured.bin": {
+      "bytes": 163,
+      "sha256": "0c15797637be4abb25d11c1d192926056c1abeee9756921fb6a1920f610e6287"
+    },
+    "readers/obj048-full02-reload-observation03/stop-request-receipt.json": {
+      "bytes": 677,
+      "sha256": "1d15dac4049311d76742502b1885674e4ca196b592cb6e73ca2c207ba3587096"
+    },
+    "readers/obj048-full02-reload-observation03/summary.json": {
+      "bytes": 79269,
+      "sha256": "287d1829d0ee368c37c566ba34722e009de1bbdb5e4e61c8097e31aaa823fc0d"
+    },
+    "readers/obj048-full02-reload-observation03/windows_process_identity.py": {
+      "bytes": 8927,
+      "sha256": "f29dbd8f21f7eea1b0c8bad0a5d0f9cc9657739d53758192c98af0d80fa6cac3"
+    },
+    "readers/obj048-full02-reload-observation03/windows_snapshot_io.py": {
+      "bytes": 1992,
+      "sha256": "6967cd6efee7a673e5df72700ea8de26e2e92c02d4614306bcb106fa527b02e1"
+    },
+    "readers/obj048-full02-reload-recorder/input-attempts/248ea287-5eb8-4c1e-ac84-efe5cbb4adda/confirmed-event.jsonl": {
+      "bytes": 9903,
+      "sha256": "a96590236c986b4df335d593d95436dad3527f1cce2044acf5154eb06ccf27c0"
+    },
+    "readers/obj048-full02-reload-recorder/input-attempts/248ea287-5eb8-4c1e-ac84-efe5cbb4adda/external-receipt.json": {
+      "bytes": 387,
+      "sha256": "091bf80c8d0ef6c31fae816acd72901d263494d8b0d18cf14054a26c26bce254"
+    },
+    "readers/obj048-full02-reload-recorder/input-attempts/248ea287-5eb8-4c1e-ac84-efe5cbb4adda/journal-prefix.jsonl": {
+      "bytes": 58286,
+      "sha256": "5ec7fec4f0749e31b17c504766e88e87117171335cfaecc4db78398f4b7de76a"
+    },
+    "readers/obj048-full02-reload-recorder/input-attempts/248ea287-5eb8-4c1e-ac84-efe5cbb4adda/result.json": {
+      "bytes": 9720,
+      "sha256": "89cd986fad1f92f76de86997252a8c25fac316c95b25903a779f6adbcc8c3092"
+    },
+    "readers/obj048-full02-reload-recorder/input-attempts/248ea287-5eb8-4c1e-ac84-efe5cbb4adda/submission.json": {
+      "bytes": 197,
+      "sha256": "fe68696f3bf04fe787156a809e7ec2f563a7e728c62971aba647538499d3a527"
+    },
+    "readers/obj048-full02-reload-recorder/inputs.jsonl": {
+      "bytes": 9720,
+      "sha256": "89cd986fad1f92f76de86997252a8c25fac316c95b25903a779f6adbcc8c3092"
+    },
+    "readers/obj048-full02-reload-recorder/journal.jsonl": {
+      "bytes": 982097,
+      "sha256": "0f06d00d880c1af6813674b37152d0b8aad769effa50f7560a6b48929bf42a60"
+    },
+    "readers/obj048-full02-reload-recorder/native-diagnostic-review.json": {
+      "bytes": 2328,
+      "sha256": "4d91b89a3600d44a9ec132b7dd58fb61d46d34ae63f9148716f24c9c144f745c"
+    },
+    "readers/obj048-full02-reload-recorder/observer-target.json": {
+      "bytes": 694,
+      "sha256": "79d1e3c69bf1d5633a2baf04114c5dd311e30bce6c7ca20eccf31b6934f18137"
+    },
+    "readers/obj048-full02-reload-recorder/packaged-client-launch.json": {
+      "bytes": 26667,
+      "sha256": "a818676c0a86a963fb31cd58ee1cd14d4765021dcca4dfedbe529468bea7e040"
+    },
+    "readers/obj048-full02-reload-recorder/packaged-client-plan.json": {
+      "bytes": 43738,
+      "sha256": "a723f9319150a9c1f8a9727bbab3fed523906d434c21170b132d8a14a3a772e7"
+    },
+    "readers/obj048-full02-reload-recorder/session-end.json": {
+      "bytes": 196,
+      "sha256": "72104c16387621dd58f5ab3ad69ff3974506fc4f9f87d06b60834b9a7e886de3"
+    },
+    "readers/obj048-full02-reload-recorder/session-start.json": {
+      "bytes": 28866,
+      "sha256": "9072bf4a946a36b4e9c6b715710c9687101339981e6a1d1ac75ed6c2f9555823"
+    },
+    "readers/obj048-full02-reload-recorder/stop-request": {
+      "bytes": 387,
+      "sha256": "d6dddc96a62f997573b7f52a97ace8a79f3f2938e1088b74d9f3a2528457348f"
+    },
+    "readers/obj048-full02-reload-recorder02/journal.jsonl": {
+      "bytes": 1849,
+      "sha256": "84a14bc9504c93922efe6c49ec06308517b07589464937ed990c647300844e26"
+    },
+    "readers/obj048-full02-reload-recorder02/native-diagnostic-review.json": {
+      "bytes": 2328,
+      "sha256": "4d91b89a3600d44a9ec132b7dd58fb61d46d34ae63f9148716f24c9c144f745c"
+    },
+    "readers/obj048-full02-reload-recorder02/observer-target.json": {
+      "bytes": 694,
+      "sha256": "79d1e3c69bf1d5633a2baf04114c5dd311e30bce6c7ca20eccf31b6934f18137"
+    },
+    "readers/obj048-full02-reload-recorder02/packaged-client-launch.json": {
+      "bytes": 26667,
+      "sha256": "a818676c0a86a963fb31cd58ee1cd14d4765021dcca4dfedbe529468bea7e040"
+    },
+    "readers/obj048-full02-reload-recorder02/packaged-client-plan.json": {
+      "bytes": 43738,
+      "sha256": "a723f9319150a9c1f8a9727bbab3fed523906d434c21170b132d8a14a3a772e7"
+    },
+    "readers/obj048-full02-reload-recorder02/session-end.json": {
+      "bytes": 192,
+      "sha256": "433da6e38e89bac40d66663475ec9a210481ad394cad7a4e95101d7e1df6c0a4"
+    },
+    "readers/obj048-full02-reload-recorder02/session-start.json": {
+      "bytes": 28866,
+      "sha256": "e4baee9ff044087d596a462eff0bde8ccdaef73172f36d77577cc1c90457329b"
+    },
+    "readers/obj048-full02-reload-recorder03/input-attempts/84f0ea17-8a7f-4ede-8f4d-442a267a1416/confirmed-event.jsonl": {
+      "bytes": 9870,
+      "sha256": "038029325fe43b768b8e4e9d5fcd213cb480cffae2c5eab1eb1157ae918a6e53"
+    },
+    "readers/obj048-full02-reload-recorder03/input-attempts/84f0ea17-8a7f-4ede-8f4d-442a267a1416/external-receipt.json": {
+      "bytes": 395,
+      "sha256": "7e945f9ee822d8968b65b320193bcc1419ae1ddd8507f80b696e38313dddb6d8"
+    },
+    "readers/obj048-full02-reload-recorder03/input-attempts/84f0ea17-8a7f-4ede-8f4d-442a267a1416/journal-prefix.jsonl": {
+      "bytes": 695460,
+      "sha256": "6c1ce51d22bc346868afc1c4b7ab3b8eb6604348e3b2e64a387972a7c45565f3"
+    },
+    "readers/obj048-full02-reload-recorder03/input-attempts/84f0ea17-8a7f-4ede-8f4d-442a267a1416/result.json": {
+      "bytes": 9688,
+      "sha256": "69e9ff909d17b7e9cf9f94284c43f2c34b78a8a33dffc0a9b8b191da882fde95"
+    },
+    "readers/obj048-full02-reload-recorder03/input-attempts/84f0ea17-8a7f-4ede-8f4d-442a267a1416/submission.json": {
+      "bytes": 197,
+      "sha256": "1864ad048da29d199b9f5328d3f4c56fe584cc95c38605909855a597e5edd8e9"
+    },
+    "readers/obj048-full02-reload-recorder03/input-attempts/ac9caed7-efb7-4062-baeb-6abb02749df0/confirmed-event.jsonl": {
+      "bytes": 9949,
+      "sha256": "b1ff687b6447c18f26cb32d235cbeaf5b89b80afba55289f7d66b762dcd3e42d"
+    },
+    "readers/obj048-full02-reload-recorder03/input-attempts/ac9caed7-efb7-4062-baeb-6abb02749df0/external-receipt.json": {
+      "bytes": 387,
+      "sha256": "2d2765ad4a090ebba156f600ee51750247f2f540aca19aae6bab649c0c6d0dc4"
+    },
+    "readers/obj048-full02-reload-recorder03/input-attempts/ac9caed7-efb7-4062-baeb-6abb02749df0/journal-prefix.jsonl": {
+      "bytes": 107527,
+      "sha256": "d1a7038be9bb7c00406a00bfbee056a69b9d016ee1738b313aa02201643283ee"
+    },
+    "readers/obj048-full02-reload-recorder03/input-attempts/ac9caed7-efb7-4062-baeb-6abb02749df0/result.json": {
+      "bytes": 9766,
+      "sha256": "7174742a24a458dab2aa5c1b0a3d7ce3876cd06550a7bd201eff63c1df4ce950"
+    },
+    "readers/obj048-full02-reload-recorder03/input-attempts/ac9caed7-efb7-4062-baeb-6abb02749df0/submission.json": {
+      "bytes": 197,
+      "sha256": "1e396253ac53b4bdbec1e438c9b01239c37b940a2c9c283152e22ef398bec4ac"
+    },
+    "readers/obj048-full02-reload-recorder03/inputs.jsonl": {
+      "bytes": 19454,
+      "sha256": "24fa9bc238306d16d94dc9549c0ea840fe174b59c145b8a89bd0973d3aae4d5a"
+    },
+    "readers/obj048-full02-reload-recorder03/journal.jsonl": {
+      "bytes": 887111,
+      "sha256": "c1b02d4f949f71157674d9bde78e2559a9d1e231bd1d26fbe74cc0ba98c78dec"
+    },
+    "readers/obj048-full02-reload-recorder03/native-diagnostic-review.json": {
+      "bytes": 2328,
+      "sha256": "4d91b89a3600d44a9ec132b7dd58fb61d46d34ae63f9148716f24c9c144f745c"
+    },
+    "readers/obj048-full02-reload-recorder03/observer-target.json": {
+      "bytes": 694,
+      "sha256": "79d1e3c69bf1d5633a2baf04114c5dd311e30bce6c7ca20eccf31b6934f18137"
+    },
+    "readers/obj048-full02-reload-recorder03/packaged-client-launch.json": {
+      "bytes": 26667,
+      "sha256": "a818676c0a86a963fb31cd58ee1cd14d4765021dcca4dfedbe529468bea7e040"
+    },
+    "readers/obj048-full02-reload-recorder03/packaged-client-plan.json": {
+      "bytes": 43738,
+      "sha256": "a723f9319150a9c1f8a9727bbab3fed523906d434c21170b132d8a14a3a772e7"
+    },
+    "readers/obj048-full02-reload-recorder03/session-end.json": {
+      "bytes": 195,
+      "sha256": "5a37b3f9e763665c9090b540876cb2e3afa09945d76b9266aceab9eff180e273"
+    },
+    "readers/obj048-full02-reload-recorder03/session-start.json": {
+      "bytes": 29052,
+      "sha256": "6443e4e5bb10feb053dc538e225e7515d4a57082aad4a092b26cc5c62ed1aa08"
+    },
+    "readers/obj048-full02-reload-recorder03/stop-request": {
+      "bytes": 163,
+      "sha256": "0c15797637be4abb25d11c1d192926056c1abeee9756921fb6a1920f610e6287"
+    },
+    "readers/obj048-full03-reload-observation/auxiliary-events.jsonl": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "readers/obj048-full03-reload-observation/client_experiment_analysis.py": {
+      "bytes": 41656,
+      "sha256": "0669d421d09a47664cf9207f559f247983f76a666a1cfe8487c7d02d4c5a7d6e"
+    },
+    "readers/obj048-full03-reload-observation/external-input-events-at-completion.jsonl": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "readers/obj048-full03-reload-observation/native-diagnostic-events-at-completion.jsonl": {
+      "bytes": 22050,
+      "sha256": "890144ad2bca54fde709e1fb276aaafefccf42675a240d29a95b38e160c824e2"
+    },
+    "readers/obj048-full03-reload-observation/native-diagnostic-review.json": {
+      "bytes": 2328,
+      "sha256": "4d91b89a3600d44a9ec132b7dd58fb61d46d34ae63f9148716f24c9c144f745c"
+    },
+    "readers/obj048-full03-reload-observation/native-epoch-events-at-completion.jsonl": {
+      "bytes": 1781,
+      "sha256": "4ea8a12170b71036a58af84a61d66cb8fac179284a5bfc1d4b2a3559d8320704"
+    },
+    "readers/obj048-full03-reload-observation/native-log-at-completion.log": {
+      "bytes": 27896,
+      "sha256": "f7660e2d530d3461558cd22354bceccfbb8644aa4db05880f1ea41c51aba56fb"
+    },
+    "readers/obj048-full03-reload-observation/native-log-reader.json": {
+      "bytes": 1108,
+      "sha256": "cf6eba86559facf3ad22b84e1193ea5377e760e5e7ab80ea85b60fb540a0cae1"
+    },
+    "readers/obj048-full03-reload-observation/native-observer-consumer.json": {
+      "bytes": 364,
+      "sha256": "fae895c646ff796473bdc2c83a1b1c4abfc518bb75c0ec3bcf10a476a5750e62"
+    },
+    "readers/obj048-full03-reload-observation/native_diagnostic_review.py": {
+      "bytes": 14788,
+      "sha256": "39807f2f3b8173097d30d7fef7499e8bac419f72ff6abd1faf91b014c097e45d"
+    },
+    "readers/obj048-full03-reload-observation/native_log_stream.py": {
+      "bytes": 26565,
+      "sha256": "380f8df01cba5dbde8e53681a70bc0e12a5ae1672d5745049d769a3860d95fbf"
+    },
+    "readers/obj048-full03-reload-observation/observer-source.py": {
+      "bytes": 90825,
+      "sha256": "dcb3645b951f53280dcf394e97a48c3481d6a9cfc4099a388afaa395242f6624"
+    },
+    "readers/obj048-full03-reload-observation/observer-target.json": {
+      "bytes": 679,
+      "sha256": "ad88abd18239df098a877342ee8a8cb21b7e373934a5b22a1d0b1481fd3e868d"
+    },
+    "readers/obj048-full03-reload-observation/reload_before_recorder.py": {
+      "bytes": 30206,
+      "sha256": "ace15f67d6e86968c75766d98360aadb3db7c69fab196c3e4fd655ad1f16c65b"
+    },
+    "readers/obj048-full03-reload-observation/samples.jsonl": {
+      "bytes": 140059,
+      "sha256": "6959e4cd4e1d574489e1a16de1488b298c0c38656598d4bb2c430e1478056541"
+    },
+    "readers/obj048-full03-reload-observation/stop-request": {
+      "bytes": 100,
+      "sha256": "ddb4d1632ca55b6e85ddcf093f121ba1a1675001641e7f98ed21f436b9f947bd"
+    },
+    "readers/obj048-full03-reload-observation/stop-request-captured.bin": {
+      "bytes": 100,
+      "sha256": "ddb4d1632ca55b6e85ddcf093f121ba1a1675001641e7f98ed21f436b9f947bd"
+    },
+    "readers/obj048-full03-reload-observation/stop-request-receipt.json": {
+      "bytes": 672,
+      "sha256": "8592bb18fb7741a6b4bc5f9694149abc922f4f11cda136f03878cf9d2a383825"
+    },
+    "readers/obj048-full03-reload-observation/summary.json": {
+      "bytes": 37768,
+      "sha256": "41b8947f88b7f718e3e02cefd97b414d3f8f55ee36dc146209dd8da6953a22a1"
+    },
+    "readers/obj048-full03-reload-observation/windows_process_identity.py": {
+      "bytes": 8927,
+      "sha256": "f29dbd8f21f7eea1b0c8bad0a5d0f9cc9657739d53758192c98af0d80fa6cac3"
+    },
+    "readers/obj048-full03-reload-observation/windows_snapshot_io.py": {
+      "bytes": 1992,
+      "sha256": "6967cd6efee7a673e5df72700ea8de26e2e92c02d4614306bcb106fa527b02e1"
+    },
+    "readers/obj048-full03-reload-observation02/auxiliary-events.jsonl": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "readers/obj048-full03-reload-observation02/client_experiment_analysis.py": {
+      "bytes": 41656,
+      "sha256": "0669d421d09a47664cf9207f559f247983f76a666a1cfe8487c7d02d4c5a7d6e"
+    },
+    "readers/obj048-full03-reload-observation02/external-input-events-at-completion.jsonl": {
+      "bytes": 9720,
+      "sha256": "5295b23506eb7ef00ffecc10dc288a02ad5e2e782c5003aaf846fc3d7ce494e2"
+    },
+    "readers/obj048-full03-reload-observation02/native-diagnostic-events-at-completion.jsonl": {
+      "bytes": 40176,
+      "sha256": "ce9ec75f9f19d4d20f1c1ac7b8095edeeac08eb228133504edd910965624522a"
+    },
+    "readers/obj048-full03-reload-observation02/native-diagnostic-review.json": {
+      "bytes": 2328,
+      "sha256": "4d91b89a3600d44a9ec132b7dd58fb61d46d34ae63f9148716f24c9c144f745c"
+    },
+    "readers/obj048-full03-reload-observation02/native-epoch-events-at-completion.jsonl": {
+      "bytes": 2676,
+      "sha256": "e7f017c67ea3c8d2f79be67fad24d909d7e4c54d2d8ea6413f86e16d05768bf1"
+    },
+    "readers/obj048-full03-reload-observation02/native-log-at-completion.log": {
+      "bytes": 33230,
+      "sha256": "b621e127df4d49b3435b049c7077c6f31f3aa3b33e64d13c1456c77764b87c36"
+    },
+    "readers/obj048-full03-reload-observation02/native-log-reader.json": {
+      "bytes": 1108,
+      "sha256": "cf6eba86559facf3ad22b84e1193ea5377e760e5e7ab80ea85b60fb540a0cae1"
+    },
+    "readers/obj048-full03-reload-observation02/native-observer-consumer.json": {
+      "bytes": 364,
+      "sha256": "fae895c646ff796473bdc2c83a1b1c4abfc518bb75c0ec3bcf10a476a5750e62"
+    },
+    "readers/obj048-full03-reload-observation02/native_diagnostic_review.py": {
+      "bytes": 14788,
+      "sha256": "39807f2f3b8173097d30d7fef7499e8bac419f72ff6abd1faf91b014c097e45d"
+    },
+    "readers/obj048-full03-reload-observation02/native_log_stream.py": {
+      "bytes": 26565,
+      "sha256": "380f8df01cba5dbde8e53681a70bc0e12a5ae1672d5745049d769a3860d95fbf"
+    },
+    "readers/obj048-full03-reload-observation02/observer-source.py": {
+      "bytes": 90825,
+      "sha256": "dcb3645b951f53280dcf394e97a48c3481d6a9cfc4099a388afaa395242f6624"
+    },
+    "readers/obj048-full03-reload-observation02/observer-target.json": {
+      "bytes": 679,
+      "sha256": "ad88abd18239df098a877342ee8a8cb21b7e373934a5b22a1d0b1481fd3e868d"
+    },
+    "readers/obj048-full03-reload-observation02/reload_before_recorder.py": {
+      "bytes": 30206,
+      "sha256": "ace15f67d6e86968c75766d98360aadb3db7c69fab196c3e4fd655ad1f16c65b"
+    },
+    "readers/obj048-full03-reload-observation02/samples.jsonl": {
+      "bytes": 334551,
+      "sha256": "98b725daddeb232264894bd4f561279ccb56592b546c3ed6842943180570f3c8"
+    },
+    "readers/obj048-full03-reload-observation02/stop-request": {
+      "bytes": 136,
+      "sha256": "b49f9132fc5f307e83bf7d30afaccf16517888010bb0760e75ea401c05247877"
+    },
+    "readers/obj048-full03-reload-observation02/stop-request-captured.bin": {
+      "bytes": 136,
+      "sha256": "b49f9132fc5f307e83bf7d30afaccf16517888010bb0760e75ea401c05247877"
+    },
+    "readers/obj048-full03-reload-observation02/stop-request-receipt.json": {
+      "bytes": 674,
+      "sha256": "faab558bca17fec9eed552a5a9b3fadfd89084c4967d38f8a84ea45a13f5ee47"
+    },
+    "readers/obj048-full03-reload-observation02/summary.json": {
+      "bytes": 56235,
+      "sha256": "035fee1461bd8ec29b51c8c548d9511a3606c7e378f8e2d69b60f5f0498bc2c1"
+    },
+    "readers/obj048-full03-reload-observation02/windows_process_identity.py": {
+      "bytes": 8927,
+      "sha256": "f29dbd8f21f7eea1b0c8bad0a5d0f9cc9657739d53758192c98af0d80fa6cac3"
+    },
+    "readers/obj048-full03-reload-observation02/windows_snapshot_io.py": {
+      "bytes": 1992,
+      "sha256": "6967cd6efee7a673e5df72700ea8de26e2e92c02d4614306bcb106fa527b02e1"
+    },
+    "readers/obj048-full03-reload-recorder/journal.jsonl": {
+      "bytes": 1787,
+      "sha256": "890073e2d13bfaef765ae3dacfbe50e514b575e39d9fa70b8f6f2c6343b67826"
+    },
+    "readers/obj048-full03-reload-recorder/native-diagnostic-review.json": {
+      "bytes": 2328,
+      "sha256": "4d91b89a3600d44a9ec132b7dd58fb61d46d34ae63f9148716f24c9c144f745c"
+    },
+    "readers/obj048-full03-reload-recorder/observer-target.json": {
+      "bytes": 694,
+      "sha256": "79d1e3c69bf1d5633a2baf04114c5dd311e30bce6c7ca20eccf31b6934f18137"
+    },
+    "readers/obj048-full03-reload-recorder/packaged-client-launch.json": {
+      "bytes": 26667,
+      "sha256": "0401ba55ec984b049748a78f89c8e868916fa4e1023c9a188c0b0c804fa906e2"
+    },
+    "readers/obj048-full03-reload-recorder/packaged-client-plan.json": {
+      "bytes": 43738,
+      "sha256": "030087d9673b9d15f1cd6eac3575968025cc2f89040ac4f780f08d17c82567bc"
+    },
+    "readers/obj048-full03-reload-recorder/session-end.json": {
+      "bytes": 192,
+      "sha256": "645439eb2e69b26f054e1f492564409b8781b76a282d311cb49263412e5d5287"
+    },
+    "readers/obj048-full03-reload-recorder/session-start.json": {
+      "bytes": 28866,
+      "sha256": "e586f1309b68d115b77e1a8338882913e394165e9a865c8fb88bb184c11a3182"
+    },
+    "readers/obj048-full03-reload-recorder02/input-attempts/d03e93f7-dd68-403d-b534-6c1ccb430633/confirmed-event.jsonl": {
+      "bytes": 9904,
+      "sha256": "ba765c5d15ec62b81ea4e46994126c0aca4385d8d838b067e26d4b6e46c08f2b"
+    },
+    "readers/obj048-full03-reload-recorder02/input-attempts/d03e93f7-dd68-403d-b534-6c1ccb430633/external-receipt.json": {
+      "bytes": 395,
+      "sha256": "3e77fc36522c0a007f5b044a931681fb4e14c84d0ebc05246a506014a4218db0"
+    },
+    "readers/obj048-full03-reload-recorder02/input-attempts/d03e93f7-dd68-403d-b534-6c1ccb430633/journal-prefix.jsonl": {
+      "bytes": 37585,
+      "sha256": "12b7199a3f522e6b640a386c1fd269fc220e157d66e422502e57b2e659602dcd"
+    },
+    "readers/obj048-full03-reload-recorder02/input-attempts/d03e93f7-dd68-403d-b534-6c1ccb430633/result.json": {
+      "bytes": 9720,
+      "sha256": "5295b23506eb7ef00ffecc10dc288a02ad5e2e782c5003aaf846fc3d7ce494e2"
+    },
+    "readers/obj048-full03-reload-recorder02/input-attempts/d03e93f7-dd68-403d-b534-6c1ccb430633/submission.json": {
+      "bytes": 197,
+      "sha256": "c7c200a56de0ece591ad6e27f5ffd16446b158b053c549332b688405c0a1edf6"
+    },
+    "readers/obj048-full03-reload-recorder02/inputs.jsonl": {
+      "bytes": 9720,
+      "sha256": "5295b23506eb7ef00ffecc10dc288a02ad5e2e782c5003aaf846fc3d7ce494e2"
+    },
+    "readers/obj048-full03-reload-recorder02/journal.jsonl": {
+      "bytes": 152266,
+      "sha256": "75cd79a4d87ef8e9dc1ffb415c961e42d2d7ae6699686990f136fc62a98e0f33"
+    },
+    "readers/obj048-full03-reload-recorder02/native-diagnostic-review.json": {
+      "bytes": 2328,
+      "sha256": "4d91b89a3600d44a9ec132b7dd58fb61d46d34ae63f9148716f24c9c144f745c"
+    },
+    "readers/obj048-full03-reload-recorder02/observer-target.json": {
+      "bytes": 694,
+      "sha256": "79d1e3c69bf1d5633a2baf04114c5dd311e30bce6c7ca20eccf31b6934f18137"
+    },
+    "readers/obj048-full03-reload-recorder02/packaged-client-launch.json": {
+      "bytes": 26667,
+      "sha256": "0401ba55ec984b049748a78f89c8e868916fa4e1023c9a188c0b0c804fa906e2"
+    },
+    "readers/obj048-full03-reload-recorder02/packaged-client-plan.json": {
+      "bytes": 43738,
+      "sha256": "030087d9673b9d15f1cd6eac3575968025cc2f89040ac4f780f08d17c82567bc"
+    },
+    "readers/obj048-full03-reload-recorder02/session-end.json": {
+      "bytes": 195,
+      "sha256": "b7b9d3b6d978c4695258c71c45190e1dc67b8bc0b1466503bf5efad8312aa90c"
+    },
+    "readers/obj048-full03-reload-recorder02/session-start.json": {
+      "bytes": 28866,
+      "sha256": "237db0170fe57b25aabd4f6055613e16b959529103e2957eaa2f6f2c12a4b860"
+    },
+    "readers/obj048-full03-reload-recorder02/stop-request": {
+      "bytes": 90,
+      "sha256": "5f05b962eee25f84189282fe72af9187b875607dda908ba4059714b20232c421"
+    },
+    "README.md": {
+      "bytes": 2275,
+      "sha256": "919aa70ec0465c80700becfad10aaf33ca929445bf5b24bba4d1643fb6634f43"
+    },
+    "ui/obj048-full01-ui/controller-config.json": {
+      "bytes": 646,
+      "sha256": "5c08c3c277f7b0942a94b09800805817c945fb8963a56212a44dfd5c0c9e7812"
+    },
+    "ui/obj048-full01-ui/controller-source-v4.js": {
+      "bytes": 2209,
+      "sha256": "1d898f1a8287be1154800dadf1166315dcf56791fee9abec11ab96993641d0ca"
+    },
+    "ui/obj048-full01-ui/normal-close-no-reload.json": {
+      "bytes": 202,
+      "sha256": "e3e87ea0b05fdbfc795877358865b49a99c956006fe5675cdc5e5ab68468c750"
+    },
+    "ui/obj048-full01-ui/rejected-before-input.json": {
+      "bytes": 358,
+      "sha256": "739c7049cdbc67b654c95072c64349d346e84aaeb3409c618a261ff4f1797d8b"
+    },
+    "ui/obj048-full02-ui/controller-config.json": {
+      "bytes": 646,
+      "sha256": "795fea0d4d0aa1af017927a8326d22a958cada8cf559d691f5d3347493e6ca90"
+    },
+    "ui/obj048-full02-ui/controller-source-v4.js": {
+      "bytes": 2209,
+      "sha256": "1d898f1a8287be1154800dadf1166315dcf56791fee9abec11ab96993641d0ca"
+    },
+    "ui/obj048-full02-ui/direct-escape-01.json": {
+      "bytes": 247,
+      "sha256": "df390ba67230390b37c6710cc2df22fccbd1613d87497f1c66fbb0514e39908c"
+    },
+    "ui/obj048-full02-ui/direct-f2-01.json": {
+      "bytes": 239,
+      "sha256": "7aec256ddeb9bb93057b8915eb15870a6b4326754d80c0680763b0c7d6d5ae24"
+    },
+    "ui/obj048-full02-ui/direct-resume-01-before.json": {
+      "bytes": 6754,
+      "sha256": "061d743d10ce7d70c218c258e077142c99a55c4556d70e51fbf3addb740023c0"
+    },
+    "ui/obj048-full02-ui/direct-resume-01.json": {
+      "bytes": 392,
+      "sha256": "70dddb425b35dc4cd79d75b6105e3909cdcccd548d00df25a0f6714fcfbb1dd8"
+    },
+    "ui/obj048-full02-ui/direct-sky-adapter-v1.js": {
+      "bytes": 290,
+      "sha256": "a7e7b434e35cbbbb62c25e4162f6a83d56f66fe22e08419ea51857e30008fdf9"
+    },
+    "ui/obj048-full02-ui/input-path-menu-01-before.json": {
+      "bytes": 6740,
+      "sha256": "956880e4b062d5eebd3b3d3686596e3840314b6cd52571ac7d573ce66a214452"
+    },
+    "ui/obj048-full02-ui/input-path-menu-01.json": {
+      "bytes": 392,
+      "sha256": "a8fcf4db8e8a88e6fa43b23754448e149fcc762fbc9a123b3443a787f982ca68"
+    },
+    "ui/obj048-full02-ui/reload-001-before.json": {
+      "bytes": 6669,
+      "sha256": "dece78ad98182822b545677ad6cb150b1eee1831ce8f1f73c9d9b8c8bb107388"
+    },
+    "ui/obj048-full02-ui/reload-001.json": {
+      "bytes": 387,
+      "sha256": "091bf80c8d0ef6c31fae816acd72901d263494d8b0d18cf14054a26c26bce254"
+    },
+    "ui/obj048-full02-ui03/actor-profile.json": {
+      "bytes": 380,
+      "sha256": "9ad9b226131d2de8ad485ac1644064fadaebad61b39dcf22bcd3015ff28c524c"
+    },
+    "ui/obj048-full02-ui03/controller-config.json": {
+      "bytes": 652,
+      "sha256": "e33b72680aa25744081c3f1e7466d368837ad4e1dcd349c4dbf17c739f92a424"
+    },
+    "ui/obj048-full02-ui03/controller-source-v4.js": {
+      "bytes": 2209,
+      "sha256": "1d898f1a8287be1154800dadf1166315dcf56791fee9abec11ab96993641d0ca"
+    },
+    "ui/obj048-full02-ui03/direct-sky-adapter-v1.js": {
+      "bytes": 290,
+      "sha256": "a7e7b434e35cbbbb62c25e4162f6a83d56f66fe22e08419ea51857e30008fdf9"
+    },
+    "ui/obj048-full02-ui03/input-mode-shift-01.json": {
+      "bytes": 248,
+      "sha256": "bbd7ba281be6e64e7206cf996926c4c9971f89caf77c0d02786bf3a6219a2b5c"
+    },
+    "ui/obj048-full02-ui03/normal-close-route-qualified-before.json": {
+      "bytes": 6613,
+      "sha256": "30e3fbfdb28a91db7784b1a55c0caff97a0b9419179dff57d98818e4d238d968"
+    },
+    "ui/obj048-full02-ui03/normal-close-route-qualified.json": {
+      "bytes": 359,
+      "sha256": "84c3f468657404f0a00f16da80f63de09a86a1ae43602aa5d0c068092c4538f5"
+    },
+    "ui/obj048-full02-ui03/reload-001-before.json": {
+      "bytes": 6712,
+      "sha256": "216c066161f7b0266660b0511aa6908f5e47650f24808259d4b4a3bbed57f885"
+    },
+    "ui/obj048-full02-ui03/reload-001.json": {
+      "bytes": 387,
+      "sha256": "2d2765ad4a090ebba156f600ee51750247f2f540aca19aae6bab649c0c6d0dc4"
+    },
+    "ui/obj048-full02-ui03/reload-002-before.json": {
+      "bytes": 6616,
+      "sha256": "fa211a31f5fea624a985bba3fe62baef0c2d702eb4236d12da4c396c5a31558d"
+    },
+    "ui/obj048-full02-ui03/reload-002.json": {
+      "bytes": 395,
+      "sha256": "7e945f9ee822d8968b65b320193bcc1419ae1ddd8507f80b696e38313dddb6d8"
+    },
+    "ui/obj048-full03-ui/context-readers02.json": {
+      "bytes": 639,
+      "sha256": "8e16e19729f50b97b956e3dc8d6c3d0757d6b6bb7e4e27f2931b4515b75fc6d6"
+    },
+    "ui/obj048-full03-ui/context.json": {
+      "bytes": 635,
+      "sha256": "e4b5526b438cf6b9d0f9dade1b06ca294e5ad468ef6b5448736d3de95f36d155"
+    },
+    "ui/obj048-full03-ui/controller-source-v4.js": {
+      "bytes": 2209,
+      "sha256": "1d898f1a8287be1154800dadf1166315dcf56791fee9abec11ab96993641d0ca"
+    },
+    "ui/obj048-full03-ui/direct-sky-adapter-v1.js": {
+      "bytes": 290,
+      "sha256": "a7e7b434e35cbbbb62c25e4162f6a83d56f66fe22e08419ea51857e30008fdf9"
+    },
+    "ui/obj048-full03-ui/input-mode-language-01-before.json": {
+      "bytes": 6706,
+      "sha256": "40677ab63ebe132777f67759eefd122a93cddcd7cfa5b930f860913e03c31740"
+    },
+    "ui/obj048-full03-ui/input-mode-language-01.json": {
+      "bytes": 374,
+      "sha256": "df9ab6eb897c48ccc5b78dbdaf1bfb52892c9341b0879cf4aade7ec12ce036c5"
+    },
+    "ui/obj048-full03-ui/input-route-upper-01-before.json": {
+      "bytes": 6706,
+      "sha256": "23136450e7cdd28ce2a2a52086cd326afec698b143977b805a2c112ccbfc5a09"
+    },
+    "ui/obj048-full03-ui/input-route-upper-01.json": {
+      "bytes": 365,
+      "sha256": "5d0f81ffa3381c3cffa5df42152fc7fa455bcb92c6cbc8f6be6217f017898fcd"
+    },
+    "ui/obj048-full03-ui/normal-close-calibration-before.json": {
+      "bytes": 6681,
+      "sha256": "008b8f026fead55f78a7c109656a536d6d6bb42e41c7542787ab112954dec971"
+    },
+    "ui/obj048-full03-ui/normal-close-calibration.json": {
+      "bytes": 359,
+      "sha256": "e8b85b8c85446a5f42f352c305db755903661b407b2d331b373d9804ec5f3b74"
+    },
+    "ui/obj048-full03-ui/reload-001-before.json": {
+      "bytes": 6660,
+      "sha256": "271440e20412c7c5c046f2d93802a7729e1f650324eebae78ce5f326aeb29613"
+    },
+    "ui/obj048-full03-ui/reload-001.json": {
+      "bytes": 395,
+      "sha256": "3e77fc36522c0a007f5b044a931681fb4e14c84d0ebc05246a506014a4218db0"
+    }
+  }
+}

@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "C:\Users\ben_l\Documents\Coding\resoucepack update\vehicle-memory\evidence\engineering-050\owned049d-reload-attempt03-oom\verify_sealed.py", line 172, in <module>
+    result = verify()
+  File "C:\Users\ben_l\Documents\Coding\resoucepack update\vehicle-memory\evidence\engineering-050\owned049d-reload-attempt03-oom\verify_sealed.py", line 152, in verify
+    check(deadline["status"] == "deadline_elapsed" and deadline["returned_exit_code"] == 1 and deadline["latest_result"] is None, "The failed waiter boundary was changed.")
+                                                                                               ~~~~~~~~^^^^^^^^^^^^^^^^^
+KeyError: 'latest_result'

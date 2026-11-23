@@ -344,6 +344,37 @@ class PerformancePreparationTest(unittest.TestCase):
         self.assertEqual(command[0], str(self.java))
         self.assertNotIn("shell", popen.call_args.kwargs)
 
+    def test_measurement_mod_is_frozen_in_comparison_and_cannot_be_removed_or_replaced(self):
+        profiler = self.root / "profiler.jar"
+        self.file(profiler, b"synthetic profiling jar; never loaded")
+        self.args.measurement_mod = [profiler]
+        plan = self.prepare()
+        expected = {"filename": profiler.name, "sha256": client.digest(profiler), "role": "measurement"}
+        self.assertEqual(plan["measurement_mods"], [expected])
+        self.assertIn(expected, client.comparison_controls(plan)["mods"])
+        self.assertTrue(client.verify_performance_controls(self.instance, plan))
+        changed = copy.deepcopy(plan)
+        changed["measurement_mods"] = []
+        with self.assertRaisesRegex(ValueError, "measurement mod declarations"):
+            client.verify_performance_controls(self.instance, changed)
+        self.file(self.instance / "mods" / profiler.name, b"replacement profiling jar")
+        with self.assertRaisesRegex(ValueError, "mods"):
+            client.verify_prepared_inputs(self.instance, plan)
+
+    def test_measurement_mod_names_cannot_overlap_existing_mods_on_windows(self):
+        profiler = self.root / "other" / self.args.companion.name.upper()
+        self.file(profiler, b"synthetic duplicate mod; never loaded")
+        self.args.measurement_mod = [profiler]
+        with self.assertRaisesRegex(ValueError, "filenames overlap"):
+            self.prepare()
+        self.assertFalse(self.instance.exists())
+
+    def test_missing_measurement_mod_cannot_create_a_prepared_instance(self):
+        self.args.measurement_mod = [self.root / "missing.jar"]
+        with self.assertRaisesRegex(ValueError, "missing"):
+            self.prepare()
+        self.assertFalse(self.instance.exists())
+
     def test_launch_publication_failure_reaps_the_real_owned_child_and_keeps_actual_exit(self):
         self.prepare()
         child = subprocess.Popen([sys.executable, "-c", "import time; time.sleep(30)"])

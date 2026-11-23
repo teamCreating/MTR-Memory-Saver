@@ -1,0 +1,23 @@
+{
+  "argv": [
+    "gradlew.bat",
+    "--no-daemon",
+    "-Ptarget=official-nf248",
+    "test",
+    "--tests",
+    "site.benli06.GenerationWorkCacheTest",
+    "--tests",
+    "site.benli06.ResourceTextSnapshotTest",
+    "--tests",
+    "site.benli06.TextWorkspaceTest",
+    "--tests",
+    "site.benli06.SnapshotFilesystemFailureTest",
+    "--tests",
+    "site.benli06.NativeAlgorithmAuditTest"
+  ],
+  "cwd": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory",
+  "started_at": "2026-11-17T11:33:59.313931+00:00",
+  "JAVA_HOME": "C:\\Users\\ben_l\\Saved Games\\Yuuniverse 1.20.1 Shenyang\\porting-output\\work\\tools\\jdk21\\jdk-21.0.11+10",
+  "exit_code": 0,
+  "ended_at": "2026-11-17T11:35:04.339095+00:00"
+}

@@ -298,7 +298,10 @@ def verify_performance_controls(instance, plan):
         companions = [mod for mod in plan["mods"] if mod["role"] == "companion"]
         observers = [mod for mod in plan["mods"] if mod["role"] == "observer"]
         mtr_mods = [mod for mod in plan["mods"] if mod["role"] == "mtr"]
-        if len(companions) != 1 or len(observers) != 1 or len(mtr_mods) != 1 or len(plan["mods"]) != 3:
+        measurement_mods = [mod for mod in plan["mods"] if mod["role"] == "measurement"]
+        if measurement_mods != plan.get("measurement_mods", []):
+            raise ValueError("Frozen measurement mod declarations differ from installed identities.")
+        if len(companions) != 1 or len(observers) != 1 or len(mtr_mods) != 1 or len(plan["mods"]) != 3 + len(measurement_mods):
             raise ValueError("Performance controls require one companion and one independent frame provider.")
         if mtr_mods[0]["sha256"] != plan["artifact"]["mtrSha256"]:
             raise ValueError("Frozen official MTR identity mismatch.")
@@ -406,12 +409,14 @@ def prepare(args):
     profile = next((entry for entry in read(source / "usercache.json") if entry["name"] == args.username), None)
     if profile is None:
         raise ValueError("Select a profile from the isolated source client's usercache.")
-    destinations = [mtr_files[0].name, args.companion.name, *[path.name for path in args.observer]]
+    measurement_mods = getattr(args, "measurement_mod", [])
+    destinations = [mtr_files[0].name, args.companion.name, *[path.name for path in args.observer],
+                    *[path.name for path in measurement_mods]]
     if args.probe:
         destinations.append(args.probe.name)
-    if len(set(destinations)) != len(destinations):
+    if len({name.casefold() for name in destinations}) != len(destinations):
         raise ValueError("Supplied mod filenames overlap.")
-    for observer in [*args.observer, *([args.probe] if args.probe else [])]:
+    for observer in [*args.observer, *measurement_mods, *([args.probe] if args.probe else [])]:
         if not observer.is_file():
             raise ValueError("A supplied probe/observer is missing.")
     if args.world:
@@ -449,6 +454,8 @@ def prepare(args):
         shutil.copyfile(args.probe, instance / "mods" / args.probe.name)
     for observer in args.observer:
         shutil.copyfile(observer, instance / "mods" / observer.name)
+    for measurement in measurement_mods:
+        shutil.copyfile(measurement, instance / "mods" / measurement.name)
     for pack in packs:
         shutil.copyfile(pack["source"], instance / "resourcepacks" / pack["filename"])
     options = (source / "options.txt").read_text(encoding="utf-8-sig").splitlines()
@@ -467,9 +474,11 @@ def prepare(args):
                 "expected_binary_rejection": args.expect_binary_rejection,
                 "mods": [{"filename": path.name, "sha256": digest(path),
                           "role": ("companion" if path.name == args.companion.name else "mtr" if path.name == mtr.name
-                                   else "probe" if args.probe and path.name == args.probe.name else "observer")}
+                                   else "probe" if args.probe and path.name == args.probe.name
+                                   else "measurement" if path.name in {mod.name for mod in measurement_mods} else "observer")}
                          for path in sorted((instance / "mods").glob("*.jar"))],
                 "source_hash": digest(pathlib.Path(__file__))}
+    manifest["measurement_mods"] = [mod for mod in manifest["mods"] if mod["role"] == "measurement"]
     if args.performance:
         metadata = instance / ".prepared-controls"
         metadata.mkdir()
@@ -619,6 +628,8 @@ def main():
     preparation.add_argument("--legacy-baseline", help="Explicit catalogue key for an unchanged historical companion.")
     preparation.add_argument("--probe", type=pathlib.Path)
     preparation.add_argument("--observer", type=pathlib.Path, action="append", default=[])
+    preparation.add_argument("--measurement-mod", type=pathlib.Path, action="append", default=[],
+                             help="Explicit additional profiling JAR; freeze identical bytes in comparison groups.")
     preparation.add_argument("--catalogue", type=pathlib.Path)
     preparation.add_argument("--world")
     preparation.add_argument("--username", required=True)

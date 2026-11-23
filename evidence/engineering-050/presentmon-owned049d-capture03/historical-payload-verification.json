@@ -1,0 +1,33 @@
+{
+  "schema": 1,
+  "observed_at": "2026-11-17T10:40:01.137019+00:00",
+  "historical_directory": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-050\\presentmon-feasibility",
+  "historical_index_sha256": "688ac68e4aa7c13da749c18a0768e641243177eca2f2c849ff87fa760a53ae79",
+  "historical_index_bytes": 23662,
+  "historical_index_bytes_equal_current_HEAD": true,
+  "index_defined_payload_count": 147,
+  "index_defined_payload_bytes": 5831275,
+  "all_index_defined_payload_sizes_and_sha256_match": true,
+  "capture03_subdirectory_removed": true,
+  "no_unexpected_index_defined_payload_namespace_changes": true,
+  "physical_directory_is_fully_indexed": false,
+  "preexisting_unindexed_bytecode_retained_unmodified": [
+    {
+      "relative_path": "__pycache__/native_etw.cpython-314.pyc",
+      "bytes": 7002,
+      "sha256": "381aa752302f3e853d447e8e3d733f3158b72cf26f4b3f51c403e31cb7ba323a"
+    },
+    {
+      "relative_path": "__pycache__/pilot.cpython-314.pyc",
+      "bytes": 24084,
+      "sha256": "cb4a75191c6d9be6d84ab35fe0d4d31a00ad91a01c0ad6477b65971f392b4a0f"
+    },
+    {
+      "relative_path": "upstream-capture-02/__pycache__/native-etw-source.cpython-314.pyc",
+      "bytes": 6907,
+      "sha256": "4b48d18de6b35409219e587f6b2ff4f78dcb0a00f9a713eb1a836309b49dff0e"
+    }
+  ],
+  "cache_attribution": "These bytecode files existed at the pre-relocation inspection; no attribution to this capture is made. They were not moved, deleted, or edited.",
+  "not_a_claim": "The old physical directory contains three retained unindexed bytecode files; only the 147 index-defined payloads and original index are certified."
+}

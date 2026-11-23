@@ -1,18 +1,30 @@
 # Support and artifact identity
 
-Updated: 2026-11-17 (UTC+08:00).
+Updated: 2026-11-23 (UTC+08:00).
 
 Minecraft **1.21.1**, Java **21**, client only. The authoritative build targets and
 fingerprints are in [config/targets.json](../config/targets.json).
 
 | Target preset | MTR binary | NeoForge | 0.4.x status |
 | --- | --- | --- | --- |
-| `official-nf248` (default) | Official 4.1.0-beta.2 | 21.1.248 exactly | 0.4.7 build, 73 tests, abrupt-exit, 3 GiB source audits, 42 packaged checks, fatal wrong-binary rejection and scoped sixteen-pack startup passed; interaction/endurance/performance pending |
-| `official-nf265` | Same official binary | 21.1.265 exactly | 0.4.7 build, 73 tests, abrupt-exit, 3 GiB source audits, 42 packaged checks and fatal wrong-binary rejection passed; full-pack acceptance pending |
+| `official-nf248` | Official 4.1.0-beta.2 | 21.1.248 exactly | Historical build/evidence target; excluded from the 0.4.8 release selection |
+| `official-nf265` (default) | Same official binary | 21.1.265 exactly | 0.4.8 development pre-release: 106 Java tests, 69 packaged checks, wrong-binary rejection, sixteen-pack startup and twenty consecutive reloads passed; whole-client performance and complete gameplay acceptance remain pending |
 | `v6-nf248` | Audited custom Performance v6 | 21.1.248 exactly | Historical 0.4.2 client smoke/GPU cycles; new validation paused |
 | `v6-nf265` | Same custom v6 binary | 21.1.265 exactly | Historical development candidate; new validation paused |
 
-The default candidate is now **0.4.7**. Both official targets pass 73 Java tests,
+The current candidate is **0.4.8**, with only `official-nf265` selected for release.
+The exact tested JAR SHA-256 is
+`920c1f833b6f173c7443ff5956493b779acfeceb293fa640817a459985db3f5b`.
+[Packaged checks](../evidence/engineering-056/nf265-packaged/README.md) and the
+[closed twenty-reload proof](../evidence/engineering-056/nf265-reload20/README.md)
+identify this artifact. It preserves 1091 distinct IDs / 1092 declarations across
+twenty full sixteen-pack reloads at a 3 GiB heap, followed by a separate stable
+observation, normal exit and readable JFR. This is scoped development delivery;
+whole-client performance benefit, every interaction and a two-hour route are not
+certified. See the [release decision](../evidence/engineering-056/release-decision/README.md).
+
+The following records retain their historical versions and artifact identities.
+Both official 0.4.7 targets pass 73 Java tests,
 four actual abrupt-exit cleanup checks across writing and workspace waiting, and
 four 3 GiB large-OBJ checks across targets and CompactStrings modes. The exact
 0.4.6 negative controls retain spill files under the same abrupt-exit harness.

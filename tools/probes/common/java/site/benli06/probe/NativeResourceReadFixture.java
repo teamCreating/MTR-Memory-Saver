@@ -25,7 +25,7 @@ import site.benli06.ReadAdmission;
 
 /** Scoped native Resource/stream fixtures; no interception remains after their owning test closes. */
 public final class NativeResourceReadFixture {
-    public enum Mode { OPEN_FAILURE, READ_FAILURE, CLOSE_FAILURE, OVERSIZED, EMPTY, MALFORMED_UTF8, MISSING, CORRECTED }
+    public enum Mode { OPEN_FAILURE, READ_FAILURE, CLOSE_FAILURE, OVERSIZED, EMPTY, MALFORMED_UTF8, MISSING, CORRECTED, MALFORMED_OBJ }
     public record Lookup(boolean intercepted, Optional<Resource> resource) {}
     private static final String NAMESPACE = "mtr_memory_acceptance";
     private static final ConcurrentHashMap<ResourceLocation, Fixture> ACTIVE = new ConcurrentHashMap<>();
@@ -49,9 +49,13 @@ public final class NativeResourceReadFixture {
     private NativeResourceReadFixture() {}
 
     public static Fixture register(Mode mode, String correctedText) {
+        return register(mode, correctedText, "bbmodel");
+    }
+    public static Fixture register(Mode mode, String correctedText, String extension) {
         if (!Boolean.getBoolean("mtr.memory.acceptance")) throw new IllegalStateException("Resource fixtures require isolated acceptance mode");
+        if (!extension.matches("[a-z0-9]+")) throw new IllegalArgumentException("Invalid fixture extension");
         ResourceLocation id = ResourceLocation.fromNamespaceAndPath(NAMESPACE,
-                "strict/" + mode.name().toLowerCase(Locale.ROOT) + "_" + NEXT.incrementAndGet() + ".bbmodel");
+                "strict/" + mode.name().toLowerCase(Locale.ROOT) + "_" + NEXT.incrementAndGet() + "." + extension);
         Fixture fixture = new Fixture(id, mode, correctedText.getBytes(StandardCharsets.UTF_8));
         if (ACTIVE.putIfAbsent(id, fixture) != null) throw new IllegalStateException("Resource fixture identity collision");
         return fixture;
@@ -95,7 +99,8 @@ public final class NativeResourceReadFixture {
             opens.incrementAndGet();
             Mode observed = mode;
             if (observed == Mode.OPEN_FAILURE) throw new FaultIOException(observed, id);
-            byte[] payload = observed == Mode.EMPTY ? new byte[0] : observed == Mode.MALFORMED_UTF8 ? MALFORMED : corrected;
+            byte[] payload = observed == Mode.EMPTY ? new byte[0] : observed == Mode.MALFORMED_UTF8 ? MALFORMED
+                    : observed == Mode.MALFORMED_OBJ ? "v invalid 0 0\n".getBytes(StandardCharsets.UTF_8) : corrected;
             long length = observed == Mode.OVERSIZED ? Math.addExact(ReadAdmission.GLOBAL.maxCodeUnits(), 1) : payload.length;
             return new InputStream() {
                 private long position;

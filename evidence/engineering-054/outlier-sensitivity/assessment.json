@@ -1,0 +1,261 @@
+{
+  "schema": 1,
+  "analyzed_at": "2026-11-23T10:42:13.785196+00:00",
+  "scope": "Post hoc paired sensitivity",
+  "policy": {
+    "schema": 1,
+    "method": "tukey_inclusive",
+    "iqr_multiplier": 1.5,
+    "minimum_group_samples": 6,
+    "screen_metric": "loading_ms",
+    "comparison": "ab",
+    "roles": [
+      "baseline",
+      "candidate"
+    ],
+    "group_fields": [
+      "mode",
+      "role"
+    ],
+    "exclusion_unit": "pair",
+    "report_metrics": [
+      "loading_ms",
+      "steady_private_bytes"
+    ],
+    "leave_one_pair_out": true
+  },
+  "groups": [
+    {
+      "mode": "plain",
+      "role": "baseline",
+      "values": {
+        "01-ab-plain-baseline": 128091.227,
+        "02-ba-plain-baseline": 154236.91
+      },
+      "status": "insufficient_replicates",
+      "count": 2,
+      "flagged": []
+    },
+    {
+      "mode": "plain",
+      "role": "candidate",
+      "values": {
+        "01-ab-plain-candidate": 140132.884,
+        "02-ba-plain-candidate": 170091.074
+      },
+      "status": "insufficient_replicates",
+      "count": 2,
+      "flagged": []
+    },
+    {
+      "mode": "profile",
+      "role": "baseline",
+      "values": {
+        "03-ab-profile-baseline": 136155.329,
+        "04-ba-profile-baseline": 126102.90999999999
+      },
+      "status": "insufficient_replicates",
+      "count": 2,
+      "flagged": []
+    },
+    {
+      "mode": "profile",
+      "role": "candidate",
+      "values": {
+        "03-ab-profile-candidate": 152163.253,
+        "04-ba-profile-candidate": 144149.973
+      },
+      "status": "insufficient_replicates",
+      "count": 2,
+      "flagged": []
+    }
+  ],
+  "excluded_pairs": [],
+  "modes": {
+    "plain": {
+      "full": {
+        "loading_ms": {
+          "pairs": 2,
+          "percent_deltas": [
+            9.400844446591172,
+            10.279098563372413
+          ],
+          "median_percent_delta": 9.839971504981794
+        },
+        "steady_private_bytes": {
+          "pairs": 2,
+          "percent_deltas": [
+            -0.2964060763245624,
+            -0.26763659244835036
+          ],
+          "median_percent_delta": -0.2820213343864564
+        }
+      },
+      "screened": {
+        "loading_ms": {
+          "pairs": 2,
+          "percent_deltas": [
+            9.400844446591172,
+            10.279098563372413
+          ],
+          "median_percent_delta": 9.839971504981794
+        },
+        "steady_private_bytes": {
+          "pairs": 2,
+          "percent_deltas": [
+            -0.2964060763245624,
+            -0.26763659244835036
+          ],
+          "median_percent_delta": -0.2820213343864564
+        }
+      },
+      "retained_pairs": [
+        1,
+        2
+      ],
+      "leave_one_pair_out": [
+        {
+          "removed_pair": 1,
+          "result": {
+            "loading_ms": {
+              "pairs": 1,
+              "percent_deltas": [
+                10.279098563372413
+              ],
+              "median_percent_delta": 10.279098563372413
+            },
+            "steady_private_bytes": {
+              "pairs": 1,
+              "percent_deltas": [
+                -0.26763659244835036
+              ],
+              "median_percent_delta": -0.26763659244835036
+            }
+          }
+        },
+        {
+          "removed_pair": 2,
+          "result": {
+            "loading_ms": {
+              "pairs": 1,
+              "percent_deltas": [
+                9.400844446591172
+              ],
+              "median_percent_delta": 9.400844446591172
+            },
+            "steady_private_bytes": {
+              "pairs": 1,
+              "percent_deltas": [
+                -0.2964060763245624
+              ],
+              "median_percent_delta": -0.2964060763245624
+            }
+          }
+        }
+      ]
+    },
+    "profile": {
+      "full": {
+        "loading_ms": {
+          "pairs": 2,
+          "percent_deltas": [
+            11.757104270226538,
+            14.311377112550394
+          ],
+          "median_percent_delta": 13.034240691388465
+        },
+        "steady_private_bytes": {
+          "pairs": 2,
+          "percent_deltas": [
+            -0.06493317697682244,
+            -0.041892675833798965
+          ],
+          "median_percent_delta": -0.0534129264053107
+        }
+      },
+      "screened": {
+        "loading_ms": {
+          "pairs": 2,
+          "percent_deltas": [
+            11.757104270226538,
+            14.311377112550394
+          ],
+          "median_percent_delta": 13.034240691388465
+        },
+        "steady_private_bytes": {
+          "pairs": 2,
+          "percent_deltas": [
+            -0.06493317697682244,
+            -0.041892675833798965
+          ],
+          "median_percent_delta": -0.0534129264053107
+        }
+      },
+      "retained_pairs": [
+        3,
+        4
+      ],
+      "leave_one_pair_out": [
+        {
+          "removed_pair": 3,
+          "result": {
+            "loading_ms": {
+              "pairs": 1,
+              "percent_deltas": [
+                14.311377112550394
+              ],
+              "median_percent_delta": 14.311377112550394
+            },
+            "steady_private_bytes": {
+              "pairs": 1,
+              "percent_deltas": [
+                -0.041892675833798965
+              ],
+              "median_percent_delta": -0.041892675833798965
+            }
+          }
+        },
+        {
+          "removed_pair": 4,
+          "result": {
+            "loading_ms": {
+              "pairs": 1,
+              "percent_deltas": [
+                11.757104270226538
+              ],
+              "median_percent_delta": 11.757104270226538
+            },
+            "steady_private_bytes": {
+              "pairs": 1,
+              "percent_deltas": [
+                -0.06493317697682244
+              ],
+              "median_percent_delta": -0.06493317697682244
+            }
+          }
+        }
+      ]
+    }
+  },
+  "external_interference_attribution": "Unavailable from these trial metrics",
+  "causal_timing_conclusion": "Inconclusive under reported concurrent host workloads",
+  "automatic_exclusion_applied": false,
+  "release_acceptance_granted": false,
+  "inputs": [
+    {
+      "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-054\\practical-spark\\assessment.json",
+      "sha256": "ce13e7f581cd28f171f8babe68a6d09aab6b293cb23bdd8c34dcc5bd5f83f93b",
+      "bytes": 78619
+    },
+    {
+      "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\config\\client-practical-verification.json",
+      "sha256": "da6910bfc782385179ccb5d947bd9b5851261a69c597b0d391b6028e7af03812",
+      "bytes": 2754
+    },
+    {
+      "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\config\\client-outlier-analysis.json",
+      "sha256": "0a5927858a92a6cfc3265115a7806fae2e83a9e5a22b8f2610166dd11653d374",
+      "bytes": 351
+    }
+  ]
+}

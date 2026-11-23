@@ -255,18 +255,19 @@ def verify_descriptor(descriptor, policy):
         raise ValueError("Current prepared artifact/context no longer matches frozen qualification.")
 
 
-def raw_files(root):
+def raw_files(root, *, excluded_root_files=()):
     return [{"relative_path": path.relative_to(root).as_posix(), "sha256": digest(path), "bytes": path.stat().st_size}
             for path in sorted(root.rglob("*")) if path.is_file() and path.name not in ("qualification.json", "result.json")
-            and not path.relative_to(root).parts[0] == "instance"]
+            and path.relative_to(root).parts[0] != "instance"
+            and not (path.parent == root and path.name in excluded_root_files)]
 
 
-def verify_raw_files(root, items):
+def verify_raw_files(root, items, *, excluded_root_files=()):
     for item in items:
         path = (root / item["relative_path"]).resolve(strict=True)
         if root.resolve() not in path.parents or digest(path) != item["sha256"] or path.stat().st_size != item["bytes"]:
             raise ValueError("Raw evidence changed or escaped attempt directory: " + item["relative_path"])
-    if items != raw_files(root):
+    if items != raw_files(root, excluded_root_files=excluded_root_files):
         raise ValueError("Raw evidence inventory is incomplete, duplicated or changed.")
 
 
@@ -458,6 +459,14 @@ def verify_plan(path, plan):
         raise ValueError("Frozen qualifier JVM identities differ from independently audited raw qualification processes.")
 
 
+def _link_or_copy(source, destination):
+    try:
+        os.link(source, destination)
+    except OSError:
+        shutil.copy2(source, destination)
+    return destination
+
+
 def clone_prepared(descriptor, destination):
     template = Path(descriptor["instance"])
     plan = read(template / "packaged-client-plan.json")
@@ -465,9 +474,19 @@ def clone_prepared(descriptor, destination):
         raise ValueError("Prepared templates must never have launched; qualification uses a separate clone.")
     if (template / "logs").exists():
         raise ValueError("Prepared templates cannot contain prior client logs.")
-    # Copy the complete template, including its frozen context and launcher files.
-    # Existing directories are never reused, removed or reset.
-    shutil.copytree(template, destination)
+    # Hardlink immutable input trees when same-volume NTFS permits, while keeping
+    # mutable world/config/settings independent. Existing directories are never reused.
+    readonly_dirs = {"assets", "libraries", "versions", "resourcepacks", "mods", ".prepared-controls"}
+    destination.mkdir(parents=True, exist_ok=False)
+    for entry in template.iterdir():
+        target = destination / entry.name
+        if entry.is_dir():
+            if entry.name in readonly_dirs:
+                shutil.copytree(entry, target, copy_function=_link_or_copy)
+            else:
+                shutil.copytree(entry, target)
+        else:
+            shutil.copy2(entry, target)
     plan["instance"] = str(destination.resolve())
     save(destination / "packaged-client-plan.json", plan)
     marker = read(destination / "vehicle-test-instance.json")

@@ -1,0 +1,50 @@
+{
+  "payloads": 90,
+  "artifact_input_fingerprints": 122,
+  "runs": [
+    {
+      "capture": "nf248-smoke-capture03",
+      "pid": 39660,
+      "jvm_exit": 0,
+      "outcome": "packaged_checks_pass",
+      "checks": [
+        24,
+        18
+      ]
+    },
+    {
+      "capture": "nf265-smoke-capture",
+      "pid": 54748,
+      "jvm_exit": 0,
+      "outcome": "packaged_checks_pass",
+      "checks": [
+        24,
+        18
+      ]
+    },
+    {
+      "capture": "nf248-mismatch-capture",
+      "pid": 60744,
+      "jvm_exit": 1,
+      "outcome": "expected_fingerprint_rejection",
+      "checks": null
+    },
+    {
+      "capture": "nf265-mismatch-capture",
+      "pid": 41096,
+      "jvm_exit": 1,
+      "outcome": "expected_fingerprint_rejection",
+      "checks": null
+    },
+    {
+      "capture": "nf248-smoke-capture02",
+      "pid": 44444,
+      "jvm_exit": 0,
+      "outcome": "incomplete_no_result",
+      "checks": null
+    }
+  ],
+  "initial_attempt_accepted": false,
+  "jfr_binaries_portable": false,
+  "scope": "Packaged component checks and expected binary rejection only; no reload/gameplay/performance acceptance."
+}

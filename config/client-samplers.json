@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "samplers": [
+    {
+      "id": "spark-client-1.10.124",
+      "jar_sha256": "647e8a81afbe414dba1df4ba15fd06c5d32d4cb544e68828405e8e074c2e16db",
+      "spark_version": "1.10.124",
+      "command_prefix": "/sparkc",
+      "interval_microseconds": 100000,
+      "duration_seconds": 300,
+      "completion_grace_seconds": 60,
+      "operator_timeout_seconds": 120,
+      "jvm_start_tolerance_seconds": 5,
+      "required_jvm_arguments": ["-Dspark.backgroundProfiler=false"],
+      "directory": "config/spark",
+      "file_glob": "*.sparkprofile",
+      "required_threads": ["Render thread", "Server thread"],
+      "engine": {"name": "JAVA", "number": 0},
+      "mode": {"name": "EXECUTION", "number": 0}
+    }
+  ]
+}

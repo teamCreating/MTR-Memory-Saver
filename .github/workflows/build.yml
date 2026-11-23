@@ -56,10 +56,10 @@ jobs:
           python -m pip install --disable-pip-version-check --only-binary=:all: -r requirements-test.txt
       - name: Record runner path context
         run: python -c "import platform,tempfile,pathlib; p=tempfile.gettempdir(); print(platform.platform()); print('temp='+p); print('resolved='+str(pathlib.Path(p).resolve()))"
+      - name: Verify historical catalogs and sample sources
+        run: python -m minecraft_testkit verify
       - name: Test verification and release tools
-        run: |
-          python -m minecraft_testkit verify
-          python -m minecraft_testkit test
+        run: python -m minecraft_testkit test
 
   official:
     name: Build (${{ matrix.os }}, ${{ matrix.target }})

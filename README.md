@@ -21,15 +21,15 @@ or copied patched-client JAR is required for a development build.
 ./gradlew.bat releaseBundle
 ```
 
-The default is `official-nf248`. Gradle resolves the game/NeoForge toolchain and the
+The default and current release target is `official-nf265`. Gradle resolves the game/NeoForge toolchain and the
 hash-pinned official MTR dependency. Custom v6 must be supplied explicitly. All
 releases remain `0.x.x`; `gradle.properties` is the version authority.
 
 JARs and their identity manifests are produced in `build/libs/`. Release ZIPs in
-`build/releases/` include the JAR, manifest, license and installation guide. No
-public download has been published from this local repository. The included CI
-workflow builds official target bundles and makes them available as workflow artifacts
-when used in a hosted repository.
+`build/releases/` include the JAR, manifest, license and installation guide.
+Versioned development pre-releases are distributed through
+[GitHub Releases](https://github.com/teamCreating/MTR-Memory-Saver/releases).
+The CI workflow also retains verified target bundles as workflow artifacts.
 
 See [BUILDING.md](BUILDING.md) for reproducibility and offline/custom inputs,
 [installation](docs/INSTALL.md) for deployment/rollback, and [LICENSE](LICENSE).
@@ -81,6 +81,43 @@ pass 24 lifecycle and 18 resource checks. A fresh NF248 sixteen-pack startup wit
 observer 1.0.3 also has an [independently sealed settled window](evidence/engineering-050/neutral103-startup/README.md).
 Interaction, reload endurance, route and controlled performance remain pending;
 historical 0.4.6 results retain their original artifact identities.
+
+The 0.4.8 development candidate streams Blockbench, OBJ and material input through
+owned snapshots while retaining native parsing and mesh construction. The first
+Blockbench-only candidate failed its seventh full-pack reload with a synchronous
+OBJ String allocation; its [failed run remains sealed](evidence/engineering-051/streamed051a-reload-oom/README.md).
+The [revised OBJ/MTL candidate](evidence/engineering-051/streamed-obj-input/README.md)
+passes 105 Java tests per official target, 69 checks in each actual packaged
+client, both incorrect-binary rejection checks and small-heap streaming controls.
+These results do not establish reload endurance or a performance benefit.
+[Independent frame diagnostics](evidence/engineering-052/frame-source-diagnostics/README.md)
+currently have no valid frame CSV; provider enablement returned access denied.
+The revised NF248 candidate has also passed [twenty consecutive full-pack
+reloads](evidence/engineering-052/revised048-reload20/README.md) in one fresh
+3 GiB JVM, followed by an independent stable window and normal shutdown.
+The [practical Spark comparison](evidence/engineering-054/practical-spark/README.md)
+completed twelve independently qualified NF248 JVM observations. Plain steady
+private memory fell by a median 0.28%, missing the 10% reduction target, while
+resource loading rose by 9.84%, exceeding the 5% guardrail. Performance acceptance
+failed and the release was held at that stage.
+The subsequent [outlier sensitivity analysis](evidence/engineering-054/outlier-sensitivity/README.md)
+accounts for the user's report of concurrent host workloads. Wall-clock loading
+differences remain descriptive observations with inconclusive causal attribution.
+Removing either complete plain pair leaves a 9.40–10.28% loading increase and
+a 0.27–0.30% private-memory reduction.
+
+The subsequent [snapshot digest optimization](evidence/engineering-055/snapshot-digest/README.md)
+eliminates the snapshot read pass used to compute its content hash. The revised
+candidate passes 106 Java tests, small-heap streaming controls and 69 packaged
+checks with all sixteen packs on NeoForge 21.1.265, followed by native stop and
+an owned JVM exit code of zero. Full-client performance acceptance remains pending.
+
+The exact optimized NF265 candidate now passes [twenty consecutive full-pack
+reloads](evidence/engineering-056/nf265-reload20/README.md), nineteen intermediate
+stable checks, a separate final stable observation and normal JVM shutdown.
+The [0.4.8 release decision](evidence/engineering-056/release-decision/README.md)
+permits a scoped development pre-release for NeoForge 21.1.265. Whole-client
+performance, every vehicle interaction and a two-hour route remain unqualified.
 
 Historical guides and measurements are indexed in [HISTORY.md](docs/HISTORY.md)
 and [TECHNICAL.md](TECHNICAL.md). New candidate tests and performance reports have

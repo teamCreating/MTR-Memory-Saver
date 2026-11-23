@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="site.benli06.StrictResourceTextTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2026-11-17T15:05:04.558Z" hostname="DESKTOP-885HHP9" time="0.036">
+  <properties/>
+  <testcase name="sizeFailurePropagatesWithoutLosingCloseSuppression()" classname="site.benli06.StrictResourceTextTest" time="0.004"/>
+  <testcase name="failedReadCannotCacheAnEmptyFallbackAndSamePathCanRetry()" classname="site.benli06.StrictResourceTextTest" time="0.007"/>
+  <testcase name="utf8ReplacementAndSegmentBoundariesMatchNativeIoUtils()" classname="site.benli06.StrictResourceTextTest" time="0.003"/>
+  <testcase name="closeFailureAfterDecodedTextRemainsAFailure()" classname="site.benli06.StrictResourceTextTest" time="0.003"/>
+  <testcase name="legalEmptyTextClosesOnceAndCanBeCached()" classname="site.benli06.StrictResourceTextTest" time="0.003"/>
+  <testcase name="readFailureClosesStreamAndPreservesSuppressedCloseFailure()" classname="site.benli06.StrictResourceTextTest" time="0.003"/>
+  <testcase name="openFailureOccursInsideAdmissionAndReleasesIt()" classname="site.benli06.StrictResourceTextTest" time="0.003"/>
+  <testcase name="interruptionDuringReadRetainsInterruptAndClosesStream()" classname="site.benli06.StrictResourceTextTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

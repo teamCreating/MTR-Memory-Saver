@@ -1,0 +1,63 @@
+{
+  "scope": "Actual seventh-reload OOM on original0.4.8; failed final session, six earlier native prefixes only.",
+  "pid": 58036,
+  "process_start": "2026-11-17T12:21:12.641Z",
+  "actual_inputs": 7,
+  "consumer": {
+    "status": "stopped",
+    "passed": false,
+    "samples": 1392,
+    "verified_samples": 1168,
+    "verified_reload_count": 0,
+    "longest_verified_reload_run": 0
+  },
+  "recorder": {
+    "captures": 6540,
+    "journal_rows": 13083,
+    "published": 5540,
+    "ineligible": 1000,
+    "retained_raw_records": 14,
+    "omitted_redundant_records": 6526
+  },
+  "failed_epoch": {
+    "sequence": 8,
+    "start": "2026-11-17T14:19:44.029530400Z",
+    "return": null
+  },
+  "automatic_fallback": {
+    "sequence": 9,
+    "start": "2026-11-17T14:19:57.859424100Z",
+    "return": "2026-11-17T14:20:01.614681300Z",
+    "registered_count": 422,
+    "registered_declarations": 423,
+    "accepted_reload": false
+  },
+  "oom_stack_log_occurrences": [
+    521,
+    556,
+    592,
+    623
+  ],
+  "occurrences_are_not_independent_event_count": true,
+  "observed_allocation_path": [
+    "Unsafe.allocateUninitializedArray",
+    "StringConcatHelper.newArray",
+    "String.join",
+    "SegmentedResourceText.read:47/20",
+    "StrictResourceText",
+    "BoundedTextCache / CompressedResourceTextCache",
+    "CustomResourceLoader.readResource",
+    "SnapshotResourceProvider.get:26",
+    "VehicleModel.getModelLoaderBase"
+  ],
+  "source_boundary": "Permanently tracked runs06 original0.4.8 source/JAR reference; never current Java/build output.",
+  "normal_exit": {
+    "jvm_exit_code": 0,
+    "does_not_reverse_failure": true
+  },
+  "live_export_01_recorded_sha256": "a139b1e4f70d2061c952cde175241237f974751cd781dc1859d1304cbe8ec628",
+  "collector_native_snapshots_bytes_not_read_or_copied": 43334964,
+  "all_jfr_binaries_read_or_copied_or_rehashed": false,
+  "literal_input_journal_prefix_files": 7,
+  "literal_input_journal_prefix_bytes": 35275701
+}

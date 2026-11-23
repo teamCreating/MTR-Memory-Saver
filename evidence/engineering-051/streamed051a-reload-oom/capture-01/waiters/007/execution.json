@@ -1,0 +1,20 @@
+{
+  "started_at": "2026-11-17T14:19:49.999172+00:00",
+  "completed_at": "2026-11-17T14:20:11.814411+00:00",
+  "argv": [
+    "tools/wait_reload_ready.py",
+    "--recorder",
+    ".cache\\acceptance\\streamed-051a-reload-recorder",
+    "--consumer",
+    ".cache\\acceptance\\streamed-051a-reload-observation",
+    "--output",
+    ".cache\\acceptance\\streamed-051a-wait-007",
+    "--expected-sequence",
+    "8"
+  ],
+  "source_sha256": "2ce1525514d71f0c18c4de274832491d7635cf86f46fb13f62816cba09aa66f1",
+  "current_source_sha256": "2ce1525514d71f0c18c4de274832491d7635cf86f46fb13f62816cba09aa66f1",
+  "returned_exit_code": 2,
+  "stdout_sha256": "3d4d751db19f1c960892a157e8d277d0f831b4c2c7ef1916a92f221a3433d149",
+  "stderr_sha256": "f039d9952be35880dd650d3d4e8228211831ab14724ddcfa67a26ffa7e4773c4"
+}

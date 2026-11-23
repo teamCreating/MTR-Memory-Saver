@@ -1,0 +1,7 @@
+{
+  "recorded_at": "2026-11-17T14:50:27.641736+00:00",
+  "provenance": "Agent-reported tool history; no on-disk raw wrapper receipt was captured.",
+  "observed_failure": "First staged-byte audit passed the whitelist/add/check step, then Windows CreateProcess rejected git ls-files with all325 individual long evidence paths: WinError206. No commit/push had run.",
+  "correction": "Use the five exact already-whitelisted scope paths for git ls-files, then still compare every returned staged blob byte-for-byte. This changes only command argument size, not the checked file set or evidence bytes.",
+  "original_data_or_runtime_changed": false
+}

@@ -18,9 +18,12 @@ def configuration(root=ROOT):
     versions = re.findall(r"(?m)^modVersion\s*=\s*(\S+)\s*$", properties)
     if len(versions) != 1 or not re.fullmatch(r"0\.\d+\.\d+(?:[-+][A-Za-z0-9.-]+)?", versions[0]):
         raise ValueError("Require one valid 0.x.x modVersion in gradle.properties.")
-    targets = sorted(name for name, value in matrix["targets"].items() if value["variant"] == "official")
-    if not targets:
-        raise ValueError("No official build targets are configured.")
+    official = {name for name, value in matrix["targets"].items() if value["variant"] == "official"}
+    targets = matrix.get("releaseTargets", sorted(official))
+    if (not isinstance(targets, list) or not targets or any(not isinstance(name, str) or name not in official for name in targets)
+            or len(set(targets)) != len(targets)):
+        raise ValueError("Release targets must be a nonempty unique selection of official targets.")
+    targets = sorted(targets)
     return matrix, versions[0], targets
 
 

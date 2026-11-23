@@ -1,0 +1,38 @@
+{
+  "native_snapshots": {
+    "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\streamed-051-client-validation\\full-nf248-capture\\native-snapshots.jsonl",
+    "bytes": 43334964,
+    "collector_recorded_sha256": "a3883bdabd7e6415eb0c67a98d2ac03f43bba66c9c60f997ebc80213f5c3bfbe",
+    "binary_read_or_rehashed": false,
+    "portable": false
+  },
+  "live_export_01": {
+    "started": "2026-11-17T14:22:44.499397+00:00",
+    "status": "readable",
+    "commands": [
+      {
+        "argv": [
+          "C:\\Users\\ben_l\\Saved Games\\Yuuniverse 1.20.1 Shenyang\\porting-output\\work\\tools\\jdk21\\jdk-21.0.11+10\\bin\\jcmd.exe",
+          "58036",
+          "JFR.dump",
+          "name=acceptance",
+          "filename=diagnostic-01.jfr"
+        ],
+        "exit_code": 0
+      },
+      {
+        "argv": [
+          "C:\\Users\\ben_l\\Saved Games\\Yuuniverse 1.20.1 Shenyang\\porting-output\\work\\tools\\jdk21\\jdk-21.0.11+10\\bin\\jfr.exe",
+          "summary",
+          "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-streamed-051a\\diagnostic-01.jfr"
+        ],
+        "exit_code": 0
+      }
+    ],
+    "recording": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-streamed-051a\\diagnostic-01.jfr",
+    "sha256": "a139b1e4f70d2061c952cde175241237f974751cd781dc1859d1304cbe8ec628",
+    "ended": "2026-11-17T14:22:48.114146+00:00"
+  },
+  "jfr_binary_read_copied_or_rehashed": false,
+  "normal_exit_does_not_cancel_oom": true
+}

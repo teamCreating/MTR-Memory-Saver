@@ -1,0 +1,18 @@
+{
+  "recorded_at": "2026-11-17T12:55:24.114423+00:00",
+  "provenance": "Agent-reported independent read-only review delivered through collaboration; this JSON is a transcription, not a raw terminal receipt.",
+  "agent": "/root/consumer_review/verify_attempt_seal",
+  "reported_at": "2026-11-17T20:54:16+08:00",
+  "checks": 47,
+  "passed": 47,
+  "payload_files": 25,
+  "payload_bytes": 197479,
+  "findings": "All indexed hashes/lengths and inventory match; final test logs show 16 passed/0 skip/exit0 and both frozen files match tools; final offline diagnostics_failed/ineligible/no-ready result matches actual log lines365/366/395/396. No evidence content changed.",
+  "initial_review_check_issue": "First reviewer regex treated CRLF as unmatched; splitlines() resolved the check without changing any evidence.",
+  "actions_not_performed": [
+    "No tests run",
+    "No files written by reviewer",
+    "No git/index/walkthrough operations",
+    "No live JVM/reader query"
+  ]
+}

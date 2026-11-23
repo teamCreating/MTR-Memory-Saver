@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "C:\Users\ben_l\Documents\Coding\resoucepack update\vehicle-memory\tools\wait_reload_ready.py", line 357, in main
+    result, code = wait(args, producer, emit)
+                   ~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ben_l\Documents\Coding\resoucepack update\vehicle-memory\tools\wait_reload_ready.py", line 304, in wait
+    result = inspect(producer, native, samples, epochs, journal, args.expected_sequence, dt.datetime.now(dt.timezone.utc),
+        interval=args.interval, freshness=args.freshness_seconds, stable_seconds=args.stable_seconds)
+  File "C:\Users\ben_l\Documents\Coding\resoucepack update\vehicle-memory\tools\wait_reload_ready.py", line 226, in inspect
+    require(state["native_sequence"] <= expected_sequence and native["resource_epochs"]["started"] <= expected_sequence, "Expected sequence was superseded.")
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ben_l\Documents\Coding\resoucepack update\vehicle-memory\tools\wait_reload_ready.py", line 35, in require
+    raise EvidenceError(message)
+EvidenceError: Expected sequence was superseded.

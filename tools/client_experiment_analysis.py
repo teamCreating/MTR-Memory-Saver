@@ -309,7 +309,7 @@ def jfr_metrics(events, window, coverage, tolerance, maximum_gap):
     return metrics, errors
 
 
-def native_snapshot_errors(snapshot, process, stamp, freshness, scenario, *, require_scene=True):
+def native_snapshot_errors(snapshot, process, stamp, freshness, scenario, *, require_scene=True, allow_turnaround=False):
     errors = []
     if snapshot.get("schema_version") != 1 or snapshot.get("probe_kind") != "official-native-observer":
         errors.append("Unrecognized neutral observer.")
@@ -363,9 +363,11 @@ def native_snapshot_errors(snapshot, process, stamp, freshness, scenario, *, req
         vehicles = train_state.get("vehicles", []) if isinstance(train_state, dict) else []
         if not isinstance(train_state, dict) or train_state.get("available") is not True or not vehicles:
             errors.append("Required native train state is unavailable.")
-        elif not any(vehicle.get("route_id") in scenario["route"]["route_ids"] and
-                     (not scenario["route"]["vehicle_ids"] or vehicle.get("id") in scenario["route"]["vehicle_ids"]) for vehicle in vehicles):
-            errors.append("No actual train matches the frozen route/vehicle identities.")
+        else:
+            allowed_routes = (*scenario["route"]["route_ids"], 0) if allow_turnaround else tuple(scenario["route"]["route_ids"])
+            if not any(vehicle.get("route_id") in allowed_routes and
+                       (not scenario["route"]["vehicle_ids"] or vehicle.get("id") in scenario["route"]["vehicle_ids"]) for vehicle in vehicles):
+                errors.append("No actual train matches the frozen route/vehicle identities.")
     return errors
 
 
@@ -456,7 +458,7 @@ def assess_observation(evidence, policy, scenario, instrumentation):
                 if not isinstance(snapshot, dict):
                     errors.append("Missing postload neutral snapshot.")
                 else:
-                    errors.extend(native_snapshot_errors(snapshot, process, sample["observed_at"], policy["snapshot_freshness_seconds"], scenario))
+                    errors.extend(native_snapshot_errors(snapshot, process, sample["observed_at"], policy["snapshot_freshness_seconds"], scenario, allow_turnaround=True))
                     identity = snapshot.get("observed_at")
                     if identity in snapshots_seen:
                         errors.append("Postload neutral snapshot did not advance.")

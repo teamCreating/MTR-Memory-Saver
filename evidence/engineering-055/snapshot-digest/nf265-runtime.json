@@ -1,0 +1,85 @@
+{
+  "target": "official-nf265",
+  "artifact_sha256": "920c1f833b6f173c7443ff5956493b779acfeceb293fa640817a459985db3f5b",
+  "actual_packaged_checks": {
+    "checks": 24,
+    "strict_resource_checks": 18,
+    "obj_input_checks": 27
+  },
+  "passed": true,
+  "owned_exit": {
+    "pid": 21632,
+    "started_at": "2026-11-23T20:41:40.984081+08:00",
+    "launch_sha256": "cd182fb854d005112a0b8b78648f7bba75959b8a5c2bf0ec7a4fb007495619ac",
+    "exit_code": 0,
+    "exited": true,
+    "finished_at": "2026-11-23T20:43:54.691553+08:00"
+  },
+  "pack_count": 16,
+  "scope": "Full-catalogue registration plus packaged lifecycle, strict resource and OBJ controls; startup and native stop",
+  "limits": [
+    "Gameplay, repeated resource reloads and full-client performance remain unverified for this revised candidate."
+  ],
+  "payloads": [
+    {
+      "path": "candidate.build.json",
+      "bytes": 7667,
+      "sha256": "c7a5b4341e99ac63e4f3e1dac83636d0c23bcd1c7dd4b28be105d406fb275d22"
+    },
+    {
+      "path": "probe.build.json",
+      "bytes": 2549,
+      "sha256": "40bd9f5560b8b529b7d2e60b69db0d4e2ed0d927b67fc7548d881081a9ee7023"
+    },
+    {
+      "path": "probe-build.log",
+      "bytes": 1491,
+      "sha256": "69d626a8f90735f26728456a97660ed074ed0716001dc1ae0ab46f946088369b"
+    },
+    {
+      "path": "prepare.log",
+      "bytes": 377,
+      "sha256": "47121fa1d63c492c8cafcfe20747e06bba4955acc754463b6f1009f0b5ca1de3"
+    },
+    {
+      "path": "owned-exit.json",
+      "bytes": 255,
+      "sha256": "c48fc8a6e9b39e324b3755a21839e73dd5e38dacab296cc74a5e9d5d54ab6376"
+    },
+    {
+      "path": "client/loader-lifecycle-request.json",
+      "bytes": 158,
+      "sha256": "dfe3a7c3ce85d58b9df9f9a22974c4bca80da80b01a92aa990bc8fce17cf8dd4"
+    },
+    {
+      "path": "client/loader-lifecycle-result.json",
+      "bytes": 6533,
+      "sha256": "6bdb1d70a90f57ab5e48fe09f49a5d1f214f5f95f9582a6818e0f4627b45f466"
+    },
+    {
+      "path": "client/packaged-client-plan.json",
+      "bytes": 15023,
+      "sha256": "927528ed820715423c1cd8d205a91cdca7db29c454df6994eda472700289d775"
+    },
+    {
+      "path": "client/packaged-client-launch.json",
+      "bytes": 26099,
+      "sha256": "cd182fb854d005112a0b8b78648f7bba75959b8a5c2bf0ec7a4fb007495619ac"
+    },
+    {
+      "path": "client/logs/latest.log",
+      "bytes": 75379,
+      "sha256": "936912e61da431e1bd1bb31873a04ea457adcaccbff04b9cd53e291af941102e"
+    },
+    {
+      "path": "client/launch.stdout.log",
+      "bytes": 95472,
+      "sha256": "e8b310a1347731e2b84b92fd7e32eaf215900612b8a3bfbba1837eb0b5f7e918"
+    },
+    {
+      "path": "client/launch.stderr.log",
+      "bytes": 100,
+      "sha256": "73d6cfd1817fbfedb452a50a280d26c7a86cd5eec5c892ecb3b0655d106e83c7"
+    }
+  ]
+}

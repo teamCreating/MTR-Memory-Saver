@@ -1,0 +1,64 @@
+{
+  "mechanism": "Hash decoded characters while writing the owned snapshot, eliminating the pre-parse snapshot read pass",
+  "baseline_sha256": "943b3d455fa3ce9d3ede74bc1a2071ece7bf70b09d9b7f829027347b53a9b588",
+  "candidate_sha256": "442c3e5abf2067ddc0545a1d0fed32231e11e9175ac5f98da2f804c5f4aa2bae",
+  "input_bytes": 65255687,
+  "benchmark": {
+    "pairs": 6,
+    "omitted_trials": 0,
+    "metrics": {
+      "elapsed_ns": {
+        "percent_deltas": [
+          -14.149073972899995,
+          -18.454389701263686,
+          -24.801668612209195,
+          3.2376836890862126,
+          -20.097386168432518,
+          -18.544042516581783
+        ],
+        "median_percent_delta": -18.499216108922734
+      },
+      "thread_cpu_ns": {
+        "percent_deltas": [
+          -16.216216216216218,
+          -16.602316602316602,
+          -17.16417910447762,
+          -3.2558139534883734,
+          -18.894009216589858,
+          -18.224299065420556
+        ],
+        "median_percent_delta": -16.88324785339711
+      }
+    },
+    "scope": "One real BBModel input, snapshot capture plus digest and readback, three measured iterations after three warmup iterations per fresh JVM",
+    "limits": [
+      "Other workstation workloads continued. The packaged client overlapped the beginning of this diagnostic experiment.",
+      "Thread CPU measures the benchmark thread. JVM helper work and system I/O work are outside this counter.",
+      "Wall timing and this single-input microbenchmark do not establish full-client performance. No AA noise or instrumentation calibration was run here."
+    ]
+  },
+  "correctness": {
+    "nf248_java_tests": 106,
+    "nf265_java_tests": 106,
+    "small_heap_blockbench_and_obj_both_targets": true,
+    "packaged_nf248_checks": 69,
+    "native_registration_declarations": 1092,
+    "native_unique_blockbench_parses": 651,
+    "native_obj_parses": 974,
+    "native_startup_log": "raw-evidence.zip/client/logs/latest.log"
+  },
+  "client_end": {
+    "native_stopping_observed": true,
+    "owned_pid": 64588,
+    "process_absent_on_followup": true,
+    "actual_exit_code": null,
+    "note": "Initial 60-second launcher wait expired. Later native Stopping line and absent process observed, no owned Popen exit receipt retained."
+  },
+  "full_client_performance_accepted": false,
+  "release_status": "held",
+  "pending": [
+    "Fresh paired full-client comparison with host workload telemetry",
+    "Native resource reload endurance for the revised binary",
+    "NF265 packaged runtime"
+  ]
+}

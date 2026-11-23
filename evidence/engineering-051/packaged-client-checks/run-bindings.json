@@ -1,0 +1,213 @@
+{
+  "schema": 1,
+  "runs": [
+    {
+      "label": "nf248-smoke-capture03",
+      "instance": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-streamed-051-smoke02",
+      "pid": 39660,
+      "jvm_exit_code": 0,
+      "expected_outcome": "packaged_checks_pass",
+      "instance_payloads": {
+        "vehicle-test-instance.json": {
+          "present": true,
+          "read_at": "2026-11-17T14:01:34.696562+00:00"
+        },
+        "options.txt": {
+          "present": true,
+          "read_at": "2026-11-17T14:01:34.708240+00:00"
+        },
+        "loader-lifecycle-request.json": {
+          "present": true,
+          "read_at": "2026-11-17T14:01:34.728912+00:00"
+        },
+        "loader-lifecycle-result.json": {
+          "present": true,
+          "read_at": "2026-11-17T14:01:34.742663+00:00"
+        }
+      },
+      "jfr": {
+        "bytes": 5130563,
+        "sha256": "e0c655e1494f817a667608dc37dbd2d87882c6458a7ed130d26bde4fa1789bcc",
+        "portable": false
+      }
+    },
+    {
+      "label": "nf265-smoke-capture",
+      "instance": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf265-streamed-051-smoke",
+      "pid": 54748,
+      "jvm_exit_code": 0,
+      "expected_outcome": "packaged_checks_pass",
+      "instance_payloads": {
+        "vehicle-test-instance.json": {
+          "present": true,
+          "read_at": "2026-11-17T14:01:35.583415+00:00"
+        },
+        "options.txt": {
+          "present": true,
+          "read_at": "2026-11-17T14:01:35.639985+00:00"
+        },
+        "loader-lifecycle-request.json": {
+          "present": true,
+          "read_at": "2026-11-17T14:01:35.648056+00:00"
+        },
+        "loader-lifecycle-result.json": {
+          "present": true,
+          "read_at": "2026-11-17T14:01:35.683279+00:00"
+        }
+      },
+      "jfr": {
+        "bytes": 5221350,
+        "sha256": "540e646353d2a4facbdcb08d25bd374885a7f1a677af877e3c1e3f71f971191c",
+        "portable": false
+      }
+    },
+    {
+      "label": "nf248-mismatch-capture",
+      "instance": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-streamed-051-mismatch",
+      "pid": 60744,
+      "jvm_exit_code": 1,
+      "expected_outcome": "expected_fingerprint_rejection",
+      "instance_payloads": {
+        "vehicle-test-instance.json": {
+          "present": true,
+          "read_at": "2026-11-17T14:01:36.561882+00:00"
+        },
+        "options.txt": {
+          "present": true,
+          "read_at": "2026-11-17T14:01:36.569738+00:00"
+        },
+        "loader-lifecycle-request.json": {
+          "present": false,
+          "read_at": "2026-11-17T14:01:36.577039+00:00"
+        },
+        "loader-lifecycle-result.json": {
+          "present": false,
+          "read_at": "2026-11-17T14:01:36.577748+00:00"
+        }
+      },
+      "jfr": {
+        "bytes": 1213937,
+        "sha256": "78e77a20f7398b1f79cbbfccbf621d229a86017e8cdf5b828d228411fff3092d",
+        "portable": false
+      }
+    },
+    {
+      "label": "nf265-mismatch-capture",
+      "instance": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf265-streamed-051-mismatch",
+      "pid": 41096,
+      "jvm_exit_code": 1,
+      "expected_outcome": "expected_fingerprint_rejection",
+      "instance_payloads": {
+        "vehicle-test-instance.json": {
+          "present": true,
+          "read_at": "2026-11-17T14:01:38.026786+00:00"
+        },
+        "options.txt": {
+          "present": true,
+          "read_at": "2026-11-17T14:01:38.105977+00:00"
+        },
+        "loader-lifecycle-request.json": {
+          "present": false,
+          "read_at": "2026-11-17T14:01:38.132566+00:00"
+        },
+        "loader-lifecycle-result.json": {
+          "present": false,
+          "read_at": "2026-11-17T14:01:38.133018+00:00"
+        }
+      },
+      "jfr": {
+        "bytes": 1233324,
+        "sha256": "9b777a2200ba1a0861fa965b830aeb3cb10061592d2f4b955aeddbdcf9112466",
+        "portable": false
+      }
+    },
+    {
+      "label": "nf248-smoke-capture02",
+      "instance": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-streamed-051-smoke",
+      "pid": 44444,
+      "jvm_exit_code": 0,
+      "expected_outcome": "incomplete_no_result",
+      "instance_payloads": {
+        "vehicle-test-instance.json": {
+          "present": true,
+          "read_at": "2026-11-17T14:01:40.036946+00:00"
+        },
+        "options.txt": {
+          "present": true,
+          "read_at": "2026-11-17T14:01:40.055605+00:00"
+        },
+        "loader-lifecycle-request.json": {
+          "present": true,
+          "read_at": "2026-11-17T14:01:40.066049+00:00"
+        },
+        "loader-lifecycle-result.json": {
+          "present": false,
+          "read_at": "2026-11-17T14:01:40.081539+00:00"
+        }
+      },
+      "jfr": {
+        "bytes": 3391413,
+        "sha256": "2e166d3a472e530c6e4a5bb9d2ed4d5d64a4a5e381aa7d7d04aaba30ce3a6115",
+        "portable": false
+      }
+    }
+  ],
+  "initial_attempt": "nf248-smoke-capture",
+  "artifact_bindings": [
+    {
+      "target": "official-nf248",
+      "manifest": "artifacts/official-nf248/mtr-memory-saver-official-nf248-0.4.8-acceptance-probe.build.json",
+      "jar_repository_path": "evidence/engineering-051/streamed-blockbench-input/runs/06/mtr-memory-saver-official-nf248-0.4.8-acceptance-probe.jar",
+      "jar_bytes": 37737,
+      "jar_sha256": "ad5e9cccf272559c62dcf35f9fbe237e2bd1c6f896cb06bfb692e604d5e4c79a",
+      "sources_repository_path": "evidence/engineering-051/streamed-blockbench-input/runs/06/sources"
+    },
+    {
+      "target": "official-nf248",
+      "manifest": "artifacts/official-nf248/mtr-memory-saver-official-nf248-0.4.8.build.json",
+      "jar_repository_path": "evidence/engineering-051/streamed-blockbench-input/runs/06/mtr-memory-saver-official-nf248-0.4.8.jar",
+      "jar_bytes": 332795,
+      "jar_sha256": "34c0b27780f7a3d4d5f29845f98a655f22cae0b1eeca1a4a95ab86b60921b0c1",
+      "sources_repository_path": "evidence/engineering-051/streamed-blockbench-input/runs/06/sources"
+    },
+    {
+      "target": "official-nf265",
+      "manifest": "artifacts/official-nf265/mtr-memory-saver-official-nf265-0.4.8-acceptance-probe.build.json",
+      "jar_repository_path": "evidence/engineering-051/streamed-blockbench-input/runs/07/mtr-memory-saver-official-nf265-0.4.8-acceptance-probe.jar",
+      "jar_bytes": 37737,
+      "jar_sha256": "ad5e9cccf272559c62dcf35f9fbe237e2bd1c6f896cb06bfb692e604d5e4c79a",
+      "sources_repository_path": "evidence/engineering-051/streamed-blockbench-input/runs/07/sources"
+    },
+    {
+      "target": "official-nf265",
+      "manifest": "artifacts/official-nf265/mtr-memory-saver-official-nf265-0.4.8.build.json",
+      "jar_repository_path": "evidence/engineering-051/streamed-blockbench-input/runs/07/mtr-memory-saver-official-nf265-0.4.8.jar",
+      "jar_bytes": 332796,
+      "jar_sha256": "89720d30c76b4f5dfc6a71a398bb67c3138cf4f8f4e0afd0dbb062753552e735",
+      "sources_repository_path": "evidence/engineering-051/streamed-blockbench-input/runs/07/sources"
+    }
+  ],
+  "portable_jar_references": [
+    {
+      "path": "evidence/engineering-051/streamed-blockbench-input/runs/06/mtr-memory-saver-official-nf248-0.4.8-acceptance-probe.jar",
+      "bytes": 37737,
+      "sha256": "ad5e9cccf272559c62dcf35f9fbe237e2bd1c6f896cb06bfb692e604d5e4c79a"
+    },
+    {
+      "path": "evidence/engineering-051/streamed-blockbench-input/runs/06/mtr-memory-saver-official-nf248-0.4.8.jar",
+      "bytes": 332795,
+      "sha256": "34c0b27780f7a3d4d5f29845f98a655f22cae0b1eeca1a4a95ab86b60921b0c1"
+    },
+    {
+      "path": "evidence/engineering-051/streamed-blockbench-input/runs/07/mtr-memory-saver-official-nf265-0.4.8-acceptance-probe.jar",
+      "bytes": 37737,
+      "sha256": "ad5e9cccf272559c62dcf35f9fbe237e2bd1c6f896cb06bfb692e604d5e4c79a"
+    },
+    {
+      "path": "evidence/engineering-051/streamed-blockbench-input/runs/07/mtr-memory-saver-official-nf265-0.4.8.jar",
+      "bytes": 332796,
+      "sha256": "89720d30c76b4f5dfc6a71a398bb67c3138cf4f8f4e0afd0dbb062753552e735"
+    }
+  ],
+  "scope": "Two packaged companion base-resource smoke checks and two intentionally mismatched MTR rejection controls; two earlier nf248 attempts stay ineligible."
+}

@@ -1,0 +1,30 @@
+{
+  "started_at": "2026-11-17T14:06:26.384401+00:00",
+  "completed_at": "2026-11-17T14:06:29.566483+00:00",
+  "argv": [
+    "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.venv\\Scripts\\python.exe",
+    "-X",
+    "utf8",
+    "-m",
+    "minecraft_testkit",
+    "inventory"
+  ],
+  "actual_exit_code": 0,
+  "before_scripts": 484,
+  "after_scripts": 494,
+  "old_records_unchanged": true,
+  "added": [
+    "evidence/engineering-051/packaged-client-checks/sources/tools/capture_diagnostic_client.py",
+    "evidence/engineering-051/packaged-client-checks/sources/tools/client_experiment_analysis.py",
+    "evidence/engineering-051/packaged-client-checks/sources/tools/native_diagnostic_review.py",
+    "evidence/engineering-051/packaged-client-checks/sources/tools/native_log_stream.py",
+    "evidence/engineering-051/packaged-client-checks/sources/tools/observe_packaged_client.py",
+    "evidence/engineering-051/packaged-client-checks/sources/tools/packaged_client.py",
+    "evidence/engineering-051/packaged-client-checks/sources/tools/reload_before_recorder.py",
+    "evidence/engineering-051/packaged-client-checks/sources/tools/windows_process_identity.py",
+    "evidence/engineering-051/packaged-client-checks/sources/tools/windows_snapshot_io.py",
+    "evidence/engineering-051/packaged-client-checks/verify_sealed.py"
+  ],
+  "catalog_stdout_sha256": "8136d26f3f2e129492bc70d3b9f5c6b777a5a78384ad5bb40fa3de9dfc0f902b",
+  "scope": "Existing reference-only inventory; no archived Python executes."
+}

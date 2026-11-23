@@ -1,0 +1,59 @@
+{
+  "schema": 1,
+  "id": "official-generated-default-rail",
+  "target": {
+    "mtrSha256": "ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa",
+    "mtrVersion": "4.1.0-beta.2",
+    "minecraft": "1.21.1"
+  },
+  "contract": {
+    "model_resource": "",
+    "texture_resource": "",
+    "flip_texture_v": false,
+    "returned_loader_class": "org.mtr.model.BlockbenchModelLoader",
+    "native_call_chain": [
+      {
+        "class": "org.mtr.resource.VehicleModel",
+        "method": "getModelLoaderBase",
+        "descriptor": "(Ljava/lang/String;Ljava/lang/String;Lorg/mtr/resource/ResourceProvider;Z)Lorg/mtr/model/ModelLoaderBase;"
+      },
+      {
+        "class": "org.mtr.resource.RailResource",
+        "method": "<init>",
+        "descriptor": "(Ljava/lang/String;Ljava/lang/String;Lorg/mtr/resource/ResourceProvider;)V"
+      },
+      {
+        "class": "org.mtr.client.CustomResourceLoader",
+        "method": "reload",
+        "descriptor": "()V"
+      }
+    ],
+    "calls_per_completed_epoch": 1,
+    "logger": "MinecraftTransitRailway",
+    "log_template": "[{}] Invalid model!",
+    "texture_identifier": "mtr:textures/block/transparent.png"
+  },
+  "proofs": [
+    {
+      "path": "evidence/engineering-047/native-invalid-model/assessment.json",
+      "sha256": "7f5ab39b528900363e75f7fabca99fe42cd835a63d3338c50ce7d2d0f08e7c08"
+    },
+    {
+      "path": "evidence/engineering-047/native-invalid-model/legacy-directory-assessment.json",
+      "sha256": "e29884a6d6344c0280aee7463fa85e8b14a11a3def5d5dd92b5c66ba93b3ef01"
+    },
+    {
+      "path": "evidence/engineering-047/native-invalid-model/rail-consumption-assessment.json",
+      "sha256": "20d32572f83c3581db4b9b9812038252cb9693bb394da9e9ae42ee6620174cba"
+    },
+    {
+      "path": "evidence/engineering-048/native-invalid-model/startup-prefix/attribution.json",
+      "sha256": "71c89b01d4621bf379c162f54e53bcfcdd9979426faa47720cbf5e495adcd8f5"
+    },
+    {
+      "path": "evidence/engineering-048/native-invalid-model/saved-rail-styles/assessment.json",
+      "sha256": "98936eb3318ea47cd496b429145aa1237857a0d8b89349f101a258dba56e498a"
+    }
+  ],
+  "scope": "Classify only matching live per-run native calls; no static message allowance. Known official fallback attribution does not establish visual harmlessness or zero performance cost."
+}

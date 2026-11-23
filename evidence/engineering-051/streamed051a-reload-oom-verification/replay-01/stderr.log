@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "C:\Users\ben_l\Documents\Coding\resoucepack update\vehicle-memory\evidence\engineering-051\streamed051a-reload-oom\verify_sealed.py", line 194, in <module>
+    print(json.dumps(verify(), ensure_ascii=True, indent=2))
+                     ~~~~~~^^
+  File "C:\Users\ben_l\Documents\Coding\resoucepack update\vehicle-memory\evidence\engineering-051\streamed051a-reload-oom\verify_sealed.py", line 114, in verify
+    check(len(heads8) == 1 and not returns8 and [row["phase"] for row in recovery] == ["head", "return"], "Failed epoch/recovery pair differs")
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ben_l\Documents\Coding\resoucepack update\vehicle-memory\evidence\engineering-051\streamed051a-reload-oom\verify_sealed.py", line 28, in check
+    raise ValueError(message)
+ValueError: Failed epoch/recovery pair differs

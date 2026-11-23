@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="site.benli06.SnapshotFilesystemFailureTest" tests="12" skipped="0" failures="0" errors="0" timestamp="2026-11-17T11:35:02.066Z" hostname="DESKTOP-885HHP9" time="0.379">
+  <properties/>
+  <testcase name="restorationReadFailureRemainsTerminalAndDeletesSnapshot()" classname="site.benli06.SnapshotFilesystemFailureTest" time="0.02"/>
+  <testcase name="retirementCancelsPersistentZeroProgressAndReleasesTheOwner()" classname="site.benli06.SnapshotFilesystemFailureTest" time="0.015"/>
+  <testcase name="unsupportedDeleteOwnershipNeverFallsBackToAnUnownedFile()" classname="site.benli06.SnapshotFilesystemFailureTest" time="0.006"/>
+  <testcase name="rewindFailureRejectsResultAndClosesItsOwner()" classname="site.benli06.SnapshotFilesystemFailureTest" time="0.011"/>
+  <testcase name="ownerCloseFailureIsSuppressedBehindTheOriginalWriteFailure()" classname="site.benli06.SnapshotFilesystemFailureTest" time="0.015"/>
+  <testcase name="nameCollisionNeverOverwritesOrDeletesAnotherOwnersFile()" classname="site.benli06.SnapshotFilesystemFailureTest" time="0.023"/>
+  <testcase name="creationFailureCannotPublishAnEmptyEntryAndSameKeyRetries()" classname="site.benli06.SnapshotFilesystemFailureTest" time="0.035"/>
+  <testcase name="actualOddTruncationIsRejectedBeforePublishingText()" classname="site.benli06.SnapshotFilesystemFailureTest" time="0.016"/>
+  <testcase name="transientZeroProgressIsNeitherEofNorLostOutput()" classname="site.benli06.SnapshotFilesystemFailureTest" time="0.017"/>
+  <testcase name="oddPartialReadsAndWritesPreserveUtf16AcrossNativeChannelCalls()" classname="site.benli06.SnapshotFilesystemFailureTest" time="0.152"/>
+  <testcase name="ownerCloseFailureRemainsTerminalAndDeletesSnapshot()" classname="site.benli06.SnapshotFilesystemFailureTest" time="0.011"/>
+  <testcase name="outputWriteFailureCannotPublishSuccessfulTextAndSamePathRetries()" classname="site.benli06.SnapshotFilesystemFailureTest" time="0.041"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

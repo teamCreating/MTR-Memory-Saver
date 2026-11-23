@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "recorded_at": "2026-11-17T18:49:05.635735+00:00",
+  "version": "0.4.8",
+  "implementation_commit": "a63214910038ee11ed377cd7dfeb6158729eb1d7",
+  "packaged_clients": "passed_exact_artifacts",
+  "nf248_twenty_reload_endurance": "passed",
+  "independent_frame_source": "unqualified_access_denied_no_valid_csv",
+  "aa_trials_executed": 0,
+  "ab_trials_executed": 0,
+  "observer_off_calibration": "not_completed",
+  "controlled_performance": "inconclusive_not_measured",
+  "release_status": "held",
+  "release_accepted": false,
+  "reason": "Controlled performance and instrumentation-overhead validation are not available. No performance benefit is quantified.",
+  "candidate_bundles": [
+    {
+      "target": "official-nf248",
+      "bundle": "mtr-memory-saver-official-nf248-0.4.8.zip",
+      "bundle_sha256": "3a148b0d9edf4f560063a74d843cd665e457dbe64ee204638e0609ed40a0bd61",
+      "jar_sha256": "943b3d455fa3ce9d3ede74bc1a2071ece7bf70b09d9b7f829027347b53a9b588",
+      "publication_status": "held_for_unverified_performance"
+    },
+    {
+      "target": "official-nf265",
+      "bundle": "mtr-memory-saver-official-nf265-0.4.8.zip",
+      "bundle_sha256": "deba49402c82c33be2d0cc9caea7adbbbd2247733e7a626de76591702062d718",
+      "jar_sha256": "134770acd53ec81325993604e8441d213d9ea1be990adb3bc2877b0cb7cc17dd",
+      "publication_status": "held_for_unverified_performance"
+    }
+  ],
+  "references": {
+    "packaged": "evidence/engineering-052/revised048-packaged-delivery/README.md",
+    "reloads": "evidence/engineering-052/revised048-reload20/README.md",
+    "frames": "evidence/engineering-052/frame-source-diagnostics/README.md",
+    "performance_preparation": "evidence/engineering-052/revised048-performance-preparation/README.md"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "started_at": "2026-11-17T12:31:14.787101+00:00",
+  "completed_at": "2026-11-17T12:31:20.226984+00:00",
+  "elapsed_seconds": 5.439856800017878,
+  "argv": [
+    "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.venv\\Scripts\\python.exe",
+    "-X",
+    "utf8",
+    "-m",
+    "unittest",
+    "-v",
+    "test_wait_reload_ready"
+  ],
+  "cwd": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\tools",
+  "exit_code": 0,
+  "source_sha256_before": {
+    "tools/wait_reload_ready.py": "453d7157591081b1a701bf5f6c5de35566088e0d8e187f563fd870fbb1523a14",
+    "tools/test_wait_reload_ready.py": "2b045a8b9c512ee81921c2e402c15d80204abbd3fa1f26c53afde2ecee4029bb"
+  },
+  "source_sha256_after": {
+    "tools/wait_reload_ready.py": "453d7157591081b1a701bf5f6c5de35566088e0d8e187f563fd870fbb1523a14",
+    "tools/test_wait_reload_ready.py": "2b045a8b9c512ee81921c2e402c15d80204abbd3fa1f26c53afde2ecee4029bb"
+  },
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stderr_sha256": "c875b3670258ecff0e7e804b4504eb1e1d067e606a5e553b3c09e5c880a6b1df",
+  "scope": "Offline waiter controls with exact selected-record journal prefix fixture and deterministic deadline; no reader/game/UI/native process query."
+}

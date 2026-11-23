@@ -1,0 +1,500 @@
+{
+  "timestamp": "2026-11-15T07:32:56.105324+08:00",
+  "status": "official_generated_source_proven_statically_runtime_caller_not_traced",
+  "target": "official MTR 4.1.0-beta.2",
+  "v6_validation_performed": false,
+  "source_plan": {
+    "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-046\\full-load-initial-nf248\\packaged-client-plan.json",
+    "sha256": "ddc0b32e67d96490d0043d65ff6d2606c36c0ef56e6d95baf0b9ae3682628803"
+  },
+  "catalogue": {
+    "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\[MTR4.1原生目录]产物\\catalog.json",
+    "sha256": "3325fafa458bdbaad845ca94aa29fa9255fa27c6bc7999313300cfe2eb6ccf1b"
+  },
+  "verified_source_archives": 17,
+  "catalogue_pack_archives": 16,
+  "sources": [
+    {
+      "source_index": 0,
+      "kind": "official_mtr",
+      "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\dependencies\\mtr-ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa.jar",
+      "filename": "mtr-ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa.jar",
+      "expected_sha256": "ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa",
+      "sha256": "ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa"
+    },
+    {
+      "source_index": 1,
+      "kind": "catalogue_pack",
+      "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\[MTR4.1原生目录]产物\\[MTR4.1][MTR] Taiwan Train V000 EMU3000 20251107.zip",
+      "filename": "[MTR4.1][MTR] Taiwan Train V000 EMU3000 20251107.zip",
+      "expected_sha256": "59252e44bc3f8337a041cc83c3e2eb4ebdaa6d97b7d756dbd578f2d5f6273ea2",
+      "sha256": "59252e44bc3f8337a041cc83c3e2eb4ebdaa6d97b7d756dbd578f2d5f6273ea2"
+    },
+    {
+      "source_index": 2,
+      "kind": "catalogue_pack",
+      "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\[MTR4.1原生目录]产物\\[MTR4.1][材质模型包]悠日计画 交通运输类模型 8.2505.1.zip",
+      "filename": "[MTR4.1][材质模型包]悠日计画 交通运输类模型 8.2505.1.zip",
+      "expected_sha256": "024484cabde00b7a020fd7213c685d7a796efa85ee4abf00921cfca4aa4d8fd9",
+      "sha256": "024484cabde00b7a020fd7213c685d7a796efa85ee4abf00921cfca4aa4d8fd9"
+    },
+    {
+      "source_index": 3,
+      "kind": "catalogue_pack",
+      "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\[MTR4.1原生目录]产物\\[MTR4.1]ChenDianMetroWayV0.5.1R.zip",
+      "filename": "[MTR4.1]ChenDianMetroWayV0.5.1R.zip",
+      "expected_sha256": "53b22f198d35009af71dfc2f2da32a7b06852ef10fd125c8102e3283a0630a66",
+      "sha256": "53b22f198d35009af71dfc2f2da32a7b06852ef10fd125c8102e3283a0630a66"
+    },
+    {
+      "source_index": 4,
+      "kind": "catalogue_pack",
+      "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\[MTR4.1原生目录]产物\\[MTR4.1]HSM-2000 v1.2.1 (Adapted for MTR 4.0.x)-20260722-210944.zip",
+      "filename": "[MTR4.1]HSM-2000 v1.2.1 (Adapted for MTR 4.0.x)-20260722-210944.zip",
+      "expected_sha256": "e1ff1857a8b4f9fbf049e009ccb5fa79aff7d73212aadec54d6727810979adcb",
+      "sha256": "e1ff1857a8b4f9fbf049e009ccb5fa79aff7d73212aadec54d6727810979adcb"
+    },
+    {
+      "source_index": 5,
+      "kind": "catalogue_pack",
+      "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\[MTR4.1原生目录]产物\\[MTR4.1]rpsync-mtr4.0.0-hxd3d-yw25t.zip",
+      "filename": "[MTR4.1]rpsync-mtr4.0.0-hxd3d-yw25t.zip",
+      "expected_sha256": "fe15135afd9a53f6f72a910b09d7caf64eab3195a2bb71a3662d5c90318167a5",
+      "sha256": "fe15135afd9a53f6f72a910b09d7caf64eab3195a2bb71a3662d5c90318167a5"
+    },
+    {
+      "source_index": 6,
+      "kind": "catalogue_pack",
+      "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\[MTR4.1原生目录]产物\\[MTR4.1]rpsync-shanghaimetroaddon_v3.4.0_creating_trimmed_v2.zip",
+      "filename": "[MTR4.1]rpsync-shanghaimetroaddon_v3.4.0_creating_trimmed_v2.zip",
+      "expected_sha256": "f4e722fdf459b954ba5c747146ab20b281085543b027d755784b460645126032",
+      "sha256": "f4e722fdf459b954ba5c747146ab20b281085543b027d755784b460645126032"
+    },
+    {
+      "source_index": 7,
+      "kind": "catalogue_pack",
+      "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\[MTR4.1原生目录]产物\\[MTR4.1]ShirahaneVehicle v2.4.3 release_hotfix1.zip",
+      "filename": "[MTR4.1]ShirahaneVehicle v2.4.3 release_hotfix1.zip",
+      "expected_sha256": "4e5faea0c9bbb2f12da0aa183c99ec5618caf0d133b8db436205e93409653924",
+      "sha256": "4e5faea0c9bbb2f12da0aa183c99ec5618caf0d133b8db436205e93409653924"
+    },
+    {
+      "source_index": 8,
+      "kind": "catalogue_pack",
+      "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\[MTR4.1原生目录]产物\\[MTR4.1]STCP Bus Pack.zip",
+      "filename": "[MTR4.1]STCP Bus Pack.zip",
+      "expected_sha256": "01793de2077d4a4cd4a0795c91c51bdcfdff3806c405c617ad81ade229d56e26",
+      "sha256": "01793de2077d4a4cd4a0795c91c51bdcfdff3806c405c617ad81ade229d56e26"
+    },
+    {
+      "source_index": 9,
+      "kind": "catalogue_pack",
+      "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\[MTR4.1原生目录]产物\\[MTR4.1]Zhongtong Base Pack - 1.1.0.zip",
+      "filename": "[MTR4.1]Zhongtong Base Pack - 1.1.0.zip",
+      "expected_sha256": "395defdda548bc058d1bf3aefd6f0bf39d4cf57640deda64577b2970689f436b",
+      "sha256": "395defdda548bc058d1bf3aefd6f0bf39d4cf57640deda64577b2970689f436b"
+    },
+    {
+      "source_index": 10,
+      "kind": "catalogue_pack",
+      "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\[MTR4.1原生目录]产物\\[MTR4.1]§9§l现代城市系列追加包§7-v2.0.zip",
+      "filename": "[MTR4.1]§9§l现代城市系列追加包§7-v2.0.zip",
+      "expected_sha256": "51ae8f3e3cccec5f41dae49c3a85f5c263568a0b8f43217f3bcd150f7849efe3",
+      "sha256": "51ae8f3e3cccec5f41dae49c3a85f5c263568a0b8f43217f3bcd150f7849efe3"
+    },
+    {
+      "source_index": 11,
+      "kind": "catalogue_pack",
+      "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\[MTR4.1原生目录]产物\\[MTR4.1]悠日交通资源包part3-260708.zip",
+      "filename": "[MTR4.1]悠日交通资源包part3-260708.zip",
+      "expected_sha256": "fab04085d6c7553319f391d36eeecf185e6cdc981d88c0d7ac1ca15a78b244d8",
+      "sha256": "fab04085d6c7553319f391d36eeecf185e6cdc981d88c0d7ac1ca15a78b244d8"
+    },
+    {
+      "source_index": 12,
+      "kind": "catalogue_pack",
+      "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\[MTR4.1原生目录]产物\\[MTR4.1]悠日计画 故事模式用材质 8.2504.zip",
+      "filename": "[MTR4.1]悠日计画 故事模式用材质 8.2504.zip",
+      "expected_sha256": "6772b10629ffffca783ab7ce8bc512d960fc579d1d4510a817114a8ab665476f",
+      "sha256": "6772b10629ffffca783ab7ce8bc512d960fc579d1d4510a817114a8ab665476f"
+    },
+    {
+      "source_index": 13,
+      "kind": "catalogue_pack",
+      "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\[MTR4.1原生目录]产物\\[MTR4.1]悠日计画交通资源包part2 release v2.1-hotfix2.zip",
+      "filename": "[MTR4.1]悠日计画交通资源包part2 release v2.1-hotfix2.zip",
+      "expected_sha256": "bb099ebb73630c3a0e1835e142669bbd3524b4933f70e998dccf15e8ca62f3a3",
+      "sha256": "bb099ebb73630c3a0e1835e142669bbd3524b4933f70e998dccf15e8ca62f3a3"
+    },
+    {
+      "source_index": 14,
+      "kind": "catalogue_pack",
+      "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\[MTR4.1原生目录]产物\\[MTR4.1]新艾利都地铁_疾锋龙号(性能优化版).zip",
+      "filename": "[MTR4.1]新艾利都地铁_疾锋龙号(性能优化版).zip",
+      "expected_sha256": "32abec5da78751bf0ea22d295df4dc815366554227f075dab21ba2752917e3d3",
+      "sha256": "32abec5da78751bf0ea22d295df4dc815366554227f075dab21ba2752917e3d3"
+    },
+    {
+      "source_index": 15,
+      "kind": "catalogue_pack",
+      "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\[MTR4.1原生目录]产物\\[MTR4.1]新铁路铁轨基本轨包BY默淼yams.zip",
+      "filename": "[MTR4.1]新铁路铁轨基本轨包BY默淼yams.zip",
+      "expected_sha256": "f3993fd8b78e7ca0f85b6ba0a148718b582cbf2cdc6fa7985d2e224b534adc42",
+      "sha256": "f3993fd8b78e7ca0f85b6ba0a148718b582cbf2cdc6fa7985d2e224b534adc42"
+    },
+    {
+      "source_index": 16,
+      "kind": "catalogue_pack",
+      "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\[MTR4.1原生目录]产物\\[MTR4.1]新艾利都地铁 ERIDU-10000一期改造型.zip",
+      "filename": "[MTR4.1]新艾利都地铁 ERIDU-10000一期改造型.zip",
+      "expected_sha256": "61b763b59bf98be3f860f0297dc46c00a4df972469321a310a21bcb5c3c120b4",
+      "sha256": "61b763b59bf98be3f860f0297dc46c00a4df972469321a310a21bcb5c3c120b4"
+    }
+  ],
+  "class_inputs": [
+    {
+      "source_index": 0,
+      "archive_sha256": "ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa",
+      "entry": "org/mtr/client/CustomResourceLoader.class",
+      "entry_sha256": "ec7cfc6da67a42332c1cc3f89e0b5db5c0d7df4c657f3267ef82346b1dd28934",
+      "bytes": 25739,
+      "javap": "org.mtr.client.CustomResourceLoader.javap.txt"
+    },
+    {
+      "source_index": 0,
+      "archive_sha256": "ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa",
+      "entry": "org/mtr/resource/RailResource.class",
+      "entry_sha256": "2de804ab50c3d68684093638e775d8acc6dbaf4826140a517955012ef65aa93b",
+      "bytes": 4994,
+      "javap": "org.mtr.resource.RailResource.javap.txt"
+    },
+    {
+      "source_index": 0,
+      "archive_sha256": "ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa",
+      "entry": "org/mtr/generated/resource/RailResourceSchema.class",
+      "entry_sha256": "48f1fd0980e35f820991b83c5ab219816adc23d60c955146121c4a94167f0200",
+      "bytes": 3118,
+      "javap": "org.mtr.generated.resource.RailResourceSchema.javap.txt"
+    },
+    {
+      "source_index": 0,
+      "archive_sha256": "ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa",
+      "entry": "org/mtr/resource/ObjectResource.class",
+      "entry_sha256": "98ef8a1b2973a5f4e5257705836c62739724c565f88fb22bef6900b5c1d79e51",
+      "bytes": 5406,
+      "javap": "org.mtr.resource.ObjectResource.javap.txt"
+    },
+    {
+      "source_index": 0,
+      "archive_sha256": "ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa",
+      "entry": "org/mtr/generated/resource/ObjectResourceSchema.class",
+      "entry_sha256": "3e406e8c7a96c09738bfb1075bdfe28cd7b8371c1459229823ec4247835862d3",
+      "bytes": 3799,
+      "javap": "org.mtr.generated.resource.ObjectResourceSchema.javap.txt"
+    },
+    {
+      "source_index": 0,
+      "archive_sha256": "ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa",
+      "entry": "org/mtr/resource/VehicleModel.class",
+      "entry_sha256": "34a128ba0e6e52f740a870799e7b87d07e6a007c0b98db42c9a9d3ca98dbef30",
+      "bytes": 10922,
+      "javap": "org.mtr.resource.VehicleModel.javap.txt"
+    },
+    {
+      "source_index": 0,
+      "archive_sha256": "ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa",
+      "entry": "org/mtr/generated/resource/VehicleModelSchema.class",
+      "entry_sha256": "187d9ac220f2f5eea1a63e647fc8451db5c7938b55ca861902fa2d287bc088dd",
+      "bytes": 2657,
+      "javap": "org.mtr.generated.resource.VehicleModelSchema.javap.txt"
+    },
+    {
+      "source_index": 0,
+      "archive_sha256": "ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa",
+      "entry": "org/mtr/resource/CustomResourceTools.class",
+      "entry_sha256": "81c707b99aa417063b5213bfb35b44da145d047ef943128d6d627c3e7e46749f",
+      "bytes": 3585,
+      "javap": "org.mtr.resource.CustomResourceTools.javap.txt"
+    },
+    {
+      "source_index": 0,
+      "archive_sha256": "ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa",
+      "entry": "org/mtr/resource/LiftResource.class",
+      "entry_sha256": "f74cb9b7378248f48217113fc498f18060284d03fd2d24bab471195e49258ec6",
+      "bytes": 1833,
+      "javap": "org.mtr.resource.LiftResource.javap.txt"
+    },
+    {
+      "source_index": 0,
+      "archive_sha256": "ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa",
+      "entry": "org/mtr/resource/SignResource.class",
+      "entry_sha256": "0ef4a395acd996479179dbc10e81ebe6d298efb203adc61c52e1b1e7dba55ca4",
+      "bytes": 26445,
+      "javap": "org.mtr.resource.SignResource.javap.txt"
+    },
+    {
+      "source_index": 0,
+      "archive_sha256": "ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa",
+      "entry": "org/mtr/legacy/resource/CustomResourcesConverter.class",
+      "entry_sha256": "7f53080b0b9fc85025adc23d59cde31e936a20003451819d259fcdf9f54337dc",
+      "bytes": 7936,
+      "javap": "org.mtr.legacy.resource.CustomResourcesConverter.javap.txt"
+    },
+    {
+      "source_index": 0,
+      "archive_sha256": "ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa",
+      "entry": "org/mtr/core/serializer/JsonReader.class",
+      "entry_sha256": "7195b3b604e2d4c59cf9ded90777ae38c783d6fe07c533ac12261533ebe2c78b",
+      "bytes": 17388,
+      "javap": "org.mtr.core.serializer.JsonReader.javap.txt"
+    },
+    {
+      "source_index": 0,
+      "archive_sha256": "ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa",
+      "entry": "org/mtr/core/serializer/ReaderBase.class",
+      "entry_sha256": "64e139391ce6d9101b425239cc314b7002a21d2ed2199d286b28575964461f73",
+      "bytes": 4231,
+      "javap": "org.mtr.core.serializer.ReaderBase.javap.txt"
+    }
+  ],
+  "official_classes_scanned": 6752,
+  "constant_pool_findings": [
+    {
+      "entry": "org/mtr/client/CustomResourceLoader.class",
+      "entry_sha256": "ec7cfc6da67a42332c1cc3f89e0b5db5c0d7df4c657f3267ef82346b1dd28934",
+      "method_references": [
+        {
+          "constant_pool_index": 103,
+          "owner": "org/mtr/resource/RailResource",
+          "name": "<init>",
+          "descriptor": "(Ljava/lang/String;Ljava/lang/String;Lorg/mtr/resource/ResourceProvider;)V"
+        }
+      ],
+      "contains_invalid_model_log_literal": false
+    },
+    {
+      "entry": "org/mtr/resource/ObjectResource.class",
+      "entry_sha256": "98ef8a1b2973a5f4e5257705836c62739724c565f88fb22bef6900b5c1d79e51",
+      "method_references": [
+        {
+          "constant_pool_index": 42,
+          "owner": "org/mtr/resource/VehicleModel",
+          "name": "getModelLoaderBase",
+          "descriptor": "(Ljava/lang/String;Ljava/lang/String;Lorg/mtr/resource/ResourceProvider;Z)Lorg/mtr/model/ModelLoaderBase;"
+        }
+      ],
+      "contains_invalid_model_log_literal": false
+    },
+    {
+      "entry": "org/mtr/resource/RailResource.class",
+      "entry_sha256": "2de804ab50c3d68684093638e775d8acc6dbaf4826140a517955012ef65aa93b",
+      "method_references": [
+        {
+          "constant_pool_index": 42,
+          "owner": "org/mtr/resource/VehicleModel",
+          "name": "getModelLoaderBase",
+          "descriptor": "(Ljava/lang/String;Ljava/lang/String;Lorg/mtr/resource/ResourceProvider;Z)Lorg/mtr/model/ModelLoaderBase;"
+        }
+      ],
+      "contains_invalid_model_log_literal": false
+    },
+    {
+      "entry": "org/mtr/resource/VehicleModel.class",
+      "entry_sha256": "34a128ba0e6e52f740a870799e7b87d07e6a007c0b98db42c9a9d3ca98dbef30",
+      "method_references": [
+        {
+          "constant_pool_index": 62,
+          "owner": "org/mtr/resource/VehicleModel",
+          "name": "getModelLoaderBase",
+          "descriptor": "(Ljava/lang/String;Ljava/lang/String;Lorg/mtr/resource/ResourceProvider;Z)Lorg/mtr/model/ModelLoaderBase;"
+        }
+      ],
+      "contains_invalid_model_log_literal": true
+    }
+  ],
+  "constant_pool_limit": "Method references/literals establish static candidates; actual invocations checked in saved javap, not runtime tracing.",
+  "official_class_scan_warnings": [
+    {
+      "entry": "org/mtr/libraries/org/jetbrains/annotations/NotNull.class",
+      "category": "UserWarning",
+      "message": "Overlapped entries: 'org/mtr/libraries/org/jetbrains/annotations/NotNull.class' (possible zip bomb)"
+    },
+    {
+      "entry": "org/mtr/libraries/org/jetbrains/annotations/Nullable.class",
+      "category": "UserWarning",
+      "message": "Overlapped entries: 'org/mtr/libraries/org/jetbrains/annotations/Nullable.class' (possible zip bomb)"
+    }
+  ],
+  "native_generated_source": {
+    "source_index": 0,
+    "archive": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\dependencies\\mtr-ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa.jar",
+    "archive_sha256": "ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa",
+    "entry": "org/mtr/client/CustomResourceLoader.class",
+    "registry_entry": null,
+    "json_pointer": null,
+    "id": "default",
+    "name": "Default",
+    "model_resource": "",
+    "texture_resource": "",
+    "caller": "org.mtr.client.CustomResourceLoader.reload()",
+    "caller_bytecode_offset": 132,
+    "constructor": "org.mtr.resource.RailResource(String,String,ResourceProvider)",
+    "model_factory_bytecode_offset": 36,
+    "expected_log_texture": "mtr:textures/block/transparent.png",
+    "should_preload": false,
+    "origin": "Programmatic native registration before registry read",
+    "runtime_caller_traced": false
+  },
+  "bytecode_evidence_lines": {
+    "reload_default_rail": {
+      "file": "org.mtr.client.CustomResourceLoader.javap.txt",
+      "lines": [
+        92,
+        94,
+        104,
+        95,
+        97
+      ]
+    },
+    "rail_convenience_constructor": {
+      "file": "org.mtr.resource.RailResource.javap.txt",
+      "lines": [
+        44,
+        69
+      ]
+    },
+    "invalid_branch": {
+      "file": "org.mtr.resource.VehicleModel.javap.txt",
+      "lines": [
+        347,
+        398
+      ]
+    },
+    "default_texture": {
+      "file": "org.mtr.resource.CustomResourceTools.javap.txt",
+      "lines": [
+        32,
+        41
+      ]
+    }
+  },
+  "registry_slots_checked": 34,
+  "registry_entries_present": 14,
+  "native_declarations_audited": {
+    "vehicles": 1092,
+    "rails": 8,
+    "objects": 1
+  },
+  "model_fields_audited": {
+    "vehicles.models": 3181,
+    "vehicles.bogie1Models": 496,
+    "vehicles.bogie2Models": 514,
+    "rails": 8,
+    "objects": 1
+  },
+  "model_consumer_rows_audited": 4200,
+  "unsupported_suffix_authored_candidates": 0,
+  "unsupported_suffix_authored_candidates_with_empty_texture": 0,
+  "empty_model_lists": 1174,
+  "legacy_branches_without_trains_skipped": [
+    {
+      "source_index": 12,
+      "archive_sha256": "6772b10629ffffca783ab7ce8bc512d960fc579d1d4510a817114a8ab665476f",
+      "entry": "assets/mtr/mtr_custom_resources.json",
+      "entry_sha256": "6ddb23e8e2751c74ad09e3f6b8eaf02e90b8ea96b4de36717a0ff82932d3f7b0",
+      "present": true,
+      "bytes": 923,
+      "keys": [
+        "custom_signs"
+      ],
+      "legacy_branch": true,
+      "legacy_train_count": 0,
+      "legacy_sign_count": 7
+    },
+    {
+      "source_index": 0,
+      "archive_sha256": "ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa",
+      "entry": "assets/mtr/mtr_custom_resources_pending_migration.json",
+      "entry_sha256": "82b5eba3a1c1fe886ed3cff51708ae343d0352ad5c16c30afbc6fe4e1b5b7370",
+      "present": true,
+      "bytes": 25,
+      "keys": [
+        "custom_trains"
+      ],
+      "legacy_branch": true,
+      "legacy_train_count": 0,
+      "legacy_sign_count": 0
+    }
+  ],
+  "legacy_sign_declarations_excluded_from_model_consumer_audit": 7,
+  "transparent_texture_origins": [
+    {
+      "source_index": 0,
+      "archive_sha256": "ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa",
+      "entry": "assets/mtr/textures/block/transparent.png",
+      "entry_sha256": "ef35f83437f67cf013c0357016e83a78b48276af3c48b7a5c90db33cffdee8b3",
+      "bytes": 198,
+      "png_magic_matches": true,
+      "decoded_or_validated": false
+    }
+  ],
+  "archived_logs": [
+    {
+      "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-046\\full-load-initial-nf248\\latest.log",
+      "sha256": "543ee29aff09fb813aba3c3f532b1f8b4d6a3b8987faec49dcbe7ea504bf3115",
+      "occurrences": [
+        {
+          "line": 122,
+          "text": "[1511月2026 04:59:49.338] [Render thread/ERROR] [MinecraftTransitRailway/]: [mtr:textures/block/transparent.png] Invalid model!"
+        }
+      ],
+      "runtime_caller_traced": false
+    },
+    {
+      "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-046\\packaged-faults-nf248\\latest.log",
+      "sha256": "36d389c265fa0561e4807663ea50d3438bcf13b5c21cf51f0eef00d29456dd36",
+      "occurrences": [
+        {
+          "line": 111,
+          "text": "[1511月2026 04:54:28.072] [Render thread/ERROR] [MinecraftTransitRailway/]: [mtr:textures/block/transparent.png] Invalid model!"
+        }
+      ],
+      "runtime_caller_traced": false
+    },
+    {
+      "path": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-046\\packaged-faults-nf265\\latest.log",
+      "sha256": "21f72d71f41876016732d3f120c5564af44989141b01e3ac131cfb3ccfc51620",
+      "occurrences": [
+        {
+          "line": 111,
+          "text": "[1511月2026 04:56:06.022] [Render thread/ERROR] [MinecraftTransitRailway/]: [mtr:textures/block/transparent.png] Invalid model!"
+        }
+      ],
+      "runtime_caller_traced": false
+    }
+  ],
+  "findings": [
+    "Official reload programmatically registers rail id default / name Default before reading either registry. Its convenience constructor supplies empty modelResource and empty textureResource, then unconditionally calls VehicleModel.getModelLoaderBase.",
+    "Factory formats textureResource first, tests raw modelResource suffix case-sensitively for .bbmodel/.obj, and logs the formatted texture identifier on unsupported-model fallback. Empty modelResource therefore prints the transparent default. This line is not an assertion that the PNG bytes are an invalid model.",
+    "Audit includes every native model consumer declaration in both registries across the verified official archive and 16 catalogue archives, including superseded declarations. All observed model/texture fields are strings or absent; missing fields use the verified empty schema default. Nonempty legacy vehicle conversion, mixed legacy/native arrays, or duplicate JSON keys would stop the audit.",
+    "Two legacy registry branches contain no custom_trains; one contains seven custom_signs. Saved converter/SignResource bytecode and the full class reference scan separate sign conversion from VehicleModel.getModelLoaderBase consumers. These signs are recorded but excluded from the model consumer count.",
+    "LiftResource is saved for boundary review and does not reference getModelLoaderBase. Its default_transparent lift is not assigned as this source merely because its modelResource is absent."
+  ],
+  "limits": [
+    "No new game run, runtime call-stack trace, mod-free baseline, or resource reload was performed. Archived logs still involve the companion/product setup recorded in their original plans.",
+    "Static native call chain proves a built-in source capable of producing this exact line per successful reload reach. It does not trace the individual archived or active log occurrence, establish absence of third-party code invocations, or prove the resulting fallback has no render/behavior/performance impact.",
+    "Asset suffix audit excludes this particular unsupported-format branch for audited authored consumers; it does not prove referenced model parsing, textures, geometry, properties, or runtime provider selection are valid.",
+    "PNG magic is metadata only. No PNG decode or integrity conclusion is made or needed for this log attribution."
+  ],
+  "tools": {
+    "script": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\evidence\\engineering-047\\native-invalid-model\\attribute.py",
+    "script_sha256": "80cbbb1d8c830447d3524c4a71bca1705db2e7bfad783ab4d1152af0991b5073",
+    "javap": "C:\\Users\\ben_l\\Saved Games\\Yuuniverse 1.20.1 Shenyang\\porting-output\\work\\tools\\jdk21\\jdk-21.0.11+10\\bin\\javap.exe",
+    "javap_sha256": "1d6f058d5aef5f6f5df4f583cf13de8b2fea65c139f8c5ab6c8dabb734a2cf1a",
+    "javap_jvm_encoding_options": [
+      "-J-Dfile.encoding=UTF-8",
+      "-J-Dstdout.encoding=UTF-8",
+      "-J-Dstderr.encoding=UTF-8"
+    ]
+  }
+}

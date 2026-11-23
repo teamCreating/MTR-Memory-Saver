@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="site.benli06.ResourceTextSnapshotTest" tests="13" skipped="0" failures="0" errors="0" timestamp="2026-11-17T14:42:42.370Z" hostname="DESKTOP-885HHP9" time="0.745">
+  <properties/>
+  <testcase name="sourceCountersKeepLateOldProviderCompletionsInTheirOriginalEpoch()" classname="site.benli06.ResourceTextSnapshotTest" time="0.048"/>
+  <testcase name="readerDigestMatchesOldStringBytesAcrossEverySurrogateBoundary()" classname="site.benli06.ResourceTextSnapshotTest" time="0.031"/>
+  <testcase name="unknownAndDecliningProvidersKeepTheirActualGetContract()" classname="site.benli06.ResourceTextSnapshotTest" time="0.026"/>
+  <testcase name="sourceMutationAfterCaptureCannotChangeDigestOrParsedInput()" classname="site.benli06.ResourceTextSnapshotTest" time="0.052"/>
+  <testcase name="boundedReaderPreservesReplacementSupplementaryTextAndOriginalDigest()" classname="site.benli06.ResourceTextSnapshotTest" time="0.122"/>
+  <testcase name="explicitCapabilityAvoidsGetAndKeepsTheSameContentKey()" classname="site.benli06.ResourceTextSnapshotTest" time="0.012"/>
+  <testcase name="snapshotShortIoPreservesBytesAndOwnerCloseErrorIsNotSuccess()" classname="site.benli06.ResourceTextSnapshotTest" time="0.164"/>
+  <testcase name="zeroProgressReadsAndWritesStillObserveRetirementAndDeleteTheirOwner()" classname="site.benli06.ResourceTextSnapshotTest" time="0.022"/>
+  <testcase name="snapshotWriteErrorKeepsItsOriginalCauseAndSuppressedCloseError()" classname="site.benli06.ResourceTextSnapshotTest" time="0.011"/>
+  <testcase name="ownedSnapshotHandlesShortIoAndPropagatesCreateWriteReadRewindCloseErrors()" classname="site.benli06.ResourceTextSnapshotTest" time="0.035"/>
+  <testcase name="closingAnOldReaderTwiceCannotReleaseTheCurrentReaderGuard()" classname="site.benli06.ResourceTextSnapshotTest" time="0.016"/>
+  <testcase name="captureFailureLimitCancellationAndSourceCloseFailureCannotLeakOwner()" classname="site.benli06.ResourceTextSnapshotTest" time="0.022"/>
+  <testcase name="readerAndStringKeepNativeBlockbenchSchemaAndMalformedInputFailures()" classname="site.benli06.ResourceTextSnapshotTest" time="0.158"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[2026-11-17T14:42:43.064972600Z Test worker ERROR Log4j API could not find a logging provider.
+]]></system-err>
+</testsuite>

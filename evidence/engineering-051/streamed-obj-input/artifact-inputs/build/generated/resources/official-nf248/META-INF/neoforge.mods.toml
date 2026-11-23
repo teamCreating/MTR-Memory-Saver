@@ -1,0 +1,31 @@
+modLoader="lowcodefml"
+loaderVersion="[4,)"
+license="MIT"
+[[mods]]
+modId="mtr_memory_sharing"
+version="0.4.8"
+displayName="MTR Memory Saver"
+authors="A-BenLi06"
+description="Shared resource loading for Minecraft Transit Railway."
+logoFile="pack.png"
+logoBlur=false
+[[dependencies.mtr_memory_sharing]]
+modId="neoforge"
+type="required"
+versionRange="[21.1.248]"
+ordering="NONE"
+side="CLIENT"
+[[dependencies.mtr_memory_sharing]]
+modId="minecraft"
+type="required"
+versionRange="[1.21.1]"
+ordering="NONE"
+side="CLIENT"
+[[dependencies.mtr_memory_sharing]]
+modId="mtr"
+type="required"
+versionRange="[4.1.0-beta.2]"
+ordering="AFTER"
+side="CLIENT"
+[[mixins]]
+config="mtr-memory-sharing.mixins.json"

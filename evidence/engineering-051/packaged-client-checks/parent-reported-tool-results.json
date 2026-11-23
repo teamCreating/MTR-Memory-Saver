@@ -1,0 +1,40 @@
+{
+  "recorded_at": "2026-11-17T14:01:41.147328+00:00",
+  "provenance": "Parent-reported actual tool-history results. No original terminal tool receipt was saved; this is not a reconstructed raw receipt.",
+  "collector_wrappers": [
+    {
+      "capture": "nf248-smoke-capture03",
+      "tool_session": 62013,
+      "wrapper_exit_code": 0,
+      "jvm_pid": 39660,
+      "jvm_exit_code": 0
+    },
+    {
+      "capture": "nf265-smoke-capture",
+      "tool_session": 48261,
+      "wrapper_exit_code": 0,
+      "jvm_pid": 54748,
+      "jvm_exit_code": 0
+    },
+    {
+      "capture": "nf248-mismatch-capture",
+      "tool_session": 63994,
+      "wrapper_exit_code": 0,
+      "jvm_pid": 60744,
+      "jvm_exit_code": 1
+    },
+    {
+      "capture": "nf265-mismatch-capture",
+      "tool_session": 91696,
+      "wrapper_exit_code": 0,
+      "jvm_pid": 41096,
+      "jvm_exit_code": 1
+    }
+  ],
+  "initial_attempt": {
+    "capture": "nf248-smoke-capture",
+    "reported_cause": "Missing launcher Python module; launch did not occur.",
+    "on_disk_boundary": "execution remains launching; no PID/launch file or error traceback is recorded. This disk record alone cannot prove the reported cause."
+  },
+  "boundary": "Disk execution.exit_code comes from owned process.wait() and is a JVM exit code. The frozen collector does not forward it as the Python wrapper exit status."
+}

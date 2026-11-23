@@ -25,6 +25,23 @@ Performance qualification additionally requires the observer's live
 still be inspected or used for their original diagnostics, but they cannot supply
 the new per-run attribution evidence.
 
+Additional profiling mods can be supplied explicitly with repeatable
+`prepare --measurement-mod <jar>`. Their filenames, roles and exact SHA-256
+are frozen in the installed inventory and comparison controls; undeclared,
+missing or replaced JARs still fail verification. These mods do not replace
+the independent observer. All compared groups must use identical measurement
+mod bytes and settings. Adding a profiler requires new prepared instances and
+qualification; old three-mod qualifications do not cover the changed client.
+
+For spark client diagnostics, use the compatible NeoForge/Minecraft release
+and `/sparkc` commands. Freeze `-Dspark.backgroundProfiler=false` in all groups
+to prevent an implicit background sample. An explicitly started profile may be
+saved locally with `/sparkc profiler stop --save-to-file`. Preserve its engine,
+interval, thread selection and actual time window. Sampled stack weights are
+not independent display-frame or JFR render-loop durations, and profiler
+presence alone does not establish performance acceptance. Spark sampling and
+its added overhead must be accounted for before comparison claims.
+
 The baseline may use the explicitly selected `official-030-nf248` or
 `official-030-nf265` legacy identity adapter. Its original JAR bytes are preserved.
 A known artifact SHA or historical load is not qualification for current packs,

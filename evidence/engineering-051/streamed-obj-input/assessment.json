@@ -1,0 +1,84 @@
+{
+  "scope": "Engineering and packaged-client checks for revised unpublished 0.4.8; no twenty-reload or performance acceptance",
+  "sealed_at": "2026-11-17T23:53:33.165984+08:00",
+  "source_commit": "a63214910038ee11ed377cd7dfeb6158729eb1d7",
+  "targets": [
+    {
+      "stage": "02-final-nf248",
+      "exit_code": 0,
+      "tests": 105,
+      "failures": 0,
+      "skipped": 0,
+      "source_drift": []
+    },
+    {
+      "stage": "03-final-nf265",
+      "exit_code": 0,
+      "tests": 105,
+      "failures": 0,
+      "skipped": 0,
+      "source_drift": []
+    }
+  ],
+  "negative_control": {
+    "actual_exit_code": 1,
+    "string_join_oom": true,
+    "scope": "One full-String negative allocation control; no JUnit test task or game launched"
+  },
+  "clients": [
+    {
+      "case": "nf248-smoke01",
+      "pid": 57308,
+      "jvm_exit_code": 0,
+      "jfr_summary_argv": [
+        "C:\\Users\\ben_l\\Saved Games\\Yuuniverse 1.20.1 Shenyang\\porting-output\\work\\tools\\jdk21\\jdk-21.0.11+10\\bin\\jfr.exe",
+        "summary",
+        "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-obj048-smoke01\\acceptance.jfr"
+      ],
+      "jfr_summary_exit": 0,
+      "jfr_bytes": 5173892,
+      "jfr_sha256": "5dcd3dc7f6cc6208c16803f8602acd19ed923be4ffedae24ed828183b92f8f3b"
+    },
+    {
+      "case": "nf265-smoke01",
+      "pid": 62672,
+      "jvm_exit_code": 0,
+      "jfr_summary_argv": [
+        "C:\\Users\\ben_l\\Saved Games\\Yuuniverse 1.20.1 Shenyang\\porting-output\\work\\tools\\jdk21\\jdk-21.0.11+10\\bin\\jfr.exe",
+        "summary",
+        "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf265-obj048-smoke01\\acceptance.jfr"
+      ],
+      "jfr_summary_exit": 0,
+      "jfr_bytes": 5020187,
+      "jfr_sha256": "9b684ed17c323525fb696d1aa2b92637eabe1c1eea9c85d12ce214372f49e7a2"
+    },
+    {
+      "case": "nf248-mismatch01",
+      "pid": 44564,
+      "jvm_exit_code": 1,
+      "jfr_summary_argv": [
+        "C:\\Users\\ben_l\\Saved Games\\Yuuniverse 1.20.1 Shenyang\\porting-output\\work\\tools\\jdk21\\jdk-21.0.11+10\\bin\\jfr.exe",
+        "summary",
+        "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf248-obj048-mismatch01\\acceptance.jfr"
+      ],
+      "jfr_summary_exit": 0,
+      "jfr_bytes": 1220488,
+      "jfr_sha256": "584626f6ff71de815a1c6e0a5be941c2c82bdfca6dda33e1aaa2dc5780404037"
+    },
+    {
+      "case": "nf265-mismatch01",
+      "pid": 67416,
+      "jvm_exit_code": 1,
+      "jfr_summary_argv": [
+        "C:\\Users\\ben_l\\Saved Games\\Yuuniverse 1.20.1 Shenyang\\porting-output\\work\\tools\\jdk21\\jdk-21.0.11+10\\bin\\jfr.exe",
+        "summary",
+        "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\official-nf265-obj048-mismatch01\\acceptance.jfr"
+      ],
+      "jfr_summary_exit": 0,
+      "jfr_bytes": 1269840,
+      "jfr_sha256": "fd17ce628430de36d289e30747244b8f6024d613c46e8cdf48ebe1dce58a4636"
+    }
+  ],
+  "runner_scope": "Java/build source pins are pre/post-run. Runner source copies are retained after completed invocations, not represented as pre-frozen terminal receipts.",
+  "runtime_scope": "execution.exit_code is actual owned JVM wait; collector Python wrapper terminal codes remain parent-reported unless separately recorded. No JFR/MTR/world/dependency binary is copied."
+}

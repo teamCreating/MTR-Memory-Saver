@@ -1,0 +1,13 @@
+{
+  "schema": 1,
+  "method": "tukey_inclusive",
+  "iqr_multiplier": 1.5,
+  "minimum_group_samples": 6,
+  "screen_metric": "loading_ms",
+  "comparison": "ab",
+  "roles": ["baseline", "candidate"],
+  "group_fields": ["mode", "role"],
+  "exclusion_unit": "pair",
+  "report_metrics": ["loading_ms", "steady_private_bytes"],
+  "leave_one_pair_out": true
+}

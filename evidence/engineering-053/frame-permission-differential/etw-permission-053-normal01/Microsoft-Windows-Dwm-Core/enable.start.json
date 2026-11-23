@@ -1,0 +1,31 @@
+{
+  "argv": [
+    "C:\\Windows\\System32\\logman.exe",
+    "create",
+    "trace",
+    "mtr-frame-diagnostic-0eac959e-9af8-4880-8c1e-31ea5a3f916b",
+    "-ets",
+    "-p",
+    "{9e9bba3c-2e38-40cb-99f4-9e8281425164}",
+    "0x1",
+    "5",
+    "-o",
+    "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\etw-permission-053-normal01\\Microsoft-Windows-Dwm-Core\\raw.etl",
+    "-f",
+    "bin",
+    "-ct",
+    "perf",
+    "-max",
+    "4"
+  ],
+  "cwd": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\etw-permission-053-normal01\\Microsoft-Windows-Dwm-Core",
+  "started": "2026-11-18T03:35:40.535407+00:00",
+  "owner_pid": 67328,
+  "timeout_seconds": 15,
+  "executable": {
+    "path": "C:\\Windows\\System32\\logman.exe",
+    "bytes": 120320,
+    "sha256": "5caaab1e6bed1ea511166432a8e8a03bccc058162e7d19019793e262535fb204"
+  },
+  "helper_pid": 68732
+}

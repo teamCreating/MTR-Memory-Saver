@@ -1,0 +1,97 @@
+{
+  "histories": [
+    {
+      "label": "one",
+      "result": "history/one/result.json",
+      "original_result": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\owned-049d-reload-progress03\\evaluation-20261117T102844542541Z.json",
+      "verified_count": 1,
+      "record_number": 349,
+      "exact_prefixes": [
+        {
+          "final_payload": "observer/samples.jsonl",
+          "offset": 0,
+          "bytes": 1019901,
+          "sha256": "4bf2003ba9dbcf95d2e59cde4bfe326022977190f6ac472c226caeab5c8fd779"
+        },
+        {
+          "final_payload": "recorder/journal.jsonl",
+          "offset": 0,
+          "bytes": 595661,
+          "sha256": "0736291c3e598a9a7f69677d590f1896bff7025d203499a3456710ab60941e86"
+        },
+        {
+          "final_payload": "recorder/inputs.jsonl",
+          "offset": 0,
+          "bytes": 9623,
+          "sha256": "c6fa37550fffeca44a591edb76e2f63ad8af2999a276f04147ad53903c55945a"
+        }
+      ]
+    },
+    {
+      "label": "two",
+      "result": "history/two/result.json",
+      "original_result": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\owned-049d-reload-progress03\\evaluation-20261117T104052486358Z.json",
+      "verified_count": 2,
+      "record_number": 1294,
+      "exact_prefixes": [
+        {
+          "final_payload": "observer/samples.jsonl",
+          "offset": 0,
+          "bytes": 2295764,
+          "sha256": "3b5055113be0b635d9fdaa3740fa22fdf8b6b128a2ae58f1b4bc4dc4fcee0f9e"
+        },
+        {
+          "final_payload": "recorder/journal.jsonl",
+          "offset": 0,
+          "bytes": 1173637,
+          "sha256": "cbc362ab0e4551f2acbb19c7d84d321ab6a3c519088c78811a7a6e0ff87b6163"
+        },
+        {
+          "final_payload": "recorder/inputs.jsonl",
+          "offset": 0,
+          "bytes": 19306,
+          "sha256": "f21e3c3a42c6f898d0bb53bca27066883c0846e720f8772b38d90320ebb7a9b7"
+        }
+      ]
+    },
+    {
+      "label": "three",
+      "result": "history/three/result.json",
+      "original_result": "C:\\Users\\ben_l\\Documents\\Coding\\resoucepack update\\vehicle-memory\\.cache\\acceptance\\owned-049d-reload-progress03\\wait-20261117T105138251245Z-seq4\\evaluation-001.json",
+      "verified_count": 3,
+      "record_number": 1869,
+      "exact_prefixes": [
+        {
+          "final_payload": "observer/samples.jsonl",
+          "offset": 0,
+          "bytes": 3423823,
+          "sha256": "7daa4b3426ffdd65c4cabb83dba926fcb3809cc6058939ac9a8570b57a4aac2a"
+        },
+        {
+          "final_payload": "recorder/journal.jsonl",
+          "offset": 0,
+          "bytes": 1700804,
+          "sha256": "9cfbd18e8913ef80bff8cb4372eb9143dd7349f242527ed966f30ce369ff60a8"
+        },
+        {
+          "final_payload": "recorder/inputs.jsonl",
+          "offset": 0,
+          "bytes": 28989,
+          "sha256": "ad0cf5bf0bf1b69f7fa5ab53dacffbfa49abb963190b05c5584a2571779bfc2f"
+        }
+      ]
+    }
+  ],
+  "retained_record_numbers": [
+    161,
+    349,
+    1079,
+    1294,
+    1534,
+    1869,
+    1894,
+    2482
+  ],
+  "last_ineligible_record_number": 2482,
+  "last_ineligible_log_receipt": "captures/00002482.json"
+}

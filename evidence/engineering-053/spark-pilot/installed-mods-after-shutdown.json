@@ -1,0 +1,29 @@
+{
+  "mods": [
+    {
+      "filename": "mtr-memory-saver-official-nf248-0.4.8.jar",
+      "sha256": "943b3d455fa3ce9d3ede74bc1a2071ece7bf70b09d9b7f829027347b53a9b588",
+      "role": "companion",
+      "bytes": 342121
+    },
+    {
+      "filename": "mtr-native-observer-official-nf248-1.0.3.jar",
+      "sha256": "1a4e69a81e8baaeaf30e76b7647a371a39411ab7687934da83742c0fdce8487d",
+      "role": "observer",
+      "bytes": 44068
+    },
+    {
+      "filename": "MTR-neoforge-4.1.0-beta.2+1.21.1.jar",
+      "sha256": "ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa",
+      "role": "mtr",
+      "bytes": 110673298
+    },
+    {
+      "filename": "spark-1.10.124-neoforge.jar",
+      "sha256": "647e8a81afbe414dba1df4ba15fd06c5d32d4cb544e68828405e8e074c2e16db",
+      "role": "measurement",
+      "bytes": 3642581
+    }
+  ],
+  "scope": "Read after actual normal JVM exit; all identities equal launch plan"
+}
