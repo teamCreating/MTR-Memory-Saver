@@ -753,3 +753,11 @@ engineering-056/nf265-reload20保留40个选定record闭包、所有literal inpu
 
 封存提交前 Git whitespace 校验识别 .bin 中的原始MTR日志ASCII横幅尾空格；沿用既有证据目录规则将新056路径的.bin标为binary，完整保留原始字节与hash，未清理或重写日志。
 
+## 2026-11-24T23:52:56.2899310+08:00 — 编写 Memory Saver 技术原理与全阶段对照试验文档
+
+新增中文综合技术文档 `docs/TECHNICAL_PRINCIPLES.md`，并在 `README.md` 补充对应索引链接；未改动任何产品 Java 源码、历史 `TECHNICAL.md` 归档或既有封存 `evidence/` 证据载荷。
+
+文档基于已核验的源码、`config/` 实验配置与 `evidence/`/`experiments/`/`performance/`/`compatibility/` 原始封存记录整理，涵盖三部分核心内容：（1）`0.4.8` 五层技术原理（`CompatibilityPlugin`/`BinaryFingerprint` 精确二进制门禁与 19 处 Mixin 注入矩阵、`GenerationWorkCache` L1/L2 两级单飞与无环异常保留、`SnapshotResourceProvider`/`ResourceTextSnapshot`/`Utf16TextSnapshot`/`ResourceTextDigest` 单遍边写边算哈希流式快照与 `BoundedTextCache`/`TextWorkspace`、`PackedVertices`/`DisplayRetention`/`VehicleJsonCache`、以及 `Performance v6` ABI/生命周期差异与 JVM 参数边界）；（2）三套受控配对试验协议（48-JVM 源码协议、48-JVM 整客户端冻结协议、12-JVM NF248 实用 Spark 验证）、中性观察器 1.0.3 与 `native-invalid-model` 逐次实时归因、非参数精确二项符号检验置信区间与事后 Tukey/留一对敏感性分析设计；（3）自 `v0.1.1` 至 `0.4.8` 全部对照试验、负对照与耐久结果的完整实测数据，忠实保留 `v0.1.2`/`v0.2.3`/`v0.2.4`/`v0.2.5` 否决记录、`2026-11-05` v6 8 GiB OOM 剖析、`0.4.2` 48-JVM 源码协议 `inconclusive`、`0.4.4`/`0.4.5`/`0.4.6`/`0.4.7`/`0.4.8` 错包与 64 MiB 负对照、第 4 次与初版第 7 次重载 OOM、3 次两小时路线失败、`engineering-054` 12-JVM 实用 Spark 验证不通过及并发宿主机负载敏感性、以及 `engineering-055`/`056` 单遍摘要优化微基准（NF265 线程 CPU −19.237% / 耗时 −19.371%）和 NF265 20 次连续全包重载封存。
+
+完成最终文本校验：186 处相对路径链接零缺失、`git diff --check` 无空白错误、Mermaid 语法与 LaTeX `$` 转义检查通过；并重新执行 `minecraft_testkit verify`（682 份历史脚本、2 组数据集、11 样例）与 `minecraft_testkit test`（354 项工具测试）验证通过，随后提交至 `codex/standalone` 并推送 `origin`。
+

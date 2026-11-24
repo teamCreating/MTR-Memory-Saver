@@ -120,9 +120,12 @@ permits a scoped development pre-release for NeoForge 21.1.265. Whole-client
 performance, every vehicle interaction and a two-hour route remain unqualified.
 
 Historical guides and measurements are indexed in [HISTORY.md](docs/HISTORY.md)
-and [TECHNICAL.md](TECHNICAL.md). New candidate tests and performance reports have
-separate artifact identities. GPU lifetime and gameplay require runtime acceptance;
-a successful compile or class-file comparison is not such acceptance.
+and [TECHNICAL.md](TECHNICAL.md). For the consolidated Chinese guide covering
+0.1.x–0.4.8 runtime architecture, controlled experiment methodology, and all
+trial results, see [technical principles and controlled experiments](docs/TECHNICAL_PRINCIPLES.md).
+New candidate tests and performance reports have separate artifact identities.
+GPU lifetime and gameplay require runtime acceptance; a successful compile or
+class-file comparison is not such acceptance.
 
 The independent [acceptance tools](tools/acceptance/README.md) cover native reference
 audits, paired real-input source lookup, JFR analysis and optional client probes.
