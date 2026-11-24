@@ -761,3 +761,13 @@ engineering-056/nf265-reload20保留40个选定record闭包、所有literal inpu
 
 完成最终文本校验：186 处相对路径链接零缺失、`git diff --check` 无空白错误、Mermaid 语法与 LaTeX `$` 转义检查通过；并重新执行 `minecraft_testkit verify`（682 份历史脚本、2 组数据集、11 样例）与 `minecraft_testkit test`（354 项工具测试）验证通过，随后提交至 `codex/standalone` 并推送 `origin`。
 
+## 2026-11-25T00:29:40.8767742+08:00 — 重构 TECHNICAL_PRINCIPLES.md 为面向开发者与社区审计的参考文档
+
+按后续可读性与展示需求，在原地将 `docs/TECHNICAL_PRINCIPLES.md` 重构为面向开发者上手和社区审计的文档结构（共 585 行、纯 LF 换行），未修改任何产品 Java 源码、`README.md`、历史 `TECHNICAL.md` 或既有 `evidence/` 载荷：
+
+- **开篇直出核心进步**：新增“一眼看懂：我们实现了多大进步”总览与 10 项 Before→After 对比表（Java 堆上限由 `8 GiB` / v6 `8 GiB` 165 Full GC OOM 降至 `3 GiB`、活跃 `StoredVertexData` 由 `79,359,867` 清零、`StoredMatrixTransformations` 由 `2,494,194` 降至 `2,234`、核心 Gson 浅堆由 `385.75 MB` 降至 `99.87 MB`、文本缓存收敛为 `96 MiB` LRU、16M 大文本哈希分配降低 `99.898%–99.981%`、L1 路径优先 48-JVM A/B 分配 `−62.38%`/耗时 `−71.31%`、单遍快照摘要 NF265 线程 CPU `−19.24%`、3 GiB 连续 20/20 次全 16 包 F3+T 重载及强杀零残留/错包退出码 1），并在首屏高亮展示当前“已获证 vs 未通过/待关闭”真实边界以及按读者角色直达导航。
+- **开发者速查与大表折叠**：将 19 处 Mixin 矩阵、14 轮历史消融表、`engineering-054` 12 试次原始表与全版本 64 位 SHA-256 附录整理进结构化速查表与 `<details>` 折叠块（保持 CommonMark/VitePress 空行兼容、移除易歧义的中文锚点与 Mermaid `<br>`/`&` 简写）。
+- **社区自检与离线复现**：第 6 节提供经源码核实的本地 `./gradlew.bat test`/`build`、`minecraft_testkit verify/test`、`evidence/` 只读或 `.cache/` 离线 `verify_sealed.py` 重放、`client_outlier_analysis.py`、`SparkProfileExport.java` 命令以及 6 步审计核对清单。
+
+校验结果：`docs/TECHNICAL_PRINCIPLES.md` 133 处相对链接零缺失、零未转义 `$` 与 Mermaid 语法错误；`evidence/engineering-056/nf265-reload20/verify_sealed.py` 离线复放通过（20 次重载、607 项载荷）；在最终文本修改后复验 `git diff --check` 无错误，且 `minecraft_testkit verify`（682 份历史脚本、2 组数据集、11 样例）与 `minecraft_testkit test`（354 项工具测试）均全部通过。
+
