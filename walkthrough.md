@@ -771,3 +771,9 @@ engineering-056/nf265-reload20保留40个选定record闭包、所有literal inpu
 
 校验结果：`docs/TECHNICAL_PRINCIPLES.md` 133 处相对链接零缺失、零未转义 `$` 与 Mermaid 语法错误；`evidence/engineering-056/nf265-reload20/verify_sealed.py` 离线复放通过（20 次重载、607 项载荷）；在最终文本修改后复验 `git diff --check` 无错误，且 `minecraft_testkit verify`（682 份历史脚本、2 组数据集、11 样例）与 `minecraft_testkit test`（354 项工具测试）均全部通过。
 
+## 2026-11-25T20:42:23.8673467+08:00 — 将 TECHNICAL_PRINCIPLES.md 语言风格调整为常规项目开发文档风格
+
+根据用户要求，在保留全部实验数据、技术细节、源码/证据链接及开篇核心进展展示的前提下，调整 `docs/TECHNICAL_PRINCIPLES.md`（共 578 行、纯 LF 换行）的章节标题、说明措辞与标注风格，使其与仓库内 `README.md`、`docs/RUNTIME_DESIGN.md` 等常规工程开发文档保持一致的平实客观语气，同时不修改任何产品源码、既有证据或 `README.md`。
+
+校验结果：`docs/TECHNICAL_PRINCIPLES.md` 136 处相对路径链接零缺失、零未转义 `$`、零 Mermaid 语法问题、零全角感叹号；提交前将在最终文档修改后复验 `git diff --check`、`evidence/engineering-056/nf265-reload20/verify_sealed.py`、`minecraft_testkit verify` 与 `minecraft_testkit test`。
+
