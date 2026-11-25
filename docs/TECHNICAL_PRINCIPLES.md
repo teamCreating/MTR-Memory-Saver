@@ -8,15 +8,15 @@
 
 ## 概览与主要进展
 
-在全部 16 个高负载测试资源包下，原生 **MTR 4.1.0-beta.2** 存在同源模型重复解析、CPU 侧未压缩顶点对象常驻、非展示矩阵元数据滞留、车辆配置 JSON 重复解析以及瞬时大文本分配峰值问题。实测表明：定制版本 `Performance v6` 单独使用 `8 GiB` Java 堆时，仍在启动阶段发生 `165` 次 Full GC（累计停顿 `339.621 s`，占总耗时 `71%`）并因 OOM 退出；早期基线 `v0.1.1` 需要 `8 GiB` 堆上限并在堆直方图中保留 `79,359,867` 个 `StoredVertexData`；`0.4.7` 在 `3 GiB` 堆下于第 4 次连续 `F3+T` 重载因 `String.join` 分配触发 `OutOfMemoryError`。
+在全部 16 个高负载测试资源包下，原生官方 **MTR `4.1.0-beta.2`** 存在同源模型重复解析、CPU 侧未压缩顶点对象常驻、非展示矩阵元数据滞留、车辆配置 JSON 重复解析以及瞬时大文本分配峰值问题。实测表明：在引入 Memory Saver 前的早期基线 `v0.1.1` 需要 `8 GiB` Java 堆上限并在堆直方图中保留 `79,359,867` 个 `StoredVertexData`；未加 96 MiB LRU 前的 `v0.2.9` 在 `3 GiB` 启动期即发生 OOM；`0.4.7` 在 `3 GiB` 堆下于第 4 次连续 `F3+T` 重载因 `String.join` 分配触发 `OutOfMemoryError`。
 
-经过多阶段结构调整与工程迭代，截至 `0.4.8`（`official-nf265` 预发布候选 `920c1f83...`），系统将全 16 包启动与热重载所需的 Java 堆上限从 `8 GiB` 降至 `3 GiB`（`-Xmx3072M`，降低 `62.5%`），消除了 CPU 侧 `StoredVertexData` 对象常驻，在 `3 GiB` 堆下连续完成 `20 / 20` 次全包 `F3+T` 热重载（0 次 OOM），并实现了强杀无临时文件残留与不匹配 MTR JAR 启动前拒绝。在 65.26 MB 真实 BBModel 单输入微基准中，单遍摘要优化使 NF265 线程 CPU 减少 `19.24%`、耗时减少 `19.37%`。
+经过多阶段结构调整与工程迭代，面向官方 `4.1.0-beta.2` 的 **`0.4.8`**（`official-nf265` 预发布候选 `920c1f83...`）将全 16 包启动与热重载所需的 Java 堆上限从 `8 GiB` 降至 `3 GiB`（`-Xmx3072M`，降低 `62.5%`），消除了 CPU 侧 `StoredVertexData` 对象常驻，在 `3 GiB` 堆下连续完成 `20 / 20` 次全包 `F3+T` 热重载（0 次 OOM），并实现了强杀无临时文件残留与不匹配 MTR JAR 启动前拒绝。在 65.26 MB 真实 BBModel 单输入微基准中，单遍摘要优化使 NF265 线程 CPU 减少 `19.24%`、耗时减少 `19.37%`。
 
 ### 核心指标变化
 
 | 指标维度 | 基线 / 优化前状态 | 当前状态 / 优化后实测 | 夹具口径与边界说明 |
 | :--- | :--- | :--- | :--- |
-| **最低稳定启动 Java 堆上限** | `8 GiB`（`v0.1.1`）；`Performance v6` 单独在 `8 GiB` 仍 OOM（165 Full GC / `339.621 s`） | `3 GiB`（`-Xmx3072M`，堆上限降低 `62.5%`）（`v0.3.0` / `v0.3.1-v6` / `0.4.x`） | 实测两代 16 包夹具；Windows 进程生命周期工作集 / 私有提交仍约 `4.46–5.36 GiB` |
+| **最低稳定启动 Java 堆上限** | `8 GiB`（`v0.1.1`）；`v0.2.9` 在 `3 GiB` 启动 OOM | `3 GiB`（`-Xmx3072M`，堆上限降低 `62.5%`）（`v0.3.0` / `0.4.x`） | 实测两代官方 `4.1.0-beta.2` 16 包夹具；Windows 进程生命周期工作集 / 私有提交仍约 `4.46–5.36 GiB` |
 | **CPU 侧顶点对象常驻** | `79,359,867` 个活跃 `StoredVertexData`（`v0.1.1`） | `0` 个（`v0.2.0+` 36 B/顶点 `Deflater.BEST_SPEED` 分块压缩） | 旧 16 包堆直方图；391 上海模型（`47,373,240` 顶点）压缩载荷为 `367,774,154` B |
 | **非展示部位矩阵变换实例** | `2,494,194` 个 `StoredMatrixTransformations`（约 `753 MiB`） | `2,234` 个（`−99.91%`，仅保留 `PartType.DISPLAY`） | `v0.2.1` 5 GiB 堆直方图：整体浅堆由 `3.04 GiB` 降至 `2.31 GiB`（`−24.17%`） |
 | **车辆配置 JSON DOM 浅堆** | 核心 MTR Gson 浅堆 `385,752,224` B（385.75 MB） | `99,865,272` B（99.87 MB，`−74.11%`） | `v0.2.2` 5 GiB 堆直方图：整体浅堆减少 `579 MiB`（`−24.50%`），118.25 MB 文本去重至 32.22 MB |
@@ -32,7 +32,7 @@
 ```text
 v0.1.1 (8 GiB 基线, 79.36M 顶点)
   -> v0.2.0-v0.2.9 (36B 压缩网格 -> DISPLAY 剪枝 -> JSON 共享 -> 分段读取 -> 流式哈希: 5 -> 4 -> 3.5 GiB)
-    -> v0.3.0 / v0.3.1-v6 (96 MiB LRU + v6 int ARGB 适配: 首次在 3 GiB 下完成全 16 包启动与重载)
+    -> v0.3.0 (96 MiB 有界压缩 LRU: 首次在 3 GiB 下完成官方 4.1.0-beta.2 全 16 包启动与重载)
       -> 0.4.0-0.4.8 (精确二进制校验 + 两级单飞 2+64 队列 + 全流式 BBModel/OBJ + 单遍摘要: 3 GiB 连续 20/20 次重载)
 ```
 
@@ -40,14 +40,14 @@ v0.1.1 (8 GiB 基线, 79.36M 顶点)
 > **当前范围与结论边界（截至 `2026-11-24 +08:00`）**：
 > - **已验证通过（`official-nf265` 预发布候选 `920c1f83...`）**：106 项 Java 回归测试、354 项 Python 工具测试、682 份历史脚本校验、69 项打包实机检查、假包/错包退出码 `1` 拒绝、`engineering-055` 单输入摘要微基准（CPU `−19.24%` / 耗时 `−19.37%`），以及 `engineering-056` 在 `3 GiB` 堆下连续 `20/20` 次全 16 包 `F3+T` 重载。
 > - **未通过或无性能定论**：针对 `NF248` 的 12-JVM 实用 Spark 对照（`engineering-054`，对比同含 96 MiB LRU 的 `v0.3.0`）中，`0.4.8` 稳态私有内存仅变化 `−0.282%`（未达 `<= -10%` 且小于 AA 波动 `−0.415%`）、加载耗时 `+9.840%`（超出 `+5%` 护栏），叠加主机并发负载干扰，因果耗时归因判为 `inconclusive`，**未通过整客户端性能验收**。`0.4.2` 48-JVM 源码协议因 A/A 耗时跨越 `±15%` 亦判 `inconclusive`。
-> - **待关闭门禁**：优化后的 `920c1f83...` 尚未运行完整整客户端 [48-JVM 对照协议](../config/client-experiment.json)；独立显示帧采集（ETW/PresentMon 受限）、两小时连续路线（历史 01–03 失败）、全目录实景/交互验证以及 `Performance v6` 的 `0.4.x` 移植均处于未完成或暂停状态（见第 5.6 节）。
+> - **待关闭门禁与分支状态**：优化后的 `920c1f83...` 尚未运行完整整客户端 [48-JVM 对照协议](../config/client-experiment.json)；独立显示帧采集（ETW/PresentMon 受限）、两小时连续路线（历史 01–03 失败）及全目录实景/交互验证仍在待办清单（见第 5.6 节）；针对定制版 `Performance v6` 的 `0.4.x` 移植当前暂停。
 
 ### 文档导航
 
 | 主题方向 | 说明 | 对应章节与入口 |
 | :--- | :--- | :--- |
 | **问题成因与夹具说明** | 原生 5 类内存瓶颈、`0.3.x` 到 `0.4.x` 重构动机及两代 16 包夹具差异 | 第 1 节 |
-| **运行时设计与实现原理** | 二进制校验、两级单飞调度、流式快照/单遍哈希、顶点压缩、`v6` ABI 适配 | 第 2 节、[RUNTIME_DESIGN.md](RUNTIME_DESIGN.md) |
+| **运行时设计与实现原理** | 二进制校验、两级单飞调度、流式快照/单遍哈希、顶点压缩与 JSON 共享 | 第 2 节、[RUNTIME_DESIGN.md](RUNTIME_DESIGN.md) |
 | **开发配置与 Mixin 列表** | 构建预设、7 项 `-D` 系统属性、内存口径边界及 19 处 Mixin 注入清单 | 第 3 节、[config/targets.json](../config/targets.json) |
 | **试验方法与协议参数** | 独立 JVM 单位、无日志白名单归因、非参数二项区间及 3 套协议 | 第 4 节、[CLIENT_EXPERIMENT.md](CLIENT_EXPERIMENT.md)、[OPTIMIZATION.md](OPTIMIZATION.md) |
 | **全阶段试验数据** | `v0.1.1` 至 `0.4.8` 所有通过、否决、OOM 与 `inconclusive` 记录 | 第 5 节 |
@@ -76,7 +76,7 @@ v0.1.1 (8 GiB 基线, 79.36M 顶点)
 1. **解析异常未完成 Future**：原生 `BlockbenchModelLoader` 捕获异常后仅记录日志而不调用 `setModelLoaded()`，导致 `0.3.x` 的共享 `CompletableFuture` 一直处于未完成状态。
 2. **缓存查找顺序倒置**：`0.3.x` 在命中 Blockbench 源缓存前先经文本缓存还原字符串并计算 SHA-256，命中路径时依然产生 I/O 与哈希分配。
 3. **非原子重载与无背压队列**：重载时释放索引与递增世代不在同一锁内完成，且未限流的解析队列会提前捕获大文本或回调。
-4. **仅凭模组版本校验依赖**：当磁盘上安装了同版本号但字节码不同的 MTR JAR（如定制 `Performance v6` 或修改版 JAR）时，无法在 Mixin 加载前阻断，导致运行期 `NoSuchMethodError` 或语义错误。
+4. **仅凭模组版本校验依赖**：当磁盘上安装了同版本号但字节码不同的 MTR JAR（如修改版或定制构建 JAR）时，无法在 Mixin 加载前阻断，导致运行期 `NoSuchMethodError` 或语义错误。
 
 ### 1.3 两套 16 包测试夹具说明
 
@@ -84,14 +84,14 @@ v0.1.1 (8 GiB 基线, 79.36M 顶点)
 
 | 夹具代际 | 适用版本范围 | 车辆注册规模 | 每世代解析量 | 最大实际引用资源与说明 |
 | :--- | :--- | :--- | :--- | :--- |
-| **旧 16 包修复夹具** | `v0.1.1` – `v0.3.1-v6` | `2,541` 辆车（290 物件 / 23 轨道） | `4,608` 次 Blockbench 请求 / `651` 独特源解析 | 包含旧 `02a05_arknight.bbmodel`（`65,255,687` UTF-8 字节）；记录见 [0.3.0 验收](../evidence/neoforge-v030-acceptance.json) |
+| **旧 16 包修复夹具** | `v0.1.1` – `v0.3.0` | `2,541` 辆车（290 物件 / 23 轨道） | `4,608` 次 Blockbench 请求 / `651` 独特源解析 | 包含旧 `02a05_arknight.bbmodel`（`65,255,687` UTF-8 字节）；记录见 [0.3.0 验收](../evidence/neoforge-v030-acceptance.json) |
 | **MTR 4.1 原生目录 16 包夹具** | `0.4.x` 官方验证（含 `0.4.5`–`0.4.8`） | `1,092` 条车辆声明 / `1,091` 个去重 ID | 每世代 `651` 独特 BBModel + `974` OBJ 解析 | 最大引用 BBModel 为 `13,141,932` B；最大引用 OBJ 为 `mtr:hxd3d/25t__doors_b351ad1ecabb.obj`（`102,035,449` 字节/码元，SHA-256 `e43f1b6b...`）；旧 65 MB BBModel 未被目录引用，转用于单输入微基准 |
 
 ---
 
 ## 2. 0.4.8 运行时架构与实现原理
 
-`0.4.8` 运行时划分为五层：二进制校验、两级有界调度、流式快照与有界文本 LRU、无损网格/配置压缩，以及面向 `Performance v6` 的分目标 ABI 适配。全链路保留原生 MTR 的模型解析语义、坐标计算精度、`boxes` 包围盒计算、展示部位与车门/地板碰撞逻辑。
+`0.4.8` 面向官方 MTR `4.1.0-beta.2` 的运行时采用四层架构：二进制校验、两级有界调度、流式快照与有界文本 LRU，以及无损网格与配置共享。全链路保留原生 MTR 的模型解析语义、坐标计算精度、`boxes` 包围盒计算、展示部位与车门/地板碰撞逻辑。
 
 ```mermaid
 flowchart TD
@@ -171,18 +171,8 @@ flowchart TD
 3. **车辆配置 JSON 共享（[VehicleJsonCache.java](../src/main/java/site/benli06/VehicleJsonCache.java)）**：
    - 在当前世代与读许可内，按 UTF-8 SHA-256 共享非空 `JsonObject`（空对象/异常回退原生实现），借助原生 `JsonReader` 将顶层键复制进读取器独立 `Map` 并只读访问子节点的特性保持各车属性隔离。
 
-### 2.5 Performance v6 的 ABI 与生命周期适配
-
-定制 `Performance v6` 修改了模型组底层方法与顶点颜色类型，因此工程在 `src/targets/official/` 与 `src/targets/v6/` 中分别实现目标代码：
-
-| 适配项目 | Official `4.1.0-beta.2` (`src/targets/official/`) | Performance v6 (`src/targets/v6/`) |
-| :--- | :--- | :--- |
-| **`StoredVertexData.color()` 返回类型** | `java.awt.Color`（打包读取 `v.color().getRGB()`） | 原始 `int` ARGB（直接读取 `v.color()`） |
-| **`VertexColorMixin`** | 启用（将 `(255, 255, 255, 255)` 复用为 `Color.WHITE`） | 移除（已无 `Color` 构造） |
-| **模型组可变性检查** | 无前置方法 | `add` 与 `merge` 入口先调用原生 `ensureMutable()` |
-| **`NewOptimizedModelGroup.build()`** | 每次按组构建并保留暂存块 | 检查 `builtModels != null` 时直接复用；首次构建后赋值 `builtModels` 并仅清空当前组 ``mtrMemory$meshes`` |
-| **`ModelLoaderBase.close()` 竞态保护** | 标准门面对象锁 | 新增 [V6LoaderLifecycleMixin.java](../src/targets/v6/java/site/benli06/mixin/V6LoaderLifecycleMixin.java) 在 `close()` 头部调用 `beforeNativeClose()` 置 `closed = true`，避免延迟完成重填已关门面 |
-| **OBJ 流式读取组件** | `0.4.8` 已包含 `StreamedObjCache` 等 | 按当前暂停计划，暂未移植至 `v6` 目标 |
+> [!NOTE]
+> **定制版 `Performance v6` 说明**：仓库另在 `src/targets/v6/` 保留了面向定制版 `Performance v6`（`8bd419bd...`）的独立编译目标，用于适配其 `int` ARGB 顶点色、`ensureMutable()`、`builtModels` 缓存与 [V6LoaderLifecycleMixin.java](../src/targets/v6/java/site/benli06/mixin/V6LoaderLifecycleMixin.java) 关闭保护；该分支当前暂停维护，暂未移植 `0.4.8` 的 OBJ 流式组件。
 
 ---
 
@@ -196,8 +186,8 @@ flowchart TD
 | :--- | :--- | :--- | :--- |
 | **`official-nf265`**（默认与 CI 发布目标） | 官方 `4.1.0-beta.2`（`ff2b753d...`） | `21.1.265` | `0.4.8` 预发布候选目标（`920c1f83...`）：通过 106 Java 回归、69 打包检查、错包退出 1 与 20 次连续重载；整客户端 48-JVM 性能对照未运行 |
 | `official-nf248` | 官方 `4.1.0-beta.2`（`ff2b753d...`） | `21.1.248` | 历史对照目标（`2026-11-23` 起停止新验证）；修订版 `943b3d45...` 完成 20 次重载与 12-JVM Spark 验证（性能未达标） |
-| `v6-nf248` | 定制 `performance-v6`（`8bd419bd...`） | `21.1.248` | 完成 `0.4.2` 冒烟与 100 次合成 GPU 生命周期循环；新验证暂停 |
-| `v6-nf265` | 定制 `performance-v6`（`8bd419bd...`） | `21.1.265` | 新验证暂停；`v0.3.1-v6` (`ab6d372f...`) 曾完成两次 3 GiB 启动/重载 |
+
+> 注：[config/targets.json](../config/targets.json) 另保留面向定制版 `Performance v6` 的历史预设 `v6-nf248` 与 `v6-nf265`，当前新验证暂停。
 
 ### 3.2 JVM 系统属性与内存统计口径
 
@@ -222,10 +212,10 @@ flowchart TD
 > [!WARNING]
 > **内存统计口径说明**：上述预算仅统计 LRU 缓存估算权重、瞬时工作区配额与并发槽位；调用方持有的返回值、原生 Gson/OBJ 对象图、待回收对象、OpenGL/驱动 VRAM 分配，以及 Windows 工作集（Working Set）和私有提交（Private Commit）均不计入其中。分析时不能将 Java Heap Used、Working Set、Private Commit 与 VRAM 相加，且 `jstat` 与 OS 轮询只能反映采样点观测下界。
 
-### 3.3 Mixin 与 Accessor 列表（19 项）
+### 3.3 Mixin 与 Accessor 列表（当前 Official 目标 18 项）
 
 <details>
-<summary>展开查看：0.4.8 全部 19 个 Mixin / Accessor 注入点列表（13 公共 + 5 Official + 1 V6）</summary>
+<summary>展开查看：0.4.8 Official 目标全部 18 个 Mixin / Accessor 注入点列表（13 公共 + 5 Official）</summary>
 
 | 作用域 | Mixin / Accessor 类 | 目标 MTR 类与方法/字段 | 注入职责 |
 | :--- | :--- | :--- | :--- |
@@ -235,7 +225,7 @@ flowchart TD
 | 公共 | [ModelLoaderAccess](../src/main/java/site/benli06/mixin/ModelLoaderAccess.java) | `ModelLoaderBase` 字段访问器 | 访问 `nameToNewOptimizedModelGroup` 与 `nameToRawModelDisplayParts` |
 | 公共 | [DisplaySelectionMixin](../src/main/java/site/benli06/mixin/DisplaySelectionMixin.java) | `VehicleModel.createModelSupplier` | 提取 `PartType.DISPLAY` 部件名并配置门面剪枝 |
 | 公共 | [DisplayPartAccess](../src/main/java/site/benli06/mixin/DisplayPartAccess.java) | `ModelPropertiesPartSchema` | 访问部件类型与部件名称集合 |
-| 公共 | [PackedModelGroupMixin (Official)](../src/targets/official/java/site/benli06/mixin/PackedModelGroupMixin.java) / [V6](../src/targets/v6/java/site/benli06/mixin/PackedModelGroupMixin.java) | `NewOptimizedModelGroup` (`add` / `merge` / `build`) | 将 CPU 侧顶点列表存储替换为 `PackedModelGroupStore` 并在构建 GPU 模型时发射 |
+| 公共 | [PackedModelGroupMixin](../src/targets/official/java/site/benli06/mixin/PackedModelGroupMixin.java) | `NewOptimizedModelGroup` (`add` / `merge` / `build`) | 将 CPU 侧顶点列表存储替换为 `PackedModelGroupStore` 并在构建 GPU 模型时发射 |
 | 公共 | [VehicleJsonCacheMixin](../src/main/java/site/benli06/mixin/VehicleJsonCacheMixin.java) | `VehicleModel.<init>` (`Utilities.parseJson`) | 按 UTF-8 SHA-256 共享非空 Gson `JsonObject` |
 | 公共 | [VehicleJsonEpochMixin](../src/main/java/site/benli06/mixin/VehicleJsonEpochMixin.java) | `CustomResourceLoader.reload` (`HEAD` / `RETURN`) | 管理车辆配置缓存的世代清理 |
 | 公共 | [CompressedResourceTextMixin](../src/main/java/site/benli06/mixin/CompressedResourceTextMixin.java) | `CustomResourceLoader.readResource` 与 `reload` | 将 `RESOURCE_CACHE` 接入 `CompressedResourceTextCache` 并在重载首尾重置与记日志 |
@@ -247,9 +237,10 @@ flowchart TD
 | Official | [ObjModelInputMixin](../src/targets/official/java/site/benli06/mixin/ObjModelInputMixin.java) | `ObjModelLoader` | 流式接入 `.obj` / `.mtl` 输入并经 `@Invoker("loadModel")` 复用原生 `ObjSplitting.splitByGroups` |
 | Official | [ObjSourceLifetimeMixin](../src/targets/official/java/site/benli06/mixin/ObjSourceLifetimeMixin.java) | `CustomResourceLoader.reload` (`HEAD` / `RETURN`) | 管理 `StreamedObjCache` 世代生命周期 |
 | Official | [VertexColorMixin](../src/targets/official/java/site/benli06/mixin/VertexColorMixin.java) | `StoredVertexData.write` (`NEW java/awt/Color`) | 将 `(255, 255, 255, 255)` 纯白复用为 `Color.WHITE` |
-| V6 | [V6LoaderLifecycleMixin](../src/targets/v6/java/site/benli06/mixin/V6LoaderLifecycleMixin.java) | `ModelLoaderBase.close` (`HEAD`) | 同步置 `closed = true`，避免异步完成重填已销毁门面 |
 
 </details>
+
+> 定制 `v6` 目标另外包含分目标 `PackedModelGroupMixin` 与 `V6LoaderLifecycleMixin`（当前暂停维护）。
 
 ---
 
@@ -310,7 +301,7 @@ flowchart LR
 
 | 阶段 | 测试范围与夹具 | 主要定量输出 | 阶段结论 |
 | :--- | :--- | :--- | :--- |
-| **5.1** | `v0.1.1 -> v0.3.1-v6`（旧 16 包 2,541 车 + `11-05` Profiling） | 经 14 轮消融/否决将启动堆上限降至 `3 GiB`；单独 `Performance v6` 在 `8 GiB` OOM（165 Full GC / `339.621 s`） | `v0.3.0` / `v0.3.1-v6` 作为 `0.3.x` 3 GiB 基线 |
+| **5.1** | `v0.1.1 -> v0.3.0`（旧 16 包 2,541 车 + `11-05` Profiling） | 经 13 轮消融/否决将官方 `4.1.0-beta.2` 启动堆上限降至 `3 GiB`；`v0.2.9` `3 GiB` 启动 OOM，对照 `v0.3.0` 双轮 `3 GiB` 通过 | `v0.3.0` 作为 `0.3.x` 官方 3 GiB 基线 |
 | **5.2** | `0.4.0 vs 0.4.2`（源码查找 3 对试跑 + 48-JVM 协议一） | A/B Plain 分配 `−62.3803%`、耗时 `−71.3122%`；但 A/A 耗时 95% 区间 `[−35.87%, +48.19%]` 跨出 `±15%` | 协议一裁决 `inconclusive`（不通过性能验收） |
 | **5.3** | `0.4.3 -> 0.4.7`（竞态、错包、102M OBJ、强杀、早期路线） | 竞态陈旧读 `1 -> 0`；错包退出码 `1`；102M OBJ 通过；`Runtime.halt(74)` 4/4 无残留；3 次 2 小时路线失败 | 正确性与门禁修复完成；2 小时路线未通过 |
 | **5.4** | `0.4.7 -> 0.4.8`（64 MiB 对照 + NF248 20 次重载演进） | `0.4.7` 第 4 次 OOM -> `0.4.8` 初版第 7 次 OBJ OOM -> `0.4.8` 修订版 (`943b3d45...`) NF248 `20/20` 通过 | 流式读取闭环完成；ETW/PresentMon 采集受限 |
@@ -319,24 +310,23 @@ flowchart LR
 
 ---
 
-### 5.1 第一阶段：`v0.1.1` 至 `v0.3.1-v6` 容量演进与 `2026-11-05` Profiling
+### 5.1 第一阶段：`v0.1.1` 至 `v0.3.0` 容量演进与 `2026-11-05` Profiling
 
-在统一固定官方 MTR `4.1.0-beta.2`、NF265、旧 16 包夹具（`2,541` 车 / `651` 源解析）及 `-Djdk.virtualThreadScheduler.parallelism=2 -Djdk.virtualThreadScheduler.maxPoolSize=2` 下，`0.3.x` 容量边界与 `2026-11-05` 剖面测试数据如下（[performance/20261105/README.md](../performance/20261105/README.md)、[neoforge-v029-3gb-baseline-startup.json](../evidence/neoforge-v029-3gb-baseline-startup.json)、[neoforge-v030-acceptance.json](../evidence/neoforge-v030-acceptance.json)、[v6 验收](../compatibility/performance-v6/acceptance.json)）：
+在统一固定官方 MTR `4.1.0-beta.2`、旧 16 包夹具（`2,541` 车 / `651` 源解析）及 `-Djdk.virtualThreadScheduler.parallelism=2 -Djdk.virtualThreadScheduler.maxPoolSize=2` 下，`0.3.x` 容量边界与 `2026-11-05` 剖面测试数据如下（[performance/20261105/README.md](../performance/20261105/README.md)、[neoforge-v029-3gb-baseline-startup.json](../evidence/neoforge-v029-3gb-baseline-startup.json)、[neoforge-v030-acceptance.json](../evidence/neoforge-v030-acceptance.json)）：
 
 | 试验配置 | 堆上限 (`-Xmx`) | 注册结果 | 启动与进世界 | `F3+T` 重载 | GC 统计（启动 / 重载 / 稳态） | 稳态帧率与进程水位 |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **`v0.2.9` 对照（失败）** | `3 GiB` (`3072M`) | 回退仅 `423` 内置 | OOM 失败（未进世界） | 未达 | 启动期堆耗尽，`jstat` 超时 | 采样峰值 WS `4.02 GiB` (`4,317,102,080` B) |
-| **`Official + v0.3.0`（双轮）** | `3 GiB` (`3072M`) | `2,541` 车 / `651` 源 | 通过（两轮皆过） | 通过（各稳定 60 s） | 独立剖面测得启动 4 Full GC (`10.904 s`)、重载 10 Full GC (`13.750 s`)、稳态 0 Full GC (`0.075 s`) | 采样堆 `2.812 / 2.815 GiB`（启）、`2.890 / 2.896 GiB`（重）；全周期 WS 峰值 `5.239 / 5.363 GiB`；稳态 `58.85 FPS` (`p99 = 29.22 ms`) |
-| **`Performance v6` 单独（全包）** | `8 GiB` | 宣布 `2,541`；模型未完成 | OOM 失败（退出码 `1`） | 未达 | 476.3 s 内 `165` 次 Full GC，停顿 `339.621 s`（占 71%），最终 `8182M->8175M(8192M)` | 采样 WS `9.015 GiB`，Private Commit `9.219 GiB` |
-| **`Performance v6` 单独（DC01 子集）** | `3 GiB` | `425` 车（423+2 DC01） | 通过 (~50.4 s) | 通过 (~20.5 s) | 启动 0 Full GC (`1.201 s`)；重载 0 Full GC (`0.686 s`)；稳态 0 Full GC (`0.083 s`) | 稳态 `59.23 FPS` (`p99 = 26.37 ms`)，WS `4.180 GiB` |
-| **`Performance v6 + v0.3.1-v6`（NF265）** | `3 GiB` (`3072M`) | `2,541` 车 / `651` 源 | 通过 (`155.16 / 156.92 s`) | 通过 (`136.88 / 133.99 s`) | 启动 2/2 Full GC (`7.530 / 7.744 s`)；重载 `11/10` Full GC (`13.512 / 13.635 s`)；稳态 0 Full GC | 稳态 `58.91 / 58.87 FPS`，最大帧间隔 `55.31 / 102.51 ms`；GPU 检查 `12/12`；WS 峰值 `5.40 GiB` |
-| **NF248 参照（单次）** | `3 GiB` (`3072M`) | `2,541` 车 / `651` 源 | v6 `165.81 s`；官方 `166.74 s` | v6 `136.72 s`；官方 `143.54 s` | — | 单次顺序试跑，不作 NF248/NF265 对比 |
+| **`v0.2.9` 对照（NF265 失败）** | `3 GiB` (`3072M`) | 回退仅 `423` 内置 | OOM 失败（未进世界） | 未达 | 启动期堆耗尽，`jstat` 超时 | 采样峰值 WS `4.02 GiB` (`4,317,102,080` B) |
+| **`Official + v0.3.0`（NF265 双轮）** | `3 GiB` (`3072M`) | `2,541` 车 / `651` 源 | 通过（两轮皆过） | 通过（各稳定 60 s） | 独立剖面测得启动 4 Full GC (`10.904 s`)、重载 10 Full GC (`13.750 s`)、稳态 0 Full GC (`0.075 s`) | 采样堆 `2.812 / 2.815 GiB`（启）、`2.890 / 2.896 GiB`（重）；全周期 WS 峰值 `5.239 / 5.363 GiB`；稳态 `58.85 FPS` (`p99 = 29.22 ms`) |
+| **`Official + v0.3.0`（NF248 单次参照）** | `3 GiB` (`3072M`) | `2,541` 车 / `651` 源 | `166.74 s` 通过 | `143.54 s` 通过 | — | 单次顺序试跑，不作 NF248/NF265 对比 |
+
+> 附注：`2026-11-05` 另对定制版 `Performance v6` 做过对照参考——单独运行时全 16 包在 `8 GiB` 堆仍发生 `165` 次 Full GC（停顿 `339.621 s`）并 OOM，配合历史 `v0.3.1-v6` 可在 `3 GiB` 完成启动与重载（详见 [performance/20261105/README.md](../performance/20261105/README.md) 与 [v6 验收](../compatibility/performance-v6/acceptance.json)）。
 
 > [!NOTE]
 > `v0.3.0` 虽然在 `3 GiB` 堆下完成了启动与单次重载，但进程生命周期 Working Set 仍达到 `5.24–5.36 GiB`，启动/重载 GC 停顿约 `10–13.7 s` 并伴随约 `25.8 / 23.4 GiB` 瞬时字节数组分配；该批剖面测试使用 `Intel HD Graphics P530`。后续 `0.4.x` 版本单独重新校验，不沿用历史数字作为自身性能证据。
 
 <details>
-<summary>展开查看：v0.1.1 至 v0.3.1-v6 共 14 轮算法演进与否决记录</summary>
+<summary>展开查看：v0.1.1 至 v0.3.0 共 13 轮官方目标算法演进与否决记录</summary>
 
 | 版本 | 引入机制 / 消融变更 | 离线等价 / 隔离审计结果 | 实机堆上限与诊断结果 | 工程裁决 |
 | :--- | :--- | :--- | :--- | :--- |
@@ -353,7 +343,6 @@ flowchart LR
 | `v0.2.8` | 4,096 码元分段解压压缩缓存命中 | 8,534 真实 + 44 合成通过；8 次 16M 命中分配 ASCII `−32.75%`、混合 `−39.61%`、Unicode `+0.46%` | 2 次独立 `4 GiB` 通过；`3.5 GiB` 首轮通过但复测重载 OOM，`3 GiB` OOM | 采纳（仍需 `4 GiB`） |
 | `v0.2.9` | 4K/8K 有界数组流式计算大文本 UTF-8 SHA-256 | 8,534 真实（`2,902,870,923` 码元）+ 85 合成通过；16M 哈希分配 ASCII `−99.898%`、混合 `−99.974%`、Unicode `−99.981%` | 2 次独立 `3.5 GiB` (`-Xmx3584M`) 通过；`3 GiB` (`-Xmx3072M`) 启动 OOM 回退至 423 内置 | 采纳（最低 `3.5 GiB`） |
 | `v0.3.0` | `maxHeap / 32` 预算（3 GiB 下 `96 MiB`）压缩文本 LRU | 8,534 真实 + 64 并发 + 500 抖动 + 20,000 空值通过；`v0.2.9` 超出 64 KiB 预算 | 2 次独立 `3 GiB` (`-Xmx3072M`) 启动+F3+T 重载通过（每周期驱逐 `3,010` 次） | `0.3.x` 官方基线 |
-| `v0.3.1-v6` | `int` ARGB、`v6` `builtModels` 缓存与关闭竞态锁 | 1,400,028 合成 + 9 真实模型（`1,267,536` 顶点）通过 | NF265 2 次 `3 GiB` 通过（12/12 GPU 检查）；NF248 1 次 `3 GiB` 通过 | `0.3.x` `v6` 基线 |
 
 </details>
 
@@ -367,7 +356,7 @@ flowchart LR
   - Pair 1 (A->B)：哈希/读 `24/8 -> 8/8`，分配 `1,590,031,504 -> 457,858,728` B（`−71.20%`），耗时 `44,233.35 -> 4,161.34` ms，峰值堆 `643.5M -> 346.3M`；
   - Pair 2 (B->A)：分配 `1,589,029,200 -> 457,923,520` B（`−71.18%`），耗时 `17,357.55 -> 5,422.56` ms，峰值堆 `645.0M -> 343.7M`；
   - Pair 3 (A->B)：分配 `1,589,028,472 -> 457,838,216` B（`−71.19%`），耗时 `17,935.89 -> 4,694.75` ms，峰值堆 `561.9M -> 338.5M`。
-  - 同期 `0.4.2` 完成 NF248 Mixin 冒烟与 v6 100 次合成 GPU 生命周期循环。
+  - 同期 `0.4.2` 完成 NF248 官方目标 Mixin 冒烟验证。
 
 - **试验 2B（48-JVM 源码协议，[analysis.json](../evidence/source-protocol-20261114/analysis.json) & [README.md](../evidence/source-protocol-20261114/README.md)）**：按协议一运行 6 对块 × 8 JVM = 48 个独立 JVM（预设 1 预热 + 1 实测 × 2 查询）：
 
@@ -496,7 +485,7 @@ flowchart LR
 | **P1** | **独立显示帧呈现时间戳采集** | 普通用户权限 ETW 拒绝访问且 PresentMon 未产出有效 CSV，需补充真实显卡呈现时间戳证据。 |
 | **P1** | **两小时连续路线耐久** | 历史 01–03 失败；需在最新 `0.4.8` 采集完整三段 `7,200 s` 窗口与可读 JFR。 |
 | **P1** | **全目录实景渲染、车门、地板与上下车交互** | 局部 DC01 缓存一致验证不能覆盖全车系外观、车窗透明渲染、动画与物理上下车。 |
-| **P2** | **`Performance v6` 的 `0.4.x` 移植与重启验证** | 当前维持暂停；重启时须将 `StreamedObjCache` 等 `0.4.8` 组件移植到 `src/targets/v6/` 并重跑全套实机测试。 |
+| **P2** | **定制版 `Performance v6` 的 `0.4.x` 移植** | 当前暂停 |
 
 ---
 
@@ -541,7 +530,7 @@ java -cp ".cache/spark-export;<audited-spark.jar>" SparkProfileExport <local.spa
 
 ### 6.3 复核检查项
 
-- **身份与指纹**：核对 `build/libs/*.build.json` 与第 6.4 节 64 位 SHA-256，确认被测 JAR 对应 `official-nf265`（而非混用 `v6` 或未校验包）。
+- **身份与指纹**：核对 `build/libs/*.build.json` 与第 6.4 节 64 位 SHA-256，确认被测 JAR 与官方 MTR `4.1.0-beta.2` 对应 `official-nf265` 预设完全一致。
 - **夹具口径**：确认对比 `v0.1–v0.3` 时对应“旧 16 包 `2,541` 车”，对比 `0.4.x` 时对应“原生目录 `1,092` 声明 / `1,091` ID + `974` OBJ”。
 - **失败记录**：检查 `engineering-050`（`0/20`）、`051`（`0/20`）、`054`（12-JVM 未达标）与 `0.4.2`（`inconclusive`）均保留在原始结果中。
 - **日志归因**：确认 `native-invalid-model.jsonl` 与 [native-diagnostic-review.json](../config/native-diagnostic-review.json) 为逐世代 1:1 精确匹配，未使用正则忽略。
@@ -556,7 +545,6 @@ java -cp ".cache/spark-export;<audited-spark.jar>" SparkProfileExport <local.spa
 | :--- | :--- | :--- |
 | **官方 MTR（NeoForge 1.21.1）** | `4.1.0-beta.2` 绑定目标 | `ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa` |
 | **官方 MTR（Fabric 1.21.1 参考）** | `4.1.0-beta.2` | `5da075f7d63daea89da17348ace0959a0c216cbaf14a322d063a64bec44aae94` |
-| **定制 MTR Performance v6** | `4.1.0-beta.2-mc1.21.1-performance-v6` | `8bd419bd798c2ab2fa03e08850409387804fdeb2e4f2987c66b9984236263585` |
 | **`0.4.8` NF265 预发布候选** | 单遍摘要优化后 + 20 次重载通过 | `920c1f833b6f173c7443ff5956493b779acfeceb293fa640817a459985db3f5b` |
 | **`0.4.8` NF265 优化前基线** | `a632149` 修订期对照版本 | `134770acd53ec81325993604e8441d213d9ea1be990adb3bc2877b0cb7cc17dd` |
 | **`0.4.8` NF248 修订版** | 20 次重载通过 / 12-JVM Spark 未达标 | `943b3d455fa3ce9d3ede74bc1a2071ece7bf70b09d9b7f829027347b53a9b588` |
@@ -566,8 +554,8 @@ java -cp ".cache/spark-export;<audited-spark.jar>" SparkProfileExport <local.spa
 | **`0.4.7` NF265 / NF248** | 第 4 次重载 BBModel `String.join` OOM | `12162be2d0e75962e58d33dec6951e0a82b1455ef1466f9b94c3dce1c4d36a02` / `e8b5b40230d0f44c541c12b32c8a30d4c2ea056b8a972335ae10166496837a99` |
 | **`0.4.2` / `0.4.0` NF248** | 48-JVM 源码协议对比双方 | `70ed09564bd41a09cf08f468d73474bad3bdc2cd287ed4dca389c8f74c73a885` / `2da554aaa25daf4438cd994d916f858cd8becb1f8432bd73b63867bc1050eb2f` |
 | **`v0.3.0` NF265 / NF248** | `0.3.x` 官方 3 GiB 基线 | `eb21c0062f7944a7d2c015cb2eee5a1d24c11be4af2286bbbbfa4625d6cd2d54` / `b9c95bbe79c6c76fe6a0c9af6bdb4f9ed7ce6b007fecdb1c9f543544ce562f02` |
-| **`v0.3.1-v6` NF265 / NF248** | `0.3.x` Performance v6 基线 | `ab6d372f458299bf1ce116a5a05101de3cc110b731149d668f13324adfb23dcb` / `43da91dce144cc0a1a1e65307ba385cc9d89eb3a5057f07e7eab7529dca39174` |
 | **`v0.2.9` NF265** | `3 GiB` 启动 OOM 对照基线 | `b8e903a3292cca032d6b1038d58f5f0b18be4823148e633ca4114263e2a83b6d` |
+| **定制 MTR Performance v6** | `4.1.0-beta.2-mc1.21.1-performance-v6`（暂停维护参考） | `8bd419bd798c2ab2fa03e08850409387804fdeb2e4f2987c66b9984236263585` |
 
 </details>
 

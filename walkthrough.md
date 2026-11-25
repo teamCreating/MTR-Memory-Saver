@@ -777,3 +777,9 @@ engineering-056/nf265-reload20保留40个选定record闭包、所有literal inpu
 
 校验结果：`docs/TECHNICAL_PRINCIPLES.md` 136 处相对路径链接零缺失、零未转义 `$`、零 Mermaid 语法问题、零全角感叹号；提交前将在最终文档修改后复验 `git diff --check`、`evidence/engineering-056/nf265-reload20/verify_sealed.py`、`minecraft_testkit verify` 与 `minecraft_testkit test`。
 
+## 2026-11-25T20:48:05.8972547+08:00 — 将 TECHNICAL_PRINCIPLES.md 聚焦至官方 MTR 4.1.0-beta.2 与 Memory Saver 主线
+
+按用户要求精简定制版 `Performance v6` 相关展开内容（仅在架构注记、构建目标注记、`5.1` 附注、P2 待办表及 SHA-256 附录末尾保留简要说明），使 [TECHNICAL_PRINCIPLES.md](docs/TECHNICAL_PRINCIPLES.md)（共 566 行、纯 LF 换行）全文围绕官方 **MTR `4.1.0-beta.2` + Memory Saver** 的技术原理、四层主架构（面向官方目标的 18 项 Mixin/Accessor）、13 轮演进历史（`v0.1.1 -> v0.3.0`）以及 `0.4.x` 至 `0.4.8` 对照试验和 `20/20` 次重载耐久展开；未修改任何产品 Java 源码、`README.md` 或既有 `evidence/` 证据载荷。
+
+校验结果：`docs/TECHNICAL_PRINCIPLES.md` 136 处相对路径链接零缺失、零未转义 `$`、零 Mermaid 语法问题、零 `<details>` 空行缺失、零全角感叹号；提交前将在最终文档修改后运行 `git diff --check`、`evidence/engineering-056/nf265-reload20/verify_sealed.py`、`minecraft_testkit verify` 与 `minecraft_testkit test`。
+
