@@ -783,3 +783,12 @@ engineering-056/nf265-reload20保留40个选定record闭包、所有literal inpu
 
 校验结果：`docs/TECHNICAL_PRINCIPLES.md` 136 处相对路径链接零缺失、零未转义 `$`、零 Mermaid 语法问题、零 `<details>` 空行缺失、零全角感叹号；提交前将在最终文档修改后运行 `git diff --check`、`evidence/engineering-056/nf265-reload20/verify_sealed.py`、`minecraft_testkit verify` 与 `minecraft_testkit test`。
 
+## 2026-11-25T21:10:05.5835215+08:00 — 制作中英双语 GitHub README 与重写 0.4.8 Release Notes
+
+按用户确认方案（英文主 `README.md` + 中文 `README.zh-CN.md` 互跳、中英双语 `v0.4.8` Release Notes、同步更新线上 GitHub Release `v0.4.8` 并提交合并到 `main` 的 PR），新增或重写以下文档（均为纯 LF 换行，未修改产品源码、构建脚本或既有 `evidence/` 载荷）：
+
+- [README.md](README.md)（126 行）与 [README.zh-CN.md](README.zh-CN.md)（126 行）：顶部提供中英文切换与 `pack.png` 图标，突出面向官方 **MTR `4.1.0-beta.2` + Memory Saver (`official-nf265`)** 的核心定量进展（`8 GiB -> 3 GiB` 堆上限、`79,359,867 -> 0` `StoredVertexData`、`2,494,194 -> 2,234` 非展示变换、`385.75 -> 99.87 MB` Gson 浅堆、`96 MiB` LRU、单遍摘要 `-19.24% CPU / -19.37%` 耗时、`3 GiB` 连续 `20/20` 次重载、强杀零残留与错包退出码 `1`），同步明确当前已验证项与未通过/待关闭整客户端性能及 P1 门禁，提供安装回退、四层架构与本地构建/离线校验命令；定制版 `Performance v6` 仅作简要历史注记。
+- [docs/releases/v0.4.8.md](docs/releases/v0.4.8.md)（86 行）：中英双语编写 `v0.4.8`（`official-nf265` 开发预发布）发布说明，完整覆盖 `.bbmodel`/`.obj`/`.mtl` 流式读取与单遍摘要更新、106 项 Java / 354 项 Python / 69 项实机 / 20 次重载验证结果、未关闭整客户端性能与 P1 边界、`mtr-memory-saver-official-nf265-0.4.8.zip` / `.jar` / 官方 MTR `4.1.0-beta.2` 的精确 SHA-256 及实机证据链接。
+
+校验结果：三份新增/重写文档相对路径与 `main` 仓库路径均零缺失、零未转义 `$`、零全角感叹号；提交前将在最终编辑后运行 `git diff --check`、`evidence/engineering-056/nf265-reload20/verify_sealed.py`、`minecraft_testkit verify` 与 `minecraft_testkit test`，随后提交推送、更新 GitHub Release `v0.4.8` 并创建合入 `main` 的 PR。
+
