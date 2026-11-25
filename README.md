@@ -1,135 +1,126 @@
+<img src="src/main/resources/pack.png" width="72" align="right" alt="MTR Memory Saver">
+
 # MTR Memory Saver
 
-MTR Memory Saver shares resource/model inputs and stores parsed vertex data losslessly
-for **Minecraft 1.21.1 / NeoForge**. The current **0.4.x** line is a development
-candidate with explicit official-MTR and Performance-v6 targets. Its support matrix
-is closed to exact binaries and loader releases.
+**English** | [简体中文](README.zh-CN.md)
 
-The historical sixteen-pack 0.3.x trials prove specific memory/loading results.
-They do not automatically qualify newer artifacts. See the [support matrix](docs/SUPPORT.md)
-and [critical engineering review](docs/ENGINEERING_REVIEW.md) for scope and remaining risks.
+Minecraft `1.21.1` (Client) · NeoForge `21.1.265` · Java `21` · Official MTR `4.1.0-beta.2` · Mod ID: `mtr_memory_sharing` · License: [MIT](LICENSE)
 
-## Build
+**MTR Memory Saver** is a client-side optimization companion mod for **Minecraft Transit Railway (Official MTR `4.1.0-beta.2`)**. It reduces Java heap pressure and duplicate model/resource allocations during vehicle registration and resource reloads while keeping MTR's native parsing schemas, coordinate transformations, AABB boxes, display part behavior, and door/floor logic unchanged.
 
-Use a Java 21 JDK. No Minecraft test instance, marker file, Python launcher library,
-or copied patched-client JAR is required for a development build.
+---
+
+## Measured Progress (Official MTR `4.1.0-beta.2`)
+
+Across sixteen full test resource packs, vanilla MTR `4.1.0-beta.2` retains large CPU vertex graphs, non-display matrix transforms, duplicate vehicle JSON trees, unbounded resource text caches, and transient whole-file `String` allocations. Below are the verified before/after changes across our engineering milestones through **`0.4.8`** (`official-nf265`):
+
+| Metric | Baseline / Earlier State | Current (`0.4.8` / Cumulative) | Fixture & Scope Notes |
+| :--- | :--- | :--- | :--- |
+| **Minimum Verified `-Xmx`** | `8 GiB` (`v0.1.1`); `v0.2.9` OOMs on `3 GiB` startup | **`3 GiB` (`-Xmx3072M`, −62.5% heap cap)** (`v0.3.0` / `0.4.x`) | Both 16-pack fixtures; Windows Working Set / Private Commit stays ~`4.46–5.36 GiB` |
+| **CPU `StoredVertexData` Count** | `79,359,867` live instances (`v0.1.1`) | **`0`** (`v0.2.0+` 36 B/vertex `Deflater.BEST_SPEED` blocks) | Legacy 16-pack heap histogram; 391 Shanghai models (`47.37M` vertices) pack to `367.77 MB` |
+| **Non-Display Matrix Metadata** | `2,494,194` `StoredMatrixTransformations` (~`753 MiB`) | **`2,234` (−99.91%)** (`PartType.DISPLAY` only) | `v0.2.1` `5 GiB` heap histogram: total shallow heap `3.04 -> 2.31 GiB` (−24.17%) |
+| **Vehicle Config Gson Shallow Bytes** | `385,752,224` B (`385.75 MB`) | **`99,865,272` B (`99.87 MB`, −74.11%)** | `v0.2.2` `5 GiB` heap histogram: total shallow heap `−579 MiB` (−24.50%) |
+| **Retained Resource Text Cache** | `2,000,187,675` code units / `592,010,155` B compressed | **`96 MiB` (`100,663,296` B) bounded LRU** (`v0.3.0+`) | Legacy 16-pack evicted `3,010` entries/epoch; oversized items bypass cache |
+| **Large Text SHA-256 Allocation** | `16M` units: `134.22 MB` / `536.87 MB` / `738.20 MB` | **`136.7–136.9 KB` (−99.898% to −99.981%)** | Streamed fixed 4K/8K UTF-8 encoding (`v0.2.9+`, ASCII / Mixed / Unicode) |
+| **Single-Pass Snapshot Digest (`0.4.8`)** | Prior `0.4.8` re-read disk channel to compute SHA-256 | **−19.24% median CPU / −19.37% wall time** (`official-nf265`) | [engineering-055](evidence/engineering-055/snapshot-digest/README.md) 6-pair real 65.26 MB BBModel benchmark (6/6 improved; single path) |
+| **Consecutive 16-Pack `F3+T` Reloads** | `0.4.7` 4th-reload OOM; initial `0.4.8` 7th-reload OOM | **`20 / 20` consecutive reloads at `3 GiB` (0 OOM)** | [engineering-056](evidence/engineering-056/nf265-reload20/README.md) native-catalogue 16 packs (`1,092` decls / `1,091` IDs), exit `0`, readable JFR |
+| **Abrupt Halt & Wrong-JAR Safety** | `0.4.6` left `.utf16` on `Runtime.halt`; `0.4.4` skipped Mixins | **`4 / 4` zero spill residue + exit code `1` before registration** | Single-channel `DELETE_ON_CLOSE` cleanup (`0.4.7+`); `MixinInitialisationError` (`0.4.5+`) |
+
+> Note on scope: While `3 GiB` stability and `20/20` consecutive full-pack reloads are verified on `0.4.8` (`official-nf265`), full-client controlled performance acceptance remains pending — see [Current Validation Scope](#current-validation-scope).
+
+---
+
+## Supported Target & Installation
+
+The **`0.4.8`** development pre-release targets **`official-nf265`** only (`config/targets.json` is the single authority for dependency hashes and loader versions):
+
+| Parameter | Required Value |
+| :--- | :--- |
+| Target Preset | `official-nf265` |
+| Minecraft / Java | `1.21.1` (Client only) · Java `21` |
+| NeoForge | `21.1.265` (exact) |
+| Official MTR `4.1.0-beta.2` SHA-256 | `ff2b753d03f2bcc000d053a9014e4250c8ba720daa9b69b6899fe7dc26be1efa` |
+| Tested Companion JAR (`0.4.8`) SHA-256 | `920c1f833b6f173c7443ff5956493b779acfeceb293fa640817a459985db3f5b` |
+
+### Install / Rollback
+
+1. Download **`mtr-memory-saver-official-nf265-0.4.8.zip`** from [GitHub Releases](https://github.com/teamCreating/MTR-Memory-Saver/releases/tag/v0.4.8) (see [v0.4.8 Release Notes](docs/releases/v0.4.8.md)).
+2. Extract **`mtr-memory-saver-official-nf265-0.4.8.jar`** into your client's `mods/` folder alongside exact NeoForge `21.1.265` and official MTR `4.1.0-beta.2`.
+3. Remove any older `mtr-memory-saver` / `mtr_memory_sharing` companion JAR first (do not install two versions together). The companion validates the loaded MTR JAR SHA-256 at startup and exits with code `1` via `MixinInitialisationError` if mismatched.
+4. Keep your resource packs in `resourcepacks/` (unmodified). To roll back, close Minecraft and delete or replace the companion JAR.
+
+See [docs/INSTALL.md](docs/INSTALL.md) and [docs/SUPPORT.md](docs/SUPPORT.md) for full rules and historical targets. Custom `Performance v6` target presets (`v6-nf248` / `v6-nf265`) remain in `config/targets.json` for source builds with new validation paused.
+
+---
+
+## Architecture Overview
+
+Built around official MTR `4.1.0-beta.2`, the `0.4.8` runtime operates in four decoupled layers across 18 Mixins/Accessors (13 common + 5 official; detailed in [docs/TECHNICAL_PRINCIPLES.md](docs/TECHNICAL_PRINCIPLES.md) and [docs/RUNTIME_DESIGN.md](docs/RUNTIME_DESIGN.md)):
+
+1. **Exact Binary Identity Gate (`CompatibilityPlugin` / `BinaryFingerprint`)**: Streams the active MTR JAR SHA-256 during Mixin `onLoad` and throws `MixinInitialisationError` before registration if bytes differ from the target manifest.
+2. **Two-Level Bounded Single-Flight Scheduling (`GenerationWorkCache`)**: Evaluates L1 `(providerIdentity, modelId, textureId, flipV)` path keys before opening streams, decoding, or hashing; limits concurrent parse work via a fair `2 + 64` semaphore queue and lightweight descriptor suppliers; releases read permits before L2 Blockbench content-alias waiters attach; keeps `.obj` scoped per-path (`StreamedObjCache`) to isolate `.mtl` materials; retires generations atomically on reload.
+3. **Owned Streaming Snapshots, Single-Pass Digest & `96 MiB` LRU**: Wraps the 5 audited official `ResourceProvider` entry points (`ResourceTextReadMixin`) to stream `.bbmodel`, `.obj`, and `.mtl` through a single `CREATE_NEW | READ | WRITE | DELETE_ON_CLOSE` UTF-16 channel, computes UTF-8 SHA-256 in a single `FilterReader` pass without a second disk read, spills oversized legacy `readResource` calls deadlock-free via fair-share `TextWorkspace`, and caps retained resource text in a `96 MiB` `Deflater.BEST_SPEED` LRU (`BoundedTextCache`).
+4. **Lossless Packed Meshes, Display Pruning & Shared Vehicle JSON**: Compresses CPU-side `StoredVertexData` to fixed 36-byte `Deflater.BEST_SPEED` chunks (`PackedVertices` / `PackedModelGroupStore`) preserving exact raw float bits and AABB boxes, retains `PartType.DISPLAY` transforms only (`DisplayRetention`), and shares identical non-empty vehicle Gson trees per epoch (`VehicleJsonCache`).
+
+---
+
+## Current Validation Scope
+
+### Verified for `0.4.8` (`official-nf265`, JAR `920c1f83...`)
+
+- **Headless Java & Python Suites**: `106` Java unit/regression tests (including `-Xmx64M` streaming vs `String.join` OOM controls), `682` historical script index checks, and `354` Python tool tests pass.
+- **Packaged Client & Fault Injection**: Actual `NeoForge 21.1.265` packaged client passes `24` lifecycle + `18` strict-resource + `27` OBJ checks (`69` total), full sixteen-pack startup (`1,092` declarations / `1,091` distinct IDs), readable JFR verification, and same-version wrong-MTR JAR exit code `1` (`engineering-056/nf265-packaged`).
+- **20-Reload Endurance (`3 GiB` Heap)**: Passes `20 / 20` consecutive full sixteen-pack native `F3+T` reloads in a fresh `-Xms512M -Xmx3072M` G1 JVM (`epochs 3–22`, `19` intermediate dual-clock `>= 60 s` stability windows, `14/14` post-20 samples over `65.003 s`, clean `Alt+F4` exit `0`, readable `213,901,766`-byte JFR), independently verified via `verify_sealed.py` (`607` payloads).
+
+### Not Yet Certified / Open Gates
+
+- **Whole-Client Performance Acceptance Pending**: Earlier 12-JVM paired Spark trials on `NF248` (`engineering-054`, `0.4.8` `943b3d45...` vs `v0.3.0`) missed performance thresholds (`−0.282%` steady private memory vs `<= -10%`, `+9.840%` loading time vs `<= +5%`), with concurrent host load leaving wall-clock attribution `inconclusive`; the subsequent single-pass optimization (`920c1f83...`) has not yet completed a full 48-JVM controlled client trial ([client-experiment.json](config/client-experiment.json)).
+- **Pending Runtime Gates (P1)**: Independent display-frame presentation capture (ETW/PresentMon blocked/empty on standard permissions), 2-hour uninterrupted route stability (historical attempts 01–03 failed), and exhaustive vehicle catalog visual/window/door/boarding interaction checks.
+
+---
+
+## Build & Verify
+
+Requires a **Java 21 JDK** (`JAVA_HOME`). No live Minecraft launcher instance or external marker file is needed to build or run automated suites (see [BUILDING.md](BUILDING.md) and [tests/README.md](tests/README.md)):
 
 ```powershell
-./gradlew.bat build
+# Build & verify the default official-nf265 JAR and identity manifest
 ./gradlew.bat build -Ptarget=official-nf265
-./gradlew.bat build -Ptarget=v6-nf248 -PmtrJar='<audited Performance-v6 JAR>'
+
+# Run headless Java regressions (106 tests on official-nf265)
+./gradlew.bat test
+
+# Build installable release ZIP + .build.json manifest in build/releases/
 ./gradlew.bat releaseBundle
+
+# Run Python tool kit verification and regression suite (requires requirements-test.txt)
+python -X utf8 -m minecraft_testkit verify
+python -X utf8 -m minecraft_testkit test
+
+# Offline cryptographic replay of sealed 0.4.8 NF265 20-reload evidence (read-only)
+python -X utf8 evidence/engineering-056/nf265-reload20/verify_sealed.py
 ```
 
-The default and current release target is `official-nf265`. Gradle resolves the game/NeoForge toolchain and the
-hash-pinned official MTR dependency. Custom v6 must be supplied explicitly. All
-releases remain `0.x.x`; `gradle.properties` is the version authority.
+### Repository Layout
 
-JARs and their identity manifests are produced in `build/libs/`. Release ZIPs in
-`build/releases/` include the JAR, manifest, license and installation guide.
-Versioned development pre-releases are distributed through
-[GitHub Releases](https://github.com/teamCreating/MTR-Memory-Saver/releases).
-The CI workflow also retains verified target bundles as workflow artifacts.
+- `src/main/java/` — Shared Mixins, bounded scheduler, streaming snapshots, text workspace/LRU, packed store, JSON/display sharing
+- `src/targets/official/java/` — Official MTR `4.1.0-beta.2` target adapters (`StreamedObjCache`, `ResourceTextReadMixin`, `VertexColorMixin`, etc.)
+- `src/targets/v6/java/` — Historical custom `Performance v6` ABI target (currently paused)
+- `config/` — Authoritative build matrix (`targets.json`) and frozen experiment policies
+- `evidence/` & `performance/` — Immutable, hash-indexed failure/pass captures with offline `verify_sealed.py` replay scripts
+- `tools/` & `tests/` — Acceptance harnesses, JFR/Spark exporters, and 354 Python regression tests
 
-See [BUILDING.md](BUILDING.md) for reproducibility and offline/custom inputs,
-[installation](docs/INSTALL.md) for deployment/rollback, and [LICENSE](LICENSE).
-The [CI/CD guide](docs/CI_CD.md) describes branch checks, protected-main changes,
-version-tagged pre-releases and the manual release rehearsal.
+---
 
-## Maintain and verify
+## Documentation & License
 
-Python regressions and curated historical samples are organized in the
-[test kit](tests/README.md); [tools](tools/README.md) indexes maintained commands
-and archived debug scripts. [Minecraft MCP](docs/MINECRAFT_MCP.md) records the
-planned extension boundary; no MCP server is implemented yet.
-
-Stable code is in `src/main/java/`. Only release-specific ABI/lifecycle files belong
-in `src/targets/official/java/` or `src/targets/v6/java/`; a preset compiles exactly
-one target directory. Feature flags do not assemble a production release.
-`src/experiments/`, `src/legacy/` and `tools/legacy/` are historical references and
-are excluded from stable builds.
-
-`gradlew test` runs headless regression tests. Build manifests record the selected
-target, MTR hash, exact loader, version, source/resource hashes and artifact hash.
-Reproducible JAR ordering/timestamps permit meaningful rebuild comparisons.
-The Mixin compatibility plugin checks the loaded MTR bytes before installing hooks.
-
-Version 0.4.1 adds bounded descriptor scheduling, provider/path fast hits,
-generation retirement, terminal parse failure and guarded text admission. See the
-[runtime contract](docs/RUNTIME_DESIGN.md) and [acceptance procedure](docs/ACCEPTANCE.md).
-
-Version 0.4.3 binds admission waiters to their original generation across model,
-text and vehicle-JSON caches, cancels retired read waiters promptly and validates
-configured limits explicitly. Current validation focuses on official MTR
-4.1.0-beta.2; new v6 validation is paused. Candidate-specific runtime evidence is
-required before extending the historical support claims.
-
-Version 0.4.4 propagates malformed Blockbench input failures through the native
-parser and shared-future cleanup instead of caching successful empty fallbacks.
-Valid inputs retain the original schema and model algorithm.
-
-Version 0.4.6 admits large decoded text through a shared heap-derived workspace.
-Inputs that exceed a reader's initial share use an owned UTF-16 snapshot before
-claiming their complete size. Official resource reads propagate real I/O and size
-failures while preserving legal empty text and native charset replacement.
-
-Version 0.4.7 retains one owned snapshot channel through writing, workspace waiting
-and restoration. Atomic delete-on-close ownership removes these temporary files
-when a Windows JVM exits abruptly. Both official targets pass 73 Java tests and
-the actual abrupt-exit and 3 GiB large-input audits. Both exact packaged clients
-pass 24 lifecycle and 18 resource checks. A fresh NF248 sixteen-pack startup with
-observer 1.0.3 also has an [independently sealed settled window](evidence/engineering-050/neutral103-startup/README.md).
-Interaction, reload endurance, route and controlled performance remain pending;
-historical 0.4.6 results retain their original artifact identities.
-
-The 0.4.8 development candidate streams Blockbench, OBJ and material input through
-owned snapshots while retaining native parsing and mesh construction. The first
-Blockbench-only candidate failed its seventh full-pack reload with a synchronous
-OBJ String allocation; its [failed run remains sealed](evidence/engineering-051/streamed051a-reload-oom/README.md).
-The [revised OBJ/MTL candidate](evidence/engineering-051/streamed-obj-input/README.md)
-passes 105 Java tests per official target, 69 checks in each actual packaged
-client, both incorrect-binary rejection checks and small-heap streaming controls.
-These results do not establish reload endurance or a performance benefit.
-[Independent frame diagnostics](evidence/engineering-052/frame-source-diagnostics/README.md)
-currently have no valid frame CSV; provider enablement returned access denied.
-The revised NF248 candidate has also passed [twenty consecutive full-pack
-reloads](evidence/engineering-052/revised048-reload20/README.md) in one fresh
-3 GiB JVM, followed by an independent stable window and normal shutdown.
-The [practical Spark comparison](evidence/engineering-054/practical-spark/README.md)
-completed twelve independently qualified NF248 JVM observations. Plain steady
-private memory fell by a median 0.28%, missing the 10% reduction target, while
-resource loading rose by 9.84%, exceeding the 5% guardrail. Performance acceptance
-failed and the release was held at that stage.
-The subsequent [outlier sensitivity analysis](evidence/engineering-054/outlier-sensitivity/README.md)
-accounts for the user's report of concurrent host workloads. Wall-clock loading
-differences remain descriptive observations with inconclusive causal attribution.
-Removing either complete plain pair leaves a 9.40–10.28% loading increase and
-a 0.27–0.30% private-memory reduction.
-
-The subsequent [snapshot digest optimization](evidence/engineering-055/snapshot-digest/README.md)
-eliminates the snapshot read pass used to compute its content hash. The revised
-candidate passes 106 Java tests, small-heap streaming controls and 69 packaged
-checks with all sixteen packs on NeoForge 21.1.265, followed by native stop and
-an owned JVM exit code of zero. Full-client performance acceptance remains pending.
-
-The exact optimized NF265 candidate now passes [twenty consecutive full-pack
-reloads](evidence/engineering-056/nf265-reload20/README.md), nineteen intermediate
-stable checks, a separate final stable observation and normal JVM shutdown.
-The [0.4.8 release decision](evidence/engineering-056/release-decision/README.md)
-permits a scoped development pre-release for NeoForge 21.1.265. Whole-client
-performance, every vehicle interaction and a two-hour route remain unqualified.
-
-Historical guides and measurements are indexed in [HISTORY.md](docs/HISTORY.md)
-and [TECHNICAL.md](TECHNICAL.md). New candidate tests and performance reports have
-separate artifact identities. GPU lifetime and gameplay require runtime acceptance;
-a successful compile or class-file comparison is not such acceptance.
-
-The independent [acceptance tools](tools/acceptance/README.md) cover native reference
-audits, paired real-input source lookup, JFR analysis and optional client probes.
-
-The [optimization and comparison workflow](docs/OPTIMIZATION.md) supplies a frozen
-experiment plan, balanced A/B and A/A runs, JFR overhead controls, preserved failures
-and independent paired analysis. Policies live outside the mod in
-`config/source-experiment.json`; source results do not certify full-client performance.
-
-![Pack icon](src/main/resources/pack.png)
+| Document | Topic |
+| :--- | :--- |
+| [docs/TECHNICAL_PRINCIPLES.md](docs/TECHNICAL_PRINCIPLES.md) | Comprehensive Chinese technical principles, architecture diagrams, controlled trial design & all trial results (`v0.1.1`–`0.4.8`) |
+| [docs/releases/v0.4.8.md](docs/releases/v0.4.8.md) | Bilingual (`EN` / `zh-CN`) release notes for `v0.4.8` |
+| [docs/RUNTIME_DESIGN.md](docs/RUNTIME_DESIGN.md) | Detailed runtime contract & concurrency invariants (`0.4.7+`) |
+| [docs/SUPPORT.md](docs/SUPPORT.md) · [docs/INSTALL.md](docs/INSTALL.md) | Exact binary compatibility matrix, installation & rollback |
+| [BUILDING.md](BUILDING.md) · [docs/CI_CD.md](docs/CI_CD.md) | Reproducible builds, protected `main` rules & release pipeline |
+| [docs/OPTIMIZATION.md](docs/OPTIMIZATION.md) · [docs/CLIENT_EXPERIMENT.md](docs/CLIENT_EXPERIMENT.md) · [docs/ENGINEERING_REVIEW.md](docs/ENGINEERING_REVIEW.md) | Controlled experiment methodology & critical engineering review |
+| [docs/HISTORY.md](docs/HISTORY.md) · [TECHNICAL.md](TECHNICAL.md) | Historical `0.1.x`–`0.3.x` research log & original English architecture archive |
+| [LICENSE](LICENSE) · [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) | MIT License (`Copyright (c) 2026 A-BenLi06`) & third-party notices |

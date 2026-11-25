@@ -753,3 +753,42 @@ engineering-056/nf265-reload20保留40个选定record闭包、所有literal inpu
 
 封存提交前 Git whitespace 校验识别 .bin 中的原始MTR日志ASCII横幅尾空格；沿用既有证据目录规则将新056路径的.bin标为binary，完整保留原始字节与hash，未清理或重写日志。
 
+## 2026-11-24T23:52:56.2899310+08:00 — 编写 Memory Saver 技术原理与全阶段对照试验文档
+
+新增中文综合技术文档 `docs/TECHNICAL_PRINCIPLES.md`，并在 `README.md` 补充对应索引链接；未改动任何产品 Java 源码、历史 `TECHNICAL.md` 归档或既有封存 `evidence/` 证据载荷。
+
+文档基于已核验的源码、`config/` 实验配置与 `evidence/`/`experiments/`/`performance/`/`compatibility/` 原始封存记录整理，涵盖三部分核心内容：（1）`0.4.8` 五层技术原理（`CompatibilityPlugin`/`BinaryFingerprint` 精确二进制门禁与 19 处 Mixin 注入矩阵、`GenerationWorkCache` L1/L2 两级单飞与无环异常保留、`SnapshotResourceProvider`/`ResourceTextSnapshot`/`Utf16TextSnapshot`/`ResourceTextDigest` 单遍边写边算哈希流式快照与 `BoundedTextCache`/`TextWorkspace`、`PackedVertices`/`DisplayRetention`/`VehicleJsonCache`、以及 `Performance v6` ABI/生命周期差异与 JVM 参数边界）；（2）三套受控配对试验协议（48-JVM 源码协议、48-JVM 整客户端冻结协议、12-JVM NF248 实用 Spark 验证）、中性观察器 1.0.3 与 `native-invalid-model` 逐次实时归因、非参数精确二项符号检验置信区间与事后 Tukey/留一对敏感性分析设计；（3）自 `v0.1.1` 至 `0.4.8` 全部对照试验、负对照与耐久结果的完整实测数据，忠实保留 `v0.1.2`/`v0.2.3`/`v0.2.4`/`v0.2.5` 否决记录、`2026-11-05` v6 8 GiB OOM 剖析、`0.4.2` 48-JVM 源码协议 `inconclusive`、`0.4.4`/`0.4.5`/`0.4.6`/`0.4.7`/`0.4.8` 错包与 64 MiB 负对照、第 4 次与初版第 7 次重载 OOM、3 次两小时路线失败、`engineering-054` 12-JVM 实用 Spark 验证不通过及并发宿主机负载敏感性、以及 `engineering-055`/`056` 单遍摘要优化微基准（NF265 线程 CPU −19.237% / 耗时 −19.371%）和 NF265 20 次连续全包重载封存。
+
+完成最终文本校验：186 处相对路径链接零缺失、`git diff --check` 无空白错误、Mermaid 语法与 LaTeX `$` 转义检查通过；并重新执行 `minecraft_testkit verify`（682 份历史脚本、2 组数据集、11 样例）与 `minecraft_testkit test`（354 项工具测试）验证通过，随后提交至 `codex/standalone` 并推送 `origin`。
+
+## 2026-11-25T00:29:40.8767742+08:00 — 重构 TECHNICAL_PRINCIPLES.md 为面向开发者与社区审计的参考文档
+
+按后续可读性与展示需求，在原地将 `docs/TECHNICAL_PRINCIPLES.md` 重构为面向开发者上手和社区审计的文档结构（共 585 行、纯 LF 换行），未修改任何产品 Java 源码、`README.md`、历史 `TECHNICAL.md` 或既有 `evidence/` 载荷：
+
+- **开篇直出核心进步**：新增“一眼看懂：我们实现了多大进步”总览与 10 项 Before→After 对比表（Java 堆上限由 `8 GiB` / v6 `8 GiB` 165 Full GC OOM 降至 `3 GiB`、活跃 `StoredVertexData` 由 `79,359,867` 清零、`StoredMatrixTransformations` 由 `2,494,194` 降至 `2,234`、核心 Gson 浅堆由 `385.75 MB` 降至 `99.87 MB`、文本缓存收敛为 `96 MiB` LRU、16M 大文本哈希分配降低 `99.898%–99.981%`、L1 路径优先 48-JVM A/B 分配 `−62.38%`/耗时 `−71.31%`、单遍快照摘要 NF265 线程 CPU `−19.24%`、3 GiB 连续 20/20 次全 16 包 F3+T 重载及强杀零残留/错包退出码 1），并在首屏高亮展示当前“已获证 vs 未通过/待关闭”真实边界以及按读者角色直达导航。
+- **开发者速查与大表折叠**：将 19 处 Mixin 矩阵、14 轮历史消融表、`engineering-054` 12 试次原始表与全版本 64 位 SHA-256 附录整理进结构化速查表与 `<details>` 折叠块（保持 CommonMark/VitePress 空行兼容、移除易歧义的中文锚点与 Mermaid `<br>`/`&` 简写）。
+- **社区自检与离线复现**：第 6 节提供经源码核实的本地 `./gradlew.bat test`/`build`、`minecraft_testkit verify/test`、`evidence/` 只读或 `.cache/` 离线 `verify_sealed.py` 重放、`client_outlier_analysis.py`、`SparkProfileExport.java` 命令以及 6 步审计核对清单。
+
+校验结果：`docs/TECHNICAL_PRINCIPLES.md` 133 处相对链接零缺失、零未转义 `$` 与 Mermaid 语法错误；`evidence/engineering-056/nf265-reload20/verify_sealed.py` 离线复放通过（20 次重载、607 项载荷）；在最终文本修改后复验 `git diff --check` 无错误，且 `minecraft_testkit verify`（682 份历史脚本、2 组数据集、11 样例）与 `minecraft_testkit test`（354 项工具测试）均全部通过。
+
+## 2026-11-25T20:42:23.8673467+08:00 — 将 TECHNICAL_PRINCIPLES.md 语言风格调整为常规项目开发文档风格
+
+根据用户要求，在保留全部实验数据、技术细节、源码/证据链接及开篇核心进展展示的前提下，调整 `docs/TECHNICAL_PRINCIPLES.md`（共 578 行、纯 LF 换行）的章节标题、说明措辞与标注风格，使其与仓库内 `README.md`、`docs/RUNTIME_DESIGN.md` 等常规工程开发文档保持一致的平实客观语气，同时不修改任何产品源码、既有证据或 `README.md`。
+
+校验结果：`docs/TECHNICAL_PRINCIPLES.md` 136 处相对路径链接零缺失、零未转义 `$`、零 Mermaid 语法问题、零全角感叹号；提交前将在最终文档修改后复验 `git diff --check`、`evidence/engineering-056/nf265-reload20/verify_sealed.py`、`minecraft_testkit verify` 与 `minecraft_testkit test`。
+
+## 2026-11-25T20:48:05.8972547+08:00 — 将 TECHNICAL_PRINCIPLES.md 聚焦至官方 MTR 4.1.0-beta.2 与 Memory Saver 主线
+
+按用户要求精简定制版 `Performance v6` 相关展开内容（仅在架构注记、构建目标注记、`5.1` 附注、P2 待办表及 SHA-256 附录末尾保留简要说明），使 [TECHNICAL_PRINCIPLES.md](docs/TECHNICAL_PRINCIPLES.md)（共 566 行、纯 LF 换行）全文围绕官方 **MTR `4.1.0-beta.2` + Memory Saver** 的技术原理、四层主架构（面向官方目标的 18 项 Mixin/Accessor）、13 轮演进历史（`v0.1.1 -> v0.3.0`）以及 `0.4.x` 至 `0.4.8` 对照试验和 `20/20` 次重载耐久展开；未修改任何产品 Java 源码、`README.md` 或既有 `evidence/` 证据载荷。
+
+校验结果：`docs/TECHNICAL_PRINCIPLES.md` 136 处相对路径链接零缺失、零未转义 `$`、零 Mermaid 语法问题、零 `<details>` 空行缺失、零全角感叹号；提交前将在最终文档修改后运行 `git diff --check`、`evidence/engineering-056/nf265-reload20/verify_sealed.py`、`minecraft_testkit verify` 与 `minecraft_testkit test`。
+
+## 2026-11-25T21:10:05.5835215+08:00 — 制作中英双语 GitHub README 与重写 0.4.8 Release Notes
+
+按用户确认方案（英文主 `README.md` + 中文 `README.zh-CN.md` 互跳、中英双语 `v0.4.8` Release Notes、同步更新线上 GitHub Release `v0.4.8` 并提交合并到 `main` 的 PR），新增或重写以下文档（均为纯 LF 换行，未修改产品源码、构建脚本或既有 `evidence/` 载荷）：
+
+- [README.md](README.md)（126 行）与 [README.zh-CN.md](README.zh-CN.md)（126 行）：顶部提供中英文切换与 `pack.png` 图标，突出面向官方 **MTR `4.1.0-beta.2` + Memory Saver (`official-nf265`)** 的核心定量进展（`8 GiB -> 3 GiB` 堆上限、`79,359,867 -> 0` `StoredVertexData`、`2,494,194 -> 2,234` 非展示变换、`385.75 -> 99.87 MB` Gson 浅堆、`96 MiB` LRU、单遍摘要 `-19.24% CPU / -19.37%` 耗时、`3 GiB` 连续 `20/20` 次重载、强杀零残留与错包退出码 `1`），同步明确当前已验证项与未通过/待关闭整客户端性能及 P1 门禁，提供安装回退、四层架构与本地构建/离线校验命令；定制版 `Performance v6` 仅作简要历史注记。
+- [docs/releases/v0.4.8.md](docs/releases/v0.4.8.md)（86 行）：中英双语编写 `v0.4.8`（`official-nf265` 开发预发布）发布说明，完整覆盖 `.bbmodel`/`.obj`/`.mtl` 流式读取与单遍摘要更新、106 项 Java / 354 项 Python / 69 项实机 / 20 次重载验证结果、未关闭整客户端性能与 P1 边界、`mtr-memory-saver-official-nf265-0.4.8.zip` / `.jar` / 官方 MTR `4.1.0-beta.2` 的精确 SHA-256 及实机证据链接。
+
+校验结果：三份新增/重写文档相对路径与 `main` 仓库路径均零缺失、零未转义 `$`、零全角感叹号；提交前将在最终编辑后运行 `git diff --check`、`evidence/engineering-056/nf265-reload20/verify_sealed.py`、`minecraft_testkit verify` 与 `minecraft_testkit test`，随后提交推送、更新 GitHub Release `v0.4.8` 并创建合入 `main` 的 PR。
+
