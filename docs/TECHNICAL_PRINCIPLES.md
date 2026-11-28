@@ -8,15 +8,29 @@
 
 ## 概览与主要进展
 
-在全部 16 个高负载测试资源包下，原生官方 **MTR `4.1.0-beta.2`** 存在同源模型重复解析、CPU 侧未压缩顶点对象常驻、非展示矩阵元数据滞留、车辆配置 JSON 重复解析以及瞬时大文本分配峰值问题。实测表明：在引入 Memory Saver 前的早期基线 `v0.1.1` 需要 `8 GiB` Java 堆上限并在堆直方图中保留 `79,359,867` 个 `StoredVertexData`；未加 96 MiB LRU 前的 `v0.2.9` 在 `3 GiB` 启动期即发生 OOM；`0.4.7` 在 `3 GiB` 堆下于第 4 次连续 `F3+T` 重载因 `String.join` 分配触发 `OutOfMemoryError`。
+在全部 16 个高负载测试资源包下，未安装 Memory Saver 的**原生官方 MTR `4.1.0-beta.2`**在模型精简与限流虚拟线程后依然会在 **`6 GiB` 与 `12 GiB` Java 堆下发生 `OutOfMemoryError`**（崩溃前堆冲顶 `11.98 GiB`，部分加载即保留 `9.87 GiB` 浅堆活跃对象，其中仅 `StoredVertexData` 与 `java.awt.Color` 即占 `5.67 GiB`）。引入早期伴侣 `v0.1.1` 后仍需 `8 GiB` 堆上限并滞留 `79,359,867` 个 `StoredVertexData`；未加 96 MiB LRU 前的 `v0.2.9` 在 `3 GiB` 启动期 OOM；`0.4.7` 在 `3 GiB` 堆下于第 4 次连续 `F3+T` 重载因 `String.join` 分配触发 OOM。
 
-经过多阶段结构调整与工程迭代，面向官方 `4.1.0-beta.2` 的 **`0.4.8`**（`official-nf265` 预发布候选 `920c1f83...`）将全 16 包启动与热重载所需的 Java 堆上限从 `8 GiB` 降至 `3 GiB`（`-Xmx3072M`，降低 `62.5%`），消除了 CPU 侧 `StoredVertexData` 对象常驻，在 `3 GiB` 堆下连续完成 `20 / 20` 次全包 `F3+T` 热重载（0 次 OOM），并实现了强杀无临时文件残留与不匹配 MTR JAR 启动前拒绝。在 65.26 MB 真实 BBModel 单输入微基准中，单遍摘要优化使 NF265 线程 CPU 减少 `19.24%`、耗时减少 `19.37%`。
+经过多阶段结构调整与工程迭代，面向官方 `4.1.0-beta.2` 的 **`0.4.8`**（`official-nf265` 预发布候选 `920c1f83...`）将全 16 包启动与热重载所需的 Java 堆上限压低至 `3 GiB`（`-Xmx3072M`，相比 `12 GiB` OOM 基线降低 `75%+`，相比 `v0.1.1` 降低 `62.5%`），彻底消除了 CPU 侧 `StoredVertexData` 对象常驻，在 `3 GiB` 堆下连续完成 `20 / 20` 次全包 `F3+T` 热重载（0 次 OOM），并实现了强杀无临时文件残留与不匹配 MTR JAR 启动前拒绝。在 65.26 MB 真实 BBModel 单输入微基准中，单遍摘要优化使 NF265 线程 CPU 减少 `19.24%`、耗时减少 `19.37%`。
+
+### 关键内存占用对比：仅装官方 MTR `4.1.0-beta.2` vs 安装 Memory Saver
+
+| 对比维度 | 仅装官方 MTR `4.1.0-beta.2`（不装 Memory Saver） | 官方 MTR + Memory Saver `v0.3.0`（同旧 16 包同夹具） | 官方 MTR + Memory Saver `0.4.8`（原生目录 16 包） |
+| :--- | :--- | :--- | :--- |
+| **夹具与加载器口径** | 旧 16 包（`2,541` 车），Fabric `0.20.1` | 旧 16 包（`2,541` 车），NeoForge `21.1.265` | 原生目录 16 包（`1,092` 声明 / `1,091` ID + `974` OBJ），NeoForge `21.1.248` / `21.1.265` |
+| **最低稳定 `-Xmx` 堆上限** | **`> 12 GiB`**（`6 GiB` 与 `12 GiB` 均在解析期 OOM） | **`3 GiB`**（`-Xmx3072M`，较 `12 GiB` 降 `75%+`） | **`3 GiB`**（`-Xms512M -Xmx3072M`） |
+| **采样 Java 堆实际使用量** | 崩溃前达 **`11.98 GiB`**（`12,867,687,504` B / `12 GiB`） | 启动峰值 **`2.812–2.815 GiB`** / 重载 **`2.890–2.896 GiB`** | 稳态 **`2.299–2.307 GiB`**（`NF248` Plain）；20 次重载中位 **`2.346 GiB`** / 峰值 **`2.873 GiB`**（`NF265`） |
+| **堆直方图活跃对象（浅堆）** | 部分加载即 **`9.87 GiB`**（`76,641,609` `StoredVertexData` `3.43 GiB` + `75,312,045` `Color` `2.24 GiB` + `[B` `1.72 GiB`） | **`0`** 个 `StoredVertexData`（36 B 无损分块压缩） | **`0`** 个 `StoredVertexData`（36 B 分块压缩 + `.bbmodel`/`.obj`/`.mtl` 全流式读取） |
+| **Windows 工作集 (Working Set)** | 早期基线未单独记录（OS 总占用高于 JVM 堆） | 采样 **`3.863–4.767 GiB`**（进程高水位 **`5.239–5.363 GiB`**） | 稳态 **`4.247–4.312 GiB`**（`NF248` Plain）；20 次重载中位 **`4.394 GiB`** / 高水位 **`5.593 GiB`**（`NF265`） |
+| **Windows 私有提交 (Private)** | 早期基线未单独记录 | 采样启动 **`4.015–4.137 GiB`** / 重载 **`4.737–5.619 GiB`** | 稳态 **`4.455–4.474 GiB`**（`NF248` Plain）；20 次重载中位 **`4.870 GiB`** / 峰值 **`5.861 GiB`**（`NF265`） |
+| **启动与 `F3+T` 热重载结果** | 启动 `OutOfMemoryError`（退出码 `-1`） | 启动与 `F3+T` 热重载全部通过（`2/2` 独立客户端） | 启动与 **`20 / 20` 次连续 `F3+T` 热重载**全部通过（`0` OOM，`Alt+F4` 退出码 `0`） |
+
+> 边界说明：不装 Memory Saver 的原生 `12 GiB` OOM 测量与堆直方图（[without-companion-live-heap.txt](../evidence/without-companion-live-heap.txt)、[HISTORY.md](HISTORY.md#L303-L306)）采集于 Fabric `0.20.1` + 旧 16 包基线，未额外采集 Windows 私有提交且尚未单独封存不装伴侣模组的 NeoForge `21.1.265` 对照组。在同套旧 16 包下，[`v0.3.0`](../evidence/neoforge-v030-acceptance.json) 直接验证了堆需求从 `> 12 GiB` 降至 `3 GiB`；而 [`0.4.8`](../evidence/engineering-056/nf265-reload20/README.md) 在当前原生目录 16 包下保持 `3 GiB` 堆上限并将稳定性延伸到 `20/20` 次连续热重载（稳态数值来自 [`engineering-054`](../evidence/engineering-054/practical-spark/assessment.json) 与 [`nf265-reload20`](../evidence/engineering-056/nf265-reload20/observer/samples.jsonl) 原始采样）。注意 `-Xmx3072M` 仅约束 Java 堆，叠加堆外原生内存与显存驱动分配后，进程实际 Working Set / 私有提交约为 `4.25–5.86 GiB`。
 
 ### 核心指标变化
 
 | 指标维度 | 基线 / 优化前状态 | 当前状态 / 优化后实测 | 夹具口径与边界说明 |
 | :--- | :--- | :--- | :--- |
-| **最低稳定启动 Java 堆上限** | `8 GiB`（`v0.1.1`）；`v0.2.9` 在 `3 GiB` 启动 OOM | `3 GiB`（`-Xmx3072M`，堆上限降低 `62.5%`）（`v0.3.0` / `0.4.x`） | 实测两代官方 `4.1.0-beta.2` 16 包夹具；Windows 进程生命周期工作集 / 私有提交仍约 `4.46–5.36 GiB` |
+| **最低稳定启动 Java 堆上限** | **仅装原版 `> 12 GiB`**（`6 / 12 GiB` OOM）；`v0.1.1` `8 GiB`；`v0.2.9` `3 GiB` OOM | `3 GiB`（`-Xmx3072M`，较 `12 GiB` 降 `75%+`，较 `v0.1.1` 降 `62.5%`）（`v0.3.0` / `0.4.x`） | 实测两代官方 `4.1.0-beta.2` 16 包夹具；Windows 进程生命周期工作集 / 私有提交仍约 `4.25–5.86 GiB` |
 | **CPU 侧顶点对象常驻** | `79,359,867` 个活跃 `StoredVertexData`（`v0.1.1`） | `0` 个（`v0.2.0+` 36 B/顶点 `Deflater.BEST_SPEED` 分块压缩） | 旧 16 包堆直方图；391 上海模型（`47,373,240` 顶点）压缩载荷为 `367,774,154` B |
 | **非展示部位矩阵变换实例** | `2,494,194` 个 `StoredMatrixTransformations`（约 `753 MiB`） | `2,234` 个（`−99.91%`，仅保留 `PartType.DISPLAY`） | `v0.2.1` 5 GiB 堆直方图：整体浅堆由 `3.04 GiB` 降至 `2.31 GiB`（`−24.17%`） |
 | **车辆配置 JSON DOM 浅堆** | 核心 MTR Gson 浅堆 `385,752,224` B（385.75 MB） | `99,865,272` B（99.87 MB，`−74.11%`） | `v0.2.2` 5 GiB 堆直方图：整体浅堆减少 `579 MiB`（`−24.50%`），118.25 MB 文本去重至 32.22 MB |
@@ -30,10 +44,11 @@
 ### 版本演进概览
 
 ```text
-v0.1.1 (8 GiB 基线, 79.36M 顶点)
-  -> v0.2.0-v0.2.9 (36B 压缩网格 -> DISPLAY 剪枝 -> JSON 共享 -> 分段读取 -> 流式哈希: 5 -> 4 -> 3.5 GiB)
-    -> v0.3.0 (96 MiB 有界压缩 LRU: 首次在 3 GiB 下完成官方 4.1.0-beta.2 全 16 包启动与重载)
-      -> 0.4.0-0.4.8 (精确二进制校验 + 两级单飞 2+64 队列 + 全流式 BBModel/OBJ + 单遍摘要: 3 GiB 连续 20/20 次重载)
+仅装官方 MTR 4.1.0-beta.2 (> 12 GiB OOM，部分加载即留 9.87 GiB 浅堆)
+  -> v0.1.1 (8 GiB 基线, 79.36M 顶点)
+    -> v0.2.0-v0.2.9 (36B 压缩网格 -> DISPLAY 剪枝 -> JSON 共享 -> 分段读取 -> 流式哈希: 5 -> 4 -> 3.5 GiB)
+      -> v0.3.0 (96 MiB 有界压缩 LRU: 首次在 3 GiB 下完成官方 4.1.0-beta.2 全 16 包启动与重载)
+        -> 0.4.0-0.4.8 (精确二进制校验 + 两级单飞 2+64 队列 + 全流式 BBModel/OBJ + 单遍摘要: 3 GiB 连续 20/20 次重载)
 ```
 
 > [!NOTE]
@@ -312,10 +327,11 @@ flowchart LR
 
 ### 5.1 第一阶段：`v0.1.1` 至 `v0.3.0` 容量演进与 `2026-11-05` Profiling
 
-在统一固定官方 MTR `4.1.0-beta.2`、旧 16 包夹具（`2,541` 车 / `651` 源解析）及 `-Djdk.virtualThreadScheduler.parallelism=2 -Djdk.virtualThreadScheduler.maxPoolSize=2` 下，`0.3.x` 容量边界与 `2026-11-05` 剖面测试数据如下（[performance/20261105/README.md](../performance/20261105/README.md)、[neoforge-v029-3gb-baseline-startup.json](../evidence/neoforge-v029-3gb-baseline-startup.json)、[neoforge-v030-acceptance.json](../evidence/neoforge-v030-acceptance.json)）：
+在统一固定官方 MTR `4.1.0-beta.2`、旧 16 包夹具（`2,541` 车 / `651` 源解析）及 `-Djdk.virtualThreadScheduler.parallelism=2 -Djdk.virtualThreadScheduler.maxPoolSize=2` 下，无伴侣原版对照、`0.3.x` 容量边界与 `2026-11-05` 剖面测试数据如下（[HISTORY.md](HISTORY.md#L303-L306)、[without-companion-live-heap.txt](../evidence/without-companion-live-heap.txt)、[performance/20261105/README.md](../performance/20261105/README.md)、[neoforge-v029-3gb-baseline-startup.json](../evidence/neoforge-v029-3gb-baseline-startup.json)、[neoforge-v030-acceptance.json](../evidence/neoforge-v030-acceptance.json)）：
 
 | 试验配置 | 堆上限 (`-Xmx`) | 注册结果 | 启动与进世界 | `F3+T` 重载 | GC 统计（启动 / 重载 / 稳态） | 稳态帧率与进程水位 |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **仅装官方 `4.1.0-beta.2`（无伴侣，Fabric 参照）** | `12 GiB` (`12288M`) | `2,541` 声明未完成解析 | OOM 失败（退码 `-1`） | 未达 | 解析期 `OutOfMemoryError`，堆冲顶 `11.98 GiB` | 部分加载直方图 `9.87 GiB` 浅堆（`76.64M` 顶点 `3.43 GiB` + `75.31M` `Color` `2.24 GiB`）；未采 OS 计数器 |
 | **`v0.2.9` 对照（NF265 失败）** | `3 GiB` (`3072M`) | 回退仅 `423` 内置 | OOM 失败（未进世界） | 未达 | 启动期堆耗尽，`jstat` 超时 | 采样峰值 WS `4.02 GiB` (`4,317,102,080` B) |
 | **`Official + v0.3.0`（NF265 双轮）** | `3 GiB` (`3072M`) | `2,541` 车 / `651` 源 | 通过（两轮皆过） | 通过（各稳定 60 s） | 独立剖面测得启动 4 Full GC (`10.904 s`)、重载 10 Full GC (`13.750 s`)、稳态 0 Full GC (`0.075 s`) | 采样堆 `2.812 / 2.815 GiB`（启）、`2.890 / 2.896 GiB`（重）；全周期 WS 峰值 `5.239 / 5.363 GiB`；稳态 `58.85 FPS` (`p99 = 29.22 ms`) |
 | **`Official + v0.3.0`（NF248 单次参照）** | `3 GiB` (`3072M`) | `2,541` 车 / `651` 源 | `166.74 s` 通过 | `143.54 s` 通过 | — | 单次顺序试跑，不作 NF248/NF265 对比 |

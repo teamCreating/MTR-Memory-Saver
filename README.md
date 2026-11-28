@@ -12,11 +12,27 @@ Minecraft `1.21.1` (Client) · NeoForge `21.1.265` · Java `21` · Official MTR 
 
 ## Measured Progress (Official MTR `4.1.0-beta.2`)
 
-Across sixteen full test resource packs, vanilla MTR `4.1.0-beta.2` retains large CPU vertex graphs, non-display matrix transforms, duplicate vehicle JSON trees, unbounded resource text caches, and transient whole-file `String` allocations. Below are the verified before/after changes across our engineering milestones through **`0.4.8`** (`official-nf265`):
+### Memory Usage: Official MTR `4.1.0-beta.2` Alone vs With Memory Saver
+
+| Metric | Official MTR `4.1.0-beta.2` Alone (No Memory Saver) | Official MTR + Memory Saver `v0.3.0` (Same Legacy 16 Packs) | Official MTR + Memory Saver `0.4.8` (Native-Catalogue 16 Packs) |
+| :--- | :--- | :--- | :--- |
+| **Test Fixture & Loader** | Legacy 16 packs (`2,541` vehicles), Fabric `0.20.1` | Legacy 16 packs (`2,541` vehicles), NeoForge `21.1.265` | Native-catalogue 16 packs (`1,092` decls / `1,091` IDs + `974` OBJ), NeoForge `21.1.248` / `21.1.265` |
+| **Minimum Verified `-Xmx`** | **`> 12 GiB`** (OOM at `6 GiB` and `12 GiB`) | **`3 GiB`** (`-Xmx3072M`, `−75%+` vs `12 GiB` OOM) | **`3 GiB`** (`-Xms512M -Xmx3072M`) |
+| **Sampled Java Heap Used** | Peaked at **`11.98 GiB`** (`12.87 GB` / `12 GiB` cap) before crashing | **`2.812–2.815 GiB`** (startup) / **`2.890–2.896 GiB`** (reload) | Steady **`2.299–2.307 GiB`** (`NF248`); 20-reload med **`2.346 GiB`** / peak **`2.873 GiB`** (`NF265`) |
+| **Partial-Load Live Heap Histogram** | **`9.87 GiB`** shallow (`76.64M` `StoredVertexData` `3.43 GiB` + `75.31M` `Color` `2.24 GiB`) | **`0`** `StoredVertexData` (36 B lossless compressed blocks) | **`0`** `StoredVertexData` (`36` B lossless compressed blocks + streaming I/O) |
+| **Windows Working Set** | Not recorded in early Fabric baseline (process RAM > heap) | Sampled **`3.86–4.77 GiB`** (OS lifetime peak **`5.24–5.36 GiB`**) | Steady **`4.25–4.31 GiB`** (`NF248`); 20-reload med **`4.39 GiB`** / lifetime peak **`5.59 GiB`** (`NF265`) |
+| **Windows Private Commit** | Not recorded in early Fabric baseline | Sampled **`4.02–4.14 GiB`** (startup) / **`4.74–5.62 GiB`** (reload) | Steady **`4.46–4.47 GiB`** (`NF248`); 20-reload med **`4.87 GiB`** / peak **`5.86 GiB`** (`NF265`) |
+| **Startup & `F3+T` Outcome** | Startup **`OutOfMemoryError`** (`exit -1`) before parsing completed | Passed startup + **`F3+T`** reload (`2/2` clients) | Passed startup + **`20 / 20`** consecutive `F3+T` reloads (`0` OOM, exit `0`) |
+
+> Measurement scope: The unmodified no-companion baseline (`> 12 GiB` OOM, [without-companion-live-heap.txt](evidence/without-companion-live-heap.txt), [HISTORY.md](docs/HISTORY.md#L303-L306)) was captured on Fabric `0.20.1` + legacy 16 packs with `jcmd`/Java heap metrics only; a separate unmodified `NeoForge 21.1.265` no-companion baseline has not yet been sealed. Adding `-Djdk.virtualThreadScheduler.parallelism=2` and compacting pack models alone still OOMed at `-Xmx12G`. Direct same-fixture proof on legacy 16 packs comes from [`v0.3.0`](evidence/neoforge-v030-acceptance.json), while [`0.4.8`](evidence/engineering-056/nf265-reload20/README.md) extends `3 GiB` stability to streaming `.bbmodel`/`.obj`/`.mtl` and `20/20` reloads on the native-catalogue packs ([NF248 Spark steady data](evidence/engineering-054/practical-spark/assessment.json)). Remember `-Xmx` caps Java heap only — native/GPU allocations bring total Windows process RAM to ~`4.25–5.86 GiB`.
+
+### Quantitative Breakdown (`v0.1.1`–`0.4.8`, Official MTR `4.1.0-beta.2`)
+
+Across sixteen full test resource packs, vanilla MTR `4.1.0-beta.2` retains large CPU vertex graphs, non-display matrix transforms, duplicate vehicle JSON trees, unbounded resource text caches, and transient whole-file `String` allocations. Below are the verified step-by-step reductions across engineering milestones:
 
 | Metric | Baseline / Earlier State | Current (`0.4.8` / Cumulative) | Fixture & Scope Notes |
 | :--- | :--- | :--- | :--- |
-| **Minimum Verified `-Xmx`** | `8 GiB` (`v0.1.1`); `v0.2.9` OOMs on `3 GiB` startup | **`3 GiB` (`-Xmx3072M`, −62.5% heap cap)** (`v0.3.0` / `0.4.x`) | Both 16-pack fixtures; Windows Working Set / Private Commit stays ~`4.46–5.36 GiB` |
+| **Minimum Verified `-Xmx`** | **`> 12 GiB`** alone (OOM at `6 / 12 GiB`); `8 GiB` (`v0.1.1`); `v0.2.9` OOMs on `3 GiB` startup | **`3 GiB` (`-Xmx3072M`, `−75%+` vs `12 GiB` / `−62.5%` vs `v0.1.1`)** | Legacy & native-catalogue 16-pack fixtures; OS Working Set / Private Commit stays ~`4.25–5.86 GiB` |
 | **CPU `StoredVertexData` Count** | `79,359,867` live instances (`v0.1.1`) | **`0`** (`v0.2.0+` 36 B/vertex `Deflater.BEST_SPEED` blocks) | Legacy 16-pack heap histogram; 391 Shanghai models (`47.37M` vertices) pack to `367.77 MB` |
 | **Non-Display Matrix Metadata** | `2,494,194` `StoredMatrixTransformations` (~`753 MiB`) | **`2,234` (−99.91%)** (`PartType.DISPLAY` only) | `v0.2.1` `5 GiB` heap histogram: total shallow heap `3.04 -> 2.31 GiB` (−24.17%) |
 | **Vehicle Config Gson Shallow Bytes** | `385,752,224` B (`385.75 MB`) | **`99,865,272` B (`99.87 MB`, −74.11%)** | `v0.2.2` `5 GiB` heap histogram: total shallow heap `−579 MiB` (−24.50%) |
