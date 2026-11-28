@@ -792,3 +792,13 @@ engineering-056/nf265-reload20保留40个选定record闭包、所有literal inpu
 
 校验结果：三份新增/重写文档相对路径与 `main` 仓库路径均零缺失、零未转义 `$`、零全角感叹号；提交前将在最终编辑后运行 `git diff --check`、`evidence/engineering-056/nf265-reload20/verify_sealed.py`、`minecraft_testkit verify` 与 `minecraft_testkit test`，随后提交推送、更新 GitHub Release `v0.4.8` 并创建合入 `main` 的 PR。
 
+## 2026-11-28T12:51:27.6621350+08:00 — 补充“仅装官方 MTR 4.1.0-beta.2 vs 安装 Memory Saver”关键内存对比
+
+按用户需求，先通过 `git merge origin/main --no-edit` 同步 `codex/standalone` 与 PR `#5` 已合入的 `main` 基线（消除后续 PR 冲突），随后从已封存证据核实并提取“仅装官方 MTR `4.1.0-beta.2`（不装 Memory Saver）”与“官方 MTR `4.1.0-beta.2` + Memory Saver（`v0.3.0` 同夹具对照及 `0.4.8` 原生目录 16 包）”的完整实测数据，同步更新以下四份文档（未修改任何产品 Java 源码或既有 `evidence/` 载荷）：
+
+- [README.md](README.md) 与 [README.zh-CN.md](README.zh-CN.md)：在成效总览首屏补充中英双语《仅装官方 MTR `4.1.0-beta.2` vs 安装 Memory Saver 内存占用对比》三列表，并更新分项表首行 `-Xmx` 基线与口径说明。
+- [docs/TECHNICAL_PRINCIPLES.md](docs/TECHNICAL_PRINCIPLES.md)：在概览章节、“核心指标变化”表、“版本演进概览”流程图以及第 5.1 节补充仅装官方 `4.1.0-beta.2` 的 `> 12 GiB` OOM（崩溃前堆冲顶 `11.98 GiB`、部分加载直方图 `9.87 GiB` 浅堆含 `76.64M` `StoredVertexData` + `75.31M` `Color`）与 `v0.3.0` / `0.4.8`（`3 GiB` `-Xmx`、`0` `StoredVertexData`、稳态 `4.25–4.31 GiB` WS / `4.46–4.47 GiB` Private、`20/20` 次重载中位 `2.346 GiB` 堆 / `4.394 GiB` WS / `4.870 GiB` Private）对照。
+- [docs/releases/v0.4.8.md](docs/releases/v0.4.8.md)：在中英双语部分分别补充该对比表及 GitHub 主分支证据链接，随后同步更新线上 GitHub Release `v0.4.8` 并提交 PR 至 `main`。
+
+全部实测数值均逐项核对自已封存产物：[without-companion-live-heap.txt](evidence/without-companion-live-heap.txt)、[HISTORY.md](docs/HISTORY.md)、[neoforge-v030-acceptance.json](evidence/neoforge-v030-acceptance.json)、[engineering-054/practical-spark/assessment.json](evidence/engineering-054/practical-spark/assessment.json) 与 [engineering-056/nf265-reload20/observer/samples.jsonl](evidence/engineering-056/nf265-reload20/observer/samples.jsonl)，并如实保留无伴侣基线采自 Fabric `0.20.1` 旧 16 包且未单独采 OS 私有提交的口径边界。
+
